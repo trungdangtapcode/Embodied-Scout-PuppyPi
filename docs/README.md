@@ -1,21 +1,33 @@
-# PuppyPi Teach & Find — Technical Documentation
+# PuppyPi documentation
 
- Technical research, open-source reference stack, hardware driver audit, and deployment guide for **PuppyPi Standard** (*Active Object Search Using Few-Shot Visual Memory and Topological Navigation*).
+Read current status and plans before using historical prototype claims in a
+demonstration or report.
 
-## Document Map
+## Current project direction
 
-| Document | Focus |
-| :--- | :--- |
-| [01 — Open-Source Stack & SOTA](01-sota-and-open-source-stack.md) | Curated GitHub repositories and papers to build upon (`YOLOE`, `DINOv2`, `CNOS`, `IEVE`, `RoboHop`, `ViNT`) and thesis novelty boundaries. |
-| [02 — Deployment & Hiwonder Driver Audit](02-deployment-and-hiwonder-driver-audit.md) | Why `.venv` on the GPU PC + lightweight Edge Bridge on PuppyPi beats distributed ROS 2 Docker over Wi-Fi, plus critical bugs/limits found in Hiwonder's `ros2` source code. |
-| [03 — Algorithms & Ablation Plan](03-algorithms-and-ablation-plan.md) | Mathematical formulation of the 4 core modules mapped to `teach_and_find/` and the 30-trial ablation benchmark design. |
-| [04 — Experimental Results](04-experimental-results.md) | Closed-loop 3D visual demo dashboard, 40-trial 4-way ablation table, and 3D MuJoCo CAD renders (`outputs/`). |
-| [05 — Hardware, ROS 2 & Sim-to-Real Guide](05-hardware-ros2-sim2real-guide.md) | Visual Mermaid diagrams of PuppyPi's two physical boards (Raspberry Pi + STM32), onboard ROS 2 nodes, and portable Sim-to-Real deployment modes. |
-| [Handoff — 2026-10-30](handoffs/2026-10-30-handoff.md) | Dated session handoff (`2026-10-30` VN / `2026-10-31` JST): status snapshot, file map, verified commands, metrics, and next-session roadmap. |
+| Document | Purpose |
+| --- | --- |
+| [00 Project status](00-project-status.md) | Implemented behavior, evidence boundaries, hardware assumptions |
+| [06 Feature roadmap](06-feature-roadmap.md) | 32 feature entries with status, dependencies, priorities, and demo criteria |
+| [07 Research program](07-research-program.md) | Four tracks, hypotheses, related work, baselines, evaluation |
+| [08 Shared architecture](08-system-evolution.md) | Reuse register, boundaries, proposed records and integration order |
+| [09 Demo acceptance](09-demo-acceptance.md) | Scenarios and proposed experiment/evidence manifests |
+| [Contributor guide](../CONTRIBUTING.md) | Setup, checks, commit conventions, review and evidence workflow |
+| [Agent instructions](../AGENTS.md) | Repository-specific instructions for coding agents |
 
-## Quick Start (Host GPU Workstation)
+## Historical baseline
 
-```bash
-source /home/nguyentnt/PDWAIA/ecus/hi/.venv/bin/activate
-pytest
-```
+Documents 01–05 and the original handoff are preserved source material. Their
+claims must be read alongside [current evidence status](00-project-status.md).
+
+| Document | Original subject |
+| --- | --- |
+| [01 Open-source stack](01-sota-and-open-source-stack.md) | Candidate papers and repositories |
+| [02 Driver audit](02-deployment-and-hiwonder-driver-audit.md) | Vendor driver findings and deployment assumptions |
+| [03 Algorithms and ablation](03-algorithms-and-ablation-plan.md) | Initial memory, planning, verifier and FSM formulations |
+| [04 Experimental results](04-experimental-results.md) | Historical synthetic benchmark and visualizations |
+| [05 Hardware guide](05-hardware-ros2-sim2real-guide.md) | Proposed robot/host boundary and ROS 2 integration |
+| [2026-10-30 handoff](handoffs/2026-10-30-handoff.md) | Original session snapshot and continuation steps |
+
+Use `docs/handoffs/YYYY-MM-DD-handoff.md` for new handoffs. Record actual tests,
+remaining work, assumptions, and the next concrete implementation step.
