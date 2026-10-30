@@ -1,0 +1,48 @@
+# Local environments, credentials, and machine configuration
+.venv/
+.venv-*/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Python and tooling caches
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+build/
+dist/
+.DS_Store
+
+# Downloaded weights and private robot recordings
+models/
+checkpoints/
+data/
+recordings/
+runs/
+*.pt
+*.pth
+*.onnx
+*.bag
+*.mcap
+
+# Regenerable MuJoCo scenes contain machine-specific absolute paths
+assets/mujoco_generated/
+
+# Keep only the reviewed, synthetic baseline evidence in Git
+outputs/*
+!outputs/README.md
+!outputs/ablation_summary.json
+!outputs/ablation_benchmark.png
+!outputs/demo_mission_dashboard.png
+!outputs/puppypi_3d_overview.png
+!outputs/puppypi_3d_mission.gif
+!outputs/mission_replay.gif
+!outputs/mission_replay_preview.png
+!outputs/camera_frames/
+!outputs/apriltags_36h11/

@@ -1,0 +1,13 @@
+* text=auto
+*.py text eol=lf
+*.md text eol=lf
+*.toml text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.json text eol=lf
+*.sh text eol=lf
+Makefile text eol=lf
+.githooks/* text eol=lf
+*.STL binary
+*.png binary
+*.gif binary
