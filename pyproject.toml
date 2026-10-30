@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "puppypi-teach-and-find"
+version = "0.1.0"
+description = "Active Object Search Using Few-Shot Visual Memory and Topological Navigation for Hiwonder PuppyPi Standard"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.26",
+    "opencv-python-headless>=4.9",
+    "pyyaml>=6.0",
+    "matplotlib>=3.8",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "ruff>=0.9,<1"]
+sim = ["mujoco>=3.2,<4", "Pillow>=10"]
+
+[tool.ruff]
+target-version = "py310"
+
+[tool.ruff.lint]
+# Start with syntax and runtime-name errors; expand style checks incrementally.
+select = ["E9", "F63", "F7", "F82"]
+
+[tool.setuptools.packages.find]
+include = ["teach_and_find*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
