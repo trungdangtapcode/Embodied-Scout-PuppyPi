@@ -1,0 +1,182 @@
+{
+  "868a54a903eadca2": {
+    "source_id": "868a54a903eadca2",
+    "url": "https://arxiv.org/abs/2507.12846",
+    "authors": [
+      "Ginting, Muhammad Fadhil",
+      "Kim, Dong-Ki",
+      "Meng, Xiangyun",
+      "Reinke, Andrzej",
+      "Krishna, Bandi Jai",
+      "Kayhani, Navid",
+      "Peltzer, Oriana",
+      "Fan, David D.",
+      "Shaban, Amirreza",
+      "Kim, Sung-Kyun",
+      "Kochenderfer, Mykel J.",
+      "Agha-mohammadi, Ali-akbar",
+      "Omidshafiei, Shayegan"
+    ],
+    "title": "Enter the Mind Palace: Reasoning and Planning for Long-term Active Embodied Question Answering"
+  },
+  "a1e188e6dcd1e5b6": {
+    "source_id": "a1e188e6dcd1e5b6",
+    "url": "https://arxiv.org/abs/2511.14004",
+    "authors": [
+      "Chen, Taijing",
+      "Kumar, Sateesh",
+      "Xu, Junhong",
+      "Pavlakos, Georgios",
+      "Biswas, Joydeep",
+      "Martín-Martín, Roberto"
+    ],
+    "title": "Searching in Space and Time: Unified Memory-Action Loops for Open-World Object Retrieval"
+  },
+  "593a75c6014ed7da": {
+    "source_id": "593a75c6014ed7da",
+    "url": "https://arxiv.org/abs/2411.04999",
+    "authors": [
+      "Liu, Peiqi",
+      "Guo, Zhanqiu",
+      "Warke, Mohit",
+      "Chintala, Soumith",
+      "Paxton, Chris",
+      "Shafiullah, Nur Muhammad Mahi",
+      "Pinto, Lerrel"
+    ],
+    "title": "DynaMem: Online Dynamic Spatio-Semantic Memory for Open World Mobile Manipulation"
+  },
+  "7143219d6b8f381e": {
+    "source_id": "7143219d6b8f381e",
+    "url": "https://arxiv.org/abs/2506.09985",
+    "authors": [
+      "Assran, Mido",
+      "Bardes, Adrien",
+      "Fan, David",
+      "Garrido, Quentin",
+      "Howes, Russell",
+      "Mojtaba",
+      "Komeili",
+      "Muckley, Matthew",
+      "Rizvi, Ammar",
+      "Roberts, Claire",
+      "Sinha, Koustuv",
+      "Zholus, Artem",
+      "Arnaud, Sergio",
+      "Gejji, Abha",
+      "Martin, Ada",
+      "Hogan, Francois Robert",
+      "Dugas, Daniel",
+      "Bojanowski, Piotr",
+      "Khalidov, Vasil",
+      "Labatut, Patrick",
+      "Massa, Francisco",
+      "Szafraniec, Marc",
+      "Krishnakumar, Kapil",
+      "Li, Yong",
+      "Ma, Xiaodong",
+      "Chandar, Sarath",
+      "Meier, Franziska",
+      "LeCun, Yann",
+      "Rabbat, Michael",
+      "Ballas, Nicolas"
+    ],
+    "title": "V-JEPA 2: Self-Supervised Video Models Enable Understanding, Prediction and Planning"
+  },
+  "884072902be70870": {
+    "source_id": "884072902be70870",
+    "url": "https://arxiv.org/abs/2504.12369",
+    "authors": [
+      "Xiao, Zeqi",
+      "Lan, Yushi",
+      "Zhou, Yifan",
+      "Ouyang, Wenqi",
+      "Yang, Shuai",
+      "Zeng, Yanhong",
+      "Pan, Xingang"
+    ],
+    "title": "WorldMem: Long-term Consistent World Simulation with Memory",
+    "publication_year": 2025,
+    "inspected_revision_date": "2026-01-01",
+    "note": "Bibliography uses NeurIPS publication year; registry date came from inspected revision."
+  },
+  "ba9caf122810b69d": {
+    "source_id": "ba9caf122810b69d",
+    "url": "https://arxiv.org/abs/2606.08277",
+    "authors": [
+      "Zhang, Harry",
+      "Gorlo, Nicolas",
+      "Carlone, Luca"
+    ],
+    "title": "Remember with Confidence: Uncertainty Quantification for Spatio-temporal Memory with Probabilistic Guarantees"
+  },
+  "0c8138a54a595440": {
+    "source_id": "0c8138a54a595440",
+    "url": "https://arxiv.org/abs/2404.12785",
+    "authors": [
+      "Staniaszek, Michal",
+      "Flatscher, Tobit",
+      "Rowell, Joseph",
+      "Niu, Hanlin",
+      "Liu, Wenxing",
+      "You, Yang",
+      "Skilton, Robert",
+      "Fallon, Maurice",
+      "Hawes, Nick"
+    ],
+    "title": "AutoInspect: Towards Long-Term Autonomous Industrial Inspection"
+  },
+  "7ae09a6cbf7b648d": {
+    "source_id": "7ae09a6cbf7b648d",
+    "url": "https://arxiv.org/abs/2602.16182",
+    "authors": [
+      "Ho, Michelle",
+      "Ginting, Muhammad Fadhil",
+      "Ward, Isaac R.",
+      "Reinke, Andrzej",
+      "Kochenderfer, Mykel J.",
+      "Agha-Mohammadi, Ali-akbar",
+      "Omidshafiei, Shayegan"
+    ],
+    "title": "World Model Failure Classification and Anomaly Detection for Autonomous Inspection"
+  },
+  "916912a6c9a96da1": {
+    "source_id": "916912a6c9a96da1",
+    "url": "https://arxiv.org/abs/2303.03797",
+    "authors": [
+      "Bultmann, Simon",
+      "Memmesheimer, Raphael",
+      "Behnke, Sven"
+    ],
+    "title": "External Camera-based Mobile Robot Pose Estimation for Collaborative Perception with Smart Edge Sensors"
+  },
+  "60b26a64f9d5d43b": {
+    "source_id": "60b26a64f9d5d43b",
+    "url": "https://arxiv.org/abs/2512.16908",
+    "authors": [
+      "Wu, Yuqun",
+      "Lin, Chih-hao",
+      "Che, Henry",
+      "Tiwari, Aditi",
+      "Zou, Chuhang",
+      "Wang, Shenlong",
+      "Hoiem, Derek"
+    ],
+    "title": "SceneDiff: A Benchmark and Method for Multiview Object Change Detection"
+  },
+  "0111b1e25f03b627": {
+    "source_id": "abstain",
+    "url": "https://arxiv.org/abs/2512.04597",
+    "authors": [
+      "Wu, Tao",
+      "Zhou, Chuhao",
+      "Zhao, Guangyu",
+      "Cao, Haozhi",
+      "Pu, Yewen",
+      "Yang, Jianfei"
+    ],
+    "publication_year": 2026,
+    "preprint_year": 2025,
+    "note": "Bibliography uses the final CVPR publication year."
+  }
+}

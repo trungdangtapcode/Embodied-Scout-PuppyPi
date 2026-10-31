@@ -72,6 +72,10 @@ F38/F39 and their geometry, perception, execution and research prerequisites.
 The [deep prior-art audit](17-deep-research-active-room-inspection.md) sharpens
 their R1/R3/R5 evaluation: compare joint change/source diagnosis against strong
 visibility gates and passive/active diagnosis cascades. These remain plans.
+The [subsequent deep review](18-deep-research-room-intelligence.md) makes
+coverage-aware temporal queries and prospective acquisition the main experiment,
+with periodic gated monitoring and evidence-relative support labels. It does not
+add feature entries or change delivery status.
 The [next-feature research proposal](15-next-feature-research.md) prioritizes
 replay, automatic perception, memory repair and selective external views using
 verified upstream entry points. Its proposed capabilities do not change the

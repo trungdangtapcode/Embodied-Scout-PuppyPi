@@ -6,6 +6,13 @@ feature or experimental result.** This review revises the novelty framing of
 [Room Patrol](16-room-patrol-world-model-proposal.md), which remains the system
 design. It does not promote F33–F39 beyond their current implementation status.
 
+**Follow-up:** the [skill-based 27-source review](18-deep-research-room-intelligence.md)
+finds additional close precedents for diagnostic graphs, asynchronous fusion,
+temporal QA and abstention. It prioritizes coverage-aware temporal claims and
+prospective acquisition, retaining joint diagnosis as a baseline/nuisance-state
+study. Use that report's evidence-relative scoring and periodic-monitor baseline
+when turning this earlier proposal into an experiment.
+
 ## Decision
 
 Yes, substantial parts of the proposed patrol already exist. A robot that patrols,

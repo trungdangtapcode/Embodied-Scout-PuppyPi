@@ -12,6 +12,13 @@ view selection and active fault diagnosis already have close prior art. Use its
 stronger gated/cascade baselines and joint-change/source-fault protocol before
 claiming novelty from the simpler hypotheses below. Feature statuses are unchanged.
 
+The [skill-based deep review](18-deep-research-room-intelligence.md) further narrows
+R1/R3/R5 using Mind Palace, AbstainEQA, uncertain-memory refinement and foundational
+diagnosis/temporal-monitoring work. Study query-relevant historical support and
+prospective acquisition; compare with periodic gated sensing. Score factual truth
+and evidence-relative support separately. A new view cannot recover an unrecorded
+past event, and simple baselines may be the best implementation.
+
 ## R1 Temporal memory and active verification
 
 **Question:** when previous sightings conflict with current perception, how

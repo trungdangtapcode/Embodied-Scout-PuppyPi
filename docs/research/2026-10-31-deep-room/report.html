@@ -1,0 +1,868 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><base href="../../"><title>PuppyPi room intelligence: temporal evidence, predictive models and active inspection</title><style>
+*{box-sizing:border-box}body{margin:0;background:#eef1f3;color:#152c38;font:15px/1.7 Arial,Helvetica,sans-serif}
+.container{max-width:1060px;margin:32px auto;background:white;border:1px solid #d3dce2}
+.header{padding:38px 48px;background:#003d5c;color:white;border-bottom:5px solid #002840}
+.eyebrow{font-size:11px;letter-spacing:2px;color:#c4d9e4;margin:0 0 14px}h1{font-size:31px;line-height:1.2;margin:0 0 18px;font-weight:650}
+.header p{font-size:13px;line-height:1.6;margin:0;color:#dce7ed}.metrics-dashboard{display:table;table-layout:fixed;width:100%;border-bottom:2px solid #003d5c;background:#f4f7f9}
+.metric{display:table-cell;padding:19px 12px;text-align:center;border-right:1px solid #d6e0e5}.metric strong{display:block;font-size:27px;color:#003d5c}.metric span{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#435b69}
+.content{padding:25px 48px 48px}.section-title{font-size:21px;line-height:1.35;color:#003d5c;border-bottom:2px solid #003d5c;padding-bottom:10px;margin:38px 0 19px}h3{font-size:18px;line-height:1.45;color:#143f55;margin:30px 0 16px}
+p{margin:0 0 15px}a{color:#005980;text-decoration-thickness:1px;text-underline-offset:3px;overflow-wrap:anywhere}.citation{font-weight:bold;font-size:12px;text-decoration:none;white-space:nowrap}
+img{width:100%;height:auto;display:block;margin:24px 0 12px;border:1px solid #dce4e7}code{font:12px/1.4 monospace;background:#f0f4f6;padding:1px 4px;overflow-wrap:anywhere}
+table{width:100%;border-collapse:collapse;margin:24px 0;font-size:12px;line-height:1.55}th{background:#003d5c;color:white;text-align:left}th,td{padding:11px 13px;border:1px solid #d4dfe5;vertical-align:top}tr:nth-child(even){background:#f5f8fa}
+.footer{padding:20px 48px;border-top:1px solid #d4dfe5;font-size:11px;color:#526773;background:#f4f7f9}
+@media(max-width:680px){body{font-size:14px}.container{margin:0;border:0}.header,.content,.footer{padding-left:20px;padding-right:20px}h1{font-size:25px}table{font-size:11px}th,td{padding:7px}.metric span{letter-spacing:0}.section-title{font-size:19px}}
+@page{size:A4;margin:16mm 16mm 18mm}
+@media print{body{font-size:10pt;line-height:1.5;background:white;color:#142632}.container{margin:0;border:0;max-width:none}.content{padding:6mm 0 0}.header{padding:8mm}.header h1{font-size:23pt}.header p{font-size:9pt}.section-title{font-size:15pt;break-after:avoid;margin-top:9mm}h3{font-size:12pt;break-after:avoid}p{orphans:3;widows:3}table{font-size:8pt;break-inside:avoid}img{max-height:220mm;object-fit:contain;break-inside:avoid}.metric{padding:4mm}.metric strong{font-size:20pt}.footer{padding:5mm 0}a{color:#003d5c;text-decoration:none}code{font-size:8pt}}
+</style></head><body><main class="container"><header class="header"><p class="eyebrow">PUPPYPI · DEEP RESEARCH · 31 OCTOBER 2026</p><h1>PuppyPi room intelligence: temporal evidence, predictive models and active inspection</h1><p>Temporal evidence, predictive observation and a measured path to an impressive room assistant.<br>Proposal and literature review. Physical PuppyPi capability remains unverified.</p></header><div class="metrics-dashboard"><div class="metric"><strong>27</strong><span>Sources</span></div><div class="metric"><strong>6</strong><span>Findings</span></div><div class="metric"><strong>84</strong><span>Tracked claims</span></div><div class="metric"><strong>0</strong><span>Hardware trials in this review</span></div></div><article class="content"><p>Research date: <strong>2026-10-31</strong>. Mode: <strong>Deep</strong>, using the eight-phase
+<a href="https://github.com/199-biotechnologies/claude-deep-research-skill/blob/f2f2c0fa4e7617ca84c86b63f4bb40f77a746933/SKILL.md">Deep Research skill</a>.
+Platform: user-confirmed PuppyPi Standard, host computer, optional fixed phone.
+<strong>Status: proposed research and application design; no new hardware capability.</strong></p>
+<p>This report extends the <a href="17-deep-research-active-room-inspection.md">twelve-work audit</a>
+and revises its research priority. Read the current
+<a href="06-feature-roadmap.md">feature inventory</a> for actual delivery status. The
+<a href="research/2026-10-31-deep-room/sources.jsonl">source registry</a>,
+<a href="research/2026-10-31-deep-room/evidence.jsonl">evidence store</a>,
+<a href="research/2026-10-31-deep-room/claims.jsonl">claim ledger</a> and
+<a href="research/2026-10-31-deep-room/run_manifest.json">run manifest</a> make the review
+inspectable. Numbered citations identify works, not independent confirmations
+from different pages belonging to the same project.</p>
+<h2 class="section-title">Executive Summary</h2>
+<p>The strongest project direction is a room assistant that can explain both what
+it observed and what its observation history cannot establish. This review
+finds direct precedents for long-term temporal question answering, choosing
+between memory retrieval and physical exploration, uncertain memory refinement,
+perception diagnosis, and predictive inspection. Those precedents substantially
+narrow the earlier proposal's novelty claim. In particular, Mind Palace reports
+a false desk-use conclusion caused by sparse patrol coverage, while AbstainEQA
+already includes temporal information unavailability. <a class="citation" href="https://arxiv.org/html/2507.12846v2" title="Enter the Mind Palace: Reasoning and Planning for Long-term Active Embodied Question Answering">[1]</a> <a class="citation" href="https://openaccess.thecvf.com/content/CVPR2026/papers/Wu_When_Robots_Should_Say_I_Dont_Know_Benchmarking_Abstention_in_CVPR_2026_paper.pdf" title="When Robots Should Say I Don&#x27;t Know: Benchmarking Abstention in Embodied Question Answering">[4]</a></p>
+<p>The recommended application is <strong>PuppyPi Room Observatory</strong>: taught stations,
+object identity, an evidence timeline, change investigation, bounded patrol and
+an optional external phone view. Its distinctive demonstration would let an
+evaluator choose an intervention and a time-qualified question. The app would
+show the observation gaps, select a useful measurement where possible, and
+return a supported answer or a precise unresolved result. For future monitoring,
+it would allocate robot and phone captures to reduce question-relevant gaps.</p>
+<p>The proposed research question is whether task-conditioned acquisition improves
+supported-answer coverage at a fixed false-claim rate and sensing budget over
+periodic sampling with conservative temporal monitoring. This is a hypothesis,
+not certified algorithmic novelty. Partial-trace temporal semantics, active
+diagnosis and joint reliability estimation are established; they are foundations
+and required baselines. <a class="citation" href="https://arxiv.org/html/2205.10906" title="Monitoring of Perception Systems: Deterministic, Probabilistic, and Learning-based Fault Detection and Identification">[8]</a> <a class="citation" href="https://arxiv.org/html/2509.18460" title="A Counterfactual Reasoning Framework for Fault Diagnosis in Robot Perception Systems">[9]</a> <a class="citation" href="https://nikosuenderhauf.github.io/assets/papers/IROS12-switchableConstraints.pdf" title="Switchable Constraints for Robust Pose Graph SLAM">[12]</a> <a class="citation" href="https://people.eecs.berkeley.edu/~sseshia/pubdir/rv15.pdf" title="Robust Online Monitoring of Signal Temporal Logic">[26]</a></p>
+<p>Learned world models and dense reconstruction remain optional host experiments.
+Released manipulation models do not supply PuppyPi motor control, and some
+strong RGB change methods have substantial offline computation costs. <a class="citation" href="https://arxiv.org/html/2506.09985" title="V-JEPA 2: Self-Supervised Video Models Enable Understanding, Prediction and Planning">[5]</a> <a class="citation" href="https://arxiv.org/html/2512.16908v2" title="SceneDiff: A Benchmark and Method for Multiview Object Change Detection">[19]</a>
+The first implementation should therefore establish evidence provenance,
+visibility-qualified temporal claims and replay, then add phone acquisition and
+measured action-outcome prediction. A counterfactual-history benchmark, explicit
+assumptions, independent ground truth and causal alarm timing can make the work
+academically useful even if simple baselines win. No upstream model was installed,
+paid API called, or robot actuated during this review.</p>
+<h2 class="section-title">Introduction: question, scope and methodology</h2>
+<p>The practical question is broader than how to attach a language model to a robot:
+what room understanding would make a small quadruped useful, visually compelling
+and scientifically assessable? This report considers a user who wants both
+demonstrable features and R&amp;D, has more than three months, and already has a
+Python evidence core and an English-first mobile console. Those are project
+constraints, not externally measured research results. The application should
+reuse that work rather than create a second isolated controller or demo database.</p>
+<p>Three independent retrieval branches examined temporal memory/world models,
+active diagnosis/asynchronous observation, and platform/inspection benchmarks.
+A fourth pass examined foundational world models, reconstruction and temporal
+monitoring. Primary method and evaluation sections were read for the closest
+works; repository trees, selected implementation files and deployment notes were
+checked where available. The registry records narrower reading scopes when only
+an abstract or official implementation document was inspected. No source was
+treated as reproduced merely because its repository exists.</p>
+<p>The initial framing asked whether joint camera reliability and object-change
+inference might provide a contribution. Retrieval exposed older diagnostic-graph,
+robust-estimation and asynchronous-fusion precedents. A second discovery was more
+actionable: a reported failure of temporal room understanding caused by incomplete
+observation coverage. The outline was consequently refined toward temporal claim
+support and prospective acquisition, with source diagnosis retained as a nuisance
+state and baseline. That refinement is an interpretation of the evidence, not an
+assertion that prior methods cannot be extended. <a class="citation" href="https://arxiv.org/html/2507.12846v2" title="Enter the Mind Palace: Reasoning and Planning for Long-term Active Embodied Question Answering">[1]</a> <a class="citation" href="https://arxiv.org/html/2205.10906" title="Monitoring of Perception Systems: Deterministic, Probabilistic, and Learning-based Fault Detection and Identification">[8]</a> <a class="citation" href="https://arxiv.org/html/2111.03751" title="Asynchronous Collaborative Localization by Integrating Spatiotemporal Graph Learning with Model-Based Estimation">[10]</a> <a class="citation" href="https://nikosuenderhauf.github.io/assets/papers/IROS12-switchableConstraints.pdf" title="Switchable Constraints for Robust Pose Graph SLAM">[12]</a></p>
+<p>The review includes academic papers, manufacturer specifications and official
+software documentation. Paper, project page, code and dataset belonging to one
+work form one scientific independence cluster. Broad conclusions are checked
+against multiple works; a paper-specific fact is explicitly single-source and
+does not become externally replicated because three links repeat it. Numeric
+source scores in the registry are the skill's uncalibrated triage heuristic.
+They are not probabilities of truth, and they do not replace assessment of
+experimental design, privileges or reproducibility.</p>
+<p>Material assumptions remain open. Standard does not identify the user's exact
+board, firmware, camera or installed software. Its current manufacturer packing
+list must be distinguished from options shown across the product family. <a class="citation" href="https://wiki.hiwonder.com/projects/PuppyPi/en/latest/docs/1.Quick_Start_Guide.html" title="PuppyPi Quick Start Guide: packing lists">[15]</a>
+Host GPU availability, repeatable robot pose, external-camera timing and reliable
+obstacle sensing are unverified. Accordingly, the proposal begins with taught
+regions and supervised, measured station actions. Dense metric navigation,
+continuous high-rate observation and a generic learned locomotion controller are
+outside the initial claim.</p>
+<p>The success criterion for this research phase is a decision-ready design with
+counterevidence, testable predictions, known reuse constraints and a clear
+falsifier. It is not a promise of publication. The report distinguishes observed
+source facts from our proposed system, logical examples and experimental plans.
+All quantities proposed for future measurement remain proposed, and all existing
+physical results belong to their original platforms and experimental settings.</p>
+<h2 class="section-title">Main Analysis</h2>
+<h3>Finding 1: temporal room understanding already exists; historical coverage is the harder boundary</h3>
+<p><a href="https://arxiv.org/html/2507.12846v2">Mind Palace</a> already combines episodic
+scene-graph memory, temporal questions, exploration and value-of-information
+retrieval stopping. Its evaluation includes simulated and real scenes. Most
+relevant here, its limitations describe a desk-use conclusion that was wrong
+because periodic visits missed activity between observations. This is a direct
+motivation for studying evidence coverage rather than advertising long-term
+memory itself as a new capability. <a class="citation" href="https://arxiv.org/html/2507.12846v2" title="Enter the Mind Palace: Reasoning and Planning for Long-term Active Embodied Question Answering">[1]</a></p>
+<p><a href="https://arxiv.org/html/2511.14004v3">STAR</a> similarly joins temporal retrieval
+and spatial actions in one decision loop. Its source contains memory components,
+but the inspected benchmark README remained forthcoming and licensing was not
+detected. Its simulation execution also uses privileged object masks, including
+in the reported realistic memory setting. Reuse therefore needs a clearly named
+common-interface adaptation rather than a claim of equivalent raw-RGB robot
+performance. <a class="citation" href="https://arxiv.org/html/2511.14004v3" title="Searching in Space and Time: Unified Memory-Action Loops for Open-World Object Retrieval">[2]</a></p>
+<p><a href="https://arxiv.org/html/2411.04999v2">DynaMem</a> supplies another useful memory
+reference: registered RGB-D supports stale-geometry revision and grounded query
+cross-checking. Its dynamic grounding benchmark isolates memory queries from
+navigation, exploration and manipulation. <a class="citation" href="https://arxiv.org/html/2411.04999v2" title="DynaMem: Online Dynamic Spatio-Semantic Memory for Open World Mobile Manipulation">[3]</a> These distinctions matter because
+an apparent improvement can result from better input geometry, privileged
+detections or a narrower task. The PuppyPi comparison must separately identify
+what information each method receives and what action is actually measured.</p>
+<p>Abstention also has a close predecessor.
+<a href="https://arxiv.org/html/2512.04597">AbstainEQA</a> explicitly includes events
+outside the observed timeframe as information unavailability. Its analysis of
+prompting and text-only controls warns against apparent refusal performance that
+depends on question wording rather than available visual evidence. <a class="citation" href="https://openaccess.thecvf.com/content/CVPR2026/papers/Wu_When_Robots_Should_Say_I_Dont_Know_Benchmarking_Abstention_in_CVPR_2026_paper.pdf" title="When Robots Should Say I Don&#x27;t Know: Benchmarking Abstention in Embodied Question Answering">[4]</a> Our
+inference is that a useful new test must hold wording constant while changing
+observation history. A model should not earn credit merely for learning that
+questions containing a particular word are often unanswerable.</p>
+<p><a href="https://arxiv.org/html/2606.08277v1">UQ-DAAAM</a> refines uncertain semantic memory
+using multiview caption consistency. Its guarantees depend on stated score
+distribution assumptions; they concern uncertainty reduction rather than
+calibrated answer correctness. Refinement selects recorded views, with the
+reported pipeline doing this at shutdown, rather than demonstrating physical
+next-view navigation. <a class="citation" href="https://arxiv.org/html/2606.08277v1" title="Remember with Confidence: Uncertainty Quantification for Spatio-temporal Memory with Probabilistic Guarantees">[7]</a> Caption agreement and temporal completeness are
+therefore different evaluation targets. A perfectly consistent description can
+still be unsupported for an interval the camera never observed.</p>
+<p>Consider a case observed on shelf A at 10:00 and 10:10. One possible history
+leaves it there throughout. Another moves it to B at 10:03 and returns it at
+10:07. The two recorded shelf images can be identical. “Where was it last
+observed?” can have a supported answer. “Did it remain there for the whole ten
+minutes?” cannot be established from those images alone. This is our logical
+example, not a measured result from any paper. Adding an attractive room graph
+does not introduce the missing observation.</p>
+<p>That example changes the product requirement. An evidence timeline needs
+unobserved intervals, source validity and the scope of a claim, not just a row
+of successful sightings. Natural-language answers should distinguish a historical
+witness, a present observation and a model-based forecast. A present look can
+verify current placement; it cannot reconstruct an unrecorded excursion. A
+stored phone recording or a human witness may provide new historical evidence,
+but each must be identified as a separate source with its own reliability.</p>
+<p>The resulting opportunity is deliberately narrower than “robots should know
+when they do not know.” The question is whether physically measured visibility,
+timing and identity constraints can improve which temporal claims a system
+supports, and whether prospective robot/phone acquisition can improve that
+support efficiently. A deterministic coverage checker is the strongest initial
+competitor, not an inconvenience to be omitted. If it matches a richer method,
+the appropriate outcome is a simpler implementation and a useful negative
+result. Further algorithmic novelty would require an advance beyond these
+existing memory, abstention and uncertainty frameworks.</p>
+<h3>Finding 2: a useful world model needs a declared prediction target and a deployment budget</h3>
+<p>For this project, use three separate terms. A <strong>historical room model</strong> stores
+supported identities, places and observations over time. A <strong>predictive
+observation model</strong> estimates what a permitted sensing action might reveal.
+A <strong>learned environment simulator</strong> predicts future latent states or images from
+actions. These are proposed architectural categories, not a claim that the
+literature uses one universal taxonomy. They prevent a scene graph, a renderer
+and a learned dynamics model from being evaluated as if they were interchangeable.</p>
+<p>The foundational <a href="https://worldmodels.github.io/">World Models</a> work demonstrates
+learned recurrent representations and controller training through imagined
+environment dynamics. <a class="citation" href="https://worldmodels.github.io/" title="World Models">[23]</a> <a href="https://arxiv.org/abs/2206.14176">DayDreamer</a> extends
+world-model learning to physical robots, including a quadruped; its released
+implementation has robot-specific actor/learner configurations. <a class="citation" href="https://arxiv.org/abs/2206.14176" title="DayDreamer: World Models for Physical Robot Learning">[24]</a> These are
+important precedents, but their existence does not establish compatible PuppyPi
+proprioception, actuator interfaces or online-learning conditions. Replacing the
+current motion boundary would be a separate hardware/control project.</p>
+<p><a href="https://arxiv.org/html/2506.09985">V-JEPA 2-AC</a> makes the action-domain problem
+concrete. Its studied controls are end-effector commands for Franka manipulation,
+and its specified planning comparison reports 16 seconds per action on an
+RTX 4090. <a class="citation" href="https://arxiv.org/html/2506.09985" title="V-JEPA 2: Self-Supervised Video Models Enable Understanding, Prediction and Planning">[5]</a> That timing belongs to its reported configuration, not every use
+of its encoder. The implication for PuppyPi is to evaluate optional frozen
+features or a small observation predictor offboard, while preserving existing
+bounded motor skills. The released action head must not be interpreted as
+quadruped velocity or servo commands.</p>
+<p><a href="https://arxiv.org/html/2504.12369v3">WorldMem</a> addresses long-term consistency of
+generated scenes with pose/time-indexed memory, evaluated through generation
+metrics in Minecraft and posed real imagery. <a class="citation" href="https://arxiv.org/html/2504.12369v3" title="WorldMem: Long-term Consistent World Simulation with Memory">[6]</a> This is a different objective
+from proving that an enrolled physical case remained at a station. An imagined
+view may help visualization or supply a candidate prediction; it is not captured
+evidence. The app must preserve that distinction even when the predicted image
+looks convincing. A synthetic room replay likewise cannot be presented as a
+recording of an actual patrol.</p>
+<p>Reconstruction offers a useful visual extension.
+<a href="https://github.com/facebookresearch/vggt">VGGT</a> predicts cameras, depth and
+point/track geometry, with examples for COLMAP export and optional bundle
+adjustment. Its release distinguishes original and commercial checkpoint terms.
+<a class="citation" href="https://arxiv.org/abs/2503.11651" title="VGGT: Visual Geometry Grounded Transformer">[25]</a> The proposed use is a host-generated room visualization registered against
+measured anchors. Before attaching metric claims to it, measure scale, pose and
+reconstruction error on held-out landmarks. A reconstructed surface is not by
+itself a certified traversable region, an object identity or a visibility proof.</p>
+<p><a href="https://arxiv.org/html/2512.16908v2">SceneDiff</a> is especially relevant as a
+training-free RGB spatial-change baseline. Its inspected implementation uses
+geometry, segmentation and pretrained features; the paper reports an average
+159.4 seconds per sequence pair on an NVIDIA A40. <a class="citation" href="https://arxiv.org/html/2512.16908v2" title="SceneDiff: A Benchmark and Method for Multiview Object Change Detection">[19]</a> This supports an offline
+deep-audit role, not a promise of live per-frame processing on the Pi. Its paper,
+website and current evaluation revision also differ in reported headline gains
+and matching protocol. Freeze the revision and metric definition before making
+comparisons; a downloaded repository name is not a reproducibility specification.</p>
+<p>A direct predictive-inspection precedent also exists:
+<a href="https://arxiv.org/html/2602.16182">World Model Failure Classification and Anomaly Detection</a>.
+It studies a fixed robot pose with PTZ control and offboard inference, using
+290 short inspection videos. <a class="citation" href="https://arxiv.org/html/2602.16182" title="World Model Failure Classification and Anomaly Detection for Autonomous Inspection">[17]</a> That is strong motivation for a separate
+temporal-monitor comparison. It does not establish autonomous room traversal,
+raw sensing robustness or event coverage between sampled patrol stops. A
+successful gauge-monitor demonstration should not be transferred wholesale to
+free-moving object inspection.</p>
+<p>Our proposed architecture consequently uses two rates. Cheap, bounded perception
+and source checks support live operation; selected episodes enter a queued host
+audit whose completion time is visible. An audit result refers to the evidence
+it processed, even if the robot has since moved. It can request a fresh check
+before a current-state report. These are design choices to be measured, not
+performance claims. The cost model includes upload, queueing, model inference
+and re-acquisition, rather than timing only one network forward pass.</p>
+<p>For the first predictive experiment, forecast the outcome of a small set of
+verified observation skills: whether a region will be exposed, an instance
+feature discriminative, a tag usable and a capture fresh. Record the prediction
+before execution and score the measured result afterward. Compare a lookup table,
+a geometric/rule baseline and a small learned head using the same frozen visual
+features. Do not begin by training a large video generator. If predictions fail
+to improve task decisions after their cost is counted, the room assistant should
+remain a structured evidence system with transparent sensing policies.</p>
+<h3>Finding 3: joint reliability estimation and active diagnosis are foundations, not the remaining novelty</h3>
+<p>The previous proposal emphasized jointly considering a changed room and faulty
+camera evidence. That is a sensible state-estimation design, but the general
+pattern has older precedents.
+<a href="https://nikosuenderhauf.github.io/assets/papers/IROS12-switchableConstraints.pdf">Switchable Constraints</a>
+jointly optimizes geometric state and factor inclusion using latent switches.
+<a class="citation" href="https://nikosuenderhauf.github.io/assets/papers/IROS12-switchableConstraints.pdf" title="Switchable Constraints for Robust Pose Graph SLAM">[12]</a> <a href="https://arxiv.org/html/2205.10906">PerceptionMonitoring</a> models diagnostic
+relations, failure states and diagnosability; released source includes a
+Python/C++ toolchain with incomplete usage documentation. <a class="citation" href="https://arxiv.org/html/2205.10906" title="Monitoring of Perception Systems: Deterministic, Probabilistic, and Learning-based Fault Detection and Identification">[8]</a> Robust weighting
+and diagnostic graphs therefore belong in the baseline ladder.</p>
+<p><a href="https://arxiv.org/html/2509.18460">Han et al.</a> go further by predicting
+control-conditioned diagnostic outcomes and selecting controls through MCTS for
+fault isolation. Their evaluation is simulated monocular asteroid navigation.
+<a class="citation" href="https://arxiv.org/html/2509.18460" title="A Counterfactual Reasoning Framework for Fault Diagnosis in Robot Perception Systems">[9]</a> <a href="https://arxiv.org/html/2111.03751">Gao et al.</a> compensate delayed object
+locations before collaborative fusion, assuming correspondences, extrinsics and
+delay estimates in an RGB-D setting. <a class="citation" href="https://arxiv.org/html/2111.03751" title="Asynchronous Collaborative Localization by Integrating Spatiotemporal Graph Learning with Model-Based Estimation">[10]</a> These establish active diagnosis and
+asynchronous object estimation without proving that either transfers unchanged
+to an RGB quadruped and phone. An adaptation must preserve that distinction.</p>
+<p>Timing is also an inference problem with observability conditions.
+<a href="https://arxiv.org/html/1808.00692">Qin and Shen</a> jointly estimate temporal offset
+with visual-inertial state and explicitly use sufficiently excited motion in
+their calibration experiments. <a class="citation" href="https://arxiv.org/html/1808.00692" title="Online Temporal Calibration for Monocular Visual-Inertial Systems">[11]</a> A static room and static external camera
+do not automatically offer such excitation. Likewise,
+<a href="https://arxiv.org/html/2007.03891">single-frame deep view synchronization</a>
+studies content alignment for unsynchronized multiview tasks with geometric
+assumptions; it is not sensor-freshness attestation. <a class="citation" href="https://arxiv.org/html/2007.03891" title="Single-Frame based Deep View Synchronization for Unsynchronized Multi-Camera Surveillance">[14]</a> Clock, image content and
+packet sequence are related evidence, not interchangeable guarantees.</p>
+<p>Even a predict-test-update inspection loop is established.
+<a href="https://arxiv.org/html/2005.00167">Sehr et al.</a> use process uncertainty to guide
+robot sensing, while their hardware-in-loop experiment substitutes simulated
+process measurements for captured thermal imagery. <a class="citation" href="https://arxiv.org/html/2005.00167" title="Information-Collection in Robotic Process Monitoring: An Active Perception Approach">[13]</a> This is a useful warning
+about evidence labels: physical motion plus simulated perception is a mixed
+experiment, not a complete physical vision validation. PuppyPi reports should
+separate replay, synthetic observations, selected-view acquisition and actual
+closed-loop execution with equally explicit boundaries.</p>
+<p>The sharper design target is <strong>answer identifiability</strong>. Suppose the phone may be
+stale, but every plausible current-world hypothesis agrees that a newly observed
+case at B is the taught instance. A task asking for current location may already
+be answerable without proving the phone's exact failure mode. Conversely, a task
+asking whether the case ever left A remains unresolved even if camera health
+is now completely known. Resolving all fault entropy can waste effort that has
+no effect on the requested answer. This is our interpretation and proposed
+policy objective, not an established new result.</p>
+<p>A useful state representation therefore preserves combinations. An object can
+move while the phone freezes; a camera can move while two look-alikes exchange
+positions. A single categorical label such as change-or-fault excludes valid
+worlds. Source hypotheses should influence which observations are admissible and
+how uncertain they are, while world hypotheses describe placement and identity.
+The system need not diagnose an unseen fault with certainty before reporting a
+well-supported fact from an independent valid source.</p>
+<p>There is an important impossibility boundary. If a static live camera and a
+frozen image produce exactly the same accessible observations, pixel equality
+does not identify which is present. A new packet timestamp only identifies
+receipt unless its relation to capture is established. A validated visual
+challenge, preserved historical recording or independently observed landmark
+motion can add information. If no feasible test separates answer-changing
+hypotheses, further repeated inference cannot turn disagreement into knowledge.
+The correct outcome remains unresolved, possibly with a grounded help request.</p>
+<p>The experiment should first test deterministic age/session/calibration gates,
+visibility-qualified negatives and robust residual weighting. Next compare
+passive and active diagnosis cascades against task-conditioned acquisition using
+the same observations and permitted actions. A larger joint estimator is justified
+only if its end-task benefit survives those controls. MCTS is optional after a
+greedy selector; algorithmic complexity is a cost and an experimental variable,
+not evidence of research depth by itself.</p>
+<h3>Finding 4: temporal claims need explicit semantics before an intelligent acquisition policy can be evaluated</h3>
+<p><img src="diagrams/temporal-evidence-gap.png" alt="Two histories share the same sampled robot evidence but differ during an unobserved interval" /></p>
+<p><strong>Figure 1.</strong> Proposed counterfactual-history test, not collected data or a
+delivered app screen. The phone row describes a future monitoring experiment,
+not recovery of missing past observations.
+<a href="diagrams/temporal-evidence-gap.svg">Editable SVG</a>.</p>
+<p>The proposed method starts with a bounded query contract. Parse a request into
+an enrolled identity, a named region, a time horizon, a predicate and a temporal
+operator. Preserve distinctions such as last observed, present now, observed at
+every check, continuously present, or an excursion lasting at least a declared
+duration. Unsupported requests require clarification. The language model may
+propose this typed query, but it does not decide whether the evidence satisfies
+it and does not issue movement commands. This is a design proposal.</p>
+<p>Temporal monitoring itself is established.
+<a href="https://people.eecs.berkeley.edu/~sseshia/pubdir/rv15.pdf">Robust Online Monitoring of STL</a>
+defines satisfaction intervals for partial signals and states an interpolation
+assumption for reconstructing sampled signals. <a class="citation" href="https://people.eecs.berkeley.edu/~sseshia/pubdir/rv15.pdf" title="Robust Online Monitoring of Signal Temporal Logic">[26]</a>
+<a href="https://github.com/nickovic/rtamt">RTAMT</a> provides online/offline monitoring
+interfaces, including a bounded-future online fragment and optional C++ backend.
+<a class="citation" href="https://github.com/nickovic/rtamt" title="RTAMT: Specification-based real-time monitoring library">[27]</a> The research must not rename three-way monitoring as a new logic. The room
+specific problem is constructing defensible input signals from uncertain
+identity, geometry, source validity and capture time, then measuring whether
+selecting observations improves useful decisions.</p>
+<p>Our proposed semantics uses a set of histories compatible with the accepted
+evidence and declared assumptions. Let an evidence record retain capture-time
+bounds, receipt time, source/session, model/preprocessor version, region,
+identity candidates, calibration reference and observed visibility. Let
+<code>H(E, A)</code> denote histories consistent with evidence <code>E</code> under assumptions <code>A</code>.
+For a typed query <code>q</code>, return Supported if every admissible history satisfies it,
+Refuted if none does, and Unknown otherwise. If <code>H</code> is empty, report inconsistent
+evidence and investigate admission/assumptions; do not accept every query through
+vacuous truth. This is a specification for a small prototype, not implemented code.</p>
+<p>This set-valued view is deliberately separate from a probability distribution.
+It can establish an assumption-dependent support relation without inventing
+probabilities. A probabilistic forecast additionally needs a transition and
+measurement model fitted and calibrated on appropriate held-out episodes.
+“Likely remained at A under this learned model” is a forecast, not equivalent to
+“observed continuously at A.” The app should make that distinction understandable
+without requiring the operator to inspect equations.</p>
+<p><strong>Elementary indistinguishability argument.</strong> Take any finite set of valid robot
+capture times with a nonempty gap. Construct history H0 with the object at A
+throughout and history H1 with an excursion-and-return entirely inside that gap.
+Allow unrestricted object transitions and make all recorded views otherwise
+identical. Any method receiving only those observations gets the same input in
+both histories, although their continuous-presence and ever-left answers differ.
+It cannot always issue a correct definite answer for both. This is a simple
+logical limitation, not a novel theorem or an empirical failure rate.</p>
+<p>The argument also explains why a retrospective query is not always an acquisition
+task. A fresh look may resolve present location or identify which stored crop
+belongs to the case. It cannot reveal a vanished past excursion without an
+additional witness or recording. The action selector must distinguish recoverable
+stored evidence, current-state ambiguity, irrecoverable past ambiguity and a
+future monitoring request. Otherwise it can spend a large movement budget on a
+question no future view can answer. Human help counts as a source with response
+time, provenance and possible error; it is not a hidden ground-truth oracle.</p>
+<p>A narrower duration contract permits a useful conditional statement. Suppose
+every excursion lasts at least <code>delta</code>, source validity and object labels are
+correct at captures, the relevant region is observable, and valid captures span
+the requested horizon including its endpoints. If every actual adjacent gap is
+strictly shorter than <code>delta</code>, an excursion within that horizon cannot occur and
+return entirely unwitnessed: it would have to fit inside a shorter gap. Boundary
+crossings are witnessed at the endpoints. This elementary sampling argument is
+an explicit operating assumption, not a general guarantee that a camera detects
+all real events.</p>
+<p>With uncertain capture times, use the largest admissible adjacent gap and a
+certified observed span. A nominal timestamp near the query boundary does not
+establish that the boundary itself was observed. Occlusion, uncertain identity,
+source failure, exposure blur or wrong labels invalidate the proposition's
+premises. Camera frame rate alone cannot certify continuous coverage, and
+intervals between accepted frames cannot silently become observations through
+constant interpolation. The initial benchmark should sweep event duration
+against capture gaps and report where this contract actually holds.</p>
+<p>An implementable first version can maintain disjoint support, contradiction and
+unknown intervals for each enrolled object/region predicate, together with the
+assumption used to bridge any interval. It should preserve negative evidence only
+where the object could genuinely have been seen. A detector miss from a low or
+blocked view does not prove absence on a tabletop. If geometry is insufficient,
+operator-specified region visibility may support a labeled experimental mode,
+but that mode must remain distinct from automatic inference. Exact-instance
+identity is evaluated separately from class recognition.</p>
+<p>For prospective monitoring, define a finite set of feasible captures, station
+inspections and help requests. Our proposed objective minimizes future task loss
+plus measured sensing, travel, compute and operator costs. A deterministic policy
+may minimize the largest query-relevant blind gap; a stochastic policy may use
+an explicitly estimated event model to minimize expected loss. Neither objective
+follows from a set of admissible histories alone. Include a no-action/defer option,
+remaining budget and action failures rather than assuming each command creates
+a useful observation.</p>
+<p>Adaptivity needs a reason to help. In a homogeneous single-region setting with
+equal costs and no useful event prior, evenly spaced valid observations are a
+strong baseline for controlling the maximum gap. The study should include that
+setting and expect little advantage. More informative conditions have multiple
+query regions, complementary ego/exo visibility, changing occlusion, variable
+transmission/inspection cost or measured event context. The policy must exploit
+observable differences rather than private intervention schedules. If benefit
+exists only when supplied true hidden visibility or event timing, it does not
+support the deployable research claim.</p>
+<p>The more ambitious model predicts the probability that a permitted action
+produces an admissible, answer-changing observation. Its targets are identity
+discrimination, region visibility, timing validity and execution success, not
+beautiful imagined pixels. Train it on measured action outcomes, calibrate it
+separately and compare against empirical frequency tables. A useful ablation
+keeps all state and perception fixed while replacing query-conditioned utility
+with generic entropy or coverage utility. That tests the proposed decision
+mechanism instead of confusing a new detector, extra camera and new planner.</p>
+<h3>Finding 5: the benchmark must expose impossible answers and causal evaluation errors</h3>
+<p>The proposed benchmark has two complementary goals: evaluate supported temporal
+answers and evaluate how acquisition improves future observability. It must not
+reward a method for confidently guessing a hidden event from a biased question.
+The central unit is a mission with a query, admissible evidence, permitted
+actions, an intervention history and a separately protected reference record.
+Frames from one mission are correlated observations, not independent trials.
+All counts and splits below describe a proposed protocol, not collected data.</p>
+<p>Start with paired histories. Use identical enrolled objects, room layout and
+question wording, and make the robot's sampled observations match as closely as
+possible. In one history an object stays at A; in the other it leaves and returns
+between visits. A retrospective arm supplies no additional historical witness.
+A prospective arm begins the monitoring request before the intervention and
+permits budgeted phone captures or station checks. The pairing separates
+evidence sufficiency from language shortcuts and tests whether the policy buys
+new information instead of inventing it. The strict indistinguishability replay
+arm must use byte-identical model-visible frames and relevant metadata for the
+paired histories. Approximately matched physical trials test robustness rather
+than the literal impossibility argument.</p>
+<p>Cross that design with no-change, persistent move, excursion-return and
+look-alike exchange conditions. Vary view obstruction, capture gaps, phone delay,
+camera relocation and known/unknown timing. Include true changes together with
+source faults and episodes in which neither camera can resolve identity. Keep
+source-fault labels out of the method's inputs unless a baseline is explicitly
+given oracle information for diagnosis. Easy faults with trustworthy timestamps
+belong in the benchmark, but cannot be the only cases: a timestamp threshold
+would otherwise solve the advertised challenge.</p>
+<p>There are three evaluation modes. Shared-evidence replay fixes all observations
+and perception outputs, isolating memory, admission and query semantics.
+Controlled acquisition lets each policy request real supported actions against
+repeated staged conditions, measuring the observations it actually obtains.
+Supervised physical missions add localization, movement, network and intervention
+failures. A fixed recorded trajectory cannot fairly evaluate a request for an
+unrecorded view. Synthetic branching can test policy logic, but its result must
+remain separately labeled rather than mixed into a physical success rate.</p>
+<p>The strongest baseline is a partial-trace monitor with periodic acquisition and
+conservative source/visibility gates. Compare it with the same monitor using
+generic coverage/entropy acquisition, then query-conditioned acquisition using
+the identical state estimator. Add a current-state graph, a retrieval/VLM QA
+adaptation, and prompted abstention as application comparisons. Diagnosis-first
+cascades and robust weighting test whether the source model adds anything.
+Optional learned observation forecasting must face a measured lookup-table
+baseline. An oracle schedule or hidden visibility labels are diagnostic upper
+references only, never deployable competitors.</p>
+<p>The primary result should be supported-answer precision against decision
+coverage at matched mission time and sensing budgets. Include event recall,
+unresolved true changes, false definite answers on indistinguishable pairs,
+capture-gap distributions and latency from event onset to the <strong>first causal
+report</strong>. Universal-claim errors and sampled-check answers require separate
+scoring. A system returning Unknown everywhere avoids false assertions but fails
+coverage and recall; a system answering everything can have misleading average
+accuracy if easy unchanged episodes dominate. Report the complete tradeoff.</p>
+<p>Maintain two separate evaluation labels: hidden scene truth and evidence-relative
+support under the declared query contract. A lucky claim that the case stayed
+at A in the unchanged history is still unsupported if the accessible evidence
+also admits the excursion history. Both members of that retrospective pair
+warrant Unknown for the universal question. Score factual correctness and
+evidential support separately. For the bounded task set, adjudicate support from
+accessible evidence, documented assumptions and counterhistories; record reviewer
+disagreement. Do not label a claim supported merely because the protected
+reference recording happens to make it true.</p>
+<p>There is a concrete reproduction hazard in the inspected
+<a href="https://github.com/autoinspection-classification/GaugeFailClassification/blob/e4cbd6ce584049a5fd98c6c808ba66617824c93d/scripts/evaluation/compare_detection_timing.py">inspection timing script</a>:
+the default chooses a detected spike nearest the ground-truth label, while first
+detection is an option. This is not proof of the setting used for the paper's
+numbers. <a class="citation" href="https://arxiv.org/html/2602.16182" title="World Model Failure Classification and Anomaly Detection for Autonomous Inspection">[17]</a> For PuppyPi, predeclare causal first-report timing, early false
+alarms, event-matching windows and repeated-alarm handling. Ground truth may score
+outputs afterward; it may not select the most favorable deployed alarm.</p>
+<p>Physical reference design also needs care.
+<a href="https://www.ipb.uni-bonn.de/html/projects/localization_benchmark/">LILocBench</a>
+reserves an upward camera for AprilTag ground truth rather than estimator input.
+<a class="citation" href="https://www.ipb.uni-bonn.de/html/projects/localization_benchmark/" title="LILocBench: Long-Term Indoor Localization Benchmark">[20]</a> <a href="https://arxiv.org/html/2404.12785">AutoInspect</a> reports missions, completed
+inspection actions and interventions over an extended physical deployment. <a class="citation" href="https://arxiv.org/html/2404.12785" title="AutoInspect: Towards Long-Term Autonomous Industrial Inspection">[16]</a>
+Adopt those accounting principles without transferring their sensors, platforms
+or success rates. For this project, record actual robot pose independently where
+possible and count every failed acquisition, operator correction and incomplete
+return. Reference markers cannot secretly leak identity or pose labels to a
+method supposedly evaluated without them.</p>
+<p>Group train/calibration/test by room, day, object instance or intervention family
+as the eventual claim requires. Preserve reference/rescan associations and reject
+near-duplicate frame leakage. Fit event likelihoods and action costs only on the
+training split; choose thresholds on calibration; freeze them before held-out
+evaluation. A pilot estimates variability and informs sample-size planning.
+Confidence intervals should resample missions or room/day clusters, not adjacent
+video frames. If only one room is available, state same-room robustness rather
+than unseen-room generalization.</p>
+<p>Finally, test whether the claimed acquisition effect survives cost accounting.
+Report equal wall-clock, equal accepted-capture and equal inference-budget
+comparisons, with actual bytes, queued-audit time, travel and operator response
+time. Larger sensing opportunity is an application advantage but not evidence
+that an algorithm uses the same opportunity better. A convincing negative result
+would show that periodic gated captures match a complex policy under realistic
+conditions; that result should change the final implementation rather than be
+hidden behind a weak fixed-patrol comparison.</p>
+<h3>Finding 6: the impressive application is an observable investigation, supported by modest hardware first</h3>
+<p>The application proposal is <strong>PuppyPi Room Observatory</strong>. Its visible center is
+a room map linked to time: places, enrolled objects, observed changes, camera
+coverage and unresolved questions. The name describes an intended product flow,
+not a delivered feature. It extends the existing field console and shared
+evidence store. The current application still uses operator assertions and a
+synthetic default robot; autonomous room perception, phone ingestion and physical
+patrol require their own integrations and acceptance evidence.</p>
+<p>The manufacturer specification supports a conservative starting point. The
+<a href="https://wiki.hiwonder.com/projects/PuppyPi/en/latest/docs/1.Quick_Start_Guide.html">Standard packing list</a>
+is narrower than the product family's combined options: ranging/voice equipment
+appears in higher kits. Board configuration must be physically inventoried. <a class="citation" href="https://wiki.hiwonder.com/projects/PuppyPi/en/latest/docs/1.Quick_Start_Guide.html" title="PuppyPi Quick Start Guide: packing lists">[15]</a>
+Begin with RGB, host computation, taught regions and measured routes. A phone
+can add an external observation, but cannot make a low camera see every table
+or provide general collision avoidance. The mission must stop or defer when its
+validated observation or movement conditions fail.</p>
+<p>External localization has prior art with substantial assumptions.
+<a href="https://arxiv.org/html/2303.03797">Bultmann et al.</a> use calibrated external
+cameras with robot-specific pose estimation and an already sensor-equipped
+mobile platform. <a class="citation" href="https://arxiv.org/html/2303.03797" title="External Camera-based Mobile Robot Pose Estimation for Collaborative Perception with Smart Edge Sensors">[18]</a> For the initial PuppyPi experiment, use rigid fiducials and
+independent reference poses before a learned external pose estimator.
+<a href="https://github.com/AprilRobotics/apriltag">AprilTag</a> requires camera calibration
+and correctly measured tag geometry. <a class="citation" href="https://github.com/AprilRobotics/apriltag" title="AprilTag 3 official implementation">[21]</a> Tags can support pose checks; they are
+not object-instance recognition or obstacle sensing.</p>
+<p>Phone transport can build on the
+<a href="https://github.com/aiortc/aiortc/tree/main/examples/server">aiortc browser/server example</a>,
+which provides reusable webcam media exchange. <a class="citation" href="https://github.com/aiortc/aiortc/tree/main/examples/server" title="aiortc browser audio/video/data-channel server example">[22]</a> The project still needs
+source/session identity, capture-time bounds, bounded buffering, calibration
+lifecycle and reconnect handling. Browser permission and transport arrival do
+not establish pixel freshness. A phone used as the operator display is also not
+automatically a simultaneous observer; device placement, power, capture support
+and actual browser behavior need a separately measured setup.</p>
+<p>On the host, keep the pure Python evidence, temporal monitor and task policy
+independent of ROS, UI and model transport. Optional perception/reconstruction
+adapters convert their outputs into project-owned records, with explicit model
+and preprocessor identity. Heavy GPU stacks should use separate optional
+environments or services with versioned input/output contracts. A failed deep
+audit must not stall the watchdog or prolong motion. The Pi retains the existing
+vendor gait/control boundary; physical gait and stop behavior require independent
+validation on the actual kit. Neither a VLM answer nor a generated video supplies
+motor instructions.</p>
+<p>The first new durable records would describe a query, admitted observations,
+source/calibration revisions, predicate support and proposed/measured action
+outcomes. Their names are design choices, and persistence requires an explicit
+schema migration. Preserve the original image evidence and revisions rather
+than overwriting an old location when a new belief arrives. Delayed evidence
+can revise a historical claim through a bounded recomputation with an audit
+trail; it cannot silently move the receipt timestamp into the capture slot.</p>
+<p>The demo begins with enrollment and a few named room regions. The evaluator
+selects a case and asks a retrospective question about the last interval. A
+timeline shows accepted robot views and gaps. If the case briefly moved and
+returned in an unobserved gap, the correct explanation identifies that missing
+evidence instead of inventing a movement story. The evaluator can reveal the
+reference recording afterward. This demonstration is valuable only if the model
+never received that recording or its labels before answering.</p>
+<p>Next the evaluator starts a prospective monitoring task. The app previews which
+regions are currently observable and how a phone capture or robot station visit
+could improve the evidence. The policy selects an allowed action, logs its
+expected outcome and cost, and displays the actual result after acquisition.
+An enrolled case and its similar decoy require a close discriminative view.
+Moving the phone invalidates its geometry until checked; a source fault can
+coexist with a real move. These are proposed behaviors to implement and test,
+not a script of predetermined final answers.</p>
+<p>The user experience should expose meaningful outcomes without presenting the
+operator with internal model machinery. A Room view shows locations and evidence
+age. A Timeline distinguishes observations, unobserved spans and forecasted
+coverage. Investigate shows a concise reason for the next permitted measurement.
+An answer links to its supporting frames and states whether it concerns current
+placement, observed checks or a duration-qualified monitoring task. Replay shows
+what was predicted, executed and measured; export includes source provenance.
+These views provide feature breadth while sharing one evidence model.</p>
+<p>If host reconstruction succeeds, add an optional registered 3D view alongside
+the measured station map. If deep spatial audits are useful but slow, show them
+as queued reports with their original capture interval. If no feasible action
+can resolve a query, offer a grounded help request or retain Unknown. Pause,
+manual takeover, explicit revalidated resume and the measured HOME outcome
+remain separate execution requirements. A visually compelling demo should make
+those boundaries visible through actual behavior, rather than hiding unresolved
+perception or motion behind a polished animation.</p>
+<h2 class="section-title">Synthesis &amp; Insights: a sharper research proposal</h2>
+<p>The recommended provisional title is <strong>Coverage-Aware Temporal Room Inspection
+with Active Ego–Exo Observation</strong>. It names an investigation rather than declaring
+a new foundation model. The broad architecture combines established memory,
+monitoring and active-perception ideas. The possible contribution is a measured
+method or benchmark that ties temporal claims to the observations capable of
+supporting them, with prospective acquisition under real visibility and cost.
+Publication novelty remains unresolved and would require a focused review of
+the final method, not just this application direction.</p>
+<p>Three hypotheses separate the possible benefits. H1 concerns integrity:
+visibility/time/source-qualified temporal semantics reduces false definite
+answers on incomplete histories compared with latest-state or prompted QA
+systems. H2 concerns acquisition: query-conditioned robot/phone sensing yields
+more supported answers than periodic gated sensing under the same budget when
+visibility and costs are heterogeneous. H3 concerns prediction: a small learned
+action-outcome model improves that tradeoff beyond empirical tables. Each can
+fail independently. H1 may succeed while H2 shows periodic observation is enough,
+and H3 may add cost without useful improvement.</p>
+<p>Do not call all three contributions delivered by one successful demonstration.
+The first experiment should isolate H1 in shared replay. The second begins the
+query prospectively and isolates H2 with identical perception. The third keeps
+the acquisition objective fixed and substitutes learned predictions for tables.
+Optional dense reconstruction and expensive spatial audits are application or
+representation studies with separate measurements. This structure makes it
+possible to retain useful features while rejecting a research hypothesis.</p>
+<p>The question's temporal operator changes what actions have value. A current
+location query can benefit from a new close view. A past event query benefits
+from searching preserved recordings or witnesses. A continuous-interval query
+may require assumptions the system cannot justify. A future duration-qualified
+monitoring task can benefit from controlling observation gaps. Therefore, a
+policy that always selects the view with greatest generic uncertainty reduction
+can optimize the wrong problem. This is the proposed mechanism to test, not a
+measured advantage over the cited systems.</p>
+<p>The phone's role is similarly conditional. It may provide long observation
+duration at a fixed pose, while the robot supplies close identity evidence or
+access to another region. It may also be occluded, stale, geometrically invalid
+or aimed at the wrong region. Treat its contribution as a measured change in
+query-relevant observability, with bandwidth and processing costs. “Two cameras”
+is an equipment count; “fewer unsupported temporal answers at equal cost” is a
+research outcome. If a fixed phone alone solves the monitoring task, report
+that result and avoid attributing the gain to quadruped planning.</p>
+<p>The highest-value reusable output could be the benchmark even if no elaborate
+policy wins. A useful release would contain selected cleared clips, immutable
+run manifests, identical-wording query pairs, protected reference labels,
+explicit timing/visibility uncertainty and baseline adapters. It would include
+unanswerable episodes and intervention counts instead of filtering them away.
+That output can support future work on memory admission, temporal inference,
+active sensing and observation forecasting without requiring a particular model
+provider or robot controller.</p>
+<p>The minimum claimed advance must be stated after the results. A system paper
+could contribute a carefully characterized low-cost deployment and open protocol.
+A benchmark paper would need evidence that its tasks reveal reproducible gaps
+not explained by lexical cues or privileged inputs. An algorithm paper would
+need a precise mechanism and strong matched ablations. Hardware affordability,
+framework count, a scene graph plus chatbot, or the use of a recent pretrained
+model are not sufficient arguments for algorithmic novelty. This report is
+intended to prevent those claims from entering the final project narrative.</p>
+<h2 class="section-title">Counterevidence Register</h2>
+<table>
+<thead>
+<tr>
+<th>Attractive claim</th>
+<th>Counterevidence or strongest alternative</th>
+<th>Required response</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Temporal memory and active room QA are new</td>
+<td>Mind Palace and STAR already couple memory and action <a class="citation" href="https://arxiv.org/html/2507.12846v2" title="Enter the Mind Palace: Reasoning and Planning for Long-term Active Embodied Question Answering">[1]</a> <a class="citation" href="https://arxiv.org/html/2511.14004v3" title="Searching in Space and Time: Unified Memory-Action Loops for Open-World Object Retrieval">[2]</a></td>
+<td>Reuse/adapt and compare; narrow the question</td>
+</tr>
+<tr>
+<td>Abstention for missing past evidence is new</td>
+<td>AbstainEQA includes temporal unavailability <a class="citation" href="https://openaccess.thecvf.com/content/CVPR2026/papers/Wu_When_Robots_Should_Say_I_Dont_Know_Benchmarking_Abstention_in_CVPR_2026_paper.pdf" title="When Robots Should Say I Don&#x27;t Know: Benchmarking Abstention in Embodied Question Answering">[4]</a></td>
+<td>Evaluate observation-dependent behavior with fixed wording</td>
+</tr>
+<tr>
+<td>Joint source reliability is new</td>
+<td>Diagnostic graphs, robust switches and active FDI <a class="citation" href="https://arxiv.org/html/2205.10906" title="Monitoring of Perception Systems: Deterministic, Probabilistic, and Learning-based Fault Detection and Identification">[8]</a> <a class="citation" href="https://arxiv.org/html/2509.18460" title="A Counterfactual Reasoning Framework for Fault Diagnosis in Robot Perception Systems">[9]</a> <a class="citation" href="https://nikosuenderhauf.github.io/assets/papers/IROS12-switchableConstraints.pdf" title="Switchable Constraints for Robust Pose Graph SLAM">[12]</a></td>
+<td>Include gates, robust weighting and diagnostic cascades</td>
+</tr>
+<tr>
+<td>A predictive video proves room understanding</td>
+<td>Generation, manipulation and inspection have different tasks <a class="citation" href="https://arxiv.org/html/2506.09985" title="V-JEPA 2: Self-Supervised Video Models Enable Understanding, Prediction and Planning">[5]</a> <a class="citation" href="https://arxiv.org/html/2504.12369v3" title="WorldMem: Long-term Consistent World Simulation with Memory">[6]</a> <a class="citation" href="https://arxiv.org/html/2602.16182" title="World Model Failure Classification and Anomaly Detection for Autonomous Inspection">[17]</a></td>
+<td>Score physical task decisions and preserve imagined/captured provenance</td>
+</tr>
+<tr>
+<td>Temporal intervals guarantee continuous truth</td>
+<td>Partial-signal monitoring requires explicit signal assumptions <a class="citation" href="https://people.eecs.berkeley.edu/~sseshia/pubdir/rv15.pdf" title="Robust Online Monitoring of Signal Temporal Logic">[26]</a></td>
+<td>State admissible histories and measure input validity</td>
+</tr>
+<tr>
+<td>Adaptive sensing must beat periodic capture</td>
+<td>Homogeneous costs/visibility may offer no adaptive advantage</td>
+<td>Include a null setting and retain the simpler policy if matched</td>
+</tr>
+<tr>
+<td>The camera setup is lightweight because the robot is small</td>
+<td>Reconstruction/audit models have independent host costs <a class="citation" href="https://arxiv.org/html/2512.16908v2" title="SceneDiff: A Benchmark and Method for Multiview Object Change Detection">[19]</a> <a class="citation" href="https://arxiv.org/abs/2503.11651" title="VGGT: Visual Geometry Grounded Transformer">[25]</a></td>
+<td>Measure end-to-end time and label queued work</td>
+</tr>
+</tbody>
+</table>
+<h2 class="section-title">Claims-Evidence Table</h2>
+<p>The machine-readable ledger links atomic facts and synthesis statements to stable
+source/evidence IDs. This table records the main conclusions and their status;
+it does not count project pages as independent experimental replication.</p>
+<table>
+<thead>
+<tr>
+<th>Conclusion</th>
+<th>Independent work clusters</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Generic memory, temporal QA and semantic refinement have close predecessors</td>
+<td>1, 2, 3, 4, 7</td>
+<td>Supported scope assessment; no claim that their methods are identical</td>
+</tr>
+<tr>
+<td>Generic joint reliability, async fusion and active diagnosis are established</td>
+<td>8, 9, 10, 11, 12, 14</td>
+<td>Supported; sensor/task assumptions differ</td>
+</tr>
+<tr>
+<td>Learned dynamics, visual simulation and inspection models are not interchangeable deployment claims</td>
+<td>5, 6, 17, 23, 24</td>
+<td>Supported comparison plus project-specific inference</td>
+</tr>
+<tr>
+<td>The proposed temporal/acquisition mechanism is novel</td>
+<td>None establishes this negative universal</td>
+<td><strong>Unverified; not asserted</strong></td>
+</tr>
+<tr>
+<td>Query-conditioned sensing improves the proposed benchmark</td>
+<td>No PuppyPi experiment yet</td>
+<td><strong>Hypothesis H2</strong></td>
+</tr>
+<tr>
+<td>The actual Standard kit supports autonomous patrol</td>
+<td>No physical acceptance evidence yet</td>
+<td><strong>Unverified; prerequisite</strong></td>
+</tr>
+</tbody>
+</table>
+<h2 class="section-title">Limitations &amp; Caveats</h2>
+<p>This is a targeted deep review, not an exhaustive systematic review with a claim
+of literature completeness. Searches were refined after counterevidence emerged;
+the final evidence set therefore emphasizes close mechanisms and deployability
+rather than a balanced census of every semantic mapping paper. Some sources are
+preprints. Reading depth and source-release checks vary and are recorded in the
+registry. A paper-specific finding is not an independent replication, and a
+repository snapshot does not establish successful installation or performance.</p>
+<p>The benchmark and policies are unimplemented. No physical timing, visibility,
+motion or prediction accuracy is reported for PuppyPi. The proposed admissible
+history set is only as defensible as its inputs and assumptions. Incorrect
+perception or aggressive pruning can discard the true history and invalidate
+apparent support. A conservative model can produce too many unknowns. The study
+must expose both failure modes through precision/coverage and reference audits,
+rather than presenting conservatism as free correctness.</p>
+<p>There may be closer work on active temporal monitoring, camera-network scheduling
+or evidence-aware EQA than the retrieved set. The final algorithm would need a
+follow-up review against its exact formulation. No first-of-its-kind claim is
+made here. Existing software licenses, checkpoint access and dataset conditions
+can change; revisions and terms must be checked again at integration time.
+The manufacturer's current configuration is an assumption until reconciled with
+the actual kit. Host compute and real phone behavior remain unresolved.</p>
+<p>Automated report checks can verify structure, links and lexical evidence overlap.
+They cannot prove a source entails a scientific claim or that a causal inference
+is valid. The review therefore includes manual primary-section inspection and
+independent critique. Any network verification warning must remain visible in
+the validation record, even when the same source was accessible through the web
+retrieval tool. A successful validator exit is not a substitute for that audit.</p>
+<h2 class="section-title">Recommendations</h2>
+<p>Implement one coherent evidence pipeline before expanding the feature inventory.
+The first slice is a versioned run ledger, source lifecycle and replay that keeps
+capture bounds separate from receipt time. Add typed temporal queries and a
+conservative interval/check monitor with explicit unknowns. Demonstrate the two
+indistinguishable historical cases on replay. This is a reviewable software
+milestone that requires neither GPU models nor physical locomotion and provides
+a meaningful failure scenario from the start.</p>
+<p>In parallel with software, inventory the board, vendor environment, camera,
+movement primitives and stop behavior. Establish stationary live capture before
+supervised station routes. Add fixed-phone capture only after measuring timing,
+calibration validity and source loss. Automatic visibility and exact-instance
+matching require labeled real observations; operator annotations should remain
+an explicit mode, not silently stand in for perception performance. Do not make
+reconstruction or a learned controller a prerequisite for the core app.</p>
+<p>Use the first development episodes to compare periodic gated sensing and a
+query-conditioned greedy policy. Add heterogeneous regions and measured costs,
+then lock the benchmark protocol and held-out splits. An optional small learned
+observation predictor is justified only after empirical tables are competitive.
+Queued SceneDiff-style audits and a registered 3D viewer can add application
+value in a separate host experiment, with latency and provenance visible.</p>
+<p>For a conditional sixteen-week schedule, allocate the first four weeks to
+hardware characterization, the ledger, perception labels and temporal replay;
+the next four to phone capture and strong fixed/active baselines; the next four
+to measured acquisition and the evaluator-driven app flow; and the final four
+to held-out trials, critique, figures and reporting. This is a capacity estimate,
+not a promise. If route validation fails, keep the study stationary or operator
+assisted. If a simple monitor matches the complex policy, ship the simple monitor
+and report why adaptivity did not help.</p>
+<p>The final presentation should distinguish delivered features, integration
+evidence, hardware verification and research hypotheses. Its strongest story is
+a question whose answer changes when the available evidence changes, with the
+robot demonstrably choosing a useful measurement. A feature checklist can show
+application breadth, but the scientific conclusion must come from matched
+comparisons and honest failures, including unresolved cases.</p>
+<h2 class="section-title">Methodology Appendix</h2>
+<p>The invoked skill was retrieved at revision
+<code>f2f2c0fa4e7617ca84c86b63f4bb40f77a746933</code>, after checking the local skill
+catalog and discovering no installed Deep Research package. Its methodology,
+report-assembly, HTML and quality references were read. It was used as a
+retrieved workflow with reviewed validation scripts, not as a claim to have
+invoked a hosted Deep Research service. Source discovery used the available
+web tool because the skill's preferred search CLI was absent. Three parallel
+agents returned structured evidence; the root agent integrated, critiqued and
+refined it.</p>
+<p>Scope and plan covered eight angles: temporal memory, long-term EQA, abstention,
+predictive world models, active diagnosis, asynchronous camera evidence, physical
+inspection/platform constraints and evaluation methods. Retrieval preserved
+short quotations and locators plus bounded paraphrases in an append-only evidence
+file. Canonical work identifiers merge arXiv HTML/abstract/version URLs into one
+work cluster while retaining the inspected version in its URL. Related code and
+project pages do not become extra independent scientific support.</p>
+<p>Triangulation tested the broad memory, diagnosis and world-model claims across
+multiple works. Specific reported numbers remain single-source and are linked
+to their experimental setting. The critique used practitioner, skeptical reviewer
+and implementation-engineer perspectives. It rejected generic novelty claims,
+identified the periodic-monitor baseline, and separated retrospective inference
+from prospective acquisition. The counterfactual-history example and elementary
+sampling argument are our logical analysis; their utility and assumptions still
+require empirical validation.</p>
+<p>Each major section was written progressively from the persisted evidence.
+Atomic factual claims and synthesis/recommendation records are separately typed.
+The skill's report, citation, claim-support and HTML validators are run alongside
+repository document checks. Their results and manual-review qualifications are
+recorded in the validation artifact. Numeric heuristic overlap/credibility
+scores are not treated as calibrated probabilities. No whole paper, complete
+camera stream, downloaded weights or credentials are committed with this report.</p>
+<p>The repository is the canonical documentation destination, following its existing
+format and English language rules. A readable HTML/PDF bundle is also prepared
+under the skill's Documents destination. Packaging includes a proposed design
+figure, not a screenshot of unimplemented features. Existing synthetic app
+screenshots remain separately labeled in the current gallery. The manifest lists
+artifacts and adaptations, and the handoff records the next concrete code slice
+without changing feature delivery status.</p>
+<p>The stopping rule is evidence adequacy and completed critique for this scoped
+decision. More search results would not establish novelty by accumulation.
+Remaining uncertainty is actionable: reproduce the closest feasible baselines,
+measure the actual observation process, then decide whether any proposed coupling
+earns additional implementation complexity. That process can support a strong
+application and a credible R&amp;D report even if the most elaborate method is
+rejected.</p>
+<section class="bibliography"><h2 class="section-title">Bibliography</h2>
+<p class="bib-entry"><a class="citation" href="https://arxiv.org/html/2507.12846v2" title="Enter the Mind Palace: Reasoning and Planning for Long-term Active Embodied Question Answering">[1]</a> Ginting, Muhammad Fadhil et al. (2025). &quot;Enter the Mind Palace: Reasoning and Planning for Long-term Active Embodied Question Answering&quot;. CoRL 2025, confirmed by official project and repository citation. <a href="https://arxiv.org/html/2507.12846v2">Primary source</a>. Retrieved 2026-10-31.</p>
+<p class="bib-entry"><a class="citation" href="https://arxiv.org/html/2511.14004v3" title="Searching in Space and Time: Unified Memory-Action Loops for Open-World Object Retrieval">[2]</a> Chen, Taijing et al. (2025). &quot;Searching in Space and Time: Unified Memory-Action Loops for Open-World Object Retrieval&quot;. arXiv preprint; conference acceptance not independently established. <a href="https://arxiv.org/html/2511.14004v3">Primary source</a>. Retrieved 2026-10-31.</p>
+<p class="bib-entry"><a class="citation" href="https://arxiv.org/html/2411.04999v2" title="DynaMem: Online Dynamic Spatio-Semantic Memory for Open World Mobile Manipulation">[3]</a> Liu, Peiqi et al. (2025). &quot;DynaMem: Online Dynamic Spatio-Semantic Memory for Open World Mobile Manipulation&quot;. ICRA 2025, DOI 10.1109/ICRA55743.2025.11127619. <a href="https://arxiv.org/html/2411.04999v2">Primary source</a>. Retrieved 2026-10-31.</p>
+<p class="bib-entry"><a class="citation" href="https://openaccess.thecvf.com/content/CVPR2026/papers/Wu_When_Robots_Should_Say_I_Dont_Know_Benchmarking_Abstention_in_CVPR_2026_paper.pdf" title="When Robots Should Say I Don&#x27;t Know: Benchmarking Abstention in Embodied Question Answering">[4]</a> Wu, Tao et al. (2026). &quot;When Robots Should Say I Don't Know: Benchmarking Abstention in Embodied Question Answering&quot;. CVPR 2026; official project labels Highlight. <a href="https://openaccess.thecvf.com/content/CVPR2026/papers/Wu_When_Robots_Should_Say_I_Dont_Know_Benchmarking_Abstention_in_CVPR_2026_paper.pdf">Primary source</a>. Retrieved 2026-10-31.</p>
+<p class="bib-entry"><a class="citation" href="https://arxiv.org/html/2506.09985" title="V-JEPA 2: Self-Supervised Video Models Enable Understanding, Prediction and Planning">[5]</a> Assran, Mido et al. (2025). &quot;V-JEPA 2: Self-Supervised Video Models Enable Understanding, Prediction and Planning&quot;. Primary technical paper and Meta project; acceptance status not audited. <a href="https://arxiv.org/html/2506.09985">Primary source</a>. Retrieved 2026-10-31.</p>
+<p class="bib-entry"><a class="citation" href="https://arxiv.org/html/2504.12369v3" title="WorldMem: Long-term Consistent World Simulation with Memory">[6]</a> Xiao, Zeqi et al. (2025). &quot;WorldMem: Long-term Consistent World Simulation with Memory&quot;. NeurIPS 2025, confirmed by official proceedings and repository. <a href="https://arxiv.org/html/2504.12369v3">Primary source</a>. Retrieved 2026-10-31.</p>
+<p class="bib-entry"><a class="citation" href="https://arxiv.org/html/2606.08277v1" title="Remember with Confidence: Uncertainty Quantification for Spatio-temporal Memory with Probabilistic Guarantees">[7]</a> Zhang, Harry et al. (2026). &quot;Remember with Confidence: Uncertainty Quantification for Spatio-temporal Memory with Probabilistic Guarantees&quot;. arXiv preprint; acceptance not established. <a href="https://arxiv.org/html/2606.08277v1">Primary source</a>. Retrieved 2026-10-31.</p>
+<p class="bib-entry"><a class="citation" href="https://arxiv.org/html/2205.10906" title="Monitoring of Perception Systems: Deterministic, Probabilistic, and Learning-based Fault Detection and Identification">[8]</a> Pasquale Antonante et al. (2023). &quot;Monitoring of Perception Systems: Deterministic, Probabilistic, and Learning-based Fault Detection and Identification&quot;. Artificial Intelligence 325, 103998; arXiv first submitted 2022. <a href="https://arxiv.org/html/2205.10906">Primary source</a>. Retrieved 2026-10-31.</p>
+<p class="bib-entry"><a class="citation" href="https://arxiv.org/html/2509.18460" title="A Counterfactual Reasoning Framework for Fault Diagnosis in Robot Perception Systems">[9]</a> Haeyoon Han et al. (2025). &quot;A Counterfactual Reasoning Framework for Fault Diagnosis in Robot Perception Systems&quot;. arXiv:2509.18460v1; venue acceptance not independently verified. <a href="https://arxiv.org/html/2509.18460">Primary source</a>. Retrieved 2026-10-31.</p>
+<p class="bib-entry"><a class="citation" href="https://arxiv.org/html/2111.03751" title="Asynchronous Collaborative Localization by Integrating Spatiotemporal Graph Learning with Model-Based Estimation">[10]</a> Peng Gao et al. (2022). &quot;Asynchronous Collaborative Localization by Integrating Spatiotemporal Graph Learning with Model-Based Estimation&quot;. ICRA 2022; arXiv:2111.03751v1 (2021), author institutional publication list confirms venue. <a href="https://arxiv.org/html/2111.03751">Primary source</a>. Retrieved 2026-10-31.</p>
+<p class="bib-entry"><a class="citation" href="https://arxiv.org/html/1808.00692" title="Online Temporal Calibration for Monocular Visual-Inertial Systems">[11]</a> Tong Qin and Shaojie Shen (2018). &quot;Online Temporal Calibration for Monocular Visual-Inertial Systems&quot;. IROS 2018. <a href="https://arxiv.org/html/1808.00692">Primary source</a>. Retrieved 2026-10-31.</p>
+<p class="bib-entry"><a class="citation" href="https://nikosuenderhauf.github.io/assets/papers/IROS12-switchableConstraints.pdf" title="Switchable Constraints for Robust Pose Graph SLAM">[12]</a> Niko Sünderhauf and Peter Protzel (2012). &quot;Switchable Constraints for Robust Pose Graph SLAM&quot;. IROS 2012. <a href="https://nikosuenderhauf.github.io/assets/papers/IROS12-switchableConstraints.pdf">Primary source</a>. Retrieved 2026-10-31.</p>
+<p class="bib-entry"><a class="citation" href="https://arxiv.org/html/2005.00167" title="Information-Collection in Robotic Process Monitoring: An Active Perception Approach">[13]</a> Martin A. Sehr et al. (2020). &quot;Information-Collection in Robotic Process Monitoring: An Active Perception Approach&quot;. arXiv:2005.00167v1; venue not independently verified. <a href="https://arxiv.org/html/2005.00167">Primary source</a>. Retrieved 2026-10-31.</p>
+<p class="bib-entry"><a class="citation" href="https://arxiv.org/html/2007.03891" title="Single-Frame based Deep View Synchronization for Unsynchronized Multi-Camera Surveillance">[14]</a> Qi Zhang and Antoni B. Chan (2023). &quot;Single-Frame based Deep View Synchronization for Unsynchronized Multi-Camera Surveillance&quot;. IEEE TNNLS 34(12), 10653–10667; 2020 preprint, v3 May 2022; institutional publication list confirms 2023 issue. <a href="https://arxiv.org/html/2007.03891">Primary source</a>. Retrieved 2026-10-31.</p>
+<p class="bib-entry"><a class="citation" href="https://wiki.hiwonder.com/projects/PuppyPi/en/latest/docs/1.Quick_Start_Guide.html" title="PuppyPi Quick Start Guide: packing lists">[15]</a> Hiwonder (n.d.). &quot;PuppyPi Quick Start Guide: packing lists&quot;. Manufacturer documentation, current version inspected 2026-10-31. <a href="https://wiki.hiwonder.com/projects/PuppyPi/en/latest/docs/1.Quick_Start_Guide.html">Primary source</a>. Retrieved 2026-10-31.</p>
+<p class="bib-entry"><a class="citation" href="https://arxiv.org/html/2404.12785" title="AutoInspect: Towards Long-Term Autonomous Industrial Inspection">[16]</a> Staniaszek, Michal et al. (2024). &quot;AutoInspect: Towards Long-Term Autonomous Industrial Inspection&quot;. 2024 paper, arXiv v3. <a href="https://arxiv.org/html/2404.12785">Primary source</a>. Retrieved 2026-10-31.</p>
+<p class="bib-entry"><a class="citation" href="https://arxiv.org/html/2602.16182" title="World Model Failure Classification and Anomaly Detection for Autonomous Inspection">[17]</a> Ho, Michelle et al. (2026). &quot;World Model Failure Classification and Anomaly Detection for Autonomous Inspection&quot;. 2026-02-18 preprint v1. <a href="https://arxiv.org/html/2602.16182">Primary source</a>. Retrieved 2026-10-31.</p>
+<p class="bib-entry"><a class="citation" href="https://arxiv.org/html/2303.03797" title="External Camera-based Mobile Robot Pose Estimation for Collaborative Perception with Smart Edge Sensors">[18]</a> Bultmann, Simon et al. (2023). &quot;External Camera-based Mobile Robot Pose Estimation for Collaborative Perception with Smart Edge Sensors&quot;. 2023 paper; ICRA-era work. <a href="https://arxiv.org/html/2303.03797">Primary source</a>. Retrieved 2026-10-31.</p>
+<p class="bib-entry"><a class="citation" href="https://arxiv.org/html/2512.16908v2" title="SceneDiff: A Benchmark and Method for Multiview Object Change Detection">[19]</a> Wu, Yuqun et al. (2026). &quot;SceneDiff: A Benchmark and Method for Multiview Object Change Detection&quot;. 2026-03-31 v2; official project/repo label ECCV 2026. <a href="https://arxiv.org/html/2512.16908v2">Primary source</a>. Retrieved 2026-10-31.</p>
+<p class="bib-entry"><a class="citation" href="https://www.ipb.uni-bonn.de/html/projects/localization_benchmark/" title="LILocBench: Long-Term Indoor Localization Benchmark">[20]</a> LILocBench project, University of Bonn (2025). &quot;LILocBench: Long-Term Indoor Localization Benchmark&quot;. IROS 2025 benchmark. <a href="https://www.ipb.uni-bonn.de/html/projects/localization_benchmark/">Primary source</a>. Retrieved 2026-10-31.</p>
+<p class="bib-entry"><a class="citation" href="https://github.com/AprilRobotics/apriltag" title="AprilTag 3 official implementation">[21]</a> AprilRobotics (n.d.). &quot;AprilTag 3 official implementation&quot;. Current repository inspected 2026-10-31. <a href="https://github.com/AprilRobotics/apriltag">Primary source</a>. Retrieved 2026-10-31.</p>
+<p class="bib-entry"><a class="citation" href="https://github.com/aiortc/aiortc/tree/main/examples/server" title="aiortc browser audio/video/data-channel server example">[22]</a> aiortc maintainers (n.d.). &quot;aiortc browser audio/video/data-channel server example&quot;. Current repository inspected 2026-10-31. <a href="https://github.com/aiortc/aiortc/tree/main/examples/server">Primary source</a>. Retrieved 2026-10-31.</p>
+<p class="bib-entry"><a class="citation" href="https://worldmodels.github.io/" title="World Models">[23]</a> David Ha and Jürgen Schmidhuber (2018). &quot;World Models&quot;. Interactive research article; related NeurIPS 2018 paper. <a href="https://worldmodels.github.io/">Primary source</a>. Retrieved 2026-10-31.</p>
+<p class="bib-entry"><a class="citation" href="https://arxiv.org/abs/2206.14176" title="DayDreamer: World Models for Physical Robot Learning">[24]</a> Philipp Wu et al. (2022). &quot;DayDreamer: World Models for Physical Robot Learning&quot;. CoRL 2022, as cited in official repository. <a href="https://arxiv.org/abs/2206.14176">Primary source</a>. Retrieved 2026-10-31.</p>
+<p class="bib-entry"><a class="citation" href="https://arxiv.org/abs/2503.11651" title="VGGT: Visual Geometry Grounded Transformer">[25]</a> Jianyuan Wang et al. (2025). &quot;VGGT: Visual Geometry Grounded Transformer&quot;. CVPR 2025. <a href="https://arxiv.org/abs/2503.11651">Primary source</a>. Retrieved 2026-10-31.</p>
+<p class="bib-entry"><a class="citation" href="https://people.eecs.berkeley.edu/~sseshia/pubdir/rv15.pdf" title="Robust Online Monitoring of Signal Temporal Logic">[26]</a> Jyotirmoy V. Deshmukh et al. (2015). &quot;Robust Online Monitoring of Signal Temporal Logic&quot;. Runtime Verification 2015. <a href="https://people.eecs.berkeley.edu/~sseshia/pubdir/rv15.pdf">Primary source</a>. Retrieved 2026-10-31.</p>
+<p class="bib-entry"><a class="citation" href="https://github.com/nickovic/rtamt" title="RTAMT: Specification-based real-time monitoring library">[27]</a> RTAMT maintainers (n.d.). &quot;RTAMT: Specification-based real-time monitoring library&quot;. Official repository, inspected 2026-10-31. <a href="https://github.com/nickovic/rtamt">Primary source</a>. Retrieved 2026-10-31.</p>
+</section></article><footer class="footer">Canonical Markdown and evidence ledgers live in the PuppyPi repository. Generated HTML/PDF are reading copies. Proposed behaviors are not delivered robot features.</footer></main></body></html>

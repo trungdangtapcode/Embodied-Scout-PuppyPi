@@ -71,6 +71,12 @@ The [39-feature inventory](docs/06-feature-roadmap.md) records status, priority,
 dependencies, and acceptance criteria. Features share one perception, evidence,
 mission, and motion stack.
 
+The [skill-based deep review](docs/18-deep-research-room-intelligence.md) records
+27 sources, claim/evidence ledgers, a counterfactual-history figure and a
+temporal-coverage/acquisition proposal, with [HTML](docs/research/2026-10-31-deep-room/report.html)
+and [PDF](docs/research/2026-10-31-deep-room/report.pdf) reading copies. These are
+research documents, not newly delivered robot features.
+
 The [deep prior-art audit](docs/17-deep-research-active-room-inspection.md)
 compares twelve related works and their source availability, then proposes an
 illustrated joint room-change/source-diagnosis experiment with strong baselines.

@@ -1,0 +1,78 @@
+{
+  "version": "3.0.0",
+  "query": "Which impressive, feasible PuppyPi Standard room-inspection application and falsifiable research contribution survive close prior art in temporal memory, active diagnosis, world models and partial observation?",
+  "mode": "deep",
+  "started_at": "2026-10-31T06:32:23.284585+00:00",
+  "finished_at": "2026-10-31T06:52:17.344468+00:00",
+  "assumptions": [
+    "PuppyPi Standard confirmed; board/firmware/sensors/host compute unverified",
+    "More than three months available",
+    "English technical documents and UI; Vietnamese conversation",
+    "No models, paid API, private recordings or hardware execution"
+  ],
+  "provider_config": {
+    "primary": "web.run",
+    "fallback_reason": "search CLI is not installed",
+    "parallel_agents": [
+      "world_models",
+      "active_diagnosis",
+      "platform_benchmark"
+    ]
+  },
+  "report_dir": "/home/nguyentnt/PDWAIA/ecus/hi/docs/research/2026-10-31-deep-room",
+  "artifact_paths": {
+    "sources": "sources.jsonl",
+    "evidence": "evidence.jsonl",
+    "claims": "claims.jsonl",
+    "report": "../../18-deep-research-room-intelligence.md",
+    "html": "report.html",
+    "pdf": "report.pdf",
+    "preview": "report-preview.png",
+    "validation": "validation.md",
+    "source_metadata": "source-metadata.json",
+    "repository_snapshots": "repository-snapshots.json"
+  },
+  "continuation": null,
+  "skill": {
+    "name": "deep-research",
+    "url": "https://github.com/199-biotechnologies/claude-deep-research-skill",
+    "revision": "f2f2c0fa4e7617ca84c86b63f4bb40f77a746933"
+  },
+  "adaptations": [
+    "Repository documentation is canonical; delivery bundle also copied to ~/Documents",
+    "Use primary technical sources; no news quota",
+    "Credibility scores are heuristic triage, not calibrated truth probabilities",
+    "Scientific source, project and repository share an independence cluster",
+    "HTML uses an isolated CommonMark renderer because the reference converter omits inline-link conversion",
+    "Chromium provides headless opening, visual preview and PDF generation; no desktop GUI session is assumed",
+    "Repository/handoff replaces the skill-specific ~/.claude internal tracking location"
+  ],
+  "review_results": {
+    "registered_sources": 27,
+    "evidence_records": 55,
+    "tracked_claims": 84,
+    "factual_claims": 79,
+    "automated_unsupported_factual": 0,
+    "interpretation_records_partial_overlap": 5,
+    "source_urls_accessible": 27,
+    "citation_title_heuristic_false_positive": "Source 22 is the real aiortc server example; manually reviewed",
+    "pdf_pages": 19,
+    "hardware_trials": 0,
+    "novelty_status": "unverified research hypothesis"
+  },
+  "report_word_count": 8397,
+  "source_revision_before_research": "c856f38",
+  "artifact_sha256": {
+    "repository-snapshots.json": "92259cf9589ae97f7560bb3b31de5bfcfe968d0eedacbf0296e2045a35a55fb3",
+    "claims.jsonl": "9473d9b9fc80eadb645251ae56750102ccce816c29658a8ccb4c70154ad8c643",
+    "evidence.jsonl": "895412fa059d2df341f811e536b4bed03926671edbc31ef3ec54b625bf28c484",
+    "sources.jsonl": "d935a82c287e0319972f1339f65851c24f44252de6429ab51edcbf6a254cde60",
+    "source-metadata.json": "e9169a4a204edc6bb86b9c898f16b8549e634e2b345f0134fcc7338193b7dd82",
+    "validation.md": "902b4b38dd1733a9bd287383709d6e6efdc49a7f94e36c38a6dd610b68a02e5c",
+    "citation-map.json": "de400929063ae0defdac6fb58b92500b64d7e7ed1bde2c702adbbdee072b8cc3",
+    "report-preview.png": "f44209af3312eb68143cc8c27ab30331688d1d74638058e8f36515d922a4bc6a",
+    "report.html": "5415f94f7dbf16f1ceab0bb90b5e7668afd0f853841e6e37e2deedf03e080362",
+    "report.pdf": "4a762ec237a25821e6ecd8745c861bf55344988a454458584e64e606916c8f76"
+  },
+  "canonical_report_sha256": "ee7307345daac4d6d37b8621c6a523ac7df3757a5b9d48c8a70e5b0ed7fdfcb7"
+}

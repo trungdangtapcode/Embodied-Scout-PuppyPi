@@ -113,6 +113,13 @@ It proposes joint scene-change/source-reliability evaluation with asynchronous
 robot/phone evidence. This is an unimplemented research hypothesis, not a
 demonstrated novelty or capability; F33–F39 statuses remain unchanged.
 
+The [skill-based deep review](18-deep-research-room-intelligence.md) adds 27
+primary papers/documentation sources, persisted evidence and claims, and a
+readable HTML/PDF report. It prioritizes coverage-aware temporal claims and
+prospective robot/phone acquisition over generic joint diagnosis. Periodic gated
+temporal monitoring is the required strong baseline. This remains a research
+proposal; no new perception, phone or physical-patrol capability is delivered.
+
 The new [Phone Observer track](11-phone-observer-research.md) plans a fixed phone
 camera for external robot localization, cross-view evidence, view selection, and
 paired replay. It reuses the same store and policies. Robot camera provenance is
@@ -135,7 +142,7 @@ it in a mission. No live hardware capability is marked verified yet.
 
 ## Documentation precedence
 
-This status page and the numbered 06–17 documents describe current scope. Documents
+This status page and the numbered 06–18 documents describe current scope. Documents
 01–05 and the 2026-10-30 handoff remain historical source material. Statements in
 those files about novelty, ROS distribution compatibility, hardware safety,
 onboard model runtime, and sensor range need the corresponding implementation

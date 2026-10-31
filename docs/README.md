@@ -31,6 +31,7 @@ Python versus native code, and venv versus Docker/ROS before the research plans.
 | [15 Next-feature research](15-next-feature-research.md) | Verified reuse candidates, six prioritized extensions, one main research hypothesis and a 16-week sequence |
 | [16 Room Patrol proposal](16-room-patrol-world-model-proposal.md) | Five-layer room model, bounded patrol, verified scene-graph/mapping work, sensor choices and paired evaluation |
 | [17 Deep room-inspection research](17-deep-research-active-room-inspection.md) | Twelve-work prior-art audit, source-release checks, joint change/source-diagnosis proposal, visual experiment and strong baselines |
+| [18 Skill-based deep research](18-deep-research-room-intelligence.md) | 27-source evidence-tracked review, temporal observability, counterfactual-history benchmark and acquisition proposal; [HTML](research/2026-10-31-deep-room/report.html), [19-page PDF](research/2026-10-31-deep-room/report.pdf), [validation](research/2026-10-31-deep-room/validation.md) |
 | [Contributor guide](../CONTRIBUTING.md) | Setup, checks, commit conventions, review and evidence workflow |
 | [Agent instructions](../AGENTS.md) | Repository-specific instructions for coding agents |
 | [2026-10-31 handoff](handoffs/2026-10-31-handoff.md) | Repository bootstrap, verification, and next implementation steps |
