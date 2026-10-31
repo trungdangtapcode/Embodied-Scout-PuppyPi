@@ -2,7 +2,8 @@
 
 The four R&D tracks extend the existing `teach_and_find` package. Keep one set
 of perception adapters, evidence records, mission contracts, and motion limits.
-The structures below are proposed contracts, not implemented APIs.
+The table below describes target contracts; the implemented subset is called out
+separately. Do not treat the complete table as an available API.
 
 ## Existing and proposed boundaries
 
@@ -24,8 +25,12 @@ flowchart LR
 
 Existing: `config.py`, perception interfaces, `ObjectMemoryBank`, planners,
 `VerificationSession`, mission FSM, ROS 2 translation, TCP relay, and synthetic
-evaluation. Proposed: durable evidence store, typed task requests, route executor,
-question/answer state, inspection rules, operator interface, and report export.
+evaluation. The local operator slice adds `storage.py` (SQLite migrations and PNG
+evidence), `library.py` (persistent objects/assertions), `inspection.py` (checklists,
+recorded-evidence rules and reports), and `cli.py`. It adapts persisted records
+into the existing bank. Proposed: automatic mission-to-store observation capture,
+typed task requests, route executor, question/answer state, automatic inspection
+perception, and a live operator interface.
 
 Keep ROS imports inside adapters and robot entry points. Model-specific tensors
 and response formats must be converted into project-owned observations before
@@ -44,8 +49,8 @@ instance decision; neither directly commands motion.
 | Finding | Predicate, pass/fail/unknown, evidence IDs, observation time | A missing or obscured observation produces unknown, not pass |
 | Mission result | Outcome, stop reason, findings, interventions, evidence references | Task confirmation and successful return HOME are separate outcomes |
 
-Begin persistence with SQLite metadata and file-backed evidence crops under an
-ignored data directory. Use explicit schema versions and migrations. A vector
+Persistence uses SQLite metadata and file-backed evidence crops under an
+ignored data directory, with explicit schema versions and migrations. A vector
 database is optional only when measured scale warrants it. Keep reference crops
 and observation evidence outside application logs.
 

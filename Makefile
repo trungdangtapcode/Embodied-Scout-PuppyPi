@@ -2,7 +2,7 @@ UV_PROJECT_ENVIRONMENT ?= .venv-dev
 export UV_PROJECT_ENVIRONMENT
 UV_RUN = uv run --locked --extra dev
 
-.PHONY: setup setup-sim hooks check test build benchmark render-3d tags
+.PHONY: setup setup-sim hooks check test build benchmark render-3d tags demo-assistant
 
 setup:
 	uv sync --locked --extra dev
@@ -34,3 +34,6 @@ render-3d:
 
 tags:
 	$(UV_RUN) python scripts/print_apriltags.py
+
+demo-assistant:
+	$(UV_RUN) python scripts/demo_assistant.py

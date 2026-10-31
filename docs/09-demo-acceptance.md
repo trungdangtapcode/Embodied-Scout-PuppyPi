@@ -46,7 +46,10 @@ result:
 evidence_directory: evidence
 ```
 
-This is a proposed manifest format, not an implemented exporter. Fill provenance
+This is the proposed full mission manifest format. The implemented
+`make demo-assistant` writes a smaller synthetic workflow manifest and portable
+report, described in [operator workflows](10-operator-workflows.md); it does not
+implement all fields above. Fill provenance
 from the actual run. Observation records need capture/receive timestamps and
 image IDs; action records need requested action, expiry, measured outcome, and
 stop reason. Model manifests identify upstream revision, checkpoint hash, and

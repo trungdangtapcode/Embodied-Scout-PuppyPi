@@ -11,9 +11,11 @@ search, multi-view verification, topological planning, AprilTag recovery, and a
 ROS 2/TCP bridge with a tested loopback watchdog. It also includes synthetic
 experiment artifacts and MuJoCo CAD visualizations.
 
-The expanded applications are **planned**, not already implemented. Physical
-robot validation is pending. Historical benchmark scores describe the supplied
-synthetic scenario. Read [capability and evidence status](docs/00-project-status.md).
+The local CLI now adds persistent object enrollment and management, timestamped
+observation history, checklist rules, and portable HTML/JSON reports with images.
+Inspection evaluates recorded assertions; autonomous visual inspection and
+physical robot validation are pending. Historical benchmark scores describe the
+supplied synthetic scenario. Read [capability and evidence status](docs/00-project-status.md).
 
 ## Application and research tracks
 
@@ -49,10 +51,16 @@ ROS 2 and pretrained GPU models are optional deployment integrations.
 make benchmark       # synthetic experiment; updates tracked outputs
 make render-3d       # optional MuJoCo EGL visualization with sim extras
 make tags            # regenerate printable AprilTags
+make demo-assistant  # persistent library + synthetic inspection report
 ```
 
 The renderer regenerates ignored `assets/mujoco_generated/` for the checkout path.
 Inspect output changes before committing a new benchmark.
+
+The assistant demo prints a local HTML report path and records one pass, two
+failures, and one unknown from scripted synthetic observations. It creates a new
+ignored run directory each time. See [operator workflows](docs/10-operator-workflows.md)
+for enrollment, history, inspection, export, and their current limitations.
 
 ## Project map
 

@@ -30,7 +30,7 @@ class CameraSettings:
 
 @dataclass(frozen=True)
 class PuppyMotionLimits:
-    """Hardware-verified command limits from Hiwonder puppy_control/puppy.py."""
+    """Conservative command bounds informed by vendor source; hardware unverified."""
 
     # VelocityFun requires |x| <= 35 cm/s and y == 0; VelocityMoveFun allows y != 0.
     max_vx_cm_s: float = 14.0
@@ -145,6 +145,19 @@ class EdgeRelaySettings:
 
 
 @dataclass(frozen=True)
+class AssistantSettings:
+    """Persistent operator workflows and uncalibrated evidence-quality gates."""
+
+    data_dir: str = field(default_factory=lambda: os.getenv("TEACH_FIND_DATA_DIR", "data/assistant"))
+    encoder_revision: str = field(default_factory=lambda: os.getenv("TEACH_FIND_ENCODER_REVISION", ""))
+    minimum_quality: float = 0.60
+    minimum_visibility: float = 0.80
+    inspection_max_age_s: float = 300.0
+    history_limit: int = 100
+    demo_output_dir: str = "runs/assistant-demo"
+
+
+@dataclass(frozen=True)
 class Settings:
     """Top-level configuration bundle."""
 
@@ -156,3 +169,4 @@ class Settings:
     planner: PlannerSettings = field(default_factory=PlannerSettings)
     ros2: Ros2TopicSettings = field(default_factory=Ros2TopicSettings)
     edge_relay: EdgeRelaySettings = field(default_factory=EdgeRelaySettings)
+    assistant: AssistantSettings = field(default_factory=AssistantSettings)

@@ -12,6 +12,7 @@ demonstration or report.
 | [07 Research program](07-research-program.md) | Four tracks, hypotheses, related work, baselines, evaluation |
 | [08 Shared architecture](08-system-evolution.md) | Reuse register, boundaries, proposed records and integration order |
 | [09 Demo acceptance](09-demo-acceptance.md) | Scenarios and proposed experiment/evidence manifests |
+| [10 Operator workflows](10-operator-workflows.md) | Implemented persistent library, history, annotation-driven inspection and report export |
 | [Contributor guide](../CONTRIBUTING.md) | Setup, checks, commit conventions, review and evidence workflow |
 | [Agent instructions](../AGENTS.md) | Repository-specific instructions for coding agents |
 | [2026-10-31 handoff](handoffs/2026-10-31-handoff.md) | Repository bootstrap, verification, and next implementation steps |

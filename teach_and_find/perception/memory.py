@@ -93,6 +93,21 @@ class ObjectMemoryBank:
             self._distractor_bank.pop(0)
         self._distractor_bank.append(embedding.astype(np.float32))
 
+    def restore_record(self, record: ObjectRecord) -> None:
+        """Restore persisted prototypes after the caller checks encoder identity."""
+        prototypes = record.prototypes
+        if (prototypes.ndim != 2 or prototypes.shape[1] != self.encoder.embedding_dim
+                or len(prototypes) == 0 or not np.isfinite(prototypes).all()
+                or len(record.reference_crops) != len(prototypes)
+                or len(record.view_angles_deg) != len(prototypes)):
+            raise ValueError("Stored object prototypes are incompatible or incomplete.")
+        self._objects[record.name] = ObjectRecord(
+            name=record.name, prototypes=prototypes.copy(),
+            reference_crops=[crop.copy() for crop in record.reference_crops],
+            view_angles_deg=list(record.view_angles_deg),
+            station_hit_counts=dict(record.station_hit_counts),
+        )
+
     def register_distractor_crop(self, crop_bgr: np.ndarray) -> None:
         self.register_distractor_embedding(self.encoder.embed(crop_bgr))
 
