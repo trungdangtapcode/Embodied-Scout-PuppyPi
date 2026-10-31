@@ -22,6 +22,31 @@
   Vietnamese UI, source code, fixtures, or technical documentation. Preserve
   user-entered names and historical evidence in their original language.
 
+## Mandatory foundation: real research, repositories and frameworks
+
+- Base technical solutions on verifiable research, actual source repositories
+  and established frameworks. For perception, tracking, navigation, memory and
+  control, inspect and reuse relevant existing implementations instead of
+  inventing a substitute and attaching a paper's name to it.
+- Verify primary papers, author/project repositories and official framework
+  documentation before selecting a solution. Check the actual source and entry
+  points, released components/checkpoints, license, version, dependencies, input
+  assumptions and fit to PuppyPi. Never invent sources, APIs, releases or results.
+- Record what is actually reused: paper/source URL, repository revision or
+  framework version, component, local adapter, execution command and observed
+  result. A bibliography, candidate list, installed package or unused import is
+  not implementation reuse or evidence that a feature works.
+- Use the selected upstream implementation/framework in the supported execution
+  path. Project-owned code should connect, configure and extend verified
+  components; document any necessary custom algorithm and its limitations before
+  presenting it as the chosen solution. A declared heuristic remains allowed,
+  but cannot fulfill a claim of model inference or paper-repository integration.
+- Exercise the genuine upstream example and the project integration before
+  claiming success. Missing code, incompatible inputs, unavailable weights or
+  execution failures must be reported as FAIL for the affected capability, with
+  no hardcoded or fallback substitute. Keep source availability, installation,
+  successful execution and evaluated quality as separate evidence states.
+
 ## Architecture and configuration
 
 - Keep the Python core independent of ROS, model transport, and UI frameworks.
