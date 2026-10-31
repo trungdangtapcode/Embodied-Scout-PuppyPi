@@ -1,6 +1,6 @@
 # PuppyPi shared system architecture
 
-The four R&D tracks extend the existing `teach_and_find` package. Keep one set
+The five R&D tracks extend the existing `teach_and_find` package. Keep one set
 of perception adapters, evidence records, mission contracts, and motion limits.
 The table below describes target contracts; the implemented subset is called out
 separately. Do not treat the complete table as an available API.
@@ -12,6 +12,7 @@ flowchart LR
     O[Operator interface and optional speech] --> T[Validated task request]
     T --> M[Mission orchestrator]
     C[Camera and measured robot state] --> P[Perception adapters]
+    F[Planned phone adapter and calibration] --> P
     P --> E[Timestamped observation and evidence store]
     E --> B[Object and station beliefs]
     B --> D[Search, inspect, look or ask policy]
@@ -43,6 +44,7 @@ instance decision; neither directly commands motion.
 | --- | --- | --- |
 | Object identity | Stable ID, display name, reference image IDs, encoder signature, prototypes | Names can change without changing identity; reject incompatible embedding versions |
 | Observation | ID, capture timestamp, station/pose estimate, source frame, object hypotheses, quality, visibility | Preserve capture time separately from receive/processing time |
+| Camera/session, planned | Camera ID, clock mapping/error, calibration revision, orientation, resolution and pose validity | A changed phone pose or lens invalidates fixed calibration; never fuse by arrival time alone |
 | Belief | Object/station hypotheses, supporting observation IDs, update time, freshness | Derived state can change; original evidence remains immutable |
 | Task | ID, validated kind, target/rules, time/view/question budgets | Unknown or unsupported requests produce a typed error |
 | Action | ID, skill, bounded arguments, expiry, execution status | Distinguish requested from achieved motion; reject stale commands |
@@ -88,6 +90,14 @@ when an integration is actually selected.
 | [ViNT/NoMaD](https://github.com/robodhruv/visualnav-transformer) | Checkpoints and demonstrated-route navigation | Adapt velocity control, camera geometry, and low-viewpoint domain shift |
 | [VLFM](https://github.com/rai-opensource/vlfm) | Semantic frontier selection | Depth-based occupancy map; not a direct RGB-only deployment |
 | [RoboHop](https://github.com/oravus/RoboHop) | Topological representation paper | Linked repository contained only README; not an implementation dependency |
+| [AprilTag](https://github.com/AprilRobotics/apriltag) / [OpenCV](https://docs.opencv.org/4.x/d9/d0c/group__calib3d.html) | External pose and camera calibration baseline | Reuse existing tag detection; measure phone/world/body transforms and invalidate stale calibration |
+| [aiortc](https://github.com/aiortc/aiortc) | Browser-to-host video/data-channel transport | Optional phone adapter; timestamp mapping, secure capture and disconnect handling require integration |
+| [Ego4D / Ego-Exo4D tools](https://github.com/facebookresearch/Ego4d) | Multi-camera dataset utilities and synchronization conventions | Human activity data; no direct robot policy transfer; dataset terms separate from code |
+
+The [Phone Observer design](11-phone-observer-research.md) details these last
+three entries, their source availability, geometry, and evaluation limits. The
+current evidence schema needs a migration before it can represent camera sessions
+and clock uncertainty; do not create a separate phone-only memory store.
 
 ## Physical execution prerequisites
 

@@ -1,6 +1,6 @@
 # PuppyPi research program
 
-The application roadmap supports four research tracks. Each track has a
+The application roadmap supports five research tracks. Each track has a
 testable hypothesis, reusable prior work, and controlled baselines. Combining
 existing models or deploying on a less expensive robot alone is not evidence of
 algorithmic novelty. The proposed contributions remain hypotheses until compared
@@ -121,6 +121,32 @@ quality-aware action choice. Evaluate the same objects and view budgets.
 blur, missed tags, and physical interventions. Report energy only if measured;
 distance is not an energy measurement. Features: F26–F27.
 
+## R5 External-view selection with a phone observer
+
+**Question:** when does consulting a fixed external camera improve object finding
+or inspection enough to justify transmission, processing, and synchronization cost?
+
+**Hypothesis:** freshness/visibility-aware view selection reduces travel and false
+confirmation relative to ego-only and always-fuse approaches at comparable success.
+Combine robot close views with a fixed phone overview; use station hypotheses
+before attempting metric 3D object reconstruction.
+
+The [Phone Observer research plan](11-phone-observer-research.md) verifies related
+work and reusable components: external-camera robot pose estimation, Ego-Exo4D,
+AprilTag/OpenCV, and optional aiortc transport. It specifies geometry, clock
+uncertainty, camera provenance, and a schedule for PuppyPi Standard. The current
+repository has none of the proposed phone capture/fusion components implemented.
+
+**Baselines:** ego only, exo only, always fuse, fixed quality/freshness gates,
+cost-aware selection; use an offline oracle only as a diagnostic reference.
+Hold perception versions and task layouts fixed. Report equal-time/action and
+equal-processed-frame comparisons, with explicit sensor availability.
+
+**Outcomes:** instance/inspection accuracy, false confirmation, unknown rate,
+travel, duration, questions, traffic, stream age, clock uncertainty, and physical
+interventions. Ground-truth localization must be independent of the camera being
+evaluated. Features: F33–F37, enriching F12/F20–F25 without recounting them.
+
 ## Shared experimental protocol
 
 1. Collect enrollment images separately from calibration and evaluation data.
@@ -152,6 +178,9 @@ a small station test an equivalent benchmark or justify comparing raw scores.
 
 Each track should produce a question and related-work comparison, a reproducible
 baseline, one clearly isolated proposed method, an ablation, failure analysis,
-and a demo tied to measured behavior. Prioritize R1; add R2 and R3 through the
-shared application services, then R4 after physical motion characterization.
+and a demo tied to measured behavior. For the confirmed Standard kit and horizon
+longer than three months, prioritize R1 and R5 as the main experimental story.
+Add R2/R3 through shared application services, and R4 after physical motion
+characterization. Do not promise five independently novel algorithms merely
+because there are five research tracks.
 Publication readiness depends on evidence and comparison, not the feature count.

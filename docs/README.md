@@ -8,11 +8,12 @@ demonstration or report.
 | Document | Purpose |
 | --- | --- |
 | [00 Project status](00-project-status.md) | Implemented behavior, evidence boundaries, hardware assumptions |
-| [06 Feature roadmap](06-feature-roadmap.md) | 32 feature entries with status, dependencies, priorities, and demo criteria |
-| [07 Research program](07-research-program.md) | Four tracks, hypotheses, related work, baselines, evaluation |
+| [06 Feature roadmap](06-feature-roadmap.md) | 37 feature entries with status, dependencies, priorities, and demo criteria |
+| [07 Research program](07-research-program.md) | Five tracks, hypotheses, related work, baselines, evaluation |
 | [08 Shared architecture](08-system-evolution.md) | Reuse register, boundaries, proposed records and integration order |
 | [09 Demo acceptance](09-demo-acceptance.md) | Scenarios and proposed experiment/evidence manifests |
 | [10 Operator workflows](10-operator-workflows.md) | Implemented persistent library, history, annotation-driven inspection and report export |
+| [11 Phone Observer research](11-phone-observer-research.md) | Fixed-phone external view, verified sources/code, ego/exo baselines and adjustable 16-week schedule |
 | [Contributor guide](../CONTRIBUTING.md) | Setup, checks, commit conventions, review and evidence workflow |
 | [Agent instructions](../AGENTS.md) | Repository-specific instructions for coding agents |
 | [2026-10-31 handoff](handoffs/2026-10-31-handoff.md) | Repository bootstrap, verification, and next implementation steps |

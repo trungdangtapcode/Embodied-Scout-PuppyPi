@@ -63,6 +63,11 @@ planned. Feature-level status and acceptance criteria are recorded in
 [the feature roadmap](06-feature-roadmap.md). A planning entry is not an
 implemented feature.
 
+The new [Phone Observer track](11-phone-observer-research.md) plans a fixed phone
+camera for external robot localization, cross-view evidence, view selection, and
+paired replay. It reuses the same store and policies. Camera/session metadata,
+clock alignment, streaming, calibration, and fusion are not implemented yet.
+
 ## Hardware assumptions to resolve
 
 - Confirmed by the user: **PuppyPi Standard**, with **more than three months**
@@ -78,7 +83,7 @@ it in a mission. No live hardware capability is marked verified yet.
 
 ## Documentation precedence
 
-This status page and the numbered 06–10 documents describe current scope. Documents
+This status page and the numbered 06–11 documents describe current scope. Documents
 01–05 and the 2026-10-30 handoff remain historical source material. Statements in
 those files about novelty, ROS distribution compatibility, hardware safety,
 onboard model runtime, and sensor range need the corresponding implementation

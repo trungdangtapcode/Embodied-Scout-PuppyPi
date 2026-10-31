@@ -58,10 +58,18 @@ hardware/model extensions. Priorities are dependencies, not calendar promises.
 | F30 | Teach and replay a route using visual landmarks | Planned | P3 | Evaluate repeatability and interventions on held-out route conditions | F09 |
 | F31 | Propose unfamiliar objects from image/text prompts | Planned | P2 | Evaluate pretrained proposals on real crops, including missed objects | F01, F06 |
 | F32 | Compare algorithms through repeatable experiments | Prototype: four-way synthetic ablation | P1 | Reproduce paired trials and export metrics with revision/config/seed | F08 |
+| F33 | Connect a phone as a third-person camera | Planned | P1 | View both sources with capture time, frame age, and disconnect state | F06, F28 |
+| F34 | Show externally measured robot position | Planned | P1 | Calibrate phone/world/robot geometry; measure pose error; reject lost or invalid calibration | F33 |
+| F35 | Confirm objects and inspection findings across cameras | Planned | P2 | Associate exact instance/station evidence; conflicting or stale views cannot confirm | F11, F20, F33, F34 |
+| F36 | Select a robot view, phone view, movement, or question | Planned | P2 | Compare accuracy, time, travel, and questions with equal-budget baselines | F18, F35 |
+| F37 | Replay synchronized robot and phone observations | Planned | P1 | Export paired timelines, evidence, clock uncertainty, missing frames and calibration IDs | F08, F33 |
 
 Statuses describe the current baseline, not promises of physical performance.
 Speech can initially use the operator laptop's microphone and speaker. F30 is an
 optional navigation study; initial application demos can use validated stations.
+The [Phone Observer plan](11-phone-observer-research.md) specifies F33–F37 and
+related work. Begin with one fixed phone; a handheld observer needs per-frame
+camera localization. F34 supplies pose, not general obstacle avoidance.
 
 ## Delivery order
 
@@ -72,6 +80,7 @@ optional navigation study; initial application demos can use validated stations.
 | M2 Broad application demo | F08, F10, F11, F14–F16, F20, F21, F23, F25, F28 | One operator flow demonstrates object library, search, history, and checklist reports |
 | M3 Memory and decision research | F12, F13, F17–F19, F24, F31, expanded F32 | Held-out experiments isolate memory freshness, observation quality, and action selection |
 | M4 Embodied vision and interaction extensions | F22, F26, F27, F29, F30 | Each extension passes its own physical prerequisite and ablation |
+| M5 External viewpoint, developed alongside M2–M3 | F33–F37; shared memory and inspection | Calibrated paired views, dropout/clock tests, and controlled ego/exo/fusion comparisons |
 
 M2 deliberately shares an evidence store and task model across applications.
 M3 and M4 extend that system rather than creating separate demo-only controllers.
@@ -79,6 +88,9 @@ The user confirmed PuppyPi Standard and a horizon longer than three months on
 2026-10-31. Exact grading weights, team size, board/firmware, and available host
 compute/sensors remain open. M2 persistence and report export are now usable
 locally; M1 physical acceptance remains pending.
+Use the [adjustable 16-week schedule](11-phone-observer-research.md) to allocate
+time to R1 temporal memory and R5 external-view selection, with the other tracks
+providing application breadth and optional research extensions.
 
 ## Demonstration scenarios
 
@@ -94,6 +106,9 @@ locally; M1 physical acceptance remains pending.
    show recovery, bounded search, and an honest inconclusive result.
 6. **Observe with the body:** compare a fixed view to a feasible changed pose,
    with measured observation quality and recognition outcomes.
+7. **Consult the phone observer:** move an item outside the robot camera's view;
+   use a timestamped phone hint, then verify identity from the robot. Disconnect
+   the phone or move its stand and show the resulting uncertainty explicitly.
 
 Use live failures and recovery as part of acceptance. A prerecorded successful
 trajectory alone does not demonstrate autonomy.

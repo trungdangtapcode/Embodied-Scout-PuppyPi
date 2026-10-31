@@ -25,10 +25,16 @@ supplied synthetic scenario. Read [capability and evidence status](docs/00-proje
 | Look-or-Ask | Resolve ambiguity through a view or question | How should information, movement and human effort be traded off? |
 | Inspect and Explain | Check presence, placement and visible states | Which observations distinguish meaningful changes from nuisances? |
 | Body-aware Active Vision | Change pose or wait for a stable image | Which feasible action improves recognition per unit time? |
+| Phone Observer | Use a fixed phone as an external viewpoint | When does another camera reduce travel, ambiguity, and wrong confirmations? |
 
-The [32-feature inventory](docs/06-feature-roadmap.md) records status, priority,
+The [37-feature inventory](docs/06-feature-roadmap.md) records status, priority,
 dependencies, and acceptance criteria. Features share one perception, evidence,
 mission, and motion stack.
+
+The confirmed platform is **PuppyPi Standard**, with more than three months for
+development. The [Phone Observer plan](docs/11-phone-observer-research.md) records
+related work, reusable code, a fixed-phone baseline, and an adjustable 16-week
+schedule. Phone streaming/fusion remains planned; it is not part of the CLI demo.
 
 ## Quick start
 

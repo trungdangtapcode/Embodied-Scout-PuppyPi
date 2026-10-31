@@ -9,7 +9,7 @@
   research track before changing behavior. Prioritize working application
   features with observable acceptance criteria and reusable research components.
 - Share perception, evidence, task state, and motion execution across Memory
-  Scout, Look-or-Ask, Inspect and Explain, and Body-aware Active Vision.
+  Scout, Look-or-Ask, Inspect and Explain, Body-aware Active Vision, and Phone Observer.
 - Keep source identifiers, comments, commit messages, and technical documents in
   English. Communicate with the user in their preferred language.
 
@@ -23,6 +23,8 @@
   pretrained backbones optional and the deterministic offline baseline usable.
 - Separate observations, derived beliefs, proposed actions, and measured action
   results. Timestamp captured evidence and preserve its provenance.
+- Multi-camera evidence must retain camera/session identity, capture clock
+  uncertainty, and calibration revision. Arrival time alone is not synchronization.
 - Use explicit schema versions and migrations when durable storage is added.
   Never silently reinterpret stored embeddings from another model/preprocessor.
 - Preserve vendor source assets, historical experiment records, and handoffs.

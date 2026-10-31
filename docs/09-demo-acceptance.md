@@ -14,6 +14,8 @@ research evidence. Record software integration and physical validation separatel
 | E Use the body to observe | Partially occluded target and measured feasible poses | Improved useful observation, logged action and measured pose | No feasible improving pose; abstain or request assistance | F26–F27 |
 | F Recover and stop | Tag dropout, stale frame, mock/validated communication loss | Defined recovery or stop; operator can cancel | Reconnection must not silently resume stale motion | F04, F06–F07, F28 |
 | G Complete and return | Search or inspection finishes away from HOME | Record task result and independently verify return | Return blocked/timeout; preserve task evidence and report return failure | F05, F09 |
+| H Observe from a phone | Fixed calibrated phone and robot-camera session | External pose and two timed views with validity; export paired replay | Move phone, hide robot marker, or disconnect; estimates become unavailable | F33, F34, F37 |
+| I Resolve cross-view evidence | Move/occlude a known item; robot and phone disagree | Phone station hint followed by exact-instance verification or unknown | Tiny look-alike crop, clock skew, stale phone frame; no unsupported confirmation | F12, F35, F36 |
 
 Run scenarios in a bounded physical area with measured routes before expanding
 navigation. The operator's intervention is part of the recorded result. Do not
