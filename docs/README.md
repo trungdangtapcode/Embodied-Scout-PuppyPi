@@ -20,6 +20,7 @@ Python versus native code, and venv versus Docker/ROS before the research plans.
 | [10 Operator workflows](10-operator-workflows.md) | Implemented persistent library, history, annotation-driven inspection and report export |
 | [11 Phone Observer research](11-phone-observer-research.md) | Fixed-phone external view, verified sources/code, ego/exo baselines and adjustable 16-week schedule |
 | [12 Deployment map](12-deployment-map.md) | Visual host/Pi/firmware placement, Python/native runtimes, Docker/ROS boundaries and actual protocol |
+| [13 Mobile field console](13-mobile-console.md) | Preact PWA, FastAPI host, Pi relay, run commands, operator workflows and control/evidence limits |
 | [Contributor guide](../CONTRIBUTING.md) | Setup, checks, commit conventions, review and evidence workflow |
 | [Agent instructions](../AGENTS.md) | Repository-specific instructions for coding agents |
 | [2026-10-31 handoff](handoffs/2026-10-31-handoff.md) | Repository bootstrap, verification, and next implementation steps |

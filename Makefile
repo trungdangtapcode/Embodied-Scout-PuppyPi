@@ -2,7 +2,7 @@ UV_PROJECT_ENVIRONMENT ?= .venv-dev
 export UV_PROJECT_ENVIRONMENT
 UV_RUN = uv run --locked --extra dev
 
-.PHONY: setup setup-sim hooks check test build benchmark render-3d tags demo-assistant
+.PHONY: setup setup-sim hooks check test build benchmark render-3d tags demo-assistant app-setup app-build app app-test
 
 setup:
 	uv sync --locked --extra dev
@@ -37,3 +37,16 @@ tags:
 
 demo-assistant:
 	$(UV_RUN) python scripts/demo_assistant.py
+
+app-setup:
+	uv sync --locked --extra dev --extra app
+	npm --prefix web ci
+
+app-build:
+	npm --prefix web run build
+
+app:
+	$(UV_RUN) --extra app python -m teach_and_find.mobile $(APP_ARGS)
+
+app-test:
+	npm --prefix web test

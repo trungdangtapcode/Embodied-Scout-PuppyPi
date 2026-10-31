@@ -31,8 +31,8 @@ hardware/model extensions. Priorities are dependencies, not calendar promises.
 | F03 | Reject look-alike objects through multiple views | Prototype: synthetic harness | P0 | Distinguish a target/decoy pair using a discriminative side view | F01 |
 | F04 | Recover station localization after tag loss | Prototype: FSM and synthetic input | P0 | Recover a visible tag or stop/skip after timeout; record outcome | F02 |
 | F05 | Request return to HOME after a mission | Prototype: mission logic | P0 | Physically reach HOME or explicitly report return failure | F02, F09 |
-| F06 | View the robot camera remotely | Prototype: TCP client | P0 | Display a fresh frame with timestamp; expose stale/disconnected state | — |
-| F07 | Operator stop and communication-loss stop | Prototype: relay watchdog only | P0 | Stop in mock tests; measure physical response; provide operator stop | F06 |
+| F06 | View the robot camera remotely | Integrated: browser camera, v2 metadata adapter; hardware pending | P0 | Synthetic browser and loopback tests display frame identity/age and disconnected state; verify real camera clock next | — |
+| F07 | Operator stop and communication-loss stop | Integrated: UI stop, expiring lease, relay watchdog; hardware pending | P0 | Hold/release, blur, reconnect, stale/replayed commands, in-flight stop tests; measure physical stop next | F06 |
 | F08 | Inspect mission evidence and replay | Prototype: offline plots/GIFs | P1 | Show ordered observations, rejected candidates, and final outcome | F02, F03 |
 | F09 | Execute calibrated routes between stations | Planned | P0 | Repeat each bounded route; measure failures and operator interventions | F06, F07 |
 | F10 | Manage a persistent library of taught objects | Integrated: CLI, archive preserves evidence | P1 | Create, rename, update, list, and remove an object; survive restart | F01 |
@@ -53,7 +53,7 @@ hardware/model extensions. Priorities are dependencies, not calendar promises.
 | F25 | Export an inspection report with evidence | Integrated: portable HTML/JSON and PNG evidence | P1 | Export per-check pass/fail/unknown, timestamps, and image references | F20, F08 |
 | F26 | Improve observation by changing body pose | Planned | P2 | Use only measured feasible poses; compare to fixed-pose observation | F07, F09 |
 | F27 | Wait for a stable frame before recognition | Planned | P2 | Compare sharpness, recognition, and delay with continuous capture | F06, F26 |
-| F28 | Operate missions from one interface | Planned | P1 | Teach/search/inspect, live state, evidence, stop, and connection health | F06, F07, F10 |
+| F28 | Operate missions from one interface | Prototype: mobile teach/manual control/inspect integrated; search pending | P1 | Browser workflows cover library, recorded-evidence inspection, camera, stop and health; autonomous search UI remains pending | F06, F07, F10 |
 | F29 | Issue spoken requests and hear results | Planned | P3 | Reuse the validated text task path; handle ASR errors and cancellation | F16, F28 |
 | F30 | Teach and replay a route using visual landmarks | Planned | P3 | Evaluate repeatability and interventions on held-out route conditions | F09 |
 | F31 | Propose unfamiliar objects from image/text prompts | Planned | P2 | Evaluate pretrained proposals on real crops, including missed objects | F01, F06 |

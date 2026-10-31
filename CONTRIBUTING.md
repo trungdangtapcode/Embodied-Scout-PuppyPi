@@ -21,7 +21,23 @@ make build
 commit-title validation, and Git whitespace checks on current changes. It is not
 a type checker or a full style audit. `make test` runs the synthetic and mock
 relay suite. `make build` creates a wheel and source distribution under ignored
-`dist/`. No frontend or Node build is needed for this Python repository.
+`dist/`. The Python core needs no Node runtime. The optional mobile console has
+a frontend build under `web/` and uses Node 22.12+ (Node 24 tested):
+
+```bash
+make app-setup
+make app-build
+npm --prefix web exec -- playwright install chromium
+make app-test
+```
+
+Run the app build and browser tests for UI changes, alongside the Python checks.
+`make app-build` typechecks TypeScript and writes ignored static assets under
+`teach_and_find/mobile/static/`. Build those assets before `make build` when
+shipping an app-enabled wheel. A core-only wheel without them still supports the
+CLI; its HTTP root explains that the frontend needs building. Browser tests own
+a temporary database and a loopback-only synthetic server and stop it on exit.
+Do not use a real relay in automated browser tests.
 
 `make setup-sim` installs optional MuJoCo dependencies. `make render-3d` uses EGL
 and requires a compatible graphics environment. The source-distribution/wheel

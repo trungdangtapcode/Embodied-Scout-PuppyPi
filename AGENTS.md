@@ -65,6 +65,9 @@
 - Run `make check`, `make test`, and `make build` for code/dependency/workflow
   changes. Documentation-only changes require `make check`. State any unrun
   relevant hardware or optional GPU checks honestly.
+- For mobile UI changes, also run `make app-build` and `make app-test`; inspect
+  desktop and phone screenshots. Browser tests must use the disposable synthetic
+  server. Never cache camera/evidence API responses or queue motion offline.
 - Default tests must not download models, call paid APIs, require ROS/GPU, or
   actuate hardware. Add regression tests for meaningful behavior and failure
   handling; do not add tests that merely mirror trivial implementation details.

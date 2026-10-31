@@ -35,6 +35,24 @@ reopens persisted state and yields one pass, two failures, and one unknown.
 The [operator guide](10-operator-workflows.md) records entry points, limitations,
 and feature-specific test evidence. No robot is contacted by this workflow.
 
+## Integrated mobile operator console
+
+The [field console](13-mobile-console.md) adds a responsive Preact/TypeScript PWA
+served by optional FastAPI on the host. Monitor shows camera and connection state;
+Control provides bounded hold-to-drive with an exclusive expiring lease; Inspect
+records operator assertions against displayed fresh frames and evaluates saved
+checklists; Library supports enrollment, rename, archive, and image history.
+Reports download as HTML/JSON/image ZIP bundles. The CLI and app share the core
+and versioned store. The default robot is an interactive synthetic renderer.
+
+Python tests cover leases, replay rejection, stale evidence, transport metadata,
+API/storage workflows, and stopping during an in-flight send. Chromium browser
+tests cover desktop/phone layouts, upload, evidence capture, report download,
+hold/release, blur, stop, reconnect, and static-only offline caching. These are
+software integration results; physical phone installation and robot execution
+remain unverified. Search missions and third-person phone capture are not wired
+into this UI.
+
 ## Evidence boundaries
 
 | Evidence | What it supports | What it does not establish |
@@ -64,8 +82,11 @@ Python APIs rather than deployed as a separate project service.
 
 The Pi relay is a ROS 2 prototype (`rclpy`), not a ROS 1 implementation. Its live
 dependencies and the installed robot environment remain unverified. The host
-connects to the Pi TCP server; frames are JPEG bytes without capture timestamps
-or camera IDs. A command ACK does not measure executed motion. The relay watchdog
+connects to the Pi TCP server. The legacy `F` request remains bare JPEG; the new
+`M` request carries camera/session identity, sequence, and relay-local frame age.
+The host estimates capture UTC conservatively using frame age and round-trip
+time; this is not synchronized multi-camera timing. A command ACK does not
+measure executed motion. The relay watchdog
 is a Python timeout callback publishing zero velocity, not a hardware-verified
 stopping-time guarantee. The direct ROS node's timer implements only station
 selection and alignment/recovery, not a complete live mission loop.
@@ -73,16 +94,18 @@ selection and alignment/recovery, not a complete live mission loop.
 ## Planned expansion
 
 Memory Scout and Inspect and Explain have local persistence/reporting foundations.
-Their autonomous robot flows, Look-or-Ask, Body-aware Active Vision, a live
-operator interface, speech interaction, and learned visual route following remain
+Their autonomous robot flows, Look-or-Ask, Body-aware Active Vision,
+speech interaction, and learned visual route following remain
 planned. Feature-level status and acceptance criteria are recorded in
 [the feature roadmap](06-feature-roadmap.md). A planning entry is not an
 implemented feature.
 
 The new [Phone Observer track](11-phone-observer-research.md) plans a fixed phone
 camera for external robot localization, cross-view evidence, view selection, and
-paired replay. It reuses the same store and policies. Camera/session metadata,
-clock alignment, streaming, calibration, and fusion are not implemented yet.
+paired replay. It reuses the same store and policies. Robot camera provenance is
+now persisted in SQLite v3; external-phone streaming, clock alignment/error
+bounds, calibration lifecycle, and cross-view fusion remain planned. The operator
+PWA uses the phone as a display/controller, not as this third-person camera.
 
 ## Hardware assumptions to resolve
 
@@ -99,7 +122,7 @@ it in a mission. No live hardware capability is marked verified yet.
 
 ## Documentation precedence
 
-This status page and the numbered 06–12 documents describe current scope. Documents
+This status page and the numbered 06–13 documents describe current scope. Documents
 01–05 and the 2026-10-30 handoff remain historical source material. Statements in
 those files about novelty, ROS distribution compatibility, hardware safety,
 onboard model runtime, and sensor range need the corresponding implementation

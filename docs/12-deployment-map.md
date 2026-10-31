@@ -7,11 +7,13 @@ that are corrected below. No robot or phone was connected during this review.
 
 **Recommended physical layout:** application/perception on the development host
 in `.venv-dev`; camera/motion drivers and the Python relay in the Pi's existing
-ROS environment; actuator control on the vendor hardware. A phone is a planned
-additional camera source for the development host.
+ROS environment; actuator control on the vendor hardware. A phone runs the new
+[operator PWA](13-mobile-console.md). Using it as an additional camera source
+for the development host remains planned.
 
 **What runs today:** the supported CLI, storage, reports, synthetic experiments,
-and loopback tests run entirely on the development host. The relay and ROS 2
+and loopback tests run entirely on the development host. The optional FastAPI
+app serves the browser console and shared library/inspection API. The relay and ROS 2
 adapter exist, but a complete physical search/inspection application is pending.
 
 ![Deployment locations, environments, and data flow](diagrams/deployment-map.svg)
@@ -19,7 +21,10 @@ adapter exist, but a complete physical search/inspection application is pending.
 [Open the scalable diagram](diagrams/deployment-map.svg) or
 [the PNG version](diagrams/deployment-map.png). Boxes represent placement and
 ownership, not separate mandatory services. Python modules may share one process.
-The phone path is planned; the robot path is hardware unverified.
+The diagram's phone-capture path is planned; the robot path is hardware unverified.
+The implemented operator-browser path and v2 frame metadata are shown in the
+[mobile console architecture](13-mobile-console.md); the earlier overview image
+does not include those additions.
 
 ## 1. These terms describe different layers
 
@@ -82,6 +87,8 @@ images, not a web server or a running robot dashboard.
 | Component | Machine and environment | Language / runtime | Repository entry point | Current status |
 | --- | --- | --- | --- | --- |
 | Operator CLI, enrollment, history | Development host, `.venv-dev` | Python | [cli.py](../teach_and_find/cli.py), [library.py](../teach_and_find/library.py) | Integrated local workflow |
+| Mobile/desktop Field Console | Phone or desktop browser; Node only for building on host | Preact + TypeScript, HTML/CSS | [web](../web), [app guide](13-mobile-console.md) | Browser integration tested, real-device installation pending |
+| HTTP/WebSocket gateway and robot workers | Development host, `.venv-dev`, optional app dependencies | Python FastAPI, same-origin static serving | [mobile](../teach_and_find/mobile) | Integrated synthetic workflows; explicit physical relay opt-in |
 | Persistent evidence and checklist reports | Development host, `.venv-dev`; data on host disk | Python + SQLite native library | [storage.py](../teach_and_find/storage.py), [inspection.py](../teach_and_find/inspection.py) | Integrated; assertions supplied by operator/fixture |
 | Perception, matching, planner, verifier, mission state | Development host, `.venv-dev` | Python calling NumPy/OpenCV | [perception](../teach_and_find/perception), [planner.py](../teach_and_find/planner.py), [verification.py](../teach_and_find/verification.py), [mission.py](../teach_and_find/mission.py) | Prototype with synthetic evidence; physical orchestration incomplete |
 | Robot TCP client | Development host, `.venv-dev` | Python sockets + OpenCV JPEG decoding | [edge_client.py](../teach_and_find/edge_client.py) | Loopback tested; library API, not a complete live mission command |
@@ -183,19 +190,22 @@ sequenceDiagram
 
 | Link | Actual / proposed payload | Status |
 | --- | --- | --- |
-| Host to Pi, TCP 18765 by default | `F` frame request; `C` length-prefixed JSON command | Implemented, loopback tested |
-| Pi to host, same connection | JPEG image or empty frame; one-byte command acknowledgement | Implemented, loopback tested |
+| Host to Pi, TCP 18765 by default | Legacy `F`, metadata-aware `M`, `C` length-prefixed JSON command | Implemented, loopback tested |
+| Pi to host, same connection | JPEG; `M` adds schema-2 age/identity metadata; one-byte command acknowledgement | Implemented, loopback tested |
 | Camera to relay, inside Pi ROS | `sensor_msgs/Image`, default `/image_raw` | Live code exists; topic/environment unverified |
 | Relay to vendor control, inside Pi ROS | `/puppy_control/velocity`, `/velocity_move`, `/pose`, optional `/gait` | Live code exists; movement unverified |
-| Phone to development host | Proposed video plus camera/session/time metadata | Planned; no selected production endpoint or fixed port |
+| Phone operator browser to host | Same-origin HTTP records/JPEG/reports, WebSocket status/control; port 8080 default | Integrated synthetic browser tests |
+| Phone external camera to development host | Proposed video plus camera/session/time metadata | Planned; separate from the operator app |
 | CLI to browser/report viewer | Files on host disk | Implemented; no HTTP service required |
 
-The current frame wire format contains **no capture timestamp, sequence number,
-or camera identity**; `get_frame()` returns an array or `None`. It can return the
-same buffered frame repeatedly. The durable observation API can store timestamps,
-but the relay does not yet transport them. Timestamped evidence and frame-age
-gates must be integrated before claiming fresh physical or synchronized ego/exo
-perception.
+The legacy `get_frame()` / `F` format still returns bare JPEG without metadata.
+The new `get_frame_sample()` / `M` adapter transports sequence, camera/session
+identity, and relay-local capture age. The host adds transport round-trip time
+and estimates UTC capture time conservatively. Invalid image-header timing does
+not qualify as fresh. The app rejects old displayed frames for motion/evidence;
+clock assumptions and physical behavior remain unverified. This is not a
+synchronized ego/exo observation protocol. See [the protocol](13-mobile-console.md)
+before interpreting estimated age as a sensor measurement.
 
 The timeout watchdog runs in a **Python thread on the Pi relay process**, not in
 the host model and not in independently verified board firmware. Its default
@@ -245,7 +255,7 @@ flowchart LR
         RC --> E
         MODEL -.-> E
     end
-    PI["Pi ROS relay"] -->|"Robot JPEG; timestamp extension pending"| RC
+    PI["Pi ROS relay"] -->|"Robot JPEG + v2 age and identity metadata"| RC
 ```
 
 In the first phone design, the phone captures video and the development host

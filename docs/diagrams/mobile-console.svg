@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">PuppyPi mobile console deployment</title>
+  <desc id="desc">A phone browser talks over HTTP and WebSocket to a Python FastAPI host with shared evidence and control core. Separate TCP connections link the host to a ROS 2 relay on the Pi and the vendor controller. Node is only a host build tool. Hardware remains unverified.</desc>
+  <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 8 4 0 8" fill="#537460"/></marker></defs>
+  <rect width="1280" height="720" fill="#f4f5f0"/>
+  <g font-family="DejaVu Sans, sans-serif" fill="#24352d">
+    <text x="48" y="52" font-size="12" letter-spacing="3">PUPPYPI / FIELD CONSOLE</text>
+    <text x="48" y="100" font-size="32" font-weight="bold">What runs where</text>
+    <text x="48" y="132" font-size="16" fill="#657168">Browser on the phone. Python on the host. Vendor ROS on the Pi.</text>
+    <rect x="48" y="188" width="270" height="390" rx="16" fill="#fff" stroke="#d5ddd2"/>
+    <text x="72" y="224" font-size="12" fill="#657168">01 / PHONE OR DESKTOP</text>
+    <text x="72" y="265" font-size="23" font-weight="bold">Browser / PWA</text>
+    <text x="72" y="294" font-size="14">Preact + TypeScript</text>
+    <rect x="72" y="320" width="222" height="164" rx="8" fill="#e7efe3"/>
+    <g font-size="15"><text x="92" y="351">Monitor camera</text><text x="92" y="385">Hold-to-drive controls</text><text x="92" y="419">Inspect and evidence</text><text x="92" y="453">Object library</text></g>
+    <text x="72" y="522" font-size="12" fill="#657168">No Python, ROS or Docker</text>
+    <text x="72" y="546" font-size="12" fill="#657168">Phone camera capture: planned</text>
+    <rect x="388" y="188" width="420" height="390" rx="16" fill="#e7efe3" stroke="#c5d4c3"/>
+    <text x="412" y="224" font-size="12" fill="#657168">02 / HOST COMPUTER</text>
+    <text x="412" y="265" font-size="23" font-weight="bold">Python .venv-dev</text>
+    <text x="412" y="294" font-size="14">FastAPI: static files + HTTP + WebSocket</text>
+    <rect x="412" y="320" width="372" height="72" rx="8" fill="#fff"/>
+    <text x="432" y="350" font-size="15" font-weight="bold">Shared project core</text>
+    <text x="432" y="376" font-size="13">Library · inspection · expiring control lease</text>
+    <rect x="412" y="408" width="176" height="76" rx="8" fill="#fff"/>
+    <text x="428" y="439" font-size="14">SQLite v3</text><text x="428" y="464" font-size="12" fill="#657168">PNG / report evidence</text>
+    <rect x="604" y="408" width="180" height="76" rx="8" fill="#fff"/>
+    <text x="620" y="439" font-size="14">Robot adapter</text><text x="620" y="464" font-size="12" fill="#657168">Camera / command workers</text>
+    <text x="412" y="522" font-size="12" fill="#657168">Node + Vite: build tools only</text>
+    <text x="412" y="546" font-size="12" fill="#657168">Default: synthetic renderer, no live robot</text>
+    <rect x="878" y="188" width="354" height="246" rx="16" fill="#fff" stroke="#d5ddd2"/>
+    <text x="902" y="224" font-size="12" fill="#657168">03 / RASPBERRY PI</text>
+    <text x="902" y="265" font-size="23" font-weight="bold">Vendor ROS 2</text>
+    <text x="902" y="295" font-size="14">Existing environment / container</text>
+    <text x="902" y="333" font-size="14">Python relay · rclpy · cv_bridge</text>
+    <text x="902" y="364" font-size="14">Image headers + frame metadata</text>
+    <text x="902" y="395" font-size="14">Watchdog + zero velocity publish</text>
+    <rect x="878" y="474" width="354" height="104" rx="16" fill="#faf1d9" stroke="#e8dbb9"/>
+    <text x="902" y="510" font-size="17" font-weight="bold">Vendor driver / controller</text>
+    <text x="902" y="542" font-size="14">Servo actuation · no project firmware</text>
+    <g stroke="#537460" stroke-width="2" fill="none" marker-end="url(#arrow)"><path d="M318 304H382"/><path d="M808 304H872"/><path d="M1055 434V468"/></g>
+    <g font-size="10" text-anchor="middle" fill="#537460"><text x="353" y="277">HTTP</text><text x="353" y="292">WS</text><text x="843" y="277">TCP</text><text x="843" y="292">M / C</text></g>
+    <path d="M48 620H1232" stroke="#d5ddd2"/>
+    <text x="48" y="652" font-size="14" font-weight="bold">Software integrated; hardware not verified.</text>
+    <text x="48" y="680" font-size="13" fill="#657168">ACK is not measured motion. Frame-age estimates are not synchronized multi-camera timing.</text>
+  </g>
+</svg>

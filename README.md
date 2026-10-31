@@ -17,18 +17,37 @@ Inspection evaluates recorded assertions; autonomous visual inspection and
 physical robot validation are pending. Historical benchmark scores describe the
 supplied synthetic scenario. Read [capability and evidence status](docs/00-project-status.md).
 
+The mobile **Field Console** adds camera monitoring, manual hold-to-drive,
+image-backed inspection, object management, and report downloads. It is a
+Preact/TypeScript PWA served by FastAPI on the host. Start with a synthetic robot:
+
+```bash
+make app-setup
+make app-build
+make app
+```
+
+Open `http://127.0.0.1:8080` and enter the code printed in the terminal. For a phone
+on the same network, run `make app APP_ARGS="--host 0.0.0.0"` and open the host's
+LAN address. See the [app guide and architecture](docs/13-mobile-console.md) for
+HTTPS installation, isolated demo data, explicit relay selection and validation.
+The app does not yet run autonomous search or use the phone camera as an external
+viewpoint.
+
 ## Where the software runs
 
 Start with the [visual deployment map](docs/12-deployment-map.md) for the physical
 machines, Python environments, Docker/ROS boundary, native libraries, and exact
-code entry points. It separates today's offline workflows from the proposed
-robot and phone integration.
+code entry points. The [mobile console map](docs/13-mobile-console.md) adds the
+implemented browser-to-host path; physical robot and external camera integration
+still need hardware validation.
 
 ![Host, Pi, controller and planned phone deployment](docs/diagrams/deployment-map.svg)
 
 The development host runs the application in `.venv-dev`. The Pi's existing ROS
 environment is the intended location for the Python relay and vendor drivers.
-The project has no custom C++ service or Docker image. Phone capture is planned.
+The project has no custom C++ service or Docker image. The phone browser runs
+the operator app; using the phone as a third-person camera is still planned.
 
 ## Application and research tracks
 

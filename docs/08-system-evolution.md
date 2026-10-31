@@ -101,8 +101,11 @@ when an integration is actually selected.
 
 The [Phone Observer design](11-phone-observer-research.md) details these last
 three entries, their source availability, geometry, and evaluation limits. The
-current evidence schema needs a migration before it can represent camera sessions
-and clock uncertainty; do not create a separate phone-only memory store.
+current evidence schema v3 stores per-observation provenance (camera/session IDs,
+sequence and capture-time basis). A typed calibration/session lifecycle and clock
+uncertainty model are still needed for fusion; do not create a separate phone-only
+memory store. The [mobile operator console](13-mobile-console.md) already shares
+the core library and inspection services through optional FastAPI adapters.
 
 ## Physical execution prerequisites
 

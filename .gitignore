@@ -18,6 +18,11 @@ htmlcov/
 build/
 dist/
 .DS_Store
+node_modules/
+web/dist/
+web/test-results/
+web/playwright-report/
+teach_and_find/mobile/static/
 
 # Downloaded weights and private robot recordings
 models/
