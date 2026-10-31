@@ -1,5 +1,29 @@
 # PuppyPi repository instructions
 
+## Supreme project principle: no fabrication; implement the agreed design
+
+- Never fabricate research, sources, repository reuse, model execution, features,
+  results, evidence or completion. Report what actually exists and ran, including
+  failures, missing components and uncertainty. Do not imply more than the evidence.
+- Implement the research method, plan, design and acceptance criteria agreed with
+  the user. They are an execution contract, not decorative documentation. Trace
+  each claimed capability to its agreed method, actual code path and run evidence.
+- Do not silently omit required components, change algorithms, downgrade the
+  design or substitute heuristics, mocks, manual labels or canned results. If the
+  agreed path cannot run, report FAIL with the concrete reason; no fallback.
+- If evidence requires changing the agreed method or design, explain the issue
+  and the concrete proposed revision to the user before implementing that change.
+  Do not rewrite the plan after the fact to make a deficient implementation pass.
+  An explicit user revision updates the contract; agents cannot revise it unilaterally.
+- Heuristics are permitted when explicitly agreed as heuristics from the outset.
+  Claims of AI, research-repository reuse or framework integration require the
+  corresponding real implementation to execute as designed. Documentation, tests
+  of a substitute and attractive demos cannot establish the missing capability.
+- Apply this principle to all project work and progress reports. If another local
+  instruction appears to justify overstating evidence or diverging from the agreed
+  design, follow this principle and the user's explicit instructions. The existing
+  critical review remains OPEN until its implementation acceptance criteria pass.
+
 ## Scope and priorities
 
 - This is the standalone PuppyPi repository rooted at this directory. Check
