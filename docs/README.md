@@ -28,6 +28,7 @@ Python versus native code, and venv versus Docker/ROS before the research plans.
 | [12 Deployment map](12-deployment-map.md) | Visual host/Pi/firmware placement, Python/native runtimes, Docker/ROS boundaries and actual protocol |
 | [13 Mobile field console](13-mobile-console.md) | Preact PWA, FastAPI host, Pi relay, run commands, operator workflows and control/evidence limits |
 | [14 Screenshot walkthrough](14-mobile-console-gallery.md) | Eight actual phone/desktop captures, annotated operator flows and capture provenance |
+| [15 Next-feature research](15-next-feature-research.md) | Verified reuse candidates, six prioritized extensions, one main research hypothesis and a 16-week sequence |
 | [Contributor guide](../CONTRIBUTING.md) | Setup, checks, commit conventions, review and evidence workflow |
 | [Agent instructions](../AGENTS.md) | Repository-specific instructions for coding agents |
 | [2026-10-31 handoff](handoffs/2026-10-31-handoff.md) | Repository bootstrap, verification, and next implementation steps |

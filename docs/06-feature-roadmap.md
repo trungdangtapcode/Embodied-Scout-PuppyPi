@@ -65,6 +65,10 @@ hardware/model extensions. Priorities are dependencies, not calendar promises.
 | F37 | Replay synchronized robot and phone observations | Planned | P1 | Export paired timelines, evidence, clock uncertainty, missing frames and calibration IDs | F08, F33 |
 
 Statuses describe the current baseline, not promises of physical performance.
+The [next-feature research proposal](15-next-feature-research.md) prioritizes
+replay, automatic perception, memory repair and selective external views using
+verified upstream entry points. Its proposed capabilities do not change the
+implementation statuses above.
 Speech can initially use the operator laptop's microphone and speaker. F30 is an
 optional navigation study; initial application demos can use validated stations.
 The [Phone Observer plan](11-phone-observer-research.md) specifies F33–F37 and
