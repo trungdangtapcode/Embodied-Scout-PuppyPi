@@ -28,6 +28,22 @@
   and established frameworks. For perception, tracking, navigation, memory and
   control, inspect and reuse relevant existing implementations instead of
   inventing a substitute and attaching a paper's name to it.
+- Stand on the shoulders of existing research: start from released, suitable
+  implementations and pretrained checkpoints where the selected method requires
+  learned models. Do not make training a tracking or world model from scratch
+  the default PuppyPi implementation strategy. Python scripts should orchestrate
+  genuine components, adapters and evaluation, not pretend to replace them.
+- A short custom script, motion extrapolation, handcrafted matching, a database
+  or scripted animation is not evidence of a trained tracker or learned world
+  model. Name the actual algorithm and representation. Distinguish object
+  tracking, observation memory, geometric mapping and predictive world modeling;
+  do not claim one establishes the others.
+- Any proposed fine-tuning or training must specify the actual upstream training
+  implementation, starting checkpoint, licensed dataset and splits, objective,
+  compute budget, evaluation and reproducible training evidence. Merely writing
+  a training loop or producing a checkpoint does not establish model quality or
+  satisfy the requested research integration. Prefer validated reuse and measured
+  adaptation to unsupported claims of building a new model.
 - Verify primary papers, author/project repositories and official framework
   documentation before selecting a solution. Check the actual source and entry
   points, released components/checkpoints, license, version, dependencies, input
