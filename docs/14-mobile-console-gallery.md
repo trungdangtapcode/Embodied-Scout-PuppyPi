@@ -1,9 +1,10 @@
 # Mobile console: screenshot walkthrough
 
 These eight images are **actual application screenshots**, captured from the
-implementation at `e85c4f4` on 2026-10-31 using Chromium and an isolated synthetic
-workspace. They are not UI mockups or physical robot evidence. Technical captions
-are in English; the application's operator labels are in Vietnamese.
+implementation at `e0d3aaa` on 2026-10-31 using Chromium and an isolated synthetic
+workspace. They are not UI mockups or physical robot evidence. The captures use
+the default English interface; Vietnamese is available only through an explicit
+language selection.
 
 Phone viewport: **390 × 844 CSS px**, captured at 2× resolution. Desktop viewport:
 **1440 × 1100 CSS px**, also at 2×. The images are ordinary viewport captures;
@@ -21,8 +22,8 @@ content below the fold is reached by scrolling. Click any image to inspect it.
 
 **Look for:** the synthetic-mode badge, frame identity and estimated age below
 the camera, bottom navigation, and STOP in the header. On Control, the camera and
-direction buttons fit in one viewport. The pictured session is locked; **Mở quyền
-điều khiển** must be pressed before holding a direction. No physical movement was
+direction buttons fit in one viewport. The pictured session is locked; **Arm
+controls** must be pressed before holding a direction. No physical movement was
 performed to capture these screens.
 
 ## 3–4. Evaluate a checklist and manage taught objects
@@ -31,10 +32,10 @@ performed to capture these screens.
 | --- | --- |
 | [![Phone Inspect: saved checklist and pass/fail/unknown summary](screenshots/mobile-console/phone-inspect.png)](screenshots/mobile-console/phone-inspect.png) | [![Phone Library: three taught objects with reference thumbnails](screenshots/mobile-console/phone-library.png)](screenshots/mobile-console/phone-library.png) |
 
-**Look for:** **Đánh giá** to assess recorded evidence, the report download icon,
+**Look for:** **Assess** to assess recorded evidence, the report download icon,
 and the three distinct outcomes. The synthetic fixture intentionally yields one
 pass, one fail and one unknown. This is not a recognition accuracy score.
-Library shows the taught objects and reference counts; **Dạy vật thể** uploads
+Library shows the taught objects and reference counts; **Teach object** uploads
 cropped reference images. Selecting an object opens its history and management
 actions.
 
@@ -44,8 +45,8 @@ actions.
 | --- | --- |
 | [![Phone capture form with object, station, assertion, visibility and save action](screenshots/mobile-console/phone-capture.png)](screenshots/mobile-console/phone-capture.png) | [![Phone object history with reference views, recorded assertion and source label](screenshots/mobile-console/phone-history.png)](screenshots/mobile-console/phone-history.png) |
 
-**Look for:** the object, station, assertion and visibility fields above **Chụp &
-ghi nhận**. The operator supplies the assertion; the app associates it with a
+**Look for:** the object, station, assertion and visibility fields above **Capture
+& record**. The operator supplies the assertion; the app associates it with a
 fresh displayed frame. The form in this screenshot has not been submitted.
 History retains the recorded time, mode, source and image. Its earlier scripted
 absence assertion does not mean the currently displayed camera automatically
@@ -71,7 +72,7 @@ HTML, JSON and source PNG evidence together.
 ## Capture provenance and refreshing these images
 
 All screenshots came from the same fresh temporary database seeded once through
-**Nạp dữ liệu demo**. No user library, private recording, live robot, or paid API
+**Load demo data**. No user library, private recording, live robot, or paid API
 was accessed. The renderer and fixture observations are intentionally independent;
 they are not paired ground-truth labels for an image-recognition evaluation.
 The pairing screen and its code are not included in any image.
