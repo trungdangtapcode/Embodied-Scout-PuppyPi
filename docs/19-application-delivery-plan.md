@@ -4,6 +4,15 @@ Date: 2026-10-31. Priority: usable application workflows, followed by measured
 automation. The [deep review](18-deep-research-room-intelligence.md) informs the
 contracts and baselines; it is not a requirement to install every reviewed model.
 
+**Critical correction — OPEN / FAIL:** the [mandatory capability-integrity review](review/2026-10-31-fatal-critical-lethal-capability-integrity.md)
+overrides any reading of this page as completed research integration. Slice A
+delivers local storage, heuristic image suggestions, operator review and query UI;
+it does not execute Mind Palace, DynaMem, or a learned world model. This falls
+short of the user's requested upstream integration. Heuristics are acceptable
+only when declared as the intended method from the outset. Promised AI inference
+and research-repository reuse must actually execute; no substitute or fallback
+may be counted as success. The review and this clarification do not repair that gap.
+
 ## Available now: Monitor → Room memory
 
 The console now connects four concrete workflows to the existing library and

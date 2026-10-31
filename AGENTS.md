@@ -8,6 +8,9 @@
 - Read `docs/00-project-status.md`, `docs/06-feature-roadmap.md`, and the relevant
   research track before changing behavior. Prioritize working application
   features with observable acceptance criteria and reusable research components.
+- Read the mandatory [FATAL / CRITICAL / LETHAL review](docs/review/2026-10-31-fatal-critical-lethal-capability-integrity.md)
+  before implementation, capability claims, demos, progress reports, or handoffs.
+  This incident is OPEN; documentation changes do not resolve its implementation gaps.
 - Share perception, evidence, task state, and motion execution across Memory
   Scout, Look-or-Ask, Inspect and Explain, Body-aware Active Vision, and Phone Observer.
 - Use English throughout the codebase: identifiers, comments, tests, logs,
@@ -26,7 +29,9 @@
 - Put operational defaults in `teach_and_find/config.py`. Configure model names,
   devices, endpoints, and deployment paths through Settings/environment values.
 - Reuse existing interfaces before adding new frameworks or abstractions. Keep
-  pretrained backbones optional and the deterministic offline baseline usable.
+  historical deterministic baselines available only as explicitly selected test
+  or comparison paths. A model required by a promised capability is mandatory
+  for that capability; an offline baseline must never substitute for it.
 - Separate observations, derived beliefs, proposed actions, and measured action
   results. Timestamp captured evidence and preserve its provenance.
 - Multi-camera evidence must retain camera/session identity, capture clock
@@ -52,6 +57,36 @@
 
 ## Research integrity and feature status
 
+- **FATAL / CRITICAL / LETHAL: capability integrity is a mandatory acceptance gate.**
+  Implement and demonstrate the capability as described. If the promised path
+  cannot run, mark it FAIL and report the actual error and missing component.
+  Passing UI/unit tests, attractive screenshots, or a proposal cannot override FAIL.
+- No hardcoded answers, identities, world states, simulator truth, scripted motion,
+  or operator annotations may substitute for a promised automatic capability.
+  Synthetic fixtures are allowed only in explicitly labeled tests/comparisons;
+  they do not establish perception, navigation, learned control, or research integration.
+- No fallback for the promised capability: do not substitute mock data, heuristics,
+  another backend, manual confirmation, or canned output when its required model,
+  upstream implementation, checkpoint, dependency, endpoint, or input is unavailable.
+  Stop that capability and expose failure; preserve independent robot stop behavior.
+- A heuristic solution is allowed when declared as heuristic from the outset,
+  with its scope and assumptions agreed in the task description. Do not replace
+  a promised AI/model/research implementation with a heuristic or relabel one later.
+  Do not silently downgrade any agreed method, including a heuristic method.
+- If claiming AI/model inference, identify the actual model, weights/version,
+  preprocessing, invoked entry point, input/output, and observed execution evidence.
+  An unused adapter or dependency is not integrated inference. A vision model is
+  not automatically a world model, and object matching is not autonomous navigation.
+- If describing a feature as based on or integrated from a research repository,
+  actually use that repository's relevant implementation in the supported path.
+  Record upstream URL, revision, license, reused files/components, modifications,
+  execution command, and evidence. A citation, reimplementation of an idea, or
+  similarly named class is insufficient; label inspiration/reimplementation explicitly.
+- Before reporting completion, trace real input through the claimed implementation
+  to the user-visible result, distinguish model/algorithm output from human labels
+  and simulator truth, and test missing-dependency/model failure. Report software,
+  algorithm-quality, simulation, and physical evidence separately. Never prepare
+  academic progress claims that exceed this evidence.
 - Distinguish Planned, Prototype, Integrated, and Hardware verified. Update the
   feature inventory with the implementation and evidence when status changes.
 - A planned API, a mock, or a scripted animation is not a delivered robot feature.

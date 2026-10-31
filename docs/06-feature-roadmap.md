@@ -7,6 +7,13 @@ Each feature must have an observable outcome, a failure outcome, and evidence.
 Internal modules and renamed versions of one behavior do not count as separate
 completed user features.
 
+Mandatory acceptance correction: read the [OPEN FATAL / CRITICAL / LETHAL review](review/2026-10-31-fatal-critical-lethal-capability-integrity.md).
+Existing Integrated labels cover their explicitly bounded local software flows,
+not delivery of promised autonomous AI or upstream research pipelines. A required
+path that cannot run is FAIL, with no fallback. Heuristics may be delivered only
+when declared as the intended method from the outset; a research-repository claim
+requires actual reuse and execution of that implementation.
+
 ## Status and priority
 
 - **Prototype**: implemented in the current library, synthetic harness, or mock

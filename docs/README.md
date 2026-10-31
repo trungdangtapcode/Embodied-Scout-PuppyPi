@@ -3,6 +3,11 @@
 Read current status and plans before using historical prototype claims in a
 demonstration or report.
 
+**Read first: [FATAL / CRITICAL / LETHAL capability-integrity review — OPEN / FAIL](review/2026-10-31-fatal-critical-lethal-capability-integrity.md).**
+This is a mandatory correction to prior capability reporting. It audits actual
+code, simulator shortcuts, missing AI/research integration and the no-fallback
+acceptance rule. Documentation completion does not close the incident.
+
 For a visual app tour, start with the
 [eight-screenshot walkthrough](14-mobile-console-gallery.md), then the
 [placement, evidence and control figures](13-mobile-console.md). Screenshots are

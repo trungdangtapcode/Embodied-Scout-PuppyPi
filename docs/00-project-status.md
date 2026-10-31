@@ -3,6 +3,23 @@
 Status date: 2026-10-31. This is the current entry point for interpreting the
 original prototype documents and the expanded R&D roadmap.
 
+## Mandatory critical review: OPEN / FAIL
+
+Read the [FATAL / CRITICAL / LETHAL capability-integrity review](review/2026-10-31-fatal-critical-lethal-capability-integrity.md)
+before using any capability claim below. Local app integration is implemented,
+but the requested research-backed autonomous perception/room-understanding path
+has not been delivered. No pretrained vision inference, upstream room-memory
+pipeline, learned world model, or RL locomotion was demonstrated in the audited
+default demos. Their absence is a failed acceptance condition for those claims,
+not a reason to substitute heuristics, mocks, or manual labels.
+
+Heuristics are acceptable when explicitly proposed as heuristics from the outset.
+Claims of AI/model execution require actual inference; claims of integration from
+a research repository require that implementation in the supported execution path.
+These corrections govern progress reports and the interpretation of Integrated
+labels, which describe only the stated local software subset. The incident remains
+open until the promised paths run with evidence; adding this review does not fix code.
+
 ## Implemented baseline
 
 The Python package implements AprilTag pose estimation, foreground proposals,
