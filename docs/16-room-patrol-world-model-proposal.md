@@ -6,6 +6,12 @@ English-first mobile console, offboard Python host, and optional fixed phone.
 model or physical capability was implemented or verified in this research task.
 Upstream entry points were reviewed; code/checkpoints were not installed.
 
+**Research update:** the [deeper prior-art audit](17-deep-research-active-room-inspection.md)
+finds substantial overlap with 3D VSG, PBD-AG, SCOUT and active perception fault
+diagnosis. Treat this document as the application architecture, not a novelty
+claim. The follow-up proposes a narrower joint change/source-diagnosis experiment,
+stronger baselines, explicit release checks and a conditional implementation plan.
+
 ## Proposed demonstration
 
 Teach PuppyPi a small room with HOME and three inspection stations. Start a

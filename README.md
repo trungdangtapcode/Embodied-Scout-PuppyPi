@@ -71,6 +71,12 @@ The [39-feature inventory](docs/06-feature-roadmap.md) records status, priority,
 dependencies, and acceptance criteria. Features share one perception, evidence,
 mission, and motion stack.
 
+The [deep prior-art audit](docs/17-deep-research-active-room-inspection.md)
+compares twelve related works and their source availability, then proposes an
+illustrated joint room-change/source-diagnosis experiment with strong baselines.
+Patrol, persistent graphs and active fault diagnosis have close precedents;
+the research contribution remains a hypothesis.
+
 The [Room Patrol proposal](docs/16-room-patrol-world-model-proposal.md) develops
 a taught-room inspection mission and a temporal world model with geometry,
 object relationships, uncertainty and measured action outcomes. F38/F39 remain

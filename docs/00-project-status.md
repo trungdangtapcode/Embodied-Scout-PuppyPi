@@ -107,6 +107,12 @@ F38 bounded patrol and F39 temporal room-model queries, extending the same memor
 inspection and phone-observer foundations. It does not add a physical executor,
 metric reconstruction or obstacle avoidance to the current application.
 
+The [deep research audit](17-deep-research-active-room-inspection.md) identifies
+close prior art for patrol, persistent graphs, active views and fault diagnosis.
+It proposes joint scene-change/source-reliability evaluation with asynchronous
+robot/phone evidence. This is an unimplemented research hypothesis, not a
+demonstrated novelty or capability; F33–F39 statuses remain unchanged.
+
 The new [Phone Observer track](11-phone-observer-research.md) plans a fixed phone
 camera for external robot localization, cross-view evidence, view selection, and
 paired replay. It reuses the same store and policies. Robot camera provenance is
@@ -129,7 +135,7 @@ it in a mission. No live hardware capability is marked verified yet.
 
 ## Documentation precedence
 
-This status page and the numbered 06–16 documents describe current scope. Documents
+This status page and the numbered 06–17 documents describe current scope. Documents
 01–05 and the 2026-10-30 handoff remain historical source material. Statements in
 those files about novelty, ROS distribution compatibility, hardware safety,
 onboard model runtime, and sensor range need the corresponding implementation

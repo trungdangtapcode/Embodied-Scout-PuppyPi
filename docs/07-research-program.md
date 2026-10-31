@@ -6,6 +6,12 @@ existing models or deploying on a less expensive robot alone is not evidence of
 algorithmic novelty. The proposed contributions remain hypotheses until compared
 with the closest work and validated experimentally.
 
+The [deep room-inspection review](17-deep-research-active-room-inspection.md)
+updates R1/R3/R5 together: persistent IDs, visibility-gated absence, uncertainty
+view selection and active fault diagnosis already have close prior art. Use its
+stronger gated/cascade baselines and joint-change/source-fault protocol before
+claiming novelty from the simpler hypotheses below. Feature statuses are unchanged.
+
 ## R1 Temporal memory and active verification
 
 **Question:** when previous sightings conflict with current perception, how
