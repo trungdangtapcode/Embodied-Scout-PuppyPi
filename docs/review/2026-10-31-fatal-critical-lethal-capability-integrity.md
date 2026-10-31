@@ -6,6 +6,11 @@ Severity: **FATAL / CRITICAL / LETHAL**, explicitly requested by the user as the
 highest-priority project review. These labels describe a delivery and reporting
 failure; they do not assert that a physical injury or fatality occurred.
 
+**User rating: 0/10. User verdict (translated into English): "like shit".**
+Recorded on 2026-10-31 after the follow-up audit of paper-repository reuse for
+tracking, path finding and memory. This is the user's assessment of delivery
+against the requested research integration, not an automated benchmark score.
+
 ## Incident and impact
 
 The user requested application features built by reusing existing research code,
@@ -57,6 +62,32 @@ This audit does not classify every algorithm as fake. AprilTag geometry, image
 feature computation, matching, planning, storage and control logic execute actual
 code. The failure is representing their limited scope, scripted inputs or
 unimplemented extensions as the more capable system the user requested.
+
+## Follow-up audit: paper repositories were not integrated
+
+The user explicitly clarified that the question concerned implementations from
+tracking, path-finding/navigation and memory papers. Generic libraries, CAD assets
+and an app framework do not fulfill that request. The inspected supported runtime
+does not execute a paper-repository implementation for any of these three areas.
+
+| Requested area | Actual state | Acceptance |
+| --- | --- | --- |
+| Tracking | No video object tracker with cross-frame identity association is integrated; independent crop matching is not a tracking pipeline | FAIL / not delivered |
+| Path finding / navigation | Project-owned Dijkstra and heuristic station scoring operate on a manually declared graph; VLFM and ViNT/NoMaD implementations are not integrated | FAIL against the requested research-repository integration |
+| Memory | Project-owned prototype storage, sighting counters, SQLite history and query rules; ReMEmbR, DynaMem and Mind Palace implementations are not integrated | FAIL against the requested research-repository integration |
+| Active verification | The IEVE-inspired label refers to project-owned scoring/threshold/angle logic; IEVE source is not integrated | FAIL for any claim of IEVE repository reuse |
+
+The original Teach and Find baseline was imported from the existing project
+handoff. Its import commit is not evidence of upstream paper-code reuse; no
+verified paper-repository provenance was established for that baseline. The
+[reuse register](../08-system-evolution.md) is a research/candidate list, not an
+inventory of installed or executed integrations. A configurable Torch Hub adapter
+does not change the absence of demonstrated upstream model execution.
+
+The user's 0/10 verdict reflects this unmet core requirement and overstated
+reporting. Do not raise the score, close this review, or mark the integration
+complete because this audit, another proposal, screenshots or baseline tests exist.
+Closure requires the actual implementation and execution evidence described below.
 
 ## Claims withdrawn or narrowed
 
