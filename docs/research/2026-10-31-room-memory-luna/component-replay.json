@@ -1,0 +1,266 @@
+{
+  "status": "PASS_COMPONENT_REPLAY",
+  "repository": "https://github.com/mind-palace-laeqa/benchmark",
+  "revision": "b59be261f9508c3a355a8afa0d495eeba0417d68",
+  "profile": "custom one-image replay using upstream memory/reasoning and an explicit API profile",
+  "model": "gpt-6-luna",
+  "vision_model": "gpt-6-luna",
+  "api_mode": "chat-completions",
+  "reasoning_effort": "none",
+  "api_calls": [
+    {
+      "requested_model": "gpt-6-luna",
+      "returned_model": "gpt-6-luna",
+      "vision_query": true,
+      "has_image_input": true,
+      "usage": {
+        "completion_tokens": 59,
+        "prompt_tokens": 287,
+        "total_tokens": 346,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "text_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cache_write_tokens": null,
+          "cached_tokens": 0,
+          "image_tokens": null,
+          "text_tokens": null
+        }
+      }
+    },
+    {
+      "requested_model": "gpt-6-luna",
+      "returned_model": "gpt-6-luna",
+      "vision_query": false,
+      "has_image_input": false,
+      "usage": {
+        "completion_tokens": 42,
+        "prompt_tokens": 428,
+        "total_tokens": 470,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "text_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cache_write_tokens": 0,
+          "cached_tokens": 0,
+          "image_tokens": null,
+          "text_tokens": null
+        }
+      }
+    },
+    {
+      "requested_model": "gpt-6-luna",
+      "returned_model": "gpt-6-luna",
+      "vision_query": false,
+      "has_image_input": false,
+      "usage": {
+        "completion_tokens": 94,
+        "prompt_tokens": 828,
+        "total_tokens": 922,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "text_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cache_write_tokens": 0,
+          "cached_tokens": 0,
+          "image_tokens": null,
+          "text_tokens": null
+        }
+      }
+    },
+    {
+      "requested_model": "gpt-6-luna",
+      "returned_model": "gpt-6-luna",
+      "vision_query": false,
+      "has_image_input": false,
+      "usage": {
+        "completion_tokens": 64,
+        "prompt_tokens": 557,
+        "total_tokens": 621,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "text_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cache_write_tokens": 0,
+          "cached_tokens": 0,
+          "image_tokens": null,
+          "text_tokens": null
+        }
+      }
+    },
+    {
+      "requested_model": "gpt-6-luna",
+      "returned_model": "gpt-6-luna",
+      "vision_query": false,
+      "has_image_input": false,
+      "usage": {
+        "completion_tokens": 48,
+        "prompt_tokens": 346,
+        "total_tokens": 394,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "text_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cache_write_tokens": 0,
+          "cached_tokens": 0,
+          "image_tokens": null,
+          "text_tokens": null
+        }
+      }
+    },
+    {
+      "requested_model": "gpt-6-luna",
+      "returned_model": "gpt-6-luna",
+      "vision_query": false,
+      "has_image_input": true,
+      "usage": {
+        "completion_tokens": 24,
+        "prompt_tokens": 416,
+        "total_tokens": 440,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "text_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cache_write_tokens": null,
+          "cached_tokens": 0,
+          "image_tokens": null,
+          "text_tokens": null
+        }
+      }
+    },
+    {
+      "requested_model": "gpt-6-luna",
+      "returned_model": "gpt-6-luna",
+      "vision_query": false,
+      "has_image_input": true,
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 566,
+        "total_tokens": 598,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "text_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cache_write_tokens": null,
+          "cached_tokens": 0,
+          "image_tokens": null,
+          "text_tokens": null
+        }
+      }
+    },
+    {
+      "requested_model": "gpt-6-luna",
+      "returned_model": "gpt-6-luna",
+      "vision_query": false,
+      "has_image_input": true,
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 508,
+        "total_tokens": 540,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "text_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cache_write_tokens": null,
+          "cached_tokens": 0,
+          "image_tokens": null,
+          "text_tokens": null
+        }
+      }
+    }
+  ],
+  "input_source": "https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/coco_sample.png",
+  "image_sha256": "cf6f3c4befa148732c7453e0de5afab00f682427435fead2d88b07a9615cdac2",
+  "question": "Which animals were visible on the sofa in the recorded image?",
+  "fallback": false,
+  "source_changes": false,
+  "gpu_used": false,
+  "limitations": [
+    "not the reference benchmark",
+    "not integrated into PuppyPi app",
+    "nominal one-view region/pose metadata supplied by the harness",
+    "capture time is unknown; episode ID denotes replay order only",
+    "no navigation or metric geometry claim",
+    "no exact-instance or continuous-coverage evaluation",
+    "one image/question is not an accuracy benchmark"
+  ],
+  "steps": [
+    "vision_caption_from_upstream_interface",
+    "upstream_object_identification",
+    "upstream_episodic_reasoning",
+    "upstream_room_selection",
+    "upstream_place_retrieval_without_fallback",
+    "upstream_memory_image_retrieval",
+    "upstream_visual_verification_and_history",
+    "upstream_grounded_answer"
+  ],
+  "caption_raw": "{\"objects\":[\"two cats\",\"pink blanket\",\"two remote controls\"],\"description\":\"Two tabby cats are lying on a bright pink blanket. One is stretched out on the left, and the other is curled on the right. Two remote controls are beside them.\"}",
+  "caption": {
+    "objects": [
+      "two cats",
+      "pink blanket",
+      "two remote controls"
+    ],
+    "description": "Two tabby cats are lying on a bright pink blanket. One is stretched out on the left, and the other is curled on the right. Two remote controls are beside them."
+  },
+  "target": "sofa and animals visible on it",
+  "episode_selection": {
+    "episodes": [
+      "replay_step_0"
+    ],
+    "strategy": "PAST_ONLY"
+  },
+  "room_selection": "r1",
+  "place_selection": [
+    0
+  ],
+  "visual_verification": {
+    "found": true,
+    "insight": "Two cats are visible lying on the sofa."
+  },
+  "ready": true,
+  "ready_explanation": "Two cats were visible lying on the sofa.",
+  "answer": "Two cats were visible on the sofa.",
+  "answer_reasoning": "The recorded image shows two cats lying on the sofa.",
+  "elapsed_s": 33.069
+}

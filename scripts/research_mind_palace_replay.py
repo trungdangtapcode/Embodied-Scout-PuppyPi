@@ -15,7 +15,7 @@ import os
 from pathlib import Path
 import subprocess
 import time
-import traceback
+from types import MethodType
 
 
 def load_bashrc_credentials() -> None:
@@ -37,6 +37,53 @@ def load_bashrc_credentials() -> None:
     for key, value in json.loads(lines[-1][len(prefix):]).items():
         if value:
             os.environ[key] = value
+
+
+def configure_interface(interface, args: argparse.Namespace, calls: list[dict]) -> None:
+    """Select the requested model; adapt transport without changing graph logic."""
+    interface.openai_model = args.model
+    interface.openai_vision_model = args.model
+    if args.api_mode == "upstream":
+        return
+
+    def call_chat(self, messages, vision_query=False, verbose=False):
+        from openai import OpenAI
+
+        payload = {
+            "model": args.model,
+            "messages": messages,
+            "max_completion_tokens": self.openai_max_tokens,
+            "reasoning_effort": args.reasoning_effort,
+            "response_format": {"type": "json_object"},
+        }
+        if args.reasoning_effort == "none":
+            payload["temperature"] = self.openai_temperature
+        # No retries or alternate backend: a request failure terminates the run.
+        client = OpenAI(timeout=args.request_timeout_s, max_retries=0)
+        response = client.chat.completions.create(**payload)
+        calls.append({
+            "requested_model": args.model,
+            "returned_model": response.model,
+            "vision_query": vision_query,
+            "has_image_input": any(
+                isinstance(message.get("content"), list)
+                and any(item.get("type") == "image_url" for item in message["content"])
+                for message in messages
+            ),
+            "usage": response.usage.model_dump() if response.usage else None,
+        })
+        if response.model != args.model and not response.model.startswith(args.model + "-"):
+            raise ValueError("API returned a different model; no fallback accepted")
+        if len(response.choices) != 1:
+            raise ValueError("Expected exactly one model response")
+        choice = response.choices[0]
+        if choice.finish_reason != "stop" or choice.message.refusal:
+            raise ValueError("Model response was incomplete or refused; no fallback")
+        if not isinstance(choice.message.content, str) or not choice.message.content.strip():
+            raise ValueError("Model returned empty content; no fallback")
+        return choice.message.content
+
+    interface.call_openai_api = MethodType(call_chat, interface)
 
 
 def execute(args: argparse.Namespace) -> dict:
@@ -61,7 +108,12 @@ def execute(args: argparse.Namespace) -> dict:
         "status": "FAIL",
         "repository": "https://github.com/mind-palace-laeqa/benchmark",
         "revision": revision,
-        "profile": "custom one-image replay using original upstream classes and methods",
+        "profile": "custom one-image replay using upstream memory/reasoning and an explicit API profile",
+        "model": args.model,
+        "vision_model": args.model,
+        "api_mode": args.api_mode,
+        "reasoning_effort": args.reasoning_effort,
+        "api_calls": [],
         "input_source": args.source_url,
         "image_sha256": hashlib.sha256(image.read_bytes()).hexdigest(),
         "question": args.question,
@@ -85,6 +137,7 @@ def execute(args: argparse.Namespace) -> dict:
         try:
             with contextlib.redirect_stdout(log), contextlib.redirect_stderr(log):
                 interface = OpenAIInterface()
+                configure_interface(interface, args, result["api_calls"])
                 result["model"] = interface.openai_model
                 result["vision_model"] = interface.openai_vision_model
                 prompt = (
@@ -119,6 +172,14 @@ def execute(args: argparse.Namespace) -> dict:
                 world = WorldModel(memory)
                 eqa = EQAReasoning()
                 exploration = MindPalaceExploration()
+                for upstream_interface in (
+                    eqa.oa_interface,
+                    exploration.oa_interface,
+                    exploration.episodic_exploration.oa_interface,
+                    exploration.room_exploration.oa_interface,
+                    exploration.place_exploration.oa_interface,
+                ):
+                    configure_interface(upstream_interface, args, result["api_calls"])
                 belief.y_object_to_search, belief.y_reasoning_to_search_object = eqa.object_identification(belief)
                 result["target"] = belief.y_object_to_search
                 result["steps"].append("upstream_object_identification")
@@ -183,8 +244,15 @@ def main() -> int:
     parser.add_argument("--source-url", required=True)
     parser.add_argument("--question", required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--model", required=True, help="Exact requested model; no implicit default")
+    parser.add_argument("--api-mode", choices=("upstream", "chat-completions"), required=True)
+    parser.add_argument("--reasoning-effort", choices=("none", "low", "medium", "high", "xhigh", "max"))
+    parser.add_argument("--request-timeout-s", type=float)
     parser.add_argument("--from-bashrc", action="store_true")
     args = parser.parse_args()
+    if args.api_mode == "chat-completions":
+        if args.reasoning_effort is None or args.request_timeout_s is None or args.request_timeout_s <= 0:
+            parser.error("Chat Completions requires explicit reasoning effort and a positive timeout")
     if args.from_bashrc:
         load_bashrc_credentials()
     if not os.environ.get("OPENAI_API_KEY"):

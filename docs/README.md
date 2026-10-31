@@ -38,7 +38,7 @@ Python versus native code, and venv versus Docker/ROS before the research plans.
 | [17 Deep room-inspection research](17-deep-research-active-room-inspection.md) | Twelve-work prior-art audit, source-release checks, joint change/source-diagnosis proposal, visual experiment and strong baselines |
 | [18 Skill-based deep research](18-deep-research-room-intelligence.md) | 27-source evidence-tracked review, temporal observability, counterfactual-history benchmark and acquisition proposal; [HTML](research/2026-10-31-deep-room/report.html), [19-page PDF](research/2026-10-31-deep-room/report.pdf), [validation](research/2026-10-31-deep-room/validation.md) |
 | [19 Application delivery](19-application-delivery-plan.md) | Implemented Room memory, evidence queries and visual review; application-first monitoring, perception, phone and patrol sequence |
-| [20 Executed upstream validation](20-room-memory-upstream-validation.md) | Mind Palace + GPT-4o component replay, actual outputs/reproducer, failed reference benchmark and ReMEmbR profile; no app integration claim |
+| [20 Executed upstream validation](20-room-memory-upstream-validation.md) | Mind Palace + GPT-4o/GPT-6 Luna component replays, actual outputs/reproducer, failed reference benchmark and ReMEmbR profile; no app integration claim |
 | [Contributor guide](../CONTRIBUTING.md) | Setup, checks, commit conventions, review and evidence workflow |
 | [Agent instructions](../AGENTS.md) | Repository-specific instructions for coding agents |
 | [2026-10-31 handoff](handoffs/2026-10-31-handoff.md) | Repository bootstrap, verification, and next implementation steps |

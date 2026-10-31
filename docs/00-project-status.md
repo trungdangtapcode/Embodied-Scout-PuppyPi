@@ -22,7 +22,9 @@ open until the promised paths run with evidence; adding this review does not fix
 
 Subsequent [upstream execution evidence](20-room-memory-upstream-validation.md)
 records a genuine Mind Palace + GPT-4o component replay on one public image,
-repeated successfully with a committed reproducer. This is outside the app and
+repeated successfully with a committed reproducer. A subsequent user-selected
+`gpt-6-luna` replay also passed with an explicit API adapter; all eight calls
+returned that model. This is outside the app and
 does not change default-demo claims or close the incident. The original benchmark
 still fails on missing scene data (download quota); the tested ReMEmbR OpenAI
 profile fails initialization. No robot or local GPU inference was used.

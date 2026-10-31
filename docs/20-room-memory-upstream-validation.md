@@ -13,7 +13,8 @@ Question Answering** as the upstream candidate for the memory/reasoning layer:
 tested revision `b59be261f9508c3a355a8afa0d495eeba0417d68`, MIT code license.
 
 This recommendation has a narrow executable basis: actual upstream components
-completed a public-image memory/reasoning replay using **GPT-4o through OpenAI**.
+completed a public-image memory/reasoning replay using **GPT-4o through OpenAI**,
+then the user-selected **`gpt-6-luna`** with an explicit transport adapter.
 It is not a claim that the complete LA-EQA benchmark, automatic scene construction,
 long-term memory quality or the PuppyPi app integration works. The app still uses
 its original heuristic/annotation-backed flow. No feature status is promoted.
@@ -33,6 +34,7 @@ PuppyPi navigation executor. Paper-repository reuse does not remove those bounda
 | First API diagnostic through the original interface | API returned a response, but **FAIL** at strict JSON parsing because it contained Markdown fences | Connection and API access work; parser robustness is not established |
 | Explicit one-image component replay, first run | **PASS_COMPONENT_REPLAY**, answer `Two cats`, 47.560 s | Real visual inference and upstream memory/reasoning calls completed on one case |
 | Repeat using the committed reproducer | **PASS_COMPONENT_REPLAY**, answer `Two cats`, 50.727 s | The standalone reproducer exercised the same declared component path |
+| User-selected `gpt-6-luna`, with the declared Chat Completions adapter | **PASS_COMPONENT_REPLAY**, answer `Two cats were visible on the sofa.`, 33.069 s | Eight actual API calls returned `gpt-6-luna`; four included image input; same one-case limitations apply |
 | Run reproducer without a key | **Expected FAIL**, exit code 2, `OPENAI_API_KEY is required; no fallback` | Missing credentials do not select mock output or a heuristic backend |
 | Install ReMEmbR, revision `964faab296fe70f8a8dbb9135adf20fecb758525`, then initialize `ReMEmbRAgent(llm_type='gpt-4o')` | Dependencies installed; **FAIL** at initialization: `No correct LLM provided` | This checkout's OpenAI branch contains a TODO and does not support that requested profile as shipped |
 | Import ReMEmbR's VILA captioner | **FAIL**: `No module named 'llava'` | Its separately installed VILA stack is still missing; no full ReMEmbR run is claimed |
@@ -95,6 +97,13 @@ requirements; they were not executed in this experiment. The Pi runs no new serv
 
 ## Reproduce the observed component experiment
 
+This section retains the original GPT-4o experiment at source commit `0c8c749`.
+Its original artifact manifest hashes that historical script. The current
+reproducer requires explicit `--model` and `--api-mode`; to use its historical
+transport, append `--model gpt-4o --api-mode upstream` to the original command
+below. Do not compare the historical script hash with a later modified script.
+The current user-selected Luna command and its separate manifest follow below.
+
 The reproducible entry point is
 [research_mind_palace_replay.py](../scripts/research_mind_palace_replay.py).
 It is an explicitly invoked research experiment; default tests do not call it
@@ -135,6 +144,56 @@ upstream revision, tracked-source cleanliness and imported module location. It
 returns a nonzero exit on a failed component run and writes `result.json` and
 `replay.log` into the chosen output directory. Model responses remain
 nondeterministic; do not treat the two observed answers as a guarantee.
+
+## Current user-selected model: GPT-6 Luna
+
+The user confirmed the exact model ID `gpt-6-luna` after the initial misspelled
+`gpt-6-6luna` returned `404 model_not_found`. The API model catalog listed the
+correct ID. All eight calls in the successful Luna replay returned `gpt-6-luna`,
+including four requests with image input. Observed elapsed time was 33.069 s;
+reported aggregate usage was 4,331 tokens. These observations are not latency or
+quality benchmarks, and no local GPU was used.
+
+The repository's graph, retrieval and reasoning code is still imported directly
+from the pinned upstream checkout. A project-owned transport override applies the
+selected model to every upstream interface, uses `max_completion_tokens` instead
+of the legacy limit, omits the legacy seed, and requests a JSON object. Reasoning
+effort `none` preserves the original non-reasoning workload role; the upstream
+temperature of 0.2 and output limit of 512 are retained for this profile. Request
+timeout is explicitly 60 seconds, with SDK retries disabled. See the official
+[Luna model documentation](https://developers.openai.com/api/docs/models/gpt-6-luna),
+[migration parameters](https://developers.openai.com/api/docs/guides/latest-model)
+and [Chat Completions reference](https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create).
+
+This is a declared model/transport adaptation of upstream components, not an
+unchanged reproduction of the paper's GPT-4o setup. Source files in the upstream
+checkout are unchanged. The wrapper fails on a wrong returned model, incomplete
+or refused output, empty output, invalid selection, API error or missing key.
+It never retries with GPT-4o or a mock. Model selection is explicit; the script
+has no implicit model default. The prior GPT-4o evidence remains historical.
+
+This command was executed successfully:
+
+```bash
+CUDA_VISIBLE_DEVICES=-1 MPLBACKEND=Agg timeout 300 \
+  runs/room-upstream-audit/.venv-mind-palace/bin/python \
+  scripts/research_mind_palace_replay.py \
+  --upstream runs/room-upstream-audit/mind-palace \
+  --revision b59be261f9508c3a355a8afa0d495eeba0417d68 \
+  --image runs/room-upstream-audit/coco_sample.png \
+  --source-url https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/coco_sample.png \
+  --question 'Which animals were visible on the sofa in the recorded image?' \
+  --output runs/room-upstream-audit/luna-replay \
+  --model gpt-6-luna --api-mode chat-completions \
+  --reasoning-effort none --request-timeout-s 60 --from-bashrc
+```
+
+Inspect [the actual Luna output](research/2026-10-31-room-memory-luna/component-replay.json)
+and [its separate manifest](research/2026-10-31-room-memory-luna/manifest.json).
+Seven new offline regression cases cover model routing, sampling compatibility,
+terminal request failure and rejecting wrong-model/truncated/refused/empty output.
+The updated missing-key command was also executed and exited 2 without API use.
+App integration and the original benchmark remain unverified/failed as recorded above.
 
 ## Persisted evidence and next acceptance gate
 

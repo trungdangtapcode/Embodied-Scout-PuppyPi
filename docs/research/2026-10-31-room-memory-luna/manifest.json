@@ -1,0 +1,34 @@
+{
+  "date": "2026-10-31",
+  "source_parent_commit": "0c8c749",
+  "probe_script": "scripts/research_mind_palace_replay.py",
+  "probe_script_sha256": "3ca892eff03d4561be9e94ac6f8e8c3e2ce79925c45aebe1434bfbe1d8fcef05",
+  "upstream_repository": "https://github.com/mind-palace-laeqa/benchmark",
+  "upstream_revision": "b59be261f9508c3a355a8afa0d495eeba0417d68",
+  "upstream_tracked_source_changes": false,
+  "project_transport_override": true,
+  "model": "gpt-6-luna",
+  "api_mode": "chat-completions",
+  "reasoning_effort": "none",
+  "request_parameters": {
+    "max_completion_tokens": 512,
+    "temperature": 0.2,
+    "response_format": {
+      "type": "json_object"
+    },
+    "timeout_s": 60,
+    "max_retries": 0
+  },
+  "api_calls": 8,
+  "api_calls_with_images": 4,
+  "total_tokens": 4331,
+  "gpu_used": false,
+  "image_sha256": "cf6f3c4befa148732c7453e0de5afab00f682427435fead2d88b07a9615cdac2",
+  "environment_reference": "docs/research/2026-10-31-room-memory-execution/requirements-py312-cpu.txt",
+  "environment_sha256": "be33af89ddd2fdb774b152305baeecc59d64d4ec8426be487e726c18a7cbc1de",
+  "missing_key_exit_code": 2,
+  "app_integration": "NOT_IMPLEMENTED",
+  "artifacts": {
+    "component-replay.json": "c599c1b029653fa304b6191e3e486e4be11bffdff46698c27c729d1b8c8ce0cf"
+  }
+}
