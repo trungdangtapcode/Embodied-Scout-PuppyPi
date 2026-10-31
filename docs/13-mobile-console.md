@@ -55,6 +55,14 @@ workers against the same robot.
 
 ## Run locally or on a phone
 
+The interface defaults to **English**, including when the browser's preferred
+language is Vietnamese. The language selector on the pairing screen and header
+offers optional Vietnamese (`VI`); an explicit choice is remembered in this
+browser. Switching languages disarms manual control. Dates follow the selected
+locale; object names, evidence, API diagnostics and technical identifiers retain
+their original values. English message keys live in application code, and
+Vietnamese copy is isolated in `web/src/locales/vi.json`.
+
 Prerequisites: Python 3.12, uv, Node 22.12+ (Node 24 tested).
 
 ```bash
@@ -73,7 +81,7 @@ make app APP_ARGS="--host 0.0.0.0 --data-dir data/mobile-demo"
 ```
 
 On the phone, open `http://<host-lan-ip>:8080`, then pair. An empty synthetic
-workspace offers **Nạp dữ liệu demo**: it explicitly creates three taught objects
+workspace offers **Load demo data**: it explicitly creates three taught objects
 and scripted present/absent/uncertain evidence. The sample report has one pass,
 one fail, and one unknown. It is independent of the current rendered scene and
 does not claim automated recognition. The renderer responds to manual commands
@@ -185,7 +193,7 @@ commands; another legacy client can bypass the app's exclusive-operator gate.
 ignored and included in the Python wheel when built before `make build`.
 `npm --prefix web run dev` offers Vite development with `/api` HTTP/WebSocket
 proxying to the host on port 8080. Production requires only Python plus the built
-assets. The application JS is approximately 50 kB raw / 19 kB gzip in this build,
+assets. The application JS is approximately 60 kB raw / 22 kB gzip in this build,
 excluding CSS and locally bundled font files; this is not a device performance
 benchmark. Third-party license texts ship as `THIRD_PARTY_NOTICES.txt`.
 

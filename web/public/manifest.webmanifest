@@ -1,5 +1,5 @@
 {
-  "id": "/", "name": "PuppyPi Field Console", "short_name": "PuppyPi",
+  "id": "/", "lang": "en", "name": "PuppyPi Field Console", "short_name": "PuppyPi",
   "start_url": "/", "scope": "/", "display": "standalone",
   "background_color": "#f4f5f0", "theme_color": "#f4f5f0",
   "icons": [

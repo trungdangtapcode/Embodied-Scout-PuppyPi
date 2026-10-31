@@ -31,6 +31,33 @@
   font-size: 14px;
   line-height: 1.6;
 }
+.language-picker {
+  width: auto;
+  min-height: 44px;
+  max-width: 104px;
+  margin: 0;
+  font-size: 11px;
+}
+.pair-language {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+@media (max-width: 380px) {
+  .topbar .breadcrumb {
+    display: none;
+  }
+  .topbar-actions {
+    margin-left: auto;
+  }
+}
+@media (max-width: 700px) {
+  .topbar-actions .language-picker {
+    max-width: 84px;
+    padding: 8px;
+    font-size: 10px;
+  }
+}
 * {
   box-sizing: border-box;
 }

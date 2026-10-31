@@ -9,6 +9,7 @@
     "strict": true,
     "noEmit": true,
     "skipLibCheck": true,
+    "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
     "types": ["vite/client"]
   },

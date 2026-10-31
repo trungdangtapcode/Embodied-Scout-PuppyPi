@@ -41,44 +41,63 @@ import "@fontsource/manrope/vietnamese-500.css";
 import "@fontsource/manrope/vietnamese-600.css";
 import "@fontsource/manrope/vietnamese-700.css";
 import "./style.css";
+import { t, getLocale, setLocale, type Locale } from "./i18n";
 import { api, evidence, post, timeOf, when } from "./api";
 import type { Checklist, History, ObjectRecord, Report } from "./types";
 import { type Robot, useRobot } from "./useRobot";
 
 type Tab = "monitor" | "control" | "inspect" | "library";
-const navigation = [
-  { id: "monitor", label: "Monitor", icon: Activity, subtitle: "Góc nhìn hiện tại" },
-  { id: "control", label: "Điều khiển", icon: SlidersHorizontal, subtitle: "Chủ động từng bước" },
-  { id: "inspect", label: "Inspect", icon: ScanLine, subtitle: "Mỗi kết luận, một bằng chứng" },
-  { id: "library", label: "Thư viện", icon: Layers, subtitle: "Những vật thể đã học" },
-] as const;
-const labels: Record<string, string> = {
-  pass: "Đạt",
-  fail: "Cần kiểm tra",
-  unknown: "Chưa rõ",
-  present: "Có mặt",
-  absent: "Vắng mặt",
-  correct_location: "Đúng vị trí",
-  missing: "Thiếu vật thể",
-  wrong_location: "Sai vị trí",
-  no_fresh_evidence: "Chưa có bằng chứng mới",
-  insufficient_visibility: "Tầm nhìn hạn chế",
-  uncertain_evidence: "Bằng chứng chưa rõ",
-  archived_object: "Vật thể đã lưu trữ",
-  present_at_expected_station: "Đúng vị trí",
-  misplaced: "Sai vị trí",
-  insufficient_or_conflicting_view: "Ảnh chưa rõ hoặc mâu thuẫn",
-  console_ready: "Console sẵn sàng",
-  camera_connected: "Camera đã kết nối",
-  camera_disconnected: "Camera mất kết nối",
-  control_armed: "Đã mở quyền điều khiển",
-  control_stopped: "Đã khóa điều khiển",
-  demo_loaded: "Đã nạp dữ liệu demo",
-  observation_saved: "Đã ghi nhận bằng chứng",
-  object_taught: "Đã học vật thể",
-  inspection_completed: "Đã hoàn tất đánh giá",
-};
-const label = (key: string) => labels[key] || key.replaceAll("_", " ");
+const getNavigation = () =>
+  [
+    { id: "monitor", label: "Monitor", icon: Activity, subtitle: t("Your current viewpoint") },
+    {
+      id: "control",
+      label: t("Control"),
+      icon: SlidersHorizontal,
+      subtitle: t("Take control, one step at a time"),
+    },
+    {
+      id: "inspect",
+      label: "Inspect",
+      icon: ScanLine,
+      subtitle: t("Every finding, backed by evidence"),
+    },
+    {
+      id: "library",
+      label: t("Library"),
+      icon: Layers,
+      subtitle: t("Objects your robot remembers"),
+    },
+  ] as const;
+function label(key: string) {
+  const labels: Record<string, string> = {
+    pass: t("Pass"),
+    fail: t("Needs review"),
+    unknown: t("Unknown"),
+    present: t("Present"),
+    absent: t("Absent"),
+    correct_location: t("Correct location"),
+    missing: t("Missing object"),
+    wrong_location: t("Wrong location"),
+    no_fresh_evidence: t("No fresh evidence"),
+    insufficient_visibility: t("Limited visibility"),
+    uncertain_evidence: t("Uncertain evidence"),
+    archived_object: t("Archived object"),
+    present_at_expected_station: t("Correct location"),
+    misplaced: t("Wrong location"),
+    insufficient_or_conflicting_view: t("Unclear or conflicting view"),
+    console_ready: t("Console ready"),
+    camera_connected: t("Camera connected"),
+    camera_disconnected: t("Camera disconnected"),
+    control_armed: t("Control armed"),
+    control_stopped: t("Control disarmed"),
+    demo_loaded: t("Demo loaded"),
+    observation_saved: t("Evidence saved"),
+    object_taught: t("Object taught"),
+    inspection_completed: t("Assessment completed"),
+  };
+  return labels[key] || key.replaceAll("_", " ");
+}
 
 function Badge({ children, tone = "" }: { children: ComponentChildren; tone?: string }) {
   return <span class={`badge ${tone}`}>{children}</span>;
@@ -110,7 +129,7 @@ function Modal({
     <dialog ref={ref} onClose={onClose} aria-label={title}>
       <div class="modal-head">
         <h2>{title}</h2>
-        <button class="icon-button" onClick={() => ref.current?.close()} aria-label="Đóng">
+        <button class="icon-button" onClick={() => ref.current?.close()} aria-label={t("Close")}>
           <X />
         </button>
       </div>
@@ -133,22 +152,22 @@ function CameraView({ robot, compact = false }: { robot: Robot; compact?: boolea
         {image && live ? (
           <img
             src={image.url}
-            alt="Góc nhìn camera robot"
+            alt={t("Robot camera view")}
             onLoad={() => robot.imageLoaded(image.id)}
             onError={robot.imageFailed}
           />
         ) : (
           <div class="camera-empty">
             <Camera size={40} />
-            <p>{online ? "Đang chờ camera…" : "Camera chưa kết nối"}</p>
+            <p>{online ? t("Waiting for camera\u2026") : t("Camera disconnected")}</p>
           </div>
         )}
         <span class="reticle" aria-hidden="true" />
         <div class="camera-caption">
           <span>
-            <ScanLine size={16} /> {live ? "Góc nhìn phía trước" : "Không có ảnh trực tiếp"}
+            <ScanLine size={16} /> {live ? t("Front view") : t("No live image")}
           </span>
-          <span>{state?.camera.fresh && live ? "Ảnh mới" : "Chưa xác minh độ mới"}</span>
+          <span>{state?.camera.fresh && live ? t("Fresh frame") : t("Freshness unverified")}</span>
         </div>
       </div>
       <div class="frame-strip">
@@ -157,15 +176,33 @@ function CameraView({ robot, compact = false }: { robot: Robot; compact?: boolea
         </span>
         <span>
           {live && state?.camera.age_s != null
-            ? `${Math.round(state.camera.age_s * 1000)} ms · tuổi ảnh ước tính`
-            : "Chưa có timestamp"}
+            ? t("{age} ms · estimated frame age", { age: Math.round(state.camera.age_s * 1000) })
+            : t("No timestamp available")}
         </span>
       </div>
     </div>
   );
 }
 
+function LanguagePicker({ value, onChange }: { value: Locale; onChange: (value: Locale) => void }) {
+  return (
+    <select
+      class="language-picker"
+      aria-label={t("Language")}
+      value={value}
+      onChange={(event) => onChange(event.currentTarget.value === "vi" ? "vi" : "en")}
+    >
+      <option value="en">English</option>
+      <option value="vi">VI</option>
+    </select>
+  );
+}
+
 function App() {
+  const [locale, updateLocale] = useState<Locale>(getLocale);
+  useEffect(() => {
+    document.documentElement.lang = locale;
+  }, [locale]);
   const [auth, setAuth] = useState<"loading" | "paired" | "unpaired">("loading");
   const [token, setToken] = useState("");
   const [notice, setNotice] = useState("");
@@ -179,8 +216,15 @@ function App() {
   const [history, setHistory] = useState<History | null>(null);
   const robot = useRobot(auth === "paired", setNotice, () => {
     setAuth("unpaired");
-    setNotice("Phiên đã hết hạn. Nhập lại mã ghép nối của host.");
+    setNotice(t("Your session expired. Enter the host pairing code again."));
   });
+  const changeLanguage = (value: Locale) => {
+    if (auth === "paired") robot.stop();
+    setLocale(value);
+    updateLocale(value);
+    setNotice("");
+  };
+  const languagePicker = <LanguagePicker value={locale} onChange={changeLanguage} />;
   const refresh = async () => {
     const [o, c, r] = await Promise.all([
       api<ObjectRecord[]>("/objects"),
@@ -198,7 +242,7 @@ function App() {
       await work();
       if (success) setNotice(success);
     } catch (error) {
-      setNotice(error instanceof Error ? error.message : "Không thể hoàn tất thao tác.");
+      setNotice(error instanceof Error ? error.message : t("Unable to complete the action."));
     } finally {
       setBusy(false);
     }
@@ -224,6 +268,7 @@ function App() {
       setNotice(String(error));
     }
   };
+  const navigation = getNavigation();
   const selectedNav = navigation.find((n) => n.id === tab)!;
 
   if (auth !== "paired")
@@ -236,18 +281,22 @@ function App() {
             A little robot.
             <br />A closer look.
           </h1>
-          <p>Quan sát. Điều khiển. Kiểm chứng.</p>
+          <p>{t("Observe. Control. Verify.")}</p>
           <div class="pair-orbit" aria-hidden="true">
             <ScanLine size={120} />
           </div>
           <span class="pair-footer">One workspace for every discovery.</span>
         </div>
         <section class="pair-form">
+          <div class="pair-language">{languagePicker}</div>
           <Badge tone="green">
-            <LockKeyhole size={14} /> Kết nối riêng với host
+            <LockKeyhole size={14} />
+            {t("Private host connection")}
           </Badge>
-          <h2>Chào người điều khiển.</h2>
-          <p>Nhập mã ghép nối hiển thị trong terminal của PuppyPi host để mở bàn điều khiển.</p>
+          <h2>{t("Welcome, operator.")}</h2>
+          <p>
+            {t("Enter the pairing code shown in the PuppyPi host terminal to open the console.")}
+          </p>
           <form
             onSubmit={(e) => {
               e.preventDefault();
@@ -259,24 +308,25 @@ function App() {
             }}
           >
             <label>
-              Mã ghép nối
+              {t("Pairing code")}
               <input
                 autoComplete="off"
                 type="password"
                 value={token}
                 onInput={(e) => setToken(e.currentTarget.value)}
                 required
-                placeholder="Nhập mã từ host"
+                placeholder={t("Enter the host code")}
               />
             </label>
             <button class="button primary wide" disabled={busy || auth === "loading"}>
-              {auth === "loading" ? "Đang kết nối…" : "Mở Field Console"}
+              {auth === "loading" ? t("Connecting\u2026") : t("Open Field Console")}
               <ArrowUpRight size={18} />
             </button>
           </form>
           <p class="hint">
-            Điện thoại và host cần truy cập được cùng địa chỉ mạng. Mã mới được tạo khi host khởi
-            động.
+            {t(
+              "Your phone must be able to reach the host. A new code is generated when the host starts.",
+            )}
           </p>
           {notice && (
             <p role="alert" class="notice-inline">
@@ -297,7 +347,7 @@ function App() {
           </span>
         </a>
         <span class="nav-label">WORKSPACE</span>
-        <nav aria-label="Điều hướng chính">
+        <nav aria-label={t("Main navigation")}>
           {navigation.map((n) => (
             <button
               key={n.id}
@@ -331,7 +381,8 @@ function App() {
               })
             }
           >
-            <LogOut size={16} /> Ngắt phiên thiết bị
+            <LogOut size={16} />
+            {t("Sign out this device")}
           </button>
         </div>
       </aside>
@@ -342,9 +393,10 @@ function App() {
             <strong>{selectedNav.label}</strong>
           </div>
           <div class="topbar-actions">
+            {languagePicker}
             <span class={`connection ${robot.online ? "" : "offline"}`}>
               {robot.online ? <Wifi size={16} /> : <WifiOff size={16} />}
-              <span>{robot.online ? "Host online" : "Mất kết nối"}</span>
+              <span>{robot.online ? "Host online" : t("Disconnected")}</span>
             </span>
             <button class="stop-button" onClick={robot.stop}>
               <CircleStop size={18} /> STOP
@@ -373,12 +425,13 @@ function App() {
                 ? "Synthetic demo"
                 : robot.state
                   ? "Robot relay"
-                  : "Đang kết nối"}
+                  : t("Connecting")}
             </Badge>
           </div>
           {!robot.online && (
             <div class="banner">
-              <WifiOff size={18} /> Mất kết nối host. Điều khiển đã khóa; đang thử kết nối lại.
+              <WifiOff size={18} />
+              {t("Host disconnected. Controls are locked; reconnecting.")}
             </div>
           )}
           {(tab === "monitor" || tab === "control") && (
@@ -389,8 +442,12 @@ function App() {
                   <ShieldCheck size={16} />
                   <span>
                     {robot.state?.mode === "synthetic"
-                      ? "Camera render tương tác · mô phỏng động học, chưa phải kết quả robot thật."
-                      : "ACK xác nhận adapter nhận lệnh. Chưa có phản hồi vị trí hoặc xác nhận chuyển động."}
+                      ? t(
+                          "Interactive rendered camera \u00b7 kinematic simulation; physical behavior unverified.",
+                        )
+                      : t(
+                          "ACK confirms adapter receipt. Measured position and motion feedback are unavailable.",
+                        )}
                   </span>
                 </div>
               </section>
@@ -399,7 +456,7 @@ function App() {
                   <>
                     <div class="panel session-panel">
                       <div class="section-title">
-                        <h2>Phiên quan sát</h2>
+                        <h2>{t("Observation session")}</h2>
                         <Radio size={18} />
                       </div>
                       <div class="session-state">
@@ -409,42 +466,43 @@ function App() {
                         <div>
                           <strong>
                             {robot.online && robot.state?.camera.fresh
-                              ? "Sẵn sàng quan sát"
-                              : "Đang chờ tín hiệu"}
+                              ? t("Ready to observe")
+                              : t("Waiting for signal")}
                           </strong>
-                          <small>Camera phía trước · RGB</small>
+                          <small>{t("Front camera \u00b7 RGB")}</small>
                         </div>
                       </div>
                       <dl class="facts">
                         <div>
-                          <dt>Điều khiển</dt>
+                          <dt>{t("Control")}</dt>
                           <dd>
-                            {robot.state?.control.armed ? "Đang có người giữ quyền" : "Đã khóa"}
+                            {robot.state?.control.armed ? t("Operator in control") : t("Locked")}
                           </dd>
                         </div>
                         <div>
                           <dt>Pin</dt>
-                          <dd>Chưa có dữ liệu</dd>
+                          <dd>{t("Unavailable")}</dd>
                         </div>
                         <div>
-                          <dt>Vị trí đo được</dt>
-                          <dd>Chưa có dữ liệu</dd>
+                          <dt>{t("Measured position")}</dt>
+                          <dd>{t("Unavailable")}</dd>
                         </div>
                       </dl>
                       <button class="button primary wide" onClick={() => switchTab("control")}>
-                        Mở điều khiển
+                        {t("Open controls")}
                         <ArrowUpRight size={18} />
                       </button>
                     </div>
                     <div class="notebook-link" onClick={() => switchTab("inspect")}>
                       <span class="eyebrow">FROM CAMERA TO EVIDENCE</span>
                       <h3>
-                        Mỗi góc nhìn,
+                        {t("Every viewpoint,")}
                         <br />
-                        một phát hiện mới.
+                        {t("a new discovery.")}
                       </h3>
                       <button class="text-button">
-                        Mở Inspect <ArrowRight size={18} />
+                        {t("Open Inspect")}
+                        <ArrowRight size={18} />
                       </button>
                     </div>
                   </>
@@ -458,15 +516,18 @@ function App() {
             <div class="lower-grid">
               <section class="panel">
                 <div class="section-title">
-                  <h2>Sổ bằng chứng</h2>
+                  <h2>{t("Evidence notebook")}</h2>
                   <FolderOpen size={18} />
                 </div>
                 <div class="memory-count">
                   <strong>{objects.length.toString().padStart(2, "0")}</strong>
                   <div>
-                    vật thể đã học
+                    {t("taught objects")}
                     <small>
-                      {reports.length} báo cáo gần đây · {checklists.length} checklist
+                      {t("{reports} recent reports · {checklists} checklists", {
+                        reports: reports.length,
+                        checklists: checklists.length,
+                      })}
                     </small>
                   </div>
                 </div>
@@ -479,9 +540,12 @@ function App() {
                 </div>
                 {!objects.length && (
                   <>
-                    <p class="muted">Dạy vật thể đầu tiên từ ảnh hoặc mở bộ dữ liệu demo.</p>
+                    <p class="muted">
+                      {t("Teach your first object from images or load the demo dataset.")}
+                    </p>
                     <button class="button secondary" onClick={() => setModal("teach")}>
-                      <Plus size={16} /> Dạy vật thể
+                      <Plus size={16} />
+                      {t("Teach object")}
                     </button>
                     {robot.state?.mode === "synthetic" && (
                       <button
@@ -491,10 +555,11 @@ function App() {
                           void act(async () => {
                             await post("/demo");
                             await refresh();
-                          }, "Đã tạo dữ liệu synthetic: 3 vật thể và một báo cáo mẫu.")
+                          }, t("Synthetic demo created: 3 objects and a sample report."))
                         }
                       >
-                        <Layers size={16} /> Nạp dữ liệu demo
+                        <Layers size={16} />
+                        {t("Load demo data")}
                       </button>
                     )}
                   </>
@@ -502,7 +567,7 @@ function App() {
               </section>
               <section class="panel activity-panel">
                 <div class="section-title">
-                  <h2>Nhật ký phiên</h2>
+                  <h2>{t("Session activity")}</h2>
                   <Activity size={18} />
                 </div>
                 <div class="event-list">
@@ -535,9 +600,10 @@ function App() {
           {tab === "library" && (
             <>
               <div class="section-toolbar">
-                <span>{objects.length} vật thể · thư viện dùng chung với CLI</span>
+                <span>{t("{count} objects · shared with the CLI", { count: objects.length })}</span>
                 <button class="button primary" onClick={() => setModal("teach")}>
-                  <Plus size={18} /> Dạy vật thể
+                  <Plus size={18} />
+                  {t("Teach object")}
                 </button>
               </div>
               {objects.length ? (
@@ -551,7 +617,7 @@ function App() {
                       <div class="object-details">
                         <div>
                           <h3>{obj.name}</h3>
-                          <p>{obj.references.length} ảnh tham chiếu</p>
+                          <p>{t("{count} reference images", { count: obj.references.length })}</p>
                         </div>
                         <ArrowUpRight size={20} />
                       </div>
@@ -559,9 +625,10 @@ function App() {
                   ))}
                 </div>
               ) : (
-                <Empty title="Bắt đầu bằng một vật thể">
-                  Chọn Dạy vật thể và tải lên ảnh đã crop sát vật thể. Nhiều góc nhìn giúp thư viện
-                  hữu ích hơn.
+                <Empty title={t("Start with an object")}>
+                  {t(
+                    "Choose Teach object and upload tightly cropped images. Multiple viewpoints make the library more useful.",
+                  )}
                 </Empty>
               )}
             </>
@@ -575,16 +642,17 @@ function App() {
       {notice && (
         <div class="toast" role="status">
           <span>{notice}</span>
-          <button aria-label="Đóng thông báo" onClick={() => setNotice("")}>
+          <button aria-label={t("Dismiss notification")} onClick={() => setNotice("")}>
             <X size={18} />
           </button>
         </div>
       )}
       {modal === "teach" && (
-        <Modal title="Dạy một vật thể" onClose={() => setModal(null)}>
+        <Modal title={t("Teach an object")} onClose={() => setModal(null)}>
           <p class="muted">
-            Dùng 1–8 ảnh crop sát vật thể, ở nhiều góc nhìn. PNG/JPEG, tối đa 4 MB mỗi ảnh và 6 MB
-            tổng yêu cầu.
+            {t(
+              "Use 1\u20138 tightly cropped views. PNG/JPEG, up to 4 MB each and 6 MB per request.",
+            )}
           </p>
           <form
             onSubmit={(e) => {
@@ -594,27 +662,32 @@ function App() {
                 await api("/objects", { method: "POST", body: form });
                 await refresh();
                 setModal(null);
-              }, "Đã lưu vật thể vào thư viện.");
+              }, t("Object saved to the library."));
             }}
           >
             <label>
-              Tên vật thể
-              <input name="name" required maxLength={120} placeholder="Ví dụ: Hộp dụng cụ xanh" />
+              {t("Object name")}
+              <input
+                name="name"
+                required
+                maxLength={120}
+                placeholder={t("For example: Blue tool case")}
+              />
             </label>
             <label class="upload-field">
               <Upload size={24} />
-              <span>Chọn ảnh tham chiếu</span>
+              <span>{t("Choose reference images")}</span>
               <input name="files" type="file" accept="image/png,image/jpeg" multiple required />
             </label>
             <button class="button primary wide" disabled={busy}>
-              {busy ? <LoaderCircle class="spin" size={18} /> : <Check size={18} />} Lưu vào thư
-              viện
+              {busy ? <LoaderCircle class="spin" size={18} /> : <Check size={18} />}{" "}
+              {t("Save to library")}
             </button>
           </form>
         </Modal>
       )}
       {modal === "checklist" && (
-        <Modal title="Tạo checklist" onClose={() => setModal(null)}>
+        <Modal title={t("Create checklist")} onClose={() => setModal(null)}>
           <form
             onSubmit={(e) => {
               e.preventDefault();
@@ -632,15 +705,15 @@ function App() {
             }}
           >
             <label>
-              Tên checklist
-              <input name="name" required placeholder="Kiểm tra bàn làm việc" />
+              {t("Checklist name")}
+              <input name="name" required placeholder={t("Workbench readiness")} />
             </label>
             <label>
-              Vị trí mong đợi
+              {t("Expected station")}
               <input name="station" defaultValue="Station_A" required />
             </label>
             <fieldset>
-              <legend>Vật thể cần có</legend>
+              <legend>{t("Expected objects")}</legend>
               {objects.map((obj) => (
                 <label class="check-row" key={obj.id}>
                   <input type="checkbox" name="objects" value={obj.id} />
@@ -650,7 +723,8 @@ function App() {
               ))}
             </fieldset>
             <button class="button primary wide" disabled={busy || !objects.length}>
-              Tạo checklist <Plus size={16} />
+              {t("Create checklist")}
+              <Plus size={16} />
             </button>
           </form>
         </Modal>
@@ -665,7 +739,7 @@ function App() {
         >
           <div class="history-refs">
             {selected.references.map((ref) => (
-              <img key={ref.image_sha} src={evidence(ref.image_sha)} alt="Ảnh tham chiếu" />
+              <img key={ref.image_sha} src={evidence(ref.image_sha)} alt={t("Reference image")} />
             ))}
           </div>
           <form
@@ -684,24 +758,28 @@ function App() {
             }}
           >
             <label>
-              Tên vật thể
+              {t("Object name")}
               <input name="name" value={selected.name} required />
             </label>
             <button class="button secondary" disabled={busy}>
-              Đổi tên
+              {t("Rename")}
             </button>
           </form>
           <h3>
-            <HistoryIcon size={18} /> Lịch sử quan sát
+            <HistoryIcon size={18} />
+            {t("Observation history")}
           </h3>
-          <p class="hint">Lần thấy trước đây không khẳng định vị trí hiện tại.</p>
+          <p class="hint">{t("A past sighting does not establish the current location.")}</p>
           {!history ? (
-            <p>Đang tải bằng chứng…</p>
+            <p>{t("Loading evidence\u2026")}</p>
           ) : history.observations.length ? (
             history.observations.map((obs) => (
               <div class="observation-row" key={obs.id}>
                 <a href={evidence(obs.image_sha)} target="_blank" rel="noreferrer">
-                  <img src={evidence(obs.image_sha)} alt={`Bằng chứng ${label(obs.assertion)}`} />
+                  <img
+                    src={evidence(obs.image_sha)}
+                    alt={t("Evidence: {name}", { name: label(obs.assertion) })}
+                  />
                 </a>
                 <div>
                   <strong>
@@ -721,15 +799,21 @@ function App() {
               </div>
             ))
           ) : (
-            <Empty title="Chưa có quan sát">
-              Ghi nhận ảnh camera trong Inspect để tạo lịch sử.
+            <Empty title={t("No observations yet")}>
+              {t("Record camera evidence in Inspect to build a history.")}
             </Empty>
           )}
           <button
             class="button danger-outline wide"
             disabled={busy}
             onClick={() => {
-              if (confirm(`Lưu trữ “${selected.name}”? Bằng chứng cũ vẫn được giữ.`))
+              if (
+                confirm(
+                  t("Archive {name}? Existing evidence will be preserved.", {
+                    name: selected.name,
+                  }),
+                )
+              )
                 void act(async () => {
                   await api(`/objects/${selected.id}`, { method: "DELETE" });
                   setSelected(null);
@@ -737,7 +821,7 @@ function App() {
                 });
             }}
           >
-            Lưu trữ vật thể
+            {t("Archive object")}
           </button>
         </Modal>
       )}
@@ -747,21 +831,23 @@ function App() {
 
 function ControlPanel({ robot }: { robot: Robot }) {
   const directions = [
-    { key: "up", f: 0.6, t: 0, icon: ArrowUp, title: "Tiến" },
-    { key: "left", f: 0, t: 0.6, icon: ArrowLeft, title: "Quay trái" },
-    { key: "down", f: -0.6, t: 0, icon: ArrowDown, title: "Lùi" },
-    { key: "right", f: 0, t: -0.6, icon: ArrowRight, title: "Quay phải" },
+    { key: "up", f: 0.6, t: 0, icon: ArrowUp, title: t("Forward") },
+    { key: "left", f: 0, t: 0.6, icon: ArrowLeft, title: t("Turn left") },
+    { key: "down", f: -0.6, t: 0, icon: ArrowDown, title: t("Reverse") },
+    { key: "right", f: 0, t: -0.6, icon: ArrowRight, title: t("Turn right") },
   ];
   return (
     <div class="panel control-panel">
       <div class="section-title">
-        <h2>Điều khiển thủ công</h2>
+        <h2>{t("Manual control")}</h2>
         <SlidersHorizontal size={18} />
       </div>
       <Badge tone={robot.armed ? "green" : ""}>
-        {robot.armed ? "Đã mở quyền điều khiển" : "Điều khiển đang khóa"}
+        {robot.armed ? t("Control armed") : t("Controls locked")}
       </Badge>
-      <p class="muted">Giữ nút để di chuyển, nhả để gửi lệnh dừng. Rời màn hình sẽ khóa phiên.</p>
+      <p class="muted">
+        {t("Hold to move, release to request zero. Leaving this view locks the session.")}
+      </p>
       <div class={`dpad ${robot.moving ? "moving" : ""}`}>
         <div class="dpad-center">
           <span class="dot" />
@@ -799,11 +885,11 @@ function ControlPanel({ robot }: { robot: Robot }) {
         ))}
       </div>
       <div class="command-readout">
-        <span>LỆNH GỬI</span>
+        <span>{t("COMMAND")}</span>
         <strong>
           {robot.state?.control.command.vx_cm_s.toFixed(1) || "0.0"} <small>cm/s</small>
         </strong>
-        <span>{robot.moving ? "Đang giữ nút" : "Không yêu cầu di chuyển"}</span>
+        <span>{robot.moving ? t("Direction held") : t("No movement requested")}</span>
       </div>
       <button
         class="button primary wide"
@@ -814,14 +900,16 @@ function ControlPanel({ robot }: { robot: Robot }) {
         }
       >
         {robot.armed ? <Square size={16} /> : <LockKeyhole size={16} />}
-        {robot.armed ? "Khóa và dừng" : "Mở quyền điều khiển"}
+        {robot.armed ? t("Disarm and stop") : t("Arm controls")}
       </button>
       <p class="hint">
-        Lease {robot.state?.control.lease_s || 0.45}s · ảnh cũ hoặc mất phiên sẽ ngắt lệnh. Chưa
-        thay thế nút dừng vật lý.
+        {t(
+          "Lease {seconds}s · stale frames or a lost session revoke control. Keep the physical stop available.",
+          { seconds: robot.state?.control.lease_s || 0.45 },
+        )}
       </p>
       {robot.state && !robot.state.control.enabled && (
-        <p class="notice-inline">Host đang ở chế độ chỉ quan sát.</p>
+        <p class="notice-inline">{t("The host is in monitor-only mode.")}</p>
       )}
     </div>
   );
@@ -854,13 +942,16 @@ function Inspect({
       <section>
         <div class="panel">
           <div class="section-title">
-            <h2>Kiểm tra theo checklist</h2>
+            <h2>{t("Checklist assessment")}</h2>
             <button class="text-button" onClick={create} disabled={!objects.length}>
-              <Plus size={16} /> Tạo mới
+              <Plus size={16} />
+              {t("Create new")}
             </button>
           </div>
           <p class="muted">
-            Đánh giá bằng chứng đã ghi nhận. Không tự di chuyển hay tự nhận diện vật thể.
+            {t(
+              "Assess recorded evidence. This action does not move the robot or recognize objects automatically.",
+            )}
           </p>
           <div class="run-row">
             <label class="grow">
@@ -870,7 +961,7 @@ function Inspect({
                 onChange={(e) => setSelectedId(e.currentTarget.value)}
               >
                 <option value="" disabled>
-                  Chọn checklist
+                  {t("Choose a checklist")}
                 </option>
                 {checklists.map((c) => (
                   <option key={c.id} value={c.id}>
@@ -892,7 +983,8 @@ function Inspect({
                 })
               }
             >
-              <ClipboardCheck size={18} /> Đánh giá
+              <ClipboardCheck size={18} />
+              {t("Assess")}
             </button>
           </div>
         </div>
@@ -905,7 +997,7 @@ function Inspect({
               </div>
               <a
                 class="icon-button"
-                aria-label="Tải báo cáo ZIP"
+                aria-label={t("Download report ZIP")}
                 href={`/api/reports/${report.id}/download`}
               >
                 <Download size={20} />
@@ -928,7 +1020,7 @@ function Inspect({
                 <div class="finding" key={i}>
                   <img
                     src={evidence(f.evidence[0]?.image_sha || f.reference_image_sha)}
-                    alt={`Bằng chứng: ${f.object_name}`}
+                    alt={t("Evidence: {name}", { name: f.object_name })}
                   />
                   <div>
                     <strong>{f.object_name}</strong>
@@ -945,12 +1037,11 @@ function Inspect({
               ))}
             </div>
             <p class="hint">
-              Kết luận theo evidence tại thời điểm đánh giá. “Chưa rõ” không đồng nghĩa vật thể vắng
-              mặt.
+              {t("Findings reflect evidence at assessment time. Unknown does not mean absent.")}
             </p>
             {reports.length > 1 && (
               <label>
-                Báo cáo đã lưu
+                {t("Saved reports")}
                 <select value={report.id} onChange={(e) => setReportId(e.currentTarget.value)}>
                   {reports.map((r) => (
                     <option key={r.id} value={r.id}>
@@ -962,14 +1053,14 @@ function Inspect({
             )}
           </section>
         ) : (
-          <Empty title="Chưa có báo cáo">
-            Tạo checklist, ghi nhận bằng chứng, rồi chạy đánh giá.
+          <Empty title={t("No reports yet")}>
+            {t("Create a checklist, record evidence, then run an assessment.")}
           </Empty>
         )}
       </section>
       <aside class="panel capture-panel">
         <div class="section-title">
-          <h2>Ghi nhận tại hiện trường</h2>
+          <h2>{t("Capture evidence")}</h2>
           <Camera size={18} />
         </div>
         <CameraView robot={robot} compact />
@@ -987,13 +1078,13 @@ function Inspect({
                 frame_id,
               });
               await refresh();
-            }, "Đã lưu ảnh và nhận định của người vận hành.");
+            }, t("Image and operator assertion saved."));
           }}
         >
           <label>
-            Vật thể
+            {t("Object")}
             <select name="object" required>
-              <option value="">Chọn vật thể</option>
+              <option value="">{t("Choose an object")}</option>
               {objects.map((o) => (
                 <option value={o.id} key={o.id}>
                   {o.name}
@@ -1002,23 +1093,23 @@ function Inspect({
             </select>
           </label>
           <label>
-            Vị trí quan sát
+            {t("Observed station")}
             <input name="station" required defaultValue="Station_A" />
           </label>
           <div class="form-split">
             <label>
-              Nhận định
+              {t("Assertion")}
               <select name="assertion">
-                <option value="present">Có mặt</option>
-                <option value="absent">Vắng mặt</option>
-                <option value="unknown">Chưa rõ</option>
+                <option value="present">{t("Present")}</option>
+                <option value="absent">{t("Absent")}</option>
+                <option value="unknown">{t("Unknown")}</option>
               </select>
             </label>
             <label>
-              Tầm nhìn
+              {t("Visibility")}
               <select name="visibility">
-                <option value="1">Rõ toàn cảnh</option>
-                <option value="0.3">Bị che khuất</option>
+                <option value="1">{t("Clear view")}</option>
+                <option value="0.3">{t("Obstructed")}</option>
               </select>
             </label>
           </div>
@@ -1026,11 +1117,13 @@ function Inspect({
             class="button primary wide"
             disabled={busy || !robot.online || !robot.state?.camera.fresh || !objects.length}
           >
-            <Camera size={18} /> Chụp & ghi nhận
+            <Camera size={18} />
+            {t("Capture & record")}
           </button>
           <p class="hint">
-            Nhận định do bạn cung cấp, gắn với ảnh đang hiển thị và thời gian chụp. Ảnh quá cũ sẽ bị
-            từ chối.
+            {t(
+              "Your assertion is linked to the displayed frame and capture time. Stale frames are rejected.",
+            )}
           </p>
         </form>
       </aside>

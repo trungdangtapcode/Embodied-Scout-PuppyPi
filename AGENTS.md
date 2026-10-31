@@ -10,8 +10,14 @@
   features with observable acceptance criteria and reusable research components.
 - Share perception, evidence, task state, and motion execution across Memory
   Scout, Look-or-Ask, Inspect and Explain, Body-aware Active Vision, and Phone Observer.
-- Keep source identifiers, comments, commit messages, and technical documents in
-  English. Communicate with the user in their preferred language.
+- Use English throughout the codebase: identifiers, comments, tests, logs,
+  commit messages, technical documents, and default product UI copy.
+- Default the UI to English regardless of browser language. Vietnamese is an
+  optional, explicitly selected localization; keep its translations in dedicated
+  locale resources with English keys, never inline in application logic.
+- Communicate with this user in Vietnamese. Vietnamese chat does not imply
+  Vietnamese UI, source code, fixtures, or technical documentation. Preserve
+  user-entered names and historical evidence in their original language.
 
 ## Architecture and configuration
 

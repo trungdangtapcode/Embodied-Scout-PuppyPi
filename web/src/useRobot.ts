@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "preact/hooks";
 import { post } from "./api";
+import { t } from "./i18n";
 import type { State } from "./types";
 
 export function useRobot(
@@ -36,7 +37,9 @@ export function useRobot(
     // newly armed session. The host lease expires if the live channel stalls.
     if (socket.current?.readyState === WebSocket.OPEN) send({ type: "stop" });
     else if (paired)
-      void post("/stop").catch(() => onError("Mất kết nối: chưa xác nhận được yêu cầu dừng."));
+      void post("/stop").catch(() =>
+        onError(t("Connection lost: the stop request could not be confirmed.")),
+      );
   };
   const drive = () => {
     if (!epoch.current) return;

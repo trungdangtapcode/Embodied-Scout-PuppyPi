@@ -44,6 +44,8 @@ records operator assertions against displayed fresh frames and evaluates saved
 checklists; Library supports enrollment, rename, archive, and image history.
 Reports download as HTML/JSON/image ZIP bundles. The CLI and app share the core
 and versioned store. The default robot is an interactive synthetic renderer.
+The interface defaults to English, with an explicitly selected Vietnamese locale
+stored in the browser. Language changes disarm manual control.
 
 Python tests cover leases, replay rejection, stale evidence, transport metadata,
 API/storage workflows, and stopping during an in-flight send. Chromium browser
