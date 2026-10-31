@@ -69,3 +69,65 @@ def test_edge_relay_frame_command_and_watchdog() -> None:
         client.close()
     finally:
         srv.stop()
+
+
+def test_metadata_frame_age_and_read_only_disconnect_preserve_command_session():
+    relay_mod = _load_relay_module()
+    cfg = Settings()
+    canvas = np.full((64, 80, 3), 120, np.uint8)
+    halted = []
+    srv = relay_mod.EdgeRelayServer(
+        get_frame_fn=lambda: canvas, apply_cmd_fn=lambda payload: None,
+        halt_fn=lambda: halted.append(True), host="127.0.0.1", port=0,
+        watchdog_timeout_s=2,
+        get_frame_bundle_fn=lambda: (canvas, {"sequence": 7, "age_s": .2, "freshness_verified": True}),
+    )
+    srv.start()
+    frames = commands = None
+    try:
+        frames = RemotePuppyPiClient(cfg, host="127.0.0.1", port=srv.bound_port)
+        commands = RemotePuppyPiClient(cfg, host="127.0.0.1", port=srv.bound_port)
+        sample = frames.get_frame_sample()
+        assert sample.image.shape == canvas.shape
+        assert sample.freshness_verified and sample.age() >= .2
+        assert sample.provenance["session_id"] == srv.session_id
+        assert sample.provenance["cross_device_clock_synchronized"] is False
+        assert sample.frame_id.endswith(":7")
+        commands.send_action(PuppyActionCommand.clamped(cfg.motion, vx_cm_s=2))
+        frames.close(stop_motion=False)
+        frames = None
+        time.sleep(.05)
+        assert not halted
+        # An adapter without metadata cannot silently claim a fresh capture.
+        srv.get_frame_bundle_fn = None
+        sample = commands.get_frame_sample()
+        assert not sample.freshness_verified
+    finally:
+        if frames:
+            frames.close(stop_motion=False)
+        if commands:
+            commands.close()
+        srv.stop()
+    assert all(not thread.is_alive() for thread in srv._threads)
+
+
+def test_non_object_metadata_is_rejected_without_decode():
+    import struct
+    import pytest
+
+    class Socket:
+        def __init__(self):
+            self.data = bytearray(struct.pack("!I", 2) + b"[]")
+
+        def sendall(self, payload):
+            pass
+
+        def recv(self, length):
+            result = bytes(self.data[:length])
+            del self.data[:length]
+            return result
+
+    client = RemotePuppyPiClient.__new__(RemotePuppyPiClient)
+    client._sock = Socket()
+    with pytest.raises(ValueError, match="must be an object"):
+        client.get_frame_sample()

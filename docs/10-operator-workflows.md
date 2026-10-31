@@ -125,7 +125,9 @@ the CLI does not publish or upload it.
 ## Persistence and integration contract
 
 SQLite `user_version` migrations create object/observation tables (v1), then
-checklists/report snapshots (v2). A newer unknown schema is rejected. Images are
+checklists/report snapshots (v2), then observation provenance JSON (v3). Legacy
+records retain empty metadata rather than invented camera details. A newer
+unknown schema is rejected. Images are
 lossless PNGs addressed by SHA-256; reads and exports validate integrity. SQLite
 changes are transactional. An interrupted/failed write may leave an unreferenced
 image file; automatic garbage collection is not implemented.

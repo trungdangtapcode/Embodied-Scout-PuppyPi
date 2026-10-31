@@ -49,6 +49,9 @@ MIGRATIONS = (
             id TEXT PRIMARY KEY, checklist_id TEXT NOT NULL REFERENCES checklists(id),
             created_at TEXT NOT NULL, report_json TEXT NOT NULL)""",
     ),
+    (
+        "ALTER TABLE observations ADD COLUMN provenance_json TEXT NOT NULL DEFAULT '{}'",
+    ),
 )
 
 

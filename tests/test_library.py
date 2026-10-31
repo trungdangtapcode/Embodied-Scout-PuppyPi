@@ -142,7 +142,7 @@ def test_upgrade_old_schema_and_reject_newer_schema(tmp_path, crop):
     with EvidenceStore(tmp_path) as store:
         library = build_library(store, Settings())
         obj = library.teach("Pouch", [crop])
-        assert store.db.execute("PRAGMA user_version").fetchone()[0] == 2
+        assert store.db.execute("PRAGMA user_version").fetchone()[0] == len(MIGRATIONS)
         store.db.execute("PRAGMA user_version=999")
     with pytest.raises(AssistantError) as error:
         EvidenceStore(tmp_path)

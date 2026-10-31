@@ -6,6 +6,7 @@ from collections import Counter
 from dataclasses import asdict
 from datetime import datetime, timezone
 import io
+import json
 import math
 import sqlite3
 from uuid import uuid4
@@ -292,6 +293,7 @@ class ObjectLibrary:
         visibility: float = 1.0,
         source: str = "operator",
         mode: str = "replay",
+        provenance: dict | None = None,
     ) -> dict:
         self.get(object_id)
         station = label(station)
@@ -314,11 +316,15 @@ class ObjectLibrary:
                 "FUTURE_OBSERVATION", "Capture time cannot be in the future."
             )
         quality, visibility = unit_score(quality), unit_score(visibility)
+        try:
+            provenance_json = json.dumps(provenance or {}, allow_nan=False)
+        except (ValueError, TypeError) as error:
+            raise AssistantError("INVALID_PROVENANCE", "Evidence metadata must be finite JSON.") from error
         digest = self.store.save_image(image)
         observation_id = str(uuid4())
         with self.store.db:
             self.store.db.execute(
-                "INSERT INTO observations VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                "INSERT INTO observations VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
                 (
                     observation_id,
                     object_id,
@@ -331,6 +337,7 @@ class ObjectLibrary:
                     visibility,
                     source,
                     mode,
+                    provenance_json,
                 ),
             )
         return self.observation(observation_id)
@@ -341,7 +348,13 @@ class ObjectLibrary:
         ).fetchone()
         if row is None:
             raise AssistantError("OBSERVATION_NOT_FOUND", "Observation does not exist.")
-        return dict(row)
+        return self._observation_record(row)
+
+    @staticmethod
+    def _observation_record(row) -> dict:
+        result = dict(row)
+        result["provenance"] = json.loads(result.pop("provenance_json"))
+        return result
 
     def effective_status(self, observation: dict) -> str:
         cfg = self.settings.assistant
@@ -361,7 +374,7 @@ class ObjectLibrary:
         if limit is not None:
             sql += " LIMIT ?"
             parameters += (limit,)
-        return [dict(row) for row in self.store.db.execute(sql, parameters)]
+        return [self._observation_record(row) for row in self.store.db.execute(sql, parameters)]
 
     def last_seen(self, object_id: str, *, mode: str = "replay") -> dict:
         if mode not in {"synthetic", "replay", "physical"}:

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Zero-dependency single-file ROS 2 TCP relay for Hiwonder PuppyPi Standard.
+"""Single-file ROS 2 TCP relay using the installed vendor Python dependencies.
 
 Copy ONLY this single file into Hiwonder's preinstalled ROS 2 container on
 PuppyPi's Raspberry Pi and run:
@@ -18,6 +18,7 @@ import struct
 import threading
 import time
 from typing import Any, Callable
+from uuid import uuid4
 
 import cv2
 import numpy as np
@@ -45,6 +46,7 @@ class EdgeRelayServer:
         port: int = 18765,
         jpeg_quality: int = 85,
         watchdog_timeout_s: float = 0.30,
+        get_frame_bundle_fn: Callable[[], tuple[np.ndarray | None, dict]] | None = None,
     ) -> None:
         self.get_frame_fn = get_frame_fn
         self.apply_cmd_fn = apply_cmd_fn
@@ -53,6 +55,10 @@ class EdgeRelayServer:
         self.port = port
         self.jpeg_quality = jpeg_quality
         self.watchdog_timeout_s = watchdog_timeout_s
+        self.get_frame_bundle_fn = get_frame_bundle_fn
+        self.session_id = str(uuid4())
+        self._clients: set[socket.socket] = set()
+        self._threads: list[threading.Thread] = []
 
         self._stop_evt = threading.Event()
         self._last_cmd_ts = 0.0
@@ -66,15 +72,29 @@ class EdgeRelayServer:
     def start(self) -> None:
         self._sock.listen(2)
         self._sock.settimeout(0.25)
-        threading.Thread(target=self._watchdog_loop, daemon=True).start()
-        threading.Thread(target=self._accept_loop, daemon=True).start()
+        for target in (self._watchdog_loop, self._accept_loop):
+            thread = threading.Thread(target=target, daemon=True)
+            self._threads.append(thread)
+            thread.start()
 
     def stop(self) -> None:
         self._stop_evt.set()
+        self.halt_fn()
         try:
             self._sock.close()
         except OSError:
             pass
+        with self._lock:
+            clients = list(self._clients)
+        for conn in clients:
+            try:
+                conn.shutdown(socket.SHUT_RDWR)
+            except OSError:
+                pass
+            conn.close()
+        for thread in self._threads:
+            if thread is not threading.current_thread():
+                thread.join(timeout=1.0)
 
     def _watchdog_loop(self) -> None:
         while not self._stop_evt.is_set():
@@ -95,14 +115,31 @@ class EdgeRelayServer:
             except OSError:
                 break
             conn.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
-            threading.Thread(target=self._handle_client, args=(conn,), daemon=True).start()
+            with self._lock:
+                self._clients.add(conn)
+            thread = threading.Thread(target=self._handle_client, args=(conn,), daemon=True)
+            self._threads.append(thread)
+            thread.start()
 
     def _handle_client(self, conn: socket.socket) -> None:
+        commands_seen = False
         with conn:
             while not self._stop_evt.is_set():
                 try:
                     op = _recv_exact(conn, 1)
-                    if op == b"F":
+                    if op == b"M":
+                        if self.get_frame_bundle_fn is None:
+                            frame, metadata = self.get_frame_fn(), {"freshness_verified": False, "age_s": None, "sequence": None}
+                        else:
+                            frame, metadata = self.get_frame_bundle_fn()
+                        metadata = {**metadata, "schema_version": 2, "camera_id": "robot_rgb", "session_id": self.session_id}
+                        body = json.dumps(metadata, allow_nan=False).encode()
+                        payload = b""
+                        if frame is not None:
+                            ok, encoded = cv2.imencode(".jpg", frame, [int(cv2.IMWRITE_JPEG_QUALITY), self.jpeg_quality])
+                            payload = encoded.tobytes() if ok else b""
+                        conn.sendall(struct.pack("!I", len(body)) + body + struct.pack("!I", len(payload)) + payload)
+                    elif op == b"F":
                         frame = self.get_frame_fn()
                         if frame is None:
                             conn.sendall(struct.pack("!I", 0))
@@ -113,7 +150,10 @@ class EdgeRelayServer:
                             data = enc.tobytes() if ok else b""
                             conn.sendall(struct.pack("!I", len(data)) + data)
                     elif op == b"C":
+                        commands_seen = True
                         (length,) = struct.unpack("!I", _recv_exact(conn, 4))
+                        if length > 16384:
+                            raise ValueError("Oversized command.")
                         payload = json.loads(_recv_exact(conn, length).decode("utf-8"))
                         self.apply_cmd_fn(payload)
                         vel = payload.get("velocity_fields", {})
@@ -122,9 +162,14 @@ class EdgeRelayServer:
                             self._last_cmd_ts = time.monotonic()
                             self._moving = nonzero
                         conn.sendall(b"O")
-                except (ConnectionError, OSError):
-                    self.halt_fn()
+                    else:
+                        raise ValueError("Unsupported protocol operation.")
+                except (ConnectionError, OSError, ValueError, TypeError, KeyError):
+                    if commands_seen:
+                        self.halt_fn()
                     break
+        with self._lock:
+            self._clients.discard(conn)
 
 
 def _run_ros2_mode(host: str, port: int, image_topic: str) -> None:
@@ -140,6 +185,7 @@ def _run_ros2_mode(host: str, port: int, image_topic: str) -> None:
     bridge = CvBridge()
     lock = threading.Lock()
     latest: list[np.ndarray | None] = [None]
+    frame_state: dict[str, Any] = {"sequence": 0, "received_monotonic": 0.0, "source_age_s": None}
 
     qos = QoSProfile(reliability=ReliabilityPolicy.BEST_EFFORT, history=HistoryPolicy.KEEP_LAST, depth=1)
     vel_pub = node.create_publisher(Velocity, "/puppy_control/velocity", 10)
@@ -151,12 +197,24 @@ def _run_ros2_mode(host: str, port: int, image_topic: str) -> None:
         img = np.asarray(bridge.imgmsg_to_cv2(msg, desired_encoding="bgr8"), dtype=np.uint8)
         with lock:
             latest[0] = img
+            stamp_ns = msg.header.stamp.sec * 1_000_000_000 + msg.header.stamp.nanosec
+            source_age = (node.get_clock().now().nanoseconds - stamp_ns) / 1e9
+            frame_state.update(sequence=frame_state["sequence"] + 1, received_monotonic=time.monotonic(),
+                               source_age_s=source_age if stamp_ns > 0 and 0 <= source_age < 86400 else None)
 
     node.create_subscription(Image, image_topic, on_img, qos)
 
     def get_frame() -> np.ndarray | None:
         with lock:
             return None if latest[0] is None else latest[0].copy()
+
+    def get_frame_bundle() -> tuple[np.ndarray | None, dict]:
+        with lock:
+            age = frame_state["source_age_s"]
+            return (None if latest[0] is None else latest[0].copy(),
+                    {"sequence": frame_state["sequence"], "freshness_verified": age is not None,
+                     "age_s": None if age is None else age + time.monotonic() - frame_state["received_monotonic"],
+                     "timestamp_basis": "ros_header_age_and_relay_monotonic"})
 
     def apply_cmd(p: dict[str, Any]) -> None:
         v = Velocity(**p["velocity_fields"])
@@ -167,8 +225,10 @@ def _run_ros2_mode(host: str, port: int, image_topic: str) -> None:
 
     def halt() -> None:
         vel_pub.publish(Velocity(x=0.0, y=0.0, yaw_rate=0.0))
+        vel_move_pub.publish(Velocity(x=0.0, y=0.0, yaw_rate=0.0))
 
-    srv = EdgeRelayServer(get_frame, apply_cmd, halt, host=host, port=port)
+    srv = EdgeRelayServer(get_frame, apply_cmd, halt, host=host, port=port,
+                          get_frame_bundle_fn=get_frame_bundle)
     srv.start()
     node.get_logger().info(f"Edge relay listening on {host}:{srv.bound_port}")
     try:

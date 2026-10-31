@@ -158,6 +158,32 @@ class AssistantSettings:
 
 
 @dataclass(frozen=True)
+class MobileSettings:
+    """Local operator console; hardware access must be explicitly selected."""
+
+    host: str = "127.0.0.1"
+    port: int = 8080
+    robot_mode: str = "mock"
+    allow_physical_motion: bool = False
+    pairing_token: str = field(default_factory=lambda: os.getenv("PUPPYPI_OPERATOR_TOKEN", ""))
+    session_lifetime_s: float = 28800.0
+    command_lease_s: float = 0.45
+    control_challenge_s: float = 0.45
+    control_tick_s: float = 0.08
+    frame_poll_s: float = 0.20
+    transport_timeout_s: float = 0.25
+    frame_buffer_size: int = 12
+    max_frame_age_s: float = 1.0
+    manual_speed_cm_s: float = 6.0
+    manual_yaw_rate_rad_s: float = math.radians(20.0)
+    max_upload_bytes: int = 4 * 1024 * 1024
+    max_image_pixels: int = 8_000_000
+    max_request_bytes: int = 6 * 1024 * 1024
+    jpeg_quality: int = 80
+    event_limit: int = 100
+
+
+@dataclass(frozen=True)
 class Settings:
     """Top-level configuration bundle."""
 
@@ -170,3 +196,4 @@ class Settings:
     ros2: Ros2TopicSettings = field(default_factory=Ros2TopicSettings)
     edge_relay: EdgeRelaySettings = field(default_factory=EdgeRelaySettings)
     assistant: AssistantSettings = field(default_factory=AssistantSettings)
+    mobile: MobileSettings = field(default_factory=MobileSettings)
