@@ -20,6 +20,13 @@ These corrections govern progress reports and the interpretation of Integrated
 labels, which describe only the stated local software subset. The incident remains
 open until the promised paths run with evidence; adding this review does not fix code.
 
+Subsequent [upstream execution evidence](20-room-memory-upstream-validation.md)
+records a genuine Mind Palace + GPT-4o component replay on one public image,
+repeated successfully with a committed reproducer. This is outside the app and
+does not change default-demo claims or close the incident. The original benchmark
+still fails on missing scene data (download quota); the tested ReMEmbR OpenAI
+profile fails initialization. No robot or local GPU inference was used.
+
 ## Implemented baseline
 
 The Python package implements AprilTag pose estimation, foreground proposals,
@@ -169,7 +176,7 @@ it in a mission. No live hardware capability is marked verified yet.
 
 ## Documentation precedence
 
-This status page and the numbered 06–19 documents describe current scope. Documents
+This status page and the numbered 06–20 documents describe current scope. Documents
 01–05 and the 2026-10-30 handoff remain historical source material. Statements in
 those files about novelty, ROS distribution compatibility, hardware safety,
 onboard model runtime, and sensor range need the corresponding implementation

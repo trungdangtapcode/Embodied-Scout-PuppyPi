@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-31",
+  "python_version": "3.12.13",
+  "upstream_repository": "https://github.com/mind-palace-laeqa/benchmark",
+  "upstream_revision": "b59be261f9508c3a355a8afa0d495eeba0417d68",
+  "upstream_license": "MIT",
+  "image_source": "https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/coco_sample.png",
+  "image_sha256": "cf6f3c4befa148732c7453e0de5afab00f682427435fead2d88b07a9615cdac2",
+  "image_size": [
+    640,
+    480
+  ],
+  "image_committed": false,
+  "probe_script": "scripts/research_mind_palace_replay.py",
+  "probe_script_sha256": "f1e91335fe81693cc0021bbe828f93c1f77087fba35817afc091fb353ea82feb",
+  "artifacts": {
+    "component-replay.json": "4a010b3ae5260077624c7c45e72f3a52420496f73f85af9e4ffa7810d3e1845c",
+    "execution-summary.json": "c36b372e91cfccee77e0cd05279a797958b71d39de6d884611ee4aa901d369b4",
+    "requirements-py312-cpu.txt": "be33af89ddd2fdb774b152305baeecc59d64d4ec8426be487e726c18a7cbc1de"
+  }
+}

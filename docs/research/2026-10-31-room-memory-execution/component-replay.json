@@ -1,0 +1,64 @@
+{
+  "status": "PASS_COMPONENT_REPLAY",
+  "repository": "https://github.com/mind-palace-laeqa/benchmark",
+  "revision": "b59be261f9508c3a355a8afa0d495eeba0417d68",
+  "profile": "custom one-image replay using original upstream classes and methods",
+  "input_source": "https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/coco_sample.png",
+  "image_sha256": "cf6f3c4befa148732c7453e0de5afab00f682427435fead2d88b07a9615cdac2",
+  "question": "Which animals were visible on the sofa in the recorded image?",
+  "fallback": false,
+  "source_changes": false,
+  "gpu_used": false,
+  "limitations": [
+    "not the reference benchmark",
+    "not integrated into PuppyPi app",
+    "nominal one-view region/pose metadata supplied by the harness",
+    "capture time is unknown; episode ID denotes replay order only",
+    "no navigation or metric geometry claim",
+    "no exact-instance or continuous-coverage evaluation",
+    "one image/question is not an accuracy benchmark"
+  ],
+  "steps": [
+    "vision_caption_from_upstream_interface",
+    "upstream_object_identification",
+    "upstream_episodic_reasoning",
+    "upstream_room_selection",
+    "upstream_place_retrieval_without_fallback",
+    "upstream_memory_image_retrieval",
+    "upstream_visual_verification_and_history",
+    "upstream_grounded_answer"
+  ],
+  "model": "gpt-4o",
+  "vision_model": "gpt-4o",
+  "caption_raw": "{\n  \"objects\": [\"cat\", \"cat\", \"remote control\", \"remote control\", \"sofa\"],\n  \"description\": \"Two cats are lying on a pink sofa with two remote controls between them.\"\n}",
+  "caption": {
+    "objects": [
+      "cat",
+      "cat",
+      "remote control",
+      "remote control",
+      "sofa"
+    ],
+    "description": "Two cats are lying on a pink sofa with two remote controls between them."
+  },
+  "target": "sofa",
+  "episode_selection": {
+    "episodes": [
+      "replay_step_0"
+    ],
+    "strategy": "PAST_ONLY"
+  },
+  "room_selection": "r1",
+  "place_selection": [
+    0
+  ],
+  "visual_verification": {
+    "found": true,
+    "insight": "The image shows two cats lying on a sofa, which confirms the presence of a sofa in the image."
+  },
+  "ready": true,
+  "ready_explanation": "The image shows two cats lying on the sofa, confirming the presence of these animals on the sofa.",
+  "answer": "Two cats",
+  "answer_reasoning": "The image retrieved from the past observation shows two cats lying on the sofa. This confirms the presence of these animals on the sofa in the recorded image.",
+  "elapsed_s": 50.727
+}

@@ -1,0 +1,63 @@
+{
+  "date": "2026-10-31",
+  "decision": "Mind Palace is a candidate for the memory/reasoning layer, with component execution evidence only",
+  "app_integration": "NOT_IMPLEMENTED",
+  "incident": "OPEN_FAIL",
+  "mind_palace_reference_notebook": {
+    "status": "FAIL",
+    "error_type": "FileNotFoundError",
+    "missing_path": "../la_eqa_benchmark/state/hm3d-v0/place_nodes_092-hm3d-eF36g7L6Z9M_0.pkl",
+    "external_scene_download": "Google Drive - Quota exceeded",
+    "source_revision": "b59be261f9508c3a355a8afa0d495eeba0417d68"
+  },
+  "mind_palace_initial_api_probe": {
+    "status": "FAIL_PARSER",
+    "model": "gpt-4o",
+    "error_type": "ValueError",
+    "detail": "The API returned JSON wrapped in Markdown; unmodified upstream json.loads rejected it. Connection succeeded; parsing did not."
+  },
+  "mind_palace_component_runs": [
+    {
+      "profile": "custom one-image replay using original upstream classes and methods",
+      "status": "PASS_COMPONENT_REPLAY",
+      "answer": "Two cats",
+      "elapsed_s": 47.56
+    },
+    {
+      "profile": "custom one-image replay using original upstream classes and methods",
+      "status": "PASS_COMPONENT_REPLAY",
+      "answer": "Two cats",
+      "elapsed_s": 50.727
+    }
+  ],
+  "missing_key_test": {
+    "status": "EXPECTED_FAIL",
+    "exit_code": 2,
+    "error": "OPENAI_API_KEY is required; no fallback"
+  },
+  "remembr_openai_initialization": {
+    "repository": "https://github.com/NVIDIA-AI-IOT/remembr",
+    "revision": "964faab296fe70f8a8dbb9135adf20fecb758525",
+    "selected_model": "gpt-4o",
+    "gpu_used": false,
+    "api_calls": 0,
+    "status": "FAIL",
+    "error_type": "Exception",
+    "error": "No correct LLM provided"
+  },
+  "remembr_vila_import": {
+    "status": "FAIL",
+    "error_type": "ModuleNotFoundError",
+    "detail": "No module named 'llava'"
+  },
+  "gpu_used": false,
+  "credentials_persisted": false,
+  "source_modifications": false,
+  "limits": [
+    "one public image and one question, repeated twice",
+    "one supplied room and one supplied viewpoint with nominal coordinates",
+    "no meaningful multi-candidate retrieval evaluation",
+    "no complete benchmark, learned predictive world model, robot navigation or hardware validation",
+    "not integrated into the PuppyPi UI or evidence store"
+  ]
+}

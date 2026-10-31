@@ -157,6 +157,9 @@ integration, navigation feasibility, learned locomotion or physical safety.
 | P2 | Remove oracle viewpoint dependence for an autonomous acquisition claim and measure execution/results | OPEN; requires a real executor and independently evaluated localization/control |
 | P2 | Demonstrate learned locomotion or physical return only if those remain promised scope | OPEN / not delivered; animation or a state assignment cannot close this item |
 
+The following paragraph records the original review snapshot; the later
+component execution is documented in the subsequent-experiment section below.
+
 For context, the [official Mind Palace repository](https://github.com/mind-palace-laeqa/benchmark)
 was verified during the preceding source check to contain a reference
 implementation and an example notebook, with OpenAI API usage documented in its
@@ -171,6 +174,23 @@ environment, reporting blockers as FAIL. No further claim of integrated AI or
 room understanding is justified by this documentation change.
 
 ## Review change scope and verification
+
+### Subsequent upstream experiment; incident remains OPEN
+
+The [execution report](../20-room-memory-upstream-validation.md) adds real source
+inspection, isolated dependency installation and two successful one-image
+component replays through Mind Palace revision
+`b59be261f9508c3a355a8afa0d495eeba0417d68` with actual GPT-4o calls. The user
+authorized API use and supplied the key's configuration location. A standalone
+reproducer and source/input hashes are retained; there is no local GPU inference.
+
+This establishes component execution only. No upstream path has yet been
+integrated into the PuppyPi app; the original benchmark still fails because scene
+files are unavailable under the observed Google Drive quota. The tested ReMEmbR
+OpenAI initialization also fails, and the initial Mind Palace JSON-fence parse
+failure is retained. No missing-stage or app acceptance condition is closed, and
+the user's 0/10 delivery rating is unchanged. This evidence does not retrospectively
+validate earlier claims. The original review-change scope below remains historical.
 
 This change records the incident and updates repository instructions and current
 documentation entry points. It adds no model, changes no runtime behavior and
