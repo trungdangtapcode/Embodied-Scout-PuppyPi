@@ -25,7 +25,7 @@
     <rect x="412" y="408" width="176" height="76" rx="8" fill="#fff"/>
     <text x="428" y="439" font-size="14">SQLite v3</text><text x="428" y="464" font-size="12" fill="#657168">PNG / report evidence</text>
     <rect x="604" y="408" width="180" height="76" rx="8" fill="#fff"/>
-    <text x="620" y="439" font-size="14">Robot adapter</text><text x="620" y="464" font-size="12" fill="#657168">Camera / command workers</text>
+    <text x="620" y="439" font-size="14">Robot adapter</text><text x="620" y="464" font-size="12" fill="#657168">Camera + command I/O</text>
     <text x="412" y="522" font-size="12" fill="#657168">Node + Vite: build tools only</text>
     <text x="412" y="546" font-size="12" fill="#657168">Default: synthetic renderer, no live robot</text>
     <rect x="878" y="188" width="354" height="246" rx="16" fill="#fff" stroke="#d5ddd2"/>

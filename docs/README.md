@@ -3,6 +3,12 @@
 Read current status and plans before using historical prototype claims in a
 demonstration or report.
 
+For a visual app tour, start with the
+[eight-screenshot walkthrough](14-mobile-console-gallery.md), then the
+[placement, evidence and control figures](13-mobile-console.md). Screenshots are
+versioned in this repository and show the synthetic application, not hardware
+validation.
+
 For a first read, open [12 Deployment map](12-deployment-map.md): an annotated
 SVG/PNG overview, environment nesting, file-to-machine table, data-flow sequence,
 and the current limits of the robot/phone adapters. It explains host versus Pi,
@@ -21,6 +27,7 @@ Python versus native code, and venv versus Docker/ROS before the research plans.
 | [11 Phone Observer research](11-phone-observer-research.md) | Fixed-phone external view, verified sources/code, ego/exo baselines and adjustable 16-week schedule |
 | [12 Deployment map](12-deployment-map.md) | Visual host/Pi/firmware placement, Python/native runtimes, Docker/ROS boundaries and actual protocol |
 | [13 Mobile field console](13-mobile-console.md) | Preact PWA, FastAPI host, Pi relay, run commands, operator workflows and control/evidence limits |
+| [14 Screenshot walkthrough](14-mobile-console-gallery.md) | Eight actual phone/desktop captures, annotated operator flows and capture provenance |
 | [Contributor guide](../CONTRIBUTING.md) | Setup, checks, commit conventions, review and evidence workflow |
 | [Agent instructions](../AGENTS.md) | Repository-specific instructions for coding agents |
 | [2026-10-31 handoff](handoffs/2026-10-31-handoff.md) | Repository bootstrap, verification, and next implementation steps |

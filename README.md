@@ -19,7 +19,15 @@ supplied synthetic scenario. Read [capability and evidence status](docs/00-proje
 
 The mobile **Field Console** adds camera monitoring, manual hold-to-drive,
 image-backed inspection, object management, and report downloads. It is a
-Preact/TypeScript PWA served by FastAPI on the host. Start with a synthetic robot:
+Preact/TypeScript PWA served by FastAPI on the host.
+
+![Actual phone UI: Monitor, Control, Inspect and Library in synthetic mode](docs/diagrams/mobile-ui-gallery.png)
+
+See the [eight-screenshot walkthrough](docs/14-mobile-console-gallery.md) and
+[visual architecture/control/evidence guide](docs/13-mobile-console.md).
+These are actual browser captures using a synthetic robot and scripted evidence.
+
+Start with a synthetic robot:
 
 ```bash
 make app-setup

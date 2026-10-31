@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PuppyPi console — actual synthetic-mode screenshots</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #f4f5f0; color: #24352d; font-family: "DejaVu Sans", sans-serif; }
+  main { padding: 36px 40px 28px; max-width: 1600px; margin: auto; }
+  .eyebrow { font-size: 11px; letter-spacing: 3px; color: #657168; }
+  h1 { margin: 16px 0 12px; font-size: 32px; letter-spacing: -1px; }
+  .intro, footer { color: #657168; font-size: 13px; line-height: 1.6; }
+  .screens { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; margin-top: 28px; }
+  figure { margin: 0; }
+  figure a { display: block; border: 1px solid #d5ddd2; border-radius: 14px; overflow: hidden; background: white; }
+  img { display: block; width: 100%; height: auto; }
+  h2 { font-size: 17px; margin: 16px 0 8px; }
+  figcaption p { font-size: 12px; color: #657168; line-height: 1.6; margin: 0; }
+  footer { border-top: 1px solid #d5ddd2; margin-top: 28px; padding-top: 20px; }
+  @media (max-width: 950px) { .screens { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 500px) { main { padding: 24px 20px; } h1 { font-size: 26px; } .screens { grid-template-columns: 1fr; } }
+</style>
+<main>
+  <span class="eyebrow">PUPPYPI / MOBILE FIELD CONSOLE</span>
+  <h1>Four views. One shared robot workspace.</h1>
+  <p class="intro">Actual Chromium captures at 390 × 844 CSS px. Synthetic camera and scripted demo evidence; no physical robot connected.</p>
+  <div class="screens">
+    <figure>
+      <a href="../screenshots/mobile-console/phone-monitor.png"><img src="../screenshots/mobile-console/phone-monitor.png" alt="Monitor view showing a synthetic robot camera, frame identity and connection status"></a>
+      <figcaption><h2>01 / Monitor</h2><p>Observe camera freshness and host status. Unavailable battery/pose data stays explicit.</p></figcaption>
+    </figure>
+    <figure>
+      <a href="../screenshots/mobile-console/phone-control.png"><img src="../screenshots/mobile-console/phone-control.png" alt="Locked control view with camera, direction buttons, arm button and persistent STOP"></a>
+      <figcaption><h2>02 / Control</h2><p>Explicitly arm, hold a direction, release to request zero. STOP remains accessible.</p></figcaption>
+    </figure>
+    <figure>
+      <a href="../screenshots/mobile-console/phone-inspect.png"><img src="../screenshots/mobile-console/phone-inspect.png" alt="Inspect view displaying a saved synthetic checklist report"></a>
+      <figcaption><h2>03 / Inspect</h2><p>Assess recorded assertions and export source evidence. Camera annotation continues below the fold.</p></figcaption>
+    </figure>
+    <figure>
+      <a href="../screenshots/mobile-console/phone-library.png"><img src="../screenshots/mobile-console/phone-library.png" alt="Library view showing three taught synthetic objects and an enrollment action"></a>
+      <figcaption><h2>04 / Library</h2><p>Teach objects from crops; open their references, observation history and management actions.</p></figcaption>
+    </figure>
+  </div>
+  <footer>Source: console implementation e85c4f4 · generated from an isolated synthetic workspace · screenshots are interface evidence, not hardware results.</footer>
+</main>
+</html>

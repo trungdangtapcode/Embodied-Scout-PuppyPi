@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="880" viewBox="0 0 1280 880" role="img" aria-labelledby="title desc">
+  <title id="title">Manual control: ownership, movement and stopping</title>
+  <desc id="desc">The phone requests a control lease using a fresh displayed frame. The host validates ownership, epoch, sequence and freshness before sending bounded commands to the Pi. Releasing a direction sends zero while retaining the lease. Stop, stale evidence or disconnection disarm. Host lease expiry is 450 milliseconds and the separate Pi watchdog is 300 milliseconds; these are software timeouts, not measured stopping times.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 8 4 0 8" fill="#537460"/></marker>
+    <marker id="red-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 8 4 0 8" fill="#a83e39"/></marker>
+  </defs>
+  <rect width="1280" height="880" fill="#f4f5f0"/>
+  <g font-family="DejaVu Sans, sans-serif" fill="#24352d">
+    <text x="48" y="46" font-size="12" letter-spacing="3">PUPPYPI / CONTROL CONTRACT</text>
+    <text x="48" y="90" font-size="32" font-weight="bold">One operator. Fresh evidence. Bounded commands.</text>
+    <text x="48" y="122" font-size="16" fill="#657168">Read top to bottom. The host authorizes motion; the Pi keeps its own timeout path.</text>
+
+    <rect x="48" y="156" width="288" height="82" rx="12" fill="#fff" stroke="#d5ddd2"/>
+    <rect x="480" y="156" width="320" height="82" rx="12" fill="#e7efe3" stroke="#c5d4c3"/>
+    <rect x="944" y="156" width="288" height="82" rx="12" fill="#fff" stroke="#d5ddd2"/>
+    <g text-anchor="middle">
+      <text x="192" y="190" font-size="19" font-weight="bold">Phone browser</text><text x="192" y="216" font-size="13" fill="#657168">Display + operator intent</text>
+      <text x="640" y="190" font-size="19" font-weight="bold">Host Python</text><text x="640" y="216" font-size="13" fill="#657168">ControlGate + command worker</text>
+      <text x="1088" y="190" font-size="19" font-weight="bold">Pi ROS relay</text><text x="1088" y="216" font-size="13" fill="#657168">Driver path: hardware unverified</text>
+    </g>
+    <g stroke="#c8d2c6" stroke-width="2" stroke-dasharray="4 6"><path d="M192 238V625"/><path d="M640 238V625"/><path d="M1088 238V625"/></g>
+
+    <g font-size="13" fill="#24352d">
+      <text x="220" y="271">01  Arm + displayed frame ID + fresh challenge</text>
+      <text x="220" y="323">02  Return exclusive owner / epoch</text>
+      <text x="220" y="383">03  Drive intent + sequence, about every 120 ms</text>
+      <text x="668" y="425">04  Bounded command C</text>
+      <text x="668" y="473">ACK: accepted by adapter only</text>
+      <text x="220" y="529">05  Release direction: request zero</text>
+      <text x="668" y="573">Zero velocity command</text>
+    </g>
+    <g stroke="#537460" stroke-width="2" fill="none" marker-end="url(#arrow)">
+      <path d="M192 285H632"/><path d="M640 337H200"/><path d="M192 397H632"/>
+      <path d="M192 543H632"/>
+      <path d="M640 439H1080" stroke-dasharray="7 5"/><path d="M1088 487H648" stroke-dasharray="7 5"/>
+      <path d="M640 587H1080" stroke-dasharray="7 5"/>
+    </g>
+    <rect x="688" y="252" width="474" height="108" rx="10" fill="#fff" stroke="#d5ddd2"/>
+    <text x="708" y="280" font-size="14" font-weight="bold">Host checks before execution</text>
+    <text x="708" y="307" font-size="13">Enabled adapter + displayed frame age at most 1 s</text>
+    <text x="708" y="333" font-size="13">Current owner / epoch + sequence + fresh challenge</text>
+    <text x="220" y="609" font-size="12" fill="#657168">Release keeps the session armed; STOP revokes it.</text>
+
+    <rect x="48" y="650" width="372" height="142" rx="12" fill="#fbebe8" stroke="#ecd5cf"/>
+    <rect x="436" y="650" width="372" height="142" rx="12" fill="#faf1d9" stroke="#e8dbb9"/>
+    <rect x="824" y="650" width="408" height="142" rx="12" fill="#fff" stroke="#d5ddd2"/>
+    <text x="68" y="681" font-size="17" font-weight="bold" fill="#a83e39">STOP / blur / stale / disconnect</text>
+    <text x="68" y="711" font-size="13">Disarm the host session and request zero.</text>
+    <text x="68" y="736" font-size="13">A lost transport can prevent delivery;</text>
+    <text x="68" y="761" font-size="13">the Pi watchdog is a separate fallback.</text>
+    <text x="456" y="681" font-size="17" font-weight="bold" fill="#805a19">450 ms host lease</text>
+    <text x="456" y="711" font-size="13">Expires without a valid control message.</text>
+    <text x="456" y="736" font-size="13">Pi watchdog: 300 ms command timeout.</text>
+    <text x="456" y="761" font-size="13">Defaults; neither is physical stopping time.</text>
+    <text x="844" y="681" font-size="17" font-weight="bold">Reconnect stays locked</text>
+    <text x="844" y="711" font-size="13">No queued offline motion or automatic re-arm.</text>
+    <text x="844" y="736" font-size="13">Old epochs and repeated sequences cannot</text>
+    <text x="844" y="761" font-size="13">continue a revoked control session.</text>
+    <text x="48" y="836" font-size="13" fill="#657168">Solid: browser / host contract tested synthetically. Dashed: implemented Pi adapter, physical behavior unverified.</text>
+  </g>
+</svg>

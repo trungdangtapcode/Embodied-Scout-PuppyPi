@@ -1,26 +1,33 @@
 # Mobile field console
 
-## Design intent
+Start with the application screenshots, then follow the placement, evidence and
+control figures. PNG figures render without Mermaid support; editable SVG sources
+are linked alongside them.
 
-The operator works with camera frames, stations, object references, evidence,
-control leases, and inspection findings. The visual direction is a field notebook:
-warm white paper, graphite camera surround, forest green controls, lime readiness,
-amber uncertainty, and red stop. Manrope provides a compact but readable type
-scale (12/14/16/20/28/40 px); spacing follows a 4 px grid and surfaces use quiet
-borders. The camera dominates Monitor and Control; evidence dominates Inspect.
+## See the application
 
-The signature is a frame provenance strip, repeated in the camera, mode badge,
-capture action, observation history, and report. Avoid generic metric tiles,
-invented battery charts, and decorative robot animations. Use a continuous
-camera workspace, explicit unavailable telemetry, and actual rendered frames.
-Native HTML controls and dialogs provide keyboard and focus behavior. Mobile
-navigation stays at the bottom and the stop control remains visible at the top.
+![Four actual phone screenshots: Monitor, Control, Inspect and Library](diagrams/mobile-ui-gallery.png)
+
+**Figure 1.** Actual app captures from Chromium at a 390 × 844 CSS-pixel phone
+viewport. The camera and inspection fixtures are **synthetic**. This demonstrates
+the implemented interface, not physical robot behavior or a native app install.
+
+Open the [eight-screenshot walkthrough](14-mobile-console-gallery.md) for larger
+phone views, the capture form, object history and desktop layouts. The
+[standalone gallery](diagrams/mobile-ui-gallery.html) can also be opened locally
+in a browser; it needs no app server. Each screenshot links to its full resolution.
 
 ## Stack and placement
 
-![Phone, host and Pi runtime architecture](diagrams/mobile-console.svg)
+![Phone, host and Pi runtime architecture](diagrams/mobile-console.png)
 
-[Open the scalable architecture diagram](diagrams/mobile-console.svg).
+**Figure 2.** The phone runs the browser UI; the host runs FastAPI, core Python
+and storage in `.venv-dev`; the Pi runs the relay in its existing vendor ROS 2
+environment after compatibility verification. Node builds the frontend on the
+host. [Scalable SVG](diagrams/mobile-console.svg) · [PNG](diagrams/mobile-console.png).
+
+<details>
+<summary>Equivalent text diagram</summary>
 
 ```mermaid
 flowchart LR
@@ -33,6 +40,8 @@ flowchart LR
   A -->|"TCP M: frame + metadata\nTCP C: validated commands"| PI["Pi relay · vendor ROS 2 Python\nwatchdog + velocity publisher"]
   PI --> D["Vendor driver / servo controller"]
 ```
+
+</details>
 
 The browser runs no Python, ROS, or C++. Node is a frontend build tool only.
 FastAPI serves the compiled static files and API from one origin. The host core
@@ -94,12 +103,34 @@ only one WebSocket session can own motion at a time.
 | Inspect | Capture the displayed fresh frame with a presence/absence/unknown assertion, create checklists, assess and download ZIP reports | Assertions and visibility come from the operator; assessment uses existing evidence, not autonomous patrol or image understanding |
 | Library | Upload 1–8 cropped reference images, list, rename, archive, inspect history/images | Shared deterministic spatial encoder and SQLite store; reference replacement remains available in CLI |
 
+![Desktop Inspect view with a checklist report, evidence thumbnails and the capture form](screenshots/mobile-console/desktop-inspect.png)
+
+**Screenshot detail.** Desktop Inspect puts the saved report beside the capture
+form. The seeded fixture has one pass, one fail and one unknown. These are
+scripted assertions, independent of the current synthetic camera view. Selecting
+a value in the capture form does not change the report until an observation is
+saved and a new assessment is run.
+
+![Flow from camera and operator annotation to stored observation, assessment and portable report](diagrams/mobile-evidence-flow.png)
+
+**Figure 3.** Follow the two inputs into a stored observation, then the checklist
+policy into a report snapshot. This separates camera evidence, the operator's
+assertion and the derived finding. [Scalable SVG](diagrams/mobile-evidence-flow.svg)
+· [PNG](diagrams/mobile-evidence-flow.png).
+
 Archives preserve old evidence. Reference uploads are limited to PNG/JPEG, 4 MiB
 per image, 8 megapixels, and 6 MiB per request including multipart overhead.
 Reports contain snapshots and portable HTML/JSON/PNG evidence. A historical
 sighting is not a claim that an object remains at that location.
 
 ## Real robot adapter and control contract
+
+![Sequence of arming, bounded drive commands, release and stop fallbacks](diagrams/mobile-control-flow.png)
+
+**Figure 4.** Follow arm → hold → release down the lanes. Release requests zero
+while keeping the lease; STOP revokes the session. The 450 ms host lease and
+300 ms Pi watchdog are software defaults, not measured physical stopping times.
+[Scalable SVG](diagrams/mobile-control-flow.svg) · [PNG](diagrams/mobile-control-flow.png).
 
 Deploy the updated `scripts/puppypi_edge_relay.py` in the robot's **verified ROS 2
 environment** first. The robot's actual firmware, topics, driver units and ROS
@@ -184,6 +215,22 @@ Remaining: physical driver/latency/stop tests; real-device Safari/Chrome install
 checks; automatic perception and search mission integration; phone third-person
 capture/calibration/synchronization. F28 remains partial until search is wired.
 The operator app is distinct from planned F33–F37 Phone Observer research.
+
+## Interface design notes
+
+The operator works with camera frames, stations, object references, evidence,
+control leases, and inspection findings. The visual direction is a field notebook:
+warm white paper, graphite camera surround, forest green controls, lime readiness,
+amber uncertainty, and red stop. Manrope provides a compact but readable type
+scale (12/14/16/20/28/40 px); spacing follows a 4 px grid and surfaces use quiet
+borders. The camera dominates Monitor and Control; evidence dominates Inspect.
+
+The signature is a frame provenance strip, repeated in the camera, mode badge,
+capture action, observation history, and report. Avoid generic metric tiles,
+invented battery charts, and decorative robot animations. Use a continuous
+camera workspace, explicit unavailable telemetry, and actual rendered frames.
+Native HTML controls and dialogs provide keyboard and focus behavior. Mobile
+navigation stays at the bottom and the stop control remains visible at the top.
 
 Sources: [Preact](https://preactjs.com/),
 [FastAPI WebSockets](https://fastapi.tiangolo.com/advanced/websockets/),

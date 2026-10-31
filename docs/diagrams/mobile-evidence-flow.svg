@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="920" viewBox="0 0 1280 920" role="img" aria-labelledby="title desc">
+  <title id="title">From a displayed camera frame to an inspection report</title>
+  <desc id="desc">A fresh camera frame and an operator assertion form an observation stored in SQLite with a content-addressed PNG. Inspection evaluates a saved checklist using freshness, mode, visibility, quality and contradiction rules. Pass, fail and unknown findings retain their evidence in a report snapshot, exported as HTML, JSON and PNG. The operator supplies the assertion; the current app does not infer presence or absence autonomously.</desc>
+  <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 8 4 0 8" fill="#537460"/></marker></defs>
+  <rect width="1280" height="920" fill="#f4f5f0"/>
+  <g font-family="DejaVu Sans, sans-serif" fill="#24352d">
+    <text x="48" y="46" font-size="12" letter-spacing="3">PUPPYPI / INSPECT AND EXPLAIN</text>
+    <text x="48" y="90" font-size="32" font-weight="bold">An observation is evidence. A finding is an assessment.</text>
+    <text x="48" y="122" font-size="16" fill="#657168">The current app stores operator assertions, then evaluates them against a saved checklist.</text>
+
+    <rect x="48" y="162" width="556" height="140" rx="12" fill="#fff" stroke="#d5ddd2"/>
+    <rect x="676" y="162" width="556" height="140" rx="12" fill="#fff" stroke="#d5ddd2"/>
+    <text x="72" y="195" font-size="12" fill="#657168">INPUT A / DISPLAYED FRAME</text>
+    <text x="72" y="229" font-size="21" font-weight="bold">Image + capture provenance</text>
+    <text x="72" y="258" font-size="14">Frame ID, camera/session, sequence, capture-time basis</text>
+    <text x="72" y="282" font-size="13" fill="#657168">Freshness gate: at most 1 s when recording in the app</text>
+    <text x="700" y="195" font-size="12" fill="#657168">INPUT B / OPERATOR ANNOTATION</text>
+    <text x="700" y="229" font-size="21" font-weight="bold">Object + station + assertion</text>
+    <text x="700" y="258" font-size="14">Present / absent / unknown; clear or obstructed view</text>
+    <text x="700" y="282" font-size="13" fill="#657168">Supplied by the person; not automatic recognition</text>
+    <g fill="none" stroke="#537460" stroke-width="2"><path d="M326 302V326H640"/><path d="M954 302V326H640"/><path d="M640 326V352" marker-end="url(#arrow)"/></g>
+
+    <rect x="48" y="360" width="1184" height="114" rx="12" fill="#e7efe3" stroke="#c5d4c3"/>
+    <text x="72" y="391" font-size="12" fill="#537460">01 / OBSERVATION RECORD</text>
+    <text x="72" y="425" font-size="22" font-weight="bold">Save what was captured and what the operator asserted</text>
+    <text x="72" y="452" font-size="14">SQLite v3 metadata + SHA-256-addressed PNG · shared with the CLI · synthetic / replay / physical mode retained</text>
+    <path d="M640 474V512" stroke="#537460" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+
+    <rect x="48" y="520" width="344" height="150" rx="12" fill="#fff" stroke="#d5ddd2"/>
+    <text x="72" y="550" font-size="12" fill="#657168">CONTEXT / SAVED CHECKLIST</text>
+    <text x="72" y="582" font-size="19" font-weight="bold">What should be where?</text>
+    <text x="72" y="612" font-size="13">Expected object and station</text>
+    <text x="72" y="637" font-size="13">Reference image at checklist creation</text>
+    <rect x="448" y="520" width="784" height="150" rx="12" fill="#fff" stroke="#d5ddd2"/>
+    <text x="472" y="550" font-size="12" fill="#657168">02 / INSPECTION POLICY</text>
+    <text x="472" y="582" font-size="19" font-weight="bold">Evaluate recorded evidence; no new robot movement</text>
+    <text x="472" y="612" font-size="14">Same mode + capture cutoff + evidence age (default 300 s)</text>
+    <text x="472" y="640" font-size="14">Quality + visibility + latest station assertions + contradictions</text>
+    <path d="M392 595H440" stroke="#537460" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+    <path d="M840 670V706" stroke="#537460" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+
+    <rect x="48" y="714" width="1184" height="140" rx="12" fill="#fff" stroke="#d5ddd2"/>
+    <text x="72" y="745" font-size="12" fill="#657168">03 / FINDING + REPORT SNAPSHOT</text>
+    <g text-anchor="middle" font-size="15" font-weight="bold">
+      <rect x="72" y="766" width="164" height="42" rx="8" fill="#e7efe3"/><text x="154" y="793" fill="#2c6749">PASS</text>
+      <rect x="248" y="766" width="164" height="42" rx="8" fill="#fbebe8"/><text x="330" y="793" fill="#a83e39">FAIL</text>
+      <rect x="424" y="766" width="164" height="42" rx="8" fill="#faf1d9"/><text x="506" y="793" fill="#805a19">UNKNOWN</text>
+    </g>
+    <path d="M616 786H680" stroke="#537460" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+    <text x="712" y="786" font-size="21" font-weight="bold">Portable evidence ZIP</text>
+    <text x="712" y="814" font-size="14">HTML + JSON + PNG images</text>
+    <text x="72" y="834" font-size="12" fill="#657168">Each finding retains its reasons, policy and source observations.</text>
+    <text x="48" y="892" font-size="13" fill="#657168">Unknown does not mean absent. Historical sightings do not establish current location. Automated visual inspection is pending.</text>
+  </g>
+</svg>
