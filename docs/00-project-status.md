@@ -54,6 +54,22 @@ still needs a navigation execution test.
 The historical 100% result concerns 40 synthetic trials for the full-system
 variant. It is neither a hardware success rate nor a guarantee on new objects.
 
+## Deployment facts from the current code
+
+The [visual deployment map](12-deployment-map.md) maps files to the development
+host, Pi ROS environment, and vendor hardware. The current local application
+runs in host `.venv-dev`; this repository contains no Dockerfile, Compose stack,
+custom C/C++ target, or firmware build. Native OpenCV/NumPy code is called through
+Python APIs rather than deployed as a separate project service.
+
+The Pi relay is a ROS 2 prototype (`rclpy`), not a ROS 1 implementation. Its live
+dependencies and the installed robot environment remain unverified. The host
+connects to the Pi TCP server; frames are JPEG bytes without capture timestamps
+or camera IDs. A command ACK does not measure executed motion. The relay watchdog
+is a Python timeout callback publishing zero velocity, not a hardware-verified
+stopping-time guarantee. The direct ROS node's timer implements only station
+selection and alignment/recovery, not a complete live mission loop.
+
 ## Planned expansion
 
 Memory Scout and Inspect and Explain have local persistence/reporting foundations.
@@ -83,7 +99,7 @@ it in a mission. No live hardware capability is marked verified yet.
 
 ## Documentation precedence
 
-This status page and the numbered 06–11 documents describe current scope. Documents
+This status page and the numbered 06–12 documents describe current scope. Documents
 01–05 and the 2026-10-30 handoff remain historical source material. Statements in
 those files about novelty, ROS distribution compatibility, hardware safety,
 onboard model runtime, and sensor range need the corresponding implementation

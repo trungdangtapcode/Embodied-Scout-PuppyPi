@@ -5,6 +5,11 @@ of perception adapters, evidence records, mission contracts, and motion limits.
 The table below describes target contracts; the implemented subset is called out
 separately. Do not treat the complete table as an available API.
 
+For **which machine and environment runs each component**, use the
+[deployment map](12-deployment-map.md). This page describes logical software
+responsibilities; a block here does not necessarily mean a separate process,
+container, or installed service.
+
 ## Existing and proposed boundaries
 
 ```mermaid

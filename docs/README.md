@@ -3,6 +3,11 @@
 Read current status and plans before using historical prototype claims in a
 demonstration or report.
 
+For a first read, open [12 Deployment map](12-deployment-map.md): an annotated
+SVG/PNG overview, environment nesting, file-to-machine table, data-flow sequence,
+and the current limits of the robot/phone adapters. It explains host versus Pi,
+Python versus native code, and venv versus Docker/ROS before the research plans.
+
 ## Current project direction
 
 | Document | Purpose |
@@ -14,6 +19,7 @@ demonstration or report.
 | [09 Demo acceptance](09-demo-acceptance.md) | Scenarios and proposed experiment/evidence manifests |
 | [10 Operator workflows](10-operator-workflows.md) | Implemented persistent library, history, annotation-driven inspection and report export |
 | [11 Phone Observer research](11-phone-observer-research.md) | Fixed-phone external view, verified sources/code, ego/exo baselines and adjustable 16-week schedule |
+| [12 Deployment map](12-deployment-map.md) | Visual host/Pi/firmware placement, Python/native runtimes, Docker/ROS boundaries and actual protocol |
 | [Contributor guide](../CONTRIBUTING.md) | Setup, checks, commit conventions, review and evidence workflow |
 | [Agent instructions](../AGENTS.md) | Repository-specific instructions for coding agents |
 | [2026-10-31 handoff](handoffs/2026-10-31-handoff.md) | Repository bootstrap, verification, and next implementation steps |

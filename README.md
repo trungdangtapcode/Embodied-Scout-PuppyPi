@@ -17,6 +17,19 @@ Inspection evaluates recorded assertions; autonomous visual inspection and
 physical robot validation are pending. Historical benchmark scores describe the
 supplied synthetic scenario. Read [capability and evidence status](docs/00-project-status.md).
 
+## Where the software runs
+
+Start with the [visual deployment map](docs/12-deployment-map.md) for the physical
+machines, Python environments, Docker/ROS boundary, native libraries, and exact
+code entry points. It separates today's offline workflows from the proposed
+robot and phone integration.
+
+![Host, Pi, controller and planned phone deployment](docs/diagrams/deployment-map.svg)
+
+The development host runs the application in `.venv-dev`. The Pi's existing ROS
+environment is the intended location for the Python relay and vendor drivers.
+The project has no custom C++ service or Docker image. Phone capture is planned.
+
 ## Application and research tracks
 
 | Track | Intended application | Research question |
