@@ -101,8 +101,10 @@ when an integration is actually selected.
 
 The [Phone Observer design](11-phone-observer-research.md) details these last
 three entries, their source availability, geometry, and evaluation limits. The
-current evidence schema v3 stores per-observation provenance (camera/session IDs,
-sequence and capture-time basis). A typed calibration/session lifecycle and clock
+current evidence schema v4 stores per-observation provenance (camera/session IDs,
+sequence and capture-time basis), saved temporal answers, frozen scene analyses
+and atomic operator-confirmation bindings. The [Room app integration](19-application-delivery-plan.md)
+shares these records with the existing library. A typed calibration/session lifecycle and clock
 uncertainty model are still needed for fusion; do not create a separate phone-only
 memory store. The [mobile operator console](13-mobile-console.md) already shares
 the core library and inspection services through optional FastAPI adapters.

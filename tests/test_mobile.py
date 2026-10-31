@@ -46,7 +46,7 @@ class Device:
     def read_frame(self):
         self.sequence += 1
         return CameraFrame(
-            np.full((96, 128, 3), 120, np.uint8),
+            getattr(self, "frame_image", np.full((96, 128, 3), 120, np.uint8)),
             str(self.sequence),
             utc_now(),
             time.monotonic(),
@@ -305,7 +305,7 @@ def test_schema_v2_migration_preserves_old_evidence(tmp_path):
         row = dict(store.db.execute("SELECT * FROM observations").fetchone())
         assert row["image_sha"] == "sha" and row["captured_at"] == "then"
         assert json.loads(row["provenance_json"]) == {}
-        assert store.db.execute("PRAGMA user_version").fetchone()[0] == 3
+        assert store.db.execute("PRAGMA user_version").fetchone()[0] == len(MIGRATIONS)
 
 
 def test_synthetic_seed_is_explicit_and_not_repeatable(client):
@@ -356,3 +356,41 @@ def test_invalid_socket_contract_disarms_owner(client):
         ws.send_json({"type": "drive", "arbitrary_code": "never executed"})
         assert next_message(ws, "error")["code"] == "INVALID_MESSAGE"
         assert runtime.gate.owner is None
+
+
+def test_room_analysis_confirmation_and_persistent_answer_api(client):
+    c, runtime, device = client
+    assert c.get('/api/room').status_code == 401
+    pair(c)
+    assert c.post('/api/room/queries', json={'kind': 'invented', 'object_id': 'none'}).status_code == 422
+    frame = np.full((180, 240, 3), 225, np.uint8)
+    frame[60:140, 90:150] = (40, 80, 200)
+    frame[80:120, 110:120] = (230, 230, 230)
+    device.frame_image = frame
+    wait_until(lambda: runtime.latest.image.shape == frame.shape)
+    _, png = cv2.imencode('.png', frame[57:143, 87:153])
+    obj = c.post('/api/objects', data={'name': 'Room API case'},
+                 files=[('files', ('case.png', png.tobytes(), 'image/png'))]).json()
+    result = c.post('/api/room/analyses', json={'frame_id': runtime.latest.frame_id})
+    assert result.status_code == 200, result.text
+    analysis = result.json()
+    assert analysis['candidates']
+    assert c.get('/api/room').json()['timeline'] == []
+    payload = {'proposal_index': 0, 'object_id': obj['id'], 'station': 'Desk'}
+    route = f"/api/room/analyses/{analysis['id']}/confirm"
+    first = c.post(route, json=payload)
+    assert first.status_code == 200, first.text
+    assert c.post(route, json=payload).json()['id'] == first.json()['id']
+    assert c.post(route, json={**payload, 'station': 'Other'}).status_code == 409
+    answer = c.post('/api/room/queries', json={'kind': 'last_seen', 'object_id': obj['id']})
+    assert answer.status_code == 200
+    assert answer.json()['status'] == 'supported'
+    memory = c.get('/api/room')
+    assert memory.headers['cache-control'] == 'no-store'
+    assert memory.json()['regions'] == ['Desk']
+    assert memory.json()['recent_queries'][0]['id'] == answer.json()['id']
+    assert len(memory.json()['timeline']) == 1
+    assert c.get(f"/api/room/analyses/{analysis['id']}").json()['frame_id'] == analysis['frame_id']
+    device.fresh = False
+    wait_until(lambda: runtime.latest and not runtime.latest.freshness_verified)
+    assert c.post('/api/room/analyses', json={'frame_id': runtime.latest.frame_id}).status_code == 409

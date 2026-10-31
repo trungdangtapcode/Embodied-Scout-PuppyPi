@@ -23,7 +23,7 @@
     <text x="432" y="350" font-size="15" font-weight="bold">Shared project core</text>
     <text x="432" y="376" font-size="13">Library · inspection · expiring control lease</text>
     <rect x="412" y="408" width="176" height="76" rx="8" fill="#fff"/>
-    <text x="428" y="439" font-size="14">SQLite v3</text><text x="428" y="464" font-size="12" fill="#657168">PNG / report evidence</text>
+    <text x="428" y="439" font-size="14">SQLite v4</text><text x="428" y="464" font-size="12" fill="#657168">PNG / report evidence</text>
     <rect x="604" y="408" width="180" height="76" rx="8" fill="#fff"/>
     <text x="620" y="439" font-size="14">Robot adapter</text><text x="620" y="464" font-size="12" fill="#657168">Camera + command I/O</text>
     <text x="412" y="522" font-size="12" fill="#657168">Node + Vite: build tools only</text>

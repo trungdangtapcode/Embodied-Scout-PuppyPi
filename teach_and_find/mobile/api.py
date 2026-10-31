@@ -16,6 +16,7 @@ import time
 from urllib.parse import urlsplit
 from uuid import uuid4
 import zipfile
+from typing import Literal
 
 import cv2
 import numpy as np
@@ -42,6 +43,8 @@ from teach_and_find.inspection import InspectionService
 from teach_and_find.library import build_library, utc_now
 from teach_and_find.mobile.runtime import OperatorRuntime
 from teach_and_find.storage import AssistantError, EvidenceStore
+from teach_and_find.room import RoomService
+from teach_and_find.scene import SceneService
 
 
 class StrictModel(BaseModel):
@@ -77,6 +80,24 @@ class ArmRequest(StrictModel):
     type: str
     challenge: str = Field(max_length=100)
     frame_id: str = Field(max_length=150)
+
+
+class FrameRequest(StrictModel):
+    frame_id: str = Field(min_length=1, max_length=150)
+
+
+class SceneConfirmation(StrictModel):
+    proposal_index: int = Field(ge=0, strict=True)
+    object_id: str
+    station: str = Field(min_length=1, max_length=120)
+
+
+class RoomQuery(StrictModel):
+    kind: Literal["last_seen", "seen_during", "stayed_at"]
+    object_id: str
+    station: str | None = None
+    start_at: str | None = None
+    end_at: str | None = None
 
 
 class DriveRequest(ArmRequest):
@@ -196,7 +217,7 @@ def create_app(
             404
             if error.code.endswith("NOT_FOUND")
             else 409
-            if error.code in {"FRAME_UNAVAILABLE", "STALE_FRAME"}
+            if error.code in {"FRAME_UNAVAILABLE", "STALE_FRAME", "CONFIRMATION_CONFLICT"}
             else 422
         )
         return JSONResponse(
@@ -348,6 +369,32 @@ def create_app(
             f"Operator recorded {body.assertion} at {body.station}.",
         )
         return observation
+
+    @app.get("/api/room")
+    def room(session=Depends(authorized)):
+        with services() as (library, _):
+            return RoomService(library).overview(mode=robot.device.mode)
+
+    @app.post("/api/room/queries")
+    def room_query(body: RoomQuery, session=Depends(authorized)):
+        with services() as (library, _):
+            return RoomService(library).query(**body.model_dump(), mode=robot.device.mode)
+
+    @app.post("/api/room/analyses")
+    def analyze_scene(body: FrameRequest, session=Depends(authorized)):
+        sample, _ = robot.frame(body.frame_id, require_fresh=True)
+        with services() as (library, _):
+            return SceneService(library).analyze(sample, mode=robot.device.mode)
+
+    @app.get("/api/room/analyses/{analysis_id}")
+    def scene_analysis(analysis_id: str, session=Depends(authorized)):
+        with services() as (library, _):
+            return SceneService(library).get(analysis_id, mode=robot.device.mode)
+
+    @app.post("/api/room/analyses/{analysis_id}/confirm")
+    def confirm_scene(analysis_id: str, body: SceneConfirmation, session=Depends(authorized)):
+        with services() as (library, _):
+            return SceneService(library).confirm(analysis_id, **body.model_dump(), mode=robot.device.mode)
 
     @app.get("/api/checklists")
     def checklists(session=Depends(authorized)):

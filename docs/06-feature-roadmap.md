@@ -33,7 +33,7 @@ hardware/model extensions. Priorities are dependencies, not calendar promises.
 | F05 | Request return to HOME after a mission | Prototype: mission logic | P0 | Physically reach HOME or explicitly report return failure | F02, F09 |
 | F06 | View the robot camera remotely | Integrated: browser camera, v2 metadata adapter; hardware pending | P0 | Synthetic browser and loopback tests display frame identity/age and disconnected state; verify real camera clock next | — |
 | F07 | Operator stop and communication-loss stop | Integrated: UI stop, expiring lease, relay watchdog; hardware pending | P0 | Hold/release, blur, reconnect, stale/replayed commands, in-flight stop tests; measure physical stop next | F06 |
-| F08 | Inspect mission evidence and replay | Prototype: offline plots/GIFs | P1 | Show ordered observations, rejected candidates, and final outcome | F02, F03 |
+| F08 | Inspect mission evidence and replay | Prototype: app observation timeline and saved answers integrated; full action/run replay pending | P1 | Show ordered observations, rejected candidates, and final outcome | F02, F03 |
 | F09 | Execute calibrated routes between stations | Planned | P0 | Repeat each bounded route; measure failures and operator interventions | F06, F07 |
 | F10 | Manage a persistent library of taught objects | Integrated: CLI, archive preserves evidence | P1 | Create, rename, update, list, and remove an object; survive restart | F01 |
 | F11 | Inspect where and when an object was last seen | Integrated: historical-sighting lookup | P1 | Query an object and return its observation time, station, and image | F10 |
@@ -64,7 +64,7 @@ hardware/model extensions. Priorities are dependencies, not calendar promises.
 | F36 | Select a robot view, phone view, movement, or question | Planned | P2 | Compare accuracy, time, travel, and questions with equal-budget baselines | F18, F35 |
 | F37 | Replay synchronized robot and phone observations | Planned | P1 | Export paired timelines, evidence, clock uncertainty, missing frames and calibration IDs | F08, F33 |
 | F38 | Run and resume a bounded inspection patrol | Planned | P1 | Visit verified stations, inspect, pause/take over/resume with revalidation, report incomplete checks and measured HOME outcome | F07, F09, F20, F28 |
-| F39 | Inspect and query a temporal room model | Planned | P1 | Show object/station relationships, history, coverage and unknown claims with source evidence; distinguish moved from occluded | F06, F10, F11 |
+| F39 | Inspect and query a temporal room model | Prototype: app regions, timeline and typed evidence queries integrated; automatic scene state pending | P1 | Browser demonstrates source-linked last seen and interval Unknown; temporal tests cover occlusion/conflicts/counterexamples; geometry and autonomous perception remain pending | F06, F10, F11 |
 
 Statuses describe the current baseline, not promises of physical performance.
 The [Room Patrol proposal](16-room-patrol-world-model-proposal.md) specifies
@@ -76,6 +76,10 @@ The [subsequent deep review](18-deep-research-room-intelligence.md) makes
 coverage-aware temporal queries and prospective acquisition the main experiment,
 with periodic gated monitoring and evidence-relative support labels. It does not
 add feature entries or change delivery status.
+The [application delivery plan](19-application-delivery-plan.md) records the
+subsequent implementation: local Room memory, temporal query snapshots, frame
+suggestions and explicit operator confirmation. F39 now has an integrated subset,
+not autonomous room understanding or a physical verification claim.
 The [next-feature research proposal](15-next-feature-research.md) prioritizes
 replay, automatic perception, memory repair and selective external views using
 verified upstream entry points. Its proposed capabilities do not change the

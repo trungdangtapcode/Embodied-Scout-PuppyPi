@@ -45,6 +45,7 @@ import { t, getLocale, setLocale, type Locale } from "./i18n";
 import { api, evidence, post, timeOf, when } from "./api";
 import type { Checklist, History, ObjectRecord, Report } from "./types";
 import { type Robot, useRobot } from "./useRobot";
+import { RoomConsole } from "./RoomConsole";
 
 type Tab = "monitor" | "control" | "inspect" | "library";
 const getNavigation = () =>
@@ -208,6 +209,7 @@ function App() {
   const [notice, setNotice] = useState("");
   const [busy, setBusy] = useState(false);
   const [tab, setTab] = useState<Tab>("monitor");
+  const [monitorView, setMonitorView] = useState<"live" | "room">("live");
   const [objects, setObjects] = useState<ObjectRecord[]>([]);
   const [checklists, setChecklists] = useState<Checklist[]>([]);
   const [reports, setReports] = useState<Report[]>([]);
@@ -434,7 +436,30 @@ function App() {
               {t("Host disconnected. Controls are locked; reconnecting.")}
             </div>
           )}
-          {(tab === "monitor" || tab === "control") && (
+          {tab === "monitor" && (
+            <div class="monitor-views" aria-label={t("Monitor views")}>
+              <button
+                class={monitorView === "live" ? "active" : ""}
+                aria-pressed={monitorView === "live"}
+                onClick={() => setMonitorView("live")}
+              >
+                <Camera size={16} />
+                {t("Live view")}
+              </button>
+              <button
+                class={monitorView === "room" ? "active" : ""}
+                aria-pressed={monitorView === "room"}
+                onClick={() => setMonitorView("room")}
+              >
+                <HistoryIcon size={16} />
+                {t("Room memory")}
+              </button>
+            </div>
+          )}
+          {tab === "monitor" && monitorView === "room" && (
+            <RoomConsole robot={robot} objects={objects} onRefresh={refresh} />
+          )}
+          {((tab === "monitor" && monitorView === "live") || tab === "control") && (
             <div class="operations-grid">
               <section>
                 <CameraView robot={robot} />
@@ -512,7 +537,7 @@ function App() {
               </aside>
             </div>
           )}
-          {tab === "monitor" && (
+          {tab === "monitor" && monitorView === "live" && (
             <div class="lower-grid">
               <section class="panel">
                 <div class="section-title">

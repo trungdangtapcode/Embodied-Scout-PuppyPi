@@ -184,6 +184,17 @@ class MobileSettings:
 
 
 @dataclass(frozen=True)
+class RoomSettings:
+    """Bounded room-memory reads and optional scene-analysis output."""
+
+    timeline_limit: int = 100
+    query_evidence_limit: int = 5000
+    recent_query_limit: int = 8
+    matches_per_proposal: int = 3
+    maximum_query_days: float = 365.0
+
+
+@dataclass(frozen=True)
 class Settings:
     """Top-level configuration bundle."""
 
@@ -197,3 +208,4 @@ class Settings:
     edge_relay: EdgeRelaySettings = field(default_factory=EdgeRelaySettings)
     assistant: AssistantSettings = field(default_factory=AssistantSettings)
     mobile: MobileSettings = field(default_factory=MobileSettings)
+    room: RoomSettings = field(default_factory=RoomSettings)

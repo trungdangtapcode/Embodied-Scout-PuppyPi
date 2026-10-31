@@ -68,6 +68,8 @@
 ## Verification and commits
 
 - Use `make setup` and the isolated `.venv-dev/`; preserve an existing `.venv/`.
+- Prefix direct `uv` project commands with `UV_PROJECT_ENVIRONMENT=.venv-dev`;
+  Make's exported setting does not persist into later shell commands.
 - Run `make check`, `make test`, and `make build` for code/dependency/workflow
   changes. Documentation-only changes require `make check`. State any unrun
   relevant hardware or optional GPU checks honestly.

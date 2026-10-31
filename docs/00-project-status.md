@@ -47,6 +47,16 @@ and versioned store. The default robot is an interactive synthetic renderer.
 The interface defaults to English, with an explicitly selected Vietnamese locale
 stored in the browser. Language changes disarm manual control.
 
+Monitor now also offers **Room memory**: a recorded-region browser, an image-linked
+timeline, three bounded historical questions and durable/exportable answer
+snapshots. **Analyze a viewpoint** connects the existing foreground proposal and
+appearance-matching baseline to the displayed frame. Ranked candidates require
+explicit operator confirmation before becoming observations. No proposal does
+not mean absence; finite sightings do not certify continuous presence. This
+local workflow and its application-first delivery sequence are documented in
+[the application plan](19-application-delivery-plan.md). SQLite v4 preserves
+existing evidence and adds query/analysis/confirmation records.
+
 Python tests cover leases, replay rejection, stale evidence, transport metadata,
 API/storage workflows, and stopping during an in-flight send. Chromium browser
 tests cover desktop/phone layouts, upload, evidence capture, report download,
@@ -123,7 +133,7 @@ proposal; no new perception, phone or physical-patrol capability is delivered.
 The new [Phone Observer track](11-phone-observer-research.md) plans a fixed phone
 camera for external robot localization, cross-view evidence, view selection, and
 paired replay. It reuses the same store and policies. Robot camera provenance is
-now persisted in SQLite v3; external-phone streaming, clock alignment/error
+now persisted in SQLite v4; external-phone streaming, clock alignment/error
 bounds, calibration lifecycle, and cross-view fusion remain planned. The operator
 PWA uses the phone as a display/controller, not as this third-person camera.
 
@@ -142,7 +152,7 @@ it in a mission. No live hardware capability is marked verified yet.
 
 ## Documentation precedence
 
-This status page and the numbered 06–18 documents describe current scope. Documents
+This status page and the numbered 06–19 documents describe current scope. Documents
 01–05 and the 2026-10-30 handoff remain historical source material. Statements in
 those files about novelty, ROS distribution compatibility, hardware safety,
 onboard model runtime, and sensor range need the corresponding implementation

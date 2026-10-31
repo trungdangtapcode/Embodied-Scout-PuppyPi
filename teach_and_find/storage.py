@@ -52,6 +52,21 @@ MIGRATIONS = (
     (
         "ALTER TABLE observations ADD COLUMN provenance_json TEXT NOT NULL DEFAULT '{}'",
     ),
+    (
+        """CREATE TABLE room_queries (
+            id TEXT PRIMARY KEY, created_at TEXT NOT NULL, mode TEXT NOT NULL,
+            result_json TEXT NOT NULL)""",
+        "CREATE INDEX room_query_history ON room_queries(mode, created_at DESC)",
+        "CREATE INDEX room_timeline ON observations(mode, captured_at DESC, recorded_at DESC)",
+        """CREATE TABLE scene_analyses (
+            id TEXT PRIMARY KEY, created_at TEXT NOT NULL, mode TEXT NOT NULL,
+            result_json TEXT NOT NULL)""",
+        """CREATE TABLE scene_confirmations (
+            analysis_id TEXT NOT NULL REFERENCES scene_analyses(id),
+            proposal_index INTEGER NOT NULL,
+            observation_id TEXT NOT NULL REFERENCES observations(id),
+            PRIMARY KEY(analysis_id, proposal_index))""",
+    ),
 )
 
 

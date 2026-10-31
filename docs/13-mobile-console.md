@@ -34,7 +34,7 @@ flowchart LR
   P["Phone / desktop browser\nPreact + TypeScript PWA"] -->|"HTTP: records, JPEG, reports\nWebSocket: status and bounded intents"| H
   subgraph Host["Host computer"]
     H["FastAPI · Python .venv-dev"] --> C["Python core\ncontrol lease · library · inspection"]
-    C --> DB["SQLite v3 + image evidence"]
+    C --> DB["SQLite v4 + image evidence"]
     H --> A["Robot adapter\nseparate camera / command workers"]
   end
   A -->|"TCP M: frame + metadata\nTCP C: validated commands"| PI["Pi relay · vendor ROS 2 Python\nwatchdog + velocity publisher"]
@@ -110,6 +110,13 @@ only one WebSocket session can own motion at a time.
 | Control | Explicit arm, hold-to-drive, release-to-zero, always-visible stop, exclusive owner | Commands are bounded forward/back and yaw intents; ACK means accepted by adapter, not measured motion |
 | Inspect | Capture the displayed fresh frame with a presence/absence/unknown assertion, create checklists, assess and download ZIP reports | Assertions and visibility come from the operator; assessment uses existing evidence, not autonomous patrol or image understanding |
 | Library | Upload 1–8 cropped reference images, list, rename, archive, inspect history/images | Shared deterministic spatial encoder and SQLite store; reference replacement remains available in CLI |
+| Monitor → Room memory | Recorded regions/timeline, three typed historical questions, saved answers/JSON export, frame suggestions and confirmed sightings | Human-reviewed assertions; local CPU appearance baseline; no measured room geometry or autonomous patrol |
+
+The [application-first plan](19-application-delivery-plan.md) explains the new
+room workflow, endpoint/service boundaries, regression evidence and the next
+monitoring/perception/phone/patrol slices. Research is integrated as conservative
+temporal semantics, evidence provenance and useful visual review; model candidates
+are never silently promoted into facts.
 
 ![Desktop Inspect view with a checklist report, evidence thumbnails and the capture form](screenshots/mobile-console/desktop-inspect.png)
 

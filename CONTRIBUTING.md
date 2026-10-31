@@ -21,7 +21,10 @@ make build
 commit-title validation, and Git whitespace checks on current changes. It is not
 a type checker or a full style audit. `make test` runs the synthetic and mock
 relay suite. `make build` creates a wheel and source distribution under ignored
-`dist/`. The Python core needs no Node runtime. The optional mobile console has
+`dist/`. For ad hoc project commands, explicitly prefix
+`UV_PROJECT_ENVIRONMENT=.venv-dev uv run ...`; Make's exported environment does
+not persist into a later shell. Avoid accidentally syncing an existing `.venv/`.
+The Python core needs no Node runtime. The optional mobile console has
 a frontend build under `web/` and uses Node 22.12+ (Node 24 tested):
 
 ```bash

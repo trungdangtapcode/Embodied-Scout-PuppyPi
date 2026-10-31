@@ -57,6 +57,12 @@ environment is the intended location for the Python relay and vendor drivers.
 The project has no custom C++ service or Docker image. The phone browser runs
 the operator app; using the phone as a third-person camera is still planned.
 
+Monitor now includes **Room memory**: regions, evidence timeline, saved historical
+answers and image analysis with explicit operator confirmation. See
+[the application delivery plan](docs/19-application-delivery-plan.md) for available
+workflows and the monitoring, phone-observer and patrol sequence. Candidates use
+the local appearance baseline; physical perception and patrol remain unverified.
+
 ## Application and research tracks
 
 | Track | Intended application | Research question |

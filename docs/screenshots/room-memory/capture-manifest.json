@@ -1,0 +1,32 @@
+{
+  "captured_at": "2026-10-31",
+  "source_base_revision": "8831f64",
+  "source_state": "Working tree implementing Room memory; committed together with these captures",
+  "browser": "Playwright Chromium",
+  "mode": "synthetic",
+  "fixture": "Disposable browser server with demo objects and one explicitly reviewed synthetic crop",
+  "hardware_verified": false,
+  "captures": {
+    "phone-room.png": {
+      "width": 390,
+      "height": 844,
+      "sha256": "6f857f19cb6f5cdb6b341e894feaf68aed209f2c48bd569fad9e675d24a6ee45"
+    },
+    "desktop-room.png": {
+      "width": 1440,
+      "height": 3850,
+      "sha256": "b2bbe151131dc2c4ad50faaa39e40823686d74655ee73f7dc3a41d36e56ce59b"
+    },
+    "phone-answer.png": {
+      "width": 390,
+      "height": 844,
+      "sha256": "ab60de3dcbca8001509285dada2d0067446acdefd9010de9b1591060d0b06cf0"
+    }
+  },
+  "frontend_source_sha256": {
+    "web/src/RoomConsole.tsx": "de176a10cbabf5a477bee4f99ea1d739102defd646b71856c602d00f1e869df4",
+    "web/src/main.tsx": "7899eac02689ac621dfbc20661dd1dd8389506a7496354891d05d944241a4e5f",
+    "web/src/style.css": "c1878125b2290f014c604f54fa13c27ba6e5ce2c07859fee7b3a9b1ceadd7d9d",
+    "web/src/locales/vi.json": "25c7d171c3100329733c07ccadb119b2b6692421ec698e23ea0ed26aa68248ea"
+  }
+}

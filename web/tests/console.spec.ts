@@ -1,6 +1,7 @@
 import { test, expect, type Page } from "@playwright/test";
 import { mkdir } from "node:fs/promises";
 import vietnamese from "../src/locales/vi.json" with { type: "json" };
+import type { SceneAnalysis } from "../src/roomTypes";
 
 async function enter(page: Page) {
   await page.goto("/");
@@ -157,4 +158,88 @@ test("phone layout, camera, inspector and static-only offline cache", async ({ p
   });
   expect(cached.length).toBeGreaterThan(0);
   expect(cached.some((path) => path.includes("/api/"))).toBe(false);
+});
+
+test("room memory links suggestions, confirmed sightings and conservative temporal answers", async ({
+  page,
+}) => {
+  const errors: string[] = [];
+  page.on("pageerror", (error) => errors.push(error.message));
+  await enter(page);
+  await page.request.post("/api/demo");
+  await page.reload();
+  await page.getByRole("button", { name: "Room memory", exact: true }).click();
+  await expect(page.getByRole("heading", { name: "Room memory", exact: true })).toBeVisible();
+  const firstResponse = page.waitForResponse(
+    (response) =>
+      response.url().endsWith("/api/room/analyses") && response.request().method() === "POST",
+  );
+  await page.getByRole("button", { name: "Analyze current view" }).click();
+  const first: SceneAnalysis = await (await firstResponse).json();
+  expect(first.candidates.length).toBeGreaterThan(0);
+  const crop = await page.request.get(`/api/evidence/${first.candidates[0].crop_image_sha}`);
+  const enrollment = await page.request.post("/api/objects", {
+    multipart: {
+      name: "Temporal browser case",
+      files: { name: "reference.png", mimeType: "image/png", buffer: await crop.body() },
+    },
+  });
+  expect(enrollment.ok()).toBe(true);
+  const object = await enrollment.json();
+  await page.reload();
+  await page.getByRole("button", { name: "Room memory", exact: true }).click();
+  const analysisResponse = page.waitForResponse(
+    (response) =>
+      response.url().endsWith("/api/room/analyses") && response.request().method() === "POST",
+  );
+  await page.getByRole("button", { name: "Analyze current view" }).click();
+  const analysis: SceneAnalysis = await (await analysisResponse).json();
+  await page.getByLabel("Observed region", { exact: true }).fill("Browser shelf");
+  await page.getByLabel("Candidate object 1", { exact: true }).selectOption(object.id);
+  await page.getByRole("button", { name: "Confirm sighting", exact: true }).first().click();
+  await expect(page.getByRole("button", { name: "Sighting recorded", exact: true })).toBeVisible();
+  await page.getByRole("combobox", { name: "Object", exact: true }).selectOption(object.id);
+  await page.getByRole("button", { name: "Ask from evidence" }).click();
+  await expect(
+    page.getByLabel("Room answer").getByText("Supported", { exact: true }),
+  ).toBeVisible();
+  await expect(
+    page.getByLabel("Room answer").getByText("Browser shelf", { exact: true }),
+  ).toBeVisible();
+  await page.getByRole("combobox", { name: "Question", exact: true }).selectOption("stayed_at");
+  await page.getByLabel("Region", { exact: true }).fill("Browser shelf");
+  await expect.poll(() => Date.now() - Date.parse(analysis.captured_at)).toBeGreaterThan(1100);
+  await page.getByRole("button", { name: "Use latest hour" }).click();
+  await page.getByRole("button", { name: "Ask from evidence" }).click();
+  await expect(page.getByLabel("Room answer").getByText("Unknown", { exact: true })).toBeVisible();
+  await expect(page.getByLabel("Room answer")).toContainText(
+    "Separate observations cannot establish",
+  );
+  const download = page.waitForEvent("download");
+  await page.getByRole("button", { name: "Download answer" }).click();
+  expect((await download).suggestedFilename()).toMatch(/^room-answer-/);
+  await mkdir("../runs/room-preview", { recursive: true });
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await page.screenshot({ path: "../runs/room-preview/desktop-room.png", fullPage: true });
+  await page.setViewportSize({ width: 390, height: 844 });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await page.screenshot({ path: "../runs/room-preview/phone-room.png", fullPage: false });
+  await page.locator(".room-answer").scrollIntoViewIfNeeded();
+  await page.screenshot({ path: "../runs/room-preview/phone-answer.png" });
+  await page.reload();
+  await page.getByRole("button", { name: "Room memory", exact: true }).click();
+  await page.getByText("Saved answers", { exact: true }).click();
+  await page
+    .getByRole("button", { name: "Temporal browser case Stayed throughout a time range" })
+    .first()
+    .click();
+  await expect(page.getByLabel("Room answer").getByText("Unknown", { exact: true })).toBeVisible();
+  expect(errors).toEqual([]);
+  const memory = await (await page.request.get("/api/room")).json();
+  expect(
+    memory.timeline.some(
+      (row: { provenance: { scene_analysis_id?: string } }) =>
+        row.provenance.scene_analysis_id === analysis.id,
+    ),
+  ).toBe(true);
 });

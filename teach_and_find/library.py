@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from collections import Counter
+from contextlib import nullcontext
 from dataclasses import asdict
 from datetime import datetime, timezone
 import io
@@ -294,6 +295,7 @@ class ObjectLibrary:
         source: str = "operator",
         mode: str = "replay",
         provenance: dict | None = None,
+        commit: bool = True,
     ) -> dict:
         self.get(object_id)
         station = label(station)
@@ -322,7 +324,9 @@ class ObjectLibrary:
             raise AssistantError("INVALID_PROVENANCE", "Evidence metadata must be finite JSON.") from error
         digest = self.store.save_image(image)
         observation_id = str(uuid4())
-        with self.store.db:
+        if not commit and not self.store.db.in_transaction:
+            raise AssistantError("TRANSACTION_REQUIRED", "An outer transaction is required.")
+        with self.store.db if commit else nullcontext():
             self.store.db.execute(
                 "INSERT INTO observations VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
                 (
