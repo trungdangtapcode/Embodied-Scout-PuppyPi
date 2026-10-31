@@ -63,8 +63,12 @@ hardware/model extensions. Priorities are dependencies, not calendar promises.
 | F35 | Confirm objects and inspection findings across cameras | Planned | P2 | Associate exact instance/station evidence; conflicting or stale views cannot confirm | F11, F20, F33, F34 |
 | F36 | Select a robot view, phone view, movement, or question | Planned | P2 | Compare accuracy, time, travel, and questions with equal-budget baselines | F18, F35 |
 | F37 | Replay synchronized robot and phone observations | Planned | P1 | Export paired timelines, evidence, clock uncertainty, missing frames and calibration IDs | F08, F33 |
+| F38 | Run and resume a bounded inspection patrol | Planned | P1 | Visit verified stations, inspect, pause/take over/resume with revalidation, report incomplete checks and measured HOME outcome | F07, F09, F20, F28 |
+| F39 | Inspect and query a temporal room model | Planned | P1 | Show object/station relationships, history, coverage and unknown claims with source evidence; distinguish moved from occluded | F06, F10, F11 |
 
 Statuses describe the current baseline, not promises of physical performance.
+The [Room Patrol proposal](16-room-patrol-world-model-proposal.md) specifies
+F38/F39 and their geometry, perception, execution and research prerequisites.
 The [next-feature research proposal](15-next-feature-research.md) prioritizes
 replay, automatic perception, memory repair and selective external views using
 verified upstream entry points. Its proposed capabilities do not change the

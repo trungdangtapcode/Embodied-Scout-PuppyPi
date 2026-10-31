@@ -19,7 +19,7 @@ Python versus native code, and venv versus Docker/ROS before the research plans.
 | Document | Purpose |
 | --- | --- |
 | [00 Project status](00-project-status.md) | Implemented behavior, evidence boundaries, hardware assumptions |
-| [06 Feature roadmap](06-feature-roadmap.md) | 37 feature entries with status, dependencies, priorities, and demo criteria |
+| [06 Feature roadmap](06-feature-roadmap.md) | 39 feature entries with status, dependencies, priorities, and demo criteria |
 | [07 Research program](07-research-program.md) | Five tracks, hypotheses, related work, baselines, evaluation |
 | [08 Shared architecture](08-system-evolution.md) | Reuse register, boundaries, proposed records and integration order |
 | [09 Demo acceptance](09-demo-acceptance.md) | Scenarios and proposed experiment/evidence manifests |
@@ -29,6 +29,7 @@ Python versus native code, and venv versus Docker/ROS before the research plans.
 | [13 Mobile field console](13-mobile-console.md) | Preact PWA, FastAPI host, Pi relay, run commands, operator workflows and control/evidence limits |
 | [14 Screenshot walkthrough](14-mobile-console-gallery.md) | Eight actual phone/desktop captures, annotated operator flows and capture provenance |
 | [15 Next-feature research](15-next-feature-research.md) | Verified reuse candidates, six prioritized extensions, one main research hypothesis and a 16-week sequence |
+| [16 Room Patrol proposal](16-room-patrol-world-model-proposal.md) | Five-layer room model, bounded patrol, verified scene-graph/mapping work, sensor choices and paired evaluation |
 | [Contributor guide](../CONTRIBUTING.md) | Setup, checks, commit conventions, review and evidence workflow |
 | [Agent instructions](../AGENTS.md) | Repository-specific instructions for coding agents |
 | [2026-10-31 handoff](handoffs/2026-10-31-handoff.md) | Repository bootstrap, verification, and next implementation steps |

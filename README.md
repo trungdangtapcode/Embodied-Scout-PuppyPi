@@ -67,9 +67,15 @@ the operator app; using the phone as a third-person camera is still planned.
 | Body-aware Active Vision | Change pose or wait for a stable image | Which feasible action improves recognition per unit time? |
 | Phone Observer | Use a fixed phone as an external viewpoint | When does another camera reduce travel, ambiguity, and wrong confirmations? |
 
-The [37-feature inventory](docs/06-feature-roadmap.md) records status, priority,
+The [39-feature inventory](docs/06-feature-roadmap.md) records status, priority,
 dependencies, and acceptance criteria. Features share one perception, evidence,
 mission, and motion stack.
+
+The [Room Patrol proposal](docs/16-room-patrol-world-model-proposal.md) develops
+a taught-room inspection mission and a temporal world model with geometry,
+object relationships, uncertainty and measured action outcomes. F38/F39 remain
+Planned; the proposal includes source research, an illustrated design and
+hardware/experiment acceptance gates.
 
 The confirmed platform is **PuppyPi Standard**, with more than three months for
 development. The [Phone Observer plan](docs/11-phone-observer-research.md) records

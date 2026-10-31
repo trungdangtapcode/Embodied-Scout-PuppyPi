@@ -102,6 +102,11 @@ planned. Feature-level status and acceptance criteria are recorded in
 [the feature roadmap](06-feature-roadmap.md). A planning entry is not an
 implemented feature.
 
+The [Room Patrol proposal](16-room-patrol-world-model-proposal.md) adds planned
+F38 bounded patrol and F39 temporal room-model queries, extending the same memory,
+inspection and phone-observer foundations. It does not add a physical executor,
+metric reconstruction or obstacle avoidance to the current application.
+
 The new [Phone Observer track](11-phone-observer-research.md) plans a fixed phone
 camera for external robot localization, cross-view evidence, view selection, and
 paired replay. It reuses the same store and policies. Robot camera provenance is
@@ -124,7 +129,7 @@ it in a mission. No live hardware capability is marked verified yet.
 
 ## Documentation precedence
 
-This status page and the numbered 06–15 documents describe current scope. Documents
+This status page and the numbered 06–16 documents describe current scope. Documents
 01–05 and the 2026-10-30 handoff remain historical source material. Statements in
 those files about novelty, ROS distribution compatibility, hardware safety,
 onboard model runtime, and sensor range need the corresponding implementation

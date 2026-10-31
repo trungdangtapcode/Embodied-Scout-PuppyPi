@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="900" viewBox="0 0 1280 900" role="img" aria-labelledby="title desc">
+  <title id="title">Proposed room patrol and structured world model</title>
+  <desc id="desc">Illustrative room with HOME and three inspection stations. A separate world model retains routes, object identities, observation time, unknown regions and empirical action predictions. A loop captures evidence, updates beliefs, selects a useful action, then checks the measured result. This is a proposal, not a map of the real room or an implemented patrol.</desc>
+  <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 8 4 0 8" fill="#537460"/></marker></defs>
+  <rect width="1280" height="900" fill="#f4f5f0"/>
+  <g font-family="DejaVu Sans, sans-serif" fill="#24352d">
+    <text x="48" y="46" font-size="12" letter-spacing="3">PUPPYPI / ROOM PATROL / PROPOSAL</text>
+    <text x="48" y="92" font-size="32" font-weight="bold">Observe the room. Remember change. Verify uncertainty.</text>
+    <text x="48" y="124" font-size="16" fill="#657168">A structured world model connects places, objects, time, evidence and predicted action outcomes.</text>
+
+    <rect x="48" y="166" width="560" height="414" rx="16" fill="#fff" stroke="#d5ddd2"/>
+    <text x="72" y="199" font-size="12" fill="#657168">ILLUSTRATIVE ROOM / NOT TO SCALE</text>
+    <path d="M88 232H566V542H88Z" fill="#f7f8f4" stroke="#d5ddd2" stroke-width="2"/>
+    <g stroke="#537460" stroke-width="3" fill="none"><path d="M146 488V300H444V488H146"/><path d="M146 488L444 300" stroke-dasharray="6 6"/></g>
+    <g fill="#e7efe3" stroke="#537460" stroke-width="2">
+      <circle cx="146" cy="488" r="15"/><circle cx="146" cy="300" r="15"/><circle cx="444" cy="300" r="15"/><circle cx="444" cy="488" r="15"/>
+    </g>
+    <g font-size="14" font-weight="bold"><text x="112" y="526">HOME</text><text x="112" y="272">Station A</text><text x="410" y="272">Station B</text><text x="410" y="526">Station C</text></g>
+    <rect x="182" y="326" width="192" height="66" rx="8" fill="#e7efe3"/>
+    <text x="198" y="352" font-size="13" font-weight="bold">Case candidate at B</text><text x="198" y="376" font-size="12">Verify exact instance</text>
+    <rect x="222" y="410" width="200" height="56" rx="8" fill="#faf1d9"/>
+    <text x="238" y="434" font-size="13" font-weight="bold" fill="#805a19">Kit region occluded</text><text x="238" y="454" font-size="12" fill="#805a19">Unknown, not absent</text>
+    <text x="72" y="567" font-size="12" fill="#657168">Routes require measured validation and current obstruction checks.</text>
+
+    <rect x="636" y="166" width="596" height="414" rx="16" fill="#e7efe3" stroke="#c5d4c3"/>
+    <text x="660" y="199" font-size="12" fill="#537460">FIVE LINKED LAYERS / SHARED EVIDENCE</text>
+    <g fill="#fff"><rect x="660" y="220" width="548" height="58" rx="8"/><rect x="660" y="288" width="548" height="58" rx="8"/><rect x="660" y="356" width="548" height="58" rx="8"/><rect x="660" y="424" width="548" height="58" rx="8"/><rect x="660" y="492" width="548" height="58" rx="8"/></g>
+    <g font-size="14" font-weight="bold"><text x="680" y="244">01 / Geometry</text><text x="680" y="312">02 / Semantics</text><text x="680" y="380">03 / Time</text><text x="680" y="448">04 / Belief</text><text x="680" y="516">05 / Action model</text></g>
+    <g font-size="12" fill="#657168"><text x="680" y="265">Stations, route validity, robot pose and map frame</text><text x="680" y="333">Object identities and evidence-supported relationships</text><text x="680" y="401">Sightings, changes, capture times and baseline revisions</text><text x="680" y="469">What is supported, stale, contradicted or unseen?</text><text x="680" y="537">Expected arrival, time and useful-view yield; compare to reality</text></g>
+
+    <text x="48" y="625" font-size="12" letter-spacing="2" fill="#657168">PROPOSED CLOSED LOOP</text>
+    <g fill="#fff" stroke="#d5ddd2"><rect x="48" y="650" width="274" height="112" rx="12"/><rect x="352" y="650" width="274" height="112" rx="12"/><rect x="656" y="650" width="274" height="112" rx="12"/><rect x="960" y="650" width="272" height="112" rx="12"/></g>
+    <g font-size="19" font-weight="bold"><text x="68" y="685">Capture</text><text x="372" y="685">Update</text><text x="676" y="685">Choose</text><text x="980" y="685">Execute + measure</text></g>
+    <g font-size="13"><text x="68" y="714">Fresh frame + valid pose</text><text x="68" y="739">Robot / optional phone view</text><text x="372" y="714">Append observation history</text><text x="372" y="739">Revise beliefs; preserve unknown</text><text x="676" y="714">Observe, move, ask or abstain</text><text x="676" y="739">Use measured benefit / cost</text><text x="980" y="714">Bounded verified skill</text><text x="980" y="739">Compare prediction vs outcome</text></g>
+    <g stroke="#537460" stroke-width="2" marker-end="url(#arrow)"><path d="M322 706H344"/><path d="M626 706H648"/><path d="M930 706H952"/></g>
+    <path d="M1096 762V794H184V770" fill="none" stroke="#537460" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="48" y="837" font-size="14" font-weight="bold">First target: a taught room and supervised bounded patrol. Dense 3D / learned prediction are optional extensions.</text>
+    <text x="48" y="868" font-size="13" fill="#657168">Design illustration only. No physical patrol, metric map, obstacle avoidance or prediction accuracy is claimed.</text>
+  </g>
+</svg>
