@@ -12,12 +12,8 @@ import cv2
 import numpy as np
 
 
-class AssistantError(ValueError):
-    """Stable error code for operator-facing adapters."""
-
-    def __init__(self, code: str, message: str) -> None:
-        super().__init__(message)
-        self.code = code
+# Re-export preserves existing imports; domain rules use errors directly.
+from teach_and_find.errors import AssistantError
 
 
 # Each tuple is one migration from user_version N to N+1. Never edit a shipped
@@ -123,6 +119,15 @@ MIGRATIONS = (
         """CREATE TABLE tracking_worker (id INTEGER PRIMARY KEY CHECK(id=1),
             pid INTEGER NOT NULL, seen_at REAL NOT NULL, status TEXT NOT NULL,
             error_json TEXT)""",
+    ),
+    (
+        """CREATE TABLE tracking_streams (
+            session_id TEXT PRIMARY KEY REFERENCES tracking_sessions(id),
+            phase TEXT NOT NULL DEFAULT 'bootstrap', next_sequence INTEGER NOT NULL DEFAULT 1,
+            claimed_sequence INTEGER NOT NULL DEFAULT 0, in_flight_sequence INTEGER,
+            offered_frames INTEGER NOT NULL DEFAULT 0, processed_frames INTEGER NOT NULL DEFAULT 0,
+            producer_replacements INTEGER NOT NULL DEFAULT 0, pending_replacements INTEGER NOT NULL DEFAULT 0,
+            skipped_frames INTEGER NOT NULL DEFAULT 0, peak_live_pending INTEGER NOT NULL DEFAULT 0)""",
     ),
 )
 

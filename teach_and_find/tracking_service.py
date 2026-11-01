@@ -9,7 +9,6 @@ from datetime import datetime
 import hashlib
 import io
 import json
-import queue
 import threading
 import time
 from uuid import uuid4
@@ -18,6 +17,8 @@ import numpy as np
 from PIL import Image
 
 from teach_and_find.config import Settings
+from teach_and_find.tracking_frames import FrameInbox
+from teach_and_find.tracking_schedule import LatestMailbox
 from teach_and_find.storage import AssistantError, EvidenceStore
 
 ACTIVE = ("selecting", "preview_pending", "preview_ready", "start_pending", "running")
@@ -136,11 +137,20 @@ class TrackingService:
                 "SELECT * FROM tracking_sessions WHERE id=?", (sid,)
             ).fetchone()
             if row and row["status"] in ACTIVE:
-                self.store.db.execute(
-                    "UPDATE tracking_sessions SET status=?,generation=generation+1,error_code=?,error_json=? WHERE id=?",
-                    (status, code, json.dumps(error) if error else None, sid),
-                )
-                self.event(row, status, {"code": code, "error": error})
+                changed = self.store.db.execute(
+                    "UPDATE tracking_sessions SET status=?,generation=generation+1,error_code=?,error_json=? WHERE id=? AND generation=? AND status IN (?,?,?,?,?)",
+                    (
+                        status,
+                        code,
+                        json.dumps(error) if error else None,
+                        sid,
+                        row["generation"],
+                        *ACTIVE,
+                    ),
+                ).rowcount
+                if changed:
+                    FrameInbox(self.store, self.cfg).close(sid)
+                    self.event(row, status, {"code": code, "error": error})
 
     def pin(self, frame, mode, owner, key):
         self.require_ready()
@@ -193,6 +203,7 @@ class TrackingService:
                 "INSERT INTO tracking_frames VALUES(?,?,?,?)",
                 (sid, 0, frame.frame_id, json.dumps(anchor)),
             )
+            FrameInbox(self.store, self.cfg).create(sid)
             row = self.row(sid, mode)
             self.store.db.execute(
                 "UPDATE tracking_sessions SET evidence_bytes=? WHERE id=?",
@@ -344,6 +355,7 @@ class TrackingService:
             "anchor": json.loads(row["anchor_json"]),
             "preview": json.loads(row["preview_json"]) if row["preview_json"] else None,
             "latest": latest,
+            "stream": FrameInbox(self.store, self.cfg).snapshot(sid),
             "observations": records,
             "server_unix_ms": time.time() * 1000,
             "method": "original_sam21_tiny_cutie_base_megamodel_identity_unverified",
@@ -369,10 +381,15 @@ class TrackingFeed:
 
     def __init__(self, settings):
         self.settings = settings
-        self.pending = queue.Queue(maxsize=settings.tracking.producer_capacity)
+        if settings.tracking.producer_capacity != 1:
+            raise AssistantError(
+                "TRACKING_CAPACITY_INVALID",
+                "The latest-value policy requires exactly one pending producer frame.",
+            )
+        self.pending = LatestMailbox()
         self.closed = threading.Event()
         self.thread = None
-        self.dropped = 0
+        self.reported_replacements = 0
         self.last_offer = 0.0
 
     def start(self):
@@ -384,17 +401,13 @@ class TrackingFeed:
         if now - self.last_offer < 1 / self.settings.tracking.offer_hz:
             return
         self.last_offer = now
-        try:
-            self.pending.put_nowait(frame)
-        except queue.Full:
-            self.dropped += 1
+        self.pending.offer(frame)
 
     def loop(self):
         while not self.closed.is_set():
-            try:
-                frame = self.pending.get(timeout=0.1)
-            except queue.Empty:
-                continue
+            frame = self.pending.take()
+            if frame is None:
+                return
             try:
                 with EvidenceStore(self.settings.assistant.data_dir) as store:
                     svc = TrackingService(store, self.settings)
@@ -403,6 +416,9 @@ class TrackingFeed:
                         ACTIVE,
                     ).fetchone()
                     if not row:
+                        self.reported_replacements = self.pending.snapshot()[
+                            "replacements"
+                        ]
                         continue
                     if not (svc.worker() or {}).get("alive"):
                         svc.finish(row["id"], "failed", "TRACKING_WORKER_UNAVAILABLE")
@@ -427,30 +443,15 @@ class TrackingFeed:
                         continue
                     record = frame_record(store, frame)
                     size = len(store.image_bytes(record["image_sha"]))
-                    if (
-                        row["evidence_bytes"] + size
-                        > self.settings.tracking.evidence_limit_bytes
-                    ):
-                        svc.finish(row["id"], "failed", "TRACKING_STORAGE_LIMIT")
-                        continue
-                    with store.db:
-                        seq = store.db.execute(
-                            "SELECT COALESCE(MAX(sequence),0)+1 FROM tracking_frames WHERE session_id=?",
-                            (row["id"],),
-                        ).fetchone()[0]
-                        store.db.execute(
-                            "INSERT INTO tracking_frames VALUES(?,?,?,?)",
-                            (row["id"], seq, frame.frame_id, json.dumps(record)),
-                        )
-                        store.db.execute(
-                            "UPDATE tracking_sessions SET evidence_bytes=evidence_bytes+?,dropped_frames=dropped_frames+? WHERE id=?",
-                            (size, self.dropped, row["id"]),
-                        )
-                        self.dropped = 0
-                        store.db.execute(
-                            "DELETE FROM tracking_frames WHERE session_id=? AND sequence>0 AND sequence<?",
-                            (row["id"], seq - self.settings.tracking.frame_limit + 1),
-                        )
+                    replacements = self.pending.snapshot()["replacements"]
+                    FrameInbox(store, self.settings.tracking).publish(
+                        row["id"],
+                        row["generation"],
+                        record,
+                        size,
+                        replacements - self.reported_replacements,
+                    )
+                    self.reported_replacements = replacements
             except Exception as error:
                 # A writer failure never blocks capture or fabricates an observation.
                 try:
@@ -463,7 +464,7 @@ class TrackingFeed:
                             TrackingService(store, self.settings).finish(
                                 active[0],
                                 "failed",
-                                "TRACKING_FEED_FAILED",
+                                getattr(error, "code", "TRACKING_FEED_FAILED"),
                                 {"type": type(error).__name__},
                             )
                 except Exception:
@@ -471,5 +472,6 @@ class TrackingFeed:
 
     def close(self):
         self.closed.set()
+        self.pending.close()
         if self.thread:
             self.thread.join(timeout=3)

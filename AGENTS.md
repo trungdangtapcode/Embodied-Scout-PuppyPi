@@ -24,6 +24,42 @@
   design, follow this principle and the user's explicit instructions. The existing
   critical review remains OPEN until its implementation acceptance criteria pass.
 
+## Mandatory SWE and systems-design discipline
+
+- Think through the whole system before implementation: workloads, producer and
+  consumer rates, service-time distributions, concurrency, ownership, time,
+  failure propagation, overload, restart and resource bounds. A component running
+  successfully does not establish a viable application architecture.
+- Define invariants and acceptance measurements before coding. Every asynchronous
+  boundary must state its capacity, admission/backpressure policy, replacement or
+  loss semantics, deadline, cancellation and observability. A bounded FIFO alone
+  does not bound evidence age or guarantee real-time responsiveness.
+- Live perception prioritizes freshness with explicit, measured temporal limits.
+  Use a latest-value mailbox/coalescing policy when older unprocessed frames are
+  disposable; count replacements. Lossless ordered replay/archive is a separate
+  workload. Never let a live worker accumulate a replay backlog by default.
+- Temporal models require an explicit initialization and frame-sampling contract.
+  Preserve the approved anchor/mask, monotonic inputs and measured timestamp gaps.
+  Do not skip across unvalidated gaps, reuse an old mask on a new image, or claim
+  unchanged tracking accuracy after changing sampling. Fail explicitly when the
+  contract cannot be maintained; lowering FPS is not passing a higher-FPS gate.
+- Use clean architecture with concrete responsibilities and dependency direction:
+  domain scheduling/lifecycle rules, application orchestration, upstream model
+  adapters, storage/transport adapters and presentation. Reuse existing interfaces;
+  introduce patterns only for an actual ownership or change boundary. Avoid giant
+  methods, duplicated lifecycle SQL, speculative frameworks and pattern-name-only
+  abstractions. Keep inference, persistence and UI/control lifecycles distinct.
+- Exercise sustained overload, slow consumers, disconnect/restart, cancellation
+  races and bounded resources. Measure queue depth, replacements, temporal gaps,
+  source age, processing time, delivered rate and latency over time; averaging a
+  short run can conceal growing backlog. Distinguish scheduler stability, model
+  quality, throughput and physical evidence.
+- Remember the 2026-11-02 failure: an ordered inference spool accumulated stale
+  frames until TRACKING_CATCHUP_EXCEEDED. This was a live scheduling design defect,
+  not merely insufficient hardware and not an accuracy metric. A safety cutoff
+  prevents further processing but does not repair the overload design. Preserve
+  the original failed run and trace revisions to new execution evidence.
+
 ## Scope and priorities
 
 - This is the standalone PuppyPi repository rooted at this directory. Check

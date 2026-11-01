@@ -34,6 +34,14 @@ type Session = {
     elapsed_s: number;
     candidates: { mask_sha: string; model_mask_quality_score: number; foreground_pixels: number }[];
   };
+  stream: null | {
+    phase: string;
+    pending: number;
+    peak_live_pending: number;
+    producer_replacements: number;
+    pending_replacements: number;
+    skipped_frames: number;
+  };
   latest: Observation | null;
   observations: Observation[];
 };
@@ -281,6 +289,14 @@ export function TrackingConsole({ robot }: { robot: Robot }) {
               {session.dropped_frames} {t("producer frames dropped")}
             </small>
           </div>
+          {session.stream && (
+            <p class="muted" data-tracking-phase={session.stream.phase}>
+              {t("Scheduling")}: {session.stream.phase} · {session.stream.pending}{" "}
+              {t("pending source frames")} · {session.stream.pending_replacements}{" "}
+              {t("pending frames replaced")} · {session.stream.skipped_frames}{" "}
+              {t("admitted frames skipped")}
+            </p>
+          )}
           {session.anchor &&
             ["selecting", "preview_pending", "preview_ready"].includes(session.status) && (
               <>
@@ -456,7 +472,7 @@ export function TrackingConsole({ robot }: { robot: Robot }) {
             <summary>{t("Method and execution details")}</summary>
             <p>
               {t(
-                "Original SAM 2.1 tiny and original Cutie base-mega. Empty-mask and time-gap health rules are custom heuristics, not a learned absence model. A stale result does not establish the current location.",
+                "Original SAM 2.1 tiny and original Cutie base-mega. Custom scheduling uses bounded bootstrap sampling, then one replaceable latest frame. Skipped frames and temporal gaps are recorded; identity and sampling quality remain unverified. Empty-mask and time-gap rules are custom heuristics. A stale result does not establish the current location.",
               )}
             </p>
             <small>

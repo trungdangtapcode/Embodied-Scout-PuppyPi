@@ -15,6 +15,8 @@ import numpy as np
 from PIL import Image
 
 from teach_and_find.config import Settings
+from teach_and_find.tracking_frames import FrameInbox
+from teach_and_find.tracking_schedule import ScheduledFrame
 from teach_and_find.storage import AssistantError, EvidenceStore
 from teach_and_find.tracking_service import (
     ACTIVE,
@@ -25,9 +27,10 @@ from teach_and_find.tracking_service import (
 
 
 class TrackingRunner:
+    """Single-owner state machine; scheduler/storage/model responsibilities differ."""
+
     def __init__(self, settings, models):
-        self.settings = settings
-        self.models = models
+        self.settings, self.models = settings, models
         self.identity = None
         self.sequence = -1
         self.previous_capture = None
@@ -35,7 +38,6 @@ class TrackingRunner:
         self.catchup_started = None
 
     def tick(self, store):
-        cfg = self.settings.tracking
         svc = TrackingService(store, self.settings)
         row = store.db.execute(
             "SELECT * FROM tracking_sessions WHERE status IN (?,?,?,?,?)", ACTIVE
@@ -44,121 +46,132 @@ class TrackingRunner:
             self.identity = None
             self.models.processor = None
             return
-        sid = row["id"]
-        now = time.time()
-        if now > min(row["expires_at"], row["lease_until"]):
-            svc.finish(sid, "failed", "TRACKING_EXPIRED")
-            return
-        if json.loads(row["profile_json"]) != asdict(cfg):
-            svc.finish(sid, "failed", "TRACKING_PROFILE_MISMATCH")
-            return
-        if row["status"] == "preview_pending":
-            anchor = json.loads(row["anchor_json"])
-            masks, elapsed = self.models.preview(
-                store.load_image(anchor["image_sha"]), json.loads(row["prompt_json"])
-            )
-            if not masks or any(
-                m.shape != (anchor["height"], anchor["width"]) for m, _ in masks
-            ):
-                raise AssistantError(
-                    "TRACKING_MASK_INVALID",
-                    "Preview dimensions differ from the pinned source.",
-                )
-            candidates = [
-                {
-                    "mask_sha": save_mask(store, m),
-                    "model_mask_quality_score": score,
-                    "foreground_pixels": int(m.sum()),
-                }
-                for m, score in masks
-            ]
-            preview = {
-                "candidates": candidates,
-                "selected": int(
-                    np.argmax([c["model_mask_quality_score"] for c in candidates])
-                ),
-                "elapsed_s": elapsed,
-                "provenance": self.models.provenance,
-                "anchor_image_sha": anchor["image_sha"],
-            }
-            mask_size = sum(len(mask_bytes(store, c["mask_sha"])) for c in candidates)
-            with store.db:
-                changed = store.db.execute(
-                    "UPDATE tracking_sessions SET status='preview_ready',preview_json=?,evidence_bytes=evidence_bytes+? WHERE id=? AND generation=? AND revision=? AND status='preview_pending' AND evidence_bytes+?<=?",
-                    (
-                        json.dumps(preview),
-                        mask_size,
-                        sid,
-                        row["generation"],
-                        row["revision"],
-                        mask_size,
-                        cfg.evidence_limit_bytes,
-                    ),
-                ).rowcount
-                svc.event(
-                    row,
-                    "preview_completed" if changed else "preview_discarded",
-                    {"elapsed_s": elapsed},
-                )
-            if not changed:
-                current = svc.row(sid, row["mode"])
-                if (
-                    current["status"] == "preview_pending"
-                    and current["generation"] == row["generation"]
-                ):
-                    svc.finish(sid, "failed", "TRACKING_STORAGE_LIMIT")
-            return
-        if row["status"] not in ("start_pending", "running"):
-            return
-        identity = (sid, row["generation"])
-        if row["status"] == "start_pending":
-            if self.identity != identity:
-                self.models.reset()
-                self.identity = identity
-                self.sequence = -1
-                self.previous_capture = None
-                self.last_good = None
-                self.catchup_started = now
-            frame_row = store.db.execute(
-                "SELECT * FROM tracking_frames WHERE session_id=? AND sequence=0",
-                (sid,),
-            ).fetchone()
-            preview = json.loads(row["preview_json"])
-            candidate = preview["candidates"][preview["selected"]]
-            seed = (
-                np.asarray(
-                    Image.open(io.BytesIO(mask_bytes(store, candidate["mask_sha"])))
-                )
-                > 0
-            ).astype(np.uint8)
-            if not seed.any():
-                raise AssistantError(
-                    "TRACKING_EMPTY_SEED", "Actual model seed mask is empty."
-                )
-        else:
-            if self.identity != identity:
-                svc.finish(sid, "interrupted", "TRACKING_PROCESSOR_LOST")
-                return
-            frame_row = store.db.execute(
-                "SELECT * FROM tracking_frames WHERE session_id=? AND sequence>? ORDER BY sequence LIMIT 1",
-                (sid, self.sequence),
-            ).fetchone()
-            seed = None
-        if not frame_row:
-            if (
-                self.previous_capture is not None
-                and now - self.previous_capture > cfg.max_frame_gap_s
-            ):
-                svc.finish(sid, "failed", "TRACKING_FRAME_GAP")
-            return
-        frame = json.loads(frame_row["record_json"])
-        captured = frame["capture_unix_ms"] / 1000
-        if (
-            self.previous_capture is not None
-            and not 0 < captured - self.previous_capture <= cfg.max_frame_gap_s
+        cfg = self.settings.tracking
+        if time.time() > min(row["expires_at"], row["lease_until"]):
+            svc.finish(row["id"], "failed", "TRACKING_EXPIRED")
+        elif json.loads(row["profile_json"]) != asdict(cfg):
+            svc.finish(row["id"], "failed", "TRACKING_PROFILE_MISMATCH")
+        elif (
+            cfg.profile_version != 2
+            or FrameInbox(store, cfg).snapshot(row["id"]) is None
         ):
-            svc.finish(sid, "failed", "TRACKING_FRAME_GAP")
+            svc.finish(row["id"], "failed", "TRACKING_PROFILE_UNSUPPORTED")
+        elif row["status"] == "preview_pending":
+            self._preview(store, svc, row)
+        elif row["status"] == "start_pending":
+            self._initialize(store, svc, row)
+        elif row["status"] == "running":
+            self._advance(store, svc, row)
+
+    def _preview(self, store, svc, row):
+        anchor = json.loads(row["anchor_json"])
+        masks, elapsed = self.models.preview(
+            store.load_image(anchor["image_sha"]), json.loads(row["prompt_json"])
+        )
+        if not masks or any(
+            m.shape != (anchor["height"], anchor["width"]) or not np.isfinite(score)
+            for m, score in masks
+        ):
+            raise AssistantError(
+                "TRACKING_MASK_INVALID", "Invalid preview shape or score."
+            )
+        candidates = [
+            {
+                "mask_sha": save_mask(store, m),
+                "model_mask_quality_score": score,
+                "foreground_pixels": int(m.sum()),
+            }
+            for m, score in masks
+        ]
+        preview = {
+            "candidates": candidates,
+            "selected": int(
+                np.argmax([c["model_mask_quality_score"] for c in candidates])
+            ),
+            "elapsed_s": elapsed,
+            "provenance": self.models.provenance,
+            "anchor_image_sha": anchor["image_sha"],
+        }
+        size = sum(len(mask_bytes(store, c["mask_sha"])) for c in candidates)
+        with store.db:
+            changed = store.db.execute(
+                "UPDATE tracking_sessions SET status='preview_ready',preview_json=?,evidence_bytes=evidence_bytes+? WHERE id=? AND generation=? AND revision=? AND status='preview_pending' AND evidence_bytes+?<=?",
+                (
+                    json.dumps(preview),
+                    size,
+                    row["id"],
+                    row["generation"],
+                    row["revision"],
+                    size,
+                    svc.cfg.evidence_limit_bytes,
+                ),
+            ).rowcount
+            svc.event(
+                row,
+                "preview_completed" if changed else "preview_discarded",
+                {"elapsed_s": elapsed},
+            )
+        if not changed:
+            current = svc.row(row["id"], row["mode"])
+            if (
+                current["status"] == "preview_pending"
+                and current["generation"] == row["generation"]
+            ):
+                svc.finish(row["id"], "failed", "TRACKING_STORAGE_LIMIT")
+
+    def _initialize(self, store, svc, row):
+        identity = (row["id"], row["generation"])
+        if self.identity != identity:
+            self.models.reset()
+            self.identity = identity
+            self.sequence = -1
+            self.previous_capture = self.last_good = None
+            self.catchup_started = time.time()
+        source = store.db.execute(
+            "SELECT record_json FROM tracking_frames WHERE session_id=? AND sequence=0",
+            (row["id"],),
+        ).fetchone()
+        if source is None:
+            raise AssistantError(
+                "TRACKING_ANCHOR_MISSING", "The approved source is unavailable."
+            )
+        preview = json.loads(row["preview_json"])
+        candidate = preview["candidates"][preview["selected"]]
+        seed = (
+            np.asarray(Image.open(io.BytesIO(mask_bytes(store, candidate["mask_sha"]))))
+            > 0
+        ).astype(np.uint8)
+        if not seed.any():
+            raise AssistantError(
+                "TRACKING_EMPTY_SEED", "Actual model seed mask is empty."
+            )
+        head = store.db.execute(
+            "SELECT MAX(sequence) FROM tracking_frames WHERE session_id=?", (row["id"],)
+        ).fetchone()[0]
+        selected = ScheduledFrame(0, json.loads(source[0]), head == 0, 0, "bootstrap")
+        self._infer(store, svc, row, selected, seed)
+
+    def _advance(self, store, svc, row):
+        if self.identity != (row["id"], row["generation"]):
+            svc.finish(row["id"], "interrupted", "TRACKING_PROCESSOR_LOST")
             return
+        inbox = FrameInbox(store, svc.cfg)
+        state = inbox.snapshot(row["id"])
+        if (
+            state["phase"] == "bootstrap"
+            and time.time() - self.catchup_started > svc.cfg.max_catchup_s
+        ):
+            svc.finish(row["id"], "failed", "TRACKING_CATCHUP_EXCEEDED")
+            return
+        selected = inbox.claim(
+            row["id"], row["generation"], self.sequence, self.previous_capture
+        )
+        if selected is not None:
+            self._infer(store, svc, row, selected, None)
+
+    def _infer(self, store, svc, row, selected, seed):
+        frame = selected.record
+        captured = frame["capture_unix_ms"] / 1000
         began = time.time()
         mask, elapsed = self.models.step(store.load_image(frame["image_sha"]), seed)
         if mask.shape != (frame["height"], frame["width"]):
@@ -166,31 +179,36 @@ class TrackingRunner:
                 "TRACKING_MASK_INVALID",
                 "Output dimensions differ from the processed source.",
             )
-        self.sequence = frame_row["sequence"]
-        self.previous_capture = captured
+        gap = (
+            None if self.previous_capture is None else captured - self.previous_capture
+        )
+        self.sequence, self.previous_capture = selected.sequence, captured
         pixels = int(mask.sum())
         self.last_good = captured if pixels else self.last_good
-        state = "tracked_unverified" if pixels else "uncertain"
         if (
             not pixels
             and self.last_good is not None
-            and captured - self.last_good >= cfg.empty_grace_s
+            and captured - self.last_good >= svc.cfg.empty_grace_s
         ):
-            svc.finish(sid, "failed", "TRACKING_LOST")
+            svc.finish(row["id"], "failed", "TRACKING_LOST")
             return
         record = {
             **frame,
-            "sequence": self.sequence,
+            "sequence": selected.sequence,
             "generation": row["generation"],
             "mask_sha": save_mask(store, mask),
             "foreground_pixels": pixels,
-            "observation_state": state,
+            "observation_state": "tracked_unverified" if pixels else "uncertain",
             "inference_started_unix_ms": began * 1000,
             "inference_finished_unix_ms": time.time() * 1000,
             "step_s": elapsed,
             "mask_encoding": "binary_0_255_png_original_raster",
             "identity": "unverified",
             "source": "actual_original_cutie_inference",
+            "scheduling_policy": "bounded_bootstrap_then_latest_pending_v2",
+            "stream_phase_at_claim": selected.phase,
+            "skipped_admitted_frames": selected.skipped,
+            "capture_gap_s": gap,
         }
         ys, xs = np.where(mask > 0)
         record["xyxy"] = (
@@ -198,9 +216,19 @@ class TrackingRunner:
             if pixels
             else None
         )
+        self._publish(store, svc, row, selected, record)
+
+    def _publish(self, store, svc, row, selected, record):
+        sid = row["id"]
+        size = len(mask_bytes(store, record["mask_sha"]))
         record["published_unix_ms"] = time.time() * 1000
-        mask_size = len(mask_bytes(store, record["mask_sha"]))
+        fresh = (
+            time.time() - record["capture_unix_ms"] / 1000 <= svc.cfg.max_result_age_s
+        )
         with store.db:
+            # Take the writer lock before the check; stop can never interleave
+            # between a stale generation check and an observation commit.
+            store.db.execute("BEGIN IMMEDIATE")
             current = store.db.execute(
                 "SELECT status,generation,evidence_bytes FROM tracking_sessions WHERE id=?",
                 (sid,),
@@ -209,22 +237,27 @@ class TrackingRunner:
                 current["status"] not in ("start_pending", "running")
                 or current["generation"] != row["generation"]
             ):
-                svc.event(row, "observation_discarded", {"sequence": self.sequence})
+                svc.event(row, "observation_discarded", {"sequence": selected.sequence})
                 return
-            if current["evidence_bytes"] + mask_size > cfg.evidence_limit_bytes:
+            if current["evidence_bytes"] + size > svc.cfg.evidence_limit_bytes:
                 svc.finish(sid, "failed", "TRACKING_STORAGE_LIMIT")
                 return
+            record["stream_phase_after"] = FrameInbox(store, svc.cfg).completed(
+                sid, selected.sequence, selected.was_head, fresh
+            )
             store.db.execute(
                 "INSERT INTO tracking_observations VALUES(?,?,?,?)",
-                (sid, row["generation"], self.sequence, json.dumps(record)),
+                (sid, row["generation"], selected.sequence, json.dumps(record)),
             )
             store.db.execute(
                 "UPDATE tracking_sessions SET status='running',evidence_bytes=evidence_bytes+? WHERE id=?",
-                (mask_size, sid),
+                (size, sid),
             )
-        if (
-            time.time() - captured > cfg.max_result_age_s
-            and time.time() - self.catchup_started > cfg.max_catchup_s
+        if selected.phase == "live" and not fresh:
+            svc.finish(sid, "failed", "TRACKING_RESULT_STALE")
+        elif (
+            record["stream_phase_after"] == "bootstrap"
+            and time.time() - self.catchup_started > svc.cfg.max_catchup_s
         ):
             svc.finish(sid, "failed", "TRACKING_CATCHUP_EXCEEDED")
 

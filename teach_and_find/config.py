@@ -322,14 +322,14 @@ class TrackingSettings:
         default_factory=lambda: os.getenv("PUPPYPI_TRACKING_DEVICE", "cpu")
     )
     threads: int = 8
-    profile_version: int = 1
+    profile_version: int = 2
     offer_hz: float = field(
         default_factory=lambda: float(os.getenv("PUPPYPI_TRACKING_OFFER_HZ", "5"))
     )
     polling_s: float = 0.04
     ui_poll_s: float = 0.25
     frame_limit: int = 60
-    producer_capacity: int = 2
+    producer_capacity: int = 1
     anchor_lifetime_s: float = 10.0
     session_lifetime_s: float = 300.0
     owner_lease_s: float = 15.0
