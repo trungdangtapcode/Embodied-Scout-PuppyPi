@@ -1,0 +1,25 @@
+{
+  "date": "2026-11-01",
+  "source_project_commit": "647d722",
+  "upstream_repository": "https://github.com/mind-palace-laeqa/benchmark",
+  "upstream_revision": "b59be261f9508c3a355a8afa0d495eeba0417d68",
+  "upstream_source_edits": false,
+  "profile": "research audit with offline invalid-output probes and a real framework-only subprocess probe",
+  "new_live_api_calls": 0,
+  "gpu_used": false,
+  "hardware_used": false,
+  "framework": {
+    "package": "huey",
+    "version": "3.5.3",
+    "backend": "SqliteHuey",
+    "source": "https://github.com/coleifer/huey",
+    "integration_status": "not added to application dependencies or runtime"
+  },
+  "artifacts": {
+    "contract-probes.json": "5e1e2a397d34112fc4ee090dbefd709fbf41c3cf6323210b469fe5e7dd44109c",
+    "contract_probes.py": "1abe2900e1ef0ab4677aa4d33da5928eef9f1526940ef7d48469752c7dc01159",
+    "queue-probe.json": "913c8dab17e9635c796cda0b29ea3a6343422325870fa6f7f4fc259e9e385c95",
+    "queue_probe.py": "66395225b99191c17b128750cc74eb5069b941b33b9f56367464306353198f64",
+    "queue_tasks.py": "e23a9d7ff425b97de524f2c68e067e9931f26fdc985bd0a5a20d0f5950176f3a"
+  }
+}

@@ -175,6 +175,18 @@ room understanding is justified by this documentation change.
 
 ## Review change scope and verification
 
+### 2026-11-01 source-contract review and proposed remediation
+
+[Document 21](../21-mind-palace-integration-fix-proposal.md) records four offline
+reproductions against the pinned Mind Palace source: malformed detection/readiness
+strings become positive decisions, empty viewpoint selection triggers substitute
+selection, and simulated movement can report an unknown requested endpoint.
+These are injected-response/metadata probes, not evidence of model accuracy or
+physical execution. A separate real Huey SQLite consumer probe verifies basic
+queue isolation and one-attempt failure reporting. It does not implement the app
+worker. All proposed contracts, persistence and UI changes remain unimplemented;
+the incident and the user's 0/10 delivery rating remain unchanged.
+
 ### Subsequent upstream experiment; incident remains OPEN
 
 The [execution report](../20-room-memory-upstream-validation.md) adds real source

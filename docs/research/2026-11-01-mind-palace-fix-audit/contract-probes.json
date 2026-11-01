@@ -1,0 +1,60 @@
+{
+  "profile": "offline injected-response contract probes",
+  "upstream_revision": "b59be261f9508c3a355a8afa0d495eeba0417d68",
+  "live_api_calls": 0,
+  "gpu_used": false,
+  "findings": [
+    {
+      "id": "MP01",
+      "function": "MindPalaceExploration.vlm_image_analysis",
+      "input": {
+        "answer": "not found"
+      },
+      "observed_found": true,
+      "expected": "reject invalid enum",
+      "issue_reproduced": true
+    },
+    {
+      "id": "MP02",
+      "function": "EQAReasoning.check_ready_to_answer",
+      "input": {
+        "ready_to_answer": "not yes"
+      },
+      "observed_ready": true,
+      "expected": "reject invalid enum",
+      "issue_reproduced": true
+    },
+    {
+      "id": "MP03",
+      "function": "PlaceExploration.plan",
+      "input": {
+        "direct_selection": []
+      },
+      "observed_selection": [
+        0,
+        1
+      ],
+      "expected": "fail or return an explicit unsupported/empty result without automatic substitute",
+      "issue_reproduced": true
+    },
+    {
+      "id": "MP04",
+      "function": "WorldModel.move_robot",
+      "input": {
+        "robot_place": 99,
+        "requested_places": [
+          42
+        ]
+      },
+      "observed_end_place": 42,
+      "observed_distance": 0.0,
+      "expected": "unknown IDs must fail; no physical execution inferred",
+      "issue_reproduced": true
+    }
+  ],
+  "unknown_pose_formatting": {
+    "status": "PASS_FORMATTING_ONLY",
+    "none_preserved": true,
+    "claim": "Does not establish full reasoning or navigation compatibility with unknown geometry"
+  }
+}

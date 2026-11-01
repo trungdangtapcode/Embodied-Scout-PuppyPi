@@ -1,6 +1,6 @@
 # PuppyPi capability and evidence status
 
-Status date: 2026-10-31. This is the current entry point for interpreting the
+Status date: 2026-11-01. This is the current entry point for interpreting the
 original prototype documents and the expanded R&D roadmap.
 
 ## Mandatory critical review: OPEN / FAIL
@@ -28,6 +28,13 @@ returned that model. This is outside the app and
 does not change default-demo claims or close the incident. The original benchmark
 still fails on missing scene data (download quota); the tested ReMEmbR OpenAI
 profile fails initialization. No robot or local GPU inference was used.
+
+The subsequent [Mind Palace fix proposal](21-mind-palace-integration-fix-proposal.md)
+reproduces four malformed-input/fallback boundary behaviors offline and verifies
+Huey 3.5.3 SQLite queue/consumer mechanics in a separate process. It proposes
+validated upstream adapters, durable episodes/jobs and app capture/question flows.
+Those application changes remain Planned; no new inference or hardware evidence
+is claimed by the proposal, and the critical incident remains OPEN / FAIL.
 
 ## Implemented baseline
 
@@ -178,7 +185,7 @@ it in a mission. No live hardware capability is marked verified yet.
 
 ## Documentation precedence
 
-This status page and the numbered 06–20 documents describe current scope. Documents
+This status page and the numbered 06–21 documents describe current scope. Documents
 01–05 and the 2026-10-30 handoff remain historical source material. Statements in
 those files about novelty, ROS distribution compatibility, hardware safety,
 onboard model runtime, and sensor range need the corresponding implementation

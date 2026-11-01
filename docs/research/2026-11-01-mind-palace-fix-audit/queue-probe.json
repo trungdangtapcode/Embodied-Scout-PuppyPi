@@ -1,0 +1,19 @@
+{
+  "profile": "offline framework-only subprocess test",
+  "framework": "huey",
+  "version": "3.5.3",
+  "backend": "SqliteHuey",
+  "live_api_calls": 0,
+  "robot_used": false,
+  "parent_pid": 3325708,
+  "status": "PASS_FRAMEWORK_PROBE",
+  "queued_before_consumer": 2,
+  "task_result": {
+    "marker": "queue-probe",
+    "worker_pid": 3326009
+  },
+  "task_error_observed": true,
+  "failure_attempts": 1,
+  "queue_remaining": 0,
+  "consumer_stopped": true
+}
