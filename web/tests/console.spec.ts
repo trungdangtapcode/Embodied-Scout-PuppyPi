@@ -297,7 +297,8 @@ test("method disclosures identify custom heuristics and do not claim configured 
   await expect(disclosure).toContainText(
     "No IEVE, VLFM, ViNT or NoMaD implementation is integrated.",
   );
-  await expect(disclosure).toContainText("No integrated video identity tracker");
+  await expect(disclosure).toContainText("No learned predictive world model");
+  await expect(disclosure).toContainText("Actual author YOLOE visual prompting");
   const response = await page.request.get("/api/implementation");
   expect(response.headers()["cache-control"]).toBe("no-store");
   const inventory = await response.json();
@@ -322,4 +323,29 @@ test("method disclosures identify custom heuristics and do not claim configured 
       { exact: true },
     ),
   ).toBeVisible();
+});
+
+test("vision uses explicit reference inputs, queues without a model worker and cancels", async ({ page }) => {
+  await enter(page);
+  await page.request.post("/api/demo");
+  await page.getByRole("button", { name: "Room memory", exact: true }).click();
+  const panel = page.getByRole("region", { name: "Learned visual perception", exact: true });
+  await expect(panel).toContainText("Vision worker unavailable");
+  await expect(panel.getByRole("button", { name: "Analyze camera window" })).toBeDisabled();
+  await panel.getByRole("checkbox").first().check();
+  await panel.getByRole("button", { name: "Analyze camera window" }).click();
+  await expect(panel.getByText("Run status: queued · queued", { exact: true })).toBeVisible();
+  const queued = await (await page.request.get("/api/vision")).json();
+  expect(queued.jobs[0].result).toBeNull();
+  expect(queued.jobs[0].request.object_ids).toHaveLength(1);
+  await panel.getByRole("button", { name: "Cancel vision job" }).click();
+  await expect(panel.getByText("Run status: cancelled · cancelled", { exact: true })).toBeVisible();
+  await page.reload();
+  await page.getByRole("button", { name: "Room memory", exact: true }).click();
+  await expect(panel.getByText("Run status: cancelled · cancelled", { exact: true })).toBeVisible();
+  await page.setViewportSize({ width: 390, height: 844 });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  const run = await page.request.get("/api/vision/jobs/" + queued.jobs[0].id);
+  expect(run.headers()["cache-control"]).toBe("no-store");
+  expect((await run.json()).result).toBeNull();
 });

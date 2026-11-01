@@ -31,6 +31,32 @@
   font-size: 14px;
   line-height: 1.6;
 }
+.vision-prompts { display: flex; flex-wrap: wrap; gap: 12px; border: 0; padding: 12px 0; min-width: 0; }
+.vision-prompts legend { font-weight: 600; }
+.vision-prompt { display: flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: var(--radius-sm); background: var(--paper-inset); min-height: 52px; }
+.vision-prompt img { width: 36px; height: 36px; object-fit: contain; border-radius: 4px; }
+.vision-prompt input { width: 20px; height: 20px; }
+.vision-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 16px; margin: 8px 0 20px; }
+.vision-run-tabs { display: flex; gap: 8px; overflow-x: auto; margin: 16px 0; padding: 4px; }
+.vision-run-tabs button { min-width: 160px; flex: 0 0 auto; }
+.vision-evidence-layout { display: grid; grid-template-columns: minmax(0, 2fr) minmax(220px, 1fr); gap: 24px; margin: 16px 0; }
+.vision-image { border-radius: var(--radius); overflow: hidden; background: var(--camera); color: var(--camera-ink); align-self: start; }
+.vision-image svg { display: block; width: 100%; height: auto; }
+.vision-image-caption { display: block; padding: 8px 12px; font-size: 11px; }
+.vision-box { fill: none; stroke: var(--lime); stroke-width: 2; vector-effect: non-scaling-stroke; }
+.vision-mask { fill: var(--lime); fill-opacity: .18; }
+.vision-box-label { fill: var(--lime); stroke: var(--camera); stroke-width: 3; paint-order: stroke; font-size: 16px; font-weight: 700; }
+.vision-detection { display: grid; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.vision-detection small, .vision-scrubber { font-variant-numeric: tabular-nums; }
+.vision-scrubber { display: grid; gap: 8px; margin: 16px 0 8px; }
+.vision-scrubber input { width: 100%; min-height: 44px; accent-color: var(--forest); }
+.vision-result > small { display: block; overflow-wrap: anywhere; }
+.vision-result pre { max-height: 320px; overflow: auto; white-space: pre-wrap; overflow-wrap: anywhere; }
+@media (max-width: 850px) {
+  .vision-evidence-layout { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .vision-actions .button { width: 100%; }
+  .vision-console .section-title { flex-wrap: wrap; gap: 12px; }
+}
 .language-picker {
   width: auto;
   min-height: 44px;

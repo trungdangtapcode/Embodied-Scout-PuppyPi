@@ -13,6 +13,7 @@ import {
 import { api, evidence, post, when } from "./api";
 import { t } from "./i18n";
 import { ResearchMemory } from "./ResearchMemory";
+import { VisionConsole } from "./VisionConsole";
 import type { ObjectRecord } from "./types";
 import type { Robot } from "./useRobot";
 import type { RoomAnswer, RoomMemory, SceneAnalysis, SceneCandidate } from "./roomTypes";
@@ -272,6 +273,7 @@ export function RoomConsole({
           {error}
         </div>
       )}
+      <VisionConsole robot={robot} />
       <ResearchMemory robot={robot} />
       <details class="legacy-memory">
         <summary>{t("Operator assertions and appearance baseline")}</summary>
