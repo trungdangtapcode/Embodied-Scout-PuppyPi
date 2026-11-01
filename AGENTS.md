@@ -106,6 +106,22 @@
 - Preserve vendor source assets, historical experiment records, and handoffs.
   Add corrections in current status documents instead of rewriting old evidence.
 
+## Recorded-memory worker
+
+- The supported Mind Palace app profile is recorded-memory question answering;
+  use the actual pinned upstream through `MindPalaceAdapter`, never the legacy
+  appearance baseline or operator assertions as an inference substitute.
+- Prepare the optional source/environment with `make memory-setup`; run paid
+  inference only in the separate `make memory-worker` process. The host app uses
+  `.venv-dev/`, the optional worker uses `.venv-memory/`; preserve `.venv/`.
+- Keep local visual-target checking separate from global answer readiness. Sparse
+  recorded captures cannot establish current state, continuous coverage, exact
+  identity, autonomous navigation or a learned predictive world model.
+- `scripts/research_memory_app.py --allow-paid-api` is an explicitly opt-in,
+  synthetic acceptance experiment, never a default test or physical robot demo.
+  Consult `docs/22-mind-palace-app.md` and its actual execution report before
+  promoting this profile's status or claiming a research advantage.
+
 ## Robot execution
 
 - Physical actuation must be within the user's authorized task. Default tests

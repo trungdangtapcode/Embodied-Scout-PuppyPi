@@ -33,8 +33,15 @@ The subsequent [Mind Palace fix proposal](21-mind-palace-integration-fix-proposa
 reproduces four malformed-input/fallback boundary behaviors offline and verifies
 Huey 3.5.3 SQLite queue/consumer mechanics in a separate process. It proposes
 validated upstream adapters, durable episodes/jobs and app capture/question flows.
-Those application changes remain Planned; no new inference or hardware evidence
-is claimed by the proposal, and the critical incident remains OPEN / FAIL.
+The user subsequently accepted that design. The [recorded-memory app integration](22-mind-palace-app.md)
+now executes the actual pinned Mind Palace source with `gpt-6-luna` through a
+separate Huey worker. The [app execution report](research/2026-11-01-mind-palace-app/report.md)
+records real UI capture, three synthetic episodes/two regions, persisted answers,
+validated image citations, cancellation/source-loss/occlusion and a paired baseline.
+Both comparison questions answered; the missing-witness question was inconclusive.
+The tiny direct-all-images baseline was faster/cheaper in reported tokens; no
+research superiority, held-out real-room quality or physical capability is claimed.
+The broader incident remains OPEN / FAIL and the user's delivery rating is unchanged.
 
 ## Implemented baseline
 

@@ -71,7 +71,7 @@ hardware/model extensions. Priorities are dependencies, not calendar promises.
 | F36 | Select a robot view, phone view, movement, or question | Planned | P2 | Compare accuracy, time, travel, and questions with equal-budget baselines | F18, F35 |
 | F37 | Replay synchronized robot and phone observations | Planned | P1 | Export paired timelines, evidence, clock uncertainty, missing frames and calibration IDs | F08, F33 |
 | F38 | Run and resume a bounded inspection patrol | Planned | P1 | Visit verified stations, inspect, pause/take over/resume with revalidation, report incomplete checks and measured HOME outcome | F07, F09, F20, F28 |
-| F39 | Inspect and query a temporal room model | Prototype: app regions, timeline and typed evidence queries integrated; automatic scene state pending | P1 | Browser demonstrates source-linked last seen and interval Unknown; temporal tests cover occlusion/conflicts/counterexamples; geometry and autonomous perception remain pending | F06, F10, F11 |
+| F39 | Inspect and query a temporal room model | Integrated recorded-memory subset: actual Mind Palace + Luna capture/question jobs; automatic current scene state pending | P1 | [App execution](22-mind-palace-app.md): three synthetic episodes/two regions, cited answers, missing/covered evidence abstention, cancellation/source failure; real-room quality, geometry and active execution remain open | F06, F10, F11 |
 
 Statuses describe the current baseline, not promises of physical performance.
 The [Room Patrol proposal](16-room-patrol-world-model-proposal.md) specifies

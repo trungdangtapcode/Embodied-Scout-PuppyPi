@@ -1,5 +1,10 @@
 # Mind Palace application integration: research audit and fix proposal
 
+Implementation follow-up: the user accepted this design. See the
+[application implementation and evidence](22-mind-palace-app.md). The original
+proposal and its Planned labels below are preserved as the pre-implementation
+contract, not the current delivery status. Broader research/hardware gates remain open.
+
 Date: 2026-11-01. Project revision audited: `647d722`.
 Status: **Proposed design; application integration NOT IMPLEMENTED.**
 The [critical incident](review/2026-10-31-fatal-critical-lethal-capability-integrity.md)

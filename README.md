@@ -42,6 +42,18 @@ HTTPS installation, isolated demo data, explicit relay selection and validation.
 The app does not yet run autonomous search or use the phone camera as an external
 viewpoint.
 
+## Recorded memory with Mind Palace
+
+The optional [recorded-memory app profile](docs/22-mind-palace-app.md) now uses
+actual pinned Mind Palace components and `gpt-6-luna` API inference. Capture
+camera observations into episodes, ask about saved images, and inspect answers,
+citations and execution traces in Room memory. The separate worker needs an API
+key; no local GPU is required. Default app startup does not enable paid inference.
+
+[Execution evidence and comparison](docs/research/2026-11-01-mind-palace-app/report.md)
+use explicitly synthetic input. Real-room recognition quality, active exploration
+and physical validation remain open; this is not a learned predictive world model.
+
 ## Where the software runs
 
 Start with the [visual deployment map](docs/12-deployment-map.md) for the physical

@@ -213,3 +213,25 @@ from current status documents. No robot, external model or paid API is invoked.
 Documentation verification: run `make check` and record its actual outcome in
 the [dated handoff](../handoffs/2026-10-31-handoff.md). Documentation checks do not
 change the incident's OPEN / FAIL acceptance status.
+
+## 2026-11-01 implemented recorded-memory slice; incident remains OPEN
+
+The user accepted document 21 and authorized implementation. The
+[implementation guide](../22-mind-palace-app.md) and
+[execution report](../research/2026-11-01-mind-palace-app/report.md) now establish
+an actual app → immutable capture → real Huey worker → pinned Mind Palace →
+`gpt-6-luna` → persisted cited-answer path on explicitly synthetic images.
+Three paired regression questions yielded two supported visual comparisons and
+one insufficient-witness outcome; occlusion, missing image/source/key and active
+cancellation exposed their actual states without another backend. The real
+upstream example/component evidence in document 20 remains separate.
+
+This closes only the absence of an executed **recorded-memory application path**
+for that bounded profile. It does not retrospectively validate the original
+claims or close the broader incident. Real-room recognition/association quality,
+current scene understanding, learned predictive modeling, active acquisition,
+physical navigation/control and RL execution remain unverified or missing.
+A direct-all-images baseline was faster and used fewer reported tokens on this
+six-image case; no research-performance advantage is established. The full
+reference benchmark still lacks its scene data. The user's **0/10** assessment
+is preserved; an agent does not award itself a revised score.
