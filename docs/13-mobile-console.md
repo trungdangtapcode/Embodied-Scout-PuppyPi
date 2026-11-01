@@ -53,6 +53,11 @@ The HTTP/WebSocket contracts can also serve a future native client. This first
 implementation uses one host process and one robot; do not start multiple Uvicorn
 workers against the same robot.
 
+The [mobile runtime proposal](23-mobile-runtime-decision.md) compares this PWA
+with a Capacitor APK and a native Android client. It records hardware/background
+tradeoffs and build/device acceptance gates. Android packaging remains proposed;
+there is no built or device-validated APK in the repository.
+
 ## Run locally or on a phone
 
 The interface defaults to **English**, including when the browser's preferred
