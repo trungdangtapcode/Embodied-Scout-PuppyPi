@@ -235,3 +235,18 @@ A direct-all-images baseline was faster and used fewer reported tokens on this
 six-image case; no research-performance advantage is established. The full
 reference benchmark still lacks its scene data. The user's **0/10** assessment
 is preserved; an agent does not award itself a revised score.
+
+## 2026-11-01 follow-up code-integrity audit; broader incident still OPEN
+
+The [fresh source/behavior audit](2026-11-01-code-integrity-audit.md) found and
+corrected unsupported-backend/empty-crop substitutes, ROS central-crop teaching,
+missing close-view reuse, authored success labels, fabricated angle defaults,
+misnamed scores and logical HOME logs. App/API/export disclosures now distinguish
+custom Python/OpenCV code, assertions, configured optional models and actual
+upstream reuse. Nine Mind Palace entries were traced through the real source
+with explicitly offline injected responses; this is not new model inference.
+Historical paid model runs remain separate evidence.
+
+The identified reporting/guard defects have software corrections; absent tracking,
+learned world modeling, VLA/RL and physical navigation are not repaired by them.
+The original acceptance gates remain binding and the user's 0/10 rating is retained.

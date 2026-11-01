@@ -1,5 +1,16 @@
 # 04. Experimental Results (Closed-Loop 3D Visual Simulation & Ablation)
 
+> **Historical record — current correction (2026-11-01):** Read the
+> [code-integrity audit](review/2026-11-01-code-integrity-audit.md) before reusing
+> these claims or figures. The default perception/verifier/planner are custom
+> Python/OpenCV/NumPy heuristics, not IEVE/DINO/navigation-paper integrations.
+> Storyboard poses, identities and displayed scores were authored; a rendered
+> return to HOME is not executed navigation or RL. Legacy posterior/confidence
+> labels are uncalibrated scores. Follow [current setup](../CONTRIBUTING.md)
+> using `.venv-dev/`; original commands below are historical, not the supported
+> deployment recipe. Vendor/watchdog assumptions do not establish measured
+> physical stopping behavior. Original evidence below is preserved.
+
 Reproducible command:
 ```bash
 source /home/nguyentnt/PDWAIA/ecus/hi/.venv/bin/activate

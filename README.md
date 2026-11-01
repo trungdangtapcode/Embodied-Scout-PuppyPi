@@ -6,6 +6,11 @@ memory, interactive clarification, workspace inspection, and active vision.
 
 ## Current capability
 
+The [current code-integrity audit](docs/review/2026-11-01-code-integrity-audit.md)
+maps actual runtime methods to sources. The app exposes the same method inventory:
+custom Python/OpenCV baselines, operator/script assertions and genuine optional
+Mind Palace inference are explicitly distinguished.
+
 The repository contains a software prototype for synthetic few-shot object
 search, multi-view verification, topological planning, AprilTag recovery, and a
 ROS 2/TCP bridge with a tested loopback watchdog. It also includes synthetic
@@ -130,14 +135,15 @@ images and a loopback relay; they do not actuate hardware or invoke paid APIs.
 ROS 2 and pretrained GPU models are optional deployment integrations.
 
 ```bash
-make benchmark       # synthetic experiment; updates tracked outputs
-make render-3d       # optional MuJoCo EGL visualization with sim extras
+make benchmark       # heuristic/oracle fixture ablation; writes runs/heuristic-ablation/
+make render-3d       # optional authored MuJoCo storyboard; writes runs/authored-storyboards/
 make tags            # regenerate printable AprilTags
 make demo-assistant  # persistent library + synthetic inspection report
 ```
 
 The renderer regenerates ignored `assets/mujoco_generated/` for the checkout path.
-Inspect output changes before committing a new benchmark.
+Historical tracked outputs are preserved. New experiment/storyboard outputs are ignored;
+review their method disclosures before preparing evidence.
 
 The assistant demo prints a local HTML report path and records one pass, two
 failures, and one unknown from scripted synthetic observations. It creates a new

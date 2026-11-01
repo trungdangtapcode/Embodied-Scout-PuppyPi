@@ -43,6 +43,18 @@ The tiny direct-all-images baseline was faster/cheaper in reported tokens; no
 research superiority, held-out real-room quality or physical capability is claimed.
 The broader incident remains OPEN / FAIL and the user's delivery rating is unchanged.
 
+## Current code-integrity follow-up
+
+The [2026-11-01 audit](review/2026-11-01-code-integrity-audit.md) found additional
+silent substitutes, authored success labels and misleading score/return semantics.
+Corrections reject unsupported backends/empty evidence, remove central/overview
+crop substitution, preserve unknown angles and distinguish logical HOME from
+measured motion. The app now exposes an authenticated method/source inventory
+and explicitly labels custom Python/OpenCV heuristics, human/script assertions
+and actual optional Mind Palace reuse. New storyboards are permanently labeled;
+historical artifacts are preserved with corrections. This does not deliver the
+missing research models or close the original incident.
+
 ## Implemented baseline
 
 The Python package implements AprilTag pose estimation, foreground proposals,

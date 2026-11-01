@@ -1,5 +1,16 @@
 # 05. PuppyPi Hardware Stack, ROS 2 Role & Portable Sim-to-Real Guide
 
+> **Historical record — current correction (2026-11-01):** Read the
+> [code-integrity audit](review/2026-11-01-code-integrity-audit.md) before reusing
+> these claims or figures. The default perception/verifier/planner are custom
+> Python/OpenCV/NumPy heuristics, not IEVE/DINO/navigation-paper integrations.
+> Storyboard poses, identities and displayed scores were authored; a rendered
+> return to HOME is not executed navigation or RL. Legacy posterior/confidence
+> labels are uncalibrated scores. Follow [current setup](../CONTRIBUTING.md)
+> using `.venv-dev/`; original commands below are historical, not the supported
+> deployment recipe. Vendor/watchdog assumptions do not establish measured
+> physical stopping behavior. Original evidence below is preserved.
+
 This guide visually explains **what runs inside the physical PuppyPi Standard boards**, **what role ROS 2 plays**, **where the MuJoCo 3D simulator sits**, and **how `teach_and_find` ports to the real robot with minimal friction**.
 
 ---

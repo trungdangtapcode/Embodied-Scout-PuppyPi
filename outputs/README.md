@@ -23,3 +23,13 @@ configuration, seeds, environment, and output hashes.
 Use ignored `runs/<run-id>/` for new experiments and private robot recordings.
 Promote only reviewed, relevant evidence to this directory with an accompanying
 manifest. Never label a rendered replay as a real robot trial.
+
+## Current interpretation correction (2026-11-01)
+
+The [code-integrity audit](../docs/review/2026-11-01-code-integrity-audit.md)
+identifies authored storyboard identities, scores and motion. Those labels in
+legacy GIFs/PNGs are not inference or measured return/locomotion evidence.
+The separate fixture ablation computes custom OpenCV heuristic outcomes with
+oracle camera poses; it does not evaluate upstream IEVE/navigation code.
+Original artifacts are preserved. New generators label authored visuals and
+write ignored `runs/` outputs instead of overwriting these records.

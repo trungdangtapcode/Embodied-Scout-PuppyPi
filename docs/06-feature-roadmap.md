@@ -34,10 +34,10 @@ hardware/model extensions. Priorities are dependencies, not calendar promises.
 | ID | Feature | Current status | Priority | Demonstration and acceptance evidence | Depends on |
 | --- | --- | --- | --- | --- | --- |
 | F01 | Teach an object from several views | Integrated: persistent CLI enrollment and candidate matching | P0 | Enroll references; find the taught object; reject an empty reference set | — |
-| F02 | Search stations for a taught object | Prototype: synthetic harness | P0 | Visit stations and report found or exhausted search within a budget | F01 |
-| F03 | Reject look-alike objects through multiple views | Prototype: synthetic harness | P0 | Distinguish a target/decoy pair using a discriminative side view | F01 |
+| F02 | Search stations for a taught object | Prototype: custom heuristic with oracle synthetic viewpoints | P0 | Visit stations and report found or exhausted search within a budget | F01 |
+| F03 | Reject look-alike objects through multiple views | Prototype: custom OpenCV multi-view heuristic; no IEVE reuse | P0 | Distinguish a target/decoy pair using a discriminative side view | F01 |
 | F04 | Recover station localization after tag loss | Prototype: FSM and synthetic input | P0 | Recover a visible tag or stop/skip after timeout; record outcome | F02 |
-| F05 | Request return to HOME after a mission | Prototype: mission logic | P0 | Physically reach HOME or explicitly report return failure | F02, F09 |
+| F05 | Request return to HOME after a mission | FAIL for physical return; logical graph bookkeeping only | P0 | Physically reach HOME or explicitly report return failure | F02, F09 |
 | F06 | View the robot camera remotely | Integrated: browser camera, v2 metadata adapter; hardware pending | P0 | Synthetic browser and loopback tests display frame identity/age and disconnected state; verify real camera clock next | — |
 | F07 | Operator stop and communication-loss stop | Integrated: UI stop, expiring lease, relay watchdog; hardware pending | P0 | Hold/release, blur, reconnect, stale/replayed commands, in-flight stop tests; measure physical stop next | F06 |
 | F08 | Inspect mission evidence and replay | Prototype: app observation timeline and saved answers integrated; full action/run replay pending | P1 | Show ordered observations, rejected candidates, and final outcome | F02, F03 |
@@ -64,7 +64,7 @@ hardware/model extensions. Priorities are dependencies, not calendar promises.
 | F29 | Issue spoken requests and hear results | Planned | P3 | Reuse the validated text task path; handle ASR errors and cancellation | F16, F28 |
 | F30 | Teach and replay a route using visual landmarks | Planned | P3 | Evaluate repeatability and interventions on held-out route conditions | F09 |
 | F31 | Propose unfamiliar objects from image/text prompts | Planned | P2 | Evaluate pretrained proposals on real crops, including missed objects | F01, F06 |
-| F32 | Compare algorithms through repeatable experiments | Prototype: four-way synthetic ablation | P1 | Reproduce paired trials and export metrics with revision/config/seed | F08 |
+| F32 | Compare algorithms through repeatable experiments | Prototype: custom heuristic/oracle fixture ablation; no research-repo comparison | P1 | Reproduce paired trials and export metrics with revision/config/seed | F08 |
 | F33 | Connect a phone as a third-person camera | Planned | P1 | View both sources with capture time, frame age, and disconnect state | F06, F28 |
 | F34 | Show externally measured robot position | Planned | P1 | Calibrate phone/world/robot geometry; measure pose error; reject lost or invalid calibration | F33 |
 | F35 | Confirm objects and inspection findings across cameras | Planned | P2 | Associate exact instance/station evidence; conflicting or stale views cannot confirm | F11, F20, F33, F34 |

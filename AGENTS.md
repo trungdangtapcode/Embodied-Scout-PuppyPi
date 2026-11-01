@@ -87,6 +87,22 @@
   no hardcoded or fallback substitute. Keep source availability, installation,
   successful execution and evaluated quality as separate evidence states.
 
+## Visible implementation disclosure
+
+- Disclose the actual method at its point of use in the app, API and exports:
+  custom Python/OpenCV/NumPy heuristic, human assertion, authored script/fixture,
+  actual learned inference, or actual upstream implementation reuse. A research
+  citation or installed framework never upgrades a custom baseline's status.
+- Label every generated authored storyboard frame. Never display authored
+  identity, score, motion or success as an inferred/measured result. Preserve
+  historical artifacts with a prominent correction instead of rewriting evidence.
+- Unknown backend names and required-model failures must raise errors; never
+  select a baseline implicitly. Keep unknown angles/poses unknown rather than
+  inventing coordinates. Report logical graph bookkeeping separately from motion.
+- Keep method/configuration inventory separate from per-run execution evidence.
+  Checked citation membership is not independently verified factual correctness.
+  Consult `docs/review/2026-11-01-code-integrity-audit.md` before capability claims.
+
 ## Architecture and configuration
 
 - Keep the Python core independent of ROS, model transport, and UI frameworks.

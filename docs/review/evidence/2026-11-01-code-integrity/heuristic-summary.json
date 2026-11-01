@@ -1,0 +1,76 @@
+{
+  "demo_showcase": {
+    "baseline_found": "Station_C",
+    "baseline_false_verification": true,
+    "full_found": "Station_A",
+    "full_heuristic_score": 1.0,
+    "score_semantics": "uncalibrated_heuristic_not_probability",
+    "execution_semantics": "synthetic_oracle_viewpoints_not_navigation",
+    "physical_return_verified": false,
+    "full_stations_visited": [
+      "Station_C",
+      "Station_B",
+      "Station_A"
+    ],
+    "full_rejected_distractors": 1,
+    "full_tag_recoveries": 1,
+    "full_travel_m": 9.157,
+    "decision_log": [
+      "Mission started for target 'Secret Box #1' from HOME.",
+      "Selected Station_C (P=0.33, dist=2.02m, score=0.48).",
+      "REJECTED distractor 'Station_C_cand_0' at Station_C after 3 views (heuristic_score=0.00; not calibrated).",
+      "No confirmed target at Station_C. Updated belief -> {Station_A:0.48, Station_B:0.48, Station_C:0.05}.",
+      "Selected Station_B (P=0.48, dist=1.68m, score=0.77).",
+      "No confirmed target at Station_B. Updated belief -> {Station_A:0.83, Station_B:0.08, Station_C:0.08}.",
+      "Selected Station_A (P=0.83, dist=1.52m, score=1.13).",
+      "Tag #1 not visible at Station_A; entering RECOVER_TAG.",
+      "CONFIRMED 'Secret Box #1' at Station_A after 2 views (heuristic_score=1.00; not calibrated).",
+      "Logical HOME bookkeeping only (+2.06m configured graph distance); return motion was not executed or measured."
+    ]
+  },
+  "method": "custom_python_opencv_heuristic_with_oracle_viewpoints",
+  "paper_implementation_reused": false,
+  "physical_return_verified": false,
+  "ablation_trials": [
+    {
+      "variant_name": "V0: Seq + 1-View (Baseline)",
+      "num_trials": 2,
+      "true_success_rate": 50.0,
+      "false_verification_rate": 50.0,
+      "avg_stations_checked": 1.0,
+      "avg_travel_distance_m": 4.110960958218893,
+      "avg_distractors_rejected": 0.0,
+      "tag_recovery_count": 0
+    },
+    {
+      "variant_name": "V1: ActivePlan + 1-View",
+      "num_trials": 2,
+      "true_success_rate": 50.0,
+      "false_verification_rate": 50.0,
+      "avg_stations_checked": 1.0,
+      "avg_travel_distance_m": 4.031128874149275,
+      "avg_distractors_rejected": 0.0,
+      "tag_recovery_count": 0
+    },
+    {
+      "variant_name": "V2: Seq + Multi-View",
+      "num_trials": 2,
+      "true_success_rate": 100.0,
+      "false_verification_rate": 0.0,
+      "avg_stations_checked": 2.0,
+      "avg_travel_distance_m": 6.869832314283519,
+      "avg_distractors_rejected": 0.5,
+      "tag_recovery_count": 1
+    },
+    {
+      "variant_name": "V3: Full Teach & Find",
+      "num_trials": 2,
+      "true_success_rate": 100.0,
+      "false_verification_rate": 0.0,
+      "avg_stations_checked": 2.0,
+      "avg_travel_distance_m": 6.82991627224871,
+      "avg_distractors_rejected": 0.5,
+      "tag_recovery_count": 0
+    }
+  ]
+}

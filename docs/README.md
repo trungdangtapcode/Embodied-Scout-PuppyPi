@@ -39,7 +39,10 @@ Python versus native code, and venv versus Docker/ROS before the research plans.
 | [18 Skill-based deep research](18-deep-research-room-intelligence.md) | 27-source evidence-tracked review, temporal observability, counterfactual-history benchmark and acquisition proposal; [HTML](research/2026-10-31-deep-room/report.html), [19-page PDF](research/2026-10-31-deep-room/report.pdf), [validation](research/2026-10-31-deep-room/validation.md) |
 | [19 Application delivery](19-application-delivery-plan.md) | Implemented Room memory, evidence queries and visual review; application-first monitoring, perception, phone and patrol sequence |
 | [20 Executed upstream validation](20-room-memory-upstream-validation.md) | Mind Palace + GPT-4o/GPT-6 Luna component replays, actual outputs/reproducer, failed reference benchmark and ReMEmbR profile; no app integration claim |
-| [21 Mind Palace fix proposal](21-mind-palace-integration-fix-proposal.md) | Source-backed contract defects, reproduced offline probes, tested Huey worker mechanism and proposed app-integration slices; not implemented |
+| [21 Mind Palace fix proposal](21-mind-palace-integration-fix-proposal.md) | Source-backed contract defects, reproduced offline probes, tested Huey worker mechanism and accepted historical design; implementation/evidence in document 22 |
+| [22 Recorded-memory app](22-mind-palace-app.md) | Actual pinned Mind Palace worker/API/UI integration, scoped synthetic model evidence and remaining gates |
+| [23 Mobile runtime proposal](23-mobile-runtime-decision.md) | PWA/Capacitor/native tradeoffs; APK remains unimplemented |
+| [Current code-integrity audit](review/2026-11-01-code-integrity-audit.md) | Silent substitutes, scripted labels, custom-method disclosures, source-call probe and explicit unresolved gaps |
 | [Contributor guide](../CONTRIBUTING.md) | Setup, checks, commit conventions, review and evidence workflow |
 | [Agent instructions](../AGENTS.md) | Repository-specific instructions for coding agents |
 | [2026-10-31 handoff](handoffs/2026-10-31-handoff.md) | Repository bootstrap, verification, and next implementation steps |

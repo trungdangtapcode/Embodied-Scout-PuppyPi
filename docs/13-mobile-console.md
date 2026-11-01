@@ -236,6 +236,17 @@ checks; automatic perception and search mission integration; phone third-person
 capture/calibration/synchronization. F28 remains partial until search is wired.
 The operator app is distinct from planned F33–F37 Phone Observer research.
 
+## Implementation disclosure
+
+The app now includes **Methods and evidence**, with an expandable implementation/
+source inventory from paired, uncached `GET /api/implementation`. It identifies
+handcoded Python/OpenCV proposals/features, custom matching and station logic,
+operator/script assertions, actual OpenCV geometry, and the separate optional
+Mind Palace source/model path. Configuration is not per-run inference evidence.
+See the [code-integrity audit](review/2026-11-01-code-integrity-audit.md) and its
+fresh desktop/phone captures. Reference-only images and model-answer limitations
+are labeled at their point of use; this disclosure does not establish quality.
+
 ## Interface design notes
 
 The operator works with camera frames, stations, object references, evidence,

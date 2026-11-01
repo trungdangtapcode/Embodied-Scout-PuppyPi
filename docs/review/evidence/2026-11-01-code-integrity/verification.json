@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "base_revision": "81b3a6db5b96b5d2e73243ad773e5a34bd2d3002",
+  "checks": {
+    "python": {
+      "status": "passed",
+      "log_sha256": "87cc32241a879d118cff556e25a2ba5111b83e29c07c713315306a14d24bf944"
+    },
+    "browser": {
+      "status": "passed",
+      "log_sha256": "ee1d8655a812d877eddd69ed0303a4173163e588c8258e031d73954c6ca5e741"
+    },
+    "frontend": {
+      "status": "passed",
+      "log_sha256": "2ddef71147608ba0b9fea27330c35b06d8c31df302a7b7361c62d527277f6c81"
+    },
+    "package": {
+      "status": "passed",
+      "log_sha256": "ba06056d6238b7db1fb4cce3173381bc755bdc17577fc64dec38a97f482ddb69"
+    }
+  },
+  "python_tests": 92,
+  "browser_tests": 7,
+  "paid_api_calls_this_audit": 0,
+  "hardware_actuated": false,
+  "fresh_learned_model_inference": false,
+  "source_probe": "offline injected responses through actual pinned upstream",
+  "heuristic_trials_per_variant": 2,
+  "storyboard_frames": 56,
+  "mujoco_render": "not_run",
+  "ros_runtime": "not_run",
+  "test_servers_stopped": true,
+  "versions": {
+    "numpy": "2.5.4",
+    "opencv-python-headless": "5.0.0.93",
+    "fastapi": "0.162.0",
+    "huey": "3.5.3"
+  },
+  "source_sha256": {
+    "scripts/audit_mind_palace_execution.py": "bec9377756af5a7f2ebd4c877e90054cbcdfd2b708ef621d2a89675f9f885706",
+    "scripts/render_3d_puppypi_sim.py": "7b60b46d1e7a8c540f51c1eb7f3cd953ea0f5590301b65707aba734b76a91512",
+    "scripts/render_mission_visuals.py": "b12fa42793d6505f0b21c77fca3dd2cb0794a16fe445dd6f3fd4da6b8f06f1dd",
+    "scripts/run_experiments.py": "428c6e367893a681d1e9ef4975b92d0cae063914e3cd5e32a488d64ec2c6ad59",
+    "teach_and_find/config.py": "3632ddbba1ae3201799468cb8a102d054e4c49117dfac0f73fac0f9907a79d4e",
+    "teach_and_find/implementation.py": "d97678cf55a64eecebd02ff1bd8bf9857c0ce5d572215d3eb2ab7bfc3f6b5014",
+    "teach_and_find/inspection.py": "66a06481ed020b8fe17605855c59179e70f249fe7fb67b8335954b056f80e699",
+    "teach_and_find/library.py": "4cc0fd56c989acaf856bc9f90a6b6b1b9822ce205f770db80a9982707c4bc022",
+    "teach_and_find/mission.py": "e52bfa13199eeece08657a3f3b8cc17163e1bb32b338216890276bb2afc9a8bb",
+    "teach_and_find/mobile/api.py": "84095542325ad1bf810201685e2248105670158a45ff3dc252a2a9dec2f2cc67",
+    "teach_and_find/mobile/runtime.py": "055fca15e8c025e03c97262fec47df931771fd205e658e70826d1b73b442a33c",
+    "teach_and_find/perception/encoder.py": "b4fd92544282ef272b8c89ce9f69e6133307cedbfb3d46d54eb53c7122a15ff6",
+    "teach_and_find/perception/memory.py": "20190bc6abae137d04ecd279e3476d94723f2e79b0899507462251664433c4f8",
+    "teach_and_find/perception/proposals.py": "a997c66f61db66275bdbeb75629db87daa48a47d15d4f61cfa676a717c3f26f9",
+    "teach_and_find/planner.py": "cb43f678b083676503085ae7e5504d0241423b6e2ab1a02afeabb008e1d29211",
+    "teach_and_find/ros2_bridge.py": "5a3d21caf525f7bea30014c1a0a7cd5106827543483c8e4efdd0a48122ea4683",
+    "teach_and_find/scene.py": "a1743f3486e83a6df933f9fdcb33165e6b8e023674ed7076d46e0655c4572670",
+    "teach_and_find/sim/evaluator.py": "c542529c5e772c281743edfb595ca5f1c0781e93f9ff4439330e1d80fa7ca4f3",
+    "teach_and_find/sim/world3d.py": "3ea2c2adf9048be202fa4d01dad91b0558a20293b3d3f868fce2eb330d352a2b",
+    "teach_and_find/verification.py": "5a938a28cbe2d911addaf5cff569ac621bfa9d326f5aaa82b46227eecec749f1",
+    "tests/test_capability_integrity.py": "52ecd57291f4c85588dae82f5afebc897083ecdd07f58bd92509173e5c4956ce",
+    "web/src/ImplementationInfo.tsx": "028f6196a341063db2f3770c8757a56fcb20de39b5ad051a017b679245beacab",
+    "web/src/ResearchMemory.tsx": "4dce5a86595ec9f6634d231db506dbe9cfe7b6be3ef899c8a5dc11c8263769bf",
+    "web/src/RoomConsole.tsx": "34df0e7c7c1fc21bffce1096c6710ee6827adf62263ddfb247e9c9c3c8395770",
+    "web/src/locales/vi.json": "ce97f6a434002ca3386d84871dc0bbfbf75cda44a93ad7f2d130fec38812a9e7",
+    "web/src/main.tsx": "0f9e64db93dc03123d1bbaa3f9b195192a5b5de703a6e3e8504ba732300b6f31",
+    "web/src/roomTypes.ts": "5bb75f1d8cbdc4f6f360b729efe8a0426169a0455fd998de04aef3752229dc10",
+    "web/src/style.css": "0f923f0c6f2d1d915e4bf28b8b474842a4534b51f0b3f31ff40ac61d53bd00be",
+    "web/tests/console.spec.ts": "35004df6a6d8408902542006d455ec0842312165ec229efd11f96920d398b5ee"
+  },
+  "artifact_sha256": {
+    "authored-storyboard-frame.png": "fb8f784cb40a58dcd0e02bdd1b2bd2d81ffa12896d72c3440e78a87d94a086d6",
+    "desktop-methods.png": "b21c08e35c4deec02fbb02119c6b354b9d05184e70ba276e342adec750d5da6d",
+    "heuristic-summary.json": "538df0ea308a9f71b52c2c3ffc837d281fc03d484aea4cc23daaf62e15109c69",
+    "phone-methods.png": "1017f17cdbe32913b6f5d3246345890e9106976710cd1fd64d08348440548ef2",
+    "upstream-control-flow.json": "6f56e68dddb5be77058feec28ebd1da15466574de6f943c5930d3b95a35c9130"
+  }
+}
