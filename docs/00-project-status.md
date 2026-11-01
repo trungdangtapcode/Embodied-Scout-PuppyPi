@@ -1,6 +1,6 @@
 # PuppyPi capability and evidence status
 
-Status date: 2026-11-01. This is the current entry point for interpreting the
+Status date: 2026-11-02. This is the current entry point for interpreting the
 original prototype documents and the expanded R&D roadmap.
 
 ## Mandatory critical review: OPEN / FAIL
@@ -214,6 +214,17 @@ frames. With eight threads, the recorded mean Cutie step was 0.247 s (4.05
 compute-step FPS); the separate CUDA trial failed on insufficient available VRAM.
 The earlier source-audit-only statements describe the planning stage. No phone
 target selection, live session or quality gate is delivered by this CLI probe.
+
+A subsequent [full app execution](research/2026-11-02-stream-app/report.md) integrates
+actual frozen-image SAM preview and future-frame Cutie tracking in Monitor.
+Two requested-5-Hz sessions fail from accumulated lag; camera callbacks remain
+about 3.9 FPS. Concurrent real vision, Mind Palace capture and QA complete using
+8 of 15 authorized API attempts. A separate explicit 3 Hz/box-prompt diagnostic
+processes 123 observations over one minute at about 2 callback FPS, then stops.
+These are authored-render inputs and Chromium mobile/network emulation, not a
+physical phone or robot. The [operating guide](27-live-tracking-app.md) lists
+missing Find-again/recovery, export and quality work. The full F40 feature,
+5 FPS release gate and critical incident remain unfinished/FAIL.
 
 The [Room Patrol proposal](16-room-patrol-world-model-proposal.md) adds planned
 F38 bounded patrol and F39 temporal room-model queries, extending the same memory,

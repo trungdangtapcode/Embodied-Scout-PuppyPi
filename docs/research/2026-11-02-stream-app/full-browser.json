@@ -1,0 +1,5031 @@
+{
+  "input": "authored rendered camera, no physical phone/robot",
+  "network": {
+    "http_latency_parameter_ms": 40,
+    "download_bytes_s": 1250000,
+    "upload_bytes_s": 625000,
+    "cpu_throttle": 2
+  },
+  "phases": [
+    {
+      "name": "camera_loopback",
+      "start_unix_ms": 1793567139359,
+      "duration_ms": 15000
+    },
+    {
+      "name": "camera_emulated_network",
+      "start_unix_ms": 1793567154374,
+      "duration_ms": 15000
+    },
+    {
+      "name": "tracking_cpu",
+      "start_unix_ms": 1793567170887,
+      "duration_ms": 20000
+    },
+    {
+      "name": "concurrent",
+      "start_unix_ms": 1793567192397
+    }
+  ],
+  "events": [
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-5",
+      "captured_at": "2026-11-01T21:05:33.592293+00:00",
+      "painted_client_unix_ms": 1793567133700.5,
+      "phase": "startup"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-6",
+      "captured_at": "2026-11-01T21:05:33.858707+00:00",
+      "painted_client_unix_ms": 1793567133915.9001,
+      "phase": "startup"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-7",
+      "captured_at": "2026-11-01T21:05:34.122784+00:00",
+      "painted_client_unix_ms": 1793567134249.4001,
+      "phase": "startup"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-8",
+      "captured_at": "2026-11-01T21:05:34.385167+00:00",
+      "painted_client_unix_ms": 1793567134482.5,
+      "phase": "startup"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-9",
+      "captured_at": "2026-11-01T21:05:34.646638+00:00",
+      "painted_client_unix_ms": 1793567134732.7,
+      "phase": "startup"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-10",
+      "captured_at": "2026-11-01T21:05:34.908607+00:00",
+      "painted_client_unix_ms": 1793567134966,
+      "phase": "startup"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-11",
+      "captured_at": "2026-11-01T21:05:35.172547+00:00",
+      "painted_client_unix_ms": 1793567135299.5,
+      "phase": "startup"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-12",
+      "captured_at": "2026-11-01T21:05:35.434024+00:00",
+      "painted_client_unix_ms": 1793567135532.6,
+      "phase": "startup"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-13",
+      "captured_at": "2026-11-01T21:05:35.700397+00:00",
+      "painted_client_unix_ms": 1793567135782.6,
+      "phase": "startup"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-14",
+      "captured_at": "2026-11-01T21:05:35.959404+00:00",
+      "painted_client_unix_ms": 1793567136015.9001,
+      "phase": "startup"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-15",
+      "captured_at": "2026-11-01T21:05:36.217366+00:00",
+      "painted_client_unix_ms": 1793567136265.9001,
+      "phase": "startup"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-16",
+      "captured_at": "2026-11-01T21:05:36.468760+00:00",
+      "painted_client_unix_ms": 1793567136582.3,
+      "phase": "startup"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-17",
+      "captured_at": "2026-11-01T21:05:36.738777+00:00",
+      "painted_client_unix_ms": 1793567136815.7,
+      "phase": "startup"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-18",
+      "captured_at": "2026-11-01T21:05:36.996135+00:00",
+      "painted_client_unix_ms": 1793567137065.8,
+      "phase": "startup"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-19",
+      "captured_at": "2026-11-01T21:05:37.240842+00:00",
+      "painted_client_unix_ms": 1793567137299.1,
+      "phase": "startup"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-20",
+      "captured_at": "2026-11-01T21:05:37.486362+00:00",
+      "painted_client_unix_ms": 1793567137549,
+      "phase": "startup"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-21",
+      "captured_at": "2026-11-01T21:05:37.738131+00:00",
+      "painted_client_unix_ms": 1793567137799,
+      "phase": "startup"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-22",
+      "captured_at": "2026-11-01T21:05:37.984464+00:00",
+      "painted_client_unix_ms": 1793567138032.3,
+      "phase": "startup"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-23",
+      "captured_at": "2026-11-01T21:05:38.231557+00:00",
+      "painted_client_unix_ms": 1793567138282.4001,
+      "phase": "startup"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-24",
+      "captured_at": "2026-11-01T21:05:38.478642+00:00",
+      "painted_client_unix_ms": 1793567138515.7,
+      "phase": "startup"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-25",
+      "captured_at": "2026-11-01T21:05:38.723990+00:00",
+      "painted_client_unix_ms": 1793567138849,
+      "phase": "startup"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-26",
+      "captured_at": "2026-11-01T21:05:39.000832+00:00",
+      "painted_client_unix_ms": 1793567139099,
+      "phase": "startup"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-27",
+      "captured_at": "2026-11-01T21:05:39.247483+00:00",
+      "painted_client_unix_ms": 1793567139332.2,
+      "phase": "startup"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-28",
+      "captured_at": "2026-11-01T21:05:39.509156+00:00",
+      "painted_client_unix_ms": 1793567139565.6,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-29",
+      "captured_at": "2026-11-01T21:05:39.753171+00:00",
+      "painted_client_unix_ms": 1793567139815.6,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-30",
+      "captured_at": "2026-11-01T21:05:39.999958+00:00",
+      "painted_client_unix_ms": 1793567140049,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-31",
+      "captured_at": "2026-11-01T21:05:40.245559+00:00",
+      "painted_client_unix_ms": 1793567140299.1,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-32",
+      "captured_at": "2026-11-01T21:05:40.489858+00:00",
+      "painted_client_unix_ms": 1793567140532.4001,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-33",
+      "captured_at": "2026-11-01T21:05:40.736845+00:00",
+      "painted_client_unix_ms": 1793567140782.4001,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-34",
+      "captured_at": "2026-11-01T21:05:40.983640+00:00",
+      "painted_client_unix_ms": 1793567141032.4001,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-35",
+      "captured_at": "2026-11-01T21:05:41.228720+00:00",
+      "painted_client_unix_ms": 1793567141348.8,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-36",
+      "captured_at": "2026-11-01T21:05:41.473913+00:00",
+      "painted_client_unix_ms": 1793567141598.8,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-37",
+      "captured_at": "2026-11-01T21:05:41.726825+00:00",
+      "painted_client_unix_ms": 1793567141832.2,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-38",
+      "captured_at": "2026-11-01T21:05:41.976592+00:00",
+      "painted_client_unix_ms": 1793567142082.1,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-39",
+      "captured_at": "2026-11-01T21:05:42.231622+00:00",
+      "painted_client_unix_ms": 1793567142315.3,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-40",
+      "captured_at": "2026-11-01T21:05:42.480365+00:00",
+      "painted_client_unix_ms": 1793567142549,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-41",
+      "captured_at": "2026-11-01T21:05:42.727673+00:00",
+      "painted_client_unix_ms": 1793567142799,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-42",
+      "captured_at": "2026-11-01T21:05:42.993361+00:00",
+      "painted_client_unix_ms": 1793567143032.1,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-43",
+      "captured_at": "2026-11-01T21:05:43.242850+00:00",
+      "painted_client_unix_ms": 1793567143365.4001,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-44",
+      "captured_at": "2026-11-01T21:05:43.491204+00:00",
+      "painted_client_unix_ms": 1793567143599,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-45",
+      "captured_at": "2026-11-01T21:05:43.739360+00:00",
+      "painted_client_unix_ms": 1793567143848.7,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-46",
+      "captured_at": "2026-11-01T21:05:44.003350+00:00",
+      "painted_client_unix_ms": 1793567144082.2,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-47",
+      "captured_at": "2026-11-01T21:05:44.250937+00:00",
+      "painted_client_unix_ms": 1793567144332.2,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-48",
+      "captured_at": "2026-11-01T21:05:44.500937+00:00",
+      "painted_client_unix_ms": 1793567144582.2,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-49",
+      "captured_at": "2026-11-01T21:05:44.750054+00:00",
+      "painted_client_unix_ms": 1793567144815.3,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-50",
+      "captured_at": "2026-11-01T21:05:44.999875+00:00",
+      "painted_client_unix_ms": 1793567145065.3,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-51",
+      "captured_at": "2026-11-01T21:05:45.248118+00:00",
+      "painted_client_unix_ms": 1793567145298.7,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-52",
+      "captured_at": "2026-11-01T21:05:45.496117+00:00",
+      "painted_client_unix_ms": 1793567145532.2,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-53",
+      "captured_at": "2026-11-01T21:05:45.750345+00:00",
+      "painted_client_unix_ms": 1793567145865.2,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-54",
+      "captured_at": "2026-11-01T21:05:46.002899+00:00",
+      "painted_client_unix_ms": 1793567146115.4001,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-55",
+      "captured_at": "2026-11-01T21:05:46.256486+00:00",
+      "painted_client_unix_ms": 1793567146348.8,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-56",
+      "captured_at": "2026-11-01T21:05:46.504961+00:00",
+      "painted_client_unix_ms": 1793567146598.6,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-57",
+      "captured_at": "2026-11-01T21:05:46.754292+00:00",
+      "painted_client_unix_ms": 1793567146848.7,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-58",
+      "captured_at": "2026-11-01T21:05:47.001755+00:00",
+      "painted_client_unix_ms": 1793567147081.9001,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-59",
+      "captured_at": "2026-11-01T21:05:47.249937+00:00",
+      "painted_client_unix_ms": 1793567147315.4001,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-60",
+      "captured_at": "2026-11-01T21:05:47.496193+00:00",
+      "painted_client_unix_ms": 1793567147565.2,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-61",
+      "captured_at": "2026-11-01T21:05:47.742867+00:00",
+      "painted_client_unix_ms": 1793567147815.3,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-62",
+      "captured_at": "2026-11-01T21:05:47.989725+00:00",
+      "painted_client_unix_ms": 1793567148048.7,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-63",
+      "captured_at": "2026-11-01T21:05:48.236415+00:00",
+      "painted_client_unix_ms": 1793567148298.7,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-64",
+      "captured_at": "2026-11-01T21:05:48.483561+00:00",
+      "painted_client_unix_ms": 1793567148532.1,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-65",
+      "captured_at": "2026-11-01T21:05:48.730525+00:00",
+      "painted_client_unix_ms": 1793567148782,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-66",
+      "captured_at": "2026-11-01T21:05:48.977561+00:00",
+      "painted_client_unix_ms": 1793567149098.7,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-67",
+      "captured_at": "2026-11-01T21:05:49.224543+00:00",
+      "painted_client_unix_ms": 1793567149348.6,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-68",
+      "captured_at": "2026-11-01T21:05:49.473116+00:00",
+      "painted_client_unix_ms": 1793567149582.1,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-69",
+      "captured_at": "2026-11-01T21:05:49.721744+00:00",
+      "painted_client_unix_ms": 1793567149815.2,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-70",
+      "captured_at": "2026-11-01T21:05:49.971672+00:00",
+      "painted_client_unix_ms": 1793567150065.2,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-71",
+      "captured_at": "2026-11-01T21:05:50.219088+00:00",
+      "painted_client_unix_ms": 1793567150315.4001,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-72",
+      "captured_at": "2026-11-01T21:05:50.468803+00:00",
+      "painted_client_unix_ms": 1793567150548.5,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-73",
+      "captured_at": "2026-11-01T21:05:50.717244+00:00",
+      "painted_client_unix_ms": 1793567150798.7,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-74",
+      "captured_at": "2026-11-01T21:05:50.964041+00:00",
+      "painted_client_unix_ms": 1793567151031.9001,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-75",
+      "captured_at": "2026-11-01T21:05:51.211950+00:00",
+      "painted_client_unix_ms": 1793567151281.9001,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-76",
+      "captured_at": "2026-11-01T21:05:51.458929+00:00",
+      "painted_client_unix_ms": 1793567151531.9001,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-77",
+      "captured_at": "2026-11-01T21:05:51.709178+00:00",
+      "painted_client_unix_ms": 1793567151765,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-78",
+      "captured_at": "2026-11-01T21:05:51.958048+00:00",
+      "painted_client_unix_ms": 1793567152015.1,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-79",
+      "captured_at": "2026-11-01T21:05:52.208165+00:00",
+      "painted_client_unix_ms": 1793567152248.4001,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-80",
+      "captured_at": "2026-11-01T21:05:52.454745+00:00",
+      "painted_client_unix_ms": 1793567152565.2,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-81",
+      "captured_at": "2026-11-01T21:05:52.701865+00:00",
+      "painted_client_unix_ms": 1793567152815.2,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-82",
+      "captured_at": "2026-11-01T21:05:52.950641+00:00",
+      "painted_client_unix_ms": 1793567153065.1,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-83",
+      "captured_at": "2026-11-01T21:05:53.199124+00:00",
+      "painted_client_unix_ms": 1793567153298.5,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-84",
+      "captured_at": "2026-11-01T21:05:53.446061+00:00",
+      "painted_client_unix_ms": 1793567153548.5,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-85",
+      "captured_at": "2026-11-01T21:05:53.693301+00:00",
+      "painted_client_unix_ms": 1793567153781.9001,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-86",
+      "captured_at": "2026-11-01T21:05:53.942681+00:00",
+      "painted_client_unix_ms": 1793567154031.8,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-87",
+      "captured_at": "2026-11-01T21:05:54.220760+00:00",
+      "painted_client_unix_ms": 1793567154265,
+      "phase": "camera_loopback"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-88",
+      "captured_at": "2026-11-01T21:05:54.501331+00:00",
+      "painted_client_unix_ms": 1793567154648.5,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-89",
+      "captured_at": "2026-11-01T21:05:54.750297+00:00",
+      "painted_client_unix_ms": 1793567154882.3,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-90",
+      "captured_at": "2026-11-01T21:05:54.995258+00:00",
+      "painted_client_unix_ms": 1793567155116,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-91",
+      "captured_at": "2026-11-01T21:05:55.240695+00:00",
+      "painted_client_unix_ms": 1793567155366,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-92",
+      "captured_at": "2026-11-01T21:05:55.486102+00:00",
+      "painted_client_unix_ms": 1793567155615,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-93",
+      "captured_at": "2026-11-01T21:05:55.732871+00:00",
+      "painted_client_unix_ms": 1793567155849.1,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-94",
+      "captured_at": "2026-11-01T21:05:55.978608+00:00",
+      "painted_client_unix_ms": 1793567156098.5,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-95",
+      "captured_at": "2026-11-01T21:05:56.229792+00:00",
+      "painted_client_unix_ms": 1793567156348.3,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-96",
+      "captured_at": "2026-11-01T21:05:56.483893+00:00",
+      "painted_client_unix_ms": 1793567156650,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-97",
+      "captured_at": "2026-11-01T21:05:56.733374+00:00",
+      "painted_client_unix_ms": 1793567156900,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-98",
+      "captured_at": "2026-11-01T21:05:56.982518+00:00",
+      "painted_client_unix_ms": 1793567157149.4001,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-99",
+      "captured_at": "2026-11-01T21:05:57.231691+00:00",
+      "painted_client_unix_ms": 1793567157383.1,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-100",
+      "captured_at": "2026-11-01T21:05:57.491234+00:00",
+      "painted_client_unix_ms": 1793567157633.2,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-101",
+      "captured_at": "2026-11-01T21:05:57.748273+00:00",
+      "painted_client_unix_ms": 1793567157866.2,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-102",
+      "captured_at": "2026-11-01T21:05:57.997449+00:00",
+      "painted_client_unix_ms": 1793567158116.3,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-103",
+      "captured_at": "2026-11-01T21:05:58.242373+00:00",
+      "painted_client_unix_ms": 1793567158349.2,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-104",
+      "captured_at": "2026-11-01T21:05:58.487393+00:00",
+      "painted_client_unix_ms": 1793567158599.9001,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-105",
+      "captured_at": "2026-11-01T21:05:58.732882+00:00",
+      "painted_client_unix_ms": 1793567158848.3,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-106",
+      "captured_at": "2026-11-01T21:05:58.985657+00:00",
+      "painted_client_unix_ms": 1793567159166.2,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-107",
+      "captured_at": "2026-11-01T21:05:59.230752+00:00",
+      "painted_client_unix_ms": 1793567159399.7,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-108",
+      "captured_at": "2026-11-01T21:05:59.477159+00:00",
+      "painted_client_unix_ms": 1793567159649.9001,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-109",
+      "captured_at": "2026-11-01T21:05:59.727570+00:00",
+      "painted_client_unix_ms": 1793567159882.9001,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-110",
+      "captured_at": "2026-11-01T21:05:59.988791+00:00",
+      "painted_client_unix_ms": 1793567160133.5,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-111",
+      "captured_at": "2026-11-01T21:06:00.234205+00:00",
+      "painted_client_unix_ms": 1793567160365.7,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-112",
+      "captured_at": "2026-11-01T21:06:00.503336+00:00",
+      "painted_client_unix_ms": 1793567160616.2,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-113",
+      "captured_at": "2026-11-01T21:06:00.753111+00:00",
+      "painted_client_unix_ms": 1793567160864.8,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-114",
+      "captured_at": "2026-11-01T21:06:01.006448+00:00",
+      "painted_client_unix_ms": 1793567161182.9001,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-115",
+      "captured_at": "2026-11-01T21:06:01.266417+00:00",
+      "painted_client_unix_ms": 1793567161431.5,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-116",
+      "captured_at": "2026-11-01T21:06:01.519406+00:00",
+      "painted_client_unix_ms": 1793567161666,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-117",
+      "captured_at": "2026-11-01T21:06:01.773186+00:00",
+      "painted_client_unix_ms": 1793567161899.2,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-118",
+      "captured_at": "2026-11-01T21:06:02.025359+00:00",
+      "painted_client_unix_ms": 1793567162149.6,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-119",
+      "captured_at": "2026-11-01T21:06:02.269520+00:00",
+      "painted_client_unix_ms": 1793567162382.6,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-120",
+      "captured_at": "2026-11-01T21:06:02.513828+00:00",
+      "painted_client_unix_ms": 1793567162632.9001,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-121",
+      "captured_at": "2026-11-01T21:06:02.759159+00:00",
+      "painted_client_unix_ms": 1793567162881.4001,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-122",
+      "captured_at": "2026-11-01T21:06:03.004121+00:00",
+      "painted_client_unix_ms": 1793567163116.2,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-123",
+      "captured_at": "2026-11-01T21:06:03.250161+00:00",
+      "painted_client_unix_ms": 1793567163364.5,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-124",
+      "captured_at": "2026-11-01T21:06:03.498597+00:00",
+      "painted_client_unix_ms": 1793567163599,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-125",
+      "captured_at": "2026-11-01T21:06:03.744048+00:00",
+      "painted_client_unix_ms": 1793567163847.9001,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-126",
+      "captured_at": "2026-11-01T21:06:03.990857+00:00",
+      "painted_client_unix_ms": 1793567164165.8,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-127",
+      "captured_at": "2026-11-01T21:06:04.237657+00:00",
+      "painted_client_unix_ms": 1793567164416.1,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-128",
+      "captured_at": "2026-11-01T21:06:04.493259+00:00",
+      "painted_client_unix_ms": 1793567164664.8,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-129",
+      "captured_at": "2026-11-01T21:06:04.746953+00:00",
+      "painted_client_unix_ms": 1793567164899.5,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-130",
+      "captured_at": "2026-11-01T21:06:05.005095+00:00",
+      "painted_client_unix_ms": 1793567165148,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-131",
+      "captured_at": "2026-11-01T21:06:05.259473+00:00",
+      "painted_client_unix_ms": 1793567165383.4001,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-132",
+      "captured_at": "2026-11-01T21:06:05.514237+00:00",
+      "painted_client_unix_ms": 1793567165631.5,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-133",
+      "captured_at": "2026-11-01T21:06:05.771760+00:00",
+      "painted_client_unix_ms": 1793567165949.3,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-134",
+      "captured_at": "2026-11-01T21:06:06.017523+00:00",
+      "painted_client_unix_ms": 1793567166183.4001,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-135",
+      "captured_at": "2026-11-01T21:06:06.261954+00:00",
+      "painted_client_unix_ms": 1793567166432.9001,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-136",
+      "captured_at": "2026-11-01T21:06:06.514121+00:00",
+      "painted_client_unix_ms": 1793567166665.6,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-137",
+      "captured_at": "2026-11-01T21:06:06.763436+00:00",
+      "painted_client_unix_ms": 1793567166917.1,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-138",
+      "captured_at": "2026-11-01T21:06:07.017483+00:00",
+      "painted_client_unix_ms": 1793567167150.3,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-139",
+      "captured_at": "2026-11-01T21:06:07.284296+00:00",
+      "painted_client_unix_ms": 1793567167399.4001,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-140",
+      "captured_at": "2026-11-01T21:06:07.535906+00:00",
+      "painted_client_unix_ms": 1793567167647.7,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-141",
+      "captured_at": "2026-11-01T21:06:07.790684+00:00",
+      "painted_client_unix_ms": 1793567167966,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-142",
+      "captured_at": "2026-11-01T21:06:08.040236+00:00",
+      "painted_client_unix_ms": 1793567168198.9001,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-143",
+      "captured_at": "2026-11-01T21:06:08.295275+00:00",
+      "painted_client_unix_ms": 1793567168449.3,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-144",
+      "captured_at": "2026-11-01T21:06:08.554032+00:00",
+      "painted_client_unix_ms": 1793567168698,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-145",
+      "captured_at": "2026-11-01T21:06:08.812715+00:00",
+      "painted_client_unix_ms": 1793567168932.9001,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-146",
+      "captured_at": "2026-11-01T21:06:09.067922+00:00",
+      "painted_client_unix_ms": 1793567169183.2,
+      "phase": "camera_emulated_network"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-147",
+      "captured_at": "2026-11-01T21:06:09.325285+00:00",
+      "painted_client_unix_ms": 1793567169531.5,
+      "phase": "tracking_selection"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-148",
+      "captured_at": "2026-11-01T21:06:09.584356+00:00",
+      "painted_client_unix_ms": 1793567169765.9001,
+      "phase": "tracking_selection"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-149",
+      "captured_at": "2026-11-01T21:06:09.832424+00:00",
+      "painted_client_unix_ms": 1793567169998,
+      "phase": "tracking_selection"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-150",
+      "captured_at": "2026-11-01T21:06:10.089267+00:00",
+      "painted_client_unix_ms": 1793567170232.9001,
+      "phase": "tracking_selection"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-151",
+      "captured_at": "2026-11-01T21:06:10.350005+00:00",
+      "painted_client_unix_ms": 1793567170481.4001,
+      "phase": "tracking_selection"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-152",
+      "captured_at": "2026-11-01T21:06:10.608056+00:00",
+      "painted_client_unix_ms": 1793567170721.2,
+      "phase": "tracking_selection"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-153",
+      "captured_at": "2026-11-01T21:06:10.861260+00:00",
+      "painted_client_unix_ms": 1793567171047.7,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-154",
+      "captured_at": "2026-11-01T21:06:11.120109+00:00",
+      "painted_client_unix_ms": 1793567171285.1,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-tracking-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-146",
+      "image_sha": "2f86396a20f0030a0b203e0d1bd0df09ac040251dfd7e96667a45bf187c97e0e",
+      "captured_at": "2026-11-01T21:06:09.067922+00:00",
+      "capture_unix_ms": 1793567169067.922,
+      "persistence_started_unix_ms": 1793567169438.6624,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 146,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 0,
+      "generation": 1,
+      "mask_sha": "5ef298f778050e1f99b37bdf2d769973df309b81bdf960a229395c73b35103bf",
+      "foreground_pixels": 1394,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567170899.1636,
+      "inference_finished_unix_ms": 1793567171144.4595,
+      "step_s": 0.23372317291796207,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        145,
+        171,
+        202,
+        232
+      ],
+      "published_unix_ms": 1793567171145.4656,
+      "display_age_s": 2.166602373123169,
+      "stale": true,
+      "painted_client_unix_ms": 1793567171297.9001,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-155",
+      "captured_at": "2026-11-01T21:06:11.378967+00:00",
+      "painted_client_unix_ms": 1793567171532,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-156",
+      "captured_at": "2026-11-01T21:06:11.634540+00:00",
+      "painted_client_unix_ms": 1793567171781,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-tracking-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-148",
+      "image_sha": "d9fe850d9c4bde9e8057820df1afd6a917e42b98e2e4d3286924d68318a3d297",
+      "captured_at": "2026-11-01T21:06:09.584356+00:00",
+      "capture_unix_ms": 1793567169584.356,
+      "persistence_started_unix_ms": 1793567169586.7856,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 148,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 1,
+      "generation": 1,
+      "mask_sha": "6d7bd764edfb037da47c7a2ab05fd632dc510a317e450ff3412ab3d54addaa68",
+      "foreground_pixels": 1540,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567171198.9214,
+      "inference_finished_unix_ms": 1793567171496.4197,
+      "step_s": 0.2887566341087222,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        142,
+        170,
+        200,
+        232
+      ],
+      "published_unix_ms": 1793567171497.4219,
+      "display_age_s": 2.1607892513275146,
+      "stale": true,
+      "painted_client_unix_ms": 1793567171882.6,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-157",
+      "captured_at": "2026-11-01T21:06:11.893170+00:00",
+      "painted_client_unix_ms": 1793567172031.4001,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-tracking-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-149",
+      "image_sha": "9e5e3babe334e901250f122cfcdc8467bf7f20030295c2945864a4c8d5d67ae1",
+      "captured_at": "2026-11-01T21:06:09.832424+00:00",
+      "capture_unix_ms": 1793567169832.4238,
+      "persistence_started_unix_ms": 1793567169834.849,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 149,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 2,
+      "generation": 1,
+      "mask_sha": "cf34c141ccfb870eef6d23e8096bbb7acdba2c3f89b65844b9d0d55850196a88",
+      "foreground_pixels": 1532,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567171541.3333,
+      "inference_finished_unix_ms": 1793567171823.3303,
+      "step_s": 0.2740189377218485,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        141,
+        170,
+        199,
+        232
+      ],
+      "published_unix_ms": 1793567171824.3132,
+      "display_age_s": 2.145624876022339,
+      "stale": true,
+      "painted_client_unix_ms": 1793567172115.4001,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-158",
+      "captured_at": "2026-11-01T21:06:12.152170+00:00",
+      "painted_client_unix_ms": 1793567172333.2,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-tracking-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-150",
+      "image_sha": "6ae78925ff55ad78f1fdf57565d5884db3f09bda66abee11f0651348e9111cd2",
+      "captured_at": "2026-11-01T21:06:10.089267+00:00",
+      "capture_unix_ms": 1793567170089.267,
+      "persistence_started_unix_ms": 1793567170091.632,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 150,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 3,
+      "generation": 1,
+      "mask_sha": "8b0b980d1cb5d37e5f0b3c8d258df39bac6f6db4e2b28bbba3755b48717b6443",
+      "foreground_pixels": 1538,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567171869.2925,
+      "inference_finished_unix_ms": 1793567172168.534,
+      "step_s": 0.2894538911059499,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        140,
+        170,
+        197,
+        232
+      ],
+      "published_unix_ms": 1793567172169.6104,
+      "display_age_s": 2.1468348503112793,
+      "stale": true,
+      "painted_client_unix_ms": 1793567172365.4001,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-159",
+      "captured_at": "2026-11-01T21:06:12.409957+00:00",
+      "painted_client_unix_ms": 1793567172581.2,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-160",
+      "captured_at": "2026-11-01T21:06:12.660284+00:00",
+      "painted_client_unix_ms": 1793567172831.4001,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-tracking-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-151",
+      "image_sha": "52d4927836ddc3d65ed15746972c6f9d69f7440cb946cbfedb2f4aee49d612c9",
+      "captured_at": "2026-11-01T21:06:10.350005+00:00",
+      "capture_unix_ms": 1793567170350.005,
+      "persistence_started_unix_ms": 1793567170353.1658,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 151,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 4,
+      "generation": 1,
+      "mask_sha": "c916eb9de51882edee4088e9c971c648e281c426cdd839214297f0a44ed34a08",
+      "foreground_pixels": 1534,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567172216.1982,
+      "inference_finished_unix_ms": 1793567172547.988,
+      "step_s": 0.32262326031923294,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        138,
+        170,
+        196,
+        232
+      ],
+      "published_unix_ms": 1793567172549.036,
+      "display_age_s": 2.3962152004241943,
+      "stale": true,
+      "painted_client_unix_ms": 1793567172881.6,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-161",
+      "captured_at": "2026-11-01T21:06:12.909492+00:00",
+      "painted_client_unix_ms": 1793567173081,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-tracking-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-152",
+      "image_sha": "59cc612ad9ba0f8ecc29de600a7b9b192a404ef1d5a84f81179b95e5a279b564",
+      "captured_at": "2026-11-01T21:06:10.608056+00:00",
+      "capture_unix_ms": 1793567170608.0562,
+      "persistence_started_unix_ms": 1793567170610.5908,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 152,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 5,
+      "generation": 1,
+      "mask_sha": "fdc7e104ea3583ab48bf058d9dab1d941be028e9d34299e92d44c182721a2d52",
+      "foreground_pixels": 1546,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567172594.134,
+      "inference_finished_unix_ms": 1793567172966.6655,
+      "step_s": 0.3643834013491869,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        137,
+        170,
+        195,
+        232
+      ],
+      "published_unix_ms": 1793567172967.6887,
+      "display_age_s": 2.3772499561309814,
+      "stale": true,
+      "painted_client_unix_ms": 1793567173114.6,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-162",
+      "captured_at": "2026-11-01T21:06:13.168085+00:00",
+      "painted_client_unix_ms": 1793567173314.7,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-163",
+      "captured_at": "2026-11-01T21:06:13.424819+00:00",
+      "painted_client_unix_ms": 1793567173547.5,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-tracking-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-153",
+      "image_sha": "3d083ddeee37471c795b140de45b81d2c8eecc48259b9407e014c70c8142553e",
+      "captured_at": "2026-11-01T21:06:10.861260+00:00",
+      "capture_unix_ms": 1793567170861.26,
+      "persistence_started_unix_ms": 1793567170863.7607,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 153,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 6,
+      "generation": 1,
+      "mask_sha": "edd3139890a1c5174a0a13d1cb0c63f056f03fdf0fd638b160caa95cd997beb7",
+      "foreground_pixels": 1593,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567173012.5781,
+      "inference_finished_unix_ms": 1793567173257.733,
+      "step_s": 0.2372049270197749,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        135,
+        170,
+        193,
+        232
+      ],
+      "published_unix_ms": 1793567173258.742,
+      "display_age_s": 2.6225063800811768,
+      "stale": true,
+      "painted_client_unix_ms": 1793567173597.5,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-164",
+      "captured_at": "2026-11-01T21:06:13.675648+00:00",
+      "painted_client_unix_ms": 1793567173783.8,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-tracking-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-154",
+      "image_sha": "6210cb0a0a0a4abb4f83345b0a858b5ce35b2372b6307fdc6c806197c8045638",
+      "captured_at": "2026-11-01T21:06:11.120109+00:00",
+      "capture_unix_ms": 1793567171120.1091,
+      "persistence_started_unix_ms": 1793567171122.9712,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 154,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 7,
+      "generation": 1,
+      "mask_sha": "dcdd66e7ae384af5f470f924c93f0bd8f185c2e32f92d734d440069b1aa2801e",
+      "foreground_pixels": 1623,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567173303.3535,
+      "inference_finished_unix_ms": 1793567173599.3918,
+      "step_s": 0.28813695628196,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        134,
+        170,
+        192,
+        232
+      ],
+      "published_unix_ms": 1793567173600.4365,
+      "display_age_s": 2.613391160964966,
+      "stale": true,
+      "painted_client_unix_ms": 1793567173866.5,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-tracking-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-155",
+      "image_sha": "53615fb114feb0d5b625b51344c1b7f2d2266bd9b99aad32f8a996adfd265feb",
+      "captured_at": "2026-11-01T21:06:11.378967+00:00",
+      "capture_unix_ms": 1793567171378.967,
+      "persistence_started_unix_ms": 1793567171381.416,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 155,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 8,
+      "generation": 1,
+      "mask_sha": "2002c7f1f3711ec90623e2a5813a41f86f680baa2b9e36ec1a274b1767285aa4",
+      "foreground_pixels": 1659,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567173644.8762,
+      "inference_finished_unix_ms": 1793567173970.09,
+      "step_s": 0.3170740054920316,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        133,
+        170,
+        191,
+        232
+      ],
+      "published_unix_ms": 1793567173971.1504,
+      "display_age_s": 2.6026339530944824,
+      "stale": true,
+      "painted_client_unix_ms": 1793567174131.7,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-165",
+      "captured_at": "2026-11-01T21:06:13.933584+00:00",
+      "painted_client_unix_ms": 1793567174132.1,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-166",
+      "captured_at": "2026-11-01T21:06:14.191743+00:00",
+      "painted_client_unix_ms": 1793567174349.5,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-167",
+      "captured_at": "2026-11-01T21:06:14.449389+00:00",
+      "painted_client_unix_ms": 1793567174614.5,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-tracking-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-156",
+      "image_sha": "8090205106f131be0aeb945192a1982e61c5206f34cfdcc73324a91f4d226053",
+      "captured_at": "2026-11-01T21:06:11.634540+00:00",
+      "capture_unix_ms": 1793567171634.54,
+      "persistence_started_unix_ms": 1793567171637.253,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 156,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 9,
+      "generation": 1,
+      "mask_sha": "e29e688051a4cd1263319e50a44668e3be3e278d8faa21efb7442486ba2e7f41",
+      "foreground_pixels": 1641,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567174016.2173,
+      "inference_finished_unix_ms": 1793567174274.4453,
+      "step_s": 0.2502466281875968,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        132,
+        170,
+        190,
+        232
+      ],
+      "published_unix_ms": 1793567174275.4993,
+      "display_age_s": 2.8521265983581543,
+      "stale": true,
+      "painted_client_unix_ms": 1793567174631,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-168",
+      "captured_at": "2026-11-01T21:06:14.706300+00:00",
+      "painted_client_unix_ms": 1793567174832.9001,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-tracking-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-157",
+      "image_sha": "865d6cb4710cc1e9f42f2fb6cf696a04fdb22dc547a7b3de130ea26d37911763",
+      "captured_at": "2026-11-01T21:06:11.893170+00:00",
+      "capture_unix_ms": 1793567171893.1702,
+      "persistence_started_unix_ms": 1793567171896.0205,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 157,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 10,
+      "generation": 1,
+      "mask_sha": "28636ac9f0c955c4c530b11e2f852ba1e0e57fa9ba53118adbd0884ac3a0e5a9",
+      "foreground_pixels": 1589,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567174321.0469,
+      "inference_finished_unix_ms": 1793567174660.6877,
+      "step_s": 0.3315758313983679,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        130,
+        170,
+        188,
+        232
+      ],
+      "published_unix_ms": 1793567174661.789,
+      "display_age_s": 2.8396029472351074,
+      "stale": true,
+      "painted_client_unix_ms": 1793567174864.3,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-169",
+      "captured_at": "2026-11-01T21:06:14.965234+00:00",
+      "painted_client_unix_ms": 1793567175081,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-tracking-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-158",
+      "image_sha": "02a49d7efb321621f671192b3c5888b3ab8ebde02342ad0fe8f1de694c61fdf2",
+      "captured_at": "2026-11-01T21:06:12.152170+00:00",
+      "capture_unix_ms": 1793567172152.17,
+      "persistence_started_unix_ms": 1793567172154.9993,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 158,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 11,
+      "generation": 1,
+      "mask_sha": "3bb7f13ab25a45fa49e9fa7bfc73c0d954c1c57cec5c2df43573da644bcdbaa1",
+      "foreground_pixels": 1626,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567174706.4897,
+      "inference_finished_unix_ms": 1793567174964.8838,
+      "step_s": 0.25018369406461716,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        129,
+        170,
+        187,
+        232
+      ],
+      "published_unix_ms": 1793567174965.8809,
+      "display_age_s": 2.8289566040039062,
+      "stale": true,
+      "painted_client_unix_ms": 1793567175114.4001,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-170",
+      "captured_at": "2026-11-01T21:06:15.222234+00:00",
+      "painted_client_unix_ms": 1793567175414.3,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-tracking-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-159",
+      "image_sha": "ddd2c210d3801a3656752b468688143533e1139729abc35afb731a7a8f478d52",
+      "captured_at": "2026-11-01T21:06:12.409957+00:00",
+      "capture_unix_ms": 1793567172409.957,
+      "persistence_started_unix_ms": 1793567172413.0955,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 159,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 12,
+      "generation": 1,
+      "mask_sha": "5379d91ae640695d2448e0cea27701328b777bf6371d9a8240eb754941a84df8",
+      "foreground_pixels": 1594,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567175010.5967,
+      "inference_finished_unix_ms": 1793567175317.3828,
+      "step_s": 0.29838717449456453,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        128,
+        170,
+        186,
+        232
+      ],
+      "published_unix_ms": 1793567175318.4783,
+      "display_age_s": 3.076174259185791,
+      "stale": true,
+      "painted_client_unix_ms": 1793567175600.6,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-171",
+      "captured_at": "2026-11-01T21:06:15.490228+00:00",
+      "painted_client_unix_ms": 1793567175647.4001,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-tracking-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-160",
+      "image_sha": "3c62751d6e3f7b90dfacba6a4830082e262f28e0c722009f6769b1edadaedc76",
+      "captured_at": "2026-11-01T21:06:12.660284+00:00",
+      "capture_unix_ms": 1793567172660.284,
+      "persistence_started_unix_ms": 1793567172662.7205,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 160,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 13,
+      "generation": 1,
+      "mask_sha": "9e5731b36dfd9a41768a9d49909105460425bb69f81cc82e18395bf9bf9165f8",
+      "foreground_pixels": 1613,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567175362.8145,
+      "inference_finished_unix_ms": 1793567175655.6047,
+      "step_s": 0.28399872966110706,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        126,
+        170,
+        185,
+        232
+      ],
+      "published_unix_ms": 1793567175656.669,
+      "display_age_s": 3.0713870525360107,
+      "stale": true,
+      "painted_client_unix_ms": 1793567175864.3,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-172",
+      "captured_at": "2026-11-01T21:06:15.753984+00:00",
+      "painted_client_unix_ms": 1793567175882.9001,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-tracking-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-161",
+      "image_sha": "7abe99fe557ca55867e1bb0f434573cc6c91d9ba5a31da9b6367c0eabdd0bb8c",
+      "captured_at": "2026-11-01T21:06:12.909492+00:00",
+      "capture_unix_ms": 1793567172909.492,
+      "persistence_started_unix_ms": 1793567172912.8079,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 161,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 14,
+      "generation": 1,
+      "mask_sha": "f22df5f7a285245b54c95d14c2ceb54f13c8eaedeac4cf50226df0e866807d1e",
+      "foreground_pixels": 1607,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567175702.5173,
+      "inference_finished_unix_ms": 1793567175966.179,
+      "step_s": 0.25415332335978746,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        126,
+        170,
+        184,
+        232
+      ],
+      "published_unix_ms": 1793567175967.261,
+      "display_age_s": 3.074697494506836,
+      "stale": true,
+      "painted_client_unix_ms": 1793567176097.4001,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-173",
+      "captured_at": "2026-11-01T21:06:16.012852+00:00",
+      "painted_client_unix_ms": 1793567176147.5,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-174",
+      "captured_at": "2026-11-01T21:06:16.269200+00:00",
+      "painted_client_unix_ms": 1793567176449.4001,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-tracking-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-162",
+      "image_sha": "9caa62c8722079b96dfc9f1c88fe56eca69ecfaf0aa7686aaadd9b83e6908bc8",
+      "captured_at": "2026-11-01T21:06:13.168085+00:00",
+      "capture_unix_ms": 1793567173168.0852,
+      "persistence_started_unix_ms": 1793567173171.5288,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 162,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 15,
+      "generation": 1,
+      "mask_sha": "20a84de02a46fa25b32d4f0889fab253db430b6d2cb4a801d14b89ec79c9e04b",
+      "foreground_pixels": 1631,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567176010.5032,
+      "inference_finished_unix_ms": 1793567176339.0486,
+      "step_s": 0.3206999069079757,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        125,
+        170,
+        182,
+        232
+      ],
+      "published_unix_ms": 1793567176340.057,
+      "display_age_s": 3.3207085132598877,
+      "stale": true,
+      "painted_client_unix_ms": 1793567176630.9001,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-175",
+      "captured_at": "2026-11-01T21:06:16.533644+00:00",
+      "painted_client_unix_ms": 1793567176697.5,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-tracking-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-163",
+      "image_sha": "d693e42d185616c6acea8beca63f1058c2f5cf9bbbeb9e6e0c29aef5ed589226",
+      "captured_at": "2026-11-01T21:06:13.424819+00:00",
+      "capture_unix_ms": 1793567173424.819,
+      "persistence_started_unix_ms": 1793567173431.7258,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 163,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 16,
+      "generation": 1,
+      "mask_sha": "46c1a19dc29f3f7ef48fc17bec25fa53316f25a672c29b0acfd2bbf4814e045f",
+      "foreground_pixels": 1698,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567176385.0073,
+      "inference_finished_unix_ms": 1793567176683.2412,
+      "step_s": 0.29037549812346697,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        124,
+        170,
+        182,
+        232
+      ],
+      "published_unix_ms": 1793567176684.2397,
+      "display_age_s": 3.30881929397583,
+      "stale": true,
+      "painted_client_unix_ms": 1793567176864.4001,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-176",
+      "captured_at": "2026-11-01T21:06:16.811023+00:00",
+      "painted_client_unix_ms": 1793567176947.6,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-177",
+      "captured_at": "2026-11-01T21:06:17.058875+00:00",
+      "painted_client_unix_ms": 1793567177165.5,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-tracking-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-164",
+      "image_sha": "0c95e2f3182167f9d4471dbb04d021fe902a98775d62674113d283185352bdcf",
+      "captured_at": "2026-11-01T21:06:13.675648+00:00",
+      "capture_unix_ms": 1793567173675.648,
+      "persistence_started_unix_ms": 1793567173680.0498,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 164,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 17,
+      "generation": 1,
+      "mask_sha": "f68f07adf9b41047c0617452b4d49aad1601c0933bbffd590168b673c50e49aa",
+      "foreground_pixels": 1704,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567176729.206,
+      "inference_finished_unix_ms": 1793567177058.2048,
+      "step_s": 0.32043317798525095,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        122,
+        170,
+        181,
+        232
+      ],
+      "published_unix_ms": 1793567177059.253,
+      "display_age_s": 3.556187152862549,
+      "stale": true,
+      "painted_client_unix_ms": 1793567177364,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-178",
+      "captured_at": "2026-11-01T21:06:17.318003+00:00",
+      "painted_client_unix_ms": 1793567177514.1,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-tracking-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-165",
+      "image_sha": "29984c96cd2467ff3bc8f423d1c465f62f28a7f12f2990e0a4e4285241532220",
+      "captured_at": "2026-11-01T21:06:13.933584+00:00",
+      "capture_unix_ms": 1793567173933.584,
+      "persistence_started_unix_ms": 1793567173936.6516,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 165,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 18,
+      "generation": 1,
+      "mask_sha": "e0f35e92148db307e91cd29cb5ccdf06ac2e092f71921b2b0d176b3a8c2e7fdb",
+      "foreground_pixels": 1672,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567177102.6912,
+      "inference_finished_unix_ms": 1793567177436.1575,
+      "step_s": 0.32556390576064587,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        122,
+        170,
+        180,
+        232
+      ],
+      "published_unix_ms": 1793567177437.1604,
+      "display_age_s": 3.5539073944091797,
+      "stale": true,
+      "painted_client_unix_ms": 1793567177614.3,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-179",
+      "captured_at": "2026-11-01T21:06:17.577685+00:00",
+      "painted_client_unix_ms": 1793567177747.4001,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-180",
+      "captured_at": "2026-11-01T21:06:17.828666+00:00",
+      "painted_client_unix_ms": 1793567177982.5,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-tracking-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-166",
+      "image_sha": "955349c170f7fc3622fe1d9a811fb9499b01b9292fbe83517377465fddf3e884",
+      "captured_at": "2026-11-01T21:06:14.191743+00:00",
+      "capture_unix_ms": 1793567174191.743,
+      "persistence_started_unix_ms": 1793567174195.1252,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 166,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 19,
+      "generation": 1,
+      "mask_sha": "cf34d97d5ac93330de85bea64ca6055111604d0067eef57532e934d6d7618ef0",
+      "foreground_pixels": 1641,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567177482.4685,
+      "inference_finished_unix_ms": 1793567177784.6924,
+      "step_s": 0.29395742528140545,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        121,
+        170,
+        179,
+        232
+      ],
+      "published_unix_ms": 1793567177785.6768,
+      "display_age_s": 3.7869129180908203,
+      "stale": true,
+      "painted_client_unix_ms": 1793567178097.5,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-181",
+      "captured_at": "2026-11-01T21:06:18.093330+00:00",
+      "painted_client_unix_ms": 1793567178247.6,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-tracking-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-167",
+      "image_sha": "d904dae9e15e46b812f9a7082078734772552fb8c29dc641e815578b4644feb4",
+      "captured_at": "2026-11-01T21:06:14.449389+00:00",
+      "capture_unix_ms": 1793567174449.389,
+      "persistence_started_unix_ms": 1793567174451.4253,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 167,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 20,
+      "generation": 1,
+      "mask_sha": "5841b42a79434d3e4ba637266649f7eea1896dd218d732dd3bf7bdeb74147489",
+      "foreground_pixels": 1658,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567177828.6106,
+      "inference_finished_unix_ms": 1793567178184.2788,
+      "step_s": 0.3478494053706527,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        121,
+        170,
+        178,
+        232
+      ],
+      "published_unix_ms": 1793567178185.3323,
+      "display_age_s": 3.780304193496704,
+      "stale": true,
+      "painted_client_unix_ms": 1793567178364.3,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-182",
+      "captured_at": "2026-11-01T21:06:18.351395+00:00",
+      "painted_client_unix_ms": 1793567178481,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-183",
+      "captured_at": "2026-11-01T21:06:18.608109+00:00",
+      "painted_client_unix_ms": 1793567178714.2,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-tracking-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-168",
+      "image_sha": "e9db86733011de9e22b1480b9fc82a96238f4b6158f1d8b25025e0d28442c283",
+      "captured_at": "2026-11-01T21:06:14.706300+00:00",
+      "capture_unix_ms": 1793567174706.3,
+      "persistence_started_unix_ms": 1793567174708.7346,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 168,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 21,
+      "generation": 1,
+      "mask_sha": "9c37d1a057cd65afbeb9387e77ae8e7e1dfec5ad2fd1da254334c240bde74f70",
+      "foreground_pixels": 1681,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567178230.4182,
+      "inference_finished_unix_ms": 1793567178511.1182,
+      "step_s": 0.2728411862626672,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        120,
+        170,
+        178,
+        232
+      ],
+      "published_unix_ms": 1793567178512.0876,
+      "display_age_s": 4.023480176925659,
+      "stale": true,
+      "painted_client_unix_ms": 1793567178865.7,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-184",
+      "captured_at": "2026-11-01T21:06:18.863502+00:00",
+      "painted_client_unix_ms": 1793567179031,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-tracking-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-169",
+      "image_sha": "c37e7ae089ae8eb88e3424ab8636310cb06bdf1473135fff298356b6218e298a",
+      "captured_at": "2026-11-01T21:06:14.965234+00:00",
+      "capture_unix_ms": 1793567174965.2341,
+      "persistence_started_unix_ms": 1793567174970.873,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 169,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 22,
+      "generation": 1,
+      "mask_sha": "7d8f96bba2d10ccdd98d9afb3e7b4755f8f2698ac0f7d7088533f6cfd36bced9",
+      "foreground_pixels": 1694,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567178558.063,
+      "inference_finished_unix_ms": 1793567178930.279,
+      "step_s": 0.3634104672819376,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        120,
+        170,
+        177,
+        232
+      ],
+      "published_unix_ms": 1793567178931.3247,
+      "display_age_s": 4.015890121459961,
+      "stale": true,
+      "painted_client_unix_ms": 1793567179116.2,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-185",
+      "captured_at": "2026-11-01T21:06:19.121776+00:00",
+      "painted_client_unix_ms": 1793567179282.2,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-186",
+      "captured_at": "2026-11-01T21:06:19.374104+00:00",
+      "painted_client_unix_ms": 1793567179515.8,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-tracking-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-170",
+      "image_sha": "7fc91d9dee3518477784fd6c309df8254ab0f019ca10b1ae9415f9932bdb6813",
+      "captured_at": "2026-11-01T21:06:15.222234+00:00",
+      "capture_unix_ms": 1793567175222.2341,
+      "persistence_started_unix_ms": 1793567175226.7478,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 170,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 23,
+      "generation": 1,
+      "mask_sha": "0b791bab702d76eee0e02168ecfe8a50ea70948fdbff4691ac594a546002c04f",
+      "foreground_pixels": 1716,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567178976.2314,
+      "inference_finished_unix_ms": 1793567179281.2131,
+      "step_s": 0.2968873418867588,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        119,
+        170,
+        177,
+        232
+      ],
+      "published_unix_ms": 1793567179282.218,
+      "display_age_s": 4.273775815963745,
+      "stale": true,
+      "painted_client_unix_ms": 1793567179630.7,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-187",
+      "captured_at": "2026-11-01T21:06:19.627622+00:00",
+      "painted_client_unix_ms": 1793567179780.9001,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-tracking-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-171",
+      "image_sha": "d40655ba28f8d1190da59f5744836d56f54df1b408a4a1d8db176d4097c0c6e0",
+      "captured_at": "2026-11-01T21:06:15.490228+00:00",
+      "capture_unix_ms": 1793567175490.228,
+      "persistence_started_unix_ms": 1793567175492.8528,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 171,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 24,
+      "generation": 1,
+      "mask_sha": "64e407723611f2ce312169fbe8b6e56a43414e8d2c6718edebbae8f9d0f7b8be",
+      "foreground_pixels": 1684,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567179327.271,
+      "inference_finished_unix_ms": 1793567179667.29,
+      "step_s": 0.3319834740832448,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        118,
+        170,
+        177,
+        232
+      ],
+      "published_unix_ms": 1793567179668.2903,
+      "display_age_s": 4.2399561405181885,
+      "stale": true,
+      "painted_client_unix_ms": 1793567179863.9001,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-188",
+      "captured_at": "2026-11-01T21:06:19.882027+00:00",
+      "painted_client_unix_ms": 1793567180014.2,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-189",
+      "captured_at": "2026-11-01T21:06:20.142337+00:00",
+      "painted_client_unix_ms": 1793567180247.6,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-tracking-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-172",
+      "image_sha": "e2ca652733d4ccce6a1115d626ccf3405c1f02f751d256cc9491617961928096",
+      "captured_at": "2026-11-01T21:06:15.753984+00:00",
+      "capture_unix_ms": 1793567175753.984,
+      "persistence_started_unix_ms": 1793567175756.458,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 172,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 25,
+      "generation": 1,
+      "mask_sha": "c7d3d4381398940b4c4087f5b0c92a4ce30644358cb54a3f5ded4b76ba7475e6",
+      "foreground_pixels": 1704,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567179711.8345,
+      "inference_finished_unix_ms": 1793567180088.4304,
+      "step_s": 0.36861963383853436,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        118,
+        170,
+        176,
+        232
+      ],
+      "published_unix_ms": 1793567180089.5432,
+      "display_age_s": 4.481455326080322,
+      "stale": true,
+      "painted_client_unix_ms": 1793567180364.3,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-190",
+      "captured_at": "2026-11-01T21:06:20.394398+00:00",
+      "painted_client_unix_ms": 1793567180580.8,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-tracking-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-173",
+      "image_sha": "62ef52c8a277d09bfc274c61177045082ab7715c390792ddd72560eb8eaa7353",
+      "captured_at": "2026-11-01T21:06:16.012852+00:00",
+      "capture_unix_ms": 1793567176012.852,
+      "persistence_started_unix_ms": 1793567176016.3733,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 173,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 26,
+      "generation": 1,
+      "mask_sha": "af9e104ca162b98b4cc6f35542372f7092edfdc4aacefed2181609baf0c1e106",
+      "foreground_pixels": 1722,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567180138.3914,
+      "inference_finished_unix_ms": 1793567180420.383,
+      "step_s": 0.2738849092274904,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        118,
+        170,
+        176,
+        232
+      ],
+      "published_unix_ms": 1793567180421.4443,
+      "display_age_s": 4.479851484298706,
+      "stale": true,
+      "painted_client_unix_ms": 1793567180630.7,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-191",
+      "captured_at": "2026-11-01T21:06:20.645409+00:00",
+      "painted_client_unix_ms": 1793567180814,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-192",
+      "captured_at": "2026-11-01T21:06:20.902479+00:00",
+      "painted_client_unix_ms": 1793567181064.1,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-tracking-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-174",
+      "image_sha": "cb92fbb35623cb34844cf5d55d77c523cde11bb90994b28152df0eabcc88e496",
+      "captured_at": "2026-11-01T21:06:16.269200+00:00",
+      "capture_unix_ms": 1793567176269.2002,
+      "persistence_started_unix_ms": 1793567176273.028,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 174,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 27,
+      "generation": 1,
+      "mask_sha": "f7f833afb2ad08c0792fcf7f16ddd704c76d84df1691a12ab0ad778d725a5537",
+      "foreground_pixels": 1737,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567180464.9873,
+      "inference_finished_unix_ms": 1793567180809.615,
+      "step_s": 0.3366086659952998,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        118,
+        170,
+        176,
+        232
+      ],
+      "published_unix_ms": 1793567180810.6458,
+      "display_age_s": 4.7141571044921875,
+      "stale": true,
+      "painted_client_unix_ms": 1793567181133.1,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-193",
+      "captured_at": "2026-11-01T21:06:21.156857+00:00",
+      "painted_client_unix_ms": 1793567181297.3,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-tracking-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-175",
+      "image_sha": "ae82e2b0042409a984a632c0909d14dcdec38987339201c2e51d310add05dcbf",
+      "captured_at": "2026-11-01T21:06:16.533644+00:00",
+      "capture_unix_ms": 1793567176533.644,
+      "persistence_started_unix_ms": 1793567176536.1863,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 175,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 28,
+      "generation": 1,
+      "mask_sha": "06a345f0b6f66a2c2797dd2e4887d67f8392361519e314a7d8acb44978bc8ae2",
+      "foreground_pixels": 1733,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567180855.2239,
+      "inference_finished_unix_ms": 1793567181187.8062,
+      "step_s": 0.32455041352659464,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        118,
+        170,
+        176,
+        232
+      ],
+      "published_unix_ms": 1793567181188.859,
+      "display_age_s": 4.702547073364258,
+      "stale": true,
+      "painted_client_unix_ms": 1793567181366.9001,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-194",
+      "captured_at": "2026-11-01T21:06:21.414261+00:00",
+      "painted_client_unix_ms": 1793567181532.1,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-195",
+      "captured_at": "2026-11-01T21:06:21.660793+00:00",
+      "painted_client_unix_ms": 1793567181781.7,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-196",
+      "captured_at": "2026-11-01T21:06:21.909093+00:00",
+      "painted_client_unix_ms": 1793567182015,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-197",
+      "captured_at": "2026-11-01T21:06:22.163907+00:00",
+      "painted_client_unix_ms": 1793567182265.6,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-198",
+      "captured_at": "2026-11-01T21:06:22.414880+00:00",
+      "painted_client_unix_ms": 1793567182582,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-199",
+      "captured_at": "2026-11-01T21:06:22.661274+00:00",
+      "painted_client_unix_ms": 1793567182830.5,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-200",
+      "captured_at": "2026-11-01T21:06:22.907295+00:00",
+      "painted_client_unix_ms": 1793567183065.1,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-201",
+      "captured_at": "2026-11-01T21:06:23.156230+00:00",
+      "painted_client_unix_ms": 1793567183314,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-202",
+      "captured_at": "2026-11-01T21:06:23.410003+00:00",
+      "painted_client_unix_ms": 1793567183563.7,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-203",
+      "captured_at": "2026-11-01T21:06:23.674921+00:00",
+      "painted_client_unix_ms": 1793567183797.2,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-204",
+      "captured_at": "2026-11-01T21:06:23.924739+00:00",
+      "painted_client_unix_ms": 1793567184032.1,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-205",
+      "captured_at": "2026-11-01T21:06:24.172615+00:00",
+      "painted_client_unix_ms": 1793567184281.5,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-206",
+      "captured_at": "2026-11-01T21:06:24.445226+00:00",
+      "painted_client_unix_ms": 1793567184598.1,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-207",
+      "captured_at": "2026-11-01T21:06:24.714188+00:00",
+      "painted_client_unix_ms": 1793567184832,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-208",
+      "captured_at": "2026-11-01T21:06:24.971797+00:00",
+      "painted_client_unix_ms": 1793567185081.6,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-209",
+      "captured_at": "2026-11-01T21:06:25.253286+00:00",
+      "painted_client_unix_ms": 1793567185398.2,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-210",
+      "captured_at": "2026-11-01T21:06:25.519400+00:00",
+      "painted_client_unix_ms": 1793567185648.2,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-211",
+      "captured_at": "2026-11-01T21:06:25.798199+00:00",
+      "painted_client_unix_ms": 1793567185965.2,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-212",
+      "captured_at": "2026-11-01T21:06:26.049169+00:00",
+      "painted_client_unix_ms": 1793567186213.9001,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-213",
+      "captured_at": "2026-11-01T21:06:26.303848+00:00",
+      "painted_client_unix_ms": 1793567186464.1,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-214",
+      "captured_at": "2026-11-01T21:06:26.556685+00:00",
+      "painted_client_unix_ms": 1793567186698.9001,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-215",
+      "captured_at": "2026-11-01T21:06:26.822577+00:00",
+      "painted_client_unix_ms": 1793567186931.6,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-216",
+      "captured_at": "2026-11-01T21:06:27.071960+00:00",
+      "painted_client_unix_ms": 1793567187181.6,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-217",
+      "captured_at": "2026-11-01T21:06:27.324564+00:00",
+      "painted_client_unix_ms": 1793567187513.7,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-218",
+      "captured_at": "2026-11-01T21:06:27.572871+00:00",
+      "painted_client_unix_ms": 1793567187748.2,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-219",
+      "captured_at": "2026-11-01T21:06:27.820502+00:00",
+      "painted_client_unix_ms": 1793567187981.4001,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-220",
+      "captured_at": "2026-11-01T21:06:28.071755+00:00",
+      "painted_client_unix_ms": 1793567188231.9001,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-221",
+      "captured_at": "2026-11-01T21:06:28.321989+00:00",
+      "painted_client_unix_ms": 1793567188464.6,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-222",
+      "captured_at": "2026-11-01T21:06:28.571622+00:00",
+      "painted_client_unix_ms": 1793567188715.1,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-223",
+      "captured_at": "2026-11-01T21:06:28.822612+00:00",
+      "painted_client_unix_ms": 1793567188963.6,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-224",
+      "captured_at": "2026-11-01T21:06:29.070380+00:00",
+      "painted_client_unix_ms": 1793567189198,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-225",
+      "captured_at": "2026-11-01T21:06:29.315153+00:00",
+      "painted_client_unix_ms": 1793567189431.4001,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-226",
+      "captured_at": "2026-11-01T21:06:29.568389+00:00",
+      "painted_client_unix_ms": 1793567189682,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-227",
+      "captured_at": "2026-11-01T21:06:29.818158+00:00",
+      "painted_client_unix_ms": 1793567189915.1,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-228",
+      "captured_at": "2026-11-01T21:06:30.067430+00:00",
+      "painted_client_unix_ms": 1793567190180.4001,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-229",
+      "captured_at": "2026-11-01T21:06:30.327270+00:00",
+      "painted_client_unix_ms": 1793567190497,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-230",
+      "captured_at": "2026-11-01T21:06:30.589120+00:00",
+      "painted_client_unix_ms": 1793567190731.2,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-231",
+      "captured_at": "2026-11-01T21:06:30.850691+00:00",
+      "painted_client_unix_ms": 1793567190980.5,
+      "phase": "tracking_cpu"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-232",
+      "captured_at": "2026-11-01T21:06:31.101954+00:00",
+      "painted_client_unix_ms": 1793567191230.1,
+      "phase": "tracking_reselection"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-233",
+      "captured_at": "2026-11-01T21:06:31.357280+00:00",
+      "painted_client_unix_ms": 1793567191464.2,
+      "phase": "tracking_reselection"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-234",
+      "captured_at": "2026-11-01T21:06:31.607480+00:00",
+      "painted_client_unix_ms": 1793567191781.5,
+      "phase": "tracking_reselection"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-235",
+      "captured_at": "2026-11-01T21:06:31.858397+00:00",
+      "painted_client_unix_ms": 1793567192032.6,
+      "phase": "tracking_reselection"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-236",
+      "captured_at": "2026-11-01T21:06:32.104692+00:00",
+      "painted_client_unix_ms": 1793567192265.1,
+      "phase": "tracking_reselection"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-237",
+      "captured_at": "2026-11-01T21:06:32.351167+00:00",
+      "painted_client_unix_ms": 1793567192513.6,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-238",
+      "captured_at": "2026-11-01T21:06:32.608605+00:00",
+      "painted_client_unix_ms": 1793567192780.3,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-tracking-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-231",
+      "image_sha": "3c13c7a6003cac9b765f629b1c444a4f7eb28326a0678cfaf9cd844c01c251db",
+      "captured_at": "2026-11-01T21:06:30.850691+00:00",
+      "capture_unix_ms": 1793567190850.6912,
+      "persistence_started_unix_ms": 1793567191129.532,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 231,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 0,
+      "generation": 1,
+      "mask_sha": "eb2d9f893744f17f85387e5abb95a50d6a074cff55fefde5fe5e98e408db73ae",
+      "foreground_pixels": 7055,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567192408.941,
+      "inference_finished_unix_ms": 1793567192606.7646,
+      "step_s": 0.18757255095988512,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        144,
+        158,
+        239,
+        243
+      ],
+      "published_unix_ms": 1793567192607.8347,
+      "display_age_s": 1.9049746990203857,
+      "stale": true,
+      "painted_client_unix_ms": 1793567192832.5,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-239",
+      "captured_at": "2026-11-01T21:06:32.862339+00:00",
+      "painted_client_unix_ms": 1793567192998.7,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-tracking-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-233",
+      "image_sha": "8a0da9f168ddc0349312bf174bc7e3ff02c6784accbbccb1fc89d70ce5c6ccda",
+      "captured_at": "2026-11-01T21:06:31.357280+00:00",
+      "capture_unix_ms": 1793567191357.28,
+      "persistence_started_unix_ms": 1793567191360.5632,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 233,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 1,
+      "generation": 1,
+      "mask_sha": "031005d7afd2048071d4d3422ee0f41a5d9ad5cf1c224a6df7490afdc5464b9d",
+      "foreground_pixels": 7075,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567192651.9812,
+      "inference_finished_unix_ms": 1793567192917.1738,
+      "step_s": 0.2573168370872736,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        143,
+        157,
+        238,
+        243
+      ],
+      "published_unix_ms": 1793567192918.256,
+      "display_age_s": 1.6319255828857422,
+      "stale": true,
+      "painted_client_unix_ms": 1793567193130,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-240",
+      "captured_at": "2026-11-01T21:06:33.114419+00:00",
+      "painted_client_unix_ms": 1793567193246.7,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-241",
+      "captured_at": "2026-11-01T21:06:33.363230+00:00",
+      "painted_client_unix_ms": 1793567193481.7,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-tracking-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-234",
+      "image_sha": "0fbcdd9791bff7af13efb0efcaada2357460ad2ec90f96dd65319d82efb8471c",
+      "captured_at": "2026-11-01T21:06:31.607480+00:00",
+      "capture_unix_ms": 1793567191607.48,
+      "persistence_started_unix_ms": 1793567191610.6936,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 234,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 2,
+      "generation": 1,
+      "mask_sha": "9fbfb8e7926b6b4ea339e8067b31d53b62ef710cc5500d099628f25c5e3f8ccd",
+      "foreground_pixels": 7085,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567192962.3184,
+      "inference_finished_unix_ms": 1793567193244.9963,
+      "step_s": 0.2749223606660962,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        142,
+        157,
+        237,
+        243
+      ],
+      "published_unix_ms": 1793567193245.9612,
+      "display_age_s": 1.881375789642334,
+      "stale": true,
+      "painted_client_unix_ms": 1793567193632.4001,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-242",
+      "captured_at": "2026-11-01T21:06:33.616531+00:00",
+      "painted_client_unix_ms": 1793567193732,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-tracking-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-235",
+      "image_sha": "969a4e9926267b712d87847cb596cb4dfdb9137fbcb57ce53fc3418b2b24c505",
+      "captured_at": "2026-11-01T21:06:31.858397+00:00",
+      "capture_unix_ms": 1793567191858.397,
+      "persistence_started_unix_ms": 1793567191861.4038,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 235,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 3,
+      "generation": 1,
+      "mask_sha": "a1d2dc196aa3fe3c2dab145c57d3f2bc85aa57b21788f244078df4016e73aca9",
+      "foreground_pixels": 7192,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567193289.6475,
+      "inference_finished_unix_ms": 1793567193546.9792,
+      "step_s": 0.2495406437665224,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        141,
+        157,
+        236,
+        243
+      ],
+      "published_unix_ms": 1793567193547.9492,
+      "display_age_s": 1.883190631866455,
+      "stale": true,
+      "painted_client_unix_ms": 1793567193863.6,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-243",
+      "captured_at": "2026-11-01T21:06:33.872582+00:00",
+      "painted_client_unix_ms": 1793567194047.1,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-tracking-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-236",
+      "image_sha": "bc24bc88fcd507fe69383c0fe51e60e049d2bc5be96a4ee79852d25401777bb5",
+      "captured_at": "2026-11-01T21:06:32.104692+00:00",
+      "capture_unix_ms": 1793567192104.692,
+      "persistence_started_unix_ms": 1793567192107.289,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 236,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 4,
+      "generation": 1,
+      "mask_sha": "f68fb199fb130b2312351921ad6df0789b6afc0bdf89c927044f91af47a6dae6",
+      "foreground_pixels": 7189,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567193592.1196,
+      "inference_finished_unix_ms": 1793567193837.6616,
+      "step_s": 0.23744668625295162,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        140,
+        157,
+        235,
+        243
+      ],
+      "published_unix_ms": 1793567193839.0513,
+      "display_age_s": 1.885185956954956,
+      "stale": true,
+      "painted_client_unix_ms": 1793567194130.4001,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-244",
+      "captured_at": "2026-11-01T21:06:34.124539+00:00",
+      "painted_client_unix_ms": 1793567194283,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-tracking-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-237",
+      "image_sha": "1811774cea3d9216521a6674debeab4aa33e52cc1d2c5a992454c7d290bc2840",
+      "captured_at": "2026-11-01T21:06:32.351167+00:00",
+      "capture_unix_ms": 1793567192351.167,
+      "persistence_started_unix_ms": 1793567192354.356,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 237,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 5,
+      "generation": 1,
+      "mask_sha": "6a900eac715f0de43e6daf2986ee83a2757544c9d092ba5ea2d72664d30531bd",
+      "foreground_pixels": 7187,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567193882.7476,
+      "inference_finished_unix_ms": 1793567194202.0574,
+      "step_s": 0.3115641800686717,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        139,
+        157,
+        235,
+        243
+      ],
+      "published_unix_ms": 1793567194203.062,
+      "display_age_s": 1.8858232498168945,
+      "stale": true,
+      "painted_client_unix_ms": 1793567194380.3,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-245",
+      "captured_at": "2026-11-01T21:06:34.392451+00:00",
+      "painted_client_unix_ms": 1793567194531.7,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-246",
+      "captured_at": "2026-11-01T21:06:34.654732+00:00",
+      "painted_client_unix_ms": 1793567194764.7,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-tracking-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-238",
+      "image_sha": "dc9fa4cbe15ce3c5ea34b92360190c7d39b6f9cffda25e6d2b5b0b1cc6bfc976",
+      "captured_at": "2026-11-01T21:06:32.608605+00:00",
+      "capture_unix_ms": 1793567192608.605,
+      "persistence_started_unix_ms": 1793567192611.983,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 238,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 6,
+      "generation": 1,
+      "mask_sha": "7d870642b88984a6437a467b7342e9978f3aa9b3a8a02dc376b35510ef082eb4",
+      "foreground_pixels": 7138,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567194251.854,
+      "inference_finished_unix_ms": 1793567194492.9016,
+      "step_s": 0.23322697449475527,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        138,
+        157,
+        235,
+        243
+      ],
+      "published_unix_ms": 1793567194493.8567,
+      "display_age_s": 2.129598379135132,
+      "stale": true,
+      "painted_client_unix_ms": 1793567194880.1,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-247",
+      "captured_at": "2026-11-01T21:06:34.916763+00:00",
+      "painted_client_unix_ms": 1793567195097.9001,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-tracking-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-239",
+      "image_sha": "e19d967f90a63408bdc19b1597cf11dea8aef76fdaff5dd65744c5bc7d9f84d1",
+      "captured_at": "2026-11-01T21:06:32.862339+00:00",
+      "capture_unix_ms": 1793567192862.339,
+      "persistence_started_unix_ms": 1793567192866.048,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 239,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 7,
+      "generation": 1,
+      "mask_sha": "47a289262ce8720742dd32417c86aa179db04755560dfb88c6712c988f9905af",
+      "foreground_pixels": 7169,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567194538.2573,
+      "inference_finished_unix_ms": 1793567194822.0986,
+      "step_s": 0.27609342616051435,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        137,
+        157,
+        233,
+        243
+      ],
+      "published_unix_ms": 1793567194823.1465,
+      "display_age_s": 2.129641532897949,
+      "stale": true,
+      "painted_client_unix_ms": 1793567195130,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-248",
+      "captured_at": "2026-11-01T21:06:35.165646+00:00",
+      "painted_client_unix_ms": 1793567195346.7,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-tracking-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-240",
+      "image_sha": "c917e27befca69706e42e5249769c4a965f18e249135c059eb30750e6421d95c",
+      "captured_at": "2026-11-01T21:06:33.114419+00:00",
+      "capture_unix_ms": 1793567193114.419,
+      "persistence_started_unix_ms": 1793567193117.7568,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 240,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 8,
+      "generation": 1,
+      "mask_sha": "14f248d4942596be3846f91eed637840c1c786703f16a5994e422abb39502880",
+      "foreground_pixels": 7022,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567194868.1277,
+      "inference_finished_unix_ms": 1793567195127.3335,
+      "step_s": 0.2506490172818303,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        135,
+        157,
+        232,
+        243
+      ],
+      "published_unix_ms": 1793567195128.3823,
+      "display_age_s": 2.1229145526885986,
+      "stale": true,
+      "painted_client_unix_ms": 1793567195380.2,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-249",
+      "captured_at": "2026-11-01T21:06:35.417923+00:00",
+      "painted_client_unix_ms": 1793567195596.8,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-tracking-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-241",
+      "image_sha": "202a4d967c614854df383d6959ed366a99f091c11af5b769a2c63b9da13d12d8",
+      "captured_at": "2026-11-01T21:06:33.363230+00:00",
+      "capture_unix_ms": 1793567193363.23,
+      "persistence_started_unix_ms": 1793567193366.6182,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 241,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 9,
+      "generation": 1,
+      "mask_sha": "2fcf35760f8f477beb3ac08f1f8e7488c429269b80fed53615f8fa1037228b63",
+      "foreground_pixels": 7036,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567195176.4636,
+      "inference_finished_unix_ms": 1793567195422.8271,
+      "step_s": 0.23802925925701857,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        135,
+        157,
+        231,
+        243
+      ],
+      "published_unix_ms": 1793567195423.9346,
+      "display_age_s": 2.125710964202881,
+      "stale": true,
+      "painted_client_unix_ms": 1793567195630.1,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-250",
+      "captured_at": "2026-11-01T21:06:35.683889+00:00",
+      "painted_client_unix_ms": 1793567195882,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-251",
+      "captured_at": "2026-11-01T21:06:35.944798+00:00",
+      "painted_client_unix_ms": 1793567196080.5,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-tracking-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-242",
+      "image_sha": "4ec8822e851625698cb6eecc9d8149afdfbb901901db39de81c4ff99a1bfcb75",
+      "captured_at": "2026-11-01T21:06:33.616531+00:00",
+      "capture_unix_ms": 1793567193616.531,
+      "persistence_started_unix_ms": 1793567193619.9587,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 242,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 10,
+      "generation": 1,
+      "mask_sha": "d3c59e317f623820151ba27b2ea85f731dd7b49dce9101bb6d8f2e20ddb472e1",
+      "foreground_pixels": 7071,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567195467.5505,
+      "inference_finished_unix_ms": 1793567195846.1514,
+      "step_s": 0.36928329430520535,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        133,
+        157,
+        230,
+        243
+      ],
+      "published_unix_ms": 1793567195847.2485,
+      "display_age_s": 2.383058547973633,
+      "stale": true,
+      "painted_client_unix_ms": 1793567196130.6,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-252",
+      "captured_at": "2026-11-01T21:06:36.208031+00:00",
+      "painted_client_unix_ms": 1793567196314,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-tracking-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-243",
+      "image_sha": "a2c18eada6da21fc525a455f3a242bb664ead060993236415cc6ba9486683d2c",
+      "captured_at": "2026-11-01T21:06:33.872582+00:00",
+      "capture_unix_ms": 1793567193872.582,
+      "persistence_started_unix_ms": 1793567193875.345,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 243,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 11,
+      "generation": 1,
+      "mask_sha": "f177273635d6753325e094063ad11974810784ddf8da18cee158980c386e0a98",
+      "foreground_pixels": 7186,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567195893.3752,
+      "inference_finished_unix_ms": 1793567196282.0332,
+      "step_s": 0.3796733757480979,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        132,
+        157,
+        229,
+        243
+      ],
+      "published_unix_ms": 1793567196283.154,
+      "display_age_s": 2.6180288791656494,
+      "stale": true,
+      "painted_client_unix_ms": 1793567196613.5,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-253",
+      "captured_at": "2026-11-01T21:06:36.472164+00:00",
+      "painted_client_unix_ms": 1793567196663.4001,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-254",
+      "captured_at": "2026-11-01T21:06:36.751164+00:00",
+      "painted_client_unix_ms": 1793567196880.4001,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-255",
+      "captured_at": "2026-11-01T21:06:37.012424+00:00",
+      "painted_client_unix_ms": 1793567197130.1,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-tracking-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-244",
+      "image_sha": "5aa3405b61a27ee6fae14b48b351aa3a4d4bdd58e90ea66a9a01f51e56f9bb5a",
+      "captured_at": "2026-11-01T21:06:34.124539+00:00",
+      "capture_unix_ms": 1793567194124.5388,
+      "persistence_started_unix_ms": 1793567194126.7268,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 244,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 12,
+      "generation": 1,
+      "mask_sha": "e6edf641033537eaf459ab2f2d7536b16199786bdeeac591576881c715d40a84",
+      "foreground_pixels": 7067,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567196328.317,
+      "inference_finished_unix_ms": 1793567196753.5505,
+      "step_s": 0.41512975934892893,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        131,
+        157,
+        227,
+        243
+      ],
+      "published_unix_ms": 1793567196754.6357,
+      "display_age_s": 2.8689944744110107,
+      "stale": true,
+      "painted_client_unix_ms": 1793567197130.4001,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-tracking-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-245",
+      "image_sha": "044da7ab6fe36d7cd564eb48124eb0f8f7b336a8d74eb1ac0ceef7d140f6a813",
+      "captured_at": "2026-11-01T21:06:34.392451+00:00",
+      "capture_unix_ms": 1793567194392.451,
+      "persistence_started_unix_ms": 1793567194395.8506,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 245,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 13,
+      "generation": 1,
+      "mask_sha": "fc30af5d8cee2463f0618f1b86f59a9c21872f73378a7e7779f038ec4d229a0c",
+      "foreground_pixels": 7026,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567196805.3347,
+      "inference_finished_unix_ms": 1793567197196.9888,
+      "step_s": 0.3829182032495737,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        130,
+        157,
+        226,
+        243
+      ],
+      "published_unix_ms": 1793567197198.1123,
+      "display_age_s": 2.851759910583496,
+      "stale": true,
+      "painted_client_unix_ms": 1793567197380.1,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-256",
+      "captured_at": "2026-11-01T21:06:37.273253+00:00",
+      "painted_client_unix_ms": 1793567197463.6,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-257",
+      "captured_at": "2026-11-01T21:06:37.533052+00:00",
+      "painted_client_unix_ms": 1793567197696.8,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-tracking-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-246",
+      "image_sha": "b6a8c1e4ad34769ec1546833c5d1c4f363ae803847ec1e51b44c16a083af6f2f",
+      "captured_at": "2026-11-01T21:06:34.654732+00:00",
+      "capture_unix_ms": 1793567194654.732,
+      "persistence_started_unix_ms": 1793567194657.2637,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 246,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 14,
+      "generation": 1,
+      "mask_sha": "85eb60760be1ebfe9976b2db6742a67eb715c2a79d729231e07583692d6fef4b",
+      "foreground_pixels": 7148,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567197245.3274,
+      "inference_finished_unix_ms": 1793567197565.2522,
+      "step_s": 0.31154940742999315,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        128,
+        157,
+        225,
+        243
+      ],
+      "published_unix_ms": 1793567197566.2515,
+      "display_age_s": 3.094963312149048,
+      "stale": true,
+      "painted_client_unix_ms": 1793567197880.2,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-258",
+      "captured_at": "2026-11-01T21:06:37.809415+00:00",
+      "painted_client_unix_ms": 1793567197946.6,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-259",
+      "captured_at": "2026-11-01T21:06:38.058107+00:00",
+      "painted_client_unix_ms": 1793567198180.6,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-tracking-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-247",
+      "image_sha": "ca732aa36198b219901597144a5523b714976b4c079246b824ebe5afefb3e163",
+      "captured_at": "2026-11-01T21:06:34.916763+00:00",
+      "capture_unix_ms": 1793567194916.7632,
+      "persistence_started_unix_ms": 1793567194919.964,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 247,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 15,
+      "generation": 1,
+      "mask_sha": "41f6fd283113498898241bd59b36abbc80bf3a9bc18ab66abaf910c4562a7cbd",
+      "foreground_pixels": 7109,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567197611.9893,
+      "inference_finished_unix_ms": 1793567198050.334,
+      "step_s": 0.4277333626523614,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        127,
+        157,
+        224,
+        243
+      ],
+      "published_unix_ms": 1793567198051.707,
+      "display_age_s": 3.3270063400268555,
+      "stale": true,
+      "painted_client_unix_ms": 1793567198363.3,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-260",
+      "captured_at": "2026-11-01T21:06:38.320269+00:00",
+      "painted_client_unix_ms": 1793567198530.5,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-tracking-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-248",
+      "image_sha": "e43324dc8f1dd38acea566ae67cc4980aae2ff8a4f36dfa8c64f738474b68da2",
+      "captured_at": "2026-11-01T21:06:35.165646+00:00",
+      "capture_unix_ms": 1793567195165.646,
+      "persistence_started_unix_ms": 1793567195169.1465,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 248,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 16,
+      "generation": 1,
+      "mask_sha": "311c2590869012acdc66bffd0bae8ac3cabb2a19389af2d6fb465eff8a6c2b38",
+      "foreground_pixels": 7251,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567198095.6587,
+      "inference_finished_unix_ms": 1793567198445.5322,
+      "step_s": 0.3407663004472852,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        125,
+        157,
+        223,
+        243
+      ],
+      "published_unix_ms": 1793567198446.6597,
+      "display_age_s": 3.335196018218994,
+      "stale": true,
+      "painted_client_unix_ms": 1793567198630.1,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-261",
+      "captured_at": "2026-11-01T21:06:38.586179+00:00",
+      "painted_client_unix_ms": 1793567198746.6,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-262",
+      "captured_at": "2026-11-01T21:06:38.844086+00:00",
+      "painted_client_unix_ms": 1793567198982.4001,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-tracking-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-249",
+      "image_sha": "854426dd82fec0bd71fb73aa9c402305b966cfdd038d0511025f6963b428044b",
+      "captured_at": "2026-11-01T21:06:35.417923+00:00",
+      "capture_unix_ms": 1793567195417.9229,
+      "persistence_started_unix_ms": 1793567195421.0383,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 249,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 17,
+      "generation": 1,
+      "mask_sha": "a3166cb66c9cc71caa32f7288bb919453456afdf10ab337217165a98aabca483",
+      "foreground_pixels": 7199,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567198491.587,
+      "inference_finished_unix_ms": 1793567198933.582,
+      "step_s": 0.4330865368247032,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        124,
+        157,
+        222,
+        243
+      ],
+      "published_unix_ms": 1793567198934.6755,
+      "display_age_s": 3.572009325027466,
+      "stale": true,
+      "painted_client_unix_ms": 1793567199136.9001,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-263",
+      "captured_at": "2026-11-01T21:06:39.102381+00:00",
+      "painted_client_unix_ms": 1793567199230,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-264",
+      "captured_at": "2026-11-01T21:06:39.355436+00:00",
+      "painted_client_unix_ms": 1793567199481.8,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-tracking-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-250",
+      "image_sha": "e5eb1f1f7bce532de1b4052e38a76c5a742ac30b8aa0e5f829ee17a781321d9d",
+      "captured_at": "2026-11-01T21:06:35.683889+00:00",
+      "capture_unix_ms": 1793567195683.889,
+      "persistence_started_unix_ms": 1793567195687.4382,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 250,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 18,
+      "generation": 1,
+      "mask_sha": "2a7eb5b84a7c3773644973271878823821341006347599f038a7ba7aaa340d57",
+      "foreground_pixels": 7177,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567198980.0874,
+      "inference_finished_unix_ms": 1793567199358.8057,
+      "step_s": 0.36967774853110313,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        123,
+        157,
+        221,
+        243
+      ],
+      "published_unix_ms": 1793567199359.8813,
+      "display_age_s": 3.8083126544952393,
+      "stale": true,
+      "painted_client_unix_ms": 1793567199632.3,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-265",
+      "captured_at": "2026-11-01T21:06:39.615197+00:00",
+      "painted_client_unix_ms": 1793567199797.6,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-266",
+      "captured_at": "2026-11-01T21:06:39.874849+00:00",
+      "painted_client_unix_ms": 1793567200031.5,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-tracking-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-251",
+      "image_sha": "797fb67403e0db8978fee0b969555a00f6d73a66b1ae3aa2bb87bde86545f781",
+      "captured_at": "2026-11-01T21:06:35.944798+00:00",
+      "capture_unix_ms": 1793567195944.798,
+      "persistence_started_unix_ms": 1793567195948.5754,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 251,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 19,
+      "generation": 1,
+      "mask_sha": "c1cdc9e3544bfcd688640124cf56fe222a729ce38c8c1ee6256fafa329e6ecee",
+      "foreground_pixels": 7297,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567199405.5725,
+      "inference_finished_unix_ms": 1793567199767.693,
+      "step_s": 0.35351631604135036,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        121,
+        157,
+        220,
+        243
+      ],
+      "published_unix_ms": 1793567199768.7964,
+      "display_age_s": 4.041780710220337,
+      "stale": true,
+      "painted_client_unix_ms": 1793567200130.2,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-267",
+      "captured_at": "2026-11-01T21:06:40.134269+00:00",
+      "painted_client_unix_ms": 1793567200279.8,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-tracking-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-252",
+      "image_sha": "b4aa770381a26c10c2e53176af66b6590fc8cbafe2f8ea196be7589c5f20d7f8",
+      "captured_at": "2026-11-01T21:06:36.208031+00:00",
+      "capture_unix_ms": 1793567196208.031,
+      "persistence_started_unix_ms": 1793567196212.7942,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 252,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 20,
+      "generation": 1,
+      "mask_sha": "fb23aed813423046e6ff53964fcb7612270f8d788703f117ba4c24ef3aa6a214",
+      "foreground_pixels": 7126,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567199813.0247,
+      "inference_finished_unix_ms": 1793567200182.5403,
+      "step_s": 0.36135347187519073,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        119,
+        157,
+        219,
+        243
+      ],
+      "published_unix_ms": 1793567200183.5146,
+      "display_age_s": 4.03567361831665,
+      "stale": true,
+      "painted_client_unix_ms": 1793567200379.8,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-268",
+      "captured_at": "2026-11-01T21:06:40.385667+00:00",
+      "painted_client_unix_ms": 1793567200529.8,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-269",
+      "captured_at": "2026-11-01T21:06:40.643275+00:00",
+      "painted_client_unix_ms": 1793567200780.1,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-tracking-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-253",
+      "image_sha": "f5fbb14388373748bf48b8dac57684e224f59d919cdcfe44f1a3152684b823f0",
+      "captured_at": "2026-11-01T21:06:36.472164+00:00",
+      "capture_unix_ms": 1793567196472.1638,
+      "persistence_started_unix_ms": 1793567196475.656,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 253,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 21,
+      "generation": 1,
+      "mask_sha": "437b6a537666ca4280c183e12f51cfefad768afd440377197dd46b3267511496",
+      "foreground_pixels": 7083,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567200227.922,
+      "inference_finished_unix_ms": 1793567200504.8198,
+      "step_s": 0.2691271947696805,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        119,
+        157,
+        217,
+        243
+      ],
+      "published_unix_ms": 1793567200505.8535,
+      "display_age_s": 4.2887701988220215,
+      "stale": true,
+      "painted_client_unix_ms": 1793567200896.6,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-270",
+      "captured_at": "2026-11-01T21:06:40.892357+00:00",
+      "painted_client_unix_ms": 1793567201030,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-tracking-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-254",
+      "image_sha": "49c87f810776bb43f8cce81da19def8aa0abc1a7a1548ac19767195f7c574b4a",
+      "captured_at": "2026-11-01T21:06:36.751164+00:00",
+      "capture_unix_ms": 1793567196751.164,
+      "persistence_started_unix_ms": 1793567196753.9333,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 254,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 22,
+      "generation": 1,
+      "mask_sha": "21069bc55ee0d7c63a7408e7ed4c2cb0798f267a102286fe240f6eee055799ee",
+      "foreground_pixels": 7198,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567200550.156,
+      "inference_finished_unix_ms": 1793567200873.1875,
+      "step_s": 0.31474435050040483,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        117,
+        157,
+        216,
+        243
+      ],
+      "published_unix_ms": 1793567200874.5393,
+      "display_age_s": 4.257720947265625,
+      "stale": true,
+      "painted_client_unix_ms": 1793567201149.1,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-271",
+      "captured_at": "2026-11-01T21:06:41.142246+00:00",
+      "painted_client_unix_ms": 1793567201330.2,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-tracking-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-255",
+      "image_sha": "87288ba7166968176405ce696904585d80e44cd1351fe491685cc7b81273e47e",
+      "captured_at": "2026-11-01T21:06:37.012424+00:00",
+      "capture_unix_ms": 1793567197012.424,
+      "persistence_started_unix_ms": 1793567197015.4233,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 255,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 23,
+      "generation": 1,
+      "mask_sha": "36a1995d55ce33ae1950da7688ba55e2111263a43b1914a39f6353fd95bcf073",
+      "foreground_pixels": 7222,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567200918.4937,
+      "inference_finished_unix_ms": 1793567201222.5479,
+      "step_s": 0.29620644450187683,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        116,
+        157,
+        215,
+        243
+      ],
+      "published_unix_ms": 1793567201223.5857,
+      "display_age_s": 4.228956699371338,
+      "stale": true,
+      "painted_client_unix_ms": 1793567201380,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-272",
+      "captured_at": "2026-11-01T21:06:41.399227+00:00",
+      "painted_client_unix_ms": 1793567201579.9001,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-273",
+      "captured_at": "2026-11-01T21:06:41.657234+00:00",
+      "painted_client_unix_ms": 1793567201813.3,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-tracking-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-256",
+      "image_sha": "2470fcea6ca4a60088f5206b55130935c05ca6c4d0c2a2b80eb579ae56014256",
+      "captured_at": "2026-11-01T21:06:37.273253+00:00",
+      "capture_unix_ms": 1793567197273.253,
+      "persistence_started_unix_ms": 1793567197276.6787,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 256,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 24,
+      "generation": 1,
+      "mask_sha": "b8d65ae6aceecf2f81cd43c3f24116d6b2ae2d8e16c268edb8bd3164c8f2cdbf",
+      "foreground_pixels": 7185,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567201267.5818,
+      "inference_finished_unix_ms": 1793567201557.645,
+      "step_s": 0.28235168009996414,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        115,
+        157,
+        215,
+        243
+      ],
+      "published_unix_ms": 1793567201558.6633,
+      "display_age_s": 4.463924884796143,
+      "stale": true,
+      "painted_client_unix_ms": 1793567201863.7,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-274",
+      "captured_at": "2026-11-01T21:06:41.918431+00:00",
+      "painted_client_unix_ms": 1793567202047.7,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-275",
+      "captured_at": "2026-11-01T21:06:42.175797+00:00",
+      "painted_client_unix_ms": 1793567202281.5,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-tracking-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-257",
+      "image_sha": "b176470b8a9378406a265f99adcbcee874c2fc8846b6740433fbddb3f5e2cde8",
+      "captured_at": "2026-11-01T21:06:37.533052+00:00",
+      "capture_unix_ms": 1793567197533.052,
+      "persistence_started_unix_ms": 1793567197535.8176,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 257,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 25,
+      "generation": 1,
+      "mask_sha": "df95c42b5c08560f76105b9a5ed9598fad00de54695eaf647eaf6e98870f2545",
+      "foreground_pixels": 7235,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567201601.6638,
+      "inference_finished_unix_ms": 1793567202030.6577,
+      "step_s": 0.4210901837795973,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        113,
+        157,
+        213,
+        243
+      ],
+      "published_unix_ms": 1793567202031.7058,
+      "display_age_s": 4.7043492794036865,
+      "stale": true,
+      "painted_client_unix_ms": 1793567202379.8,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-276",
+      "captured_at": "2026-11-01T21:06:42.436277+00:00",
+      "painted_client_unix_ms": 1793567202646.3,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-tracking-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-258",
+      "image_sha": "e7eb1398f6c118b4c79f050a3b8f3a14bcf9d0028986e78fd0aab966b248a2d8",
+      "captured_at": "2026-11-01T21:06:37.809415+00:00",
+      "capture_unix_ms": 1793567197809.415,
+      "persistence_started_unix_ms": 1793567197812.3425,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 258,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 26,
+      "generation": 1,
+      "mask_sha": "1c9c5ed2be71d214d8f6cf418f010e5ff1a1b096413d4c7cb8c8f7c1ab129456",
+      "foreground_pixels": 7409,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567202075.041,
+      "inference_finished_unix_ms": 1793567202376.2427,
+      "step_s": 0.29321207385510206,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        112,
+        157,
+        212,
+        243
+      ],
+      "published_unix_ms": 1793567202377.3555,
+      "display_age_s": 4.676451683044434,
+      "stale": true,
+      "painted_client_unix_ms": 1793567202646.8,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-277",
+      "captured_at": "2026-11-01T21:06:42.691179+00:00",
+      "painted_client_unix_ms": 1793567202847.9001,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-278",
+      "captured_at": "2026-11-01T21:06:42.943625+00:00",
+      "painted_client_unix_ms": 1793567203097.5,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-tracking-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-259",
+      "image_sha": "49021530c87d35084baaeace2e2a06eec9ce751a106f711dee900f02c6f73d28",
+      "captured_at": "2026-11-01T21:06:38.058107+00:00",
+      "capture_unix_ms": 1793567198058.107,
+      "persistence_started_unix_ms": 1793567198061.1511,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 259,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 27,
+      "generation": 1,
+      "mask_sha": "dc62f74ec8c626fdc7934f6febd8f1a13c6223c6716c4289022d2a248fc3704a",
+      "foreground_pixels": 7213,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567202420.5613,
+      "inference_finished_unix_ms": 1793567202779.8613,
+      "step_s": 0.3513896120712161,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        110,
+        157,
+        211,
+        243
+      ],
+      "published_unix_ms": 1793567202780.9575,
+      "display_age_s": 4.934377431869507,
+      "stale": true,
+      "painted_client_unix_ms": 1793567203130.8,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-279",
+      "captured_at": "2026-11-01T21:06:43.200637+00:00",
+      "painted_client_unix_ms": 1793567203331,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-280",
+      "captured_at": "2026-11-01T21:06:43.450241+00:00",
+      "painted_client_unix_ms": 1793567203596.6,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-281",
+      "captured_at": "2026-11-01T21:06:43.695239+00:00",
+      "painted_client_unix_ms": 1793567203829.7,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-282",
+      "captured_at": "2026-11-01T21:06:43.940142+00:00",
+      "painted_client_unix_ms": 1793567204063,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-283",
+      "captured_at": "2026-11-01T21:06:44.197614+00:00",
+      "painted_client_unix_ms": 1793567204298.9001,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-284",
+      "captured_at": "2026-11-01T21:06:44.465501+00:00",
+      "painted_client_unix_ms": 1793567204646.7,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-285",
+      "captured_at": "2026-11-01T21:06:44.718340+00:00",
+      "painted_client_unix_ms": 1793567204879.8,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-286",
+      "captured_at": "2026-11-01T21:06:44.976677+00:00",
+      "painted_client_unix_ms": 1793567205129.7,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-287",
+      "captured_at": "2026-11-01T21:06:45.224963+00:00",
+      "painted_client_unix_ms": 1793567205347.8,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-288",
+      "captured_at": "2026-11-01T21:06:45.553175+00:00",
+      "painted_client_unix_ms": 1793567205730.6,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-289",
+      "captured_at": "2026-11-01T21:06:45.823643+00:00",
+      "painted_client_unix_ms": 1793567206013,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-290",
+      "captured_at": "2026-11-01T21:06:46.077579+00:00",
+      "painted_client_unix_ms": 1793567206247.9001,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-291",
+      "captured_at": "2026-11-01T21:06:46.338768+00:00",
+      "painted_client_unix_ms": 1793567206496.5,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-292",
+      "captured_at": "2026-11-01T21:06:46.606585+00:00",
+      "painted_client_unix_ms": 1793567206731.8,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-293",
+      "captured_at": "2026-11-01T21:06:46.859227+00:00",
+      "painted_client_unix_ms": 1793567206981.6,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-294",
+      "captured_at": "2026-11-01T21:06:47.125027+00:00",
+      "painted_client_unix_ms": 1793567207298.6,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-295",
+      "captured_at": "2026-11-01T21:06:47.384978+00:00",
+      "painted_client_unix_ms": 1793567207547.3,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-296",
+      "captured_at": "2026-11-01T21:06:47.644197+00:00",
+      "painted_client_unix_ms": 1793567207781.2,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-297",
+      "captured_at": "2026-11-01T21:06:47.902134+00:00",
+      "painted_client_unix_ms": 1793567208030.9001,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-298",
+      "captured_at": "2026-11-01T21:06:48.156637+00:00",
+      "painted_client_unix_ms": 1793567208279.6,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-299",
+      "captured_at": "2026-11-01T21:06:48.404055+00:00",
+      "painted_client_unix_ms": 1793567208530,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-300",
+      "captured_at": "2026-11-01T21:06:48.657317+00:00",
+      "painted_client_unix_ms": 1793567208846.5,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-301",
+      "captured_at": "2026-11-01T21:06:48.906728+00:00",
+      "painted_client_unix_ms": 1793567209079.6,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-302",
+      "captured_at": "2026-11-01T21:06:49.165077+00:00",
+      "painted_client_unix_ms": 1793567209329.7,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-303",
+      "captured_at": "2026-11-01T21:06:49.419242+00:00",
+      "painted_client_unix_ms": 1793567209562.8,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-304",
+      "captured_at": "2026-11-01T21:06:49.690937+00:00",
+      "painted_client_unix_ms": 1793567209798.1,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-305",
+      "captured_at": "2026-11-01T21:06:49.961192+00:00",
+      "painted_client_unix_ms": 1793567210146.7,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-306",
+      "captured_at": "2026-11-01T21:06:50.239827+00:00",
+      "painted_client_unix_ms": 1793567210364.1,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-307",
+      "captured_at": "2026-11-01T21:06:50.502413+00:00",
+      "painted_client_unix_ms": 1793567210629.5,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-308",
+      "captured_at": "2026-11-01T21:06:50.758302+00:00",
+      "painted_client_unix_ms": 1793567210946.2,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-309",
+      "captured_at": "2026-11-01T21:06:51.019350+00:00",
+      "painted_client_unix_ms": 1793567211179.4001,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-310",
+      "captured_at": "2026-11-01T21:06:51.289235+00:00",
+      "painted_client_unix_ms": 1793567211414.5,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-311",
+      "captured_at": "2026-11-01T21:06:51.573992+00:00",
+      "painted_client_unix_ms": 1793567211746.1,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-312",
+      "captured_at": "2026-11-01T21:06:51.829710+00:00",
+      "painted_client_unix_ms": 1793567211981,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-313",
+      "captured_at": "2026-11-01T21:06:52.088315+00:00",
+      "painted_client_unix_ms": 1793567212230.1,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-314",
+      "captured_at": "2026-11-01T21:06:52.344275+00:00",
+      "painted_client_unix_ms": 1793567212480,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-315",
+      "captured_at": "2026-11-01T21:06:52.595597+00:00",
+      "painted_client_unix_ms": 1793567212712.7,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-316",
+      "captured_at": "2026-11-01T21:06:52.854849+00:00",
+      "painted_client_unix_ms": 1793567213031.1,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-317",
+      "captured_at": "2026-11-01T21:06:53.109785+00:00",
+      "painted_client_unix_ms": 1793567213279.5,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-318",
+      "captured_at": "2026-11-01T21:06:53.365026+00:00",
+      "painted_client_unix_ms": 1793567213529.3,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-319",
+      "captured_at": "2026-11-01T21:06:53.619516+00:00",
+      "painted_client_unix_ms": 1793567213779.4001,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-320",
+      "captured_at": "2026-11-01T21:06:53.865990+00:00",
+      "painted_client_unix_ms": 1793567214012.9001,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-321",
+      "captured_at": "2026-11-01T21:06:54.121910+00:00",
+      "painted_client_unix_ms": 1793567214246.1,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-322",
+      "captured_at": "2026-11-01T21:06:54.376627+00:00",
+      "painted_client_unix_ms": 1793567214481.9001,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-323",
+      "captured_at": "2026-11-01T21:06:54.630642+00:00",
+      "painted_client_unix_ms": 1793567214812.6,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-324",
+      "captured_at": "2026-11-01T21:06:54.903910+00:00",
+      "painted_client_unix_ms": 1793567215047.8,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-325",
+      "captured_at": "2026-11-01T21:06:55.166270+00:00",
+      "painted_client_unix_ms": 1793567215281.1,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-326",
+      "captured_at": "2026-11-01T21:06:55.427720+00:00",
+      "painted_client_unix_ms": 1793567215531.1,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-327",
+      "captured_at": "2026-11-01T21:06:55.689471+00:00",
+      "painted_client_unix_ms": 1793567215847.9001,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-328",
+      "captured_at": "2026-11-01T21:06:55.962049+00:00",
+      "painted_client_unix_ms": 1793567216097.5,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-329",
+      "captured_at": "2026-11-01T21:06:56.229635+00:00",
+      "painted_client_unix_ms": 1793567216346.1,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-330",
+      "captured_at": "2026-11-01T21:06:56.502675+00:00",
+      "painted_client_unix_ms": 1793567216663.8,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-331",
+      "captured_at": "2026-11-01T21:06:56.772789+00:00",
+      "painted_client_unix_ms": 1793567216912.5,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-332",
+      "captured_at": "2026-11-01T21:06:57.041386+00:00",
+      "painted_client_unix_ms": 1793567217163,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-333",
+      "captured_at": "2026-11-01T21:06:57.318196+00:00",
+      "painted_client_unix_ms": 1793567217479.2,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-334",
+      "captured_at": "2026-11-01T21:06:57.575039+00:00",
+      "painted_client_unix_ms": 1793567217730.3,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-335",
+      "captured_at": "2026-11-01T21:06:57.837029+00:00",
+      "painted_client_unix_ms": 1793567217962.6,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-336",
+      "captured_at": "2026-11-01T21:06:58.092718+00:00",
+      "painted_client_unix_ms": 1793567218212.5,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-337",
+      "captured_at": "2026-11-01T21:06:58.353605+00:00",
+      "painted_client_unix_ms": 1793567218529.2,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-338",
+      "captured_at": "2026-11-01T21:06:58.613824+00:00",
+      "painted_client_unix_ms": 1793567218779.6,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-339",
+      "captured_at": "2026-11-01T21:06:58.873585+00:00",
+      "painted_client_unix_ms": 1793567219029.5,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-340",
+      "captured_at": "2026-11-01T21:06:59.120865+00:00",
+      "painted_client_unix_ms": 1793567219262.6,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-341",
+      "captured_at": "2026-11-01T21:06:59.377082+00:00",
+      "painted_client_unix_ms": 1793567219497.4001,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-342",
+      "captured_at": "2026-11-01T21:06:59.627499+00:00",
+      "painted_client_unix_ms": 1793567219746.1,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-343",
+      "captured_at": "2026-11-01T21:06:59.876176+00:00",
+      "painted_client_unix_ms": 1793567219981.6,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-344",
+      "captured_at": "2026-11-01T21:07:00.125555+00:00",
+      "painted_client_unix_ms": 1793567220312.6,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-345",
+      "captured_at": "2026-11-01T21:07:00.380212+00:00",
+      "painted_client_unix_ms": 1793567220548,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-346",
+      "captured_at": "2026-11-01T21:07:00.638019+00:00",
+      "painted_client_unix_ms": 1793567220796.9001,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-347",
+      "captured_at": "2026-11-01T21:07:00.898382+00:00",
+      "painted_client_unix_ms": 1793567221030.7,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-348",
+      "captured_at": "2026-11-01T21:07:01.148830+00:00",
+      "painted_client_unix_ms": 1793567221279.3,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-349",
+      "captured_at": "2026-11-01T21:07:01.399634+00:00",
+      "painted_client_unix_ms": 1793567221529,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-350",
+      "captured_at": "2026-11-01T21:07:01.655215+00:00",
+      "painted_client_unix_ms": 1793567221779.3,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-351",
+      "captured_at": "2026-11-01T21:07:01.913464+00:00",
+      "painted_client_unix_ms": 1793567222095.5,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-352",
+      "captured_at": "2026-11-01T21:07:02.172196+00:00",
+      "painted_client_unix_ms": 1793567222329.1,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-353",
+      "captured_at": "2026-11-01T21:07:02.424237+00:00",
+      "painted_client_unix_ms": 1793567222579,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-354",
+      "captured_at": "2026-11-01T21:07:02.681998+00:00",
+      "painted_client_unix_ms": 1793567222812.5,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-355",
+      "captured_at": "2026-11-01T21:07:02.937197+00:00",
+      "painted_client_unix_ms": 1793567223046.9001,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-356",
+      "captured_at": "2026-11-01T21:07:03.192548+00:00",
+      "painted_client_unix_ms": 1793567223363.1,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-357",
+      "captured_at": "2026-11-01T21:07:03.465642+00:00",
+      "painted_client_unix_ms": 1793567223613.8,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-358",
+      "captured_at": "2026-11-01T21:07:03.750443+00:00",
+      "painted_client_unix_ms": 1793567223846.9001,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-359",
+      "captured_at": "2026-11-01T21:07:04.015357+00:00",
+      "painted_client_unix_ms": 1793567224195.9001,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-360",
+      "captured_at": "2026-11-01T21:07:04.273791+00:00",
+      "painted_client_unix_ms": 1793567224429,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-361",
+      "captured_at": "2026-11-01T21:07:04.543936+00:00",
+      "painted_client_unix_ms": 1793567224663.2,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-362",
+      "captured_at": "2026-11-01T21:07:04.810268+00:00",
+      "painted_client_unix_ms": 1793567225012.3,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-363",
+      "captured_at": "2026-11-01T21:07:05.070463+00:00",
+      "painted_client_unix_ms": 1793567225228.8,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-364",
+      "captured_at": "2026-11-01T21:07:05.321489+00:00",
+      "painted_client_unix_ms": 1793567225463.5,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-365",
+      "captured_at": "2026-11-01T21:07:05.579798+00:00",
+      "painted_client_unix_ms": 1793567225712.2,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-366",
+      "captured_at": "2026-11-01T21:07:05.826929+00:00",
+      "painted_client_unix_ms": 1793567226012.5,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-367",
+      "captured_at": "2026-11-01T21:07:06.082212+00:00",
+      "painted_client_unix_ms": 1793567226246.7,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-368",
+      "captured_at": "2026-11-01T21:07:06.330739+00:00",
+      "painted_client_unix_ms": 1793567226445.5,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-368",
+      "captured_at": "2026-11-01T21:07:06.330739+00:00",
+      "painted_client_unix_ms": 1793567226562.3,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-369",
+      "captured_at": "2026-11-01T21:07:06.629052+00:00",
+      "painted_client_unix_ms": 1793567226765.5,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-370",
+      "captured_at": "2026-11-01T21:07:06.884560+00:00",
+      "painted_client_unix_ms": 1793567227013.1,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-371",
+      "captured_at": "2026-11-01T21:07:07.130515+00:00",
+      "painted_client_unix_ms": 1793567227246.6,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-372",
+      "captured_at": "2026-11-01T21:07:07.378279+00:00",
+      "painted_client_unix_ms": 1793567227496.5,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-373",
+      "captured_at": "2026-11-01T21:07:07.624324+00:00",
+      "painted_client_unix_ms": 1793567227762,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-374",
+      "captured_at": "2026-11-01T21:07:07.868263+00:00",
+      "painted_client_unix_ms": 1793567228028.8,
+      "phase": "concurrent"
+    },
+    {
+      "type": "puppypi-camera-painted",
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-375",
+      "captured_at": "2026-11-01T21:07:08.186124+00:00",
+      "painted_client_unix_ms": 1793567228378.7,
+      "phase": "concurrent"
+    }
+  ],
+  "errors": []
+}

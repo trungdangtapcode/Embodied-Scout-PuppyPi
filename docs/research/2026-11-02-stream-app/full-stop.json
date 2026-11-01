@@ -1,0 +1,1399 @@
+{
+  "http_roundtrip_ms": 135.8168849999929,
+  "stopped": {
+    "id": "33823c82-3c76-4e29-8262-a4d046974799",
+    "mode": "synthetic",
+    "generation": 2,
+    "revision": 1,
+    "status": "failed",
+    "created_at": 1793567191.1294386,
+    "expires_at": 1793567492.3980985,
+    "started_at": 1793567192.3980982,
+    "error_code": "TRACKING_CATCHUP_EXCEEDED",
+    "dropped_frames": 0,
+    "evidence_bytes": 1102598,
+    "anchor": {
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-231",
+      "image_sha": "3c13c7a6003cac9b765f629b1c444a4f7eb28326a0678cfaf9cd844c01c251db",
+      "captured_at": "2026-11-01T21:06:30.850691+00:00",
+      "capture_unix_ms": 1793567190850.6912,
+      "persistence_started_unix_ms": 1793567191129.532,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 231,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      }
+    },
+    "preview": {
+      "candidates": [
+        {
+          "mask_sha": "ba89da597cd51a6464d834e9d658d270e3d382cc3787984f930f34c8e3351345",
+          "model_mask_quality_score": 0.13668948411941528,
+          "foreground_pixels": 55305
+        },
+        {
+          "mask_sha": "b9771ea039a585be09fc4ba448b0f13e003cbf1806df81593aeac1906a08e7e5",
+          "model_mask_quality_score": 0.6383824944496155,
+          "foreground_pixels": 3147
+        },
+        {
+          "mask_sha": "eb2d9f893744f17f85387e5abb95a50d6a074cff55fefde5fe5e98e408db73ae",
+          "model_mask_quality_score": 0.9520294070243835,
+          "foreground_pixels": 7055
+        }
+      ],
+      "selected": 2,
+      "elapsed_s": 0.8191781369969249,
+      "provenance": {
+        "sources": {
+          "sam2": "2b90b9f5ceec907a1c18123530e92e794ad901a4",
+          "cutie": "ec5cdd4cf16f75c73ad785a2f96fb97dbad4125a"
+        },
+        "weights": {
+          "sam2.1_hiera_tiny.pt": "7402e0d864fa82708a20fbd15bc84245c2f26dff0eb43a4b5b93452deb34be69",
+          "cutie-base-mega.pth": "9c05402ee36d3a356fb72715d263ba7e1ea06ad3bada48c1306491792da43023",
+          "backbones/resnet18-5c106cde.pth": "5c106cde386e87d4033832f2996f5493238eda96ccf559d1d62760c4de0613f8",
+          "backbones/resnet50-19c8e357.pth": "19c8e3572231adff6824a2da93fd67b5986919a2e65f8b6007eab4edee220097"
+        },
+        "method": "original_sam21_tiny_and_original_cutie_base_mega",
+        "postprocessing": "explicitly_disabled_cuda_extension_and_dynamic_postprocessing",
+        "device": "cpu",
+        "precision": "float32",
+        "torch_threads": 8,
+        "cutie_configuration": {
+          "exp_id": "default",
+          "dataset": "generic",
+          "amp": false,
+          "weights": "output/cutie-base-mega.pth",
+          "output_dir": null,
+          "flip_aug": false,
+          "max_internal_size": 480,
+          "image_directory": null,
+          "mask_directory": null,
+          "json_directory": null,
+          "size": -1,
+          "save_all": true,
+          "use_all_masks": false,
+          "use_long_term": true,
+          "mem_every": 5,
+          "max_mem_frames": 5,
+          "long_term": {
+            "count_usage": true,
+            "max_mem_frames": 10,
+            "min_mem_frames": 5,
+            "num_prototypes": 128,
+            "max_num_tokens": 10000,
+            "buffer_tokens": 2000
+          },
+          "top_k": 30,
+          "stagger_updates": 5,
+          "chunk_size": -1,
+          "save_scores": false,
+          "save_aux": false,
+          "visualize": false,
+          "datasets": {
+            "d16-val": {
+              "image_directory": "../DAVIS/2016/JPEGImages/480p",
+              "mask_directory": "../DAVIS/2016/Annotations/480p",
+              "subset": "../DAVIS/2017/trainval/ImageSets/2016/val.txt",
+              "size": 480,
+              "save_all": true,
+              "use_all_masks": false,
+              "use_long_term": false,
+              "mem_every": 5
+            },
+            "d17-val": {
+              "image_directory": "../DAVIS/2017/trainval/JPEGImages/480p",
+              "mask_directory": "../DAVIS/2017/trainval/Annotations/480p",
+              "subset": "../DAVIS/2017/trainval/ImageSets/2017/val.txt",
+              "size": 480,
+              "save_all": true,
+              "use_all_masks": false,
+              "use_long_term": false,
+              "mem_every": 5
+            },
+            "d17-test-dev": {
+              "image_directory": "../DAVIS/2017/test-dev/JPEGImages/480p",
+              "mask_directory": "../DAVIS/2017/test-dev/Annotations/480p",
+              "subset": "../DAVIS/2017/test-dev/ImageSets/2017/test-dev.txt",
+              "size": 480,
+              "save_all": true,
+              "use_all_masks": false,
+              "use_long_term": false,
+              "mem_every": 5
+            },
+            "y18-val": {
+              "image_directory": "../YouTube2018/all_frames/valid_all_frames/JPEGImages",
+              "mask_directory": "../YouTube2018/valid/Annotations",
+              "json_directory": "../YouTube2018/valid/meta.json",
+              "size": 480,
+              "save_all": false,
+              "use_all_masks": true,
+              "use_long_term": false,
+              "mem_every": 5
+            },
+            "y19-val": {
+              "image_directory": "../YouTube/all_frames/valid_all_frames/JPEGImages",
+              "mask_directory": "../YouTube/valid/Annotations",
+              "json_directory": "../YouTube/valid/meta.json",
+              "size": 480,
+              "save_all": false,
+              "use_all_masks": true,
+              "use_long_term": false,
+              "mem_every": 5
+            },
+            "mose-val": {
+              "image_directory": "../MOSE/valid/JPEGImages",
+              "mask_directory": "../MOSE/valid/Annotations",
+              "size": 480,
+              "save_all": true,
+              "use_all_masks": false,
+              "use_long_term": false,
+              "mem_every": 5
+            },
+            "generic": {
+              "image_directory": null,
+              "mask_directory": null,
+              "size": -1,
+              "save_all": true,
+              "use_all_masks": false,
+              "use_long_term": true,
+              "mem_every": 5
+            },
+            "burst-val": {
+              "skip_frames": -1,
+              "image_directory": "../BURST/frames/val",
+              "json_directory": "../BURST/val/first_frame_annotations.json",
+              "size": 600,
+              "save_all": false,
+              "use_long_term": true,
+              "mem_every": 10
+            },
+            "burst-test": {
+              "skip_frames": -1,
+              "image_directory": "../BURST/frames/test",
+              "json_directory": "../BURST/test/first_frame_annotations.json",
+              "size": 600,
+              "save_all": false,
+              "use_long_term": true,
+              "mem_every": 10
+            },
+            "lvos-val": {
+              "image_directory": "../LVOS/valid/JPEGImages",
+              "mask_directory": "../LVOS/valid/Annotations_first_only",
+              "size": 480,
+              "save_all": false,
+              "use_all_masks": true,
+              "use_long_term": true,
+              "mem_every": 5
+            },
+            "lvos-test": {
+              "image_directory": "../LVOS/test/JPEGImages",
+              "mask_directory": "../LVOS/test/Annotations",
+              "size": 480,
+              "save_all": false,
+              "use_all_masks": true,
+              "use_long_term": true,
+              "mem_every": 5
+            }
+          },
+          "model": {
+            "pixel_mean": [
+              0.485,
+              0.456,
+              0.406
+            ],
+            "pixel_std": [
+              0.229,
+              0.224,
+              0.225
+            ],
+            "pixel_dim": 256,
+            "key_dim": 64,
+            "value_dim": 256,
+            "sensory_dim": 256,
+            "embed_dim": 256,
+            "pixel_encoder": {
+              "type": "resnet50",
+              "ms_dims": [
+                1024,
+                512,
+                256
+              ]
+            },
+            "mask_encoder": {
+              "type": "resnet18",
+              "final_dim": 256
+            },
+            "pixel_pe_scale": 32,
+            "pixel_pe_temperature": 128,
+            "object_transformer": {
+              "embed_dim": 256,
+              "ff_dim": 2048,
+              "num_heads": 8,
+              "num_blocks": 3,
+              "num_queries": 16,
+              "read_from_pixel": {
+                "input_norm": false,
+                "input_add_pe": false,
+                "add_pe_to_qkv": [
+                  true,
+                  true,
+                  false
+                ]
+              },
+              "read_from_past": {
+                "add_pe_to_qkv": [
+                  true,
+                  true,
+                  false
+                ]
+              },
+              "read_from_memory": {
+                "add_pe_to_qkv": [
+                  true,
+                  true,
+                  false
+                ]
+              },
+              "read_from_query": {
+                "add_pe_to_qkv": [
+                  true,
+                  true,
+                  false
+                ],
+                "output_norm": false
+              },
+              "query_self_attention": {
+                "add_pe_to_qkv": [
+                  true,
+                  true,
+                  false
+                ]
+              },
+              "pixel_self_attention": {
+                "add_pe_to_qkv": [
+                  true,
+                  true,
+                  false
+                ]
+              }
+            },
+            "object_summarizer": {
+              "embed_dim": 256,
+              "num_summaries": 16,
+              "add_pe": true
+            },
+            "aux_loss": {
+              "sensory": {
+                "enabled": true,
+                "weight": 0.01
+              },
+              "query": {
+                "enabled": true,
+                "weight": 0.01
+              }
+            },
+            "mask_decoder": {
+              "up_dims": [
+                256,
+                128,
+                128
+              ]
+            },
+            "resnet_model_path": "/home/nguyentnt/PDWAIA/ecus/hi/data/models/tracking/backbones"
+          }
+        },
+        "torch_version": "2.6.0+cu124"
+      },
+      "anchor_image_sha": "3c13c7a6003cac9b765f629b1c444a4f7eb28326a0678cfaf9cd844c01c251db"
+    },
+    "latest": {
+      "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-259",
+      "image_sha": "49021530c87d35084baaeace2e2a06eec9ce751a106f711dee900f02c6f73d28",
+      "captured_at": "2026-11-01T21:06:38.058107+00:00",
+      "capture_unix_ms": 1793567198058.107,
+      "persistence_started_unix_ms": 1793567198061.1511,
+      "width": 640,
+      "height": 480,
+      "provenance": {
+        "camera_id": "authored-render-camera",
+        "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+        "sequence": 259,
+        "calibration_id": "authored-render-intrinsics-v1",
+        "capture_time_basis": "host_render_completion_clock",
+        "cross_device_clock_synchronized": false,
+        "clock_uncertainty_s": 0,
+        "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+      },
+      "sequence": 27,
+      "generation": 1,
+      "mask_sha": "dc62f74ec8c626fdc7934f6febd8f1a13c6223c6716c4289022d2a248fc3704a",
+      "foreground_pixels": 7213,
+      "observation_state": "tracked_unverified",
+      "inference_started_unix_ms": 1793567202420.5613,
+      "inference_finished_unix_ms": 1793567202779.8613,
+      "step_s": 0.3513896120712161,
+      "mask_encoding": "binary_0_255_png_original_raster",
+      "identity": "unverified",
+      "source": "actual_original_cutie_inference",
+      "xyxy": [
+        110,
+        157,
+        211,
+        243
+      ],
+      "published_unix_ms": 1793567202780.9575,
+      "display_age_s": 28.283315181732178,
+      "stale": true
+    },
+    "observations": [
+      {
+        "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-231",
+        "image_sha": "3c13c7a6003cac9b765f629b1c444a4f7eb28326a0678cfaf9cd844c01c251db",
+        "captured_at": "2026-11-01T21:06:30.850691+00:00",
+        "capture_unix_ms": 1793567190850.6912,
+        "persistence_started_unix_ms": 1793567191129.532,
+        "width": 640,
+        "height": 480,
+        "provenance": {
+          "camera_id": "authored-render-camera",
+          "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+          "sequence": 231,
+          "calibration_id": "authored-render-intrinsics-v1",
+          "capture_time_basis": "host_render_completion_clock",
+          "cross_device_clock_synchronized": false,
+          "clock_uncertainty_s": 0,
+          "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+        },
+        "sequence": 0,
+        "generation": 1,
+        "mask_sha": "eb2d9f893744f17f85387e5abb95a50d6a074cff55fefde5fe5e98e408db73ae",
+        "foreground_pixels": 7055,
+        "observation_state": "tracked_unverified",
+        "inference_started_unix_ms": 1793567192408.941,
+        "inference_finished_unix_ms": 1793567192606.7646,
+        "step_s": 0.18757255095988512,
+        "mask_encoding": "binary_0_255_png_original_raster",
+        "identity": "unverified",
+        "source": "actual_original_cutie_inference",
+        "xyxy": [
+          144,
+          158,
+          239,
+          243
+        ],
+        "published_unix_ms": 1793567192607.8347
+      },
+      {
+        "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-233",
+        "image_sha": "8a0da9f168ddc0349312bf174bc7e3ff02c6784accbbccb1fc89d70ce5c6ccda",
+        "captured_at": "2026-11-01T21:06:31.357280+00:00",
+        "capture_unix_ms": 1793567191357.28,
+        "persistence_started_unix_ms": 1793567191360.5632,
+        "width": 640,
+        "height": 480,
+        "provenance": {
+          "camera_id": "authored-render-camera",
+          "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+          "sequence": 233,
+          "calibration_id": "authored-render-intrinsics-v1",
+          "capture_time_basis": "host_render_completion_clock",
+          "cross_device_clock_synchronized": false,
+          "clock_uncertainty_s": 0,
+          "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+        },
+        "sequence": 1,
+        "generation": 1,
+        "mask_sha": "031005d7afd2048071d4d3422ee0f41a5d9ad5cf1c224a6df7490afdc5464b9d",
+        "foreground_pixels": 7075,
+        "observation_state": "tracked_unverified",
+        "inference_started_unix_ms": 1793567192651.9812,
+        "inference_finished_unix_ms": 1793567192917.1738,
+        "step_s": 0.2573168370872736,
+        "mask_encoding": "binary_0_255_png_original_raster",
+        "identity": "unverified",
+        "source": "actual_original_cutie_inference",
+        "xyxy": [
+          143,
+          157,
+          238,
+          243
+        ],
+        "published_unix_ms": 1793567192918.256
+      },
+      {
+        "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-234",
+        "image_sha": "0fbcdd9791bff7af13efb0efcaada2357460ad2ec90f96dd65319d82efb8471c",
+        "captured_at": "2026-11-01T21:06:31.607480+00:00",
+        "capture_unix_ms": 1793567191607.48,
+        "persistence_started_unix_ms": 1793567191610.6936,
+        "width": 640,
+        "height": 480,
+        "provenance": {
+          "camera_id": "authored-render-camera",
+          "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+          "sequence": 234,
+          "calibration_id": "authored-render-intrinsics-v1",
+          "capture_time_basis": "host_render_completion_clock",
+          "cross_device_clock_synchronized": false,
+          "clock_uncertainty_s": 0,
+          "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+        },
+        "sequence": 2,
+        "generation": 1,
+        "mask_sha": "9fbfb8e7926b6b4ea339e8067b31d53b62ef710cc5500d099628f25c5e3f8ccd",
+        "foreground_pixels": 7085,
+        "observation_state": "tracked_unverified",
+        "inference_started_unix_ms": 1793567192962.3184,
+        "inference_finished_unix_ms": 1793567193244.9963,
+        "step_s": 0.2749223606660962,
+        "mask_encoding": "binary_0_255_png_original_raster",
+        "identity": "unverified",
+        "source": "actual_original_cutie_inference",
+        "xyxy": [
+          142,
+          157,
+          237,
+          243
+        ],
+        "published_unix_ms": 1793567193245.9612
+      },
+      {
+        "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-235",
+        "image_sha": "969a4e9926267b712d87847cb596cb4dfdb9137fbcb57ce53fc3418b2b24c505",
+        "captured_at": "2026-11-01T21:06:31.858397+00:00",
+        "capture_unix_ms": 1793567191858.397,
+        "persistence_started_unix_ms": 1793567191861.4038,
+        "width": 640,
+        "height": 480,
+        "provenance": {
+          "camera_id": "authored-render-camera",
+          "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+          "sequence": 235,
+          "calibration_id": "authored-render-intrinsics-v1",
+          "capture_time_basis": "host_render_completion_clock",
+          "cross_device_clock_synchronized": false,
+          "clock_uncertainty_s": 0,
+          "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+        },
+        "sequence": 3,
+        "generation": 1,
+        "mask_sha": "a1d2dc196aa3fe3c2dab145c57d3f2bc85aa57b21788f244078df4016e73aca9",
+        "foreground_pixels": 7192,
+        "observation_state": "tracked_unverified",
+        "inference_started_unix_ms": 1793567193289.6475,
+        "inference_finished_unix_ms": 1793567193546.9792,
+        "step_s": 0.2495406437665224,
+        "mask_encoding": "binary_0_255_png_original_raster",
+        "identity": "unverified",
+        "source": "actual_original_cutie_inference",
+        "xyxy": [
+          141,
+          157,
+          236,
+          243
+        ],
+        "published_unix_ms": 1793567193547.9492
+      },
+      {
+        "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-236",
+        "image_sha": "bc24bc88fcd507fe69383c0fe51e60e049d2bc5be96a4ee79852d25401777bb5",
+        "captured_at": "2026-11-01T21:06:32.104692+00:00",
+        "capture_unix_ms": 1793567192104.692,
+        "persistence_started_unix_ms": 1793567192107.289,
+        "width": 640,
+        "height": 480,
+        "provenance": {
+          "camera_id": "authored-render-camera",
+          "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+          "sequence": 236,
+          "calibration_id": "authored-render-intrinsics-v1",
+          "capture_time_basis": "host_render_completion_clock",
+          "cross_device_clock_synchronized": false,
+          "clock_uncertainty_s": 0,
+          "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+        },
+        "sequence": 4,
+        "generation": 1,
+        "mask_sha": "f68fb199fb130b2312351921ad6df0789b6afc0bdf89c927044f91af47a6dae6",
+        "foreground_pixels": 7189,
+        "observation_state": "tracked_unverified",
+        "inference_started_unix_ms": 1793567193592.1196,
+        "inference_finished_unix_ms": 1793567193837.6616,
+        "step_s": 0.23744668625295162,
+        "mask_encoding": "binary_0_255_png_original_raster",
+        "identity": "unverified",
+        "source": "actual_original_cutie_inference",
+        "xyxy": [
+          140,
+          157,
+          235,
+          243
+        ],
+        "published_unix_ms": 1793567193839.0513
+      },
+      {
+        "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-237",
+        "image_sha": "1811774cea3d9216521a6674debeab4aa33e52cc1d2c5a992454c7d290bc2840",
+        "captured_at": "2026-11-01T21:06:32.351167+00:00",
+        "capture_unix_ms": 1793567192351.167,
+        "persistence_started_unix_ms": 1793567192354.356,
+        "width": 640,
+        "height": 480,
+        "provenance": {
+          "camera_id": "authored-render-camera",
+          "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+          "sequence": 237,
+          "calibration_id": "authored-render-intrinsics-v1",
+          "capture_time_basis": "host_render_completion_clock",
+          "cross_device_clock_synchronized": false,
+          "clock_uncertainty_s": 0,
+          "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+        },
+        "sequence": 5,
+        "generation": 1,
+        "mask_sha": "6a900eac715f0de43e6daf2986ee83a2757544c9d092ba5ea2d72664d30531bd",
+        "foreground_pixels": 7187,
+        "observation_state": "tracked_unverified",
+        "inference_started_unix_ms": 1793567193882.7476,
+        "inference_finished_unix_ms": 1793567194202.0574,
+        "step_s": 0.3115641800686717,
+        "mask_encoding": "binary_0_255_png_original_raster",
+        "identity": "unverified",
+        "source": "actual_original_cutie_inference",
+        "xyxy": [
+          139,
+          157,
+          235,
+          243
+        ],
+        "published_unix_ms": 1793567194203.062
+      },
+      {
+        "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-238",
+        "image_sha": "dc9fa4cbe15ce3c5ea34b92360190c7d39b6f9cffda25e6d2b5b0b1cc6bfc976",
+        "captured_at": "2026-11-01T21:06:32.608605+00:00",
+        "capture_unix_ms": 1793567192608.605,
+        "persistence_started_unix_ms": 1793567192611.983,
+        "width": 640,
+        "height": 480,
+        "provenance": {
+          "camera_id": "authored-render-camera",
+          "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+          "sequence": 238,
+          "calibration_id": "authored-render-intrinsics-v1",
+          "capture_time_basis": "host_render_completion_clock",
+          "cross_device_clock_synchronized": false,
+          "clock_uncertainty_s": 0,
+          "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+        },
+        "sequence": 6,
+        "generation": 1,
+        "mask_sha": "7d870642b88984a6437a467b7342e9978f3aa9b3a8a02dc376b35510ef082eb4",
+        "foreground_pixels": 7138,
+        "observation_state": "tracked_unverified",
+        "inference_started_unix_ms": 1793567194251.854,
+        "inference_finished_unix_ms": 1793567194492.9016,
+        "step_s": 0.23322697449475527,
+        "mask_encoding": "binary_0_255_png_original_raster",
+        "identity": "unverified",
+        "source": "actual_original_cutie_inference",
+        "xyxy": [
+          138,
+          157,
+          235,
+          243
+        ],
+        "published_unix_ms": 1793567194493.8567
+      },
+      {
+        "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-239",
+        "image_sha": "e19d967f90a63408bdc19b1597cf11dea8aef76fdaff5dd65744c5bc7d9f84d1",
+        "captured_at": "2026-11-01T21:06:32.862339+00:00",
+        "capture_unix_ms": 1793567192862.339,
+        "persistence_started_unix_ms": 1793567192866.048,
+        "width": 640,
+        "height": 480,
+        "provenance": {
+          "camera_id": "authored-render-camera",
+          "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+          "sequence": 239,
+          "calibration_id": "authored-render-intrinsics-v1",
+          "capture_time_basis": "host_render_completion_clock",
+          "cross_device_clock_synchronized": false,
+          "clock_uncertainty_s": 0,
+          "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+        },
+        "sequence": 7,
+        "generation": 1,
+        "mask_sha": "47a289262ce8720742dd32417c86aa179db04755560dfb88c6712c988f9905af",
+        "foreground_pixels": 7169,
+        "observation_state": "tracked_unverified",
+        "inference_started_unix_ms": 1793567194538.2573,
+        "inference_finished_unix_ms": 1793567194822.0986,
+        "step_s": 0.27609342616051435,
+        "mask_encoding": "binary_0_255_png_original_raster",
+        "identity": "unverified",
+        "source": "actual_original_cutie_inference",
+        "xyxy": [
+          137,
+          157,
+          233,
+          243
+        ],
+        "published_unix_ms": 1793567194823.1465
+      },
+      {
+        "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-240",
+        "image_sha": "c917e27befca69706e42e5249769c4a965f18e249135c059eb30750e6421d95c",
+        "captured_at": "2026-11-01T21:06:33.114419+00:00",
+        "capture_unix_ms": 1793567193114.419,
+        "persistence_started_unix_ms": 1793567193117.7568,
+        "width": 640,
+        "height": 480,
+        "provenance": {
+          "camera_id": "authored-render-camera",
+          "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+          "sequence": 240,
+          "calibration_id": "authored-render-intrinsics-v1",
+          "capture_time_basis": "host_render_completion_clock",
+          "cross_device_clock_synchronized": false,
+          "clock_uncertainty_s": 0,
+          "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+        },
+        "sequence": 8,
+        "generation": 1,
+        "mask_sha": "14f248d4942596be3846f91eed637840c1c786703f16a5994e422abb39502880",
+        "foreground_pixels": 7022,
+        "observation_state": "tracked_unverified",
+        "inference_started_unix_ms": 1793567194868.1277,
+        "inference_finished_unix_ms": 1793567195127.3335,
+        "step_s": 0.2506490172818303,
+        "mask_encoding": "binary_0_255_png_original_raster",
+        "identity": "unverified",
+        "source": "actual_original_cutie_inference",
+        "xyxy": [
+          135,
+          157,
+          232,
+          243
+        ],
+        "published_unix_ms": 1793567195128.3823
+      },
+      {
+        "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-241",
+        "image_sha": "202a4d967c614854df383d6959ed366a99f091c11af5b769a2c63b9da13d12d8",
+        "captured_at": "2026-11-01T21:06:33.363230+00:00",
+        "capture_unix_ms": 1793567193363.23,
+        "persistence_started_unix_ms": 1793567193366.6182,
+        "width": 640,
+        "height": 480,
+        "provenance": {
+          "camera_id": "authored-render-camera",
+          "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+          "sequence": 241,
+          "calibration_id": "authored-render-intrinsics-v1",
+          "capture_time_basis": "host_render_completion_clock",
+          "cross_device_clock_synchronized": false,
+          "clock_uncertainty_s": 0,
+          "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+        },
+        "sequence": 9,
+        "generation": 1,
+        "mask_sha": "2fcf35760f8f477beb3ac08f1f8e7488c429269b80fed53615f8fa1037228b63",
+        "foreground_pixels": 7036,
+        "observation_state": "tracked_unverified",
+        "inference_started_unix_ms": 1793567195176.4636,
+        "inference_finished_unix_ms": 1793567195422.8271,
+        "step_s": 0.23802925925701857,
+        "mask_encoding": "binary_0_255_png_original_raster",
+        "identity": "unverified",
+        "source": "actual_original_cutie_inference",
+        "xyxy": [
+          135,
+          157,
+          231,
+          243
+        ],
+        "published_unix_ms": 1793567195423.9346
+      },
+      {
+        "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-242",
+        "image_sha": "4ec8822e851625698cb6eecc9d8149afdfbb901901db39de81c4ff99a1bfcb75",
+        "captured_at": "2026-11-01T21:06:33.616531+00:00",
+        "capture_unix_ms": 1793567193616.531,
+        "persistence_started_unix_ms": 1793567193619.9587,
+        "width": 640,
+        "height": 480,
+        "provenance": {
+          "camera_id": "authored-render-camera",
+          "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+          "sequence": 242,
+          "calibration_id": "authored-render-intrinsics-v1",
+          "capture_time_basis": "host_render_completion_clock",
+          "cross_device_clock_synchronized": false,
+          "clock_uncertainty_s": 0,
+          "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+        },
+        "sequence": 10,
+        "generation": 1,
+        "mask_sha": "d3c59e317f623820151ba27b2ea85f731dd7b49dce9101bb6d8f2e20ddb472e1",
+        "foreground_pixels": 7071,
+        "observation_state": "tracked_unverified",
+        "inference_started_unix_ms": 1793567195467.5505,
+        "inference_finished_unix_ms": 1793567195846.1514,
+        "step_s": 0.36928329430520535,
+        "mask_encoding": "binary_0_255_png_original_raster",
+        "identity": "unverified",
+        "source": "actual_original_cutie_inference",
+        "xyxy": [
+          133,
+          157,
+          230,
+          243
+        ],
+        "published_unix_ms": 1793567195847.2485
+      },
+      {
+        "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-243",
+        "image_sha": "a2c18eada6da21fc525a455f3a242bb664ead060993236415cc6ba9486683d2c",
+        "captured_at": "2026-11-01T21:06:33.872582+00:00",
+        "capture_unix_ms": 1793567193872.582,
+        "persistence_started_unix_ms": 1793567193875.345,
+        "width": 640,
+        "height": 480,
+        "provenance": {
+          "camera_id": "authored-render-camera",
+          "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+          "sequence": 243,
+          "calibration_id": "authored-render-intrinsics-v1",
+          "capture_time_basis": "host_render_completion_clock",
+          "cross_device_clock_synchronized": false,
+          "clock_uncertainty_s": 0,
+          "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+        },
+        "sequence": 11,
+        "generation": 1,
+        "mask_sha": "f177273635d6753325e094063ad11974810784ddf8da18cee158980c386e0a98",
+        "foreground_pixels": 7186,
+        "observation_state": "tracked_unverified",
+        "inference_started_unix_ms": 1793567195893.3752,
+        "inference_finished_unix_ms": 1793567196282.0332,
+        "step_s": 0.3796733757480979,
+        "mask_encoding": "binary_0_255_png_original_raster",
+        "identity": "unverified",
+        "source": "actual_original_cutie_inference",
+        "xyxy": [
+          132,
+          157,
+          229,
+          243
+        ],
+        "published_unix_ms": 1793567196283.154
+      },
+      {
+        "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-244",
+        "image_sha": "5aa3405b61a27ee6fae14b48b351aa3a4d4bdd58e90ea66a9a01f51e56f9bb5a",
+        "captured_at": "2026-11-01T21:06:34.124539+00:00",
+        "capture_unix_ms": 1793567194124.5388,
+        "persistence_started_unix_ms": 1793567194126.7268,
+        "width": 640,
+        "height": 480,
+        "provenance": {
+          "camera_id": "authored-render-camera",
+          "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+          "sequence": 244,
+          "calibration_id": "authored-render-intrinsics-v1",
+          "capture_time_basis": "host_render_completion_clock",
+          "cross_device_clock_synchronized": false,
+          "clock_uncertainty_s": 0,
+          "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+        },
+        "sequence": 12,
+        "generation": 1,
+        "mask_sha": "e6edf641033537eaf459ab2f2d7536b16199786bdeeac591576881c715d40a84",
+        "foreground_pixels": 7067,
+        "observation_state": "tracked_unverified",
+        "inference_started_unix_ms": 1793567196328.317,
+        "inference_finished_unix_ms": 1793567196753.5505,
+        "step_s": 0.41512975934892893,
+        "mask_encoding": "binary_0_255_png_original_raster",
+        "identity": "unverified",
+        "source": "actual_original_cutie_inference",
+        "xyxy": [
+          131,
+          157,
+          227,
+          243
+        ],
+        "published_unix_ms": 1793567196754.6357
+      },
+      {
+        "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-245",
+        "image_sha": "044da7ab6fe36d7cd564eb48124eb0f8f7b336a8d74eb1ac0ceef7d140f6a813",
+        "captured_at": "2026-11-01T21:06:34.392451+00:00",
+        "capture_unix_ms": 1793567194392.451,
+        "persistence_started_unix_ms": 1793567194395.8506,
+        "width": 640,
+        "height": 480,
+        "provenance": {
+          "camera_id": "authored-render-camera",
+          "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+          "sequence": 245,
+          "calibration_id": "authored-render-intrinsics-v1",
+          "capture_time_basis": "host_render_completion_clock",
+          "cross_device_clock_synchronized": false,
+          "clock_uncertainty_s": 0,
+          "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+        },
+        "sequence": 13,
+        "generation": 1,
+        "mask_sha": "fc30af5d8cee2463f0618f1b86f59a9c21872f73378a7e7779f038ec4d229a0c",
+        "foreground_pixels": 7026,
+        "observation_state": "tracked_unverified",
+        "inference_started_unix_ms": 1793567196805.3347,
+        "inference_finished_unix_ms": 1793567197196.9888,
+        "step_s": 0.3829182032495737,
+        "mask_encoding": "binary_0_255_png_original_raster",
+        "identity": "unverified",
+        "source": "actual_original_cutie_inference",
+        "xyxy": [
+          130,
+          157,
+          226,
+          243
+        ],
+        "published_unix_ms": 1793567197198.1123
+      },
+      {
+        "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-246",
+        "image_sha": "b6a8c1e4ad34769ec1546833c5d1c4f363ae803847ec1e51b44c16a083af6f2f",
+        "captured_at": "2026-11-01T21:06:34.654732+00:00",
+        "capture_unix_ms": 1793567194654.732,
+        "persistence_started_unix_ms": 1793567194657.2637,
+        "width": 640,
+        "height": 480,
+        "provenance": {
+          "camera_id": "authored-render-camera",
+          "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+          "sequence": 246,
+          "calibration_id": "authored-render-intrinsics-v1",
+          "capture_time_basis": "host_render_completion_clock",
+          "cross_device_clock_synchronized": false,
+          "clock_uncertainty_s": 0,
+          "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+        },
+        "sequence": 14,
+        "generation": 1,
+        "mask_sha": "85eb60760be1ebfe9976b2db6742a67eb715c2a79d729231e07583692d6fef4b",
+        "foreground_pixels": 7148,
+        "observation_state": "tracked_unverified",
+        "inference_started_unix_ms": 1793567197245.3274,
+        "inference_finished_unix_ms": 1793567197565.2522,
+        "step_s": 0.31154940742999315,
+        "mask_encoding": "binary_0_255_png_original_raster",
+        "identity": "unverified",
+        "source": "actual_original_cutie_inference",
+        "xyxy": [
+          128,
+          157,
+          225,
+          243
+        ],
+        "published_unix_ms": 1793567197566.2515
+      },
+      {
+        "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-247",
+        "image_sha": "ca732aa36198b219901597144a5523b714976b4c079246b824ebe5afefb3e163",
+        "captured_at": "2026-11-01T21:06:34.916763+00:00",
+        "capture_unix_ms": 1793567194916.7632,
+        "persistence_started_unix_ms": 1793567194919.964,
+        "width": 640,
+        "height": 480,
+        "provenance": {
+          "camera_id": "authored-render-camera",
+          "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+          "sequence": 247,
+          "calibration_id": "authored-render-intrinsics-v1",
+          "capture_time_basis": "host_render_completion_clock",
+          "cross_device_clock_synchronized": false,
+          "clock_uncertainty_s": 0,
+          "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+        },
+        "sequence": 15,
+        "generation": 1,
+        "mask_sha": "41f6fd283113498898241bd59b36abbc80bf3a9bc18ab66abaf910c4562a7cbd",
+        "foreground_pixels": 7109,
+        "observation_state": "tracked_unverified",
+        "inference_started_unix_ms": 1793567197611.9893,
+        "inference_finished_unix_ms": 1793567198050.334,
+        "step_s": 0.4277333626523614,
+        "mask_encoding": "binary_0_255_png_original_raster",
+        "identity": "unverified",
+        "source": "actual_original_cutie_inference",
+        "xyxy": [
+          127,
+          157,
+          224,
+          243
+        ],
+        "published_unix_ms": 1793567198051.707
+      },
+      {
+        "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-248",
+        "image_sha": "e43324dc8f1dd38acea566ae67cc4980aae2ff8a4f36dfa8c64f738474b68da2",
+        "captured_at": "2026-11-01T21:06:35.165646+00:00",
+        "capture_unix_ms": 1793567195165.646,
+        "persistence_started_unix_ms": 1793567195169.1465,
+        "width": 640,
+        "height": 480,
+        "provenance": {
+          "camera_id": "authored-render-camera",
+          "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+          "sequence": 248,
+          "calibration_id": "authored-render-intrinsics-v1",
+          "capture_time_basis": "host_render_completion_clock",
+          "cross_device_clock_synchronized": false,
+          "clock_uncertainty_s": 0,
+          "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+        },
+        "sequence": 16,
+        "generation": 1,
+        "mask_sha": "311c2590869012acdc66bffd0bae8ac3cabb2a19389af2d6fb465eff8a6c2b38",
+        "foreground_pixels": 7251,
+        "observation_state": "tracked_unverified",
+        "inference_started_unix_ms": 1793567198095.6587,
+        "inference_finished_unix_ms": 1793567198445.5322,
+        "step_s": 0.3407663004472852,
+        "mask_encoding": "binary_0_255_png_original_raster",
+        "identity": "unverified",
+        "source": "actual_original_cutie_inference",
+        "xyxy": [
+          125,
+          157,
+          223,
+          243
+        ],
+        "published_unix_ms": 1793567198446.6597
+      },
+      {
+        "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-249",
+        "image_sha": "854426dd82fec0bd71fb73aa9c402305b966cfdd038d0511025f6963b428044b",
+        "captured_at": "2026-11-01T21:06:35.417923+00:00",
+        "capture_unix_ms": 1793567195417.9229,
+        "persistence_started_unix_ms": 1793567195421.0383,
+        "width": 640,
+        "height": 480,
+        "provenance": {
+          "camera_id": "authored-render-camera",
+          "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+          "sequence": 249,
+          "calibration_id": "authored-render-intrinsics-v1",
+          "capture_time_basis": "host_render_completion_clock",
+          "cross_device_clock_synchronized": false,
+          "clock_uncertainty_s": 0,
+          "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+        },
+        "sequence": 17,
+        "generation": 1,
+        "mask_sha": "a3166cb66c9cc71caa32f7288bb919453456afdf10ab337217165a98aabca483",
+        "foreground_pixels": 7199,
+        "observation_state": "tracked_unverified",
+        "inference_started_unix_ms": 1793567198491.587,
+        "inference_finished_unix_ms": 1793567198933.582,
+        "step_s": 0.4330865368247032,
+        "mask_encoding": "binary_0_255_png_original_raster",
+        "identity": "unverified",
+        "source": "actual_original_cutie_inference",
+        "xyxy": [
+          124,
+          157,
+          222,
+          243
+        ],
+        "published_unix_ms": 1793567198934.6755
+      },
+      {
+        "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-250",
+        "image_sha": "e5eb1f1f7bce532de1b4052e38a76c5a742ac30b8aa0e5f829ee17a781321d9d",
+        "captured_at": "2026-11-01T21:06:35.683889+00:00",
+        "capture_unix_ms": 1793567195683.889,
+        "persistence_started_unix_ms": 1793567195687.4382,
+        "width": 640,
+        "height": 480,
+        "provenance": {
+          "camera_id": "authored-render-camera",
+          "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+          "sequence": 250,
+          "calibration_id": "authored-render-intrinsics-v1",
+          "capture_time_basis": "host_render_completion_clock",
+          "cross_device_clock_synchronized": false,
+          "clock_uncertainty_s": 0,
+          "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+        },
+        "sequence": 18,
+        "generation": 1,
+        "mask_sha": "2a7eb5b84a7c3773644973271878823821341006347599f038a7ba7aaa340d57",
+        "foreground_pixels": 7177,
+        "observation_state": "tracked_unverified",
+        "inference_started_unix_ms": 1793567198980.0874,
+        "inference_finished_unix_ms": 1793567199358.8057,
+        "step_s": 0.36967774853110313,
+        "mask_encoding": "binary_0_255_png_original_raster",
+        "identity": "unverified",
+        "source": "actual_original_cutie_inference",
+        "xyxy": [
+          123,
+          157,
+          221,
+          243
+        ],
+        "published_unix_ms": 1793567199359.8813
+      },
+      {
+        "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-251",
+        "image_sha": "797fb67403e0db8978fee0b969555a00f6d73a66b1ae3aa2bb87bde86545f781",
+        "captured_at": "2026-11-01T21:06:35.944798+00:00",
+        "capture_unix_ms": 1793567195944.798,
+        "persistence_started_unix_ms": 1793567195948.5754,
+        "width": 640,
+        "height": 480,
+        "provenance": {
+          "camera_id": "authored-render-camera",
+          "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+          "sequence": 251,
+          "calibration_id": "authored-render-intrinsics-v1",
+          "capture_time_basis": "host_render_completion_clock",
+          "cross_device_clock_synchronized": false,
+          "clock_uncertainty_s": 0,
+          "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+        },
+        "sequence": 19,
+        "generation": 1,
+        "mask_sha": "c1cdc9e3544bfcd688640124cf56fe222a729ce38c8c1ee6256fafa329e6ecee",
+        "foreground_pixels": 7297,
+        "observation_state": "tracked_unverified",
+        "inference_started_unix_ms": 1793567199405.5725,
+        "inference_finished_unix_ms": 1793567199767.693,
+        "step_s": 0.35351631604135036,
+        "mask_encoding": "binary_0_255_png_original_raster",
+        "identity": "unverified",
+        "source": "actual_original_cutie_inference",
+        "xyxy": [
+          121,
+          157,
+          220,
+          243
+        ],
+        "published_unix_ms": 1793567199768.7964
+      },
+      {
+        "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-252",
+        "image_sha": "b4aa770381a26c10c2e53176af66b6590fc8cbafe2f8ea196be7589c5f20d7f8",
+        "captured_at": "2026-11-01T21:06:36.208031+00:00",
+        "capture_unix_ms": 1793567196208.031,
+        "persistence_started_unix_ms": 1793567196212.7942,
+        "width": 640,
+        "height": 480,
+        "provenance": {
+          "camera_id": "authored-render-camera",
+          "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+          "sequence": 252,
+          "calibration_id": "authored-render-intrinsics-v1",
+          "capture_time_basis": "host_render_completion_clock",
+          "cross_device_clock_synchronized": false,
+          "clock_uncertainty_s": 0,
+          "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+        },
+        "sequence": 20,
+        "generation": 1,
+        "mask_sha": "fb23aed813423046e6ff53964fcb7612270f8d788703f117ba4c24ef3aa6a214",
+        "foreground_pixels": 7126,
+        "observation_state": "tracked_unverified",
+        "inference_started_unix_ms": 1793567199813.0247,
+        "inference_finished_unix_ms": 1793567200182.5403,
+        "step_s": 0.36135347187519073,
+        "mask_encoding": "binary_0_255_png_original_raster",
+        "identity": "unverified",
+        "source": "actual_original_cutie_inference",
+        "xyxy": [
+          119,
+          157,
+          219,
+          243
+        ],
+        "published_unix_ms": 1793567200183.5146
+      },
+      {
+        "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-253",
+        "image_sha": "f5fbb14388373748bf48b8dac57684e224f59d919cdcfe44f1a3152684b823f0",
+        "captured_at": "2026-11-01T21:06:36.472164+00:00",
+        "capture_unix_ms": 1793567196472.1638,
+        "persistence_started_unix_ms": 1793567196475.656,
+        "width": 640,
+        "height": 480,
+        "provenance": {
+          "camera_id": "authored-render-camera",
+          "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+          "sequence": 253,
+          "calibration_id": "authored-render-intrinsics-v1",
+          "capture_time_basis": "host_render_completion_clock",
+          "cross_device_clock_synchronized": false,
+          "clock_uncertainty_s": 0,
+          "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+        },
+        "sequence": 21,
+        "generation": 1,
+        "mask_sha": "437b6a537666ca4280c183e12f51cfefad768afd440377197dd46b3267511496",
+        "foreground_pixels": 7083,
+        "observation_state": "tracked_unverified",
+        "inference_started_unix_ms": 1793567200227.922,
+        "inference_finished_unix_ms": 1793567200504.8198,
+        "step_s": 0.2691271947696805,
+        "mask_encoding": "binary_0_255_png_original_raster",
+        "identity": "unverified",
+        "source": "actual_original_cutie_inference",
+        "xyxy": [
+          119,
+          157,
+          217,
+          243
+        ],
+        "published_unix_ms": 1793567200505.8535
+      },
+      {
+        "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-254",
+        "image_sha": "49c87f810776bb43f8cce81da19def8aa0abc1a7a1548ac19767195f7c574b4a",
+        "captured_at": "2026-11-01T21:06:36.751164+00:00",
+        "capture_unix_ms": 1793567196751.164,
+        "persistence_started_unix_ms": 1793567196753.9333,
+        "width": 640,
+        "height": 480,
+        "provenance": {
+          "camera_id": "authored-render-camera",
+          "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+          "sequence": 254,
+          "calibration_id": "authored-render-intrinsics-v1",
+          "capture_time_basis": "host_render_completion_clock",
+          "cross_device_clock_synchronized": false,
+          "clock_uncertainty_s": 0,
+          "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+        },
+        "sequence": 22,
+        "generation": 1,
+        "mask_sha": "21069bc55ee0d7c63a7408e7ed4c2cb0798f267a102286fe240f6eee055799ee",
+        "foreground_pixels": 7198,
+        "observation_state": "tracked_unverified",
+        "inference_started_unix_ms": 1793567200550.156,
+        "inference_finished_unix_ms": 1793567200873.1875,
+        "step_s": 0.31474435050040483,
+        "mask_encoding": "binary_0_255_png_original_raster",
+        "identity": "unverified",
+        "source": "actual_original_cutie_inference",
+        "xyxy": [
+          117,
+          157,
+          216,
+          243
+        ],
+        "published_unix_ms": 1793567200874.5393
+      },
+      {
+        "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-255",
+        "image_sha": "87288ba7166968176405ce696904585d80e44cd1351fe491685cc7b81273e47e",
+        "captured_at": "2026-11-01T21:06:37.012424+00:00",
+        "capture_unix_ms": 1793567197012.424,
+        "persistence_started_unix_ms": 1793567197015.4233,
+        "width": 640,
+        "height": 480,
+        "provenance": {
+          "camera_id": "authored-render-camera",
+          "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+          "sequence": 255,
+          "calibration_id": "authored-render-intrinsics-v1",
+          "capture_time_basis": "host_render_completion_clock",
+          "cross_device_clock_synchronized": false,
+          "clock_uncertainty_s": 0,
+          "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+        },
+        "sequence": 23,
+        "generation": 1,
+        "mask_sha": "36a1995d55ce33ae1950da7688ba55e2111263a43b1914a39f6353fd95bcf073",
+        "foreground_pixels": 7222,
+        "observation_state": "tracked_unverified",
+        "inference_started_unix_ms": 1793567200918.4937,
+        "inference_finished_unix_ms": 1793567201222.5479,
+        "step_s": 0.29620644450187683,
+        "mask_encoding": "binary_0_255_png_original_raster",
+        "identity": "unverified",
+        "source": "actual_original_cutie_inference",
+        "xyxy": [
+          116,
+          157,
+          215,
+          243
+        ],
+        "published_unix_ms": 1793567201223.5857
+      },
+      {
+        "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-256",
+        "image_sha": "2470fcea6ca4a60088f5206b55130935c05ca6c4d0c2a2b80eb579ae56014256",
+        "captured_at": "2026-11-01T21:06:37.273253+00:00",
+        "capture_unix_ms": 1793567197273.253,
+        "persistence_started_unix_ms": 1793567197276.6787,
+        "width": 640,
+        "height": 480,
+        "provenance": {
+          "camera_id": "authored-render-camera",
+          "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+          "sequence": 256,
+          "calibration_id": "authored-render-intrinsics-v1",
+          "capture_time_basis": "host_render_completion_clock",
+          "cross_device_clock_synchronized": false,
+          "clock_uncertainty_s": 0,
+          "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+        },
+        "sequence": 24,
+        "generation": 1,
+        "mask_sha": "b8d65ae6aceecf2f81cd43c3f24116d6b2ae2d8e16c268edb8bd3164c8f2cdbf",
+        "foreground_pixels": 7185,
+        "observation_state": "tracked_unverified",
+        "inference_started_unix_ms": 1793567201267.5818,
+        "inference_finished_unix_ms": 1793567201557.645,
+        "step_s": 0.28235168009996414,
+        "mask_encoding": "binary_0_255_png_original_raster",
+        "identity": "unverified",
+        "source": "actual_original_cutie_inference",
+        "xyxy": [
+          115,
+          157,
+          215,
+          243
+        ],
+        "published_unix_ms": 1793567201558.6633
+      },
+      {
+        "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-257",
+        "image_sha": "b176470b8a9378406a265f99adcbcee874c2fc8846b6740433fbddb3f5e2cde8",
+        "captured_at": "2026-11-01T21:06:37.533052+00:00",
+        "capture_unix_ms": 1793567197533.052,
+        "persistence_started_unix_ms": 1793567197535.8176,
+        "width": 640,
+        "height": 480,
+        "provenance": {
+          "camera_id": "authored-render-camera",
+          "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+          "sequence": 257,
+          "calibration_id": "authored-render-intrinsics-v1",
+          "capture_time_basis": "host_render_completion_clock",
+          "cross_device_clock_synchronized": false,
+          "clock_uncertainty_s": 0,
+          "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+        },
+        "sequence": 25,
+        "generation": 1,
+        "mask_sha": "df95c42b5c08560f76105b9a5ed9598fad00de54695eaf647eaf6e98870f2545",
+        "foreground_pixels": 7235,
+        "observation_state": "tracked_unverified",
+        "inference_started_unix_ms": 1793567201601.6638,
+        "inference_finished_unix_ms": 1793567202030.6577,
+        "step_s": 0.4210901837795973,
+        "mask_encoding": "binary_0_255_png_original_raster",
+        "identity": "unverified",
+        "source": "actual_original_cutie_inference",
+        "xyxy": [
+          113,
+          157,
+          213,
+          243
+        ],
+        "published_unix_ms": 1793567202031.7058
+      },
+      {
+        "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-258",
+        "image_sha": "e7eb1398f6c118b4c79f050a3b8f3a14bcf9d0028986e78fd0aab966b248a2d8",
+        "captured_at": "2026-11-01T21:06:37.809415+00:00",
+        "capture_unix_ms": 1793567197809.415,
+        "persistence_started_unix_ms": 1793567197812.3425,
+        "width": 640,
+        "height": 480,
+        "provenance": {
+          "camera_id": "authored-render-camera",
+          "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+          "sequence": 258,
+          "calibration_id": "authored-render-intrinsics-v1",
+          "capture_time_basis": "host_render_completion_clock",
+          "cross_device_clock_synchronized": false,
+          "clock_uncertainty_s": 0,
+          "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+        },
+        "sequence": 26,
+        "generation": 1,
+        "mask_sha": "1c9c5ed2be71d214d8f6cf418f010e5ff1a1b096413d4c7cb8c8f7c1ab129456",
+        "foreground_pixels": 7409,
+        "observation_state": "tracked_unverified",
+        "inference_started_unix_ms": 1793567202075.041,
+        "inference_finished_unix_ms": 1793567202376.2427,
+        "step_s": 0.29321207385510206,
+        "mask_encoding": "binary_0_255_png_original_raster",
+        "identity": "unverified",
+        "source": "actual_original_cutie_inference",
+        "xyxy": [
+          112,
+          157,
+          212,
+          243
+        ],
+        "published_unix_ms": 1793567202377.3555
+      },
+      {
+        "frame_id": "stream-0107551b-eebb-4fe0-b89a-7fb4e22f7a15-259",
+        "image_sha": "49021530c87d35084baaeace2e2a06eec9ce751a106f711dee900f02c6f73d28",
+        "captured_at": "2026-11-01T21:06:38.058107+00:00",
+        "capture_unix_ms": 1793567198058.107,
+        "persistence_started_unix_ms": 1793567198061.1511,
+        "width": 640,
+        "height": 480,
+        "provenance": {
+          "camera_id": "authored-render-camera",
+          "session_id": "0107551b-eebb-4fe0-b89a-7fb4e22f7a15",
+          "sequence": 259,
+          "calibration_id": "authored-render-intrinsics-v1",
+          "capture_time_basis": "host_render_completion_clock",
+          "cross_device_clock_synchronized": false,
+          "clock_uncertainty_s": 0,
+          "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+        },
+        "sequence": 27,
+        "generation": 1,
+        "mask_sha": "dc62f74ec8c626fdc7934f6febd8f1a13c6223c6716c4289022d2a248fc3704a",
+        "foreground_pixels": 7213,
+        "observation_state": "tracked_unverified",
+        "inference_started_unix_ms": 1793567202420.5613,
+        "inference_finished_unix_ms": 1793567202779.8613,
+        "step_s": 0.3513896120712161,
+        "mask_encoding": "binary_0_255_png_original_raster",
+        "identity": "unverified",
+        "source": "actual_original_cutie_inference",
+        "xyxy": [
+          110,
+          157,
+          211,
+          243
+        ],
+        "published_unix_ms": 1793567202780.9575
+      }
+    ],
+    "server_unix_ms": 1793567226341.6497,
+    "method": "original_sam21_tiny_cutie_base_megamodel_identity_unverified",
+    "health_method": "custom_empty_mask_and_time_gap_rules_not_a_learned_absence_model"
+  }
+}

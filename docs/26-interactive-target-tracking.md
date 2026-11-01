@@ -19,6 +19,15 @@ describe that earlier research stage. App integration remains unimplemented;
 the 5 FPS live gate and G1–G4 are not passed. The original proposal hash belongs
 to the planning snapshot at commit `a6432ee`, not this later addendum.
 
+Subsequent app integration: [actual full app report](research/2026-11-02-stream-app/report.md)
+now records genuine selection/preview and future-frame Cutie sessions through the
+browser, two 5 Hz overload failures and a separate 3 Hz diagnostic. The earlier
+"unimplemented" statements above are historical planning/component snapshots.
+The complete design remains the execution contract: Find-again, automatic recovery,
+full evidence export and remaining G1–G4 quality/device coverage are unfinished.
+The [operating guide](27-live-tracking-app.md) describes only the delivered subset;
+the 5 FPS / five-minute gate is unchanged and FAIL, not superseded by 3 Hz.
+
 ## 1. Product outcome and exact scope
 
 The operator opens Monitor, selects a visible target with a tap or box, sees a
