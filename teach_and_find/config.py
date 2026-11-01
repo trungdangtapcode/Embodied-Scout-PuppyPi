@@ -235,7 +235,7 @@ class MemorySettings:
 
 @dataclass(frozen=True)
 class VisionSettings:
-    """Explicit CPU YOLOE/SAVPE + ByteTrack profile; no baseline substitution."""
+    """Required YOLOE + DINOv2 + ByteTrack CPU profile; no substitution."""
 
     enabled: bool = field(
         default_factory=lambda: os.getenv("PUPPYPI_VISION_ENABLED", "0") == "1"
@@ -254,6 +254,24 @@ class VisionSettings:
     )
     checkpoint_revision: str = "b584da188a198a2e6aa0e013d3fef6d55b212603"
     model: str = "yoloe-v8s-seg"
+    profile_version: int = 2
+    descriptor_model: str = "dinov2_vits14"
+    descriptor_source: str = field(
+        default_factory=lambda: os.getenv("PUPPYPI_DINOV2_PATH", ".upstream/dinov2")
+    )
+    descriptor_checkpoint: str = field(
+        default_factory=lambda: os.getenv(
+            "PUPPYPI_DINOV2_CHECKPOINT", "data/models/dinov2/dinov2_vits14_pretrain.pth"
+        )
+    )
+    descriptor_revision: str = "7764ea0f912e53c92e82eb78a2a1631e92725fc8"
+    descriptor_sha256: str = (
+        "b938bf1bc15cd2ec0feacfe3a1bb553fe8ea9ca46a7e1d8d00217f29aef60cd9"
+    )
+    descriptor_batch_size: int = 8
+    # Explicitly custom, hand-selected development policy; not calibrated.
+    reference_similarity_threshold: float = 0.80
+    reference_margin_threshold: float = 0.05
     device: str = "cpu"
     torch_threads: int = 2
     image_size: int = 640

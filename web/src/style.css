@@ -45,6 +45,11 @@
 .vision-image-caption { display: block; padding: 8px 12px; font-size: 11px; }
 .vision-box { fill: none; stroke: var(--lime); stroke-width: 2; vector-effect: non-scaling-stroke; }
 .vision-mask { fill: var(--lime); fill-opacity: .18; }
+.vision-unresolved .vision-box { stroke: var(--amber); stroke-dasharray: 5 3; }
+.vision-unresolved .vision-mask { fill: var(--amber); fill-opacity: .10; }
+.vision-comparison-pair { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.vision-comparison-pair img { display: block; width: 48px; height: 48px; object-fit: contain; border-radius: var(--radius-sm); background: var(--paper-inset); }
+.vision-detection .badge { width: fit-content; margin: 4px 0; }
 .vision-box-label { fill: var(--lime); stroke: var(--camera); stroke-width: 3; paint-order: stroke; font-size: 16px; font-weight: 700; }
 .vision-detection { display: grid; padding: 12px 0; border-bottom: 1px solid var(--line); }
 .vision-detection small, .vision-scrubber { font-variant-numeric: tabular-nums; }

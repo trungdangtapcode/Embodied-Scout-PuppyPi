@@ -83,12 +83,15 @@ def implementation_summary(settings: Settings, mode: str) -> dict:
         },
         {
             "name": "Visual prompting and video association",
-            "implementation": "optional_pinned_yoloe_savpe_and_bytetrack",
-            "description": "Actual author YOLOE visual prompting, segmentation and ByteTrack code in a separate CPU worker. Reference images are enrollment input. Candidate labels are not verified exact identities; IDs are local to one window. Per-job trace establishes execution, not this configuration record.",
-            "source": "teach_and_find/yoloe_adapter.py; teach_and_find/vision_worker.py",
+            "implementation": "required_yoloe_dinov2_and_bytetrack_with_custom_reference_policy",
+            "description": "Actual author YOLOE visual prompting and DINOv2 feature extraction, followed by a custom maximum-cosine/margin rule and upstream ByteTrack. The comparison rule is hand-selected and not calibrated; this is not an upstream exact-identity classifier. Both models are mandatory in the opt-in CPU worker. Per-job traces establish execution, not this configuration record.",
+            "source": "teach_and_find/yoloe_adapter.py; teach_and_find/dinov2_adapter.py; teach_and_find/vision_worker.py",
             "research_repository": "https://github.com/THU-MIG/yoloe",
             "configured_revision": settings.vision.upstream_revision,
             "configured_model": settings.vision.model,
+            "descriptor_repository": "https://github.com/facebookresearch/dinov2",
+            "descriptor_revision": settings.vision.descriptor_revision,
+            "descriptor_model": settings.vision.descriptor_model,
             "enabled": settings.vision.enabled,
         },
         {

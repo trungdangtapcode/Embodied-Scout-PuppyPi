@@ -336,5 +336,19 @@
   "No detections above the configured threshold. This does not prove absence.": "Không có phát hiện vượt ngưỡng đã cấu hình. Điều này không chứng minh đồ vật vắng mặt.",
   "Scores are uncalibrated. Names come from reference enrollment; exact identity is not verified.": "Điểm chưa được hiệu chỉnh. Tên lấy từ đăng ký ảnh mẫu; chưa xác minh danh tính chính xác.",
   "This window is historical evidence. It does not establish current location, autonomous navigation or a predictive world model.": "Chuỗi ảnh này là bằng chứng lịch sử. Nó không xác lập vị trí hiện tại, điều hướng tự động hay world model dự đoán.",
-  "Executed / quality unverified": "Đã thực thi / chưa xác minh chất lượng"
+  "Executed / quality unverified": "Đã thực thi / chưa xác minh chất lượng",
+  "YOLOE proposes regions. DINOv2 compares their features with your reference images. A custom cosine and margin rule supports candidates; ByteTrack associates those candidates across frames. Exact identity remains unverified.": "YOLOE đề xuất vùng đồ vật. DINOv2 đối chiếu đặc trưng với ảnh mẫu. Quy tắc cosine và độ chênh tùy biến chọn ứng viên được hỗ trợ; ByteTrack liên kết chúng qua các khung hình. Danh tính chính xác vẫn chưa được xác minh.",
+  "Historical run: DINOv2 comparison did not execute in this saved profile.": "Lượt chạy lịch sử: profile đã lưu này chưa thực thi đối chiếu DINOv2.",
+  "YOLOE score": "Điểm YOLOE",
+  "Reference-supported candidate": "Ứng viên được ảnh mẫu hỗ trợ",
+  "Unresolved candidate": "Ứng viên chưa xác định",
+  "cosine": "cosine",
+  "margin": "độ chênh",
+  "The models disagree on the reference class.": "Hai mô hình không đồng thuận về lớp ảnh mẫu.",
+  "Reference similarity is below the configured threshold.": "Độ tương đồng ảnh mẫu thấp hơn ngưỡng đã cấu hình.",
+  "Reference classes are too similar to separate.": "Các lớp ảnh mẫu quá giống nhau để phân biệt.",
+  "Custom comparison rule passed; exact identity is not confirmed.": "Đạt quy tắc đối chiếu tùy biến; chưa xác nhận danh tính chính xác.",
+  "Model-generated candidate crop": "Ảnh cắt ứng viên do mô hình đề xuất",
+  "Closest DINOv2 reference": "Ảnh mẫu gần nhất theo DINOv2",
+  "All raw proposals remain visible, including rejected ones. Cosine and margin thresholds are hand-selected custom logic, not calibrated probabilities or an upstream identity classifier.": "Mọi đề xuất gốc vẫn được hiển thị, kể cả đề xuất bị từ chối. Ngưỡng cosine và độ chênh là logic tùy biến chọn thủ công, không phải xác suất đã hiệu chỉnh hay bộ phân loại danh tính từ upstream."
 }

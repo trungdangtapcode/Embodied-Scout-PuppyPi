@@ -234,3 +234,86 @@ def test_missing_reference_foreground_never_becomes_a_center_crop(monkeypatch):
     monkeypatch.setattr(CandidateProposalGenerator, "propose", lambda self, frame: [])
     with pytest.raises(RuntimeError, match="No reference foreground"):
         render_teaching_views(build_object_catalog()["secret_box_1"], angles_deg=(0.0,))
+
+
+def test_descriptor_readout_is_custom_support_not_identity(cfg):
+    from teach_and_find.dinov2_adapter import compare_reference_scores
+
+    refs = [
+        {"object_id": "A", "name": "First", "image_shas": ["a1", "a2"]},
+        {"object_id": "B", "name": "Second", "image_shas": ["b1"]},
+    ]
+    result = compare_reference_scores([[0.9, 0.85], [0.6]], refs, "A", cfg.vision)
+    assert result["decision"] == "supported_candidate"
+    assert result["exact_identity_verified"] is False
+    assert result["best_reference_sha"] == "a1"
+    assert result["policy_implementation"].startswith("custom_")
+    for scores, prompt, reason in [
+        ([[0.9, 0.85], [0.6]], "B", "detector_descriptor_disagreement"),
+        ([[0.79, 0.7], [0.6]], "A", "insufficient_reference_similarity"),
+        ([[0.9, 0.85], [0.89]], "A", "ambiguous_reference_comparison"),
+    ]:
+        result = compare_reference_scores(scores, refs, prompt, cfg.vision)
+        assert result["decision"] == "unresolved" and result["reason"] == reason
+    single = compare_reference_scores([[0.9, 0.85]], refs[:1], "A", cfg.vision)
+    assert single["margin"] is None and not single["exact_identity_verified"]
+    for scores in [[], [[0.9]], [[float("nan"), 0.85], [0.6]]]:
+        with pytest.raises(AssistantError) as error:
+            compare_reference_scores(scores, refs, "A", cfg.vision)
+        assert error.value.code == "DINOV2_OUTPUT_INVALID"
+
+
+def test_missing_descriptor_fails_before_models_load(cfg, monkeypatch):
+    from teach_and_find import yoloe_adapter
+
+    cfg = replace(
+        cfg,
+        vision=replace(
+            cfg.vision, descriptor_source=str(cfg.assistant.data_dir) + "/missing-dino"
+        ),
+    )
+    # This explicit offline artifact-boundary fixture bypasses YOLOE file checks,
+    # not inference. Required DINOv2 must stop the job before importing Torch.
+    monkeypatch.setattr(
+        yoloe_adapter,
+        "verify_artifacts",
+        lambda profile: {"fixture": "offline_artifact_boundary"},
+    )
+    with EvidenceStore(cfg.assistant.data_dir) as store:
+        oid = enroll(store, cfg)
+        job = VisionService(store, cfg).enqueue(
+            frames(), [oid], "missing-descriptor", "synthetic"
+        )
+    execute_job(cfg, job["id"])
+    with EvidenceStore(cfg.assistant.data_dir) as store:
+        record = VisionService(store, cfg).job(job["id"], "synthetic")
+        assert (
+            record["status"] == "failed"
+            and record["error_code"] == "DINOV2_SOURCE_MISSING"
+        )
+        assert record["result"] is None
+        assert all(step["stage"] != "model_loaded" for step in record["steps"])
+
+
+def test_legacy_profile_jobs_are_not_silently_upgraded(cfg):
+    import json
+
+    with EvidenceStore(cfg.assistant.data_dir) as store:
+        oid = enroll(store, cfg)
+        svc = VisionService(store, cfg)
+        job = svc.enqueue(frames(), [oid], "legacy-profile", "synthetic")
+        payload = svc.job(job["id"], "synthetic", internal=True)["payload"]
+        payload["profile"].pop("profile_version")
+        with store.db:
+            store.db.execute(
+                "UPDATE memory_jobs SET payload_json=? WHERE id=?",
+                (json.dumps(payload), job["id"]),
+            )
+    execute_job(cfg, job["id"])
+    with EvidenceStore(cfg.assistant.data_dir) as store:
+        record = VisionService(store, cfg).job(job["id"], "synthetic")
+        assert (
+            record["status"] == "failed"
+            and record["error_code"] == "VISION_PROFILE_UNSUPPORTED"
+        )
+        assert record["result"] is None

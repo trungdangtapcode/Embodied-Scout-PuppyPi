@@ -1,6 +1,5 @@
 """Independent CPU vision consumer using the shared durable job protocol."""
 
-from dataclasses import replace
 import fcntl
 from pathlib import Path
 import threading
@@ -32,6 +31,11 @@ def execute_job(settings: Settings, job_id: str, *, adapter_factory=None):
         if job is None:
             return
         try:
+            if job["payload"]["profile"].get("profile_version") != 2:
+                raise AssistantError(
+                    "VISION_PROFILE_UNSUPPORTED",
+                    "Historical jobs without an explicit v2 profile are not reinterpreted or upgraded.",
+                )
             profile = VisionSettings(**job["payload"]["profile"])
             if not settings.vision.enabled or not profile.enabled:
                 raise AssistantError(

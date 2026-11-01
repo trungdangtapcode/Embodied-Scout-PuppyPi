@@ -121,7 +121,7 @@ class VisionService:
                 mode,
                 key,
                 request,
-                model=cfg.model,
+                model=f"{cfg.model} + {cfg.descriptor_model}",
                 profile=asdict(cfg),
                 frames=snapshots,
                 references=references,
@@ -167,11 +167,11 @@ class VisionService:
                 and worker["status"] == "ready"
             )
         return {
-            "schema_version": 1,
+            "schema_version": 2,
             "enabled": self.settings.vision.enabled,
             "mode": mode,
-            "model": self.settings.vision.model,
-            "method": "upstream_yoloe_savpe_segmentation_and_bytetrack",
+            "model": f"{self.settings.vision.model} + {self.settings.vision.descriptor_model}",
+            "method": "upstream_yoloe_dinov2_custom_reference_policy_and_bytetrack",
             "worker": worker,
             "jobs": [
                 self.job(r[0], mode)

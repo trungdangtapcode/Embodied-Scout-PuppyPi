@@ -12,6 +12,15 @@ type Detection = {
   prompt_name: string;
   prompt_object_id: string;
   mask_polygon_xy: number[][];
+  crop_image_sha?: string;
+  reference_comparison?: {
+    decision: "supported_candidate" | "unresolved";
+    reason: string;
+    prompt_score: number;
+    margin: number | null;
+    best_name: string;
+    best_reference_sha: string;
+  };
 };
 type VisionFrame = {
   frame_id: string;
@@ -31,7 +40,7 @@ type VisionJob = {
   error_code: string | null;
   result: {
     frames: VisionFrame[];
-    provenance: { revision: string; checkpoint_sha256: string; device: string; method: string };
+    provenance: { revision: string; checkpoint_sha256: string; device: string; method: string; descriptor?: { model: string } };
   } | null;
   steps: { stage: string; message?: string }[];
 };
@@ -81,12 +90,12 @@ export function VisionConsole({ robot }: { robot: Robot }) {
   return (
     <section class="vision-console panel" aria-label={t("Learned visual perception")}>
       <div class="section-title">
-        <div><span class="eyebrow">YOLOE / SAVPE + BYTETRACK</span><h2>{t("See the model's evidence.")}</h2></div>
+        <div><span class="eyebrow">YOLOE / DINOv2 / BYTETRACK</span><h2>{t("See the model's evidence.")}</h2></div>
         <span class={`badge ${overview?.worker?.alive ? "green" : "amber"}`}>
           {t(overview?.worker?.alive ? "Vision worker online" : "Vision worker unavailable")}
         </span>
       </div>
-      <p class="muted">{t("Actual upstream visual prompting and segmentation, followed by ByteTrack association. Candidate labels can be wrong. Track IDs apply only within this recorded window.")}</p>
+      <p class="muted">{t("YOLOE proposes regions. DINOv2 compares their features with your reference images. A custom cosine and margin rule supports candidates; ByteTrack associates those candidates across frames. Exact identity remains unverified.")}</p>
       <small>{overview?.model || "YOLOE"} · {overview?.mode || "…"} · CPU</small>
       {!overview?.enabled && <p class="room-caveat">{t("Learned vision is disabled. Run vision setup and enable the app profile; no baseline is substituted.")}</p>}
       {error && <p class="banner" role="alert">{error}</p>}
@@ -121,12 +130,13 @@ export function VisionConsole({ robot }: { robot: Robot }) {
             onClick={() => void run(async () => { await post(`/vision/jobs/${job.id}/cancel`); })}><X size={16} />{t("Cancel vision job")}</button>}
         </div>
         {job.error_code && <p class="banner" role="alert">{job.error_code} · {t("Inference failed. No substitute result was generated.")}</p>}
+        {job.result && !job.result.provenance.descriptor && <p class="room-caveat">{t("Historical run: DINOv2 comparison did not execute in this saved profile.")}</p>}
         {frame && <>
           <div class="vision-evidence-layout">
             <div class="vision-image">
               <svg viewBox={`0 0 ${frame.width} ${frame.height}`} role="img" aria-label={t("Model detections on saved camera image")}>
                 <image href={evidence(frame.image_sha)} width={frame.width} height={frame.height} />
-                {frame.detections.map(d => <g key={d.detection_index}>
+                {frame.detections.map(d => <g key={d.detection_index} class={d.reference_comparison?.decision === "unresolved" ? "vision-unresolved" : ""}>
                   <polygon points={d.mask_polygon_xy.map(p => p.join(",")).join(" ")} class="vision-mask" />
                   <rect x={d.xyxy[0]} y={d.xyxy[1]} width={d.xyxy[2] - d.xyxy[0]} height={d.xyxy[3] - d.xyxy[1]} class="vision-box" />
                   <text x={d.xyxy[0] + 3} y={Math.max(16, d.xyxy[1] - 5)} class="vision-box-label">{d.detection_index + 1}</text>
@@ -141,10 +151,21 @@ export function VisionConsole({ robot }: { robot: Robot }) {
                 const track = frame.tracks.find(tr => tr.detection_index === d.detection_index);
                 return <div class="vision-detection" key={d.detection_index}>
                   <strong>{d.detection_index + 1}. {d.prompt_name}</strong>
-                  <small>{t("Model score")}: {d.model_score.toFixed(3)} · {track ? `${t("Track")} #${track.track_id}` : t("Unassociated")}</small>
+                  <small>{t("YOLOE score")}: {d.model_score.toFixed(3)} · {track ? `${t("Track")} #${track.track_id}` : t("Unassociated")}</small>
+                  {d.reference_comparison && <>
+                    <span class={`badge ${d.reference_comparison.decision === "supported_candidate" ? "green" : "amber"}`}>{t(d.reference_comparison.decision === "supported_candidate" ? "Reference-supported candidate" : "Unresolved candidate")}</span>
+                    <small>DINOv2 {t("cosine")}: {d.reference_comparison.prompt_score.toFixed(3)} · {t("margin")}: {d.reference_comparison.margin?.toFixed(3) ?? t("unknown")}</small>
+                    <small>{t(d.reference_comparison.reason === "detector_descriptor_disagreement" ? "The models disagree on the reference class." : d.reference_comparison.reason === "insufficient_reference_similarity" ? "Reference similarity is below the configured threshold." : d.reference_comparison.reason === "ambiguous_reference_comparison" ? "Reference classes are too similar to separate." : "Custom comparison rule passed; exact identity is not confirmed.")}</small>
+                    {d.crop_image_sha && <div class="vision-comparison-pair">
+                      <a href={evidence(d.crop_image_sha)} target="_blank" rel="noreferrer"><img src={evidence(d.crop_image_sha)} alt={t("Model-generated candidate crop")} /></a>
+                      <span>↔</span>
+                      <a href={evidence(d.reference_comparison.best_reference_sha)} target="_blank" rel="noreferrer"><img src={evidence(d.reference_comparison.best_reference_sha)} alt={t("Closest DINOv2 reference")} /></a>
+                      <small>{d.reference_comparison.best_name}</small>
+                    </div>}
+                  </>}
                 </div>;
               })}
-              <small>{t("Scores are uncalibrated. Names come from reference enrollment; exact identity is not verified.")}</small>
+              <small>{t("All raw proposals remain visible, including rejected ones. Cosine and margin thresholds are hand-selected custom logic, not calibrated probabilities or an upstream identity classifier.")}</small>
             </div>
           </div>
           <label class="vision-scrubber">{t("Recorded frame")} {Math.min(frameIndex + 1, frames.length)} / {frames.length}

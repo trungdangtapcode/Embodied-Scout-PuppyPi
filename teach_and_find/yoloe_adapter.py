@@ -1,6 +1,7 @@
-"""Bind enrolled reference images to the pinned author YOLOE and ByteTrack code.
+"""Bind references to real YOLOE, DINOv2 and ByteTrack implementations.
 
-No simulator, handcrafted matcher, robot transport or model substitute is imported.
+No simulator, legacy appearance matcher, robot transport or model substitute is
+imported. Descriptor comparison is explicitly custom cosine/margin policy.
 """
 
 from __future__ import annotations
@@ -11,7 +12,6 @@ import importlib.metadata
 import os
 from pathlib import Path
 import statistics
-import subprocess
 import sys
 import time
 from types import SimpleNamespace
@@ -25,42 +25,10 @@ from teach_and_find.storage import AssistantError, EvidenceStore
 
 
 def verify_artifacts(cfg: VisionSettings) -> dict:
-    source = Path(cfg.upstream_path).expanduser().resolve()
-    weights = Path(cfg.checkpoint).expanduser().resolve()
-    try:
-        revision = subprocess.check_output(
-            ["git", "-C", str(source), "rev-parse", "HEAD"],
-            stderr=subprocess.DEVNULL,
-            text=True,
-        ).strip()
-        clean = (
-            subprocess.run(
-                ["git", "-C", str(source), "diff", "--exit-code", "HEAD"],
-                capture_output=True,
-                check=False,
-            ).returncode
-            == 0
-        )
-    except (OSError, subprocess.SubprocessError) as error:
-        raise AssistantError(
-            "VISION_SOURCE_MISSING", "Pinned YOLOE source is unavailable."
-        ) from error
-    if revision != cfg.upstream_revision or not clean:
-        raise AssistantError(
-            "VISION_SOURCE_MISMATCH",
-            "YOLOE must use the exact unmodified source revision.",
-        )
-    try:
-        sha = hashlib.sha256(weights.read_bytes()).hexdigest()
-    except OSError as error:
-        raise AssistantError(
-            "VISION_CHECKPOINT_MISSING", "The required YOLOE checkpoint is unavailable."
-        ) from error
-    if sha != cfg.checkpoint_sha256:
-        raise AssistantError(
-            "VISION_CHECKPOINT_MISMATCH",
-            "YOLOE checkpoint integrity verification failed.",
-        )
+    from teach_and_find.model_artifacts import verified_checkout, verified_weights
+
+    source = verified_checkout(cfg.upstream_path, cfg.upstream_revision, "VISION")
+    verified_weights(cfg.checkpoint, cfg.checkpoint_sha256, "VISION")
     files = [
         "ultralytics/models/yolo/yoloe/predict_vp.py",
         "ultralytics/nn/tasks.py",
@@ -70,9 +38,9 @@ def verify_artifacts(cfg: VisionSettings) -> dict:
     ]
     return {
         "repository": "https://github.com/THU-MIG/yoloe",
-        "revision": revision,
+        "revision": cfg.upstream_revision,
         "license": "AGPL-3.0",
-        "checkpoint_sha256": sha,
+        "checkpoint_sha256": cfg.checkpoint_sha256,
         "checkpoint_revision": cfg.checkpoint_revision,
         "checkpoint_source": "https://huggingface.co/jameslahm/yoloe",
         "files_sha256": {
@@ -116,6 +84,9 @@ class YoloeAdapter:
     def run(self, store: EvidenceStore, payload: dict) -> dict:
         """Record executed author functions, separately from the method inventory."""
         source = str(Path(self.cfg.upstream_path).expanduser().resolve()) + os.sep
+        descriptor_source = (
+            str(Path(self.cfg.descriptor_source).expanduser().resolve()) + os.sep
+        )
         targets = {
             "Model.predict",
             "YOLOEVPPredictorMixin.inference",
@@ -123,16 +94,21 @@ class YoloeAdapter:
             "SAVPE.forward",
             "YOLOE.set_classes",
             "BYTETracker.update",
+            "DinoVisionTransformer.forward",
+            "make_classification_eval_transform",
         }
-        names = {q.rsplit(".", 1)[1] for q in targets}
+        names = {q.rsplit(".", 1)[-1] for q in targets}
         calls = {}
 
         def trace(frame, event, arg):
             if event == "call" and frame.f_code.co_name in names:
                 code = frame.f_code
-                if code.co_qualname in targets and code.co_filename.startswith(source):
-                    key = code.co_filename[len(source) :] + ":" + code.co_qualname
-                    calls[key] = calls.get(key, 0) + 1
+                for prefix in (source, descriptor_source):
+                    if code.co_qualname in targets and code.co_filename.startswith(
+                        prefix
+                    ):
+                        key = code.co_filename[len(prefix) :] + ":" + code.co_qualname
+                        calls[key] = calls.get(key, 0) + 1
 
         previous = sys.getprofile()
         sys.setprofile(trace)
@@ -162,7 +138,15 @@ class YoloeAdapter:
                 "VISION_DEVICE_UNSUPPORTED",
                 "This validated profile requires CPU execution.",
             )
+        from teach_and_find.dinov2_adapter import DinoReferenceComparator, verify_dinov2
+
+        if cfg.profile_version != 2:
+            raise AssistantError(
+                "VISION_PROFILE_UNSUPPORTED",
+                "This worker requires the explicit dual-model profile version 2.",
+            )
         provenance = verify_artifacts(cfg)
+        verify_dinov2(cfg)  # Both artifacts are mandatory before either model runs.
         # Prevent upstream auto-install/download paths. Required files are verified
         # before loading the author's trusted serialized checkpoint.
         os.environ["YOLO_AUTOINSTALL"] = "false"
@@ -257,6 +241,18 @@ class YoloeAdapter:
             )
         model.set_classes([r["name"] for r in references], torch.cat(embeddings, dim=1))
         model.predictor = None
+        comparator = DinoReferenceComparator(cfg, store, references, self.check)
+        provenance["descriptor"] = comparator.provenance
+        provenance["method"] = (
+            "upstream_yoloe_dinov2_custom_reference_policy_and_bytetrack"
+        )
+        provenance["profile_version"] = cfg.profile_version
+        provenance["tracking_input"] = (
+            "only_reference_supported_candidates_raw_proposals_retained"
+        )
+        self.emit(
+            "descriptor_references_encoded", {"provenance": comparator.provenance}
+        )
         stamps = [datetime.fromisoformat(f["captured_at"]) for f in payload["frames"]]
         intervals = [(b - a).total_seconds() for a, b in zip(stamps, stamps[1:])]
         # ByteTrack models discrete frames, not variable capture-time dynamics.
@@ -294,6 +290,7 @@ class YoloeAdapter:
             )[0]
             boxes = result.boxes.cpu().numpy()
             detections = []
+            crops = []
             polygons = result.masks.xy if result.masks is not None else []
             for i, row in enumerate(boxes.data):
                 x1, y1, x2, y2, score, cls = [float(v) for v in row]
@@ -321,6 +318,7 @@ class YoloeAdapter:
                     int((bx - ax) * (by - ay)),
                     image[ay:by, ax:bx].copy(),
                 )
+                crops.append(proposal.crop_bgr)
                 detections.append(
                     {
                         "detection_index": i,
@@ -335,15 +333,25 @@ class YoloeAdapter:
                         else [],
                     }
                 )
+            comparisons = comparator.compare(
+                crops, [d["prompt_object_id"] for d in detections]
+            )
+            for detection, comparison in zip(detections, comparisons):
+                detection["reference_comparison"] = comparison
+            supported = [
+                i
+                for i, c in enumerate(comparisons)
+                if c["decision"] == "supported_candidate"
+            ]
             tracks = []
-            for row in tracker.update(boxes):
+            for row in tracker.update(boxes[np.asarray(supported, dtype=int)]):
                 x1, y1, x2, y2, tid, score, cls, index = [float(v) for v in row]
                 tracks.append(
                     {
                         "xyxy": [x1, y1, x2, y2],
                         "track_id": int(tid),
                         "model_score": score,
-                        "detection_index": int(index),
+                        "detection_index": supported[int(index)],
                         "prompt_object_id": references[int(cls)]["object_id"],
                     }
                 )
@@ -362,12 +370,13 @@ class YoloeAdapter:
                     "frame_id": frame["frame_id"],
                     "detections": len(detections),
                     "tracks": len(tracks),
+                    "reference_supported_candidates": len(supported),
                     "elapsed_s": frame["elapsed_s"],
                 },
             )
         self.check()
         return {
-            "schema_version": 1,
+            "schema_version": 2,
             "outcome": "execution_completed_quality_not_certified",
             "frames": frames,
             "references": references,
