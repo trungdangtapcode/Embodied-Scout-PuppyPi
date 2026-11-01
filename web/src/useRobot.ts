@@ -11,7 +11,9 @@ export function useRobot(
   const [state, setState] = useState<State | null>(null);
   const [online, setOnline] = useState(false);
   const [armed, setArmed] = useState(false);
-  const [image, setImage] = useState<{ url: string; id: string } | null>(null);
+  const [image, setImage] = useState<{ url: string; id: string; capturedAt: string | null } | null>(
+    null,
+  );
   const [moving, setMoving] = useState(false);
   const socket = useRef<WebSocket | null>(null);
   const latest = useRef<State | null>(null);
@@ -152,15 +154,17 @@ export function useRobot(
     }
     const abort = new AbortController();
     let url = "";
+    let capturedAt: string | null = null;
     void fetch("/api/frame.jpg?id=" + encodeURIComponent(frameId), { signal: abort.signal })
       .then((response) => {
         if (!response.ok) throw new Error("Camera unavailable");
+        capturedAt = response.headers.get("X-Captured-At");
         return response.blob();
       })
       .then((blob) => {
         if (!abort.signal.aborted) {
           url = URL.createObjectURL(blob);
-          setImage({ url, id: frameId });
+          setImage({ url, id: frameId, capturedAt });
         }
       })
       .catch((error) => {

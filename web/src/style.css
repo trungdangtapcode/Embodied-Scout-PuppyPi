@@ -2286,3 +2286,137 @@ dialog h3 {
   line-height: 1.4;
   color: var(--secondary);
 }
+
+.tracking-console {
+  margin-top: 24px;
+}
+.tracking-actions,
+.tracking-tools {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 16px 0;
+}
+.tracking-status {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 16px 0;
+}
+.tracking-status small {
+  color: var(--secondary);
+}
+.tracking-camera {
+  position: relative;
+  background: var(--camera);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin: 16px 0;
+  max-width: 760px;
+  min-height: 100px;
+}
+.tracking-camera svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  touch-action: none;
+}
+.tracking-caption {
+  padding: 10px 14px;
+  color: var(--camera-ink);
+  font-size: 11px;
+}
+.tracking-tint {
+  fill: var(--lime);
+  opacity: 0.35;
+}
+.tracking-prompt-box {
+  fill: none;
+  stroke: var(--lime);
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+}
+.tracking-positive {
+  fill: var(--lime);
+  stroke: var(--camera);
+  stroke-width: 2;
+}
+.tracking-negative {
+  fill: var(--red);
+  stroke: white;
+  stroke-width: 2;
+}
+.tracking-previews {
+  display: flex;
+  gap: 12px;
+  margin: 16px 0;
+  flex-wrap: wrap;
+}
+.tracking-preview {
+  border: 2px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--paper-inset);
+  padding: 8px;
+  display: grid;
+  gap: 8px;
+  max-width: 180px;
+  font-size: 11px;
+}
+.tracking-preview.selected {
+  border-color: var(--forest);
+}
+.tracking-preview img {
+  width: 100%;
+  max-height: 100px;
+  object-fit: contain;
+  background: var(--camera);
+}
+.tracking-box-input {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin: 12px 0;
+}
+.tracking-box-input label {
+  min-width: 0;
+}
+.tracking-box-input input {
+  width: 100%;
+  min-width: 0;
+}
+.tracking-method {
+  margin-top: 20px;
+  color: var(--secondary);
+}
+.tracking-rendering {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: var(--camera-ink);
+}
+@media (max-width: 700px) {
+  .tracking-console > .section-title {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  .tracking-tools .button {
+    flex: 1;
+    min-width: 100px;
+  }
+  .tracking-actions {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .tracking-preview {
+    max-width: 95px;
+  }
+  .tracking-preview span {
+    overflow-wrap: anywhere;
+  }
+  .tracking-box-input {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

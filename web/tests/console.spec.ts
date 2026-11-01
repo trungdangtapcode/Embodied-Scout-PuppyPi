@@ -325,7 +325,9 @@ test("method disclosures identify custom heuristics and do not claim configured 
   ).toBeVisible();
 });
 
-test("vision uses explicit reference inputs, queues without a model worker and cancels", async ({ page }) => {
+test("vision uses explicit reference inputs, queues without a model worker and cancels", async ({
+  page,
+}) => {
   await enter(page);
   await page.request.post("/api/demo");
   await page.getByRole("button", { name: "Room memory", exact: true }).click();
@@ -348,4 +350,18 @@ test("vision uses explicit reference inputs, queues without a model worker and c
   const run = await page.request.get("/api/vision/jobs/" + queued.jobs[0].id);
   expect(run.headers()["cache-control"]).toBe("no-store");
   expect((await run.json()).result).toBeNull();
+});
+
+test("tracking fails visibly without the required original-model worker", async ({ page }) => {
+  await enter(page);
+  const panel = page.getByRole("region", { name: "Interactive target tracking" });
+  await expect(panel.getByText("Tracking worker unavailable", { exact: true })).toBeVisible();
+  await expect(panel.getByRole("button", { name: "Select target", exact: true })).toBeDisabled();
+  const state = await (await page.request.get("/api/state")).json();
+  const response = await page.request.post("/api/tracking/anchors", {
+    data: { frame_id: state.camera.frame_id, request_key: "missing-model-test" },
+  });
+  expect(response.status()).toBe(503);
+  expect((await response.json()).error.code).toBe("TRACKING_WORKER_UNAVAILABLE");
+  expect((await (await page.request.get("/api/tracking")).json()).sessions).toHaveLength(0);
 });

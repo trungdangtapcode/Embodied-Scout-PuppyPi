@@ -46,6 +46,7 @@ import { api, evidence, post, timeOf, when } from "./api";
 import type { Checklist, History, ObjectRecord, Report } from "./types";
 import { type Robot, useRobot } from "./useRobot";
 import { RoomConsole } from "./RoomConsole";
+import { TrackingConsole } from "./TrackingConsole";
 import { ImplementationInfo } from "./ImplementationInfo";
 
 type Tab = "monitor" | "control" | "inspect" | "library";
@@ -155,7 +156,22 @@ function CameraView({ robot, compact = false }: { robot: Robot; compact?: boolea
           <img
             src={image.url}
             alt={t("Robot camera view")}
-            onLoad={() => robot.imageLoaded(image.id)}
+            onLoad={() => {
+              robot.imageLoaded(image.id);
+              requestAnimationFrame(() =>
+                requestAnimationFrame(() =>
+                  window.dispatchEvent(
+                    new CustomEvent("puppypi-camera-painted", {
+                      detail: {
+                        frame_id: image.id,
+                        captured_at: image.capturedAt,
+                        painted_client_unix_ms: performance.timeOrigin + performance.now(),
+                      },
+                    }),
+                  ),
+                ),
+              );
+            }}
             onError={robot.imageFailed}
           />
         ) : (
@@ -544,6 +560,7 @@ function App() {
               </aside>
             </div>
           )}
+          {tab === "monitor" && monitorView === "live" && <TrackingConsole robot={robot} />}
           {tab === "monitor" && monitorView === "live" && (
             <div class="lower-grid">
               <section class="panel">
