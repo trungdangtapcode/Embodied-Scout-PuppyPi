@@ -57,7 +57,7 @@ missing research models or close the original incident.
 
 ## Implemented baseline
 
-### Later executed visual-prompt subset
+### Executed visual-prompt and descriptor-comparison subsets
 
 The [YOLOE app profile](24-yoloe-vision.md) now invokes the pinned author source,
 SAVPE checkpoint and the Ultralytics ByteTrack implementation in a separate CPU
@@ -73,7 +73,24 @@ and decoy false positives remain, and changed-view recall was 72.2%. Do not coun
 model execution as automatic inspection, learned room/world modeling, navigation
 or RL. F03 and the broader critical incident remain unpromoted. The separate
 [DINOv2 comparison proposal](25-visual-identity-fix-proposal.md) has genuine CPU
-probe evidence and is now accepted for implementation; app integration is the next step.
+probe evidence and was subsequently accepted and integrated as described below.
+
+The subsequently accepted **combined YOLOE + DINOv2 + custom cosine/margin +
+ByteTrack profile** now has [actual app evidence](research/2026-11-01-dual-vision-app/report.md):
+103 rendered frames across nine conditions, genuine source/checkpoint execution
+for both models, raw/rejected proposals, reference-image comparisons and eight
+explicit required-component/profile/cache failures. New jobs require explicit
+version 2; historic profiles are not upgraded implicitly. The worker remains CPU
+only. 106 Python and eight Chromium tests plus check/frontend/package builds pass.
+
+In the paired synthetic moving scene, candidate precision rises to 100% while
+recall falls from 32/33 to 25/33 under the declared custom rule. Novel-angle recall
+is only 15/36, and an unknown object with identical visible faces produces 11
+false supported candidates. These development/limited condition-split results do
+not establish calibrated rejection, verified exact identity or real-room quality.
+The app retains candidate status, does not write verified sightings and does not
+claim absence, navigation or a learned predictive world model. The critical
+incident remains OPEN / FAIL; this is executed model reuse, not full-goal closure.
 
 The Python package implements AprilTag pose estimation, foreground proposals,
 multi-view appearance prototypes, distractor matching, station priors, search
@@ -98,7 +115,8 @@ replacement, archive, candidate ranking, observation recording, history,
 last-seen lookup, persistent checklists, and HTML/JSON evidence export. Inspection
 rules evaluate recorded presence/absence/placement assertions with freshness,
 quality, provenance-mode, and contradiction handling. CLI assertions and quality
-inputs are supplied by the operator; autonomous image interpretation is pending.
+inputs are supplied by the operator; automatic checklist predicates from images remain pending.
+The separate combined-model candidate profile above does not write asserted facts.
 
 Run `make demo-assistant` for four synthetic objects and a portable report. It
 reopens persisted state and yields one pass, two failures, and one unknown.

@@ -152,3 +152,11 @@ quality, automatic inspection, predictive world modeling, navigation or RL.
 Background/decoy failures are retained. The user's 0/10 rating and the broader
 critical incident remain unchanged. DINOv2 currently has a source/model probe,
 not app integration or verified identity.
+
+The user subsequently accepted both models in one pipeline. The
+[combined execution](../research/2026-11-01-dual-vision-app/report.md) now records
+real DINOv2 forwards in the production worker, alongside YOLOE/SAVPE and ByteTrack.
+Custom maximum-cosine/margin logic is visibly disclosed; both models, source files,
+checkpoints and the Hub cache are required. Historical jobs are not upgraded.
+All raw/rejected proposals and exact-identity failures remain in the evidence.
+The broad critical incident remains OPEN / FAIL; the earlier audit is not rewritten.

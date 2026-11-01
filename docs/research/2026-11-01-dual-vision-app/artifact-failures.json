@@ -1,0 +1,701 @@
+[
+  {
+    "case": "missing-source",
+    "job": {
+      "id": "0c7df5fa-584a-43f7-b34b-3ff502c1a332",
+      "kind": "vision",
+      "mode": "synthetic",
+      "request_key": "artifact-failure-missing-source",
+      "created_at": "2026-11-01T13:37:37.349417+00:00",
+      "status": "failed",
+      "stage": "failed",
+      "started_at": "2026-11-01T13:37:37.588497+00:00",
+      "finished_at": "2026-11-01T13:37:37.604501+00:00",
+      "worker_id": "f45103b0-ccb0-4134-9388-d0e6d9924bd1",
+      "dispatched_at": "2026-11-01T13:37:37.373801+00:00",
+      "error_code": "VISION_SOURCE_MISSING",
+      "model": "yoloe-v8s-seg + dinov2_vits14",
+      "request": {
+        "frame_id": "e4c5f7c9-e87d-4dea-877f-3c31871e9353:25",
+        "object_ids": [
+          "a40bb750-eba7-4ab0-8ebb-ebb09251efb8",
+          "0efd9a4e-5cda-486d-8c00-e5ca71ba20dd",
+          "20232b29-a74e-4d56-b585-c93018b528f7"
+        ]
+      },
+      "result": null,
+      "steps": [
+        {
+          "stage": "execution_error",
+          "created_at": "2026-11-01T13:37:37.600265+00:00",
+          "code": "VISION_SOURCE_MISSING",
+          "exception_type": "AssistantError",
+          "message": "Required source is unavailable: /home/nguyentnt/PDWAIA/ecus/hi/runs/dual-vision-app-2026-11-01-final/missing-source",
+          "required_profile": {
+            "enabled": true,
+            "upstream_path": "/home/nguyentnt/PDWAIA/ecus/hi/runs/dual-vision-app-2026-11-01-final/missing-source",
+            "checkpoint": "data/models/yoloe/yoloe-v8s-seg.pt",
+            "upstream_revision": "40cd606cabdbe2b566d6f14a6b162c89206e9a1b",
+            "checkpoint_sha256": "ac2b90ed23011495a3e86d89caeb3432a15129cac8d849ba121293c8fc1e0536",
+            "checkpoint_revision": "b584da188a198a2e6aa0e013d3fef6d55b212603",
+            "model": "yoloe-v8s-seg",
+            "profile_version": 2,
+            "descriptor_model": "dinov2_vits14",
+            "descriptor_source": ".upstream/dinov2",
+            "descriptor_checkpoint": "data/models/dinov2/dinov2_vits14_pretrain.pth",
+            "descriptor_revision": "7764ea0f912e53c92e82eb78a2a1631e92725fc8",
+            "descriptor_sha256": "b938bf1bc15cd2ec0feacfe3a1bb553fe8ea9ca46a7e1d8d00217f29aef60cd9",
+            "descriptor_batch_size": 8,
+            "reference_similarity_threshold": 0.8,
+            "reference_margin_threshold": 0.05,
+            "device": "cpu",
+            "torch_threads": 2,
+            "image_size": 640,
+            "score_threshold": 0.2,
+            "tile_size": 320,
+            "reference_size": 200,
+            "max_objects": 8,
+            "max_references": 6,
+            "max_frames": 12,
+            "max_frame_gap_s": 1.0,
+            "job_timeout_s": 120.0,
+            "heartbeat_s": 2.0,
+            "worker_stale_s": 15.0,
+            "polling_s": 0.25,
+            "history_limit": 20,
+            "track_high_thresh": 0.25,
+            "track_low_thresh": 0.1,
+            "new_track_thresh": 0.25,
+            "track_buffer": 30,
+            "match_thresh": 0.8,
+            "fuse_score": true
+          }
+        }
+      ]
+    }
+  },
+  {
+    "case": "missing-checkpoint",
+    "job": {
+      "id": "af9079be-2001-48b1-8f03-8483510cdfff",
+      "kind": "vision",
+      "mode": "synthetic",
+      "request_key": "artifact-failure-missing-checkpoint",
+      "created_at": "2026-11-01T13:37:37.794967+00:00",
+      "status": "failed",
+      "stage": "failed",
+      "started_at": "2026-11-01T13:37:37.862591+00:00",
+      "finished_at": "2026-11-01T13:37:37.986423+00:00",
+      "worker_id": "f45103b0-ccb0-4134-9388-d0e6d9924bd1",
+      "dispatched_at": "2026-11-01T13:37:37.803501+00:00",
+      "error_code": "VISION_CHECKPOINT_MISSING",
+      "model": "yoloe-v8s-seg + dinov2_vits14",
+      "request": {
+        "frame_id": "e4c5f7c9-e87d-4dea-877f-3c31871e9353:25",
+        "object_ids": [
+          "a40bb750-eba7-4ab0-8ebb-ebb09251efb8",
+          "0efd9a4e-5cda-486d-8c00-e5ca71ba20dd",
+          "20232b29-a74e-4d56-b585-c93018b528f7"
+        ]
+      },
+      "result": null,
+      "steps": [
+        {
+          "stage": "execution_error",
+          "created_at": "2026-11-01T13:37:37.982608+00:00",
+          "code": "VISION_CHECKPOINT_MISSING",
+          "exception_type": "AssistantError",
+          "message": "Required checkpoint is unavailable: /home/nguyentnt/PDWAIA/ecus/hi/runs/dual-vision-app-2026-11-01-final/missing-checkpoint.pt",
+          "required_profile": {
+            "enabled": true,
+            "upstream_path": ".upstream/yoloe",
+            "checkpoint": "/home/nguyentnt/PDWAIA/ecus/hi/runs/dual-vision-app-2026-11-01-final/missing-checkpoint.pt",
+            "upstream_revision": "40cd606cabdbe2b566d6f14a6b162c89206e9a1b",
+            "checkpoint_sha256": "ac2b90ed23011495a3e86d89caeb3432a15129cac8d849ba121293c8fc1e0536",
+            "checkpoint_revision": "b584da188a198a2e6aa0e013d3fef6d55b212603",
+            "model": "yoloe-v8s-seg",
+            "profile_version": 2,
+            "descriptor_model": "dinov2_vits14",
+            "descriptor_source": ".upstream/dinov2",
+            "descriptor_checkpoint": "data/models/dinov2/dinov2_vits14_pretrain.pth",
+            "descriptor_revision": "7764ea0f912e53c92e82eb78a2a1631e92725fc8",
+            "descriptor_sha256": "b938bf1bc15cd2ec0feacfe3a1bb553fe8ea9ca46a7e1d8d00217f29aef60cd9",
+            "descriptor_batch_size": 8,
+            "reference_similarity_threshold": 0.8,
+            "reference_margin_threshold": 0.05,
+            "device": "cpu",
+            "torch_threads": 2,
+            "image_size": 640,
+            "score_threshold": 0.2,
+            "tile_size": 320,
+            "reference_size": 200,
+            "max_objects": 8,
+            "max_references": 6,
+            "max_frames": 12,
+            "max_frame_gap_s": 1.0,
+            "job_timeout_s": 120.0,
+            "heartbeat_s": 2.0,
+            "worker_stale_s": 15.0,
+            "polling_s": 0.25,
+            "history_limit": 20,
+            "track_high_thresh": 0.25,
+            "track_low_thresh": 0.1,
+            "new_track_thresh": 0.25,
+            "track_buffer": 30,
+            "match_thresh": 0.8,
+            "fuse_score": true
+          }
+        }
+      ]
+    }
+  },
+  {
+    "case": "corrupt-checkpoint",
+    "job": {
+      "id": "e16ad1a0-33f7-4754-a1e0-3b2d57b95f09",
+      "kind": "vision",
+      "mode": "synthetic",
+      "request_key": "artifact-failure-corrupt-checkpoint",
+      "created_at": "2026-11-01T13:37:38.093981+00:00",
+      "status": "failed",
+      "stage": "failed",
+      "started_at": "2026-11-01T13:37:38.243917+00:00",
+      "finished_at": "2026-11-01T13:37:38.421222+00:00",
+      "worker_id": "f45103b0-ccb0-4134-9388-d0e6d9924bd1",
+      "dispatched_at": "2026-11-01T13:37:38.100903+00:00",
+      "error_code": "VISION_CHECKPOINT_MISMATCH",
+      "model": "yoloe-v8s-seg + dinov2_vits14",
+      "request": {
+        "frame_id": "e4c5f7c9-e87d-4dea-877f-3c31871e9353:25",
+        "object_ids": [
+          "a40bb750-eba7-4ab0-8ebb-ebb09251efb8",
+          "0efd9a4e-5cda-486d-8c00-e5ca71ba20dd",
+          "20232b29-a74e-4d56-b585-c93018b528f7"
+        ]
+      },
+      "result": null,
+      "steps": [
+        {
+          "stage": "execution_error",
+          "created_at": "2026-11-01T13:37:38.416249+00:00",
+          "code": "VISION_CHECKPOINT_MISMATCH",
+          "exception_type": "AssistantError",
+          "message": "Checkpoint digest mismatch: /home/nguyentnt/PDWAIA/ecus/hi/runs/dual-vision-app-2026-11-01-final/explicit-corrupt-checkpoint.pt",
+          "required_profile": {
+            "enabled": true,
+            "upstream_path": ".upstream/yoloe",
+            "checkpoint": "/home/nguyentnt/PDWAIA/ecus/hi/runs/dual-vision-app-2026-11-01-final/explicit-corrupt-checkpoint.pt",
+            "upstream_revision": "40cd606cabdbe2b566d6f14a6b162c89206e9a1b",
+            "checkpoint_sha256": "ac2b90ed23011495a3e86d89caeb3432a15129cac8d849ba121293c8fc1e0536",
+            "checkpoint_revision": "b584da188a198a2e6aa0e013d3fef6d55b212603",
+            "model": "yoloe-v8s-seg",
+            "profile_version": 2,
+            "descriptor_model": "dinov2_vits14",
+            "descriptor_source": ".upstream/dinov2",
+            "descriptor_checkpoint": "data/models/dinov2/dinov2_vits14_pretrain.pth",
+            "descriptor_revision": "7764ea0f912e53c92e82eb78a2a1631e92725fc8",
+            "descriptor_sha256": "b938bf1bc15cd2ec0feacfe3a1bb553fe8ea9ca46a7e1d8d00217f29aef60cd9",
+            "descriptor_batch_size": 8,
+            "reference_similarity_threshold": 0.8,
+            "reference_margin_threshold": 0.05,
+            "device": "cpu",
+            "torch_threads": 2,
+            "image_size": 640,
+            "score_threshold": 0.2,
+            "tile_size": 320,
+            "reference_size": 200,
+            "max_objects": 8,
+            "max_references": 6,
+            "max_frames": 12,
+            "max_frame_gap_s": 1.0,
+            "job_timeout_s": 120.0,
+            "heartbeat_s": 2.0,
+            "worker_stale_s": 15.0,
+            "polling_s": 0.25,
+            "history_limit": 20,
+            "track_high_thresh": 0.25,
+            "track_low_thresh": 0.1,
+            "new_track_thresh": 0.25,
+            "track_buffer": 30,
+            "match_thresh": 0.8,
+            "fuse_score": true
+          }
+        }
+      ]
+    }
+  },
+  {
+    "case": "missing-dinov2-source",
+    "job": {
+      "id": "7aef3c07-f4f9-40b4-b123-c15c58709959",
+      "kind": "vision",
+      "mode": "synthetic",
+      "request_key": "artifact-failure-missing-dinov2-source",
+      "created_at": "2026-11-01T13:37:38.629237+00:00",
+      "status": "failed",
+      "stage": "failed",
+      "started_at": "2026-11-01T13:37:38.680003+00:00",
+      "finished_at": "2026-11-01T13:37:38.881936+00:00",
+      "worker_id": "f45103b0-ccb0-4134-9388-d0e6d9924bd1",
+      "dispatched_at": "2026-11-01T13:37:38.638147+00:00",
+      "error_code": "DINOV2_SOURCE_MISSING",
+      "model": "yoloe-v8s-seg + dinov2_vits14",
+      "request": {
+        "frame_id": "e4c5f7c9-e87d-4dea-877f-3c31871e9353:25",
+        "object_ids": [
+          "a40bb750-eba7-4ab0-8ebb-ebb09251efb8",
+          "0efd9a4e-5cda-486d-8c00-e5ca71ba20dd",
+          "20232b29-a74e-4d56-b585-c93018b528f7"
+        ]
+      },
+      "result": null,
+      "steps": [
+        {
+          "stage": "execution_error",
+          "created_at": "2026-11-01T13:37:38.877820+00:00",
+          "code": "DINOV2_SOURCE_MISSING",
+          "exception_type": "AssistantError",
+          "message": "Required source is unavailable: /home/nguyentnt/PDWAIA/ecus/hi/runs/dual-vision-app-2026-11-01-final/missing-dinov2",
+          "required_profile": {
+            "enabled": true,
+            "upstream_path": ".upstream/yoloe",
+            "checkpoint": "data/models/yoloe/yoloe-v8s-seg.pt",
+            "upstream_revision": "40cd606cabdbe2b566d6f14a6b162c89206e9a1b",
+            "checkpoint_sha256": "ac2b90ed23011495a3e86d89caeb3432a15129cac8d849ba121293c8fc1e0536",
+            "checkpoint_revision": "b584da188a198a2e6aa0e013d3fef6d55b212603",
+            "model": "yoloe-v8s-seg",
+            "profile_version": 2,
+            "descriptor_model": "dinov2_vits14",
+            "descriptor_source": "/home/nguyentnt/PDWAIA/ecus/hi/runs/dual-vision-app-2026-11-01-final/missing-dinov2",
+            "descriptor_checkpoint": "data/models/dinov2/dinov2_vits14_pretrain.pth",
+            "descriptor_revision": "7764ea0f912e53c92e82eb78a2a1631e92725fc8",
+            "descriptor_sha256": "b938bf1bc15cd2ec0feacfe3a1bb553fe8ea9ca46a7e1d8d00217f29aef60cd9",
+            "descriptor_batch_size": 8,
+            "reference_similarity_threshold": 0.8,
+            "reference_margin_threshold": 0.05,
+            "device": "cpu",
+            "torch_threads": 2,
+            "image_size": 640,
+            "score_threshold": 0.2,
+            "tile_size": 320,
+            "reference_size": 200,
+            "max_objects": 8,
+            "max_references": 6,
+            "max_frames": 12,
+            "max_frame_gap_s": 1.0,
+            "job_timeout_s": 120.0,
+            "heartbeat_s": 2.0,
+            "worker_stale_s": 15.0,
+            "polling_s": 0.25,
+            "history_limit": 20,
+            "track_high_thresh": 0.25,
+            "track_low_thresh": 0.1,
+            "new_track_thresh": 0.25,
+            "track_buffer": 30,
+            "match_thresh": 0.8,
+            "fuse_score": true
+          }
+        }
+      ]
+    }
+  },
+  {
+    "case": "missing-dinov2-checkpoint",
+    "job": {
+      "id": "67904d04-5fd4-4661-8e94-1a1e47b14444",
+      "kind": "vision",
+      "mode": "synthetic",
+      "request_key": "artifact-failure-missing-dinov2-checkpoint",
+      "created_at": "2026-11-01T13:37:39.064838+00:00",
+      "status": "failed",
+      "stage": "failed",
+      "started_at": "2026-11-01T13:37:39.139694+00:00",
+      "finished_at": "2026-11-01T13:37:39.363566+00:00",
+      "worker_id": "f45103b0-ccb0-4134-9388-d0e6d9924bd1",
+      "dispatched_at": "2026-11-01T13:37:39.073295+00:00",
+      "error_code": "DINOV2_CHECKPOINT_MISSING",
+      "model": "yoloe-v8s-seg + dinov2_vits14",
+      "request": {
+        "frame_id": "e4c5f7c9-e87d-4dea-877f-3c31871e9353:25",
+        "object_ids": [
+          "a40bb750-eba7-4ab0-8ebb-ebb09251efb8",
+          "0efd9a4e-5cda-486d-8c00-e5ca71ba20dd",
+          "20232b29-a74e-4d56-b585-c93018b528f7"
+        ]
+      },
+      "result": null,
+      "steps": [
+        {
+          "stage": "execution_error",
+          "created_at": "2026-11-01T13:37:39.358936+00:00",
+          "code": "DINOV2_CHECKPOINT_MISSING",
+          "exception_type": "AssistantError",
+          "message": "Required checkpoint is unavailable: /home/nguyentnt/PDWAIA/ecus/hi/runs/dual-vision-app-2026-11-01-final/missing-dinov2.pth",
+          "required_profile": {
+            "enabled": true,
+            "upstream_path": ".upstream/yoloe",
+            "checkpoint": "data/models/yoloe/yoloe-v8s-seg.pt",
+            "upstream_revision": "40cd606cabdbe2b566d6f14a6b162c89206e9a1b",
+            "checkpoint_sha256": "ac2b90ed23011495a3e86d89caeb3432a15129cac8d849ba121293c8fc1e0536",
+            "checkpoint_revision": "b584da188a198a2e6aa0e013d3fef6d55b212603",
+            "model": "yoloe-v8s-seg",
+            "profile_version": 2,
+            "descriptor_model": "dinov2_vits14",
+            "descriptor_source": ".upstream/dinov2",
+            "descriptor_checkpoint": "/home/nguyentnt/PDWAIA/ecus/hi/runs/dual-vision-app-2026-11-01-final/missing-dinov2.pth",
+            "descriptor_revision": "7764ea0f912e53c92e82eb78a2a1631e92725fc8",
+            "descriptor_sha256": "b938bf1bc15cd2ec0feacfe3a1bb553fe8ea9ca46a7e1d8d00217f29aef60cd9",
+            "descriptor_batch_size": 8,
+            "reference_similarity_threshold": 0.8,
+            "reference_margin_threshold": 0.05,
+            "device": "cpu",
+            "torch_threads": 2,
+            "image_size": 640,
+            "score_threshold": 0.2,
+            "tile_size": 320,
+            "reference_size": 200,
+            "max_objects": 8,
+            "max_references": 6,
+            "max_frames": 12,
+            "max_frame_gap_s": 1.0,
+            "job_timeout_s": 120.0,
+            "heartbeat_s": 2.0,
+            "worker_stale_s": 15.0,
+            "polling_s": 0.25,
+            "history_limit": 20,
+            "track_high_thresh": 0.25,
+            "track_low_thresh": 0.1,
+            "new_track_thresh": 0.25,
+            "track_buffer": 30,
+            "match_thresh": 0.8,
+            "fuse_score": true
+          }
+        }
+      ]
+    }
+  },
+  {
+    "case": "corrupt-dinov2-checkpoint",
+    "job": {
+      "id": "24b11fb7-fadd-4907-904c-1af36778a33c",
+      "kind": "vision",
+      "mode": "synthetic",
+      "request_key": "artifact-failure-corrupt-dinov2-checkpoint",
+      "created_at": "2026-11-01T13:37:39.504313+00:00",
+      "status": "failed",
+      "stage": "failed",
+      "started_at": "2026-11-01T13:37:39.620919+00:00",
+      "finished_at": "2026-11-01T13:37:39.897936+00:00",
+      "worker_id": "f45103b0-ccb0-4134-9388-d0e6d9924bd1",
+      "dispatched_at": "2026-11-01T13:37:39.513455+00:00",
+      "error_code": "DINOV2_CHECKPOINT_MISMATCH",
+      "model": "yoloe-v8s-seg + dinov2_vits14",
+      "request": {
+        "frame_id": "e4c5f7c9-e87d-4dea-877f-3c31871e9353:25",
+        "object_ids": [
+          "a40bb750-eba7-4ab0-8ebb-ebb09251efb8",
+          "0efd9a4e-5cda-486d-8c00-e5ca71ba20dd",
+          "20232b29-a74e-4d56-b585-c93018b528f7"
+        ]
+      },
+      "result": null,
+      "steps": [
+        {
+          "stage": "execution_error",
+          "created_at": "2026-11-01T13:37:39.893843+00:00",
+          "code": "DINOV2_CHECKPOINT_MISMATCH",
+          "exception_type": "AssistantError",
+          "message": "Checkpoint digest mismatch: /home/nguyentnt/PDWAIA/ecus/hi/runs/dual-vision-app-2026-11-01-final/explicit-corrupt-checkpoint.pt",
+          "required_profile": {
+            "enabled": true,
+            "upstream_path": ".upstream/yoloe",
+            "checkpoint": "data/models/yoloe/yoloe-v8s-seg.pt",
+            "upstream_revision": "40cd606cabdbe2b566d6f14a6b162c89206e9a1b",
+            "checkpoint_sha256": "ac2b90ed23011495a3e86d89caeb3432a15129cac8d849ba121293c8fc1e0536",
+            "checkpoint_revision": "b584da188a198a2e6aa0e013d3fef6d55b212603",
+            "model": "yoloe-v8s-seg",
+            "profile_version": 2,
+            "descriptor_model": "dinov2_vits14",
+            "descriptor_source": ".upstream/dinov2",
+            "descriptor_checkpoint": "/home/nguyentnt/PDWAIA/ecus/hi/runs/dual-vision-app-2026-11-01-final/explicit-corrupt-checkpoint.pt",
+            "descriptor_revision": "7764ea0f912e53c92e82eb78a2a1631e92725fc8",
+            "descriptor_sha256": "b938bf1bc15cd2ec0feacfe3a1bb553fe8ea9ca46a7e1d8d00217f29aef60cd9",
+            "descriptor_batch_size": 8,
+            "reference_similarity_threshold": 0.8,
+            "reference_margin_threshold": 0.05,
+            "device": "cpu",
+            "torch_threads": 2,
+            "image_size": 640,
+            "score_threshold": 0.2,
+            "tile_size": 320,
+            "reference_size": 200,
+            "max_objects": 8,
+            "max_references": 6,
+            "max_frames": 12,
+            "max_frame_gap_s": 1.0,
+            "job_timeout_s": 120.0,
+            "heartbeat_s": 2.0,
+            "worker_stale_s": 15.0,
+            "polling_s": 0.25,
+            "history_limit": 20,
+            "track_high_thresh": 0.25,
+            "track_low_thresh": 0.1,
+            "new_track_thresh": 0.25,
+            "track_buffer": 30,
+            "match_thresh": 0.8,
+            "fuse_score": true
+          }
+        }
+      ]
+    }
+  },
+  {
+    "case": "historical-profile",
+    "job": {
+      "id": "88bf06ba-ea90-452f-a989-acaa28d105ca",
+      "kind": "vision",
+      "mode": "synthetic",
+      "request_key": "artifact-failure-historical-profile",
+      "created_at": "2026-11-01T13:37:40.049161+00:00",
+      "status": "failed",
+      "stage": "failed",
+      "started_at": "2026-11-01T13:37:40.155559+00:00",
+      "finished_at": "2026-11-01T13:37:40.165190+00:00",
+      "worker_id": "f45103b0-ccb0-4134-9388-d0e6d9924bd1",
+      "dispatched_at": "2026-11-01T13:37:40.057460+00:00",
+      "error_code": "VISION_PROFILE_UNSUPPORTED",
+      "model": "yoloe-v8s-seg + dinov2_vits14",
+      "request": {
+        "frame_id": "e4c5f7c9-e87d-4dea-877f-3c31871e9353:25",
+        "object_ids": [
+          "a40bb750-eba7-4ab0-8ebb-ebb09251efb8",
+          "0efd9a4e-5cda-486d-8c00-e5ca71ba20dd",
+          "20232b29-a74e-4d56-b585-c93018b528f7"
+        ]
+      },
+      "result": null,
+      "steps": [
+        {
+          "stage": "execution_error",
+          "created_at": "2026-11-01T13:37:40.160967+00:00",
+          "code": "VISION_PROFILE_UNSUPPORTED",
+          "exception_type": "AssistantError",
+          "message": "Historical jobs without an explicit v2 profile are not reinterpreted or upgraded.",
+          "required_profile": {
+            "enabled": true,
+            "upstream_path": ".upstream/yoloe",
+            "checkpoint": "data/models/yoloe/yoloe-v8s-seg.pt",
+            "upstream_revision": "40cd606cabdbe2b566d6f14a6b162c89206e9a1b",
+            "checkpoint_sha256": "ac2b90ed23011495a3e86d89caeb3432a15129cac8d849ba121293c8fc1e0536",
+            "checkpoint_revision": "b584da188a198a2e6aa0e013d3fef6d55b212603",
+            "model": "yoloe-v8s-seg",
+            "profile_version": 1,
+            "descriptor_model": "dinov2_vits14",
+            "descriptor_source": ".upstream/dinov2",
+            "descriptor_checkpoint": "data/models/dinov2/dinov2_vits14_pretrain.pth",
+            "descriptor_revision": "7764ea0f912e53c92e82eb78a2a1631e92725fc8",
+            "descriptor_sha256": "b938bf1bc15cd2ec0feacfe3a1bb553fe8ea9ca46a7e1d8d00217f29aef60cd9",
+            "descriptor_batch_size": 8,
+            "reference_similarity_threshold": 0.8,
+            "reference_margin_threshold": 0.05,
+            "device": "cpu",
+            "torch_threads": 2,
+            "image_size": 640,
+            "score_threshold": 0.2,
+            "tile_size": 320,
+            "reference_size": 200,
+            "max_objects": 8,
+            "max_references": 6,
+            "max_frames": 12,
+            "max_frame_gap_s": 1.0,
+            "job_timeout_s": 120.0,
+            "heartbeat_s": 2.0,
+            "worker_stale_s": 15.0,
+            "polling_s": 0.25,
+            "history_limit": 20,
+            "track_high_thresh": 0.25,
+            "track_low_thresh": 0.1,
+            "new_track_thresh": 0.25,
+            "track_buffer": 30,
+            "match_thresh": 0.8,
+            "fuse_score": true
+          }
+        }
+      ]
+    }
+  },
+  {
+    "case": "corrupt-dinov2-cache",
+    "job": {
+      "id": "87afdea6-81a7-4043-8053-6c514c0f388b",
+      "kind": "vision",
+      "mode": "synthetic",
+      "request_key": "artifact-failure-corrupt-dinov2-cache",
+      "created_at": "2026-11-01T13:37:40.289166+00:00",
+      "status": "failed",
+      "stage": "failed",
+      "started_at": "2026-11-01T13:37:40.423285+00:00",
+      "finished_at": "2026-11-01T13:37:41.801954+00:00",
+      "worker_id": "f45103b0-ccb0-4134-9388-d0e6d9924bd1",
+      "dispatched_at": "2026-11-01T13:37:40.297165+00:00",
+      "error_code": "DINOV2_CACHE_CHECKPOINT_MISMATCH",
+      "model": "yoloe-v8s-seg + dinov2_vits14",
+      "request": {
+        "frame_id": "e4c5f7c9-e87d-4dea-877f-3c31871e9353:25",
+        "object_ids": [
+          "a40bb750-eba7-4ab0-8ebb-ebb09251efb8",
+          "0efd9a4e-5cda-486d-8c00-e5ca71ba20dd",
+          "20232b29-a74e-4d56-b585-c93018b528f7"
+        ]
+      },
+      "result": null,
+      "steps": [
+        {
+          "stage": "model_loaded",
+          "created_at": "2026-11-01T13:37:40.957966+00:00",
+          "provenance": {
+            "repository": "https://github.com/THU-MIG/yoloe",
+            "revision": "40cd606cabdbe2b566d6f14a6b162c89206e9a1b",
+            "license": "AGPL-3.0",
+            "checkpoint_sha256": "ac2b90ed23011495a3e86d89caeb3432a15129cac8d849ba121293c8fc1e0536",
+            "checkpoint_revision": "b584da188a198a2e6aa0e013d3fef6d55b212603",
+            "checkpoint_source": "https://huggingface.co/jameslahm/yoloe",
+            "files_sha256": {
+              "ultralytics/models/yolo/yoloe/predict_vp.py": "f949cc5ae2231b62803eab54b171e91285f07ab910fd432a4fcdcdc599e89455",
+              "ultralytics/nn/tasks.py": "011c6eec5648064767d3210754054fb31e18e2ef403dd9c32a3df520ccb308c7",
+              "ultralytics/data/augment.py": "6c7865ae86349a6397ffb7ff9fd1352d5e56de47e5d0627452f301820b850217",
+              "ultralytics/nn/modules/head.py": "cc602944167947ebb8a09cd9d22ce644375ab3abf54831c8d2b2eb0ffb97b864",
+              "ultralytics/trackers/byte_tracker.py": "8e5dde817948b5fa8f7db9b1b0b79bbc0ede29959ad46863d9073dc0d4ed79b4"
+            },
+            "model": "yoloe-v8s-seg",
+            "device": "cpu",
+            "torch_version": "2.6.0+cpu",
+            "packages": {
+              "torchvision": "0.21.0+cpu",
+              "numpy": "2.5.4",
+              "lap": "0.5.13",
+              "ultralytics": "8.3.39",
+              "opencv-python": "5.0.0.93",
+              "huey": "3.5.3",
+              "scipy": "1.18.1"
+            },
+            "method": "upstream_yoloe_savpe_segmentation_and_bytetrack",
+            "entry_points": [
+              "YOLOEVPSegPredictor",
+              "YOLOEModel.get_visual_pe",
+              "SAVPE.forward",
+              "YOLOE.set_classes",
+              "Model.predict",
+              "BYTETracker.update"
+            ],
+            "preprocessing": {
+              "name": "project_reference_contact_sheet_v1",
+              "tile_size": 320,
+              "crop_fit": 200,
+              "fill": 128,
+              "image_size": 640
+            },
+            "score_semantics": "uncalibrated_model_score_not_identity_probability",
+            "identity_semantics": "visual_prompt_class_candidate_not_verified_exact_instance",
+            "tracking_semantics": "upstream_kalman_and_association_ids_local_to_this_window",
+            "score_threshold": 0.2
+          }
+        },
+        {
+          "stage": "visual_prompt_encoded",
+          "created_at": "2026-11-01T13:37:41.178186+00:00",
+          "object_id": "a40bb750-eba7-4ab0-8ebb-ebb09251efb8",
+          "reference_shas": [
+            "bbd0cf79105615eed23cf10df2f4aa1523213e0727943be8708cdbe2370ddd30",
+            "e88351b9c7b3a622826a68f022d147a78ca6f83005a0c192a96a6c8a86ee015a",
+            "315338b42fea344513194212021c0ce8009a1dc543fba05664ecce616c71ad7e"
+          ],
+          "prompt_image_sha": "e79c0d0a63d23743af8d59ddf5e56ee1622c1d411ab01991093afaa6d2f6d7d6",
+          "embedding_shape": [
+            1,
+            1,
+            512
+          ]
+        },
+        {
+          "stage": "visual_prompt_encoded",
+          "created_at": "2026-11-01T13:37:41.393934+00:00",
+          "object_id": "0efd9a4e-5cda-486d-8c00-e5ca71ba20dd",
+          "reference_shas": [
+            "afde936ddc714931204c641e4369ca6d8ddbc1fa7895fc4b9bb0a0d74d13c122",
+            "c5971a8f2ff044612babf307ad07cd7d729151722187219cee7ad2b318fb853d",
+            "05609f81412ec8b35f7393bc038948adfa345480499e2755093db1852cff4dea"
+          ],
+          "prompt_image_sha": "ecab438ec7e714a9d7d5528cf5aad4f32ff4c9428c36aa14aeba6262c0f65059",
+          "embedding_shape": [
+            1,
+            1,
+            512
+          ]
+        },
+        {
+          "stage": "visual_prompt_encoded",
+          "created_at": "2026-11-01T13:37:41.610050+00:00",
+          "object_id": "20232b29-a74e-4d56-b585-c93018b528f7",
+          "reference_shas": [
+            "af4fcd4f6870e1e0fdcbb4c004d6c00f4c669921cd8dff078d6da7764548f541",
+            "df9f62837e85916d47cd67da935bb08fe496e03dd09d6643fca194e89b23233b",
+            "c6507d060bdbfdfe796ac4e7298810c26405bc1cdff3a583a008745d7228514f"
+          ],
+          "prompt_image_sha": "e2c15c744d097be2a41cb8f3e8cb246b9b9db0a4b8b67e03e2673d4b5aaf1193",
+          "embedding_shape": [
+            1,
+            1,
+            512
+          ]
+        },
+        {
+          "stage": "execution_error",
+          "created_at": "2026-11-01T13:37:41.796976+00:00",
+          "code": "DINOV2_CACHE_CHECKPOINT_MISMATCH",
+          "exception_type": "AssistantError",
+          "message": "Checkpoint digest mismatch: /home/nguyentnt/PDWAIA/ecus/hi/runs/dual-vision-app-2026-11-01-final/state/dinov2-cache/checkpoints/acceptance-cache-collision.pth",
+          "required_profile": {
+            "enabled": true,
+            "upstream_path": ".upstream/yoloe",
+            "checkpoint": "data/models/yoloe/yoloe-v8s-seg.pt",
+            "upstream_revision": "40cd606cabdbe2b566d6f14a6b162c89206e9a1b",
+            "checkpoint_sha256": "ac2b90ed23011495a3e86d89caeb3432a15129cac8d849ba121293c8fc1e0536",
+            "checkpoint_revision": "b584da188a198a2e6aa0e013d3fef6d55b212603",
+            "model": "yoloe-v8s-seg",
+            "profile_version": 2,
+            "descriptor_model": "dinov2_vits14",
+            "descriptor_source": ".upstream/dinov2",
+            "descriptor_checkpoint": "/home/nguyentnt/PDWAIA/ecus/hi/runs/dual-vision-app-2026-11-01-final/acceptance-cache-collision.pth",
+            "descriptor_revision": "7764ea0f912e53c92e82eb78a2a1631e92725fc8",
+            "descriptor_sha256": "b938bf1bc15cd2ec0feacfe3a1bb553fe8ea9ca46a7e1d8d00217f29aef60cd9",
+            "descriptor_batch_size": 8,
+            "reference_similarity_threshold": 0.8,
+            "reference_margin_threshold": 0.05,
+            "device": "cpu",
+            "torch_threads": 2,
+            "image_size": 640,
+            "score_threshold": 0.2,
+            "tile_size": 320,
+            "reference_size": 200,
+            "max_objects": 8,
+            "max_references": 6,
+            "max_frames": 12,
+            "max_frame_gap_s": 1.0,
+            "job_timeout_s": 120.0,
+            "heartbeat_s": 2.0,
+            "worker_stale_s": 15.0,
+            "polling_s": 0.25,
+            "history_limit": 20,
+            "track_high_thresh": 0.25,
+            "track_low_thresh": 0.1,
+            "new_track_thresh": 0.25,
+            "track_buffer": 30,
+            "match_thresh": 0.8,
+            "fuse_score": true
+          }
+        }
+      ]
+    }
+  }
+]

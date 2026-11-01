@@ -1,0 +1,14 @@
+{
+  "python_tests": 106,
+  "chromium_tests": 8,
+  "make_check": "passed",
+  "make_test": "passed",
+  "make_app_build": "passed",
+  "make_app_test": "passed",
+  "make_build": "passed",
+  "model_execution": "separate genuine opt-in CPU app run; not default test fixtures",
+  "paid_api_calls": 0,
+  "physical_robot": "not exercised",
+  "gpu_inference": "not used",
+  "source_sha256_matches_run_manifest": true
+}

@@ -11,12 +11,14 @@ maps actual runtime methods to sources. The app exposes the same method inventor
 custom Python/OpenCV baselines, operator/script assertions and genuine optional
 Mind Palace inference are explicitly distinguished.
 
-The optional [YOLOE visual-prompt app](docs/24-yoloe-vision.md) now runs the
-actual author implementation/checkpoint and ByteTrack on a separate CPU worker.
-[Real app execution on rendered images](docs/research/2026-11-01-yoloe-app/report.md)
-includes screenshots and raw errors: execution works, but exact-identity quality
-still fails on background and look-alike false positives. No autonomous patrol,
-learned predictive world model or RL locomotion is established by this integration.
+The optional [combined visual inspection profile](docs/24-yoloe-vision.md) runs
+actual author YOLOE proposals, DINOv2 reference descriptors and ByteTrack in a
+separate CPU worker. Its [real rendered-camera app execution](docs/research/2026-11-01-dual-vision-app/report.md)
+includes screenshots, raw comparisons and required-model failures. The explicit
+custom cosine/margin rule supports candidates; exact identity still fails on
+indistinguishable visible objects and recall drops under some viewpoints. No
+autonomous patrol, predictive world model or RL locomotion is established.
+
 
 The repository contains a software prototype for synthetic few-shot object
 search, multi-view verification, topological planning, AprilTag recovery, and a

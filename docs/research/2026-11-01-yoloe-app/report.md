@@ -139,3 +139,11 @@ evaluation gates. The user subsequently accepted using both complementary models
 Keep F03 and automatic inspection/current room-state claims unpromoted; the fatal
 review remains OPEN / FAIL. Do not use execution success or these screenshots to
 assert that the original full application/research requirements have been met.
+
+## Subsequent accepted implementation
+
+This report preserves the raw-YOLOE profile's executed code and failures. The
+user later accepted using both complementary models, and the
+[new combined application report](../2026-11-01-dual-vision-app/report.md) records
+genuine DINOv2 inference in the supported worker. That later integration does
+not change these historical outputs, ratings or exact-identity failures.

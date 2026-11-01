@@ -33,6 +33,8 @@ def main():
         "teach_and_find/config.py",
         "teach_and_find/storage.py",
         "teach_and_find/yoloe_adapter.py",
+        "teach_and_find/dinov2_adapter.py",
+        "teach_and_find/model_artifacts.py",
         "teach_and_find/vision_service.py",
         "teach_and_find/vision_worker.py",
         "teach_and_find/memory_queue.py",
@@ -61,7 +63,7 @@ def main():
         "source_sha256": {
             p: hashlib.sha256((root / p).read_bytes()).hexdigest() for p in files
         },
-        "method": "actual_yoloe_author_implementation_and_ultralytics_bytetrack_on_rendered_images",
+        "method": "actual_yoloe_and_dinov2_with_declared_custom_reference_policy_and_bytetrack_on_rendered_images",
         "claim_boundary": "model_execution_not_identity_quality_navigation_RL_or_physical_verification",
     }
     (base / "run-manifest.json").write_text(json.dumps(manifest, indent=2))

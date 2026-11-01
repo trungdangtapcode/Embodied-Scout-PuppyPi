@@ -268,3 +268,22 @@ the pipeline requires the user's agreed revision; do not silently add a threshol
 or revise acceptance after these failures. Automatic inspection/current room
 state, predictive world modeling, navigation and learned locomotion remain open.
 The incident remains OPEN / FAIL and the user's rating remains 0/10.
+
+## Later accepted dual-model integration; exact-identity gate remains open
+
+After the user explicitly requested both complementary models, the
+[combined app profile](../research/2026-11-01-dual-vision-app/report.md) executed
+actual YOLOE and DINOv2, an explicitly custom cosine/margin support rule and
+original Ultralytics ByteTrack on 103 rendered frames in nine conditions. Eight
+real missing/corrupt model, cache and incompatible-profile jobs failed with null
+results. This adds actual descriptor/reference comparison to the app; it does not
+promote the former research-only probe or custom readout into an upstream identity
+classifier. Both models are mandatory; old profiles are not silently reinterpreted.
+
+False positives decrease in the small ordinary scenes, with substantial recall
+loss under some views. The deliberately identical-visible-face case produces 11
+false supported candidates. These remain candidates, never verified sightings;
+exact identity, robust abstention, active view acquisition, physical navigation,
+learned locomotion and predictive world modeling remain unproven or absent.
+Do not change the acceptance gates, close the incident or revise the user's 0/10
+rating based on execution, source reuse, a selective score or attractive screenshots.

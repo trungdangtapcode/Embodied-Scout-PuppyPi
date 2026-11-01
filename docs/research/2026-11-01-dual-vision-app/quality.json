@@ -1,0 +1,372 @@
+{
+  "mode": "synthetic",
+  "iou_threshold": 0.5,
+  "score_threshold": 0.2,
+  "scope": "paired_same_inputs_raw_yoloe_vs_custom_dinov2_reference_policy_not_real_room_quality",
+  "matching": "descending_yoloe_score_one_to_one_same_enrollment_class",
+  "truth_never_used_by_inference": true,
+  "scenes": {
+    "moving": {
+      "frames": 11,
+      "split": "development",
+      "mean_frame_elapsed_s": 0.228084980848838,
+      "job_model_elapsed_s": 7.023039788007736,
+      "variants": {
+        "raw_yoloe": {
+          "ground_truth_enrolled_instances": 33,
+          "proposals": 54,
+          "true_positives": 32,
+          "false_positives": 22,
+          "false_negatives": 1,
+          "precision": 0.5925925925925926,
+          "recall": 0.9696969696969697,
+          "frames_with_candidates": 11,
+          "tracked_true_positives": 22,
+          "track_id_changes_between_matched_observations": 0,
+          "track_ids_by_matched_object": {
+            "secret_box_1": [
+              1
+            ],
+            "blue_tool_case": [
+              2
+            ]
+          }
+        },
+        "dinov2_reference_supported": {
+          "ground_truth_enrolled_instances": 33,
+          "proposals": 25,
+          "true_positives": 25,
+          "false_positives": 0,
+          "false_negatives": 8,
+          "precision": 1.0,
+          "recall": 0.7575757575757576,
+          "frames_with_candidates": 11,
+          "tracked_true_positives": 22,
+          "track_id_changes_between_matched_observations": 0,
+          "track_ids_by_matched_object": {
+            "secret_box_1": [
+              1
+            ],
+            "blue_tool_case": [
+              2
+            ]
+          }
+        }
+      }
+    },
+    "empty": {
+      "frames": 11,
+      "split": "development",
+      "mean_frame_elapsed_s": 0.1567775977098129,
+      "job_model_elapsed_s": 3.7312760557979345,
+      "variants": {
+        "raw_yoloe": {
+          "ground_truth_enrolled_instances": 0,
+          "proposals": 11,
+          "true_positives": 0,
+          "false_positives": 11,
+          "false_negatives": 0,
+          "precision": 0.0,
+          "recall": null,
+          "frames_with_candidates": 11,
+          "tracked_true_positives": 0,
+          "track_id_changes_between_matched_observations": 0,
+          "track_ids_by_matched_object": {}
+        },
+        "dinov2_reference_supported": {
+          "ground_truth_enrolled_instances": 0,
+          "proposals": 0,
+          "true_positives": 0,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": null,
+          "recall": null,
+          "frames_with_candidates": 0,
+          "tracked_true_positives": 0,
+          "track_id_changes_between_matched_observations": 0,
+          "track_ids_by_matched_object": {}
+        }
+      }
+    },
+    "decoy": {
+      "frames": 12,
+      "split": "development",
+      "mean_frame_elapsed_s": 0.19542025526364645,
+      "job_model_elapsed_s": 4.367204097099602,
+      "variants": {
+        "raw_yoloe": {
+          "ground_truth_enrolled_instances": 0,
+          "proposals": 36,
+          "true_positives": 0,
+          "false_positives": 36,
+          "false_negatives": 0,
+          "precision": 0.0,
+          "recall": null,
+          "frames_with_candidates": 12,
+          "tracked_true_positives": 0,
+          "track_id_changes_between_matched_observations": 0,
+          "track_ids_by_matched_object": {}
+        },
+        "dinov2_reference_supported": {
+          "ground_truth_enrolled_instances": 0,
+          "proposals": 0,
+          "true_positives": 0,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": null,
+          "recall": null,
+          "frames_with_candidates": 0,
+          "tracked_true_positives": 0,
+          "track_id_changes_between_matched_observations": 0,
+          "track_ids_by_matched_object": {}
+        }
+      }
+    },
+    "occluded": {
+      "frames": 11,
+      "split": "development",
+      "mean_frame_elapsed_s": 0.1096052173525095,
+      "job_model_elapsed_s": 3.170339807868004,
+      "variants": {
+        "raw_yoloe": {
+          "ground_truth_enrolled_instances": 0,
+          "proposals": 0,
+          "true_positives": 0,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": null,
+          "recall": null,
+          "frames_with_candidates": 0,
+          "tracked_true_positives": 0,
+          "track_id_changes_between_matched_observations": 0,
+          "track_ids_by_matched_object": {}
+        },
+        "dinov2_reference_supported": {
+          "ground_truth_enrolled_instances": 0,
+          "proposals": 0,
+          "true_positives": 0,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": null,
+          "recall": null,
+          "frames_with_candidates": 0,
+          "tracked_true_positives": 0,
+          "track_id_changes_between_matched_observations": 0,
+          "track_ids_by_matched_object": {}
+        }
+      }
+    },
+    "changed_view": {
+      "frames": 12,
+      "split": "development",
+      "mean_frame_elapsed_s": 0.20719186503750583,
+      "job_model_elapsed_s": 4.431354687549174,
+      "variants": {
+        "raw_yoloe": {
+          "ground_truth_enrolled_instances": 36,
+          "proposals": 50,
+          "true_positives": 26,
+          "false_positives": 24,
+          "false_negatives": 10,
+          "precision": 0.52,
+          "recall": 0.7222222222222222,
+          "frames_with_candidates": 12,
+          "tracked_true_positives": 24,
+          "track_id_changes_between_matched_observations": 0,
+          "track_ids_by_matched_object": {
+            "secret_box_1": [
+              1
+            ],
+            "blue_tool_case": [
+              2
+            ]
+          }
+        },
+        "dinov2_reference_supported": {
+          "ground_truth_enrolled_instances": 36,
+          "proposals": 26,
+          "true_positives": 26,
+          "false_positives": 0,
+          "false_negatives": 10,
+          "precision": 1.0,
+          "recall": 0.7222222222222222,
+          "frames_with_candidates": 12,
+          "tracked_true_positives": 24,
+          "track_id_changes_between_matched_observations": 0,
+          "track_ids_by_matched_object": {
+            "secret_box_1": [
+              1
+            ],
+            "blue_tool_case": [
+              2
+            ]
+          }
+        }
+      }
+    },
+    "novel_angle": {
+      "frames": 12,
+      "split": "new_condition_after_policy_freeze",
+      "mean_frame_elapsed_s": 0.22234925969193378,
+      "job_model_elapsed_s": 4.728594779968262,
+      "variants": {
+        "raw_yoloe": {
+          "ground_truth_enrolled_instances": 36,
+          "proposals": 60,
+          "true_positives": 36,
+          "false_positives": 24,
+          "false_negatives": 0,
+          "precision": 0.6,
+          "recall": 1.0,
+          "frames_with_candidates": 12,
+          "tracked_true_positives": 13,
+          "track_id_changes_between_matched_observations": 0,
+          "track_ids_by_matched_object": {
+            "blue_tool_case": [
+              1
+            ],
+            "emerald_med_kit": [
+              3
+            ]
+          }
+        },
+        "dinov2_reference_supported": {
+          "ground_truth_enrolled_instances": 36,
+          "proposals": 15,
+          "true_positives": 15,
+          "false_positives": 0,
+          "false_negatives": 21,
+          "precision": 1.0,
+          "recall": 0.4166666666666667,
+          "frames_with_candidates": 12,
+          "tracked_true_positives": 13,
+          "track_id_changes_between_matched_observations": 0,
+          "track_ids_by_matched_object": {
+            "blue_tool_case": [
+              1
+            ],
+            "emerald_med_kit": [
+              3
+            ]
+          }
+        }
+      }
+    },
+    "novel_lighting": {
+      "frames": 12,
+      "split": "new_condition_after_policy_freeze",
+      "mean_frame_elapsed_s": 0.19802930586350462,
+      "job_model_elapsed_s": 4.281056785956025,
+      "variants": {
+        "raw_yoloe": {
+          "ground_truth_enrolled_instances": 36,
+          "proposals": 47,
+          "true_positives": 23,
+          "false_positives": 24,
+          "false_negatives": 13,
+          "precision": 0.48936170212765956,
+          "recall": 0.6388888888888888,
+          "frames_with_candidates": 12,
+          "tracked_true_positives": 21,
+          "track_id_changes_between_matched_observations": 0,
+          "track_ids_by_matched_object": {
+            "blue_tool_case": [
+              1
+            ],
+            "secret_box_1": [
+              2
+            ]
+          }
+        },
+        "dinov2_reference_supported": {
+          "ground_truth_enrolled_instances": 36,
+          "proposals": 23,
+          "true_positives": 23,
+          "false_positives": 0,
+          "false_negatives": 13,
+          "precision": 1.0,
+          "recall": 0.6388888888888888,
+          "frames_with_candidates": 12,
+          "tracked_true_positives": 21,
+          "track_id_changes_between_matched_observations": 0,
+          "track_ids_by_matched_object": {
+            "blue_tool_case": [
+              1
+            ],
+            "secret_box_1": [
+              2
+            ]
+          }
+        }
+      }
+    },
+    "novel_distractors": {
+      "frames": 11,
+      "split": "new_condition_after_policy_freeze",
+      "mean_frame_elapsed_s": 0.18225501613183456,
+      "job_model_elapsed_s": 3.943525969982147,
+      "variants": {
+        "raw_yoloe": {
+          "ground_truth_enrolled_instances": 0,
+          "proposals": 33,
+          "true_positives": 0,
+          "false_positives": 33,
+          "false_negatives": 0,
+          "precision": 0.0,
+          "recall": null,
+          "frames_with_candidates": 11,
+          "tracked_true_positives": 0,
+          "track_id_changes_between_matched_observations": 0,
+          "track_ids_by_matched_object": {}
+        },
+        "dinov2_reference_supported": {
+          "ground_truth_enrolled_instances": 0,
+          "proposals": 0,
+          "true_positives": 0,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": null,
+          "recall": null,
+          "frames_with_candidates": 0,
+          "tracked_true_positives": 0,
+          "track_id_changes_between_matched_observations": 0,
+          "track_ids_by_matched_object": {}
+        }
+      }
+    },
+    "indistinguishable_front": {
+      "frames": 11,
+      "split": "new_condition_after_policy_freeze",
+      "mean_frame_elapsed_s": 0.16873850131576712,
+      "job_model_elapsed_s": 3.738449903205037,
+      "variants": {
+        "raw_yoloe": {
+          "ground_truth_enrolled_instances": 0,
+          "proposals": 33,
+          "true_positives": 0,
+          "false_positives": 33,
+          "false_negatives": 0,
+          "precision": 0.0,
+          "recall": null,
+          "frames_with_candidates": 11,
+          "tracked_true_positives": 0,
+          "track_id_changes_between_matched_observations": 0,
+          "track_ids_by_matched_object": {}
+        },
+        "dinov2_reference_supported": {
+          "ground_truth_enrolled_instances": 0,
+          "proposals": 11,
+          "true_positives": 0,
+          "false_positives": 11,
+          "false_negatives": 0,
+          "precision": 0.0,
+          "recall": null,
+          "frames_with_candidates": 11,
+          "tracked_true_positives": 0,
+          "track_id_changes_between_matched_observations": 0,
+          "track_ids_by_matched_object": {}
+        }
+      }
+    }
+  }
+}

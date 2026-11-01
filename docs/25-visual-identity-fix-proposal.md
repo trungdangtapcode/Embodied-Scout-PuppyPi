@@ -1,16 +1,16 @@
 # Visual identity follow-up: executed probe, proposed application stage
 
-Date: 2026-11-01. Status: **Accepted proposal / implementation next**. User confirmation of this
+Date: 2026-11-01. Status: **Accepted and integrated execution subset; exact-identity quality unverified**. User confirmation of this
 pipeline revision was received after clarifying that both models are complementary. Do not rewrite YOLOE acceptance to make the current
-recognition errors pass. The critical incident remains OPEN / FAIL.
+recognition errors pass. The critical incident remains OPEN / FAIL. The original probe/proposal below is retained; see the [combined app execution](research/2026-11-01-dual-vision-app/report.md) for the later implementation.
 
 ## Why another stage is necessary
 
-The [actual YOLOE app](24-yoloe-vision.md) executes genuine visual-prompt inference
-and ByteTrack, but detects a wall marker as an enrolled object and proposes a
+The original [raw-YOLOE profile](research/2026-11-01-yoloe-app/report.md) executed genuine visual-prompt inference
+and ByteTrack, but detected a wall marker as an enrolled object and proposed a
 look-alike as the target. This is a category/candidate proposal path, not reliable
 exact-instance verification. The original custom appearance baseline cannot
-substitute for the missing learned comparison. Raising a threshold on the same
+substitute for the learned comparison missing at that stage. Raising a threshold on the same
 evaluated scenes or blacklisting AprilTag pixels would not establish the requested
 capability.
 
@@ -55,10 +55,12 @@ PYTHONPATH=. CUDA_VISIBLE_DEVICES=-1 MPLBACKEND=Agg .venv-vision/bin/python \
 The script verifies source revision, clean tracked source and weights digest;
 missing or mismatched artifacts fail. It records source hashes and actual
 cosines. Raw probe evidence is linked from the [execution report](research/2026-11-01-yoloe-app/report.md).
-Its source directory and the checkpoint are not installed by `vision-setup`,
-imported by the app, or invoked by the production vision worker.
+At probe time the app did not use this backbone. The probe script remains
+research-only; the subsequently implemented production adapter now uses the same
+pinned source/checkpoint, both prepared by `vision-setup`. See the combined report
+for that separate application execution.
 
-## Proposed revision requiring agreement
+## Original proposal, subsequently accepted
 
 Keep YOLOE as the genuine proposal/segmentation model. For each model-generated
 `CandidateProposal`, run the pinned DINOv2 backbone and compare its descriptor
@@ -89,3 +91,22 @@ The revised app profile would require both verified checkpoints, fail if either
 component is unavailable, and identify each model plus the custom readout at its
 point of use. No public-quality result, automatic inspection, autonomous search,
 navigation or predictive world model is delivered by this proposal or probe.
+
+
+## Accepted revision and actual application integration
+
+The user clarified that YOLOE and DINOv2 are complementary and requested both.
+The combined profile now executes YOLOE proposals/segmentation, original DINOv2
+reference/crop descriptors, the explicitly custom maximum-cosine/margin rule and
+original Ultralytics ByteTrack over supported candidates. Both pretrained models
+are mandatory; their real execution and failures are in the
+[combined report](research/2026-11-01-dual-vision-app/report.md).
+
+The fixed development policy is similarity ≥ 0.80 and top-class margin ≥ 0.05
+when multiple classes exist, with detector/descriptor class agreement. These
+hand-selected thresholds were declared before the new-condition experiment;
+they are not fitted calibration or an author's exact-instance method. All raw
+proposals/rejections stay in the API/app. No verified identity, absence, continuous
+room state or predictive world-model claim follows. The scope of the historical
+research-only script remains a probe; the separate production adapter now supplies
+the actual app integration.

@@ -1,0 +1,28 @@
+{
+  "mode": "synthetic",
+  "device": "cpu",
+  "paid_api_calls": 0,
+  "root_revision_before_run": "9e1337781e4d86417a37cbb724630aba5541e695",
+  "uncommitted_source": true,
+  "source_sha256": {
+    "teach_and_find/config.py": "c418f41f3fa713274a09cfa726736c0ac08bb3ccfb81cf4c89c22b296c051c77",
+    "teach_and_find/storage.py": "774276d2958760e7373f9e51b0e0523be9893307a2dd99a2e47181fd4ab0e5c4",
+    "teach_and_find/yoloe_adapter.py": "7c8da1bd4fda5c6be00b9078d80fe81873e13461aa6e09fd5739af458ada5498",
+    "teach_and_find/dinov2_adapter.py": "2d5316d7e6c0bd42750e54429dddce098e630edd3cd03d80cd364544641a9b25",
+    "teach_and_find/model_artifacts.py": "3bee0cdbbaebe2f7f29b147cbde0b834fb4ce17c04abe52e646ee72d9c34405c",
+    "teach_and_find/vision_service.py": "4bef7ad980a761f12d8c767ae3b1e846f08f09a3f95f92268de446fbf3f49d56",
+    "teach_and_find/vision_worker.py": "b0fac1388747321c6a4142c90e232f9b4754517a3520afc64fd2bf408434e86f",
+    "teach_and_find/memory_queue.py": "d5aca3384534cf7edcaf135d09ce9cc6ae8a2cdab1c585b55fcbdad5e0ace5f2",
+    "teach_and_find/mobile/api.py": "f2695b0522a733d346687e64d710ad40f07a1f9a97644aa61d65d77c76bb3561",
+    "teach_and_find/mobile/runtime.py": "b93e31f116000cda4f8cdff033eeb86c31c442ca97772f5d86b068e27f46bef1",
+    "teach_and_find/sim/world3d.py": "1b9ea64e4c16830524082dc86e3383d159b657be35e58deb329cc4cdd0d95830",
+    "web/src/VisionConsole.tsx": "623496fc8ecef9021a3f3dc3560ef7e6166e31208b1aac3cfa0c487942f37ac5",
+    "scripts/research_vision_server.py": "b713dc09db296375b1e40d7e6fffaafd78ada3777f0286f2773e8017c501aacf",
+    "scripts/research_vision_capture.mjs": "24c36bf2f2b4959f520260d302086b7a727acf7393b75036e2b885c3c5caac30",
+    "scripts/research_vision_eval.py": "07cca22ebf4ef27d51f96c2c8283ce1b9575e5d0036630d7a999037cf94fb2f4",
+    "scripts/research_vision_failures.py": "7012d71758069e470269229c087dcbab733d8bd05ea35a1dd420da694514923c",
+    "requirements/vision-cpu.txt": "25852328c1ca34554dd6ffaf3d98f3b569d21bea0c9572f88bcfa45f24404176"
+  },
+  "method": "actual_yoloe_and_dinov2_with_declared_custom_reference_policy_and_bytetrack_on_rendered_images",
+  "claim_boundary": "model_execution_not_identity_quality_navigation_RL_or_physical_verification"
+}

@@ -59,7 +59,24 @@ def main():
         "reference_keys": keys,
         "scenes": {},
     }
-    for scene in ["moving", "empty", "decoy", "occluded", "changed_view"]:
+    # Novel conditions are specified after freezing the declared 0.80 / 0.05
+    # development policy, before running the combined models on these images.
+    scenes = [
+        "moving",
+        "empty",
+        "decoy",
+        "occluded",
+        "changed_view",
+        "novel_angle",
+        "novel_lighting",
+        "novel_distractors",
+        "indistinguishable_front",
+    ]
+    manifest["evaluation_split"] = {
+        s: "development" if i < 5 else "new_condition_after_policy_freeze"
+        for i, s in enumerate(scenes)
+    }
+    for scene in scenes:
         truth = []
         for index in range(12):
             positions = [
@@ -79,15 +96,45 @@ def main():
                         catalog["lookalike_red_box"], "station", (0.0, 2.0), -90.0
                     )
                 ]
+            elif scene == "novel_distractors":
+                placed = [
+                    PlacedObject(
+                        catalog["lookalike_red_box"], "station", (-0.18, 2.0), -120.0
+                    ),
+                    PlacedObject(
+                        catalog["amber_sensor_cube"], "station", (0.18, 2.0), -105.0
+                    ),
+                ]
+            elif scene == "indistinguishable_front":
+                # Deliberately impossible exact-identity observation: a distinct
+                # object has identical visible front/top; its different sides
+                # are hidden. This truth is evaluator-only, never a model hint.
+                textures = {
+                    **catalog["lookalike_red_box"].face_textures,
+                    "front": catalog["secret_box_1"].face_textures["front"],
+                    "top": catalog["secret_box_1"].face_textures["top"],
+                }
+                alias = replace(catalog["lookalike_red_box"], face_textures=textures)
+                placed = [PlacedObject(alias, "station", (0.0, 2.0), -90.0)]
+            elif scene == "novel_angle":
+                placed = [
+                    replace(p, yaw_deg=a)
+                    for p, a in zip(placed, [-105.0, -75.0, -120.0])
+                ]
             yaw = 90.0 if scene != "changed_view" else 85.0
             lighting = 1.0 if scene != "changed_view" else 0.75
+            camera_x, camera_y, pitch = 0.0, 1.15, -10.0
+            if scene == "novel_angle":
+                camera_x, yaw, pitch = 0.08, 100.0, -12.0
+            if scene == "novel_lighting":
+                camera_y, pitch, lighting = 1.05, -14.0, 0.55
 
             def render():
                 return world.render_camera(
-                    0.0,
-                    1.15,
+                    camera_x,
+                    camera_y,
                     yaw,
-                    pitch_rad=np.deg2rad(-10),
+                    pitch_rad=np.deg2rad(pitch),
                     noise_std=0,
                     lighting_scale=lighting,
                 )

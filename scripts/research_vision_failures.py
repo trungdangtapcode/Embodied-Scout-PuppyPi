@@ -28,6 +28,13 @@ def main():
     corrupt.write_bytes(
         b"This is an explicitly invalid acceptance artifact, not a model."
     )
+    # A valid source checkpoint with a deliberately corrupt, same-named cache.
+    # Use a new task-owned alias; never alter the primary downloaded/cache file.
+    alias = base / "acceptance-cache-collision.pth"
+    alias.symlink_to(Path(cfg.vision.descriptor_checkpoint).expanduser().resolve())
+    cached = base / "state/dinov2-cache/checkpoints" / alias.name
+    cached.parent.mkdir(parents=True, exist_ok=True)
+    cached.write_bytes(b"Explicit invalid cache fixture, not model weights.")
     cases = [
         (
             "missing-source",
@@ -43,6 +50,31 @@ def main():
             "corrupt-checkpoint",
             replace(cfg.vision, checkpoint=str(corrupt)),
             "VISION_CHECKPOINT_MISMATCH",
+        ),
+        (
+            "missing-dinov2-source",
+            replace(cfg.vision, descriptor_source=str(base / "missing-dinov2")),
+            "DINOV2_SOURCE_MISSING",
+        ),
+        (
+            "missing-dinov2-checkpoint",
+            replace(cfg.vision, descriptor_checkpoint=str(base / "missing-dinov2.pth")),
+            "DINOV2_CHECKPOINT_MISSING",
+        ),
+        (
+            "corrupt-dinov2-checkpoint",
+            replace(cfg.vision, descriptor_checkpoint=str(corrupt)),
+            "DINOV2_CHECKPOINT_MISMATCH",
+        ),
+        (
+            "historical-profile",
+            replace(cfg.vision, profile_version=1),
+            "VISION_PROFILE_UNSUPPORTED",
+        ),
+        (
+            "corrupt-dinov2-cache",
+            replace(cfg.vision, descriptor_checkpoint=str(alias)),
+            "DINOV2_CACHE_CHECKPOINT_MISMATCH",
         ),
     ]
     reports = []
@@ -78,7 +110,7 @@ def main():
         reports.append({"case": name, "job": record})
     (base / "artifact-failures.json").write_text(json.dumps(reports, indent=2))
     print(
-        "Three genuine worker artifact failures persisted with no substitute results."
+        f"{len(reports)} genuine worker failures persisted with no substitute results."
     )
 
 

@@ -140,9 +140,10 @@
 
 ## Visual perception worker
 
-- The optional app vision profile uses the pinned YOLOE author implementation,
-  its SAVPE checkpoint and the Ultralytics ByteTrack implementation distributed
-  in that source. Use `make vision-setup` and the separate `.venv-vision` CPU
+- The optional app vision profile requires the pinned YOLOE author SAVPE model,
+  the original DINOv2 ViT-S/14 backbone and the Ultralytics ByteTrack implementation
+  distributed in the YOLOE source. Both learned models must execute; no YOLOE-only
+  output may substitute for a required descriptor failure. Use `make vision-setup` and the separate `.venv-vision` CPU
   worker. Preserve the other environments; do not import its models into the
   camera/control worker or install both OpenCV wheel variants in one environment.
 - Consult `docs/24-yoloe-vision.md` and the actual app execution report. A completed
@@ -152,9 +153,15 @@
 - Rendered references and scenes are explicitly authored test inputs. Evaluator
   object identities, boxes and trajectories must not enter inference. Record
   source/checkpoint hashes and executed upstream calls separately from inventory.
-- The DINOv2 research probe is not an integrated instance verifier. Implementing
-  its proposed comparison stage requires the agreed pipeline revision; do not
-  promote a probe, cosine score or installed source to verified identity.
+- The user accepted the combined YOLOE → DINOv2 comparison → ByteTrack design.
+  The comparison's maximum cosine/margin rule is explicitly custom, hand-selected
+  decision logic, not a calibrated probability or an upstream identity classifier.
+  Preserve raw/rejected proposals, per-reference cosines and false accepts/misses.
+  A supported candidate is not confirmed identity, presence or current location.
+- New vision jobs require explicit profile version 2; do not reinterpret older
+  queued jobs or legacy descriptors. Check the DINOv2 loader cache digest as well
+  as the original checkpoint. The research-only probe is distinct from the actual
+  production adapter and per-run combined-model evidence.
 
 ## Robot execution
 
