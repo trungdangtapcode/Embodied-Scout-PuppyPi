@@ -1,0 +1,4623 @@
+{
+  "schema_version": 1,
+  "input_mode": "synthetic",
+  "model": "gpt-6-luna",
+  "tasks_sha256": "28147e3e9c87f9a6167d0eb9c1acf6597b222cfa0be8ee2722334033dbf5467e",
+  "shared_capture_ids": [
+    "9eed06cb-a6ca-4068-8ab6-ce98a09fd2b4",
+    "5a82c1f7-2c3c-4fa4-a816-deaa2b49db08",
+    "6bafb8b9-8fe2-4ba8-97aa-99dfe8008fce",
+    "aca13114-b828-48ec-8d04-4e1fb0e0791d",
+    "1f166af1-42e5-4999-8129-7602c8ef612c",
+    "99340b52-9731-447e-b6d2-b6e4cd898cf1"
+  ],
+  "budget_per_app_question": 24,
+  "description_cost_shared": true,
+  "records": [
+    {
+      "task_id": "shelf-comparison",
+      "question": "Compare only the visible colored objects in the Shelf captures across all three saved episodes in chronological order. What is shown in each saved image? Do not infer current state or exact object identities.",
+      "app": {
+        "id": "aa43afe1-e84d-476f-a687-0ef6ecc0f399",
+        "kind": "question",
+        "mode": "synthetic",
+        "request_key": "a27349a9-90f4-4b45-a993-e837c4dcd4b3",
+        "created_at": "2026-11-01T05:17:08.419556+00:00",
+        "status": "succeeded",
+        "stage": "succeeded",
+        "started_at": "2026-11-01T05:17:08.672521+00:00",
+        "finished_at": "2026-11-01T05:17:45.334654+00:00",
+        "worker_id": "e4f28dd5-a1c9-4dcc-9bdc-d02bdfa231f0",
+        "dispatched_at": "2026-11-01T05:17:08.425028+00:00",
+        "error_code": null,
+        "model": "gpt-6-luna",
+        "request": {
+          "question": "Compare only the visible colored objects in the Shelf captures across all three saved episodes in chronological order. What is shown in each saved image? Do not infer current state or exact object identities.",
+          "episode_ids": [
+            "369452f4-fd82-44d5-be6b-a9b779680e05",
+            "a6f41ebf-7285-41f3-ba4e-fc9f18e24177",
+            "fcdab01b-017d-45e2-b10c-9a8aef41291d"
+          ],
+          "scope": "recorded_memory"
+        },
+        "result": {
+          "outcome": "answered",
+          "answer": "Early: one blue object with white chevrons. Middle: a red object with a yellow circular marking on the left and a blue chevron object on the right. Late: a blue chevron object on the left and a green object with a white plus on the right.",
+          "citations": [
+            "5a82c1f7-2c3c-4fa4-a816-deaa2b49db08",
+            "aca13114-b828-48ec-8d04-4e1fb0e0791d",
+            "99340b52-9731-447e-b6d2-b6e4cd898cf1"
+          ],
+          "inspected_capture_ids": [
+            "5a82c1f7-2c3c-4fa4-a816-deaa2b49db08",
+            "aca13114-b828-48ec-8d04-4e1fb0e0791d",
+            "6bafb8b9-8fe2-4ba8-97aa-99dfe8008fce",
+            "99340b52-9731-447e-b6d2-b6e4cd898cf1",
+            "1f166af1-42e5-4999-8129-7602c8ef612c"
+          ],
+          "selected_episode_ids": [
+            "369452f4-fd82-44d5-be6b-a9b779680e05",
+            "fcdab01b-017d-45e2-b10c-9a8aef41291d",
+            "a6f41ebf-7285-41f3-ba4e-fc9f18e24177"
+          ],
+          "evidence": [
+            {
+              "id": "5a82c1f7-2c3c-4fa4-a816-deaa2b49db08",
+              "image_sha": "ec55397ef64718939789f6acba4d384aac1885a7c721c843d018143c1bb1089f",
+              "captured_at": "2026-11-01T05:16:18.282364+00:00",
+              "episode_id": "369452f4-fd82-44d5-be6b-a9b779680e05",
+              "episode_name": "Early",
+              "region_name": "Shelf",
+              "view_name": "Front"
+            },
+            {
+              "id": "aca13114-b828-48ec-8d04-4e1fb0e0791d",
+              "image_sha": "6779449600c4a4f92cd1e1e6f1e6129cedeed3ac40c5db438258ed6c4ed69133",
+              "captured_at": "2026-11-01T05:16:30.654956+00:00",
+              "episode_id": "fcdab01b-017d-45e2-b10c-9a8aef41291d",
+              "episode_name": "Middle",
+              "region_name": "Shelf",
+              "view_name": "Front"
+            },
+            {
+              "id": "6bafb8b9-8fe2-4ba8-97aa-99dfe8008fce",
+              "image_sha": "72ee29fab5431e9b27cda692c33991d18f016e81ff0e6c391f8af5b1a73c8a1d",
+              "captured_at": "2026-11-01T05:16:23.526958+00:00",
+              "episode_id": "fcdab01b-017d-45e2-b10c-9a8aef41291d",
+              "episode_name": "Middle",
+              "region_name": "Desk",
+              "view_name": "Front"
+            },
+            {
+              "id": "99340b52-9731-447e-b6d2-b6e4cd898cf1",
+              "image_sha": "37854a7cb3e3a1a9e987bb000089ce46f62d2481f978d75c85dfea9bf8f2f55a",
+              "captured_at": "2026-11-01T05:16:58.805611+00:00",
+              "episode_id": "a6f41ebf-7285-41f3-ba4e-fc9f18e24177",
+              "episode_name": "Late",
+              "region_name": "Shelf",
+              "view_name": "Front"
+            },
+            {
+              "id": "1f166af1-42e5-4999-8129-7602c8ef612c",
+              "image_sha": "b8b2c9aebd9c20f6ffea815aaf8f55a38a1cf6694a38050f95fa1416478cd680",
+              "captured_at": "2026-11-01T05:16:54.938153+00:00",
+              "episode_id": "a6f41ebf-7285-41f3-ba4e-fc9f18e24177",
+              "episode_name": "Late",
+              "region_name": "Desk",
+              "view_name": "Front"
+            }
+          ],
+          "provenance": {
+            "schema_version": 1,
+            "adapter": "mind-palace-recorded-v1",
+            "prompt_schema_revision": "mind-palace-recorded-v1",
+            "preprocessing": "original EvidenceStore PNG bytes; no crop or resize by adapter",
+            "upstream": "https://github.com/mind-palace-laeqa/benchmark",
+            "revision": "b59be261f9508c3a355a8afa0d495eeba0417d68",
+            "model": "gpt-6-luna",
+            "scope": "recorded_memory",
+            "geometry": "unknown",
+            "calls": [
+              {
+                "event": "completed",
+                "requested_model": "gpt-6-luna",
+                "returned_model": "gpt-6-luna",
+                "request_id": "chatcmpl-EfIEHfGQ0Vb9P6nOY2QFrZCms58Fd",
+                "elapsed_s": 1.512,
+                "usage": {
+                  "completion_tokens": 49,
+                  "prompt_tokens": 558,
+                  "total_tokens": 607,
+                  "completion_tokens_details": {
+                    "accepted_prediction_tokens": 0,
+                    "audio_tokens": 0,
+                    "reasoning_tokens": 0,
+                    "rejected_prediction_tokens": 0,
+                    "text_tokens": null
+                  },
+                  "prompt_tokens_details": {
+                    "audio_tokens": 0,
+                    "cache_write_tokens": 0,
+                    "cached_tokens": 0,
+                    "image_tokens": null,
+                    "text_tokens": null
+                  }
+                },
+                "capture_ids": []
+              },
+              {
+                "event": "completed",
+                "requested_model": "gpt-6-luna",
+                "returned_model": "gpt-6-luna",
+                "request_id": "chatcmpl-EfIEIQRypf95XANRAWt9JIRLNfmXQ",
+                "elapsed_s": 1.981,
+                "usage": {
+                  "completion_tokens": 168,
+                  "prompt_tokens": 2012,
+                  "total_tokens": 2180,
+                  "completion_tokens_details": {
+                    "accepted_prediction_tokens": 0,
+                    "audio_tokens": 0,
+                    "reasoning_tokens": 0,
+                    "rejected_prediction_tokens": 0,
+                    "text_tokens": null
+                  },
+                  "prompt_tokens_details": {
+                    "audio_tokens": 0,
+                    "cache_write_tokens": 2009,
+                    "cached_tokens": 0,
+                    "image_tokens": null,
+                    "text_tokens": null
+                  }
+                },
+                "capture_ids": []
+              },
+              {
+                "event": "completed",
+                "requested_model": "gpt-6-luna",
+                "returned_model": "gpt-6-luna",
+                "request_id": "chatcmpl-EfIEKF8vko6G9vFsQnSUKHPIqeZJU",
+                "elapsed_s": 1.999,
+                "usage": {
+                  "completion_tokens": 144,
+                  "prompt_tokens": 951,
+                  "total_tokens": 1095,
+                  "completion_tokens_details": {
+                    "accepted_prediction_tokens": 0,
+                    "audio_tokens": 0,
+                    "reasoning_tokens": 0,
+                    "rejected_prediction_tokens": 0,
+                    "text_tokens": null
+                  },
+                  "prompt_tokens_details": {
+                    "audio_tokens": 0,
+                    "cache_write_tokens": 0,
+                    "cached_tokens": 0,
+                    "image_tokens": null,
+                    "text_tokens": null
+                  }
+                },
+                "capture_ids": []
+              },
+              {
+                "event": "completed",
+                "requested_model": "gpt-6-luna",
+                "returned_model": "gpt-6-luna",
+                "request_id": "chatcmpl-EfIEMBcrZ4FzLWW1kNptAWxTmc3oo",
+                "elapsed_s": 1.56,
+                "usage": {
+                  "completion_tokens": 61,
+                  "prompt_tokens": 545,
+                  "total_tokens": 606,
+                  "completion_tokens_details": {
+                    "accepted_prediction_tokens": 0,
+                    "audio_tokens": 0,
+                    "reasoning_tokens": 0,
+                    "rejected_prediction_tokens": 0,
+                    "text_tokens": null
+                  },
+                  "prompt_tokens_details": {
+                    "audio_tokens": 0,
+                    "cache_write_tokens": 0,
+                    "cached_tokens": 0,
+                    "image_tokens": null,
+                    "text_tokens": null
+                  }
+                },
+                "capture_ids": []
+              },
+              {
+                "event": "completed",
+                "requested_model": "gpt-6-luna",
+                "returned_model": "gpt-6-luna",
+                "request_id": "chatcmpl-EfIEORK0zzWR6w5P0ALmZDRQg5nSb",
+                "elapsed_s": 1.316,
+                "usage": {
+                  "completion_tokens": 48,
+                  "prompt_tokens": 860,
+                  "total_tokens": 908,
+                  "completion_tokens_details": {
+                    "accepted_prediction_tokens": 0,
+                    "audio_tokens": 0,
+                    "reasoning_tokens": 0,
+                    "rejected_prediction_tokens": 0,
+                    "text_tokens": null
+                  },
+                  "prompt_tokens_details": {
+                    "audio_tokens": 0,
+                    "cache_write_tokens": null,
+                    "cached_tokens": 0,
+                    "image_tokens": null,
+                    "text_tokens": null
+                  }
+                },
+                "capture_ids": [
+                  "5a82c1f7-2c3c-4fa4-a816-deaa2b49db08"
+                ]
+              },
+              {
+                "event": "completed",
+                "requested_model": "gpt-6-luna",
+                "returned_model": "gpt-6-luna",
+                "request_id": "chatcmpl-EfIEP6kWz3YLwuY4OafFtFk1tgwMt",
+                "elapsed_s": 2.072,
+                "usage": {
+                  "completion_tokens": 109,
+                  "prompt_tokens": 1111,
+                  "total_tokens": 1220,
+                  "completion_tokens_details": {
+                    "accepted_prediction_tokens": 0,
+                    "audio_tokens": 0,
+                    "reasoning_tokens": 0,
+                    "rejected_prediction_tokens": 0,
+                    "text_tokens": null
+                  },
+                  "prompt_tokens_details": {
+                    "audio_tokens": 0,
+                    "cache_write_tokens": 1108,
+                    "cached_tokens": 0,
+                    "image_tokens": null,
+                    "text_tokens": null
+                  }
+                },
+                "capture_ids": []
+              },
+              {
+                "event": "completed",
+                "requested_model": "gpt-6-luna",
+                "returned_model": "gpt-6-luna",
+                "request_id": "chatcmpl-EfIERPoSsnJGUR79YVuk9W75c6kQE",
+                "elapsed_s": 2.4,
+                "usage": {
+                  "completion_tokens": 187,
+                  "prompt_tokens": 1154,
+                  "total_tokens": 1341,
+                  "completion_tokens_details": {
+                    "accepted_prediction_tokens": 0,
+                    "audio_tokens": 0,
+                    "reasoning_tokens": 0,
+                    "rejected_prediction_tokens": 0,
+                    "text_tokens": null
+                  },
+                  "prompt_tokens_details": {
+                    "audio_tokens": 0,
+                    "cache_write_tokens": 1151,
+                    "cached_tokens": 0,
+                    "image_tokens": null,
+                    "text_tokens": null
+                  }
+                },
+                "capture_ids": []
+              },
+              {
+                "event": "completed",
+                "requested_model": "gpt-6-luna",
+                "returned_model": "gpt-6-luna",
+                "request_id": "chatcmpl-EfIETiWPakI38u2udCWSApHaBRufx",
+                "elapsed_s": 1.506,
+                "usage": {
+                  "completion_tokens": 42,
+                  "prompt_tokens": 572,
+                  "total_tokens": 614,
+                  "completion_tokens_details": {
+                    "accepted_prediction_tokens": 0,
+                    "audio_tokens": 0,
+                    "reasoning_tokens": 0,
+                    "rejected_prediction_tokens": 0,
+                    "text_tokens": null
+                  },
+                  "prompt_tokens_details": {
+                    "audio_tokens": 0,
+                    "cache_write_tokens": 0,
+                    "cached_tokens": 0,
+                    "image_tokens": null,
+                    "text_tokens": null
+                  }
+                },
+                "capture_ids": []
+              },
+              {
+                "event": "completed",
+                "requested_model": "gpt-6-luna",
+                "returned_model": "gpt-6-luna",
+                "request_id": "chatcmpl-EfIEVvORm5WcyZjtvulizXV7GvXwn",
+                "elapsed_s": 1.616,
+                "usage": {
+                  "completion_tokens": 68,
+                  "prompt_tokens": 858,
+                  "total_tokens": 926,
+                  "completion_tokens_details": {
+                    "accepted_prediction_tokens": 0,
+                    "audio_tokens": 0,
+                    "reasoning_tokens": 0,
+                    "rejected_prediction_tokens": 0,
+                    "text_tokens": null
+                  },
+                  "prompt_tokens_details": {
+                    "audio_tokens": 0,
+                    "cache_write_tokens": null,
+                    "cached_tokens": 0,
+                    "image_tokens": null,
+                    "text_tokens": null
+                  }
+                },
+                "capture_ids": [
+                  "aca13114-b828-48ec-8d04-4e1fb0e0791d"
+                ]
+              },
+              {
+                "event": "completed",
+                "requested_model": "gpt-6-luna",
+                "returned_model": "gpt-6-luna",
+                "request_id": "chatcmpl-EfIEXBJvQuSnuM42dbpRh5qSTA8nJ",
+                "elapsed_s": 2.352,
+                "usage": {
+                  "completion_tokens": 160,
+                  "prompt_tokens": 1338,
+                  "total_tokens": 1498,
+                  "completion_tokens_details": {
+                    "accepted_prediction_tokens": 0,
+                    "audio_tokens": 0,
+                    "reasoning_tokens": 0,
+                    "rejected_prediction_tokens": 0,
+                    "text_tokens": null
+                  },
+                  "prompt_tokens_details": {
+                    "audio_tokens": 0,
+                    "cache_write_tokens": 1335,
+                    "cached_tokens": 0,
+                    "image_tokens": null,
+                    "text_tokens": null
+                  }
+                },
+                "capture_ids": []
+              },
+              {
+                "event": "completed",
+                "requested_model": "gpt-6-luna",
+                "returned_model": "gpt-6-luna",
+                "request_id": "chatcmpl-EfIEZiMdIeQEkhd5zfUesP4sY5mC2",
+                "elapsed_s": 1.612,
+                "usage": {
+                  "completion_tokens": 49,
+                  "prompt_tokens": 562,
+                  "total_tokens": 611,
+                  "completion_tokens_details": {
+                    "accepted_prediction_tokens": 0,
+                    "audio_tokens": 0,
+                    "reasoning_tokens": 0,
+                    "rejected_prediction_tokens": 0,
+                    "text_tokens": null
+                  },
+                  "prompt_tokens_details": {
+                    "audio_tokens": 0,
+                    "cache_write_tokens": 0,
+                    "cached_tokens": 0,
+                    "image_tokens": null,
+                    "text_tokens": null
+                  }
+                },
+                "capture_ids": []
+              },
+              {
+                "event": "completed",
+                "requested_model": "gpt-6-luna",
+                "returned_model": "gpt-6-luna",
+                "request_id": "chatcmpl-EfIEbGabitoxqmOTg3fK4W8cFJIgJ",
+                "elapsed_s": 1.546,
+                "usage": {
+                  "completion_tokens": 44,
+                  "prompt_tokens": 862,
+                  "total_tokens": 906,
+                  "completion_tokens_details": {
+                    "accepted_prediction_tokens": 0,
+                    "audio_tokens": 0,
+                    "reasoning_tokens": 0,
+                    "rejected_prediction_tokens": 0,
+                    "text_tokens": null
+                  },
+                  "prompt_tokens_details": {
+                    "audio_tokens": 0,
+                    "cache_write_tokens": null,
+                    "cached_tokens": 0,
+                    "image_tokens": null,
+                    "text_tokens": null
+                  }
+                },
+                "capture_ids": [
+                  "6bafb8b9-8fe2-4ba8-97aa-99dfe8008fce"
+                ]
+              },
+              {
+                "event": "completed",
+                "requested_model": "gpt-6-luna",
+                "returned_model": "gpt-6-luna",
+                "request_id": "chatcmpl-EfIEcGf7z01kljgWlOkT5E2EmhAWg",
+                "elapsed_s": 2.448,
+                "usage": {
+                  "completion_tokens": 136,
+                  "prompt_tokens": 1356,
+                  "total_tokens": 1492,
+                  "completion_tokens_details": {
+                    "accepted_prediction_tokens": 0,
+                    "audio_tokens": 0,
+                    "reasoning_tokens": 0,
+                    "rejected_prediction_tokens": 0,
+                    "text_tokens": null
+                  },
+                  "prompt_tokens_details": {
+                    "audio_tokens": 0,
+                    "cache_write_tokens": 1353,
+                    "cached_tokens": 0,
+                    "image_tokens": null,
+                    "text_tokens": null
+                  }
+                },
+                "capture_ids": []
+              },
+              {
+                "event": "completed",
+                "requested_model": "gpt-6-luna",
+                "returned_model": "gpt-6-luna",
+                "request_id": "chatcmpl-EfIEflvoVpdPHzpUumzYWH17HihFQ",
+                "elapsed_s": 1.665,
+                "usage": {
+                  "completion_tokens": 41,
+                  "prompt_tokens": 573,
+                  "total_tokens": 614,
+                  "completion_tokens_details": {
+                    "accepted_prediction_tokens": 0,
+                    "audio_tokens": 0,
+                    "reasoning_tokens": 0,
+                    "rejected_prediction_tokens": 0,
+                    "text_tokens": null
+                  },
+                  "prompt_tokens_details": {
+                    "audio_tokens": 0,
+                    "cache_write_tokens": 0,
+                    "cached_tokens": 0,
+                    "image_tokens": null,
+                    "text_tokens": null
+                  }
+                },
+                "capture_ids": []
+              },
+              {
+                "event": "completed",
+                "requested_model": "gpt-6-luna",
+                "returned_model": "gpt-6-luna",
+                "request_id": "chatcmpl-EfIEggtnasvhQp5144fBI57NbhrhL",
+                "elapsed_s": 1.385,
+                "usage": {
+                  "completion_tokens": 39,
+                  "prompt_tokens": 859,
+                  "total_tokens": 898,
+                  "completion_tokens_details": {
+                    "accepted_prediction_tokens": 0,
+                    "audio_tokens": 0,
+                    "reasoning_tokens": 0,
+                    "rejected_prediction_tokens": 0,
+                    "text_tokens": null
+                  },
+                  "prompt_tokens_details": {
+                    "audio_tokens": 0,
+                    "cache_write_tokens": null,
+                    "cached_tokens": 0,
+                    "image_tokens": null,
+                    "text_tokens": null
+                  }
+                },
+                "capture_ids": [
+                  "99340b52-9731-447e-b6d2-b6e4cd898cf1"
+                ]
+              },
+              {
+                "event": "completed",
+                "requested_model": "gpt-6-luna",
+                "returned_model": "gpt-6-luna",
+                "request_id": "chatcmpl-EfIEi1fXGgth2P7kQLmHGLDKpSc3N",
+                "elapsed_s": 2.54,
+                "usage": {
+                  "completion_tokens": 134,
+                  "prompt_tokens": 1509,
+                  "total_tokens": 1643,
+                  "completion_tokens_details": {
+                    "accepted_prediction_tokens": 0,
+                    "audio_tokens": 0,
+                    "reasoning_tokens": 0,
+                    "rejected_prediction_tokens": 0,
+                    "text_tokens": null
+                  },
+                  "prompt_tokens_details": {
+                    "audio_tokens": 0,
+                    "cache_write_tokens": 1506,
+                    "cached_tokens": 0,
+                    "image_tokens": null,
+                    "text_tokens": null
+                  }
+                },
+                "capture_ids": []
+              },
+              {
+                "event": "completed",
+                "requested_model": "gpt-6-luna",
+                "returned_model": "gpt-6-luna",
+                "request_id": "chatcmpl-EfIEkexIYBV8kWFaRsIE33hr14QoS",
+                "elapsed_s": 1.358,
+                "usage": {
+                  "completion_tokens": 61,
+                  "prompt_tokens": 579,
+                  "total_tokens": 640,
+                  "completion_tokens_details": {
+                    "accepted_prediction_tokens": 0,
+                    "audio_tokens": 0,
+                    "reasoning_tokens": 0,
+                    "rejected_prediction_tokens": 0,
+                    "text_tokens": null
+                  },
+                  "prompt_tokens_details": {
+                    "audio_tokens": 0,
+                    "cache_write_tokens": 0,
+                    "cached_tokens": 0,
+                    "image_tokens": null,
+                    "text_tokens": null
+                  }
+                },
+                "capture_ids": []
+              },
+              {
+                "event": "completed",
+                "requested_model": "gpt-6-luna",
+                "returned_model": "gpt-6-luna",
+                "request_id": "chatcmpl-EfIEmS4p4jMaBPlG4xpMjJsmCXvcL",
+                "elapsed_s": 1.436,
+                "usage": {
+                  "completion_tokens": 51,
+                  "prompt_tokens": 860,
+                  "total_tokens": 911,
+                  "completion_tokens_details": {
+                    "accepted_prediction_tokens": 0,
+                    "audio_tokens": 0,
+                    "reasoning_tokens": 0,
+                    "rejected_prediction_tokens": 0,
+                    "text_tokens": null
+                  },
+                  "prompt_tokens_details": {
+                    "audio_tokens": 0,
+                    "cache_write_tokens": null,
+                    "cached_tokens": 0,
+                    "image_tokens": null,
+                    "text_tokens": null
+                  }
+                },
+                "capture_ids": [
+                  "1f166af1-42e5-4999-8129-7602c8ef612c"
+                ]
+              },
+              {
+                "event": "completed",
+                "requested_model": "gpt-6-luna",
+                "returned_model": "gpt-6-luna",
+                "request_id": "chatcmpl-EfIEnkZNYRpCuWJsYe3DaN1sH5KEn",
+                "elapsed_s": 1.721,
+                "usage": {
+                  "completion_tokens": 98,
+                  "prompt_tokens": 3157,
+                  "total_tokens": 3255,
+                  "completion_tokens_details": {
+                    "accepted_prediction_tokens": 0,
+                    "audio_tokens": 0,
+                    "reasoning_tokens": 0,
+                    "rejected_prediction_tokens": 0,
+                    "text_tokens": null
+                  },
+                  "prompt_tokens_details": {
+                    "audio_tokens": 0,
+                    "cache_write_tokens": null,
+                    "cached_tokens": 0,
+                    "image_tokens": null,
+                    "text_tokens": null
+                  }
+                },
+                "capture_ids": [
+                  "5a82c1f7-2c3c-4fa4-a816-deaa2b49db08",
+                  "aca13114-b828-48ec-8d04-4e1fb0e0791d",
+                  "6bafb8b9-8fe2-4ba8-97aa-99dfe8008fce",
+                  "99340b52-9731-447e-b6d2-b6e4cd898cf1",
+                  "1f166af1-42e5-4999-8129-7602c8ef612c"
+                ]
+              },
+              {
+                "event": "completed",
+                "requested_model": "gpt-6-luna",
+                "returned_model": "gpt-6-luna",
+                "request_id": "chatcmpl-EfIEpbeZZcsD9gpQrO3qFcx9pAk6D",
+                "elapsed_s": 2.451,
+                "usage": {
+                  "completion_tokens": 186,
+                  "prompt_tokens": 3410,
+                  "total_tokens": 3596,
+                  "completion_tokens_details": {
+                    "accepted_prediction_tokens": 0,
+                    "audio_tokens": 0,
+                    "reasoning_tokens": 0,
+                    "rejected_prediction_tokens": 0,
+                    "text_tokens": null
+                  },
+                  "prompt_tokens_details": {
+                    "audio_tokens": 0,
+                    "cache_write_tokens": null,
+                    "cached_tokens": 0,
+                    "image_tokens": null,
+                    "text_tokens": null
+                  }
+                },
+                "capture_ids": [
+                  "5a82c1f7-2c3c-4fa4-a816-deaa2b49db08",
+                  "aca13114-b828-48ec-8d04-4e1fb0e0791d",
+                  "6bafb8b9-8fe2-4ba8-97aa-99dfe8008fce",
+                  "99340b52-9731-447e-b6d2-b6e4cd898cf1",
+                  "1f166af1-42e5-4999-8129-7602c8ef612c"
+                ]
+              }
+            ]
+          },
+          "continuous_coverage_verified": false
+        },
+        "steps": [
+          {
+            "stage": "target",
+            "created_at": "2026-11-01T05:17:08.689390+00:00",
+            "event": "started",
+            "capture_ids": []
+          },
+          {
+            "stage": "target",
+            "created_at": "2026-11-01T05:17:10.206158+00:00",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIEHfGQ0Vb9P6nOY2QFrZCms58Fd",
+            "elapsed_s": 1.512,
+            "usage": {
+              "completion_tokens": 49,
+              "prompt_tokens": 558,
+              "total_tokens": 607,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": 0,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [],
+            "output": {
+              "reasoning": "The question asks about colored objects visible in the Shelf captures, so the relevant target is the Shelf and its visible colored objects across the three saved episodes.",
+              "object": "Shelf and visible colored objects"
+            }
+          },
+          {
+            "stage": "episodes",
+            "created_at": "2026-11-01T05:17:10.210358+00:00",
+            "event": "started",
+            "capture_ids": []
+          },
+          {
+            "stage": "episodes",
+            "created_at": "2026-11-01T05:17:12.196316+00:00",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIEIQRypf95XANRAWt9JIRLNfmXQ",
+            "elapsed_s": 1.981,
+            "usage": {
+              "completion_tokens": 168,
+              "prompt_tokens": 2012,
+              "total_tokens": 2180,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": 2009,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [],
+            "output": {
+              "reasoning_on_search_strategy": "The question asks to compare visible colored objects in three saved Shelf captures, not to inspect the present environment. The saved observations are sufficient, so use PAST_ONLY.",
+              "search_strategy": "PAST_ONLY",
+              "time": [
+                "episode_369452f4fd8244d5be6ba9b779680e05",
+                "episode_fcdab01b017d45e2b10c9a8aef41291d",
+                "episode_a6f41ebf728541f3ba4efc9f18e24177"
+              ],
+              "reasoning": "Use all three episodes in chronological order: Early, Middle, then Late. Each includes a Shelf capture describing the visible colored objects, which enables the requested comparison without inferring current state or exact identities."
+            }
+          },
+          {
+            "stage": "rooms",
+            "created_at": "2026-11-01T05:17:12.200397+00:00",
+            "event": "started",
+            "capture_ids": []
+          },
+          {
+            "stage": "rooms",
+            "created_at": "2026-11-01T05:17:14.201112+00:00",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIEKF8vko6G9vFsQnSUKHPIqeZJU",
+            "elapsed_s": 1.999,
+            "usage": {
+              "completion_tokens": 144,
+              "prompt_tokens": 951,
+              "total_tokens": 1095,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": 0,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [],
+            "output": {
+              "reasoning": "The request asks for a comparison of visible colored objects across three saved Shelf captures, but no capture images or episode observations are provided. Registered metadata describes only one blue sign in Shelf and one red card in Desk, so it cannot establish the chronological contents of all three Shelf images. Exact-instance identity and any unobserved changes cannot be inferred.",
+              "rooms": [
+                "Shelf",
+                "Desk"
+              ],
+              "room_id": [
+                "region_13ef995be72045dca75ec3f419be310c",
+                "region_c3e26f9cdddd4256b9d8b61fc0a3731d"
+              ],
+              "probability": [
+                0.5,
+                0.1
+              ]
+            }
+          },
+          {
+            "stage": "places",
+            "created_at": "2026-11-01T05:17:14.203407+00:00",
+            "event": "started",
+            "capture_ids": []
+          },
+          {
+            "stage": "places",
+            "created_at": "2026-11-01T05:17:15.765552+00:00",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIEMBcrZ4FzLWW1kNptAWxTmc3oo",
+            "elapsed_s": 1.56,
+            "usage": {
+              "completion_tokens": 61,
+              "prompt_tokens": 545,
+              "total_tokens": 606,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": 0,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [],
+            "output": {
+              "reasoning": "Place 1 is the only listed place in the Shelf room and is the available place to inspect for the saved captures. Its listed panel details do not establish what colored objects are visible, so the captures must be checked there.",
+              "place_number": [
+                1
+              ]
+            }
+          },
+          {
+            "stage": "verify",
+            "created_at": "2026-11-01T05:17:15.782368+00:00",
+            "event": "started",
+            "capture_ids": [
+              "5a82c1f7-2c3c-4fa4-a816-deaa2b49db08"
+            ]
+          },
+          {
+            "stage": "verify",
+            "created_at": "2026-11-01T05:17:17.099632+00:00",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIEORK0zzWR6w5P0ALmZDRQg5nSb",
+            "elapsed_s": 1.316,
+            "usage": {
+              "completion_tokens": 48,
+              "prompt_tokens": 860,
+              "total_tokens": 908,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": null,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [
+              "5a82c1f7-2c3c-4fa4-a816-deaa2b49db08"
+            ],
+            "output": {
+              "answer": "True",
+              "reasoning": "The Shelf capture visibly shows a blue square object with white chevron markings in front of a gray panel. This establishes a visible colored object in this saved image."
+            }
+          },
+          {
+            "stage": "rooms",
+            "created_at": "2026-11-01T05:17:17.103316+00:00",
+            "event": "started",
+            "capture_ids": []
+          },
+          {
+            "stage": "rooms",
+            "created_at": "2026-11-01T05:17:19.177138+00:00",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIEP6kWz3YLwuY4OafFtFk1tgwMt",
+            "elapsed_s": 2.072,
+            "usage": {
+              "completion_tokens": 109,
+              "prompt_tokens": 1111,
+              "total_tokens": 1220,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": 1108,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [],
+            "output": {
+              "reasoning": "The question asks for a comparison of saved Shelf images, not where an object is currently located. The available Shelf capture description shows a blue square panel with white chevrons in front of a gray panel. The supplied information does not include the other two saved Shelf images, so their contents cannot be determined or inferred.",
+              "rooms": [
+                "Shelf"
+              ],
+              "room_id": [
+                "region_13ef995be72045dca75ec3f419be310c"
+              ],
+              "probability": [
+                0.99
+              ]
+            }
+          },
+          {
+            "stage": "rooms",
+            "created_at": "2026-11-01T05:17:19.180937+00:00",
+            "event": "started",
+            "capture_ids": []
+          },
+          {
+            "stage": "rooms",
+            "created_at": "2026-11-01T05:17:21.584193+00:00",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIERPoSsnJGUR79YVuk9W75c6kQE",
+            "elapsed_s": 2.4,
+            "usage": {
+              "completion_tokens": 187,
+              "prompt_tokens": 1154,
+              "total_tokens": 1341,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": 1151,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [],
+            "output": {
+              "reasoning": "The saved Shelf observation from episode_369452f4fd8244d5be6ba9b779680e05 reports a blue square object with white chevrons in front of a gray panel. The registered Shelf capture also describes red and blue cubes with markings, while the Desk description shows a green square with a white cross. The supplied information does not show the other two episode images, so the three-image chronological comparison cannot be established. Shelf is the best-supported room for the visible colored objects, without inferring exact identities or current state.",
+              "rooms": [
+                "Shelf",
+                "Desk"
+              ],
+              "room_id": [
+                "region_13ef995be72045dca75ec3f419be310c",
+                "region_c3e26f9cdddd4256b9d8b61fc0a3731d"
+              ],
+              "probability": [
+                0.88,
+                0.15
+              ]
+            }
+          },
+          {
+            "stage": "places",
+            "created_at": "2026-11-01T05:17:21.587817+00:00",
+            "event": "started",
+            "capture_ids": []
+          },
+          {
+            "stage": "places",
+            "created_at": "2026-11-01T05:17:23.096473+00:00",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIETiWPakI38u2udCWSApHaBRufx",
+            "elapsed_s": 1.506,
+            "usage": {
+              "completion_tokens": 42,
+              "prompt_tokens": 572,
+              "total_tokens": 614,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": 0,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [],
+            "output": {
+              "reasoning": "Place 1 is the only listed place in Shelf and its capture shows visible colored objects. Search it to compare the saved images.",
+              "place_number": [
+                1
+              ]
+            }
+          },
+          {
+            "stage": "verify",
+            "created_at": "2026-11-01T05:17:23.104923+00:00",
+            "event": "started",
+            "capture_ids": [
+              "aca13114-b828-48ec-8d04-4e1fb0e0791d"
+            ]
+          },
+          {
+            "stage": "verify",
+            "created_at": "2026-11-01T05:17:24.724678+00:00",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIEVvORm5WcyZjtvulizXV7GvXwn",
+            "elapsed_s": 1.616,
+            "usage": {
+              "completion_tokens": 68,
+              "prompt_tokens": 858,
+              "total_tokens": 926,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": null,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [
+              "aca13114-b828-48ec-8d04-4e1fb0e0791d"
+            ],
+            "output": {
+              "answer": "True",
+              "reasoning": "The Shelf capture visibly shows two colored objects: a red object with a yellow circular marking on the left and a blue object with white chevrons on the right. This establishes the visible objects in this capture only; it does not show the other saved episodes."
+            }
+          },
+          {
+            "stage": "rooms",
+            "created_at": "2026-11-01T05:17:24.727108+00:00",
+            "event": "started",
+            "capture_ids": []
+          },
+          {
+            "stage": "rooms",
+            "created_at": "2026-11-01T05:17:27.080861+00:00",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIEXBJvQuSnuM42dbpRh5qSTA8nJ",
+            "elapsed_s": 2.352,
+            "usage": {
+              "completion_tokens": 160,
+              "prompt_tokens": 1338,
+              "total_tokens": 1498,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": 1335,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [],
+            "output": {
+              "reasoning": "The request concerns comparing saved Shelf images, and the supplied captures place the visible colored objects there. The Desk capture does not show these objects. The episodes described show a blue chevron-marked object in the earliest capture, then a red target-marked object alongside the blue one in the later capture; no details are provided for a third saved image. These are past observations, not evidence of current state or exact identities.",
+              "rooms": [
+                "Shelf",
+                "Desk"
+              ],
+              "room_id": [
+                "region_13ef995be72045dca75ec3f419be310c",
+                "region_c3e26f9cdddd4256b9d8b61fc0a3731d"
+              ],
+              "probability": [
+                0.99,
+                0.01
+              ]
+            }
+          },
+          {
+            "stage": "places",
+            "created_at": "2026-11-01T05:17:27.084307+00:00",
+            "event": "started",
+            "capture_ids": []
+          },
+          {
+            "stage": "places",
+            "created_at": "2026-11-01T05:17:28.698839+00:00",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIEZiMdIeQEkhd5zfUesP4sY5mC2",
+            "elapsed_s": 1.612,
+            "usage": {
+              "completion_tokens": 49,
+              "prompt_tokens": 562,
+              "total_tokens": 611,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": 0,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [],
+            "output": {
+              "reasoning": "The only available place is 0, but its saved description shows a gray panel and a green square rather than a shelf or visible colored objects from the requested captures.",
+              "place_number": [
+                0
+              ]
+            }
+          },
+          {
+            "stage": "verify",
+            "created_at": "2026-11-01T05:17:28.707487+00:00",
+            "event": "started",
+            "capture_ids": [
+              "6bafb8b9-8fe2-4ba8-97aa-99dfe8008fce"
+            ]
+          },
+          {
+            "stage": "verify",
+            "created_at": "2026-11-01T05:17:30.256845+00:00",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIEbGabitoxqmOTg3fK4W8cFJIgJ",
+            "elapsed_s": 1.546,
+            "usage": {
+              "completion_tokens": 44,
+              "prompt_tokens": 862,
+              "total_tokens": 906,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": null,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [
+              "6bafb8b9-8fe2-4ba8-97aa-99dfe8008fce"
+            ],
+            "output": {
+              "answer": "False",
+              "reasoning": "The capture is registered as Desk, not Shelf. A green square with a white cross is visible, but no Shelf capture is established here."
+            }
+          },
+          {
+            "stage": "rooms",
+            "created_at": "2026-11-01T05:17:30.260994+00:00",
+            "event": "started",
+            "capture_ids": []
+          },
+          {
+            "stage": "rooms",
+            "created_at": "2026-11-01T05:17:32.710359+00:00",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIEcGf7z01kljgWlOkT5E2EmhAWg",
+            "elapsed_s": 2.448,
+            "usage": {
+              "completion_tokens": 136,
+              "prompt_tokens": 1356,
+              "total_tokens": 1492,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": 1353,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [],
+            "output": {
+              "reasoning": "The requested comparison concerns saved images from Shelf. The two summarized past captures show a blue square object with white chevrons in one episode, and a red object with a yellow circular marking alongside a blue chevron-marked object in another. No description of the third episode image is provided, so its contents cannot be determined from this information. Shelf is the only room associated with the requested captures; this does not imply current presence or exact object identity.",
+              "rooms": [
+                "Shelf"
+              ],
+              "room_id": [
+                "region_13ef995be72045dca75ec3f419be310c"
+              ],
+              "probability": [
+                0.99
+              ]
+            }
+          },
+          {
+            "stage": "places",
+            "created_at": "2026-11-01T05:17:32.714196+00:00",
+            "event": "started",
+            "capture_ids": []
+          },
+          {
+            "stage": "places",
+            "created_at": "2026-11-01T05:17:34.381150+00:00",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIEflvoVpdPHzpUumzYWH17HihFQ",
+            "elapsed_s": 1.665,
+            "usage": {
+              "completion_tokens": 41,
+              "prompt_tokens": 573,
+              "total_tokens": 614,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": 0,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [],
+            "output": {
+              "reasoning": "Place 1 is the only listed Shelf view and its description records visible colored objects. Search it for the saved image comparison.",
+              "place_number": [
+                1
+              ]
+            }
+          },
+          {
+            "stage": "verify",
+            "created_at": "2026-11-01T05:17:34.390169+00:00",
+            "event": "started",
+            "capture_ids": [
+              "99340b52-9731-447e-b6d2-b6e4cd898cf1"
+            ]
+          },
+          {
+            "stage": "verify",
+            "created_at": "2026-11-01T05:17:35.776809+00:00",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIEggtnasvhQp5144fBI57NbhrhL",
+            "elapsed_s": 1.385,
+            "usage": {
+              "completion_tokens": 39,
+              "prompt_tokens": 859,
+              "total_tokens": 898,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": null,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [
+              "99340b52-9731-447e-b6d2-b6e4cd898cf1"
+            ],
+            "output": {
+              "answer": "True",
+              "reasoning": "The Shelf capture visibly shows two colored objects: a blue object on the left and a green object on the right."
+            }
+          },
+          {
+            "stage": "rooms",
+            "created_at": "2026-11-01T05:17:35.779522+00:00",
+            "event": "started",
+            "capture_ids": []
+          },
+          {
+            "stage": "rooms",
+            "created_at": "2026-11-01T05:17:38.320949+00:00",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIEi1fXGgth2P7kQLmHGLDKpSc3N",
+            "elapsed_s": 2.54,
+            "usage": {
+              "completion_tokens": 134,
+              "prompt_tokens": 1509,
+              "total_tokens": 1643,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": 1506,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [],
+            "output": {
+              "reasoning": "All three saved captures concern the Shelf, and the question asks about visible colored objects rather than locating a particular object. The chronological descriptions show blue in the earliest capture, red and blue in the next, and blue and green in the latest. The Desk description does not establish these Shelf observations.",
+              "rooms": [
+                "Shelf",
+                "Desk"
+              ],
+              "room_id": [
+                "region_13ef995be72045dca75ec3f419be310c",
+                "region_c3e26f9cdddd4256b9d8b61fc0a3731d"
+              ],
+              "probability": [
+                0.99,
+                0.0
+              ]
+            }
+          },
+          {
+            "stage": "places",
+            "created_at": "2026-11-01T05:17:38.325527+00:00",
+            "event": "started",
+            "capture_ids": []
+          },
+          {
+            "stage": "places",
+            "created_at": "2026-11-01T05:17:39.685105+00:00",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIEkexIYBV8kWFaRsIE33hr14QoS",
+            "elapsed_s": 1.358,
+            "usage": {
+              "completion_tokens": 61,
+              "prompt_tokens": 579,
+              "total_tokens": 640,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": 0,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [],
+            "output": {
+              "reasoning": "Place 0 is the only listed view, but its description shows a marked orange-brown square object and a gray panel rather than a shelf. The supplied places do not identify a Shelf capture or support comparing three saved episodes.",
+              "place_number": [
+                0
+              ]
+            }
+          },
+          {
+            "stage": "verify",
+            "created_at": "2026-11-01T05:17:39.693644+00:00",
+            "event": "started",
+            "capture_ids": [
+              "1f166af1-42e5-4999-8129-7602c8ef612c"
+            ]
+          },
+          {
+            "stage": "verify",
+            "created_at": "2026-11-01T05:17:41.132651+00:00",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIEmS4p4jMaBPlG4xpMjJsmCXvcL",
+            "elapsed_s": 1.436,
+            "usage": {
+              "completion_tokens": 51,
+              "prompt_tokens": 860,
+              "total_tokens": 911,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": null,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [
+              "1f166af1-42e5-4999-8129-7602c8ef612c"
+            ],
+            "output": {
+              "answer": "False",
+              "reasoning": "This capture is labeled Desk, and no Shelf is visibly established. An orange-and-black object is visible, but it cannot be counted as a colored object in a Shelf capture."
+            }
+          },
+          {
+            "stage": "ready",
+            "created_at": "2026-11-01T05:17:41.142417+00:00",
+            "event": "started",
+            "capture_ids": [
+              "5a82c1f7-2c3c-4fa4-a816-deaa2b49db08",
+              "aca13114-b828-48ec-8d04-4e1fb0e0791d",
+              "6bafb8b9-8fe2-4ba8-97aa-99dfe8008fce",
+              "99340b52-9731-447e-b6d2-b6e4cd898cf1",
+              "1f166af1-42e5-4999-8129-7602c8ef612c"
+            ]
+          },
+          {
+            "stage": "ready",
+            "created_at": "2026-11-01T05:17:42.867498+00:00",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIEnkZNYRpCuWJsYe3DaN1sH5KEn",
+            "elapsed_s": 1.721,
+            "usage": {
+              "completion_tokens": 98,
+              "prompt_tokens": 3157,
+              "total_tokens": 3255,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": null,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [
+              "5a82c1f7-2c3c-4fa4-a816-deaa2b49db08",
+              "aca13114-b828-48ec-8d04-4e1fb0e0791d",
+              "6bafb8b9-8fe2-4ba8-97aa-99dfe8008fce",
+              "99340b52-9731-447e-b6d2-b6e4cd898cf1",
+              "1f166af1-42e5-4999-8129-7602c8ef612c"
+            ],
+            "output": {
+              "ready_to_answer": "yes",
+              "answer_or_explanation": "In chronological order: Early shows one blue object with white chevrons. Middle shows a red object with a yellow circular marking on the left and a blue object with white chevrons on the right. Late shows a blue object with white chevrons on the left and a green object with a white cross on the right. These describe only what is visible in each saved Shelf image."
+            }
+          },
+          {
+            "stage": "answer",
+            "created_at": "2026-11-01T05:17:42.876530+00:00",
+            "event": "started",
+            "capture_ids": [
+              "5a82c1f7-2c3c-4fa4-a816-deaa2b49db08",
+              "aca13114-b828-48ec-8d04-4e1fb0e0791d",
+              "6bafb8b9-8fe2-4ba8-97aa-99dfe8008fce",
+              "99340b52-9731-447e-b6d2-b6e4cd898cf1",
+              "1f166af1-42e5-4999-8129-7602c8ef612c"
+            ]
+          },
+          {
+            "stage": "answer",
+            "created_at": "2026-11-01T05:17:45.330966+00:00",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIEpbeZZcsD9gpQrO3qFcx9pAk6D",
+            "elapsed_s": 2.451,
+            "usage": {
+              "completion_tokens": 186,
+              "prompt_tokens": 3410,
+              "total_tokens": 3596,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": null,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [
+              "5a82c1f7-2c3c-4fa4-a816-deaa2b49db08",
+              "aca13114-b828-48ec-8d04-4e1fb0e0791d",
+              "6bafb8b9-8fe2-4ba8-97aa-99dfe8008fce",
+              "99340b52-9731-447e-b6d2-b6e4cd898cf1",
+              "1f166af1-42e5-4999-8129-7602c8ef612c"
+            ],
+            "output": {
+              "answer": "Early: one blue object with white chevrons. Middle: a red object with a yellow circular marking on the left and a blue chevron object on the right. Late: a blue chevron object on the left and a green object with a white plus on the right.",
+              "reasoning": "These are the visible colored objects in the Shelf captures, in chronological order. The answer describes only what each saved image shows and does not infer current state or exact identities.",
+              "citations": [
+                "5a82c1f7-2c3c-4fa4-a816-deaa2b49db08",
+                "aca13114-b828-48ec-8d04-4e1fb0e0791d",
+                "99340b52-9731-447e-b6d2-b6e4cd898cf1"
+              ],
+              "claim_type": "recorded_visual"
+            }
+          }
+        ]
+      },
+      "app_wall_s": 36.915,
+      "baseline": {
+        "name": "direct_all_images_same_model",
+        "output": {
+          "answerable": "yes",
+          "answer": "Chronologically, the three Shelf captures show:\n- **Early:** A blue square panel with two white upward-pointing chevrons in front of a gray upright panel with a small black-and-white pattern near its top. [5a82c1f7-2c3c-4fa4-a816-deaa2b49db08]\n- **Middle:** A red cube with a yellow target-like symbol and a blue cube with white upward chevrons, positioned on either side of a gray upright patterned panel. [aca13114-b828-48ec-8d04-4e1fb0e0791d]\n- **Late:** A blue cube with white upward chevrons and a green cube with a white plus inside a dark circle, on either side of a gray upright patterned panel. [99340b52-9731-447e-b6d2-b6e4cd898cf1]",
+          "citations": [
+            "5a82c1f7-2c3c-4fa4-a816-deaa2b49db08",
+            "aca13114-b828-48ec-8d04-4e1fb0e0791d",
+            "99340b52-9731-447e-b6d2-b6e4cd898cf1"
+          ]
+        },
+        "elapsed_s": 3.806,
+        "steps": [
+          {
+            "stage": "baseline",
+            "event": "started",
+            "capture_ids": [
+              "9eed06cb-a6ca-4068-8ab6-ce98a09fd2b4",
+              "5a82c1f7-2c3c-4fa4-a816-deaa2b49db08",
+              "6bafb8b9-8fe2-4ba8-97aa-99dfe8008fce",
+              "aca13114-b828-48ec-8d04-4e1fb0e0791d",
+              "1f166af1-42e5-4999-8129-7602c8ef612c",
+              "99340b52-9731-447e-b6d2-b6e4cd898cf1"
+            ]
+          },
+          {
+            "stage": "baseline",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIEsIMWuSkP2NfjidqEPYoQOcWzx",
+            "elapsed_s": 3.289,
+            "usage": {
+              "completion_tokens": 286,
+              "prompt_tokens": 3768,
+              "total_tokens": 4054,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": null,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [
+              "9eed06cb-a6ca-4068-8ab6-ce98a09fd2b4",
+              "5a82c1f7-2c3c-4fa4-a816-deaa2b49db08",
+              "6bafb8b9-8fe2-4ba8-97aa-99dfe8008fce",
+              "aca13114-b828-48ec-8d04-4e1fb0e0791d",
+              "1f166af1-42e5-4999-8129-7602c8ef612c",
+              "99340b52-9731-447e-b6d2-b6e4cd898cf1"
+            ],
+            "output": {
+              "answerable": "yes",
+              "answer": "Chronologically, the three Shelf captures show:\n- **Early:** A blue square panel with two white upward-pointing chevrons in front of a gray upright panel with a small black-and-white pattern near its top. [5a82c1f7-2c3c-4fa4-a816-deaa2b49db08]\n- **Middle:** A red cube with a yellow target-like symbol and a blue cube with white upward chevrons, positioned on either side of a gray upright patterned panel. [aca13114-b828-48ec-8d04-4e1fb0e0791d]\n- **Late:** A blue cube with white upward chevrons and a green cube with a white plus inside a dark circle, on either side of a gray upright patterned panel. [99340b52-9731-447e-b6d2-b6e4cd898cf1]",
+              "citations": [
+                "5a82c1f7-2c3c-4fa4-a816-deaa2b49db08",
+                "aca13114-b828-48ec-8d04-4e1fb0e0791d",
+                "99340b52-9731-447e-b6d2-b6e4cd898cf1"
+              ]
+            }
+          }
+        ]
+      },
+      "correctness": "not automatically scored; source-image review required"
+    },
+    {
+      "task_id": "desk-comparison",
+      "question": "Compare only the visible colored objects in the Desk captures across all three saved episodes in chronological order. What is shown in each saved image? Do not infer current state or exact object identities.",
+      "app": {
+        "id": "4d73c5c5-361e-428b-a919-2d03714954d9",
+        "kind": "question",
+        "mode": "synthetic",
+        "request_key": "41e1b281-cfbd-4bac-9133-193e675cd9a7",
+        "created_at": "2026-11-01T05:17:49.422432+00:00",
+        "status": "succeeded",
+        "stage": "succeeded",
+        "started_at": "2026-11-01T05:17:49.592069+00:00",
+        "finished_at": "2026-11-01T05:18:21.488531+00:00",
+        "worker_id": "e4f28dd5-a1c9-4dcc-9bdc-d02bdfa231f0",
+        "dispatched_at": "2026-11-01T05:17:49.432667+00:00",
+        "error_code": null,
+        "model": "gpt-6-luna",
+        "request": {
+          "question": "Compare only the visible colored objects in the Desk captures across all three saved episodes in chronological order. What is shown in each saved image? Do not infer current state or exact object identities.",
+          "episode_ids": [
+            "369452f4-fd82-44d5-be6b-a9b779680e05",
+            "a6f41ebf-7285-41f3-ba4e-fc9f18e24177",
+            "fcdab01b-017d-45e2-b10c-9a8aef41291d"
+          ],
+          "scope": "recorded_memory"
+        },
+        "result": {
+          "outcome": "answered",
+          "answer": "Early: a red object with a yellow circular marking. Middle: a green object with a white cross. Late: an orange object with dark square markings.",
+          "citations": [
+            "9eed06cb-a6ca-4068-8ab6-ce98a09fd2b4",
+            "6bafb8b9-8fe2-4ba8-97aa-99dfe8008fce",
+            "1f166af1-42e5-4999-8129-7602c8ef612c"
+          ],
+          "inspected_capture_ids": [
+            "9eed06cb-a6ca-4068-8ab6-ce98a09fd2b4",
+            "6bafb8b9-8fe2-4ba8-97aa-99dfe8008fce",
+            "1f166af1-42e5-4999-8129-7602c8ef612c"
+          ],
+          "selected_episode_ids": [
+            "369452f4-fd82-44d5-be6b-a9b779680e05",
+            "fcdab01b-017d-45e2-b10c-9a8aef41291d",
+            "a6f41ebf-7285-41f3-ba4e-fc9f18e24177"
+          ],
+          "evidence": [
+            {
+              "id": "9eed06cb-a6ca-4068-8ab6-ce98a09fd2b4",
+              "image_sha": "3887419bd092248b63b44d090cee1ed7766239bd22b5c8ac331e2f20a2b3abc4",
+              "captured_at": "2026-11-01T05:16:13.664383+00:00",
+              "episode_id": "369452f4-fd82-44d5-be6b-a9b779680e05",
+              "episode_name": "Early",
+              "region_name": "Desk",
+              "view_name": "Front"
+            },
+            {
+              "id": "6bafb8b9-8fe2-4ba8-97aa-99dfe8008fce",
+              "image_sha": "72ee29fab5431e9b27cda692c33991d18f016e81ff0e6c391f8af5b1a73c8a1d",
+              "captured_at": "2026-11-01T05:16:23.526958+00:00",
+              "episode_id": "fcdab01b-017d-45e2-b10c-9a8aef41291d",
+              "episode_name": "Middle",
+              "region_name": "Desk",
+              "view_name": "Front"
+            },
+            {
+              "id": "1f166af1-42e5-4999-8129-7602c8ef612c",
+              "image_sha": "b8b2c9aebd9c20f6ffea815aaf8f55a38a1cf6694a38050f95fa1416478cd680",
+              "captured_at": "2026-11-01T05:16:54.938153+00:00",
+              "episode_id": "a6f41ebf-7285-41f3-ba4e-fc9f18e24177",
+              "episode_name": "Late",
+              "region_name": "Desk",
+              "view_name": "Front"
+            }
+          ],
+          "provenance": {
+            "schema_version": 1,
+            "adapter": "mind-palace-recorded-v1",
+            "prompt_schema_revision": "mind-palace-recorded-v1",
+            "preprocessing": "original EvidenceStore PNG bytes; no crop or resize by adapter",
+            "upstream": "https://github.com/mind-palace-laeqa/benchmark",
+            "revision": "b59be261f9508c3a355a8afa0d495eeba0417d68",
+            "model": "gpt-6-luna",
+            "scope": "recorded_memory",
+            "geometry": "unknown",
+            "calls": [
+              {
+                "event": "completed",
+                "requested_model": "gpt-6-luna",
+                "returned_model": "gpt-6-luna",
+                "request_id": "chatcmpl-EfIEzX4qAt9XRGA1AjqOdyQmNh5tZ",
+                "elapsed_s": 4.795,
+                "usage": {
+                  "completion_tokens": 67,
+                  "prompt_tokens": 558,
+                  "total_tokens": 625,
+                  "completion_tokens_details": {
+                    "accepted_prediction_tokens": 0,
+                    "audio_tokens": 0,
+                    "reasoning_tokens": 0,
+                    "rejected_prediction_tokens": 0,
+                    "text_tokens": null
+                  },
+                  "prompt_tokens_details": {
+                    "audio_tokens": 0,
+                    "cache_write_tokens": 0,
+                    "cached_tokens": 0,
+                    "image_tokens": null,
+                    "text_tokens": null
+                  }
+                },
+                "capture_ids": []
+              },
+              {
+                "event": "completed",
+                "requested_model": "gpt-6-luna",
+                "returned_model": "gpt-6-luna",
+                "request_id": "chatcmpl-EfIF0ba3qOzUxgY6Szxd3PaQsDD9y",
+                "elapsed_s": 1.822,
+                "usage": {
+                  "completion_tokens": 181,
+                  "prompt_tokens": 2030,
+                  "total_tokens": 2211,
+                  "completion_tokens_details": {
+                    "accepted_prediction_tokens": 0,
+                    "audio_tokens": 0,
+                    "reasoning_tokens": 0,
+                    "rejected_prediction_tokens": 0,
+                    "text_tokens": null
+                  },
+                  "prompt_tokens_details": {
+                    "audio_tokens": 0,
+                    "cache_write_tokens": 938,
+                    "cached_tokens": 1089,
+                    "image_tokens": null,
+                    "text_tokens": null
+                  }
+                },
+                "capture_ids": []
+              },
+              {
+                "event": "completed",
+                "requested_model": "gpt-6-luna",
+                "returned_model": "gpt-6-luna",
+                "request_id": "chatcmpl-EfIF2zE7mIBKKDJFCLoZHYr9cjscN",
+                "elapsed_s": 1.924,
+                "usage": {
+                  "completion_tokens": 106,
+                  "prompt_tokens": 951,
+                  "total_tokens": 1057,
+                  "completion_tokens_details": {
+                    "accepted_prediction_tokens": 0,
+                    "audio_tokens": 0,
+                    "reasoning_tokens": 0,
+                    "rejected_prediction_tokens": 0,
+                    "text_tokens": null
+                  },
+                  "prompt_tokens_details": {
+                    "audio_tokens": 0,
+                    "cache_write_tokens": 0,
+                    "cached_tokens": 0,
+                    "image_tokens": null,
+                    "text_tokens": null
+                  }
+                },
+                "capture_ids": []
+              },
+              {
+                "event": "completed",
+                "requested_model": "gpt-6-luna",
+                "returned_model": "gpt-6-luna",
+                "request_id": "chatcmpl-EfIF42dCiwlpTQB5zjIzGxRjqLJRQ",
+                "elapsed_s": 1.277,
+                "usage": {
+                  "completion_tokens": 55,
+                  "prompt_tokens": 547,
+                  "total_tokens": 602,
+                  "completion_tokens_details": {
+                    "accepted_prediction_tokens": 0,
+                    "audio_tokens": 0,
+                    "reasoning_tokens": 0,
+                    "rejected_prediction_tokens": 0,
+                    "text_tokens": null
+                  },
+                  "prompt_tokens_details": {
+                    "audio_tokens": 0,
+                    "cache_write_tokens": 0,
+                    "cached_tokens": 0,
+                    "image_tokens": null,
+                    "text_tokens": null
+                  }
+                },
+                "capture_ids": []
+              },
+              {
+                "event": "completed",
+                "requested_model": "gpt-6-luna",
+                "returned_model": "gpt-6-luna",
+                "request_id": "chatcmpl-EfIF5cEI1Qe3zY8o9W6SHqB5RkLtu",
+                "elapsed_s": 1.378,
+                "usage": {
+                  "completion_tokens": 48,
+                  "prompt_tokens": 857,
+                  "total_tokens": 905,
+                  "completion_tokens_details": {
+                    "accepted_prediction_tokens": 0,
+                    "audio_tokens": 0,
+                    "reasoning_tokens": 0,
+                    "rejected_prediction_tokens": 0,
+                    "text_tokens": null
+                  },
+                  "prompt_tokens_details": {
+                    "audio_tokens": 0,
+                    "cache_write_tokens": null,
+                    "cached_tokens": 0,
+                    "image_tokens": null,
+                    "text_tokens": null
+                  }
+                },
+                "capture_ids": [
+                  "9eed06cb-a6ca-4068-8ab6-ce98a09fd2b4"
+                ]
+              },
+              {
+                "event": "completed",
+                "requested_model": "gpt-6-luna",
+                "returned_model": "gpt-6-luna",
+                "request_id": "chatcmpl-EfIF7jdmH9kLkB49uTQmzHYw4D6SZ",
+                "elapsed_s": 2.181,
+                "usage": {
+                  "completion_tokens": 116,
+                  "prompt_tokens": 1116,
+                  "total_tokens": 1232,
+                  "completion_tokens_details": {
+                    "accepted_prediction_tokens": 0,
+                    "audio_tokens": 0,
+                    "reasoning_tokens": 0,
+                    "rejected_prediction_tokens": 0,
+                    "text_tokens": null
+                  },
+                  "prompt_tokens_details": {
+                    "audio_tokens": 0,
+                    "cache_write_tokens": 1113,
+                    "cached_tokens": 0,
+                    "image_tokens": null,
+                    "text_tokens": null
+                  }
+                },
+                "capture_ids": []
+              },
+              {
+                "event": "completed",
+                "requested_model": "gpt-6-luna",
+                "returned_model": "gpt-6-luna",
+                "request_id": "chatcmpl-EfIF9p5a2HzmuFgVPoZzw7wrTN5Uv",
+                "elapsed_s": 2.266,
+                "usage": {
+                  "completion_tokens": 134,
+                  "prompt_tokens": 1159,
+                  "total_tokens": 1293,
+                  "completion_tokens_details": {
+                    "accepted_prediction_tokens": 0,
+                    "audio_tokens": 0,
+                    "reasoning_tokens": 0,
+                    "rejected_prediction_tokens": 0,
+                    "text_tokens": null
+                  },
+                  "prompt_tokens_details": {
+                    "audio_tokens": 0,
+                    "cache_write_tokens": 1156,
+                    "cached_tokens": 0,
+                    "image_tokens": null,
+                    "text_tokens": null
+                  }
+                },
+                "capture_ids": []
+              },
+              {
+                "event": "completed",
+                "requested_model": "gpt-6-luna",
+                "returned_model": "gpt-6-luna",
+                "request_id": "chatcmpl-EfIFB8NN914zuHVROkrgxg05AtjLh",
+                "elapsed_s": 1.615,
+                "usage": {
+                  "completion_tokens": 54,
+                  "prompt_tokens": 560,
+                  "total_tokens": 614,
+                  "completion_tokens_details": {
+                    "accepted_prediction_tokens": 0,
+                    "audio_tokens": 0,
+                    "reasoning_tokens": 0,
+                    "rejected_prediction_tokens": 0,
+                    "text_tokens": null
+                  },
+                  "prompt_tokens_details": {
+                    "audio_tokens": 0,
+                    "cache_write_tokens": 0,
+                    "cached_tokens": 0,
+                    "image_tokens": null,
+                    "text_tokens": null
+                  }
+                },
+                "capture_ids": []
+              },
+              {
+                "event": "completed",
+                "requested_model": "gpt-6-luna",
+                "returned_model": "gpt-6-luna",
+                "request_id": "chatcmpl-EfIFDK6GgrvDil5OmmCSwtBqbjPug",
+                "elapsed_s": 1.227,
+                "usage": {
+                  "completion_tokens": 38,
+                  "prompt_tokens": 862,
+                  "total_tokens": 900,
+                  "completion_tokens_details": {
+                    "accepted_prediction_tokens": 0,
+                    "audio_tokens": 0,
+                    "reasoning_tokens": 0,
+                    "rejected_prediction_tokens": 0,
+                    "text_tokens": null
+                  },
+                  "prompt_tokens_details": {
+                    "audio_tokens": 0,
+                    "cache_write_tokens": null,
+                    "cached_tokens": 0,
+                    "image_tokens": null,
+                    "text_tokens": null
+                  }
+                },
+                "capture_ids": [
+                  "6bafb8b9-8fe2-4ba8-97aa-99dfe8008fce"
+                ]
+              },
+              {
+                "event": "completed",
+                "requested_model": "gpt-6-luna",
+                "returned_model": "gpt-6-luna",
+                "request_id": "chatcmpl-EfIFEpgLekFoj0EWw9DYpDCfpxWPQ",
+                "elapsed_s": 2.124,
+                "usage": {
+                  "completion_tokens": 131,
+                  "prompt_tokens": 1318,
+                  "total_tokens": 1449,
+                  "completion_tokens_details": {
+                    "accepted_prediction_tokens": 0,
+                    "audio_tokens": 0,
+                    "reasoning_tokens": 0,
+                    "rejected_prediction_tokens": 0,
+                    "text_tokens": null
+                  },
+                  "prompt_tokens_details": {
+                    "audio_tokens": 0,
+                    "cache_write_tokens": 1315,
+                    "cached_tokens": 0,
+                    "image_tokens": null,
+                    "text_tokens": null
+                  }
+                },
+                "capture_ids": []
+              },
+              {
+                "event": "completed",
+                "requested_model": "gpt-6-luna",
+                "returned_model": "gpt-6-luna",
+                "request_id": "chatcmpl-EfIFGpB8TJnB2o7Qf16BaYOL5kKfu",
+                "elapsed_s": 2.096,
+                "usage": {
+                  "completion_tokens": 142,
+                  "prompt_tokens": 1336,
+                  "total_tokens": 1478,
+                  "completion_tokens_details": {
+                    "accepted_prediction_tokens": 0,
+                    "audio_tokens": 0,
+                    "reasoning_tokens": 0,
+                    "rejected_prediction_tokens": 0,
+                    "text_tokens": null
+                  },
+                  "prompt_tokens_details": {
+                    "audio_tokens": 0,
+                    "cache_write_tokens": 1333,
+                    "cached_tokens": 0,
+                    "image_tokens": null,
+                    "text_tokens": null
+                  }
+                },
+                "capture_ids": []
+              },
+              {
+                "event": "completed",
+                "requested_model": "gpt-6-luna",
+                "returned_model": "gpt-6-luna",
+                "request_id": "chatcmpl-EfIFIaefqfcfjQzcpAFZj2kPbNsZn",
+                "elapsed_s": 1.475,
+                "usage": {
+                  "completion_tokens": 48,
+                  "prompt_tokens": 577,
+                  "total_tokens": 625,
+                  "completion_tokens_details": {
+                    "accepted_prediction_tokens": 0,
+                    "audio_tokens": 0,
+                    "reasoning_tokens": 0,
+                    "rejected_prediction_tokens": 0,
+                    "text_tokens": null
+                  },
+                  "prompt_tokens_details": {
+                    "audio_tokens": 0,
+                    "cache_write_tokens": 0,
+                    "cached_tokens": 0,
+                    "image_tokens": null,
+                    "text_tokens": null
+                  }
+                },
+                "capture_ids": []
+              },
+              {
+                "event": "completed",
+                "requested_model": "gpt-6-luna",
+                "returned_model": "gpt-6-luna",
+                "request_id": "chatcmpl-EfIFKJIxE4WsILgZ3BfkaYfFV50G8",
+                "elapsed_s": 1.506,
+                "usage": {
+                  "completion_tokens": 52,
+                  "prompt_tokens": 860,
+                  "total_tokens": 912,
+                  "completion_tokens_details": {
+                    "accepted_prediction_tokens": 0,
+                    "audio_tokens": 0,
+                    "reasoning_tokens": 0,
+                    "rejected_prediction_tokens": 0,
+                    "text_tokens": null
+                  },
+                  "prompt_tokens_details": {
+                    "audio_tokens": 0,
+                    "cache_write_tokens": null,
+                    "cached_tokens": 0,
+                    "image_tokens": null,
+                    "text_tokens": null
+                  }
+                },
+                "capture_ids": [
+                  "1f166af1-42e5-4999-8129-7602c8ef612c"
+                ]
+              },
+              {
+                "event": "completed",
+                "requested_model": "gpt-6-luna",
+                "returned_model": "gpt-6-luna",
+                "request_id": "chatcmpl-EfIFLoVTCq5NEVAu0HfPwRK4l4lPw",
+                "elapsed_s": 2.005,
+                "usage": {
+                  "completion_tokens": 139,
+                  "prompt_tokens": 1507,
+                  "total_tokens": 1646,
+                  "completion_tokens_details": {
+                    "accepted_prediction_tokens": 0,
+                    "audio_tokens": 0,
+                    "reasoning_tokens": 0,
+                    "rejected_prediction_tokens": 0,
+                    "text_tokens": null
+                  },
+                  "prompt_tokens_details": {
+                    "audio_tokens": 0,
+                    "cache_write_tokens": 1504,
+                    "cached_tokens": 0,
+                    "image_tokens": null,
+                    "text_tokens": null
+                  }
+                },
+                "capture_ids": []
+              },
+              {
+                "event": "completed",
+                "requested_model": "gpt-6-luna",
+                "returned_model": "gpt-6-luna",
+                "request_id": "chatcmpl-EfIFNPooyS3zUkPsaCG2n1YDmMJJk",
+                "elapsed_s": 1.733,
+                "usage": {
+                  "completion_tokens": 74,
+                  "prompt_tokens": 2249,
+                  "total_tokens": 2323,
+                  "completion_tokens_details": {
+                    "accepted_prediction_tokens": 0,
+                    "audio_tokens": 0,
+                    "reasoning_tokens": 0,
+                    "rejected_prediction_tokens": 0,
+                    "text_tokens": null
+                  },
+                  "prompt_tokens_details": {
+                    "audio_tokens": 0,
+                    "cache_write_tokens": null,
+                    "cached_tokens": 0,
+                    "image_tokens": null,
+                    "text_tokens": null
+                  }
+                },
+                "capture_ids": [
+                  "9eed06cb-a6ca-4068-8ab6-ce98a09fd2b4",
+                  "6bafb8b9-8fe2-4ba8-97aa-99dfe8008fce",
+                  "1f166af1-42e5-4999-8129-7602c8ef612c"
+                ]
+              },
+              {
+                "event": "completed",
+                "requested_model": "gpt-6-luna",
+                "returned_model": "gpt-6-luna",
+                "request_id": "chatcmpl-EfIFPeSdA6eHhAFGJlRLSPf8Vcst5",
+                "elapsed_s": 2.267,
+                "usage": {
+                  "completion_tokens": 161,
+                  "prompt_tokens": 2326,
+                  "total_tokens": 2487,
+                  "completion_tokens_details": {
+                    "accepted_prediction_tokens": 0,
+                    "audio_tokens": 0,
+                    "reasoning_tokens": 0,
+                    "rejected_prediction_tokens": 0,
+                    "text_tokens": null
+                  },
+                  "prompt_tokens_details": {
+                    "audio_tokens": 0,
+                    "cache_write_tokens": null,
+                    "cached_tokens": 0,
+                    "image_tokens": null,
+                    "text_tokens": null
+                  }
+                },
+                "capture_ids": [
+                  "9eed06cb-a6ca-4068-8ab6-ce98a09fd2b4",
+                  "6bafb8b9-8fe2-4ba8-97aa-99dfe8008fce",
+                  "1f166af1-42e5-4999-8129-7602c8ef612c"
+                ]
+              }
+            ]
+          },
+          "continuous_coverage_verified": false
+        },
+        "steps": [
+          {
+            "stage": "target",
+            "created_at": "2026-11-01T05:17:49.609857+00:00",
+            "event": "started",
+            "capture_ids": []
+          },
+          {
+            "stage": "target",
+            "created_at": "2026-11-01T05:17:54.410526+00:00",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIEzX4qAt9XRGA1AjqOdyQmNh5tZ",
+            "elapsed_s": 4.795,
+            "usage": {
+              "completion_tokens": 67,
+              "prompt_tokens": 558,
+              "total_tokens": 625,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": 0,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [],
+            "output": {
+              "reasoning": "The question asks for a comparison of visible colored objects in Desk captures across three saved episodes, so the relevant target is the Desk and its visible colored objects in those captures. The captures are not provided here, so their contents cannot be identified.",
+              "object": "Desk and visible colored objects"
+            }
+          },
+          {
+            "stage": "episodes",
+            "created_at": "2026-11-01T05:17:54.415620+00:00",
+            "event": "started",
+            "capture_ids": []
+          },
+          {
+            "stage": "episodes",
+            "created_at": "2026-11-01T05:17:56.241713+00:00",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIF0ba3qOzUxgY6Szxd3PaQsDD9y",
+            "elapsed_s": 1.822,
+            "usage": {
+              "completion_tokens": 181,
+              "prompt_tokens": 2030,
+              "total_tokens": 2211,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": 938,
+                "cached_tokens": 1089,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [],
+            "output": {
+              "reasoning_on_search_strategy": "The question asks only about saved Desk captures and explicitly excludes current state. The available historical descriptions are sufficient, so no present exploration is needed.",
+              "search_strategy": "PAST_ONLY",
+              "time": [
+                "episode_369452f4fd8244d5be6ba9b779680e05",
+                "episode_fcdab01b017d45e2b10c9a8aef41291d",
+                "episode_a6f41ebf728541f3ba4efc9f18e24177"
+              ],
+              "reasoning": "These are the three saved episodes in chronological order. Their Desk captures describe the visible colored object in each image: a red card or panel with a yellow circle and cross in Early, a green square with a white cross in Middle, and an orange-brown square with dark markings in Late."
+            }
+          },
+          {
+            "stage": "rooms",
+            "created_at": "2026-11-01T05:17:56.246999+00:00",
+            "event": "started",
+            "capture_ids": []
+          },
+          {
+            "stage": "rooms",
+            "created_at": "2026-11-01T05:17:58.174175+00:00",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIF2zE7mIBKKDJFCLoZHYr9cjscN",
+            "elapsed_s": 1.924,
+            "usage": {
+              "completion_tokens": 106,
+              "prompt_tokens": 951,
+              "total_tokens": 1057,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": 0,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [],
+            "output": {
+              "reasoning": "The Desk capture shows a gray upright panel with a small black-and-white square pattern and a red panel marked with a yellow circle and cross. The saved information provides only one Desk capture, so it does not establish what appeared across three episodes or support claims about changes between them.",
+              "rooms": [
+                "Desk"
+              ],
+              "room_id": [
+                "region_c3e26f9cdddd4256b9d8b61fc0a3731d"
+              ],
+              "probability": [
+                0.5
+              ]
+            }
+          },
+          {
+            "stage": "places",
+            "created_at": "2026-11-01T05:17:58.177453+00:00",
+            "event": "started",
+            "capture_ids": []
+          },
+          {
+            "stage": "places",
+            "created_at": "2026-11-01T05:17:59.458056+00:00",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIF42dCiwlpTQB5zjIzGxRjqLJRQ",
+            "elapsed_s": 1.277,
+            "usage": {
+              "completion_tokens": 55,
+              "prompt_tokens": 547,
+              "total_tokens": 602,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": 0,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [],
+            "output": {
+              "reasoning": "Place 0 is the only listed Desk place and its capture shows visible colored objects: a red rectangular panel with a yellow marking beside a gray device. It is relevant to comparing the saved images.",
+              "place_number": [
+                0
+              ]
+            }
+          },
+          {
+            "stage": "verify",
+            "created_at": "2026-11-01T05:17:59.467921+00:00",
+            "event": "started",
+            "capture_ids": [
+              "9eed06cb-a6ca-4068-8ab6-ce98a09fd2b4"
+            ]
+          },
+          {
+            "stage": "verify",
+            "created_at": "2026-11-01T05:18:00.849083+00:00",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIF5cEI1Qe3zY8o9W6SHqB5RkLtu",
+            "elapsed_s": 1.378,
+            "usage": {
+              "completion_tokens": 48,
+              "prompt_tokens": 857,
+              "total_tokens": 905,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": null,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [
+              "9eed06cb-a6ca-4068-8ab6-ce98a09fd2b4"
+            ],
+            "output": {
+              "answer": "True",
+              "reasoning": "The Desk capture visibly shows a red object with a yellow circular marking, along with a gray object behind it. This establishes visible colored objects in this capture only."
+            }
+          },
+          {
+            "stage": "rooms",
+            "created_at": "2026-11-01T05:18:00.853552+00:00",
+            "event": "started",
+            "capture_ids": []
+          },
+          {
+            "stage": "rooms",
+            "created_at": "2026-11-01T05:18:03.038772+00:00",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIF7jdmH9kLkB49uTQmzHYw4D6SZ",
+            "elapsed_s": 2.181,
+            "usage": {
+              "completion_tokens": 116,
+              "prompt_tokens": 1116,
+              "total_tokens": 1232,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": 1113,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [],
+            "output": {
+              "reasoning": "The saved Desk capture in the current episode shows a red object with a yellow circular marking and a gray object behind it. The available evidence does not provide a comparison across all three episodes, and this does not establish an exact object identity or current state. Desk is the only room with a saved capture matching the described colored objects.",
+              "rooms": [
+                "Desk"
+              ],
+              "room_id": [
+                "region_c3e26f9cdddd4256b9d8b61fc0a3731d"
+              ],
+              "probability": [
+                0.95
+              ]
+            }
+          },
+          {
+            "stage": "rooms",
+            "created_at": "2026-11-01T05:18:03.042677+00:00",
+            "event": "started",
+            "capture_ids": []
+          },
+          {
+            "stage": "rooms",
+            "created_at": "2026-11-01T05:18:05.312505+00:00",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIF9p5a2HzmuFgVPoZzw7wrTN5Uv",
+            "elapsed_s": 2.266,
+            "usage": {
+              "completion_tokens": 134,
+              "prompt_tokens": 1159,
+              "total_tokens": 1293,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": 1156,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [],
+            "output": {
+              "reasoning": "The saved Desk episode summaries describe a red object with a yellow circular marking in the earliest capture, a gray panel and green square with a white cross in the registered Desk capture, and the Shelf metadata describes red and blue cubes before a gray panel. The available history does not establish the requested three Desk images in chronological order, so I cannot infer identities or continuity; Desk is the relevant room for the visible-object comparison.",
+              "rooms": [
+                "Desk"
+              ],
+              "room_id": [
+                "region_c3e26f9cdddd4256b9d8b61fc0a3731d"
+              ],
+              "probability": [
+                0.79
+              ]
+            }
+          },
+          {
+            "stage": "places",
+            "created_at": "2026-11-01T05:18:05.317163+00:00",
+            "event": "started",
+            "capture_ids": []
+          },
+          {
+            "stage": "places",
+            "created_at": "2026-11-01T05:18:06.934286+00:00",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIFB8NN914zuHVROkrgxg05AtjLh",
+            "elapsed_s": 1.615,
+            "usage": {
+              "completion_tokens": 54,
+              "prompt_tokens": 560,
+              "total_tokens": 614,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": 0,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [],
+            "output": {
+              "reasoning": "Place 0 is the only listed place in the Desk and its saved capture shows visible colored objects, including a green square with a white cross. It is relevant for checking the Desk captures.",
+              "place_number": [
+                0
+              ]
+            }
+          },
+          {
+            "stage": "verify",
+            "created_at": "2026-11-01T05:18:06.942780+00:00",
+            "event": "started",
+            "capture_ids": [
+              "6bafb8b9-8fe2-4ba8-97aa-99dfe8008fce"
+            ]
+          },
+          {
+            "stage": "verify",
+            "created_at": "2026-11-01T05:18:08.171392+00:00",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIFDK6GgrvDil5OmmCSwtBqbjPug",
+            "elapsed_s": 1.227,
+            "usage": {
+              "completion_tokens": 38,
+              "prompt_tokens": 862,
+              "total_tokens": 900,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": null,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [
+              "6bafb8b9-8fe2-4ba8-97aa-99dfe8008fce"
+            ],
+            "output": {
+              "answer": "True",
+              "reasoning": "The Desk capture visibly shows a green object with a white cross and a black-and-white patterned area behind it."
+            }
+          },
+          {
+            "stage": "rooms",
+            "created_at": "2026-11-01T05:18:08.174412+00:00",
+            "event": "started",
+            "capture_ids": []
+          },
+          {
+            "stage": "rooms",
+            "created_at": "2026-11-01T05:18:10.301071+00:00",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIFEpgLekFoj0EWw9DYpDCfpxWPQ",
+            "elapsed_s": 2.124,
+            "usage": {
+              "completion_tokens": 131,
+              "prompt_tokens": 1318,
+              "total_tokens": 1449,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": 1315,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [],
+            "output": {
+              "reasoning": "The Desk captures in chronological order show a red object with a yellow circular marking in the first saved episode, a green object with a white cross in the later saved episode, and registered Desk metadata also describes the green cross object. The Shelf metadata describes red and blue cubes, but does not establish what appeared in the Desk captures. These are past observations only, not evidence of current presence or exact identities.",
+              "rooms": [
+                "Desk"
+              ],
+              "room_id": [
+                "region_c3e26f9cdddd4256b9d8b61fc0a3731d"
+              ],
+              "probability": [
+                0.98
+              ]
+            }
+          },
+          {
+            "stage": "rooms",
+            "created_at": "2026-11-01T05:18:10.306540+00:00",
+            "event": "started",
+            "capture_ids": []
+          },
+          {
+            "stage": "rooms",
+            "created_at": "2026-11-01T05:18:12.404912+00:00",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIFGpB8TJnB2o7Qf16BaYOL5kKfu",
+            "elapsed_s": 2.096,
+            "usage": {
+              "completion_tokens": 142,
+              "prompt_tokens": 1336,
+              "total_tokens": 1478,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": 1333,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [],
+            "output": {
+              "reasoning": "The request concerns comparing visible colored objects in Desk captures across three saved episodes, not locating a single object. The available past summaries describe a red object with a yellow circular marking in one Desk image, a green object with a white cross in another, and the registered Desk capture describes an orange-brown square object with dark markings. These are observations from separate saved images only; they do not establish continuous presence or exact identities. Desk is the only relevant room.",
+              "rooms": [
+                "Desk"
+              ],
+              "room_id": [
+                "region_c3e26f9cdddd4256b9d8b61fc0a3731d"
+              ],
+              "probability": [
+                0.99
+              ]
+            }
+          },
+          {
+            "stage": "places",
+            "created_at": "2026-11-01T05:18:12.409579+00:00",
+            "event": "started",
+            "capture_ids": []
+          },
+          {
+            "stage": "places",
+            "created_at": "2026-11-01T05:18:13.888016+00:00",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIFIaefqfcfjQzcpAFZj2kPbNsZn",
+            "elapsed_s": 1.475,
+            "usage": {
+              "completion_tokens": 48,
+              "prompt_tokens": 577,
+              "total_tokens": 625,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": 0,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [],
+            "output": {
+              "reasoning": "Place 0 is the only recorded Desk view and shows visible colored objects. Search it to compare the saved images; the supplied place description covers only one capture.",
+              "place_number": [
+                0
+              ]
+            }
+          },
+          {
+            "stage": "verify",
+            "created_at": "2026-11-01T05:18:13.907951+00:00",
+            "event": "started",
+            "capture_ids": [
+              "1f166af1-42e5-4999-8129-7602c8ef612c"
+            ]
+          },
+          {
+            "stage": "verify",
+            "created_at": "2026-11-01T05:18:15.417999+00:00",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIFKJIxE4WsILgZ3BfkaYfFV50G8",
+            "elapsed_s": 1.506,
+            "usage": {
+              "completion_tokens": 52,
+              "prompt_tokens": 860,
+              "total_tokens": 912,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": null,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [
+              "1f166af1-42e5-4999-8129-7602c8ef612c"
+            ],
+            "output": {
+              "answer": "True",
+              "reasoning": "The Desk capture visibly shows an orange object with dark square markings in front of a gray upright object with a black-and-white marking. This confirms visible colored objects in this capture only."
+            }
+          },
+          {
+            "stage": "rooms",
+            "created_at": "2026-11-01T05:18:15.424028+00:00",
+            "event": "started",
+            "capture_ids": []
+          },
+          {
+            "stage": "rooms",
+            "created_at": "2026-11-01T05:18:17.432698+00:00",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIFLoVTCq5NEVAu0HfPwRK4l4lPw",
+            "elapsed_s": 2.005,
+            "usage": {
+              "completion_tokens": 139,
+              "prompt_tokens": 1507,
+              "total_tokens": 1646,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": 1504,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [],
+            "output": {
+              "reasoning": "All three saved captures are from Desk and are ordered chronologically: first a red object with a yellow circular marking in front of a gray object; next a green object with a white cross and a black-and-white patterned area behind it; most recently an orange object with dark square markings in front of a gray upright object with a black-and-white marking. These are descriptions of each saved image only, not claims about current state or exact identities.",
+              "rooms": [
+                "Desk"
+              ],
+              "room_id": [
+                "region_c3e26f9cdddd4256b9d8b61fc0a3731d"
+              ],
+              "probability": [
+                0.99
+              ]
+            }
+          },
+          {
+            "stage": "ready",
+            "created_at": "2026-11-01T05:18:17.452513+00:00",
+            "event": "started",
+            "capture_ids": [
+              "9eed06cb-a6ca-4068-8ab6-ce98a09fd2b4",
+              "6bafb8b9-8fe2-4ba8-97aa-99dfe8008fce",
+              "1f166af1-42e5-4999-8129-7602c8ef612c"
+            ]
+          },
+          {
+            "stage": "ready",
+            "created_at": "2026-11-01T05:18:19.190845+00:00",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIFNPooyS3zUkPsaCG2n1YDmMJJk",
+            "elapsed_s": 1.733,
+            "usage": {
+              "completion_tokens": 74,
+              "prompt_tokens": 2249,
+              "total_tokens": 2323,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": null,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [
+              "9eed06cb-a6ca-4068-8ab6-ce98a09fd2b4",
+              "6bafb8b9-8fe2-4ba8-97aa-99dfe8008fce",
+              "1f166af1-42e5-4999-8129-7602c8ef612c"
+            ],
+            "output": {
+              "ready_to_answer": "yes",
+              "answer_or_explanation": "In chronological order: Early shows a red object with a yellow circular marking; Middle shows a green object with a white cross; Late shows an orange object with dark square markings. These describe only what is visible in each saved image, not exact object identities or current state."
+            }
+          },
+          {
+            "stage": "answer",
+            "created_at": "2026-11-01T05:18:19.210789+00:00",
+            "event": "started",
+            "capture_ids": [
+              "9eed06cb-a6ca-4068-8ab6-ce98a09fd2b4",
+              "6bafb8b9-8fe2-4ba8-97aa-99dfe8008fce",
+              "1f166af1-42e5-4999-8129-7602c8ef612c"
+            ]
+          },
+          {
+            "stage": "answer",
+            "created_at": "2026-11-01T05:18:21.482970+00:00",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIFPeSdA6eHhAFGJlRLSPf8Vcst5",
+            "elapsed_s": 2.267,
+            "usage": {
+              "completion_tokens": 161,
+              "prompt_tokens": 2326,
+              "total_tokens": 2487,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": null,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [
+              "9eed06cb-a6ca-4068-8ab6-ce98a09fd2b4",
+              "6bafb8b9-8fe2-4ba8-97aa-99dfe8008fce",
+              "1f166af1-42e5-4999-8129-7602c8ef612c"
+            ],
+            "output": {
+              "answer": "Early: a red object with a yellow circular marking. Middle: a green object with a white cross. Late: an orange object with dark square markings.",
+              "reasoning": "The saved Desk images, in chronological order, show those visible colored objects. This describes only what appears in each capture and does not infer object identities or current state.",
+              "citations": [
+                "9eed06cb-a6ca-4068-8ab6-ce98a09fd2b4",
+                "6bafb8b9-8fe2-4ba8-97aa-99dfe8008fce",
+                "1f166af1-42e5-4999-8129-7602c8ef612c"
+              ],
+              "claim_type": "recorded_visual"
+            }
+          }
+        ]
+      },
+      "app_wall_s": 32.066,
+      "baseline": {
+        "name": "direct_all_images_same_model",
+        "output": {
+          "answerable": "yes",
+          "answer": "Chronologically, the three Desk captures show:\n- **Early:** A red square panel with a yellow target-like symbol in front of an upright gray panel with a small black-and-white square near its top. [9eed06cb-a6ca-4068-8ab6-ce98a09fd2b4]\n- **Middle:** A green square panel with a white plus inside a dark circle in front of a similar gray panel. [6bafb8b9-8fe2-4ba8-97aa-99dfe8008fce]\n- **Late:** An orange-brown square object with dark square markings in front of a similar gray panel. [1f166af1-42e5-4999-8129-7602c8ef612c]",
+          "citations": [
+            "9eed06cb-a6ca-4068-8ab6-ce98a09fd2b4",
+            "6bafb8b9-8fe2-4ba8-97aa-99dfe8008fce",
+            "1f166af1-42e5-4999-8129-7602c8ef612c"
+          ]
+        },
+        "elapsed_s": 3.093,
+        "steps": [
+          {
+            "stage": "baseline",
+            "event": "started",
+            "capture_ids": [
+              "9eed06cb-a6ca-4068-8ab6-ce98a09fd2b4",
+              "5a82c1f7-2c3c-4fa4-a816-deaa2b49db08",
+              "6bafb8b9-8fe2-4ba8-97aa-99dfe8008fce",
+              "aca13114-b828-48ec-8d04-4e1fb0e0791d",
+              "1f166af1-42e5-4999-8129-7602c8ef612c",
+              "99340b52-9731-447e-b6d2-b6e4cd898cf1"
+            ]
+          },
+          {
+            "stage": "baseline",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIFSEA5EqDzlR7kFZon2DexUE6SW",
+            "elapsed_s": 3.09,
+            "usage": {
+              "completion_tokens": 260,
+              "prompt_tokens": 3768,
+              "total_tokens": 4028,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": null,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [
+              "9eed06cb-a6ca-4068-8ab6-ce98a09fd2b4",
+              "5a82c1f7-2c3c-4fa4-a816-deaa2b49db08",
+              "6bafb8b9-8fe2-4ba8-97aa-99dfe8008fce",
+              "aca13114-b828-48ec-8d04-4e1fb0e0791d",
+              "1f166af1-42e5-4999-8129-7602c8ef612c",
+              "99340b52-9731-447e-b6d2-b6e4cd898cf1"
+            ],
+            "output": {
+              "answerable": "yes",
+              "answer": "Chronologically, the three Desk captures show:\n- **Early:** A red square panel with a yellow target-like symbol in front of an upright gray panel with a small black-and-white square near its top. [9eed06cb-a6ca-4068-8ab6-ce98a09fd2b4]\n- **Middle:** A green square panel with a white plus inside a dark circle in front of a similar gray panel. [6bafb8b9-8fe2-4ba8-97aa-99dfe8008fce]\n- **Late:** An orange-brown square object with dark square markings in front of a similar gray panel. [1f166af1-42e5-4999-8129-7602c8ef612c]",
+              "citations": [
+                "9eed06cb-a6ca-4068-8ab6-ce98a09fd2b4",
+                "6bafb8b9-8fe2-4ba8-97aa-99dfe8008fce",
+                "1f166af1-42e5-4999-8129-7602c8ef612c"
+              ]
+            }
+          }
+        ]
+      },
+      "correctness": "not automatically scored; source-image review required"
+    },
+    {
+      "task_id": "missing-witness",
+      "question": "Which saved capture visibly shows a purple cup? Cite a visual witness if one is present. Do not infer that the cup was absent between captures or is absent now.",
+      "app": {
+        "id": "86905773-bfd5-41f9-82af-ed749fff560c",
+        "kind": "question",
+        "mode": "synthetic",
+        "request_key": "b92141ae-11e9-49f0-aa47-242f12bff608",
+        "created_at": "2026-11-01T05:18:25.080657+00:00",
+        "status": "inconclusive",
+        "stage": "inconclusive",
+        "started_at": "2026-11-01T05:18:25.249159+00:00",
+        "finished_at": "2026-11-01T05:19:02.582459+00:00",
+        "worker_id": "e4f28dd5-a1c9-4dcc-9bdc-d02bdfa231f0",
+        "dispatched_at": "2026-11-01T05:18:25.090107+00:00",
+        "error_code": null,
+        "model": "gpt-6-luna",
+        "request": {
+          "question": "Which saved capture visibly shows a purple cup? Cite a visual witness if one is present. Do not infer that the cup was absent between captures or is absent now.",
+          "episode_ids": [
+            "369452f4-fd82-44d5-be6b-a9b779680e05",
+            "a6f41ebf-7285-41f3-ba4e-fc9f18e24177",
+            "fcdab01b-017d-45e2-b10c-9a8aef41291d"
+          ],
+          "scope": "recorded_memory"
+        },
+        "result": {
+          "outcome": "inconclusive",
+          "reason": "No clear positive visual witness was admitted; absence is not established.",
+          "inspected_capture_ids": [
+            "9eed06cb-a6ca-4068-8ab6-ce98a09fd2b4",
+            "5a82c1f7-2c3c-4fa4-a816-deaa2b49db08",
+            "6bafb8b9-8fe2-4ba8-97aa-99dfe8008fce",
+            "aca13114-b828-48ec-8d04-4e1fb0e0791d",
+            "1f166af1-42e5-4999-8129-7602c8ef612c",
+            "99340b52-9731-447e-b6d2-b6e4cd898cf1"
+          ],
+          "selected_episode_ids": [
+            "369452f4-fd82-44d5-be6b-a9b779680e05",
+            "fcdab01b-017d-45e2-b10c-9a8aef41291d",
+            "a6f41ebf-7285-41f3-ba4e-fc9f18e24177"
+          ],
+          "evidence": [
+            {
+              "id": "9eed06cb-a6ca-4068-8ab6-ce98a09fd2b4",
+              "image_sha": "3887419bd092248b63b44d090cee1ed7766239bd22b5c8ac331e2f20a2b3abc4",
+              "captured_at": "2026-11-01T05:16:13.664383+00:00",
+              "episode_id": "369452f4-fd82-44d5-be6b-a9b779680e05",
+              "episode_name": "Early",
+              "region_name": "Desk",
+              "view_name": "Front"
+            },
+            {
+              "id": "5a82c1f7-2c3c-4fa4-a816-deaa2b49db08",
+              "image_sha": "ec55397ef64718939789f6acba4d384aac1885a7c721c843d018143c1bb1089f",
+              "captured_at": "2026-11-01T05:16:18.282364+00:00",
+              "episode_id": "369452f4-fd82-44d5-be6b-a9b779680e05",
+              "episode_name": "Early",
+              "region_name": "Shelf",
+              "view_name": "Front"
+            },
+            {
+              "id": "6bafb8b9-8fe2-4ba8-97aa-99dfe8008fce",
+              "image_sha": "72ee29fab5431e9b27cda692c33991d18f016e81ff0e6c391f8af5b1a73c8a1d",
+              "captured_at": "2026-11-01T05:16:23.526958+00:00",
+              "episode_id": "fcdab01b-017d-45e2-b10c-9a8aef41291d",
+              "episode_name": "Middle",
+              "region_name": "Desk",
+              "view_name": "Front"
+            },
+            {
+              "id": "aca13114-b828-48ec-8d04-4e1fb0e0791d",
+              "image_sha": "6779449600c4a4f92cd1e1e6f1e6129cedeed3ac40c5db438258ed6c4ed69133",
+              "captured_at": "2026-11-01T05:16:30.654956+00:00",
+              "episode_id": "fcdab01b-017d-45e2-b10c-9a8aef41291d",
+              "episode_name": "Middle",
+              "region_name": "Shelf",
+              "view_name": "Front"
+            },
+            {
+              "id": "1f166af1-42e5-4999-8129-7602c8ef612c",
+              "image_sha": "b8b2c9aebd9c20f6ffea815aaf8f55a38a1cf6694a38050f95fa1416478cd680",
+              "captured_at": "2026-11-01T05:16:54.938153+00:00",
+              "episode_id": "a6f41ebf-7285-41f3-ba4e-fc9f18e24177",
+              "episode_name": "Late",
+              "region_name": "Desk",
+              "view_name": "Front"
+            },
+            {
+              "id": "99340b52-9731-447e-b6d2-b6e4cd898cf1",
+              "image_sha": "37854a7cb3e3a1a9e987bb000089ce46f62d2481f978d75c85dfea9bf8f2f55a",
+              "captured_at": "2026-11-01T05:16:58.805611+00:00",
+              "episode_id": "a6f41ebf-7285-41f3-ba4e-fc9f18e24177",
+              "episode_name": "Late",
+              "region_name": "Shelf",
+              "view_name": "Front"
+            }
+          ],
+          "citations": [],
+          "provenance": {
+            "schema_version": 1,
+            "adapter": "mind-palace-recorded-v1",
+            "prompt_schema_revision": "mind-palace-recorded-v1",
+            "preprocessing": "original EvidenceStore PNG bytes; no crop or resize by adapter",
+            "upstream": "https://github.com/mind-palace-laeqa/benchmark",
+            "revision": "b59be261f9508c3a355a8afa0d495eeba0417d68",
+            "model": "gpt-6-luna",
+            "scope": "recorded_memory",
+            "geometry": "unknown",
+            "calls": [
+              {
+                "event": "completed",
+                "requested_model": "gpt-6-luna",
+                "returned_model": "gpt-6-luna",
+                "request_id": "chatcmpl-EfIFZHMNOppWqev30mLF9iuIbN209",
+                "elapsed_s": 5.697,
+                "usage": {
+                  "completion_tokens": 54,
+                  "prompt_tokens": 554,
+                  "total_tokens": 608,
+                  "completion_tokens_details": {
+                    "accepted_prediction_tokens": 0,
+                    "audio_tokens": 0,
+                    "reasoning_tokens": 0,
+                    "rejected_prediction_tokens": 0,
+                    "text_tokens": null
+                  },
+                  "prompt_tokens_details": {
+                    "audio_tokens": 0,
+                    "cache_write_tokens": 0,
+                    "cached_tokens": 0,
+                    "image_tokens": null,
+                    "text_tokens": null
+                  }
+                },
+                "capture_ids": []
+              },
+              {
+                "event": "completed",
+                "requested_model": "gpt-6-luna",
+                "returned_model": "gpt-6-luna",
+                "request_id": "chatcmpl-EfIFb8YWtjEva8aZ2ab7IOA2HQYKj",
+                "elapsed_s": 1.893,
+                "usage": {
+                  "completion_tokens": 185,
+                  "prompt_tokens": 2013,
+                  "total_tokens": 2198,
+                  "completion_tokens_details": {
+                    "accepted_prediction_tokens": 0,
+                    "audio_tokens": 0,
+                    "reasoning_tokens": 0,
+                    "rejected_prediction_tokens": 0,
+                    "text_tokens": null
+                  },
+                  "prompt_tokens_details": {
+                    "audio_tokens": 0,
+                    "cache_write_tokens": 921,
+                    "cached_tokens": 1089,
+                    "image_tokens": null,
+                    "text_tokens": null
+                  }
+                },
+                "capture_ids": []
+              },
+              {
+                "event": "completed",
+                "requested_model": "gpt-6-luna",
+                "returned_model": "gpt-6-luna",
+                "request_id": "chatcmpl-EfIFdOknox2Em9za6t0pmTlZA9p4s",
+                "elapsed_s": 1.816,
+                "usage": {
+                  "completion_tokens": 118,
+                  "prompt_tokens": 944,
+                  "total_tokens": 1062,
+                  "completion_tokens_details": {
+                    "accepted_prediction_tokens": 0,
+                    "audio_tokens": 0,
+                    "reasoning_tokens": 0,
+                    "rejected_prediction_tokens": 0,
+                    "text_tokens": null
+                  },
+                  "prompt_tokens_details": {
+                    "audio_tokens": 0,
+                    "cache_write_tokens": 0,
+                    "cached_tokens": 0,
+                    "image_tokens": null,
+                    "text_tokens": null
+                  }
+                },
+                "capture_ids": []
+              },
+              {
+                "event": "completed",
+                "requested_model": "gpt-6-luna",
+                "returned_model": "gpt-6-luna",
+                "request_id": "chatcmpl-EfIFfaUVqGcRB3DocYDb2ZpGYCgEG",
+                "elapsed_s": 1.432,
+                "usage": {
+                  "completion_tokens": 74,
+                  "prompt_tokens": 540,
+                  "total_tokens": 614,
+                  "completion_tokens_details": {
+                    "accepted_prediction_tokens": 0,
+                    "audio_tokens": 0,
+                    "reasoning_tokens": 0,
+                    "rejected_prediction_tokens": 0,
+                    "text_tokens": null
+                  },
+                  "prompt_tokens_details": {
+                    "audio_tokens": 0,
+                    "cache_write_tokens": 0,
+                    "cached_tokens": 0,
+                    "image_tokens": null,
+                    "text_tokens": null
+                  }
+                },
+                "capture_ids": []
+              },
+              {
+                "event": "completed",
+                "requested_model": "gpt-6-luna",
+                "returned_model": "gpt-6-luna",
+                "request_id": "chatcmpl-EfIFh4DxoIo1tzE3pfNy3YSW0iDl8",
+                "elapsed_s": 2.403,
+                "usage": {
+                  "completion_tokens": 42,
+                  "prompt_tokens": 846,
+                  "total_tokens": 888,
+                  "completion_tokens_details": {
+                    "accepted_prediction_tokens": 0,
+                    "audio_tokens": 0,
+                    "reasoning_tokens": 0,
+                    "rejected_prediction_tokens": 0,
+                    "text_tokens": null
+                  },
+                  "prompt_tokens_details": {
+                    "audio_tokens": 0,
+                    "cache_write_tokens": null,
+                    "cached_tokens": 0,
+                    "image_tokens": null,
+                    "text_tokens": null
+                  }
+                },
+                "capture_ids": [
+                  "9eed06cb-a6ca-4068-8ab6-ce98a09fd2b4"
+                ]
+              },
+              {
+                "event": "completed",
+                "requested_model": "gpt-6-luna",
+                "returned_model": "gpt-6-luna",
+                "request_id": "chatcmpl-EfIFi83ApXvOLYFbgi2P1qIqFanBo",
+                "elapsed_s": 2.195,
+                "usage": {
+                  "completion_tokens": 136,
+                  "prompt_tokens": 944,
+                  "total_tokens": 1080,
+                  "completion_tokens_details": {
+                    "accepted_prediction_tokens": 0,
+                    "audio_tokens": 0,
+                    "reasoning_tokens": 0,
+                    "rejected_prediction_tokens": 0,
+                    "text_tokens": null
+                  },
+                  "prompt_tokens_details": {
+                    "audio_tokens": 0,
+                    "cache_write_tokens": 0,
+                    "cached_tokens": 0,
+                    "image_tokens": null,
+                    "text_tokens": null
+                  }
+                },
+                "capture_ids": []
+              },
+              {
+                "event": "completed",
+                "requested_model": "gpt-6-luna",
+                "returned_model": "gpt-6-luna",
+                "request_id": "chatcmpl-EfIFlPt5LLKTSxtUiHCNZkOzHmIym",
+                "elapsed_s": 1.667,
+                "usage": {
+                  "completion_tokens": 52,
+                  "prompt_tokens": 540,
+                  "total_tokens": 592,
+                  "completion_tokens_details": {
+                    "accepted_prediction_tokens": 0,
+                    "audio_tokens": 0,
+                    "reasoning_tokens": 0,
+                    "rejected_prediction_tokens": 0,
+                    "text_tokens": null
+                  },
+                  "prompt_tokens_details": {
+                    "audio_tokens": 0,
+                    "cache_write_tokens": 0,
+                    "cached_tokens": 0,
+                    "image_tokens": null,
+                    "text_tokens": null
+                  }
+                },
+                "capture_ids": []
+              },
+              {
+                "event": "completed",
+                "requested_model": "gpt-6-luna",
+                "returned_model": "gpt-6-luna",
+                "request_id": "chatcmpl-EfIFmPIH7bawZQXB5m29TI3fBSb89",
+                "elapsed_s": 1.293,
+                "usage": {
+                  "completion_tokens": 36,
+                  "prompt_tokens": 849,
+                  "total_tokens": 885,
+                  "completion_tokens_details": {
+                    "accepted_prediction_tokens": 0,
+                    "audio_tokens": 0,
+                    "reasoning_tokens": 0,
+                    "rejected_prediction_tokens": 0,
+                    "text_tokens": null
+                  },
+                  "prompt_tokens_details": {
+                    "audio_tokens": 0,
+                    "cache_write_tokens": null,
+                    "cached_tokens": 0,
+                    "image_tokens": null,
+                    "text_tokens": null
+                  }
+                },
+                "capture_ids": [
+                  "5a82c1f7-2c3c-4fa4-a816-deaa2b49db08"
+                ]
+              },
+              {
+                "event": "completed",
+                "requested_model": "gpt-6-luna",
+                "returned_model": "gpt-6-luna",
+                "request_id": "chatcmpl-EfIFouu31FYGDvWm1X1ws49AVv8Iz",
+                "elapsed_s": 2.022,
+                "usage": {
+                  "completion_tokens": 117,
+                  "prompt_tokens": 987,
+                  "total_tokens": 1104,
+                  "completion_tokens_details": {
+                    "accepted_prediction_tokens": 0,
+                    "audio_tokens": 0,
+                    "reasoning_tokens": 0,
+                    "rejected_prediction_tokens": 0,
+                    "text_tokens": null
+                  },
+                  "prompt_tokens_details": {
+                    "audio_tokens": 0,
+                    "cache_write_tokens": 0,
+                    "cached_tokens": 0,
+                    "image_tokens": null,
+                    "text_tokens": null
+                  }
+                },
+                "capture_ids": []
+              },
+              {
+                "event": "completed",
+                "requested_model": "gpt-6-luna",
+                "returned_model": "gpt-6-luna",
+                "request_id": "chatcmpl-EfIFqweohNxPJNqAr3vnIa9qnDcxQ",
+                "elapsed_s": 1.183,
+                "usage": {
+                  "completion_tokens": 53,
+                  "prompt_tokens": 553,
+                  "total_tokens": 606,
+                  "completion_tokens_details": {
+                    "accepted_prediction_tokens": 0,
+                    "audio_tokens": 0,
+                    "reasoning_tokens": 0,
+                    "rejected_prediction_tokens": 0,
+                    "text_tokens": null
+                  },
+                  "prompt_tokens_details": {
+                    "audio_tokens": 0,
+                    "cache_write_tokens": 0,
+                    "cached_tokens": 0,
+                    "image_tokens": null,
+                    "text_tokens": null
+                  }
+                },
+                "capture_ids": []
+              },
+              {
+                "event": "completed",
+                "requested_model": "gpt-6-luna",
+                "returned_model": "gpt-6-luna",
+                "request_id": "chatcmpl-EfIFr0ocwLC2qKkllamLyTwJwrgXi",
+                "elapsed_s": 1.274,
+                "usage": {
+                  "completion_tokens": 38,
+                  "prompt_tokens": 851,
+                  "total_tokens": 889,
+                  "completion_tokens_details": {
+                    "accepted_prediction_tokens": 0,
+                    "audio_tokens": 0,
+                    "reasoning_tokens": 0,
+                    "rejected_prediction_tokens": 0,
+                    "text_tokens": null
+                  },
+                  "prompt_tokens_details": {
+                    "audio_tokens": 0,
+                    "cache_write_tokens": null,
+                    "cached_tokens": 0,
+                    "image_tokens": null,
+                    "text_tokens": null
+                  }
+                },
+                "capture_ids": [
+                  "6bafb8b9-8fe2-4ba8-97aa-99dfe8008fce"
+                ]
+              },
+              {
+                "event": "completed",
+                "requested_model": "gpt-6-luna",
+                "returned_model": "gpt-6-luna",
+                "request_id": "chatcmpl-EfIFs4OgsZUwhVA4CzevcEW92WXyP",
+                "elapsed_s": 1.973,
+                "usage": {
+                  "completion_tokens": 117,
+                  "prompt_tokens": 987,
+                  "total_tokens": 1104,
+                  "completion_tokens_details": {
+                    "accepted_prediction_tokens": 0,
+                    "audio_tokens": 0,
+                    "reasoning_tokens": 0,
+                    "rejected_prediction_tokens": 0,
+                    "text_tokens": null
+                  },
+                  "prompt_tokens_details": {
+                    "audio_tokens": 0,
+                    "cache_write_tokens": 0,
+                    "cached_tokens": 0,
+                    "image_tokens": null,
+                    "text_tokens": null
+                  }
+                },
+                "capture_ids": []
+              },
+              {
+                "event": "completed",
+                "requested_model": "gpt-6-luna",
+                "returned_model": "gpt-6-luna",
+                "request_id": "chatcmpl-EfIFuRw9bWUE5ljQZ0zGqbC1MqTvD",
+                "elapsed_s": 1.474,
+                "usage": {
+                  "completion_tokens": 60,
+                  "prompt_tokens": 567,
+                  "total_tokens": 627,
+                  "completion_tokens_details": {
+                    "accepted_prediction_tokens": 0,
+                    "audio_tokens": 0,
+                    "reasoning_tokens": 0,
+                    "rejected_prediction_tokens": 0,
+                    "text_tokens": null
+                  },
+                  "prompt_tokens_details": {
+                    "audio_tokens": 0,
+                    "cache_write_tokens": 0,
+                    "cached_tokens": 0,
+                    "image_tokens": null,
+                    "text_tokens": null
+                  }
+                },
+                "capture_ids": []
+              },
+              {
+                "event": "completed",
+                "requested_model": "gpt-6-luna",
+                "returned_model": "gpt-6-luna",
+                "request_id": "chatcmpl-EfIFwPAw5riSxiYqkJuOT0roet6Au",
+                "elapsed_s": 1.16,
+                "usage": {
+                  "completion_tokens": 44,
+                  "prompt_tokens": 847,
+                  "total_tokens": 891,
+                  "completion_tokens_details": {
+                    "accepted_prediction_tokens": 0,
+                    "audio_tokens": 0,
+                    "reasoning_tokens": 0,
+                    "rejected_prediction_tokens": 0,
+                    "text_tokens": null
+                  },
+                  "prompt_tokens_details": {
+                    "audio_tokens": 0,
+                    "cache_write_tokens": null,
+                    "cached_tokens": 0,
+                    "image_tokens": null,
+                    "text_tokens": null
+                  }
+                },
+                "capture_ids": [
+                  "aca13114-b828-48ec-8d04-4e1fb0e0791d"
+                ]
+              },
+              {
+                "event": "completed",
+                "requested_model": "gpt-6-luna",
+                "returned_model": "gpt-6-luna",
+                "request_id": "chatcmpl-EfIFxoHfW0Rl3A3UP2YO3ebb55Jf4",
+                "elapsed_s": 1.923,
+                "usage": {
+                  "completion_tokens": 138,
+                  "prompt_tokens": 1005,
+                  "total_tokens": 1143,
+                  "completion_tokens_details": {
+                    "accepted_prediction_tokens": 0,
+                    "audio_tokens": 0,
+                    "reasoning_tokens": 0,
+                    "rejected_prediction_tokens": 0,
+                    "text_tokens": null
+                  },
+                  "prompt_tokens_details": {
+                    "audio_tokens": 0,
+                    "cache_write_tokens": 0,
+                    "cached_tokens": 0,
+                    "image_tokens": null,
+                    "text_tokens": null
+                  }
+                },
+                "capture_ids": []
+              },
+              {
+                "event": "completed",
+                "requested_model": "gpt-6-luna",
+                "returned_model": "gpt-6-luna",
+                "request_id": "chatcmpl-EfIFz32omekHMNoFdmbabMnsCnVyq",
+                "elapsed_s": 1.369,
+                "usage": {
+                  "completion_tokens": 57,
+                  "prompt_tokens": 570,
+                  "total_tokens": 627,
+                  "completion_tokens_details": {
+                    "accepted_prediction_tokens": 0,
+                    "audio_tokens": 0,
+                    "reasoning_tokens": 0,
+                    "rejected_prediction_tokens": 0,
+                    "text_tokens": null
+                  },
+                  "prompt_tokens_details": {
+                    "audio_tokens": 0,
+                    "cache_write_tokens": 0,
+                    "cached_tokens": 0,
+                    "image_tokens": null,
+                    "text_tokens": null
+                  }
+                },
+                "capture_ids": []
+              },
+              {
+                "event": "completed",
+                "requested_model": "gpt-6-luna",
+                "returned_model": "gpt-6-luna",
+                "request_id": "chatcmpl-EfIG0lbrmDkWfXrcsZbcKj6DUVMuX",
+                "elapsed_s": 1.534,
+                "usage": {
+                  "completion_tokens": 38,
+                  "prompt_tokens": 849,
+                  "total_tokens": 887,
+                  "completion_tokens_details": {
+                    "accepted_prediction_tokens": 0,
+                    "audio_tokens": 0,
+                    "reasoning_tokens": 0,
+                    "rejected_prediction_tokens": 0,
+                    "text_tokens": null
+                  },
+                  "prompt_tokens_details": {
+                    "audio_tokens": 0,
+                    "cache_write_tokens": null,
+                    "cached_tokens": 0,
+                    "image_tokens": null,
+                    "text_tokens": null
+                  }
+                },
+                "capture_ids": [
+                  "1f166af1-42e5-4999-8129-7602c8ef612c"
+                ]
+              },
+              {
+                "event": "completed",
+                "requested_model": "gpt-6-luna",
+                "returned_model": "gpt-6-luna",
+                "request_id": "chatcmpl-EfIG2DYj78rH99JADdytbY1EEh5D8",
+                "elapsed_s": 1.995,
+                "usage": {
+                  "completion_tokens": 129,
+                  "prompt_tokens": 1005,
+                  "total_tokens": 1134,
+                  "completion_tokens_details": {
+                    "accepted_prediction_tokens": 0,
+                    "audio_tokens": 0,
+                    "reasoning_tokens": 0,
+                    "rejected_prediction_tokens": 0,
+                    "text_tokens": null
+                  },
+                  "prompt_tokens_details": {
+                    "audio_tokens": 0,
+                    "cache_write_tokens": 0,
+                    "cached_tokens": 0,
+                    "image_tokens": null,
+                    "text_tokens": null
+                  }
+                },
+                "capture_ids": []
+              },
+              {
+                "event": "completed",
+                "requested_model": "gpt-6-luna",
+                "returned_model": "gpt-6-luna",
+                "request_id": "chatcmpl-EfIG47mK9Sq1yVln6OSJketUUNgg8",
+                "elapsed_s": 1.418,
+                "usage": {
+                  "completion_tokens": 53,
+                  "prompt_tokens": 568,
+                  "total_tokens": 621,
+                  "completion_tokens_details": {
+                    "accepted_prediction_tokens": 0,
+                    "audio_tokens": 0,
+                    "reasoning_tokens": 0,
+                    "rejected_prediction_tokens": 0,
+                    "text_tokens": null
+                  },
+                  "prompt_tokens_details": {
+                    "audio_tokens": 0,
+                    "cache_write_tokens": 0,
+                    "cached_tokens": 0,
+                    "image_tokens": null,
+                    "text_tokens": null
+                  }
+                },
+                "capture_ids": []
+              },
+              {
+                "event": "completed",
+                "requested_model": "gpt-6-luna",
+                "returned_model": "gpt-6-luna",
+                "request_id": "chatcmpl-EfIG5hee8eentA3A0at4RmZjEDOQ8",
+                "elapsed_s": 1.348,
+                "usage": {
+                  "completion_tokens": 35,
+                  "prompt_tokens": 848,
+                  "total_tokens": 883,
+                  "completion_tokens_details": {
+                    "accepted_prediction_tokens": 0,
+                    "audio_tokens": 0,
+                    "reasoning_tokens": 0,
+                    "rejected_prediction_tokens": 0,
+                    "text_tokens": null
+                  },
+                  "prompt_tokens_details": {
+                    "audio_tokens": 0,
+                    "cache_write_tokens": null,
+                    "cached_tokens": 0,
+                    "image_tokens": null,
+                    "text_tokens": null
+                  }
+                },
+                "capture_ids": [
+                  "99340b52-9731-447e-b6d2-b6e4cd898cf1"
+                ]
+              }
+            ]
+          },
+          "continuous_coverage_verified": false
+        },
+        "steps": [
+          {
+            "stage": "target",
+            "created_at": "2026-11-01T05:18:25.266936+00:00",
+            "event": "started",
+            "capture_ids": []
+          },
+          {
+            "stage": "target",
+            "created_at": "2026-11-01T05:18:30.968010+00:00",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIFZHMNOppWqev30mLF9iuIbN209",
+            "elapsed_s": 5.697,
+            "usage": {
+              "completion_tokens": 54,
+              "prompt_tokens": 554,
+              "total_tokens": 608,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": 0,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [],
+            "output": {
+              "reasoning": "The question asks which saved capture visibly shows a purple cup, so the relevant target is a purple cup that can be visually checked in saved captures. No capture or visual witness is provided here.",
+              "object": "purple cup"
+            }
+          },
+          {
+            "stage": "episodes",
+            "created_at": "2026-11-01T05:18:30.973884+00:00",
+            "event": "started",
+            "capture_ids": []
+          },
+          {
+            "stage": "episodes",
+            "created_at": "2026-11-01T05:18:32.871492+00:00",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIFb8YWtjEva8aZ2ab7IOA2HQYKj",
+            "elapsed_s": 1.893,
+            "usage": {
+              "completion_tokens": 185,
+              "prompt_tokens": 2013,
+              "total_tokens": 2198,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": 921,
+                "cached_tokens": 1089,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [],
+            "output": {
+              "reasoning_on_search_strategy": "The question asks which saved capture visibly shows a purple cup, so it can be answered only by reviewing the historical captures. The latest saved capture is not live state, and present exploration is not needed.",
+              "search_strategy": "PAST_ONLY",
+              "time": [
+                "episode_369452f4fd8244d5be6ba9b779680e05",
+                "episode_fcdab01b017d45e2b10c9a8aef41291d",
+                "episode_a6f41ebf728541f3ba4efc9f18e24177"
+              ],
+              "reasoning": "Review all available saved captures because the question asks which capture contains a visible purple cup. The recorded descriptions mention panels and colored blocks but do not identify a purple cup; inspect the selected captures for a visual witness without inferring absence between captures or now."
+            }
+          },
+          {
+            "stage": "rooms",
+            "created_at": "2026-11-01T05:18:32.876003+00:00",
+            "event": "started",
+            "capture_ids": []
+          },
+          {
+            "stage": "rooms",
+            "created_at": "2026-11-01T05:18:34.695087+00:00",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIFdOknox2Em9za6t0pmTlZA9p4s",
+            "elapsed_s": 1.816,
+            "usage": {
+              "completion_tokens": 118,
+              "prompt_tokens": 944,
+              "total_tokens": 1062,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": 0,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [],
+            "output": {
+              "reasoning": "Neither saved capture visibly shows a purple cup. The Desk capture describes a gray device and red card, and the Shelf capture describes gray and blue panels. No visual witness supports locating a purple cup in either room.",
+              "rooms": [
+                "Desk",
+                "Shelf"
+              ],
+              "room_id": [
+                "region_c3e26f9cdddd4256b9d8b61fc0a3731d",
+                "region_13ef995be72045dca75ec3f419be310c"
+              ],
+              "probability": [
+                0.02,
+                0.02
+              ]
+            }
+          },
+          {
+            "stage": "places",
+            "created_at": "2026-11-01T05:18:34.698665+00:00",
+            "event": "started",
+            "capture_ids": []
+          },
+          {
+            "stage": "places",
+            "created_at": "2026-11-01T05:18:36.133879+00:00",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIFfaUVqGcRB3DocYDb2ZpGYCgEG",
+            "elapsed_s": 1.432,
+            "usage": {
+              "completion_tokens": 74,
+              "prompt_tokens": 540,
+              "total_tokens": 614,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": 0,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [],
+            "output": {
+              "reasoning": "Place 0 is the only listed place in the Desk. Its saved capture description does not mention a purple cup, so there is no visible witness for the cup in the supplied place information. Searching this place is the only available option; no claim is made about other captures or current presence.",
+              "place_number": [
+                0
+              ]
+            }
+          },
+          {
+            "stage": "verify",
+            "created_at": "2026-11-01T05:18:36.154434+00:00",
+            "event": "started",
+            "capture_ids": [
+              "9eed06cb-a6ca-4068-8ab6-ce98a09fd2b4"
+            ]
+          },
+          {
+            "stage": "verify",
+            "created_at": "2026-11-01T05:18:38.562463+00:00",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIFh4DxoIo1tzE3pfNy3YSW0iDl8",
+            "elapsed_s": 2.403,
+            "usage": {
+              "completion_tokens": 42,
+              "prompt_tokens": 846,
+              "total_tokens": 888,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": null,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [
+              "9eed06cb-a6ca-4068-8ab6-ce98a09fd2b4"
+            ],
+            "output": {
+              "answer": "False",
+              "reasoning": "The capture shows a red rectangular object with a yellow circular marking in front of a gray object. No purple cup is visibly established."
+            }
+          },
+          {
+            "stage": "rooms",
+            "created_at": "2026-11-01T05:18:38.567667+00:00",
+            "event": "started",
+            "capture_ids": []
+          },
+          {
+            "stage": "rooms",
+            "created_at": "2026-11-01T05:18:40.766313+00:00",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIFi83ApXvOLYFbgi2P1qIqFanBo",
+            "elapsed_s": 2.195,
+            "usage": {
+              "completion_tokens": 136,
+              "prompt_tokens": 944,
+              "total_tokens": 1080,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": 0,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [],
+            "output": {
+              "reasoning": "Neither saved capture visibly shows a purple cup. The Desk capture describes a gray device and red card, and the Shelf capture describes gray and blue panels. The available captions provide no visual witness for a cup, so both rooms have low, similar likelihood; this does not establish absence between captures or now.",
+              "rooms": [
+                "Desk",
+                "Shelf"
+              ],
+              "room_id": [
+                "region_c3e26f9cdddd4256b9d8b61fc0a3731d",
+                "region_13ef995be72045dca75ec3f419be310c"
+              ],
+              "probability": [
+                0.02,
+                0.02
+              ]
+            }
+          },
+          {
+            "stage": "places",
+            "created_at": "2026-11-01T05:18:40.770878+00:00",
+            "event": "started",
+            "capture_ids": []
+          },
+          {
+            "stage": "places",
+            "created_at": "2026-11-01T05:18:42.440292+00:00",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIFlPt5LLKTSxtUiHCNZkOzHmIym",
+            "elapsed_s": 1.667,
+            "usage": {
+              "completion_tokens": 52,
+              "prompt_tokens": 540,
+              "total_tokens": 592,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": 0,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [],
+            "output": {
+              "reasoning": "Place 1 is the only available place. It is a shelf area with a flat gray surface, where a cup could be visible, though the listed objects do not mention one.",
+              "place_number": [
+                1
+              ]
+            }
+          },
+          {
+            "stage": "verify",
+            "created_at": "2026-11-01T05:18:42.451400+00:00",
+            "event": "started",
+            "capture_ids": [
+              "5a82c1f7-2c3c-4fa4-a816-deaa2b49db08"
+            ]
+          },
+          {
+            "stage": "verify",
+            "created_at": "2026-11-01T05:18:43.747548+00:00",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIFmPIH7bawZQXB5m29TI3fBSb89",
+            "elapsed_s": 1.293,
+            "usage": {
+              "completion_tokens": 36,
+              "prompt_tokens": 849,
+              "total_tokens": 885,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": null,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [
+              "5a82c1f7-2c3c-4fa4-a816-deaa2b49db08"
+            ],
+            "output": {
+              "answer": "False",
+              "reasoning": "The capture shows a blue sign in front of a gray panel. No purple cup is visibly present."
+            }
+          },
+          {
+            "stage": "rooms",
+            "created_at": "2026-11-01T05:18:43.749545+00:00",
+            "event": "started",
+            "capture_ids": []
+          },
+          {
+            "stage": "rooms",
+            "created_at": "2026-11-01T05:18:45.776497+00:00",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIFouu31FYGDvWm1X1ws49AVv8Iz",
+            "elapsed_s": 2.022,
+            "usage": {
+              "completion_tokens": 117,
+              "prompt_tokens": 987,
+              "total_tokens": 1104,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": 0,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [],
+            "output": {
+              "reasoning": "Neither saved capture description visibly identifies a purple cup. The Desk and Shelf captures show other listed objects, so there is no visual witness to cite or basis to favor either room; these probabilities reflect uncertainty only.",
+              "rooms": [
+                "Desk",
+                "Shelf"
+              ],
+              "room_id": [
+                "region_c3e26f9cdddd4256b9d8b61fc0a3731d",
+                "region_13ef995be72045dca75ec3f419be310c"
+              ],
+              "probability": [
+                0.05,
+                0.05
+              ]
+            }
+          },
+          {
+            "stage": "places",
+            "created_at": "2026-11-01T05:18:45.780576+00:00",
+            "event": "started",
+            "capture_ids": []
+          },
+          {
+            "stage": "places",
+            "created_at": "2026-11-01T05:18:46.968665+00:00",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIFqweohNxPJNqAr3vnIa9qnDcxQ",
+            "elapsed_s": 1.183,
+            "usage": {
+              "completion_tokens": 53,
+              "prompt_tokens": 553,
+              "total_tokens": 606,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": 0,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [],
+            "output": {
+              "reasoning": "The only listed place is the Desk. Its supplied capture description does not mention a purple cup, so it is not a visual witness, but it is the only place available to search.",
+              "place_number": [
+                0
+              ]
+            }
+          },
+          {
+            "stage": "verify",
+            "created_at": "2026-11-01T05:18:46.989471+00:00",
+            "event": "started",
+            "capture_ids": [
+              "6bafb8b9-8fe2-4ba8-97aa-99dfe8008fce"
+            ]
+          },
+          {
+            "stage": "verify",
+            "created_at": "2026-11-01T05:18:48.268768+00:00",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIFr0ocwLC2qKkllamLyTwJwrgXi",
+            "elapsed_s": 1.274,
+            "usage": {
+              "completion_tokens": 38,
+              "prompt_tokens": 851,
+              "total_tokens": 889,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": null,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [
+              "6bafb8b9-8fe2-4ba8-97aa-99dfe8008fce"
+            ],
+            "output": {
+              "answer": "False",
+              "reasoning": "The capture shows a green first-aid-style box against a gray background. No purple cup is visibly present."
+            }
+          },
+          {
+            "stage": "rooms",
+            "created_at": "2026-11-01T05:18:48.274024+00:00",
+            "event": "started",
+            "capture_ids": []
+          },
+          {
+            "stage": "rooms",
+            "created_at": "2026-11-01T05:18:50.249756+00:00",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIFs4OgsZUwhVA4CzevcEW92WXyP",
+            "elapsed_s": 1.973,
+            "usage": {
+              "completion_tokens": 117,
+              "prompt_tokens": 987,
+              "total_tokens": 1104,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": 0,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [],
+            "output": {
+              "reasoning": "Neither saved capture description nor registered object list visibly identifies a purple cup. The available captures provide no evidence favoring either room, so both probabilities are low; this does not establish absence between captures or now.",
+              "rooms": [
+                "Desk",
+                "Shelf"
+              ],
+              "room_id": [
+                "region_c3e26f9cdddd4256b9d8b61fc0a3731d",
+                "region_13ef995be72045dca75ec3f419be310c"
+              ],
+              "probability": [
+                0.05,
+                0.05
+              ]
+            }
+          },
+          {
+            "stage": "places",
+            "created_at": "2026-11-01T05:18:50.254393+00:00",
+            "event": "started",
+            "capture_ids": []
+          },
+          {
+            "stage": "places",
+            "created_at": "2026-11-01T05:18:51.730580+00:00",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIFuRw9bWUE5ljQZ0zGqbC1MqTvD",
+            "elapsed_s": 1.474,
+            "usage": {
+              "completion_tokens": 60,
+              "prompt_tokens": 567,
+              "total_tokens": 627,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": 0,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [],
+            "output": {
+              "reasoning": "Place 1 is the only listed place in the Shelf. Its saved capture description does not mention a purple cup, but the place may contain objects not listed in its node, so it is the only place to search.",
+              "place_number": [
+                1
+              ]
+            }
+          },
+          {
+            "stage": "verify",
+            "created_at": "2026-11-01T05:18:51.751627+00:00",
+            "event": "started",
+            "capture_ids": [
+              "aca13114-b828-48ec-8d04-4e1fb0e0791d"
+            ]
+          },
+          {
+            "stage": "verify",
+            "created_at": "2026-11-01T05:18:52.917529+00:00",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIFwPAw5riSxiYqkJuOT0roet6Au",
+            "elapsed_s": 1.16,
+            "usage": {
+              "completion_tokens": 44,
+              "prompt_tokens": 847,
+              "total_tokens": 891,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": null,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [
+              "aca13114-b828-48ec-8d04-4e1fb0e0791d"
+            ],
+            "output": {
+              "answer": "False",
+              "reasoning": "The capture shows a red cube and a blue cube on the shelf, with a gray panel behind them. No purple cup is visibly present."
+            }
+          },
+          {
+            "stage": "rooms",
+            "created_at": "2026-11-01T05:18:52.923486+00:00",
+            "event": "started",
+            "capture_ids": []
+          },
+          {
+            "stage": "rooms",
+            "created_at": "2026-11-01T05:18:54.850335+00:00",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIFxoHfW0Rl3A3UP2YO3ebb55Jf4",
+            "elapsed_s": 1.923,
+            "usage": {
+              "completion_tokens": 138,
+              "prompt_tokens": 1005,
+              "total_tokens": 1143,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": 0,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [],
+            "output": {
+              "reasoning": "Neither saved capture description visibly identifies a purple cup. The Desk capture describes an orange-brown square object and gray panel, while the Shelf capture describes a panel and blue and green cubes. No room has evidence of the requested cup, so both probabilities are low; this does not establish absence between captures or now.",
+              "rooms": [
+                "Desk",
+                "Shelf"
+              ],
+              "room_id": [
+                "region_c3e26f9cdddd4256b9d8b61fc0a3731d",
+                "region_13ef995be72045dca75ec3f419be310c"
+              ],
+              "probability": [
+                0.02,
+                0.02
+              ]
+            }
+          },
+          {
+            "stage": "places",
+            "created_at": "2026-11-01T05:18:54.853001+00:00",
+            "event": "started",
+            "capture_ids": []
+          },
+          {
+            "stage": "places",
+            "created_at": "2026-11-01T05:18:56.223708+00:00",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIFz32omekHMNoFdmbabMnsCnVyq",
+            "elapsed_s": 1.369,
+            "usage": {
+              "completion_tokens": 57,
+              "prompt_tokens": 570,
+              "total_tokens": 627,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": 0,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [],
+            "output": {
+              "reasoning": "Place 0 is the only available place. Its saved capture description does not mention or visibly identify a purple cup, so it cannot establish which capture shows one, but it is the only place to search.",
+              "place_number": [
+                0
+              ]
+            }
+          },
+          {
+            "stage": "verify",
+            "created_at": "2026-11-01T05:18:56.243274+00:00",
+            "event": "started",
+            "capture_ids": [
+              "1f166af1-42e5-4999-8129-7602c8ef612c"
+            ]
+          },
+          {
+            "stage": "verify",
+            "created_at": "2026-11-01T05:18:57.781655+00:00",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIG0lbrmDkWfXrcsZbcKj6DUVMuX",
+            "elapsed_s": 1.534,
+            "usage": {
+              "completion_tokens": 38,
+              "prompt_tokens": 849,
+              "total_tokens": 887,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": null,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [
+              "1f166af1-42e5-4999-8129-7602c8ef612c"
+            ],
+            "output": {
+              "answer": "False",
+              "reasoning": "This saved capture shows an orange patterned object in front of a gray panel, not a visibly identifiable purple cup."
+            }
+          },
+          {
+            "stage": "rooms",
+            "created_at": "2026-11-01T05:18:57.786247+00:00",
+            "event": "started",
+            "capture_ids": []
+          },
+          {
+            "stage": "rooms",
+            "created_at": "2026-11-01T05:18:59.783217+00:00",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIG2DYj78rH99JADdytbY1EEh5D8",
+            "elapsed_s": 1.995,
+            "usage": {
+              "completion_tokens": 129,
+              "prompt_tokens": 1005,
+              "total_tokens": 1134,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": 0,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [],
+            "output": {
+              "reasoning": "Neither saved capture description visibly identifies a purple cup. The Desk capture shows a marked orange-brown object and panel; the Shelf capture shows blue and green cubes and a panel. No visual witness for a purple cup is provided, so confidence is low in both rooms.",
+              "rooms": [
+                "Desk",
+                "Shelf"
+              ],
+              "room_id": [
+                "region_c3e26f9cdddd4256b9d8b61fc0a3731d",
+                "region_13ef995be72045dca75ec3f419be310c"
+              ],
+              "probability": [
+                0.01,
+                0.01
+              ]
+            }
+          },
+          {
+            "stage": "places",
+            "created_at": "2026-11-01T05:18:59.788599+00:00",
+            "event": "started",
+            "capture_ids": []
+          },
+          {
+            "stage": "places",
+            "created_at": "2026-11-01T05:19:01.209647+00:00",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIG47mK9Sq1yVln6OSJketUUNgg8",
+            "elapsed_s": 1.418,
+            "usage": {
+              "completion_tokens": 53,
+              "prompt_tokens": 568,
+              "total_tokens": 621,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": 0,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [],
+            "output": {
+              "reasoning": "Place 1 is the only available place in the Shelf room. Its saved capture description does not mention a purple cup, but it is the only place to search for a visual witness.",
+              "place_number": [
+                1
+              ]
+            }
+          },
+          {
+            "stage": "verify",
+            "created_at": "2026-11-01T05:19:01.225070+00:00",
+            "event": "started",
+            "capture_ids": [
+              "99340b52-9731-447e-b6d2-b6e4cd898cf1"
+            ]
+          },
+          {
+            "stage": "verify",
+            "created_at": "2026-11-01T05:19:02.577086+00:00",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIG5hee8eentA3A0at4RmZjEDOQ8",
+            "elapsed_s": 1.348,
+            "usage": {
+              "completion_tokens": 35,
+              "prompt_tokens": 848,
+              "total_tokens": 883,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": null,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [
+              "99340b52-9731-447e-b6d2-b6e4cd898cf1"
+            ],
+            "output": {
+              "answer": "False",
+              "reasoning": "The capture shows blue and green boxes beside a gray panel, with no purple cup visibly present."
+            }
+          }
+        ]
+      },
+      "app_wall_s": 37.502,
+      "baseline": {
+        "name": "direct_all_images_same_model",
+        "output": {
+          "answerable": "no",
+          "answer": "None of the supplied saved captures visibly shows a purple cup.",
+          "citations": []
+        },
+        "elapsed_s": 6.258,
+        "steps": [
+          {
+            "stage": "baseline",
+            "event": "started",
+            "capture_ids": [
+              "9eed06cb-a6ca-4068-8ab6-ce98a09fd2b4",
+              "5a82c1f7-2c3c-4fa4-a816-deaa2b49db08",
+              "6bafb8b9-8fe2-4ba8-97aa-99dfe8008fce",
+              "aca13114-b828-48ec-8d04-4e1fb0e0791d",
+              "1f166af1-42e5-4999-8129-7602c8ef612c",
+              "99340b52-9731-447e-b6d2-b6e4cd898cf1"
+            ]
+          },
+          {
+            "stage": "baseline",
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIGC4lH7iSAPNtn4P8LNgclqenUI",
+            "elapsed_s": 6.256,
+            "usage": {
+              "completion_tokens": 32,
+              "prompt_tokens": 3764,
+              "total_tokens": 3796,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": null,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [
+              "9eed06cb-a6ca-4068-8ab6-ce98a09fd2b4",
+              "5a82c1f7-2c3c-4fa4-a816-deaa2b49db08",
+              "6bafb8b9-8fe2-4ba8-97aa-99dfe8008fce",
+              "aca13114-b828-48ec-8d04-4e1fb0e0791d",
+              "1f166af1-42e5-4999-8129-7602c8ef612c",
+              "99340b52-9731-447e-b6d2-b6e4cd898cf1"
+            ],
+            "output": {
+              "answerable": "no",
+              "answer": "None of the supplied saved captures visibly shows a purple cup.",
+              "citations": []
+            }
+          }
+        ]
+      },
+      "correctness": "not automatically scored; source-image review required"
+    }
+  ]
+}

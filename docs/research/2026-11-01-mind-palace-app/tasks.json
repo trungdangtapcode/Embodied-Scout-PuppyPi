@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "split": "post-development synthetic regression; not a held-out generalization benchmark",
+  "labels_are_evaluation_only": true,
+  "tasks": [
+    {
+      "id": "shelf-comparison",
+      "question": "Compare only the visible colored objects in the Shelf captures across all three saved episodes in chronological order. What is shown in each saved image? Do not infer current state or exact object identities.",
+      "expected_visual_facts": ["Early Shelf: blue chevron-marked object", "Middle Shelf: red target-marked and blue chevron-marked objects", "Late Shelf: blue chevron-marked and green cross-marked objects"],
+      "expected": "answered with source-supported chronological comparison"
+    },
+    {
+      "id": "desk-comparison",
+      "question": "Compare only the visible colored objects in the Desk captures across all three saved episodes in chronological order. What is shown in each saved image? Do not infer current state or exact object identities.",
+      "expected_visual_facts": ["Early Desk: red target-marked object", "Middle Desk: green cross-marked object", "Late Desk: orange square-patterned object"],
+      "expected": "answered with source-supported chronological comparison"
+    },
+    {
+      "id": "missing-witness",
+      "question": "Which saved capture visibly shows a purple cup? Cite a visual witness if one is present. Do not infer that the cup was absent between captures or is absent now.",
+      "expected_visual_facts": ["No purple cup is rendered in any of the six test captures"],
+      "expected": "inconclusive; no invented positive witness or global absence claim"
+    }
+  ]
+}

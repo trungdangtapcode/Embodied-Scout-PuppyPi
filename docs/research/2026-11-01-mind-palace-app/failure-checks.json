@@ -1,0 +1,656 @@
+{
+  "before_cancel": {
+    "id": "731d7500-6462-4935-b673-b563e60fea87",
+    "kind": "question",
+    "mode": "synthetic",
+    "request_key": "a32c8e90-7aad-4732-874d-30e21271182c",
+    "created_at": "2026-11-01T05:19:09.018545+00:00",
+    "status": "running",
+    "stage": "target",
+    "started_at": "2026-11-01T05:19:09.095397+00:00",
+    "finished_at": null,
+    "worker_id": "e4f28dd5-a1c9-4dcc-9bdc-d02bdfa231f0",
+    "dispatched_at": "2026-11-01T05:19:09.028845+00:00",
+    "error_code": null,
+    "model": "gpt-6-luna",
+    "request": {
+      "question": "Compare only the visible colored objects in the Shelf captures across all three saved episodes in chronological order. What is shown in each saved image? Do not infer current state or exact object identities.",
+      "episode_ids": [
+        "369452f4-fd82-44d5-be6b-a9b779680e05",
+        "a6f41ebf-7285-41f3-ba4e-fc9f18e24177",
+        "fcdab01b-017d-45e2-b10c-9a8aef41291d"
+      ],
+      "scope": "recorded_memory"
+    },
+    "result": null,
+    "steps": [
+      {
+        "stage": "target",
+        "created_at": "2026-11-01T05:19:09.114690+00:00",
+        "event": "started",
+        "capture_ids": []
+      }
+    ]
+  },
+  "stop_response": {
+    "requested": "stop",
+    "physical_result": "unverified"
+  },
+  "stop_elapsed_s": 0.0043,
+  "cancel_response": {
+    "id": "731d7500-6462-4935-b673-b563e60fea87",
+    "kind": "question",
+    "mode": "synthetic",
+    "request_key": "a32c8e90-7aad-4732-874d-30e21271182c",
+    "created_at": "2026-11-01T05:19:09.018545+00:00",
+    "status": "cancelled",
+    "stage": "cancelled",
+    "started_at": "2026-11-01T05:19:09.095397+00:00",
+    "finished_at": "2026-11-01T05:19:09.161745+00:00",
+    "worker_id": "e4f28dd5-a1c9-4dcc-9bdc-d02bdfa231f0",
+    "dispatched_at": "2026-11-01T05:19:09.028845+00:00",
+    "error_code": null,
+    "model": "gpt-6-luna",
+    "request": {
+      "question": "Compare only the visible colored objects in the Shelf captures across all three saved episodes in chronological order. What is shown in each saved image? Do not infer current state or exact object identities.",
+      "episode_ids": [
+        "369452f4-fd82-44d5-be6b-a9b779680e05",
+        "a6f41ebf-7285-41f3-ba4e-fc9f18e24177",
+        "fcdab01b-017d-45e2-b10c-9a8aef41291d"
+      ],
+      "scope": "recorded_memory"
+    },
+    "result": null,
+    "steps": [
+      {
+        "stage": "target",
+        "created_at": "2026-11-01T05:19:09.114690+00:00",
+        "event": "started",
+        "capture_ids": []
+      }
+    ]
+  },
+  "after_cancel": {
+    "id": "731d7500-6462-4935-b673-b563e60fea87",
+    "kind": "question",
+    "mode": "synthetic",
+    "request_key": "a32c8e90-7aad-4732-874d-30e21271182c",
+    "created_at": "2026-11-01T05:19:09.018545+00:00",
+    "status": "cancelled",
+    "stage": "cancelled",
+    "started_at": "2026-11-01T05:19:09.095397+00:00",
+    "finished_at": "2026-11-01T05:19:09.161745+00:00",
+    "worker_id": "e4f28dd5-a1c9-4dcc-9bdc-d02bdfa231f0",
+    "dispatched_at": "2026-11-01T05:19:09.028845+00:00",
+    "error_code": null,
+    "model": "gpt-6-luna",
+    "request": {
+      "question": "Compare only the visible colored objects in the Shelf captures across all three saved episodes in chronological order. What is shown in each saved image? Do not infer current state or exact object identities.",
+      "episode_ids": [
+        "369452f4-fd82-44d5-be6b-a9b779680e05",
+        "a6f41ebf-7285-41f3-ba4e-fc9f18e24177",
+        "fcdab01b-017d-45e2-b10c-9a8aef41291d"
+      ],
+      "scope": "recorded_memory"
+    },
+    "result": null,
+    "steps": [
+      {
+        "stage": "target",
+        "created_at": "2026-11-01T05:19:09.114690+00:00",
+        "event": "started",
+        "capture_ids": []
+      }
+    ]
+  },
+  "occluded_description": {
+    "id": "a7f0e14d-9886-4b00-b089-3c12b87db8e4",
+    "kind": "capture",
+    "mode": "synthetic",
+    "request_key": "da73a295-9d61-4375-b644-043696718fe3",
+    "created_at": "2026-11-01T05:19:14.303342+00:00",
+    "status": "succeeded",
+    "stage": "succeeded",
+    "started_at": "2026-11-01T05:19:14.423541+00:00",
+    "finished_at": "2026-11-01T05:19:18.681626+00:00",
+    "worker_id": "e4f28dd5-a1c9-4dcc-9bdc-d02bdfa231f0",
+    "dispatched_at": "2026-11-01T05:19:14.312347+00:00",
+    "error_code": null,
+    "model": "gpt-6-luna",
+    "request": {
+      "frame_id": "1ff97cae-a5b5-4055-851c-70269fc2d3ea:883",
+      "episode_id": "b37c6652-64b2-420c-89da-f057050e04bf",
+      "view_id": "090f34df-4bf5-424b-9a9a-85b24e254810"
+    },
+    "result": {
+      "description": {
+        "objects": [],
+        "description": "The capture is a uniform gray image with no discernible objects or scene details.",
+        "visibility": "clear"
+      },
+      "provenance": {
+        "schema_version": 1,
+        "adapter": "mind-palace-recorded-v1",
+        "prompt_schema_revision": "mind-palace-recorded-v1",
+        "preprocessing": "original EvidenceStore PNG bytes; no crop or resize by adapter",
+        "upstream": "https://github.com/mind-palace-laeqa/benchmark",
+        "revision": "b59be261f9508c3a355a8afa0d495eeba0417d68",
+        "model": "gpt-6-luna",
+        "scope": "recorded_memory",
+        "geometry": "unknown",
+        "calls": [
+          {
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIGLcNh4akrBUhiBvc0edf7Vf4We",
+            "elapsed_s": 4.229,
+            "usage": {
+              "completion_tokens": 34,
+              "prompt_tokens": 607,
+              "total_tokens": 641,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": null,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [
+              "e7eec844-15ef-4fef-87dc-9efc1fab5cbd"
+            ]
+          }
+        ]
+      },
+      "capture_id": "e7eec844-15ef-4fef-87dc-9efc1fab5cbd"
+    },
+    "steps": [
+      {
+        "stage": "describe",
+        "created_at": "2026-11-01T05:19:14.443393+00:00",
+        "event": "started",
+        "capture_ids": [
+          "e7eec844-15ef-4fef-87dc-9efc1fab5cbd"
+        ]
+      },
+      {
+        "stage": "describe",
+        "created_at": "2026-11-01T05:19:18.676500+00:00",
+        "event": "completed",
+        "requested_model": "gpt-6-luna",
+        "returned_model": "gpt-6-luna",
+        "request_id": "chatcmpl-EfIGLcNh4akrBUhiBvc0edf7Vf4We",
+        "elapsed_s": 4.229,
+        "usage": {
+          "completion_tokens": 34,
+          "prompt_tokens": 607,
+          "total_tokens": 641,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0,
+            "text_tokens": null
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": null,
+            "cached_tokens": 0,
+            "image_tokens": null,
+            "text_tokens": null
+          }
+        },
+        "capture_ids": [
+          "e7eec844-15ef-4fef-87dc-9efc1fab5cbd"
+        ],
+        "output": {
+          "objects": [],
+          "description": "The capture is a uniform gray image with no discernible objects or scene details.",
+          "visibility": "clear"
+        }
+      }
+    ]
+  },
+  "occluded_question": {
+    "id": "dc476df0-eb88-4574-90c3-1d89d94d802d",
+    "kind": "question",
+    "mode": "synthetic",
+    "request_key": "a819c9e2-54c8-4ed8-8855-e3ca3858c19e",
+    "created_at": "2026-11-01T05:19:18.879851+00:00",
+    "status": "inconclusive",
+    "stage": "inconclusive",
+    "started_at": "2026-11-01T05:19:18.937819+00:00",
+    "finished_at": "2026-11-01T05:19:45.388457+00:00",
+    "worker_id": "e4f28dd5-a1c9-4dcc-9bdc-d02bdfa231f0",
+    "dispatched_at": "2026-11-01T05:19:18.885725+00:00",
+    "error_code": null,
+    "model": "gpt-6-luna",
+    "request": {
+      "question": "Does this saved Desk capture visibly show a red target-marked object? Give a visual witness only if it is visible. Do not infer hidden or current state.",
+      "episode_ids": [
+        "b37c6652-64b2-420c-89da-f057050e04bf"
+      ],
+      "scope": "recorded_memory"
+    },
+    "result": {
+      "outcome": "inconclusive",
+      "reason": "No clear positive visual witness was admitted; absence is not established.",
+      "inspected_capture_ids": [
+        "e7eec844-15ef-4fef-87dc-9efc1fab5cbd"
+      ],
+      "selected_episode_ids": [
+        "b37c6652-64b2-420c-89da-f057050e04bf"
+      ],
+      "evidence": [
+        {
+          "id": "e7eec844-15ef-4fef-87dc-9efc1fab5cbd",
+          "image_sha": "5d96dbc2c1d4a20a27a5c15ea5b887152818617446de03059def83bb146a6326",
+          "captured_at": "2026-11-01T05:19:14.193615+00:00",
+          "episode_id": "b37c6652-64b2-420c-89da-f057050e04bf",
+          "episode_name": "Occluded fixture",
+          "region_name": "Desk",
+          "view_name": "Front"
+        }
+      ],
+      "citations": [],
+      "provenance": {
+        "schema_version": 1,
+        "adapter": "mind-palace-recorded-v1",
+        "prompt_schema_revision": "mind-palace-recorded-v1",
+        "preprocessing": "original EvidenceStore PNG bytes; no crop or resize by adapter",
+        "upstream": "https://github.com/mind-palace-laeqa/benchmark",
+        "revision": "b59be261f9508c3a355a8afa0d495eeba0417d68",
+        "model": "gpt-6-luna",
+        "scope": "recorded_memory",
+        "geometry": "unknown",
+        "calls": [
+          {
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIGg5FMaFD3wBkMGtemj75UXmuEJ",
+            "elapsed_s": 20.767,
+            "usage": {
+              "completion_tokens": 63,
+              "prompt_tokens": 553,
+              "total_tokens": 616,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": 0,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": []
+          },
+          {
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIGiiqnZ4gc67frLmDAe8CbsGfew",
+            "elapsed_s": 1.869,
+            "usage": {
+              "completion_tokens": 136,
+              "prompt_tokens": 1175,
+              "total_tokens": 1311,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": 1172,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": []
+          },
+          {
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIGjXJdWLBscjPjfPBwpoz1NXAtt",
+            "elapsed_s": 1.372,
+            "usage": {
+              "completion_tokens": 85,
+              "prompt_tokens": 759,
+              "total_tokens": 844,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": 0,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": []
+          },
+          {
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIGlY0fe7TiBJbBFCZRSgrb5KTTN",
+            "elapsed_s": 1.227,
+            "usage": {
+              "completion_tokens": 59,
+              "prompt_tokens": 503,
+              "total_tokens": 562,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": 0,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": []
+          },
+          {
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIGmGXOhtX02GcwW2ZWSVk7kXfxh",
+            "elapsed_s": 1.14,
+            "usage": {
+              "completion_tokens": 31,
+              "prompt_tokens": 849,
+              "total_tokens": 880,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": null,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [
+              "e7eec844-15ef-4fef-87dc-9efc1fab5cbd"
+            ]
+          }
+        ]
+      },
+      "continuous_coverage_verified": false
+    },
+    "steps": [
+      {
+        "stage": "target",
+        "created_at": "2026-11-01T05:19:18.953970+00:00",
+        "event": "started",
+        "capture_ids": []
+      },
+      {
+        "stage": "target",
+        "created_at": "2026-11-01T05:19:39.726099+00:00",
+        "event": "completed",
+        "requested_model": "gpt-6-luna",
+        "returned_model": "gpt-6-luna",
+        "request_id": "chatcmpl-EfIGg5FMaFD3wBkMGtemj75UXmuEJ",
+        "elapsed_s": 20.767,
+        "usage": {
+          "completion_tokens": 63,
+          "prompt_tokens": 553,
+          "total_tokens": 616,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0,
+            "text_tokens": null
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 0,
+            "image_tokens": null,
+            "text_tokens": null
+          }
+        },
+        "capture_ids": [],
+        "output": {
+          "reasoning": "The question asks whether a saved Desk capture visibly shows a red target-marked object, but no capture or visual evidence is provided. The relevant item to inspect is the red target-marked object in that saved Desk capture.",
+          "object": "red target-marked object"
+        }
+      },
+      {
+        "stage": "episodes",
+        "created_at": "2026-11-01T05:19:39.731160+00:00",
+        "event": "started",
+        "capture_ids": []
+      },
+      {
+        "stage": "episodes",
+        "created_at": "2026-11-01T05:19:41.603107+00:00",
+        "event": "completed",
+        "requested_model": "gpt-6-luna",
+        "returned_model": "gpt-6-luna",
+        "request_id": "chatcmpl-EfIGiiqnZ4gc67frLmDAe8CbsGfew",
+        "elapsed_s": 1.869,
+        "usage": {
+          "completion_tokens": 136,
+          "prompt_tokens": 1175,
+          "total_tokens": 1311,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0,
+            "text_tokens": null
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 1172,
+            "cached_tokens": 0,
+            "image_tokens": null,
+            "text_tokens": null
+          }
+        },
+        "capture_ids": [],
+        "output": {
+          "reasoning_on_search_strategy": "The question asks only about a saved Desk capture, so past information is sufficient and exploring the present is not relevant. The recorded description reports a uniform gray image with no discernible objects or scene details, so it does not provide a visual witness of the target-marked object.",
+          "search_strategy": "PAST_ONLY",
+          "time": [
+            "episode_b37c665264b2420c89daf057050e04bf"
+          ],
+          "reasoning": "This is the available saved capture from the Desk to assess. Its description indicates no discernible objects, so the capture does not visibly show a red target-marked object."
+        }
+      },
+      {
+        "stage": "rooms",
+        "created_at": "2026-11-01T05:19:41.608866+00:00",
+        "event": "started",
+        "capture_ids": []
+      },
+      {
+        "stage": "rooms",
+        "created_at": "2026-11-01T05:19:42.985263+00:00",
+        "event": "completed",
+        "requested_model": "gpt-6-luna",
+        "returned_model": "gpt-6-luna",
+        "request_id": "chatcmpl-EfIGjXJdWLBscjPjfPBwpoz1NXAtt",
+        "elapsed_s": 1.372,
+        "usage": {
+          "completion_tokens": 85,
+          "prompt_tokens": 759,
+          "total_tokens": 844,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0,
+            "text_tokens": null
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 0,
+            "image_tokens": null,
+            "text_tokens": null
+          }
+        },
+        "capture_ids": [],
+        "output": {
+          "reasoning": "The saved Desk capture is described as a uniform gray image with no discernible objects or scene details, so it provides no visible witness of a red target-marked object.",
+          "rooms": [
+            "Desk"
+          ],
+          "room_id": [
+            "region_c3e26f9cdddd4256b9d8b61fc0a3731d"
+          ],
+          "probability": [
+            0.01
+          ]
+        }
+      },
+      {
+        "stage": "places",
+        "created_at": "2026-11-01T05:19:42.990311+00:00",
+        "event": "started",
+        "capture_ids": []
+      },
+      {
+        "stage": "places",
+        "created_at": "2026-11-01T05:19:44.221729+00:00",
+        "event": "completed",
+        "requested_model": "gpt-6-luna",
+        "returned_model": "gpt-6-luna",
+        "request_id": "chatcmpl-EfIGlY0fe7TiBJbBFCZRSgrb5KTTN",
+        "elapsed_s": 1.227,
+        "usage": {
+          "completion_tokens": 59,
+          "prompt_tokens": 503,
+          "total_tokens": 562,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0,
+            "text_tokens": null
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 0,
+            "image_tokens": null,
+            "text_tokens": null
+          }
+        },
+        "capture_ids": [],
+        "output": {
+          "reasoning": "The only saved Desk capture is a uniform gray image with no discernible objects or scene details, so it does not provide a visible witness for a red target-marked object. No places are relevant to search.",
+          "place_number": [
+            0
+          ]
+        }
+      },
+      {
+        "stage": "verify",
+        "created_at": "2026-11-01T05:19:44.239453+00:00",
+        "event": "started",
+        "capture_ids": [
+          "e7eec844-15ef-4fef-87dc-9efc1fab5cbd"
+        ]
+      },
+      {
+        "stage": "verify",
+        "created_at": "2026-11-01T05:19:45.383816+00:00",
+        "event": "completed",
+        "requested_model": "gpt-6-luna",
+        "returned_model": "gpt-6-luna",
+        "request_id": "chatcmpl-EfIGmGXOhtX02GcwW2ZWSVk7kXfxh",
+        "elapsed_s": 1.14,
+        "usage": {
+          "completion_tokens": 31,
+          "prompt_tokens": 849,
+          "total_tokens": 880,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0,
+            "text_tokens": null
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": null,
+            "cached_tokens": 0,
+            "image_tokens": null,
+            "text_tokens": null
+          }
+        },
+        "capture_ids": [
+          "e7eec844-15ef-4fef-87dc-9efc1fab5cbd"
+        ],
+        "output": {
+          "answer": "False",
+          "reasoning": "The capture is uniformly gray and shows no visible red target-marked object."
+        }
+      }
+    ]
+  },
+  "missing_image": {
+    "id": "75d326bd-dbbe-410c-9db4-c8659b778f8d",
+    "kind": "question",
+    "mode": "synthetic",
+    "request_key": "6dcd9e5b-cc02-4c69-8a76-ac13dda2aabc",
+    "created_at": "2026-11-01T05:19:45.740146+00:00",
+    "status": "failed",
+    "stage": "failed",
+    "started_at": "2026-11-01T05:19:45.896520+00:00",
+    "finished_at": "2026-11-01T05:19:45.914454+00:00",
+    "worker_id": "e4f28dd5-a1c9-4dcc-9bdc-d02bdfa231f0",
+    "dispatched_at": "2026-11-01T05:19:45.748749+00:00",
+    "error_code": "MEMORY_IMAGE_MISSING",
+    "model": "gpt-6-luna",
+    "request": {
+      "question": "What is visible in this saved episode?",
+      "episode_ids": [
+        "369452f4-fd82-44d5-be6b-a9b779680e05"
+      ],
+      "scope": "recorded_memory"
+    },
+    "result": null,
+    "steps": []
+  }
+}

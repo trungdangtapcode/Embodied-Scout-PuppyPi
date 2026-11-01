@@ -1,0 +1,175 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-01",
+  "source_base_commit": "c9d21df67b25122870087ac20ff775fc0a69426e",
+  "upstream": {
+    "url": "https://github.com/mind-palace-laeqa/benchmark",
+    "revision": "b59be261f9508c3a355a8afa0d495eeba0417d68",
+    "license": "MIT",
+    "tracked_source_modified": false
+  },
+  "versions": {
+    "openai": "3.42.0",
+    "huey": "3.5.3",
+    "Pillow": "13.0.0"
+  },
+  "input_mode": "synthetic",
+  "capture_time_basis": "synthetic replay ingest time; physical capture time not claimed",
+  "local_gpu_enabled": false,
+  "hardware_actuated": false,
+  "requested_model": "gpt-6-luna",
+  "returned_models": [
+    "gpt-6-luna"
+  ],
+  "completed_evaluation_calls": 71,
+  "completed_evaluation_total_tokens": 85274,
+  "cancelled_request_usage": "unknown: request had started; late output not admitted",
+  "rows": [
+    {
+      "task": "shelf-comparison",
+      "app_status": "succeeded",
+      "app_calls": 20,
+      "app_total_tokens": 25561,
+      "app_wall_s": 36.915,
+      "baseline_calls": 1,
+      "baseline_total_tokens": 4054,
+      "baseline_s": 3.806,
+      "app_citation_ids": [
+        "5a82c1f7-2c3c-4fa4-a816-deaa2b49db08",
+        "aca13114-b828-48ec-8d04-4e1fb0e0791d",
+        "99340b52-9731-447e-b6d2-b6e4cd898cf1"
+      ],
+      "app_inspected_ids": [
+        "5a82c1f7-2c3c-4fa4-a816-deaa2b49db08",
+        "aca13114-b828-48ec-8d04-4e1fb0e0791d",
+        "6bafb8b9-8fe2-4ba8-97aa-99dfe8008fce",
+        "99340b52-9731-447e-b6d2-b6e4cd898cf1",
+        "1f166af1-42e5-4999-8129-7602c8ef612c"
+      ]
+    },
+    {
+      "task": "desk-comparison",
+      "app_status": "succeeded",
+      "app_calls": 16,
+      "app_total_tokens": 20359,
+      "app_wall_s": 32.066,
+      "baseline_calls": 1,
+      "baseline_total_tokens": 4028,
+      "baseline_s": 3.093,
+      "app_citation_ids": [
+        "9eed06cb-a6ca-4068-8ab6-ce98a09fd2b4",
+        "6bafb8b9-8fe2-4ba8-97aa-99dfe8008fce",
+        "1f166af1-42e5-4999-8129-7602c8ef612c"
+      ],
+      "app_inspected_ids": [
+        "9eed06cb-a6ca-4068-8ab6-ce98a09fd2b4",
+        "6bafb8b9-8fe2-4ba8-97aa-99dfe8008fce",
+        "1f166af1-42e5-4999-8129-7602c8ef612c"
+      ]
+    },
+    {
+      "task": "missing-witness",
+      "app_status": "inconclusive",
+      "app_calls": 20,
+      "app_total_tokens": 18443,
+      "app_wall_s": 37.502,
+      "baseline_calls": 1,
+      "baseline_total_tokens": 3796,
+      "baseline_s": 6.258,
+      "app_citation_ids": [],
+      "app_inspected_ids": [
+        "9eed06cb-a6ca-4068-8ab6-ce98a09fd2b4",
+        "5a82c1f7-2c3c-4fa4-a816-deaa2b49db08",
+        "6bafb8b9-8fe2-4ba8-97aa-99dfe8008fce",
+        "aca13114-b828-48ec-8d04-4e1fb0e0791d",
+        "1f166af1-42e5-4999-8129-7602c8ef612c",
+        "99340b52-9731-447e-b6d2-b6e4cd898cf1"
+      ]
+    }
+  ],
+  "interpretation": "small post-development synthetic regression; no held-out or real-room generalization claim; direct-all-images baseline is cheaper/faster in this case",
+  "software_checks": {
+    "python_tests": 82,
+    "browser_tests": 6,
+    "check": "passed: Ruff, 296 local targets in 35 Markdown documents, commit titles and whitespace",
+    "app_build": "passed",
+    "package_build": "passed"
+  },
+  "screenshots": "actual persisted model answer; fixed navigation chrome hidden only in cropped panel screenshots",
+  "development_runs": "Separate retained multi-episode success and initial inconclusive trace; not included in evaluation call totals.",
+  "artifact_sha256": {
+    "capture-state.json": "67b95b5a5bec92eb8e995b1ebd304f07e9d4fdd4b248494ee61b00e8c359d0df",
+    "desktop-memory.png": "e6236e702a19ace4b082722c7809f8bdcaa907605e71d3eda89ffaa789388fd0",
+    "development-inconclusive.json": "6b8d628a1b3aad2ffe9a297bbf253f212fdcc10592a2a8369244da54a86a69c3",
+    "development-multi-episode.json": "dc1315deb2f542ce4f98fb68060cf748f57831197a3e7e60d214b0131f07cd8b",
+    "failure-checks.json": "b036af957dc2d6e18f32e85356d0228e8d183484224c0360c6dedb7d5117ad02",
+    "inputs/scene-0.png": "3887419bd092248b63b44d090cee1ed7766239bd22b5c8ac331e2f20a2b3abc4",
+    "inputs/scene-1.png": "ec55397ef64718939789f6acba4d384aac1885a7c721c843d018143c1bb1089f",
+    "inputs/scene-2.png": "72ee29fab5431e9b27cda692c33991d18f016e81ff0e6c391f8af5b1a73c8a1d",
+    "inputs/scene-3.png": "6779449600c4a4f92cd1e1e6f1e6129cedeed3ac40c5db438258ed6c4ed69133",
+    "inputs/scene-4.png": "b8b2c9aebd9c20f6ffea815aaf8f55a38a1cf6694a38050f95fa1416478cd680",
+    "inputs/scene-5.png": "37854a7cb3e3a1a9e987bb000089ce46f62d2481f978d75c85dfea9bf8f2f55a",
+    "inputs/scene-6.png": "5d96dbc2c1d4a20a27a5c15ea5b887152818617446de03059def83bb146a6326",
+    "paired-evaluation.json": "47721b254dc11770d85fade5bbe99fa4b9bd75feec9a556cfb66a636adb3fb67",
+    "phone-memory-answer.png": "b9d00f4382f289b2dc576a69b31a2faf51b5463a3826a937faedcf1a7c73b171",
+    "report.md": "7659ad2e751047a7368526260547c8ace4a361a443b9b7ac71516c315a29e56d",
+    "startup-failures.json": "c6fd15833aabd7b23cebb1512d6abd2acb0bfe301504a6733290db0dd0c17ca9",
+    "stop-during-inference.json": "de2909151377269289144923d75f7f6026a491b28bce538ca5bc7610f77d0d74",
+    "tasks.json": "28147e3e9c87f9a6167d0eb9c1acf6597b222cfa0be8ee2722334033dbf5467e"
+  },
+  "executed_source_sha256": {
+    "teach_and_find/mind_palace_adapter.py": "c5c2272d53a2513ed6d0de67c95fad83fe31c34cb0c8d5d9ab8e9d17e6e84a4d",
+    "teach_and_find/memory_service.py": "53680f41be7d828abea453d033fa048d2239a75c0b9ab8056361c625aedf121e",
+    "teach_and_find/memory_worker.py": "bcd3cad8838093de014bdba6ac43a3304e2c457b3d6ba96ea07beda10729df88",
+    "teach_and_find/memory_queue.py": "6c736615574beeaec6ed2029d40d8a5c4231679301433d2ecb1505fef4196fa7",
+    "teach_and_find/config.py": "7363ef005dec221bf3027c13490354bee0e3efc1e8764e618a8cdf299e55bd45",
+    "teach_and_find/storage.py": "d837ad72337a6382bc7935cd5d1c775452197c10318b57d10184803844de8186",
+    "teach_and_find/mobile/api.py": "bb681c967eaa67ab40b552d94a1b7425f59bedd482d6235c77eb63989afeba49",
+    "scripts/research_memory_app.py": "d725c6745c58324ade15136b4728be6fc71bc4463d71869261571f44fef319f9",
+    "scripts/research_memory_app_eval.py": "756ea2caa55fdb8389219d1aff16cbe3140ae3860360420e816661895b926e99",
+    "scripts/research_memory_app_capture.mjs": "b08731e7e4606cc2ac1846fac527ea5825cfd83d1009de8e7b419694dc2d3496",
+    "scripts/research_memory_app_server.py": "0b59a72e16b25fc1b53cd4634a2035ccd1c0749fb76818c8d6d43f8c21e96286",
+    "uv.lock": "cc39414f53b6249131fad2f77adb501bfbe0e75622ccb546b0cada9015d79ca3",
+    "web/src/ResearchMemory.tsx": "d20a818ea602075d115cc38aa53e9160c522fd4f4d20a28b2507bc3d5f6a2023",
+    "web/src/RoomConsole.tsx": "5d2615a254ee203e3e53cfcbe9342f7f4c6c61a2e9addbccd1b594c21703b6b3",
+    "web/src/main.tsx": "ecc984a6ad08ebb28735e213e1a4124f74dfd027bde2be1caf4bd8ca8c89eee4",
+    "web/src/style.css": "1af09786a68950eca9f1cc3845954c0561aed38e72443314a10d6930cac511d9",
+    "web/src/locales/vi.json": "09ed81b19a13758500c5cd6c644419586f5520cbf500fac8bc5ad9ab46bfc5d1",
+    "web/tests/console.spec.ts": "3288f5c868a974e0f3fbc748bc578f24599317a5447c334bf1dac2f6d1e676bb",
+    "tests/test_memory_workflow.py": "15b8d9ccf134a247f972fd8d2d44d9e72d31506702b3800fd829dd7908912192",
+    "Makefile": "e2e91476a4b69c60c3aaa03a532616f063987fc6c7235d3443b376004b8fe0a4",
+    "pyproject.toml": "0794002216a4baf05854839691c816f6b700beaa230f0b1242d104b4ad65b026",
+    "scripts/setup_memory_upstream.py": "d436f60ab718b12a19ec92b7fa411271143e62c48cad87a6aba4a50b99009f00"
+  },
+  "final_source_sha256": {
+    "teach_and_find/mind_palace_adapter.py": "d3a7edd6d97368cad0b564820ad47f13dd3961d654f1b413aafda081826d0b10",
+    "teach_and_find/memory_service.py": "56e64a4d3c7b48b3207073cf78f2c0a991e34cfa310f366604333824e6c7aa5f",
+    "teach_and_find/memory_worker.py": "e8975351d9a7f3a93dcdc42b9515289ca23e3fb74df31c8383815bfaef4435fa",
+    "teach_and_find/memory_queue.py": "f6dbf1e88f55fb558f8d0a01ace95c4976ba582f67c71aca81849e9ec517f9b8",
+    "teach_and_find/config.py": "76d44f7bab453148563b95c09536ce641d1962ef9ce2c0981d203518572469d4",
+    "teach_and_find/storage.py": "d837ad72337a6382bc7935cd5d1c775452197c10318b57d10184803844de8186",
+    "teach_and_find/mobile/api.py": "74a0cfe1b4f8d3c59328ae325006d997aa81af3ff690f605f0e995bbd178fa9e",
+    "scripts/research_memory_app.py": "860da219cbe53a6580e97682284de80cf5f2327bb71df8f5b6f69254a2dafb27",
+    "scripts/research_memory_app_eval.py": "cca8801f65af19e73cba830934fa5685b569817f31dd23a7ce3df6142e462542",
+    "scripts/research_memory_app_capture.mjs": "b08731e7e4606cc2ac1846fac527ea5825cfd83d1009de8e7b419694dc2d3496",
+    "scripts/research_memory_app_server.py": "80483c5bb436f599edbc2668dbb4a68fd0b853a1fd5e83c5fe8b6c278968a585",
+    "uv.lock": "cc39414f53b6249131fad2f77adb501bfbe0e75622ccb546b0cada9015d79ca3",
+    "web/src/ResearchMemory.tsx": "d20a818ea602075d115cc38aa53e9160c522fd4f4d20a28b2507bc3d5f6a2023",
+    "web/src/RoomConsole.tsx": "5d2615a254ee203e3e53cfcbe9342f7f4c6c61a2e9addbccd1b594c21703b6b3",
+    "web/src/main.tsx": "ecc984a6ad08ebb28735e213e1a4124f74dfd027bde2be1caf4bd8ca8c89eee4",
+    "web/src/style.css": "1af09786a68950eca9f1cc3845954c0561aed38e72443314a10d6930cac511d9",
+    "web/src/locales/vi.json": "09ed81b19a13758500c5cd6c644419586f5520cbf500fac8bc5ad9ab46bfc5d1",
+    "web/tests/console.spec.ts": "3288f5c868a974e0f3fbc748bc578f24599317a5447c334bf1dac2f6d1e676bb",
+    "tests/test_memory_workflow.py": "621b728121870d6acf84f6e59821e485e52f299d8d4af6045b33e38823f06f59",
+    "Makefile": "e2e91476a4b69c60c3aaa03a532616f063987fc6c7235d3443b376004b8fe0a4",
+    "pyproject.toml": "0794002216a4baf05854839691c816f6b700beaa230f0b1242d104b4ad65b026",
+    "scripts/setup_memory_upstream.py": "454b342b5645b528cb32bb6f5e4f08adb8a111828741b0dabf27bdbb7dc05bd2"
+  },
+  "post_acceptance_changes": [
+    "Python formatting and removal of unused imports",
+    "Exact capture-ID lookup beyond the snapshot/history window, with a 26-viewpoint offline regression",
+    "Overview presents recent captures first; model/retrieval prompts unchanged"
+  ],
+  "core_commit": "8917081",
+  "ui_commit": "a046780"
+}

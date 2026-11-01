@@ -1,0 +1,14 @@
+[
+  {
+    "case": "missing-source",
+    "exit_code": 1,
+    "stderr": "UPSTREAM_UNAVAILABLE",
+    "model_calls": 0
+  },
+  {
+    "case": "missing-key",
+    "exit_code": 1,
+    "stderr": "MODEL_KEY_REQUIRED",
+    "model_calls": 0
+  }
+]

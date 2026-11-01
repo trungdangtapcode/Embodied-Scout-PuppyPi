@@ -1,0 +1,1278 @@
+{
+  "schema_version": 1,
+  "enabled": true,
+  "model": "gpt-6-luna",
+  "mode": "synthetic",
+  "scope": "recorded_memory",
+  "worker": {
+    "id": 1,
+    "worker_id": "f87d3bcc-fa39-4812-8b91-f3ca30c0e644",
+    "pid": 3532802,
+    "seen_at": "2026-11-01T05:17:06.373116+00:00",
+    "status": "ready",
+    "error_code": null,
+    "alive": true
+  },
+  "views": [
+    {
+      "id": "090f34df-4bf5-424b-9a9a-85b24e254810",
+      "name": "Front",
+      "region_name": "Desk",
+      "region_id": "c3e26f9c-dddd-4256-b9d8-b61fc0a3731d"
+    },
+    {
+      "id": "714fb6ea-12db-4a31-971c-90846ea1e2cb",
+      "name": "Front",
+      "region_name": "Shelf",
+      "region_id": "13ef995b-e720-45dc-a75e-c3f419be310c"
+    }
+  ],
+  "episodes": [
+    {
+      "id": "a6f41ebf-7285-41f3-ba4e-fc9f18e24177",
+      "name": "Late",
+      "mode": "synthetic",
+      "created_at": "2026-11-01T05:16:53.675315+00:00"
+    },
+    {
+      "id": "fcdab01b-017d-45e2-b10c-9a8aef41291d",
+      "name": "Middle",
+      "mode": "synthetic",
+      "created_at": "2026-11-01T05:16:22.109032+00:00"
+    },
+    {
+      "id": "369452f4-fd82-44d5-be6b-a9b779680e05",
+      "name": "Early",
+      "mode": "synthetic",
+      "created_at": "2026-11-01T05:16:12.241399+00:00"
+    }
+  ],
+  "captures": [
+    {
+      "id": "9eed06cb-a6ca-4068-8ab6-ce98a09fd2b4",
+      "episode_id": "369452f4-fd82-44d5-be6b-a9b779680e05",
+      "view_id": "090f34df-4bf5-424b-9a9a-85b24e254810",
+      "frame_id": "1ff97cae-a5b5-4055-851c-70269fc2d3ea:19",
+      "mode": "synthetic",
+      "captured_at": "2026-11-01T05:16:13.664383+00:00",
+      "received_at": "2026-11-01T05:16:13.820754+00:00",
+      "image_sha": "3887419bd092248b63b44d090cee1ed7766239bd22b5c8ac331e2f20a2b3abc4",
+      "provenance_json": "{\"camera_id\": \"synthetic_replay\", \"session_id\": \"1ff97cae-a5b5-4055-851c-70269fc2d3ea\", \"sequence\": 19, \"fixture_index\": 0, \"capture_time_basis\": \"synthetic_replay_ingest_time\", \"source\": \"pinhole_renderer_replay\", \"region_source\": \"operator_registered\", \"pose\": null, \"capture_clock_uncertainty_s\": null, \"freshness_verified\": true, \"age_at_receipt_s\": 0.0}",
+      "episode_name": "Early",
+      "view_name": "Front",
+      "region_id": "c3e26f9c-dddd-4256-b9d8-b61fc0a3731d",
+      "region_name": "Desk",
+      "description_json": "{\"objects\": [\"A gray upright rectangular device or panel with a small black-and-white square pattern near the top\", \"A red rectangular card or panel in front of the gray device, marked with a yellow circle and cross\"], \"description\": \"The objects are centered against a plain background, with a gray surface below.\", \"visibility\": \"clear\"}",
+      "model": "gpt-6-luna",
+      "description_provenance_json": "{\"schema_version\": 1, \"adapter\": \"mind-palace-recorded-v1\", \"prompt_schema_revision\": \"mind-palace-recorded-v1\", \"preprocessing\": \"original EvidenceStore PNG bytes; no crop or resize by adapter\", \"upstream\": \"https://github.com/mind-palace-laeqa/benchmark\", \"revision\": \"b59be261f9508c3a355a8afa0d495eeba0417d68\", \"model\": \"gpt-6-luna\", \"scope\": \"recorded_memory\", \"geometry\": \"unknown\", \"calls\": [{\"event\": \"completed\", \"requested_model\": \"gpt-6-luna\", \"returned_model\": \"gpt-6-luna\", \"request_id\": \"chatcmpl-EfIDPkQ1D1cdq18t7M2aozJRfrnp1\", \"elapsed_s\": 3.116, \"usage\": {\"completion_tokens\": 73, \"prompt_tokens\": 605, \"total_tokens\": 678, \"completion_tokens_details\": {\"accepted_prediction_tokens\": 0, \"audio_tokens\": 0, \"reasoning_tokens\": 0, \"rejected_prediction_tokens\": 0, \"text_tokens\": null}, \"prompt_tokens_details\": {\"audio_tokens\": 0, \"cache_write_tokens\": null, \"cached_tokens\": 0, \"image_tokens\": null, \"text_tokens\": null}}, \"capture_ids\": [\"9eed06cb-a6ca-4068-8ab6-ce98a09fd2b4\"]}]}",
+      "provenance": {
+        "camera_id": "synthetic_replay",
+        "session_id": "1ff97cae-a5b5-4055-851c-70269fc2d3ea",
+        "sequence": 19,
+        "fixture_index": 0,
+        "capture_time_basis": "synthetic_replay_ingest_time",
+        "source": "pinhole_renderer_replay",
+        "region_source": "operator_registered",
+        "pose": null,
+        "capture_clock_uncertainty_s": null,
+        "freshness_verified": true,
+        "age_at_receipt_s": 0
+      },
+      "description_provenance": {
+        "schema_version": 1,
+        "adapter": "mind-palace-recorded-v1",
+        "prompt_schema_revision": "mind-palace-recorded-v1",
+        "preprocessing": "original EvidenceStore PNG bytes; no crop or resize by adapter",
+        "upstream": "https://github.com/mind-palace-laeqa/benchmark",
+        "revision": "b59be261f9508c3a355a8afa0d495eeba0417d68",
+        "model": "gpt-6-luna",
+        "scope": "recorded_memory",
+        "geometry": "unknown",
+        "calls": [
+          {
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIDPkQ1D1cdq18t7M2aozJRfrnp1",
+            "elapsed_s": 3.116,
+            "usage": {
+              "completion_tokens": 73,
+              "prompt_tokens": 605,
+              "total_tokens": 678,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": null,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [
+              "9eed06cb-a6ca-4068-8ab6-ce98a09fd2b4"
+            ]
+          }
+        ]
+      },
+      "description": {
+        "objects": [
+          "A gray upright rectangular device or panel with a small black-and-white square pattern near the top",
+          "A red rectangular card or panel in front of the gray device, marked with a yellow circle and cross"
+        ],
+        "description": "The objects are centered against a plain background, with a gray surface below.",
+        "visibility": "clear"
+      }
+    },
+    {
+      "id": "5a82c1f7-2c3c-4fa4-a816-deaa2b49db08",
+      "episode_id": "369452f4-fd82-44d5-be6b-a9b779680e05",
+      "view_id": "714fb6ea-12db-4a31-971c-90846ea1e2cb",
+      "frame_id": "1ff97cae-a5b5-4055-851c-70269fc2d3ea:41",
+      "mode": "synthetic",
+      "captured_at": "2026-11-01T05:16:18.282364+00:00",
+      "received_at": "2026-11-01T05:16:18.470546+00:00",
+      "image_sha": "ec55397ef64718939789f6acba4d384aac1885a7c721c843d018143c1bb1089f",
+      "provenance_json": "{\"camera_id\": \"synthetic_replay\", \"session_id\": \"1ff97cae-a5b5-4055-851c-70269fc2d3ea\", \"sequence\": 41, \"fixture_index\": 1, \"capture_time_basis\": \"synthetic_replay_ingest_time\", \"source\": \"pinhole_renderer_replay\", \"region_source\": \"operator_registered\", \"pose\": null, \"capture_clock_uncertainty_s\": null, \"freshness_verified\": true, \"age_at_receipt_s\": 0.0}",
+      "episode_name": "Early",
+      "view_name": "Front",
+      "region_id": "13ef995b-e720-45dc-a75e-c3f419be310c",
+      "region_name": "Shelf",
+      "description_json": "{\"objects\": [\"A gray upright rectangular panel with a black-and-white square pattern near the top\", \"A blue square sign or panel with two white upward-pointing chevrons, positioned in front of the gray panel\"], \"description\": \"The panels stand against a plain light wall, above a flat gray surface.\", \"visibility\": \"clear\"}",
+      "model": "gpt-6-luna",
+      "description_provenance_json": "{\"schema_version\": 1, \"adapter\": \"mind-palace-recorded-v1\", \"prompt_schema_revision\": \"mind-palace-recorded-v1\", \"preprocessing\": \"original EvidenceStore PNG bytes; no crop or resize by adapter\", \"upstream\": \"https://github.com/mind-palace-laeqa/benchmark\", \"revision\": \"b59be261f9508c3a355a8afa0d495eeba0417d68\", \"model\": \"gpt-6-luna\", \"scope\": \"recorded_memory\", \"geometry\": \"unknown\", \"calls\": [{\"event\": \"completed\", \"requested_model\": \"gpt-6-luna\", \"returned_model\": \"gpt-6-luna\", \"request_id\": \"chatcmpl-EfIDUAuzftI1xJn72JgLNhIVEw0fl\", \"elapsed_s\": 2.977, \"usage\": {\"completion_tokens\": 73, \"prompt_tokens\": 608, \"total_tokens\": 681, \"completion_tokens_details\": {\"accepted_prediction_tokens\": 0, \"audio_tokens\": 0, \"reasoning_tokens\": 0, \"rejected_prediction_tokens\": 0, \"text_tokens\": null}, \"prompt_tokens_details\": {\"audio_tokens\": 0, \"cache_write_tokens\": null, \"cached_tokens\": 0, \"image_tokens\": null, \"text_tokens\": null}}, \"capture_ids\": [\"5a82c1f7-2c3c-4fa4-a816-deaa2b49db08\"]}]}",
+      "provenance": {
+        "camera_id": "synthetic_replay",
+        "session_id": "1ff97cae-a5b5-4055-851c-70269fc2d3ea",
+        "sequence": 41,
+        "fixture_index": 1,
+        "capture_time_basis": "synthetic_replay_ingest_time",
+        "source": "pinhole_renderer_replay",
+        "region_source": "operator_registered",
+        "pose": null,
+        "capture_clock_uncertainty_s": null,
+        "freshness_verified": true,
+        "age_at_receipt_s": 0
+      },
+      "description_provenance": {
+        "schema_version": 1,
+        "adapter": "mind-palace-recorded-v1",
+        "prompt_schema_revision": "mind-palace-recorded-v1",
+        "preprocessing": "original EvidenceStore PNG bytes; no crop or resize by adapter",
+        "upstream": "https://github.com/mind-palace-laeqa/benchmark",
+        "revision": "b59be261f9508c3a355a8afa0d495eeba0417d68",
+        "model": "gpt-6-luna",
+        "scope": "recorded_memory",
+        "geometry": "unknown",
+        "calls": [
+          {
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIDUAuzftI1xJn72JgLNhIVEw0fl",
+            "elapsed_s": 2.977,
+            "usage": {
+              "completion_tokens": 73,
+              "prompt_tokens": 608,
+              "total_tokens": 681,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": null,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [
+              "5a82c1f7-2c3c-4fa4-a816-deaa2b49db08"
+            ]
+          }
+        ]
+      },
+      "description": {
+        "objects": [
+          "A gray upright rectangular panel with a black-and-white square pattern near the top",
+          "A blue square sign or panel with two white upward-pointing chevrons, positioned in front of the gray panel"
+        ],
+        "description": "The panels stand against a plain light wall, above a flat gray surface.",
+        "visibility": "clear"
+      }
+    },
+    {
+      "id": "6bafb8b9-8fe2-4ba8-97aa-99dfe8008fce",
+      "episode_id": "fcdab01b-017d-45e2-b10c-9a8aef41291d",
+      "view_id": "090f34df-4bf5-424b-9a9a-85b24e254810",
+      "frame_id": "1ff97cae-a5b5-4055-851c-70269fc2d3ea:66",
+      "mode": "synthetic",
+      "captured_at": "2026-11-01T05:16:23.526958+00:00",
+      "received_at": "2026-11-01T05:16:23.686923+00:00",
+      "image_sha": "72ee29fab5431e9b27cda692c33991d18f016e81ff0e6c391f8af5b1a73c8a1d",
+      "provenance_json": "{\"camera_id\": \"synthetic_replay\", \"session_id\": \"1ff97cae-a5b5-4055-851c-70269fc2d3ea\", \"sequence\": 66, \"fixture_index\": 2, \"capture_time_basis\": \"synthetic_replay_ingest_time\", \"source\": \"pinhole_renderer_replay\", \"region_source\": \"operator_registered\", \"pose\": null, \"capture_clock_uncertainty_s\": null, \"freshness_verified\": true, \"age_at_receipt_s\": 0.0}",
+      "episode_name": "Middle",
+      "view_name": "Front",
+      "region_id": "c3e26f9c-dddd-4256-b9d8-b61fc0a3731d",
+      "region_name": "Desk",
+      "description_json": "{\"objects\": [\"A gray upright rectangular panel with a small black-and-white pixel-like square near the top\", \"A green square with a white cross symbol in front of the lower part of the gray panel\"], \"description\": \"The gray panel stands on a flat gray surface against a pale wall. A green square bearing a white cross is positioned in front of it.\", \"visibility\": \"clear\"}",
+      "model": "gpt-6-luna",
+      "description_provenance_json": "{\"schema_version\": 1, \"adapter\": \"mind-palace-recorded-v1\", \"prompt_schema_revision\": \"mind-palace-recorded-v1\", \"preprocessing\": \"original EvidenceStore PNG bytes; no crop or resize by adapter\", \"upstream\": \"https://github.com/mind-palace-laeqa/benchmark\", \"revision\": \"b59be261f9508c3a355a8afa0d495eeba0417d68\", \"model\": \"gpt-6-luna\", \"scope\": \"recorded_memory\", \"geometry\": \"unknown\", \"calls\": [{\"event\": \"completed\", \"requested_model\": \"gpt-6-luna\", \"returned_model\": \"gpt-6-luna\", \"request_id\": \"chatcmpl-EfIDbfNTXNBq5HdR8vX1rM3UxoN2C\", \"elapsed_s\": 5.513, \"usage\": {\"completion_tokens\": 83, \"prompt_tokens\": 610, \"total_tokens\": 693, \"completion_tokens_details\": {\"accepted_prediction_tokens\": 0, \"audio_tokens\": 0, \"reasoning_tokens\": 0, \"rejected_prediction_tokens\": 0, \"text_tokens\": null}, \"prompt_tokens_details\": {\"audio_tokens\": 0, \"cache_write_tokens\": null, \"cached_tokens\": 0, \"image_tokens\": null, \"text_tokens\": null}}, \"capture_ids\": [\"6bafb8b9-8fe2-4ba8-97aa-99dfe8008fce\"]}]}",
+      "provenance": {
+        "camera_id": "synthetic_replay",
+        "session_id": "1ff97cae-a5b5-4055-851c-70269fc2d3ea",
+        "sequence": 66,
+        "fixture_index": 2,
+        "capture_time_basis": "synthetic_replay_ingest_time",
+        "source": "pinhole_renderer_replay",
+        "region_source": "operator_registered",
+        "pose": null,
+        "capture_clock_uncertainty_s": null,
+        "freshness_verified": true,
+        "age_at_receipt_s": 0
+      },
+      "description_provenance": {
+        "schema_version": 1,
+        "adapter": "mind-palace-recorded-v1",
+        "prompt_schema_revision": "mind-palace-recorded-v1",
+        "preprocessing": "original EvidenceStore PNG bytes; no crop or resize by adapter",
+        "upstream": "https://github.com/mind-palace-laeqa/benchmark",
+        "revision": "b59be261f9508c3a355a8afa0d495eeba0417d68",
+        "model": "gpt-6-luna",
+        "scope": "recorded_memory",
+        "geometry": "unknown",
+        "calls": [
+          {
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIDbfNTXNBq5HdR8vX1rM3UxoN2C",
+            "elapsed_s": 5.513,
+            "usage": {
+              "completion_tokens": 83,
+              "prompt_tokens": 610,
+              "total_tokens": 693,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": null,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [
+              "6bafb8b9-8fe2-4ba8-97aa-99dfe8008fce"
+            ]
+          }
+        ]
+      },
+      "description": {
+        "objects": [
+          "A gray upright rectangular panel with a small black-and-white pixel-like square near the top",
+          "A green square with a white cross symbol in front of the lower part of the gray panel"
+        ],
+        "description": "The gray panel stands on a flat gray surface against a pale wall. A green square bearing a white cross is positioned in front of it.",
+        "visibility": "clear"
+      }
+    },
+    {
+      "id": "aca13114-b828-48ec-8d04-4e1fb0e0791d",
+      "episode_id": "fcdab01b-017d-45e2-b10c-9a8aef41291d",
+      "view_id": "714fb6ea-12db-4a31-971c-90846ea1e2cb",
+      "frame_id": "1ff97cae-a5b5-4055-851c-70269fc2d3ea:100",
+      "mode": "synthetic",
+      "captured_at": "2026-11-01T05:16:30.654956+00:00",
+      "received_at": "2026-11-01T05:16:30.957893+00:00",
+      "image_sha": "6779449600c4a4f92cd1e1e6f1e6129cedeed3ac40c5db438258ed6c4ed69133",
+      "provenance_json": "{\"camera_id\": \"synthetic_replay\", \"session_id\": \"1ff97cae-a5b5-4055-851c-70269fc2d3ea\", \"sequence\": 100, \"fixture_index\": 3, \"capture_time_basis\": \"synthetic_replay_ingest_time\", \"source\": \"pinhole_renderer_replay\", \"region_source\": \"operator_registered\", \"pose\": null, \"capture_clock_uncertainty_s\": null, \"freshness_verified\": true, \"age_at_receipt_s\": 0.0}",
+      "episode_name": "Middle",
+      "view_name": "Front",
+      "region_id": "13ef995b-e720-45dc-a75e-c3f419be310c",
+      "region_name": "Shelf",
+      "description_json": "{\"objects\": [\"A red cube with a yellow circular target-like symbol on its front face\", \"A blue cube with two white upward-pointing chevrons on its front face\", \"A gray upright rectangular panel behind the cubes, with a small black-and-white square pattern near its top\"], \"description\": \"Three objects are visible on a flat gray surface against a plain light-colored background. The two cubes sit in front of the upright panel, one on each side.\", \"visibility\": \"clear\"}",
+      "model": "gpt-6-luna",
+      "description_provenance_json": "{\"schema_version\": 1, \"adapter\": \"mind-palace-recorded-v1\", \"prompt_schema_revision\": \"mind-palace-recorded-v1\", \"preprocessing\": \"original EvidenceStore PNG bytes; no crop or resize by adapter\", \"upstream\": \"https://github.com/mind-palace-laeqa/benchmark\", \"revision\": \"b59be261f9508c3a355a8afa0d495eeba0417d68\", \"model\": \"gpt-6-luna\", \"scope\": \"recorded_memory\", \"geometry\": \"unknown\", \"calls\": [{\"event\": \"completed\", \"requested_model\": \"gpt-6-luna\", \"returned_model\": \"gpt-6-luna\", \"request_id\": \"chatcmpl-EfIDzF9CS6GtMmnEQU6S5WqsrjEmt\", \"elapsed_s\": 22.401, \"usage\": {\"completion_tokens\": 103, \"prompt_tokens\": 606, \"total_tokens\": 709, \"completion_tokens_details\": {\"accepted_prediction_tokens\": 0, \"audio_tokens\": 0, \"reasoning_tokens\": 0, \"rejected_prediction_tokens\": 0, \"text_tokens\": null}, \"prompt_tokens_details\": {\"audio_tokens\": 0, \"cache_write_tokens\": null, \"cached_tokens\": 0, \"image_tokens\": null, \"text_tokens\": null}}, \"capture_ids\": [\"aca13114-b828-48ec-8d04-4e1fb0e0791d\"]}]}",
+      "provenance": {
+        "camera_id": "synthetic_replay",
+        "session_id": "1ff97cae-a5b5-4055-851c-70269fc2d3ea",
+        "sequence": 100,
+        "fixture_index": 3,
+        "capture_time_basis": "synthetic_replay_ingest_time",
+        "source": "pinhole_renderer_replay",
+        "region_source": "operator_registered",
+        "pose": null,
+        "capture_clock_uncertainty_s": null,
+        "freshness_verified": true,
+        "age_at_receipt_s": 0
+      },
+      "description_provenance": {
+        "schema_version": 1,
+        "adapter": "mind-palace-recorded-v1",
+        "prompt_schema_revision": "mind-palace-recorded-v1",
+        "preprocessing": "original EvidenceStore PNG bytes; no crop or resize by adapter",
+        "upstream": "https://github.com/mind-palace-laeqa/benchmark",
+        "revision": "b59be261f9508c3a355a8afa0d495eeba0417d68",
+        "model": "gpt-6-luna",
+        "scope": "recorded_memory",
+        "geometry": "unknown",
+        "calls": [
+          {
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIDzF9CS6GtMmnEQU6S5WqsrjEmt",
+            "elapsed_s": 22.401,
+            "usage": {
+              "completion_tokens": 103,
+              "prompt_tokens": 606,
+              "total_tokens": 709,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": null,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [
+              "aca13114-b828-48ec-8d04-4e1fb0e0791d"
+            ]
+          }
+        ]
+      },
+      "description": {
+        "objects": [
+          "A red cube with a yellow circular target-like symbol on its front face",
+          "A blue cube with two white upward-pointing chevrons on its front face",
+          "A gray upright rectangular panel behind the cubes, with a small black-and-white square pattern near its top"
+        ],
+        "description": "Three objects are visible on a flat gray surface against a plain light-colored background. The two cubes sit in front of the upright panel, one on each side.",
+        "visibility": "clear"
+      }
+    },
+    {
+      "id": "1f166af1-42e5-4999-8129-7602c8ef612c",
+      "episode_id": "a6f41ebf-7285-41f3-ba4e-fc9f18e24177",
+      "view_id": "090f34df-4bf5-424b-9a9a-85b24e254810",
+      "frame_id": "1ff97cae-a5b5-4055-851c-70269fc2d3ea:216",
+      "mode": "synthetic",
+      "captured_at": "2026-11-01T05:16:54.938153+00:00",
+      "received_at": "2026-11-01T05:16:55.255563+00:00",
+      "image_sha": "b8b2c9aebd9c20f6ffea815aaf8f55a38a1cf6694a38050f95fa1416478cd680",
+      "provenance_json": "{\"camera_id\": \"synthetic_replay\", \"session_id\": \"1ff97cae-a5b5-4055-851c-70269fc2d3ea\", \"sequence\": 216, \"fixture_index\": 4, \"capture_time_basis\": \"synthetic_replay_ingest_time\", \"source\": \"pinhole_renderer_replay\", \"region_source\": \"operator_registered\", \"pose\": null, \"capture_clock_uncertainty_s\": null, \"freshness_verified\": true, \"age_at_receipt_s\": 0.0}",
+      "episode_name": "Late",
+      "view_name": "Front",
+      "region_id": "c3e26f9c-dddd-4256-b9d8-b61fc0a3731d",
+      "region_name": "Desk",
+      "description_json": "{\"objects\": [\"A small orange-brown square object with dark square markings, positioned in front of a larger upright gray rectangular panel. The panel has a small black-and-white patterned square near its upper center.\", \"A flat gray surface extends across the lower part of the image, with a pale wall or background behind it.\"], \"description\": \"A simple scene with a marked orange-brown square object in front of a gray panel, on a flat surface.\", \"visibility\": \"clear\"}",
+      "model": "gpt-6-luna",
+      "description_provenance_json": "{\"schema_version\": 1, \"adapter\": \"mind-palace-recorded-v1\", \"prompt_schema_revision\": \"mind-palace-recorded-v1\", \"preprocessing\": \"original EvidenceStore PNG bytes; no crop or resize by adapter\", \"upstream\": \"https://github.com/mind-palace-laeqa/benchmark\", \"revision\": \"b59be261f9508c3a355a8afa0d495eeba0417d68\", \"model\": \"gpt-6-luna\", \"scope\": \"recorded_memory\", \"geometry\": \"unknown\", \"calls\": [{\"event\": \"completed\", \"requested_model\": \"gpt-6-luna\", \"returned_model\": \"gpt-6-luna\", \"request_id\": \"chatcmpl-EfIE4yr0VtFSL859ffOiXOr7nAHRu\", \"elapsed_s\": 2.17, \"usage\": {\"completion_tokens\": 101, \"prompt_tokens\": 608, \"total_tokens\": 709, \"completion_tokens_details\": {\"accepted_prediction_tokens\": 0, \"audio_tokens\": 0, \"reasoning_tokens\": 0, \"rejected_prediction_tokens\": 0, \"text_tokens\": null}, \"prompt_tokens_details\": {\"audio_tokens\": 0, \"cache_write_tokens\": null, \"cached_tokens\": 0, \"image_tokens\": null, \"text_tokens\": null}}, \"capture_ids\": [\"1f166af1-42e5-4999-8129-7602c8ef612c\"]}]}",
+      "provenance": {
+        "camera_id": "synthetic_replay",
+        "session_id": "1ff97cae-a5b5-4055-851c-70269fc2d3ea",
+        "sequence": 216,
+        "fixture_index": 4,
+        "capture_time_basis": "synthetic_replay_ingest_time",
+        "source": "pinhole_renderer_replay",
+        "region_source": "operator_registered",
+        "pose": null,
+        "capture_clock_uncertainty_s": null,
+        "freshness_verified": true,
+        "age_at_receipt_s": 0
+      },
+      "description_provenance": {
+        "schema_version": 1,
+        "adapter": "mind-palace-recorded-v1",
+        "prompt_schema_revision": "mind-palace-recorded-v1",
+        "preprocessing": "original EvidenceStore PNG bytes; no crop or resize by adapter",
+        "upstream": "https://github.com/mind-palace-laeqa/benchmark",
+        "revision": "b59be261f9508c3a355a8afa0d495eeba0417d68",
+        "model": "gpt-6-luna",
+        "scope": "recorded_memory",
+        "geometry": "unknown",
+        "calls": [
+          {
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIE4yr0VtFSL859ffOiXOr7nAHRu",
+            "elapsed_s": 2.17,
+            "usage": {
+              "completion_tokens": 101,
+              "prompt_tokens": 608,
+              "total_tokens": 709,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": null,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [
+              "1f166af1-42e5-4999-8129-7602c8ef612c"
+            ]
+          }
+        ]
+      },
+      "description": {
+        "objects": [
+          "A small orange-brown square object with dark square markings, positioned in front of a larger upright gray rectangular panel. The panel has a small black-and-white patterned square near its upper center.",
+          "A flat gray surface extends across the lower part of the image, with a pale wall or background behind it."
+        ],
+        "description": "A simple scene with a marked orange-brown square object in front of a gray panel, on a flat surface.",
+        "visibility": "clear"
+      }
+    },
+    {
+      "id": "99340b52-9731-447e-b6d2-b6e4cd898cf1",
+      "episode_id": "a6f41ebf-7285-41f3-ba4e-fc9f18e24177",
+      "view_id": "714fb6ea-12db-4a31-971c-90846ea1e2cb",
+      "frame_id": "1ff97cae-a5b5-4055-851c-70269fc2d3ea:235",
+      "mode": "synthetic",
+      "captured_at": "2026-11-01T05:16:58.805611+00:00",
+      "received_at": "2026-11-01T05:16:58.920151+00:00",
+      "image_sha": "37854a7cb3e3a1a9e987bb000089ce46f62d2481f978d75c85dfea9bf8f2f55a",
+      "provenance_json": "{\"camera_id\": \"synthetic_replay\", \"session_id\": \"1ff97cae-a5b5-4055-851c-70269fc2d3ea\", \"sequence\": 235, \"fixture_index\": 5, \"capture_time_basis\": \"synthetic_replay_ingest_time\", \"source\": \"pinhole_renderer_replay\", \"region_source\": \"operator_registered\", \"pose\": null, \"capture_clock_uncertainty_s\": null, \"freshness_verified\": true, \"age_at_receipt_s\": 0.0}",
+      "episode_name": "Late",
+      "view_name": "Front",
+      "region_id": "13ef995b-e720-45dc-a75e-c3f419be310c",
+      "region_name": "Shelf",
+      "description_json": "{\"objects\": [\"A gray upright rectangular panel with a small black-and-white pixel-like square near its top.\", \"A blue cube with two white upward-pointing chevrons on its front face.\", \"A green cube with a white plus sign inside a dark circle on its front face.\"], \"description\": \"Three block-like objects are visible against a plain two-tone background. The gray panel stands behind the blue and green cubes, which sit to either side of it.\", \"visibility\": \"clear\"}",
+      "model": "gpt-6-luna",
+      "description_provenance_json": "{\"schema_version\": 1, \"adapter\": \"mind-palace-recorded-v1\", \"prompt_schema_revision\": \"mind-palace-recorded-v1\", \"preprocessing\": \"original EvidenceStore PNG bytes; no crop or resize by adapter\", \"upstream\": \"https://github.com/mind-palace-laeqa/benchmark\", \"revision\": \"b59be261f9508c3a355a8afa0d495eeba0417d68\", \"model\": \"gpt-6-luna\", \"scope\": \"recorded_memory\", \"geometry\": \"unknown\", \"calls\": [{\"event\": \"completed\", \"requested_model\": \"gpt-6-luna\", \"returned_model\": \"gpt-6-luna\", \"request_id\": \"chatcmpl-EfIEDE4WzQuQRXm9q4qmAhu7eMh9W\", \"elapsed_s\": 8.531, \"usage\": {\"completion_tokens\": 102, \"prompt_tokens\": 607, \"total_tokens\": 709, \"completion_tokens_details\": {\"accepted_prediction_tokens\": 0, \"audio_tokens\": 0, \"reasoning_tokens\": 0, \"rejected_prediction_tokens\": 0, \"text_tokens\": null}, \"prompt_tokens_details\": {\"audio_tokens\": 0, \"cache_write_tokens\": null, \"cached_tokens\": 0, \"image_tokens\": null, \"text_tokens\": null}}, \"capture_ids\": [\"99340b52-9731-447e-b6d2-b6e4cd898cf1\"]}]}",
+      "provenance": {
+        "camera_id": "synthetic_replay",
+        "session_id": "1ff97cae-a5b5-4055-851c-70269fc2d3ea",
+        "sequence": 235,
+        "fixture_index": 5,
+        "capture_time_basis": "synthetic_replay_ingest_time",
+        "source": "pinhole_renderer_replay",
+        "region_source": "operator_registered",
+        "pose": null,
+        "capture_clock_uncertainty_s": null,
+        "freshness_verified": true,
+        "age_at_receipt_s": 0
+      },
+      "description_provenance": {
+        "schema_version": 1,
+        "adapter": "mind-palace-recorded-v1",
+        "prompt_schema_revision": "mind-palace-recorded-v1",
+        "preprocessing": "original EvidenceStore PNG bytes; no crop or resize by adapter",
+        "upstream": "https://github.com/mind-palace-laeqa/benchmark",
+        "revision": "b59be261f9508c3a355a8afa0d495eeba0417d68",
+        "model": "gpt-6-luna",
+        "scope": "recorded_memory",
+        "geometry": "unknown",
+        "calls": [
+          {
+            "event": "completed",
+            "requested_model": "gpt-6-luna",
+            "returned_model": "gpt-6-luna",
+            "request_id": "chatcmpl-EfIEDE4WzQuQRXm9q4qmAhu7eMh9W",
+            "elapsed_s": 8.531,
+            "usage": {
+              "completion_tokens": 102,
+              "prompt_tokens": 607,
+              "total_tokens": 709,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": 0,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": 0,
+                "text_tokens": null
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": null,
+                "cached_tokens": 0,
+                "image_tokens": null,
+                "text_tokens": null
+              }
+            },
+            "capture_ids": [
+              "99340b52-9731-447e-b6d2-b6e4cd898cf1"
+            ]
+          }
+        ]
+      },
+      "description": {
+        "objects": [
+          "A gray upright rectangular panel with a small black-and-white pixel-like square near its top.",
+          "A blue cube with two white upward-pointing chevrons on its front face.",
+          "A green cube with a white plus sign inside a dark circle on its front face."
+        ],
+        "description": "Three block-like objects are visible against a plain two-tone background. The gray panel stands behind the blue and green cubes, which sit to either side of it.",
+        "visibility": "clear"
+      }
+    }
+  ],
+  "jobs": [
+    {
+      "id": "5f8cf626-fb95-4eb4-9d71-217a1720d8bf",
+      "kind": "capture",
+      "mode": "synthetic",
+      "request_key": "4662cebf-ed0f-4b92-aa05-d6694d555e9c",
+      "created_at": "2026-11-01T05:16:58.920615+00:00",
+      "status": "succeeded",
+      "stage": "succeeded",
+      "started_at": "2026-11-01T05:16:59.114497+00:00",
+      "finished_at": "2026-11-01T05:17:07.667525+00:00",
+      "worker_id": "e4f28dd5-a1c9-4dcc-9bdc-d02bdfa231f0",
+      "dispatched_at": "2026-11-01T05:16:58.926691+00:00",
+      "error_code": null,
+      "model": "gpt-6-luna",
+      "request": {
+        "frame_id": "1ff97cae-a5b5-4055-851c-70269fc2d3ea:235",
+        "episode_id": "a6f41ebf-7285-41f3-ba4e-fc9f18e24177",
+        "view_id": "714fb6ea-12db-4a31-971c-90846ea1e2cb"
+      },
+      "result": {
+        "description": {
+          "objects": [
+            "A gray upright rectangular panel with a small black-and-white pixel-like square near its top.",
+            "A blue cube with two white upward-pointing chevrons on its front face.",
+            "A green cube with a white plus sign inside a dark circle on its front face."
+          ],
+          "description": "Three block-like objects are visible against a plain two-tone background. The gray panel stands behind the blue and green cubes, which sit to either side of it.",
+          "visibility": "clear"
+        },
+        "provenance": {
+          "schema_version": 1,
+          "adapter": "mind-palace-recorded-v1",
+          "prompt_schema_revision": "mind-palace-recorded-v1",
+          "preprocessing": "original EvidenceStore PNG bytes; no crop or resize by adapter",
+          "upstream": "https://github.com/mind-palace-laeqa/benchmark",
+          "revision": "b59be261f9508c3a355a8afa0d495eeba0417d68",
+          "model": "gpt-6-luna",
+          "scope": "recorded_memory",
+          "geometry": "unknown",
+          "calls": [
+            {
+              "event": "completed",
+              "requested_model": "gpt-6-luna",
+              "returned_model": "gpt-6-luna",
+              "request_id": "chatcmpl-EfIEDE4WzQuQRXm9q4qmAhu7eMh9W",
+              "elapsed_s": 8.531,
+              "usage": {
+                "completion_tokens": 102,
+                "prompt_tokens": 607,
+                "total_tokens": 709,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0,
+                  "text_tokens": null
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": null,
+                  "cached_tokens": 0,
+                  "image_tokens": null,
+                  "text_tokens": null
+                }
+              },
+              "capture_ids": [
+                "99340b52-9731-447e-b6d2-b6e4cd898cf1"
+              ]
+            }
+          ]
+        },
+        "capture_id": "99340b52-9731-447e-b6d2-b6e4cd898cf1"
+      },
+      "steps": [
+        {
+          "stage": "describe",
+          "created_at": "2026-11-01T05:16:59.129708+00:00",
+          "event": "started",
+          "capture_ids": [
+            "99340b52-9731-447e-b6d2-b6e4cd898cf1"
+          ]
+        },
+        {
+          "stage": "describe",
+          "created_at": "2026-11-01T05:17:07.664637+00:00",
+          "event": "completed",
+          "requested_model": "gpt-6-luna",
+          "returned_model": "gpt-6-luna",
+          "request_id": "chatcmpl-EfIEDE4WzQuQRXm9q4qmAhu7eMh9W",
+          "elapsed_s": 8.531,
+          "usage": {
+            "completion_tokens": 102,
+            "prompt_tokens": 607,
+            "total_tokens": 709,
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": 0,
+              "audio_tokens": 0,
+              "reasoning_tokens": 0,
+              "rejected_prediction_tokens": 0,
+              "text_tokens": null
+            },
+            "prompt_tokens_details": {
+              "audio_tokens": 0,
+              "cache_write_tokens": null,
+              "cached_tokens": 0,
+              "image_tokens": null,
+              "text_tokens": null
+            }
+          },
+          "capture_ids": [
+            "99340b52-9731-447e-b6d2-b6e4cd898cf1"
+          ],
+          "output": {
+            "objects": [
+              "A gray upright rectangular panel with a small black-and-white pixel-like square near its top.",
+              "A blue cube with two white upward-pointing chevrons on its front face.",
+              "A green cube with a white plus sign inside a dark circle on its front face."
+            ],
+            "description": "Three block-like objects are visible against a plain two-tone background. The gray panel stands behind the blue and green cubes, which sit to either side of it.",
+            "visibility": "clear"
+          }
+        }
+      ]
+    },
+    {
+      "id": "54543899-d731-4504-afb9-21bd63ce385f",
+      "kind": "capture",
+      "mode": "synthetic",
+      "request_key": "b40bde0c-a985-44a4-a5f1-f52cc0379f3a",
+      "created_at": "2026-11-01T05:16:55.256227+00:00",
+      "status": "succeeded",
+      "stage": "succeeded",
+      "started_at": "2026-11-01T05:16:55.409907+00:00",
+      "finished_at": "2026-11-01T05:16:57.609610+00:00",
+      "worker_id": "e4f28dd5-a1c9-4dcc-9bdc-d02bdfa231f0",
+      "dispatched_at": "2026-11-01T05:16:55.263635+00:00",
+      "error_code": null,
+      "model": "gpt-6-luna",
+      "request": {
+        "frame_id": "1ff97cae-a5b5-4055-851c-70269fc2d3ea:216",
+        "episode_id": "a6f41ebf-7285-41f3-ba4e-fc9f18e24177",
+        "view_id": "090f34df-4bf5-424b-9a9a-85b24e254810"
+      },
+      "result": {
+        "description": {
+          "objects": [
+            "A small orange-brown square object with dark square markings, positioned in front of a larger upright gray rectangular panel. The panel has a small black-and-white patterned square near its upper center.",
+            "A flat gray surface extends across the lower part of the image, with a pale wall or background behind it."
+          ],
+          "description": "A simple scene with a marked orange-brown square object in front of a gray panel, on a flat surface.",
+          "visibility": "clear"
+        },
+        "provenance": {
+          "schema_version": 1,
+          "adapter": "mind-palace-recorded-v1",
+          "prompt_schema_revision": "mind-palace-recorded-v1",
+          "preprocessing": "original EvidenceStore PNG bytes; no crop or resize by adapter",
+          "upstream": "https://github.com/mind-palace-laeqa/benchmark",
+          "revision": "b59be261f9508c3a355a8afa0d495eeba0417d68",
+          "model": "gpt-6-luna",
+          "scope": "recorded_memory",
+          "geometry": "unknown",
+          "calls": [
+            {
+              "event": "completed",
+              "requested_model": "gpt-6-luna",
+              "returned_model": "gpt-6-luna",
+              "request_id": "chatcmpl-EfIE4yr0VtFSL859ffOiXOr7nAHRu",
+              "elapsed_s": 2.17,
+              "usage": {
+                "completion_tokens": 101,
+                "prompt_tokens": 608,
+                "total_tokens": 709,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0,
+                  "text_tokens": null
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": null,
+                  "cached_tokens": 0,
+                  "image_tokens": null,
+                  "text_tokens": null
+                }
+              },
+              "capture_ids": [
+                "1f166af1-42e5-4999-8129-7602c8ef612c"
+              ]
+            }
+          ]
+        },
+        "capture_id": "1f166af1-42e5-4999-8129-7602c8ef612c"
+      },
+      "steps": [
+        {
+          "stage": "describe",
+          "created_at": "2026-11-01T05:16:55.431468+00:00",
+          "event": "started",
+          "capture_ids": [
+            "1f166af1-42e5-4999-8129-7602c8ef612c"
+          ]
+        },
+        {
+          "stage": "describe",
+          "created_at": "2026-11-01T05:16:57.605954+00:00",
+          "event": "completed",
+          "requested_model": "gpt-6-luna",
+          "returned_model": "gpt-6-luna",
+          "request_id": "chatcmpl-EfIE4yr0VtFSL859ffOiXOr7nAHRu",
+          "elapsed_s": 2.17,
+          "usage": {
+            "completion_tokens": 101,
+            "prompt_tokens": 608,
+            "total_tokens": 709,
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": 0,
+              "audio_tokens": 0,
+              "reasoning_tokens": 0,
+              "rejected_prediction_tokens": 0,
+              "text_tokens": null
+            },
+            "prompt_tokens_details": {
+              "audio_tokens": 0,
+              "cache_write_tokens": null,
+              "cached_tokens": 0,
+              "image_tokens": null,
+              "text_tokens": null
+            }
+          },
+          "capture_ids": [
+            "1f166af1-42e5-4999-8129-7602c8ef612c"
+          ],
+          "output": {
+            "objects": [
+              "A small orange-brown square object with dark square markings, positioned in front of a larger upright gray rectangular panel. The panel has a small black-and-white patterned square near its upper center.",
+              "A flat gray surface extends across the lower part of the image, with a pale wall or background behind it."
+            ],
+            "description": "A simple scene with a marked orange-brown square object in front of a gray panel, on a flat surface.",
+            "visibility": "clear"
+          }
+        }
+      ]
+    },
+    {
+      "id": "4b9477b8-5554-4d8e-9586-13502313db35",
+      "kind": "capture",
+      "mode": "synthetic",
+      "request_key": "98979ad4-6a2c-42fe-8497-3d3aabdafd2f",
+      "created_at": "2026-11-01T05:16:30.958392+00:00",
+      "status": "succeeded",
+      "stage": "succeeded",
+      "started_at": "2026-11-01T05:16:30.970558+00:00",
+      "finished_at": "2026-11-01T05:16:53.401039+00:00",
+      "worker_id": "e4f28dd5-a1c9-4dcc-9bdc-d02bdfa231f0",
+      "dispatched_at": "2026-11-01T05:16:30.966180+00:00",
+      "error_code": null,
+      "model": "gpt-6-luna",
+      "request": {
+        "frame_id": "1ff97cae-a5b5-4055-851c-70269fc2d3ea:100",
+        "episode_id": "fcdab01b-017d-45e2-b10c-9a8aef41291d",
+        "view_id": "714fb6ea-12db-4a31-971c-90846ea1e2cb"
+      },
+      "result": {
+        "description": {
+          "objects": [
+            "A red cube with a yellow circular target-like symbol on its front face",
+            "A blue cube with two white upward-pointing chevrons on its front face",
+            "A gray upright rectangular panel behind the cubes, with a small black-and-white square pattern near its top"
+          ],
+          "description": "Three objects are visible on a flat gray surface against a plain light-colored background. The two cubes sit in front of the upright panel, one on each side.",
+          "visibility": "clear"
+        },
+        "provenance": {
+          "schema_version": 1,
+          "adapter": "mind-palace-recorded-v1",
+          "prompt_schema_revision": "mind-palace-recorded-v1",
+          "preprocessing": "original EvidenceStore PNG bytes; no crop or resize by adapter",
+          "upstream": "https://github.com/mind-palace-laeqa/benchmark",
+          "revision": "b59be261f9508c3a355a8afa0d495eeba0417d68",
+          "model": "gpt-6-luna",
+          "scope": "recorded_memory",
+          "geometry": "unknown",
+          "calls": [
+            {
+              "event": "completed",
+              "requested_model": "gpt-6-luna",
+              "returned_model": "gpt-6-luna",
+              "request_id": "chatcmpl-EfIDzF9CS6GtMmnEQU6S5WqsrjEmt",
+              "elapsed_s": 22.401,
+              "usage": {
+                "completion_tokens": 103,
+                "prompt_tokens": 606,
+                "total_tokens": 709,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0,
+                  "text_tokens": null
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": null,
+                  "cached_tokens": 0,
+                  "image_tokens": null,
+                  "text_tokens": null
+                }
+              },
+              "capture_ids": [
+                "aca13114-b828-48ec-8d04-4e1fb0e0791d"
+              ]
+            }
+          ]
+        },
+        "capture_id": "aca13114-b828-48ec-8d04-4e1fb0e0791d"
+      },
+      "steps": [
+        {
+          "stage": "describe",
+          "created_at": "2026-11-01T05:16:30.988595+00:00",
+          "event": "started",
+          "capture_ids": [
+            "aca13114-b828-48ec-8d04-4e1fb0e0791d"
+          ]
+        },
+        {
+          "stage": "describe",
+          "created_at": "2026-11-01T05:16:53.394889+00:00",
+          "event": "completed",
+          "requested_model": "gpt-6-luna",
+          "returned_model": "gpt-6-luna",
+          "request_id": "chatcmpl-EfIDzF9CS6GtMmnEQU6S5WqsrjEmt",
+          "elapsed_s": 22.401,
+          "usage": {
+            "completion_tokens": 103,
+            "prompt_tokens": 606,
+            "total_tokens": 709,
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": 0,
+              "audio_tokens": 0,
+              "reasoning_tokens": 0,
+              "rejected_prediction_tokens": 0,
+              "text_tokens": null
+            },
+            "prompt_tokens_details": {
+              "audio_tokens": 0,
+              "cache_write_tokens": null,
+              "cached_tokens": 0,
+              "image_tokens": null,
+              "text_tokens": null
+            }
+          },
+          "capture_ids": [
+            "aca13114-b828-48ec-8d04-4e1fb0e0791d"
+          ],
+          "output": {
+            "objects": [
+              "A red cube with a yellow circular target-like symbol on its front face",
+              "A blue cube with two white upward-pointing chevrons on its front face",
+              "A gray upright rectangular panel behind the cubes, with a small black-and-white square pattern near its top"
+            ],
+            "description": "Three objects are visible on a flat gray surface against a plain light-colored background. The two cubes sit in front of the upright panel, one on each side.",
+            "visibility": "clear"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ab22b52e-fdc6-4632-9da2-0e9175a8ca44",
+      "kind": "capture",
+      "mode": "synthetic",
+      "request_key": "99bfe687-a364-44de-ab9b-0789b5c025a3",
+      "created_at": "2026-11-01T05:16:23.687394+00:00",
+      "status": "succeeded",
+      "stage": "succeeded",
+      "started_at": "2026-11-01T05:16:23.924259+00:00",
+      "finished_at": "2026-11-01T05:16:29.463655+00:00",
+      "worker_id": "e4f28dd5-a1c9-4dcc-9bdc-d02bdfa231f0",
+      "dispatched_at": "2026-11-01T05:16:23.693731+00:00",
+      "error_code": null,
+      "model": "gpt-6-luna",
+      "request": {
+        "frame_id": "1ff97cae-a5b5-4055-851c-70269fc2d3ea:66",
+        "episode_id": "fcdab01b-017d-45e2-b10c-9a8aef41291d",
+        "view_id": "090f34df-4bf5-424b-9a9a-85b24e254810"
+      },
+      "result": {
+        "description": {
+          "objects": [
+            "A gray upright rectangular panel with a small black-and-white pixel-like square near the top",
+            "A green square with a white cross symbol in front of the lower part of the gray panel"
+          ],
+          "description": "The gray panel stands on a flat gray surface against a pale wall. A green square bearing a white cross is positioned in front of it.",
+          "visibility": "clear"
+        },
+        "provenance": {
+          "schema_version": 1,
+          "adapter": "mind-palace-recorded-v1",
+          "prompt_schema_revision": "mind-palace-recorded-v1",
+          "preprocessing": "original EvidenceStore PNG bytes; no crop or resize by adapter",
+          "upstream": "https://github.com/mind-palace-laeqa/benchmark",
+          "revision": "b59be261f9508c3a355a8afa0d495eeba0417d68",
+          "model": "gpt-6-luna",
+          "scope": "recorded_memory",
+          "geometry": "unknown",
+          "calls": [
+            {
+              "event": "completed",
+              "requested_model": "gpt-6-luna",
+              "returned_model": "gpt-6-luna",
+              "request_id": "chatcmpl-EfIDbfNTXNBq5HdR8vX1rM3UxoN2C",
+              "elapsed_s": 5.513,
+              "usage": {
+                "completion_tokens": 83,
+                "prompt_tokens": 610,
+                "total_tokens": 693,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0,
+                  "text_tokens": null
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": null,
+                  "cached_tokens": 0,
+                  "image_tokens": null,
+                  "text_tokens": null
+                }
+              },
+              "capture_ids": [
+                "6bafb8b9-8fe2-4ba8-97aa-99dfe8008fce"
+              ]
+            }
+          ]
+        },
+        "capture_id": "6bafb8b9-8fe2-4ba8-97aa-99dfe8008fce"
+      },
+      "steps": [
+        {
+          "stage": "describe",
+          "created_at": "2026-11-01T05:16:23.939582+00:00",
+          "event": "started",
+          "capture_ids": [
+            "6bafb8b9-8fe2-4ba8-97aa-99dfe8008fce"
+          ]
+        },
+        {
+          "stage": "describe",
+          "created_at": "2026-11-01T05:16:29.458149+00:00",
+          "event": "completed",
+          "requested_model": "gpt-6-luna",
+          "returned_model": "gpt-6-luna",
+          "request_id": "chatcmpl-EfIDbfNTXNBq5HdR8vX1rM3UxoN2C",
+          "elapsed_s": 5.513,
+          "usage": {
+            "completion_tokens": 83,
+            "prompt_tokens": 610,
+            "total_tokens": 693,
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": 0,
+              "audio_tokens": 0,
+              "reasoning_tokens": 0,
+              "rejected_prediction_tokens": 0,
+              "text_tokens": null
+            },
+            "prompt_tokens_details": {
+              "audio_tokens": 0,
+              "cache_write_tokens": null,
+              "cached_tokens": 0,
+              "image_tokens": null,
+              "text_tokens": null
+            }
+          },
+          "capture_ids": [
+            "6bafb8b9-8fe2-4ba8-97aa-99dfe8008fce"
+          ],
+          "output": {
+            "objects": [
+              "A gray upright rectangular panel with a small black-and-white pixel-like square near the top",
+              "A green square with a white cross symbol in front of the lower part of the gray panel"
+            ],
+            "description": "The gray panel stands on a flat gray surface against a pale wall. A green square bearing a white cross is positioned in front of it.",
+            "visibility": "clear"
+          }
+        }
+      ]
+    },
+    {
+      "id": "67fbd567-fab0-46e2-bb13-e96ebd8667b5",
+      "kind": "capture",
+      "mode": "synthetic",
+      "request_key": "86ad0579-c079-48a8-a56a-7235a68574b0",
+      "created_at": "2026-11-01T05:16:18.471050+00:00",
+      "status": "succeeded",
+      "stage": "succeeded",
+      "started_at": "2026-11-01T05:16:18.663191+00:00",
+      "finished_at": "2026-11-01T05:16:21.666785+00:00",
+      "worker_id": "e4f28dd5-a1c9-4dcc-9bdc-d02bdfa231f0",
+      "dispatched_at": "2026-11-01T05:16:18.477744+00:00",
+      "error_code": null,
+      "model": "gpt-6-luna",
+      "request": {
+        "frame_id": "1ff97cae-a5b5-4055-851c-70269fc2d3ea:41",
+        "episode_id": "369452f4-fd82-44d5-be6b-a9b779680e05",
+        "view_id": "714fb6ea-12db-4a31-971c-90846ea1e2cb"
+      },
+      "result": {
+        "description": {
+          "objects": [
+            "A gray upright rectangular panel with a black-and-white square pattern near the top",
+            "A blue square sign or panel with two white upward-pointing chevrons, positioned in front of the gray panel"
+          ],
+          "description": "The panels stand against a plain light wall, above a flat gray surface.",
+          "visibility": "clear"
+        },
+        "provenance": {
+          "schema_version": 1,
+          "adapter": "mind-palace-recorded-v1",
+          "prompt_schema_revision": "mind-palace-recorded-v1",
+          "preprocessing": "original EvidenceStore PNG bytes; no crop or resize by adapter",
+          "upstream": "https://github.com/mind-palace-laeqa/benchmark",
+          "revision": "b59be261f9508c3a355a8afa0d495eeba0417d68",
+          "model": "gpt-6-luna",
+          "scope": "recorded_memory",
+          "geometry": "unknown",
+          "calls": [
+            {
+              "event": "completed",
+              "requested_model": "gpt-6-luna",
+              "returned_model": "gpt-6-luna",
+              "request_id": "chatcmpl-EfIDUAuzftI1xJn72JgLNhIVEw0fl",
+              "elapsed_s": 2.977,
+              "usage": {
+                "completion_tokens": 73,
+                "prompt_tokens": 608,
+                "total_tokens": 681,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0,
+                  "text_tokens": null
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": null,
+                  "cached_tokens": 0,
+                  "image_tokens": null,
+                  "text_tokens": null
+                }
+              },
+              "capture_ids": [
+                "5a82c1f7-2c3c-4fa4-a816-deaa2b49db08"
+              ]
+            }
+          ]
+        },
+        "capture_id": "5a82c1f7-2c3c-4fa4-a816-deaa2b49db08"
+      },
+      "steps": [
+        {
+          "stage": "describe",
+          "created_at": "2026-11-01T05:16:18.680008+00:00",
+          "event": "started",
+          "capture_ids": [
+            "5a82c1f7-2c3c-4fa4-a816-deaa2b49db08"
+          ]
+        },
+        {
+          "stage": "describe",
+          "created_at": "2026-11-01T05:16:21.662534+00:00",
+          "event": "completed",
+          "requested_model": "gpt-6-luna",
+          "returned_model": "gpt-6-luna",
+          "request_id": "chatcmpl-EfIDUAuzftI1xJn72JgLNhIVEw0fl",
+          "elapsed_s": 2.977,
+          "usage": {
+            "completion_tokens": 73,
+            "prompt_tokens": 608,
+            "total_tokens": 681,
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": 0,
+              "audio_tokens": 0,
+              "reasoning_tokens": 0,
+              "rejected_prediction_tokens": 0,
+              "text_tokens": null
+            },
+            "prompt_tokens_details": {
+              "audio_tokens": 0,
+              "cache_write_tokens": null,
+              "cached_tokens": 0,
+              "image_tokens": null,
+              "text_tokens": null
+            }
+          },
+          "capture_ids": [
+            "5a82c1f7-2c3c-4fa4-a816-deaa2b49db08"
+          ],
+          "output": {
+            "objects": [
+              "A gray upright rectangular panel with a black-and-white square pattern near the top",
+              "A blue square sign or panel with two white upward-pointing chevrons, positioned in front of the gray panel"
+            ],
+            "description": "The panels stand against a plain light wall, above a flat gray surface.",
+            "visibility": "clear"
+          }
+        }
+      ]
+    },
+    {
+      "id": "22604935-699b-42fb-893c-308f81be366c",
+      "kind": "capture",
+      "mode": "synthetic",
+      "request_key": "261b6601-71b0-4aca-afab-430ec3a08673",
+      "created_at": "2026-11-01T05:16:13.821252+00:00",
+      "status": "succeeded",
+      "stage": "succeeded",
+      "started_at": "2026-11-01T05:16:13.977280+00:00",
+      "finished_at": "2026-11-01T05:16:17.155976+00:00",
+      "worker_id": "e4f28dd5-a1c9-4dcc-9bdc-d02bdfa231f0",
+      "dispatched_at": "2026-11-01T05:16:13.834823+00:00",
+      "error_code": null,
+      "model": "gpt-6-luna",
+      "request": {
+        "frame_id": "1ff97cae-a5b5-4055-851c-70269fc2d3ea:19",
+        "episode_id": "369452f4-fd82-44d5-be6b-a9b779680e05",
+        "view_id": "090f34df-4bf5-424b-9a9a-85b24e254810"
+      },
+      "result": {
+        "description": {
+          "objects": [
+            "A gray upright rectangular device or panel with a small black-and-white square pattern near the top",
+            "A red rectangular card or panel in front of the gray device, marked with a yellow circle and cross"
+          ],
+          "description": "The objects are centered against a plain background, with a gray surface below.",
+          "visibility": "clear"
+        },
+        "provenance": {
+          "schema_version": 1,
+          "adapter": "mind-palace-recorded-v1",
+          "prompt_schema_revision": "mind-palace-recorded-v1",
+          "preprocessing": "original EvidenceStore PNG bytes; no crop or resize by adapter",
+          "upstream": "https://github.com/mind-palace-laeqa/benchmark",
+          "revision": "b59be261f9508c3a355a8afa0d495eeba0417d68",
+          "model": "gpt-6-luna",
+          "scope": "recorded_memory",
+          "geometry": "unknown",
+          "calls": [
+            {
+              "event": "completed",
+              "requested_model": "gpt-6-luna",
+              "returned_model": "gpt-6-luna",
+              "request_id": "chatcmpl-EfIDPkQ1D1cdq18t7M2aozJRfrnp1",
+              "elapsed_s": 3.116,
+              "usage": {
+                "completion_tokens": 73,
+                "prompt_tokens": 605,
+                "total_tokens": 678,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": 0,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": 0,
+                  "text_tokens": null
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": null,
+                  "cached_tokens": 0,
+                  "image_tokens": null,
+                  "text_tokens": null
+                }
+              },
+              "capture_ids": [
+                "9eed06cb-a6ca-4068-8ab6-ce98a09fd2b4"
+              ]
+            }
+          ]
+        },
+        "capture_id": "9eed06cb-a6ca-4068-8ab6-ce98a09fd2b4"
+      },
+      "steps": [
+        {
+          "stage": "describe",
+          "created_at": "2026-11-01T05:16:13.996384+00:00",
+          "event": "started",
+          "capture_ids": [
+            "9eed06cb-a6ca-4068-8ab6-ce98a09fd2b4"
+          ]
+        },
+        {
+          "stage": "describe",
+          "created_at": "2026-11-01T05:16:17.151458+00:00",
+          "event": "completed",
+          "requested_model": "gpt-6-luna",
+          "returned_model": "gpt-6-luna",
+          "request_id": "chatcmpl-EfIDPkQ1D1cdq18t7M2aozJRfrnp1",
+          "elapsed_s": 3.116,
+          "usage": {
+            "completion_tokens": 73,
+            "prompt_tokens": 605,
+            "total_tokens": 678,
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": 0,
+              "audio_tokens": 0,
+              "reasoning_tokens": 0,
+              "rejected_prediction_tokens": 0,
+              "text_tokens": null
+            },
+            "prompt_tokens_details": {
+              "audio_tokens": 0,
+              "cache_write_tokens": null,
+              "cached_tokens": 0,
+              "image_tokens": null,
+              "text_tokens": null
+            }
+          },
+          "capture_ids": [
+            "9eed06cb-a6ca-4068-8ab6-ce98a09fd2b4"
+          ],
+          "output": {
+            "objects": [
+              "A gray upright rectangular device or panel with a small black-and-white square pattern near the top",
+              "A red rectangular card or panel in front of the gray device, marked with a yellow circle and cross"
+            ],
+            "description": "The objects are centered against a plain background, with a gray surface below.",
+            "visibility": "clear"
+          }
+        }
+      ]
+    }
+  ]
+}
