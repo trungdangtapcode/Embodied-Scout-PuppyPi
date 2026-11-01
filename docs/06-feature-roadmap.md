@@ -63,7 +63,7 @@ hardware/model extensions. Priorities are dependencies, not calendar promises.
 | F28 | Operate missions from one interface | Prototype: mobile teach/manual control/inspect integrated; search pending | P1 | Browser workflows cover library, recorded-evidence inspection, camera, stop and health; autonomous search UI remains pending | F06, F07, F10 |
 | F29 | Issue spoken requests and hear results | Planned | P3 | Reuse the validated text task path; handle ASR errors and cancellation | F16, F28 |
 | F30 | Teach and replay a route using visual landmarks | Planned | P3 | Evaluate repeatability and interventions on held-out route conditions | F09 |
-| F31 | Propose unfamiliar objects from image/text prompts | Planned | P2 | Evaluate pretrained proposals on real crops, including missed objects | F01, F06 |
+| F31 | Propose unfamiliar objects from image/text prompts | Integrated visual-prompt execution subset on rendered input; text prompts and reliable identity remain pending | P2 | [Actual YOLOE app](24-yoloe-vision.md): 58 frames, upstream SAVPE + ByteTrack, persisted boxes/masks/crops and explicit artifact failures; false positives and held-out real-room quality remain open | F01, F06 |
 | F32 | Compare algorithms through repeatable experiments | Prototype: custom heuristic/oracle fixture ablation; no research-repo comparison | P1 | Reproduce paired trials and export metrics with revision/config/seed | F08 |
 | F33 | Connect a phone as a third-person camera | Planned | P1 | View both sources with capture time, frame age, and disconnect state | F06, F28 |
 | F34 | Show externally measured robot position | Planned | P1 | Calibrate phone/world/robot geometry; measure pose error; reject lost or invalid calibration | F33 |

@@ -1,0 +1,200 @@
+[
+  {
+    "case": "missing-source",
+    "job": {
+      "id": "5b30b25a-d755-434b-ba01-763f43e91b8f",
+      "kind": "vision",
+      "mode": "synthetic",
+      "request_key": "artifact-failure-missing-source",
+      "created_at": "2026-11-01T13:09:15.919812+00:00",
+      "status": "failed",
+      "stage": "failed",
+      "started_at": "2026-11-01T13:09:15.952419+00:00",
+      "finished_at": "2026-11-01T13:09:15.962841+00:00",
+      "worker_id": "49100e1d-463e-44a8-8ef1-29df7deae235",
+      "dispatched_at": "2026-11-01T13:09:15.941266+00:00",
+      "error_code": "VISION_SOURCE_MISSING",
+      "model": "yoloe-v8s-seg",
+      "request": {
+        "frame_id": "eab5a71e-70dd-4000-8c6e-5f2b00bc2664:25",
+        "object_ids": [
+          "65a92219-059d-41df-bbbe-7ea7ef2aff30",
+          "d83c3a72-8024-4ea8-94f2-36944e74bf33",
+          "8826f5cb-2868-43ca-b559-12fbafaef220"
+        ]
+      },
+      "result": null,
+      "steps": [
+        {
+          "stage": "execution_error",
+          "created_at": "2026-11-01T13:09:15.960834+00:00",
+          "code": "VISION_SOURCE_MISSING",
+          "exception_type": "AssistantError",
+          "message": "Pinned YOLOE source is unavailable.",
+          "required_profile": {
+            "enabled": true,
+            "upstream_path": "/home/nguyentnt/PDWAIA/ecus/hi/runs/vision-app-2026-11-01-final-crops/missing-source",
+            "checkpoint": "data/models/yoloe/yoloe-v8s-seg.pt",
+            "upstream_revision": "40cd606cabdbe2b566d6f14a6b162c89206e9a1b",
+            "checkpoint_sha256": "ac2b90ed23011495a3e86d89caeb3432a15129cac8d849ba121293c8fc1e0536",
+            "checkpoint_revision": "b584da188a198a2e6aa0e013d3fef6d55b212603",
+            "model": "yoloe-v8s-seg",
+            "device": "cpu",
+            "torch_threads": 2,
+            "image_size": 640,
+            "score_threshold": 0.2,
+            "tile_size": 320,
+            "reference_size": 200,
+            "max_objects": 8,
+            "max_references": 6,
+            "max_frames": 12,
+            "max_frame_gap_s": 1.0,
+            "job_timeout_s": 120.0,
+            "heartbeat_s": 2.0,
+            "worker_stale_s": 15.0,
+            "polling_s": 0.25,
+            "history_limit": 20,
+            "track_high_thresh": 0.25,
+            "track_low_thresh": 0.1,
+            "new_track_thresh": 0.25,
+            "track_buffer": 30,
+            "match_thresh": 0.8,
+            "fuse_score": true
+          }
+        }
+      ]
+    }
+  },
+  {
+    "case": "missing-checkpoint",
+    "job": {
+      "id": "c239956b-582b-474a-9327-d7da62fdbd69",
+      "kind": "vision",
+      "mode": "synthetic",
+      "request_key": "artifact-failure-missing-checkpoint",
+      "created_at": "2026-11-01T13:09:16.139949+00:00",
+      "status": "failed",
+      "stage": "failed",
+      "started_at": "2026-11-01T13:09:16.217440+00:00",
+      "finished_at": "2026-11-01T13:09:16.386103+00:00",
+      "worker_id": "49100e1d-463e-44a8-8ef1-29df7deae235",
+      "dispatched_at": "2026-11-01T13:09:16.144566+00:00",
+      "error_code": "VISION_CHECKPOINT_MISSING",
+      "model": "yoloe-v8s-seg",
+      "request": {
+        "frame_id": "eab5a71e-70dd-4000-8c6e-5f2b00bc2664:25",
+        "object_ids": [
+          "65a92219-059d-41df-bbbe-7ea7ef2aff30",
+          "d83c3a72-8024-4ea8-94f2-36944e74bf33",
+          "8826f5cb-2868-43ca-b559-12fbafaef220"
+        ]
+      },
+      "result": null,
+      "steps": [
+        {
+          "stage": "execution_error",
+          "created_at": "2026-11-01T13:09:16.383522+00:00",
+          "code": "VISION_CHECKPOINT_MISSING",
+          "exception_type": "AssistantError",
+          "message": "The required YOLOE checkpoint is unavailable.",
+          "required_profile": {
+            "enabled": true,
+            "upstream_path": ".upstream/yoloe",
+            "checkpoint": "/home/nguyentnt/PDWAIA/ecus/hi/runs/vision-app-2026-11-01-final-crops/missing-checkpoint.pt",
+            "upstream_revision": "40cd606cabdbe2b566d6f14a6b162c89206e9a1b",
+            "checkpoint_sha256": "ac2b90ed23011495a3e86d89caeb3432a15129cac8d849ba121293c8fc1e0536",
+            "checkpoint_revision": "b584da188a198a2e6aa0e013d3fef6d55b212603",
+            "model": "yoloe-v8s-seg",
+            "device": "cpu",
+            "torch_threads": 2,
+            "image_size": 640,
+            "score_threshold": 0.2,
+            "tile_size": 320,
+            "reference_size": 200,
+            "max_objects": 8,
+            "max_references": 6,
+            "max_frames": 12,
+            "max_frame_gap_s": 1.0,
+            "job_timeout_s": 120.0,
+            "heartbeat_s": 2.0,
+            "worker_stale_s": 15.0,
+            "polling_s": 0.25,
+            "history_limit": 20,
+            "track_high_thresh": 0.25,
+            "track_low_thresh": 0.1,
+            "new_track_thresh": 0.25,
+            "track_buffer": 30,
+            "match_thresh": 0.8,
+            "fuse_score": true
+          }
+        }
+      ]
+    }
+  },
+  {
+    "case": "corrupt-checkpoint",
+    "job": {
+      "id": "acd7b5d9-6774-4359-8bce-a5530ed743bd",
+      "kind": "vision",
+      "mode": "synthetic",
+      "request_key": "artifact-failure-corrupt-checkpoint",
+      "created_at": "2026-11-01T13:09:16.565441+00:00",
+      "status": "failed",
+      "stage": "failed",
+      "started_at": "2026-11-01T13:09:16.641944+00:00",
+      "finished_at": "2026-11-01T13:09:16.810290+00:00",
+      "worker_id": "49100e1d-463e-44a8-8ef1-29df7deae235",
+      "dispatched_at": "2026-11-01T13:09:16.570907+00:00",
+      "error_code": "VISION_CHECKPOINT_MISMATCH",
+      "model": "yoloe-v8s-seg",
+      "request": {
+        "frame_id": "eab5a71e-70dd-4000-8c6e-5f2b00bc2664:25",
+        "object_ids": [
+          "65a92219-059d-41df-bbbe-7ea7ef2aff30",
+          "d83c3a72-8024-4ea8-94f2-36944e74bf33",
+          "8826f5cb-2868-43ca-b559-12fbafaef220"
+        ]
+      },
+      "result": null,
+      "steps": [
+        {
+          "stage": "execution_error",
+          "created_at": "2026-11-01T13:09:16.808087+00:00",
+          "code": "VISION_CHECKPOINT_MISMATCH",
+          "exception_type": "AssistantError",
+          "message": "YOLOE checkpoint integrity verification failed.",
+          "required_profile": {
+            "enabled": true,
+            "upstream_path": ".upstream/yoloe",
+            "checkpoint": "/home/nguyentnt/PDWAIA/ecus/hi/runs/vision-app-2026-11-01-final-crops/explicit-corrupt-checkpoint.pt",
+            "upstream_revision": "40cd606cabdbe2b566d6f14a6b162c89206e9a1b",
+            "checkpoint_sha256": "ac2b90ed23011495a3e86d89caeb3432a15129cac8d849ba121293c8fc1e0536",
+            "checkpoint_revision": "b584da188a198a2e6aa0e013d3fef6d55b212603",
+            "model": "yoloe-v8s-seg",
+            "device": "cpu",
+            "torch_threads": 2,
+            "image_size": 640,
+            "score_threshold": 0.2,
+            "tile_size": 320,
+            "reference_size": 200,
+            "max_objects": 8,
+            "max_references": 6,
+            "max_frames": 12,
+            "max_frame_gap_s": 1.0,
+            "job_timeout_s": 120.0,
+            "heartbeat_s": 2.0,
+            "worker_stale_s": 15.0,
+            "polling_s": 0.25,
+            "history_limit": 20,
+            "track_high_thresh": 0.25,
+            "track_low_thresh": 0.1,
+            "new_track_thresh": 0.25,
+            "track_buffer": 30,
+            "match_thresh": 0.8,
+            "fuse_score": true
+          }
+        }
+      ]
+    }
+  }
+]

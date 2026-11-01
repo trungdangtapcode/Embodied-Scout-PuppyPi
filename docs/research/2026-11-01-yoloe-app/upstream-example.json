@@ -1,0 +1,36 @@
+{
+  "repository": "https://github.com/THU-MIG/yoloe",
+  "revision": "40cd606cabdbe2b566d6f14a6b162c89206e9a1b",
+  "license": "AGPL-3.0",
+  "checkpoint_sha256": "14e9c146f7f7efa0bfea8c5f82952c9f95fb1f9c3bf0f18b3727b76624f9d746",
+  "checkpoint_revision": "b584da188a198a2e6aa0e013d3fef6d55b212603",
+  "checkpoint_source": "https://huggingface.co/jameslahm/yoloe",
+  "files_sha256": {
+    "ultralytics/models/yolo/yoloe/predict_vp.py": "f949cc5ae2231b62803eab54b171e91285f07ab910fd432a4fcdcdc599e89455",
+    "ultralytics/nn/tasks.py": "011c6eec5648064767d3210754054fb31e18e2ef403dd9c32a3df520ccb308c7",
+    "ultralytics/data/augment.py": "6c7865ae86349a6397ffb7ff9fd1352d5e56de47e5d0627452f301820b850217",
+    "ultralytics/trackers/byte_tracker.py": "8e5dde817948b5fa8f7db9b1b0b79bbc0ede29959ad46863d9073dc0d4ed79b4"
+  },
+  "example": "predict_visual_prompt.py",
+  "model": "yoloe-v8l-seg",
+  "device": "cpu",
+  "outcome": "upstream_example_executed_not_application_quality_evidence",
+  "final_image_detections": [
+    [
+      121.1846923828125,
+      203.5523681640625,
+      1145.009033203125,
+      717.5401611328125,
+      0.5469490885734558,
+      0.0
+    ],
+    [
+      749.77490234375,
+      44.365814208984375,
+      1145.689697265625,
+      719.0975341796875,
+      0.4463302791118622,
+      0.0
+    ]
+  ]
+}

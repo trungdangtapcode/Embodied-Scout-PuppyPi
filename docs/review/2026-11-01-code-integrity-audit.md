@@ -141,3 +141,14 @@ tracking/world-model integration if still promised. No missing research model is
 replaced by the now-disclosed baseline. The original acceptance remains FAIL
 where its required components are absent. A follow-up implementation must start
 from verified suitable upstream code and checkpoints and pass its own gates.
+
+## Later model integration, preserving the audit snapshot
+
+This audit describes revision `81b3a6d` and its disclosure/guard corrections.
+A later [actual YOLOE/ByteTrack app run](../research/2026-11-01-yoloe-app/report.md)
+adds genuine learned proposals and upstream video association on rendered input.
+It does not retroactively change the audited demos or resolve exact-instance
+quality, automatic inspection, predictive world modeling, navigation or RL.
+Background/decoy failures are retained. The user's 0/10 rating and the broader
+critical incident remain unchanged. DINOv2 currently has a source/model probe,
+not app integration or verified identity.

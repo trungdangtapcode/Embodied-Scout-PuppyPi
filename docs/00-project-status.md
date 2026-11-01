@@ -57,6 +57,24 @@ missing research models or close the original incident.
 
 ## Implemented baseline
 
+### Later executed visual-prompt subset
+
+The [YOLOE app profile](24-yoloe-vision.md) now invokes the pinned author source,
+SAVPE checkpoint and the Ultralytics ByteTrack implementation in a separate CPU
+worker. The [actual execution report](research/2026-11-01-yoloe-app/report.md)
+records Library enrollment and camera-window inference through the browser on
+58 renderer frames, persisted masks/boxes/crops/associations, actual upstream
+call counts, desktop/phone screenshots and three artifact-failure jobs with null
+results. No GPU, paid API, Pi or physical robot was used in this new experiment.
+
+Execution is integrated; exact-identity quality is **FAIL / unverified**. Moving-
+object precision/recall was 59.3%/97.2% in the tiny development fixture; empty-room
+and decoy false positives remain, and changed-view recall was 72.2%. Do not count
+model execution as automatic inspection, learned room/world modeling, navigation
+or RL. F03 and the broader critical incident remain unpromoted. The separate
+[DINOv2 comparison proposal](25-visual-identity-fix-proposal.md) has genuine CPU
+probe evidence and is now accepted for implementation; app integration is the next step.
+
 The Python package implements AprilTag pose estimation, foreground proposals,
 multi-view appearance prototypes, distractor matching, station priors, search
 planning, a mission state machine, and ROS 2/TCP adapters. Tests cover synthetic

@@ -1,0 +1,262 @@
+{
+  "scope": "research_probe_not_integrated_identity_verifier",
+  "device": "cpu",
+  "repository": "https://github.com/facebookresearch/dinov2",
+  "revision": "7764ea0f912e53c92e82eb78a2a1631e92725fc8",
+  "license": "Apache-2.0 for this DINOv2 model/code profile",
+  "model": "dinov2_vits14",
+  "checkpoint_source": "https://dl.fbaipublicfiles.com/dinov2/dinov2_vits14/dinov2_vits14_pretrain.pth",
+  "checkpoint_sha256": "b938bf1bc15cd2ec0feacfe3a1bb553fe8ea9ca46a7e1d8d00217f29aef60cd9",
+  "digest_basis": "observed_download_digest_not_author_published_digest",
+  "entry_points": [
+    "torch.hub.load(source=local)",
+    "dinov2_vits14",
+    "make_classification_eval_transform",
+    "DinoVisionTransformer.forward"
+  ],
+  "files_sha256": {
+    "hubconf.py": "c1f5090e78ff940b72c076d2bf9c0310d1707c946b3d10e2d6f2b0bdf56a6f64",
+    "dinov2/hub/backbones.py": "871fca671b12a9ff02e810654baf509e97ccf461bf8196ce5ddeefff2fd87d3e",
+    "dinov2/models/vision_transformer.py": "7799a260f2d7d0fe197331d08502fb8c542f9b7424723650f6a39b64fa2639ea",
+    "dinov2/data/transforms.py": "725823be317c6a549810740c6566a2a448ba1eba85eea87769c10b986dda2e5b"
+  },
+  "embedding_dimension": 384,
+  "readout": "custom_max_reference_cosine_no_threshold_no_probability",
+  "warning": "Development scenes already inspected. No calibrated rejection, accuracy advantage or exact-identity guarantee.",
+  "records": [
+    {
+      "scene": "moving",
+      "frame_id": "1c66e25c-5825-4d5b-a854-2e77b21f039a:13",
+      "detection_index": 0,
+      "image_sha": "8f96b9d97e2678ed9d904b68bfd1d2a7d072c9d6248e419110e60f0692a25614",
+      "xyxy": [
+        126.09687042236328,
+        157.92185974121094,
+        224.31988525390625,
+        242.577880859375
+      ],
+      "yoloe_prompt_name": "secret_box_1",
+      "reference_max_cosines": {
+        "blue_tool_case": 0.4982212483882904,
+        "emerald_med_kit": 0.645231306552887,
+        "secret_box_1": 0.8657478094100952
+      }
+    },
+    {
+      "scene": "moving",
+      "frame_id": "1c66e25c-5825-4d5b-a854-2e77b21f039a:13",
+      "detection_index": 1,
+      "image_sha": "8f96b9d97e2678ed9d904b68bfd1d2a7d072c9d6248e419110e60f0692a25614",
+      "xyxy": [
+        261.07415771484375,
+        55.96630859375,
+        387.18450927734375,
+        218.20147705078125
+      ],
+      "yoloe_prompt_name": "blue_tool_case",
+      "reference_max_cosines": {
+        "blue_tool_case": 0.7080366611480713,
+        "emerald_med_kit": 0.7560412287712097,
+        "secret_box_1": 0.6768590807914734
+      }
+    },
+    {
+      "scene": "moving",
+      "frame_id": "1c66e25c-5825-4d5b-a854-2e77b21f039a:13",
+      "detection_index": 2,
+      "image_sha": "8f96b9d97e2678ed9d904b68bfd1d2a7d072c9d6248e419110e60f0692a25614",
+      "xyxy": [
+        292.99053955078125,
+        162.95901489257812,
+        377.87884521484375,
+        242.48580932617188
+      ],
+      "yoloe_prompt_name": "blue_tool_case",
+      "reference_max_cosines": {
+        "blue_tool_case": 0.9162607789039612,
+        "emerald_med_kit": 0.4883059561252594,
+        "secret_box_1": 0.48171859979629517
+      }
+    },
+    {
+      "scene": "moving",
+      "frame_id": "1c66e25c-5825-4d5b-a854-2e77b21f039a:13",
+      "detection_index": 3,
+      "image_sha": "8f96b9d97e2678ed9d904b68bfd1d2a7d072c9d6248e419110e60f0692a25614",
+      "xyxy": [
+        261.57965087890625,
+        56.633636474609375,
+        386.55474853515625,
+        217.29525756835938
+      ],
+      "yoloe_prompt_name": "secret_box_1",
+      "reference_max_cosines": {
+        "blue_tool_case": 0.7250052094459534,
+        "emerald_med_kit": 0.7475959658622742,
+        "secret_box_1": 0.6775508522987366
+      }
+    },
+    {
+      "scene": "moving",
+      "frame_id": "1c66e25c-5825-4d5b-a854-2e77b21f039a:13",
+      "detection_index": 4,
+      "image_sha": "8f96b9d97e2678ed9d904b68bfd1d2a7d072c9d6248e419110e60f0692a25614",
+      "xyxy": [
+        439.45831298828125,
+        163.50782775878906,
+        540.2213745117188,
+        242.5374755859375
+      ],
+      "yoloe_prompt_name": "emerald_med_kit",
+      "reference_max_cosines": {
+        "blue_tool_case": 0.543706476688385,
+        "emerald_med_kit": 0.8379682302474976,
+        "secret_box_1": 0.7551149129867554
+      }
+    },
+    {
+      "scene": "empty",
+      "frame_id": "5561706b-0e55-4569-9259-c31da7a5d4bf:3",
+      "detection_index": 0,
+      "image_sha": "19cd91184ca843f13eb571c495a33a7487a6c0c1185e3d8a24ca7696d8dd7b89",
+      "xyxy": [
+        261.13873291015625,
+        56.102783203125,
+        386.54461669921875,
+        218.4989013671875
+      ],
+      "yoloe_prompt_name": "blue_tool_case",
+      "reference_max_cosines": {
+        "blue_tool_case": 0.47187280654907227,
+        "emerald_med_kit": 0.5427236557006836,
+        "secret_box_1": 0.5094172954559326
+      }
+    },
+    {
+      "scene": "decoy",
+      "frame_id": "5f2eadbc-a3a3-43a3-9ff9-4e665d501fa9:2",
+      "detection_index": 0,
+      "image_sha": "16d16feeaf00c46cffbcd3d78f09927f52c90d1d4449dd3d95e693436cc3c973",
+      "xyxy": [
+        261.0498962402344,
+        56.043975830078125,
+        386.5870666503906,
+        217.51458740234375
+      ],
+      "yoloe_prompt_name": "blue_tool_case",
+      "reference_max_cosines": {
+        "blue_tool_case": 0.5184656977653503,
+        "emerald_med_kit": 0.6536692976951599,
+        "secret_box_1": 0.7497376203536987
+      }
+    },
+    {
+      "scene": "decoy",
+      "frame_id": "5f2eadbc-a3a3-43a3-9ff9-4e665d501fa9:2",
+      "detection_index": 1,
+      "image_sha": "16d16feeaf00c46cffbcd3d78f09927f52c90d1d4449dd3d95e693436cc3c973",
+      "xyxy": [
+        261.60980224609375,
+        56.1025390625,
+        386.55413818359375,
+        218.07354736328125
+      ],
+      "yoloe_prompt_name": "secret_box_1",
+      "reference_max_cosines": {
+        "blue_tool_case": 0.5069520473480225,
+        "emerald_med_kit": 0.6564474701881409,
+        "secret_box_1": 0.7493418455123901
+      }
+    },
+    {
+      "scene": "decoy",
+      "frame_id": "5f2eadbc-a3a3-43a3-9ff9-4e665d501fa9:2",
+      "detection_index": 2,
+      "image_sha": "16d16feeaf00c46cffbcd3d78f09927f52c90d1d4449dd3d95e693436cc3c973",
+      "xyxy": [
+        285.14337158203125,
+        158.3471221923828,
+        363.38299560546875,
+        242.07879638671875
+      ],
+      "yoloe_prompt_name": "secret_box_1",
+      "reference_max_cosines": {
+        "blue_tool_case": 0.4752628803253174,
+        "emerald_med_kit": 0.446370393037796,
+        "secret_box_1": 0.6192970275878906
+      }
+    },
+    {
+      "scene": "changed_view",
+      "frame_id": "505755c5-0dfb-4891-a9d8-6bd76a9ac20b:2",
+      "detection_index": 0,
+      "image_sha": "0cbde8f0f48a22eb6030a6cdba9ead2257ce27dfdbc672b85d2a047c1a0b1efa",
+      "xyxy": [
+        77.99856567382812,
+        158.04544067382812,
+        182.80508422851562,
+        246.39187622070312
+      ],
+      "yoloe_prompt_name": "secret_box_1",
+      "reference_max_cosines": {
+        "blue_tool_case": 0.4760145843029022,
+        "emerald_med_kit": 0.6204984188079834,
+        "secret_box_1": 0.881417453289032
+      }
+    },
+    {
+      "scene": "changed_view",
+      "frame_id": "505755c5-0dfb-4891-a9d8-6bd76a9ac20b:2",
+      "detection_index": 1,
+      "image_sha": "0cbde8f0f48a22eb6030a6cdba9ead2257ce27dfdbc672b85d2a047c1a0b1efa",
+      "xyxy": [
+        255.34033203125,
+        163.012939453125,
+        340.58184814453125,
+        242.89788818359375
+      ],
+      "yoloe_prompt_name": "blue_tool_case",
+      "reference_max_cosines": {
+        "blue_tool_case": 0.9103410840034485,
+        "emerald_med_kit": 0.49440670013427734,
+        "secret_box_1": 0.48271048069000244
+      }
+    },
+    {
+      "scene": "changed_view",
+      "frame_id": "505755c5-0dfb-4891-a9d8-6bd76a9ac20b:2",
+      "detection_index": 2,
+      "image_sha": "0cbde8f0f48a22eb6030a6cdba9ead2257ce27dfdbc672b85d2a047c1a0b1efa",
+      "xyxy": [
+        216.6451416015625,
+        54.40850830078125,
+        343.56298828125,
+        218.1630859375
+      ],
+      "yoloe_prompt_name": "blue_tool_case",
+      "reference_max_cosines": {
+        "blue_tool_case": 0.67044997215271,
+        "emerald_med_kit": 0.7607508301734924,
+        "secret_box_1": 0.684617817401886
+      }
+    },
+    {
+      "scene": "changed_view",
+      "frame_id": "505755c5-0dfb-4891-a9d8-6bd76a9ac20b:2",
+      "detection_index": 3,
+      "image_sha": "0cbde8f0f48a22eb6030a6cdba9ead2257ce27dfdbc672b85d2a047c1a0b1efa",
+      "xyxy": [
+        216.4752197265625,
+        54.92169189453125,
+        343.509033203125,
+        217.53668212890625
+      ],
+      "yoloe_prompt_name": "secret_box_1",
+      "reference_max_cosines": {
+        "blue_tool_case": 0.6728380918502808,
+        "emerald_med_kit": 0.7579072117805481,
+        "secret_box_1": 0.676644504070282
+      }
+    }
+  ]
+}

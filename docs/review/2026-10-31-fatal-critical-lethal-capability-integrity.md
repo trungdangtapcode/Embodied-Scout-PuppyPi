@@ -250,3 +250,21 @@ Historical paid model runs remain separate evidence.
 The identified reporting/guard defects have software corrections; absent tracking,
 learned world modeling, VLA/RL and physical navigation are not repaired by them.
 The original acceptance gates remain binding and the user's 0/10 rating is retained.
+
+## Later genuine vision execution; identity-quality gate still FAIL
+
+The [YOLOE application execution](../research/2026-11-01-yoloe-app/report.md)
+now records actual author source/checkpoint inference, actual Ultralytics
+ByteTrack calls, persisted outputs and browser screenshots on 58 synthetic
+renderer frames. Three real worker jobs fail explicitly for unavailable or corrupt
+artifacts with null results. This repairs the absence of an executed vision
+proposal/association app path for that bounded profile; it does not establish
+robust exact identity. Empty-room background and look-alike false candidates
+remain. No ground truth, baseline or manual label corrects those outputs.
+
+The [DINOv2 comparison-stage proposal](../25-visual-identity-fix-proposal.md)
+has genuine CPU feature-extraction probe evidence but is not integrated. Changing
+the pipeline requires the user's agreed revision; do not silently add a threshold
+or revise acceptance after these failures. Automatic inspection/current room
+state, predictive world modeling, navigation and learned locomotion remain open.
+The incident remains OPEN / FAIL and the user's rating remains 0/10.

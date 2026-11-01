@@ -11,6 +11,13 @@ maps actual runtime methods to sources. The app exposes the same method inventor
 custom Python/OpenCV baselines, operator/script assertions and genuine optional
 Mind Palace inference are explicitly distinguished.
 
+The optional [YOLOE visual-prompt app](docs/24-yoloe-vision.md) now runs the
+actual author implementation/checkpoint and ByteTrack on a separate CPU worker.
+[Real app execution on rendered images](docs/research/2026-11-01-yoloe-app/report.md)
+includes screenshots and raw errors: execution works, but exact-identity quality
+still fails on background and look-alike false positives. No autonomous patrol,
+learned predictive world model or RL locomotion is established by this integration.
+
 The repository contains a software prototype for synthetic few-shot object
 search, multi-view verification, topological planning, AprilTag recovery, and a
 ROS 2/TCP bridge with a tested loopback watchdog. It also includes synthetic

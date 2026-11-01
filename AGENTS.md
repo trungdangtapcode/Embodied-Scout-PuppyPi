@@ -138,6 +138,24 @@
   Consult `docs/22-mind-palace-app.md` and its actual execution report before
   promoting this profile's status or claiming a research advantage.
 
+## Visual perception worker
+
+- The optional app vision profile uses the pinned YOLOE author implementation,
+  its SAVPE checkpoint and the Ultralytics ByteTrack implementation distributed
+  in that source. Use `make vision-setup` and the separate `.venv-vision` CPU
+  worker. Preserve the other environments; do not import its models into the
+  camera/control worker or install both OpenCV wheel variants in one environment.
+- Consult `docs/24-yoloe-vision.md` and the actual app execution report. A completed
+  inference job is not a passed identity-quality gate. Keep raw false positives,
+  missed detections and conflicting prompt labels visible; never correct them
+  with simulator truth or an undisclosed marker/background blacklist.
+- Rendered references and scenes are explicitly authored test inputs. Evaluator
+  object identities, boxes and trajectories must not enter inference. Record
+  source/checkpoint hashes and executed upstream calls separately from inventory.
+- The DINOv2 research probe is not an integrated instance verifier. Implementing
+  its proposed comparison stage requires the agreed pipeline revision; do not
+  promote a probe, cosine score or installed source to verified identity.
+
 ## Robot execution
 
 - Physical actuation must be within the user's authorized task. Default tests

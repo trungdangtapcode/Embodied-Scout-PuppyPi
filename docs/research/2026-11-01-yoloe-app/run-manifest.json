@@ -1,0 +1,26 @@
+{
+  "mode": "synthetic",
+  "device": "cpu",
+  "paid_api_calls": 0,
+  "root_revision_before_run": "a37fb576c3a55efee3b330b2c78532930b913985",
+  "uncommitted_source": true,
+  "source_sha256": {
+    "teach_and_find/config.py": "e9d27374f960c04470484eb4bfc695c27cf1a938caeac6a976ccae88c9bc0677",
+    "teach_and_find/storage.py": "774276d2958760e7373f9e51b0e0523be9893307a2dd99a2e47181fd4ab0e5c4",
+    "teach_and_find/yoloe_adapter.py": "576e3d261fe19780c67a0258fe3f3bc17d4837f7254a736f95a92c8642405bf4",
+    "teach_and_find/vision_service.py": "2b15f8f5fc54c7ea9d98e1a6087d31645609a5b011322ac067bf3081c0df91fc",
+    "teach_and_find/vision_worker.py": "a67e9548ff213c52db4059c4db0c86baf11048a857296e2845db7e6ec3f0ffbe",
+    "teach_and_find/memory_queue.py": "d5aca3384534cf7edcaf135d09ce9cc6ae8a2cdab1c585b55fcbdad5e0ace5f2",
+    "teach_and_find/mobile/api.py": "f2695b0522a733d346687e64d710ad40f07a1f9a97644aa61d65d77c76bb3561",
+    "teach_and_find/mobile/runtime.py": "b93e31f116000cda4f8cdff033eeb86c31c442ca97772f5d86b068e27f46bef1",
+    "teach_and_find/sim/world3d.py": "1b9ea64e4c16830524082dc86e3383d159b657be35e58deb329cc4cdd0d95830",
+    "web/src/VisionConsole.tsx": "29220fc60c732feb22fddb5a494aee1e10a4bb6854cb80fa0cae66370abc086d",
+    "scripts/research_vision_server.py": "79178361fa448197ee928c366db0d386d4f328d04500583832f263d9e38e0d32",
+    "scripts/research_vision_capture.mjs": "24c36bf2f2b4959f520260d302086b7a727acf7393b75036e2b885c3c5caac30",
+    "scripts/research_vision_eval.py": "0e6df2fad7c31ca698d79ef25a2230664958bd8a190c4bdc70ede33061a38f0c",
+    "scripts/research_vision_failures.py": "5b34459ee6d8e1ca82363c38fbea3835f7b05989bdc5a786ce338dda2bcd404c",
+    "requirements/vision-cpu.txt": "25852328c1ca34554dd6ffaf3d98f3b569d21bea0c9572f88bcfa45f24404176"
+  },
+  "method": "actual_yoloe_author_implementation_and_ultralytics_bytetrack_on_rendered_images",
+  "claim_boundary": "model_execution_not_identity_quality_navigation_RL_or_physical_verification"
+}

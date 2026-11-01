@@ -1,0 +1,92 @@
+{
+  "mode": "synthetic",
+  "iou_threshold": 0.5,
+  "score_threshold": 0.2,
+  "scope": "tiny_renderer_acceptance_not_held_out_real_room_quality",
+  "matching": "descending_score_one_to_one_same_enrollment_class",
+  "truth_never_used_by_inference": true,
+  "scenes": {
+    "moving": {
+      "frames": 12,
+      "ground_truth_enrolled_instances": 36,
+      "true_positives": 35,
+      "false_positives": 24,
+      "false_negatives": 1,
+      "precision": 0.5932203389830508,
+      "recall": 0.9722222222222222,
+      "track_id_changes_between_matched_observations": 0,
+      "track_ids_by_matched_object": {
+        "secret_box_1": [
+          1
+        ],
+        "blue_tool_case": [
+          2
+        ],
+        "emerald_med_kit": [
+          7
+        ]
+      },
+      "mean_frame_inference_s": 0.1272595551175376,
+      "job_model_elapsed_s": 5.055760188959539
+    },
+    "empty": {
+      "frames": 12,
+      "ground_truth_enrolled_instances": 0,
+      "true_positives": 0,
+      "false_positives": 12,
+      "false_negatives": 0,
+      "precision": 0.0,
+      "recall": null,
+      "track_id_changes_between_matched_observations": 0,
+      "track_ids_by_matched_object": {},
+      "mean_frame_inference_s": 0.10287603867861132,
+      "job_model_elapsed_s": 2.046406160108745
+    },
+    "decoy": {
+      "frames": 11,
+      "ground_truth_enrolled_instances": 0,
+      "true_positives": 0,
+      "false_positives": 33,
+      "false_negatives": 0,
+      "precision": 0.0,
+      "recall": null,
+      "track_id_changes_between_matched_observations": 0,
+      "track_ids_by_matched_object": {},
+      "mean_frame_inference_s": 0.12745687323199076,
+      "job_model_elapsed_s": 2.2987789819017053
+    },
+    "occluded": {
+      "frames": 11,
+      "ground_truth_enrolled_instances": 0,
+      "true_positives": 0,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "precision": null,
+      "recall": null,
+      "track_id_changes_between_matched_observations": 0,
+      "track_ids_by_matched_object": {},
+      "mean_frame_inference_s": 0.11710363558747551,
+      "job_model_elapsed_s": 2.143012803979218
+    },
+    "changed_view": {
+      "frames": 12,
+      "ground_truth_enrolled_instances": 36,
+      "true_positives": 26,
+      "false_positives": 24,
+      "false_negatives": 10,
+      "precision": 0.52,
+      "recall": 0.7222222222222222,
+      "track_id_changes_between_matched_observations": 0,
+      "track_ids_by_matched_object": {
+        "secret_box_1": [
+          1
+        ],
+        "blue_tool_case": [
+          2
+        ]
+      },
+      "mean_frame_inference_s": 0.11874952244882782,
+      "job_model_elapsed_s": 2.2723726220428944
+    }
+  }
+}
