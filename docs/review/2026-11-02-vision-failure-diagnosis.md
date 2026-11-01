@@ -96,3 +96,12 @@ policy and acquisition of discriminative views for ambiguous observations, under
 an agreed revision. More passing software tests alone cannot satisfy that quality
 gate. The existing app remains a genuine model-backed candidate system with
 unresolved exact-identity acceptance.
+
+## Subsequent visual evidence
+
+The [visual atlas](../research/2026-11-01-dual-vision-app/figures/README.md) and
+[figure PDF](../research/2026-11-01-dual-vision-app/figures/figures.pdf) now show
+all nine conditions, actual model masks/boxes, failure crops/reference comparisons,
+error/recall trade-offs and stage losses. A complete local gallery covers all 103
+recorded model frames. This is visualization of existing evidence, not a method
+change, new inference or a passed identity-quality gate.

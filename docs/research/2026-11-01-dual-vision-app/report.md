@@ -67,6 +67,28 @@ reason, candidate/reference images, temporary track ID and source/checkpoint tra
 All raw false/background proposals remain visible. A rule pass is never displayed
 as confirmed identity. Historical jobs without DINOv2 are explicitly labeled.
 
+## Visual completeness update (2026-11-02)
+
+The original report had two application screenshots and one selected raw input.
+The [full visual atlas](figures/README.md) now adds **16 PNG/SVG figures** and a
+[16-page PDF](figures/figures.pdf): all nine source conditions, all nine representative
+model-output panels, nine enrolled reference inputs, paired false-candidate/recall
+plots, stage-loss attribution, failure crops/reference comparisons and actual track
+observations. The counts and figures include errors and empty tracking results.
+
+![Recorded model outputs for every condition; rejected proposals remain visible](figures/03-nine-model-outputs.png)
+
+![Measured reference-gate rejections, detector misses and false accepts](figures/06-failure-case-evidence.png)
+
+A complete local gallery renders every one of the **103 captured model-output
+frames**. Its portable archive includes all **108 authored source files** (53
+distinct file contents), input PNGs, raw outputs and frame hashes. The complete
+stream/archive remains in ignored `runs/`; paths and hashes are recorded in the
+[atlas](figures/README.md) and [archive manifest](figures/archive-manifest.json).
+These figures are derived from the frozen run, not newly generated predictions,
+new inference or new evidence of recognition quality. Evaluator ground truth is
+explicitly separate from model output. The fatal incident remains OPEN / FAIL.
+
 ## Paired outcomes and limits
 
 Nine application jobs processed **103 frames**. Both variants below use the same

@@ -1,0 +1,466 @@
+{
+  "schema_version": 1,
+  "artifact_type": "derived_scientific_figures_not_new_inference",
+  "input_directory": "/home/nguyentnt/PDWAIA/ecus/hi/runs/dual-vision-app-2026-11-01-final",
+  "raw_output_sha256": "750a87051aa1bfca1944f43b0052079e692d1c674540a297d6d9181f7d06f851",
+  "quality_sha256": "ead65943c7fa4831e4ef73d5190ea5ef7ae2a9f0687520619e1f2807939b94fb",
+  "renderer_truth_sha256": "2850ffd44917f717d3d16e6435de78b47de787ee5a9d30e17fc5c0c7102e3418",
+  "rendered_source_files": 108,
+  "unique_rendered_file_contents": 53,
+  "model_processed_frames": 103,
+  "source_images_used": {
+    "bbd0cf79105615eed23cf10df2f4aa1523213e0727943be8708cdbe2370ddd30": "state/images/bbd0cf79105615eed23cf10df2f4aa1523213e0727943be8708cdbe2370ddd30.png",
+    "e88351b9c7b3a622826a68f022d147a78ca6f83005a0c192a96a6c8a86ee015a": "state/images/e88351b9c7b3a622826a68f022d147a78ca6f83005a0c192a96a6c8a86ee015a.png",
+    "315338b42fea344513194212021c0ce8009a1dc543fba05664ecce616c71ad7e": "state/images/315338b42fea344513194212021c0ce8009a1dc543fba05664ecce616c71ad7e.png",
+    "afde936ddc714931204c641e4369ca6d8ddbc1fa7895fc4b9bb0a0d74d13c122": "state/images/afde936ddc714931204c641e4369ca6d8ddbc1fa7895fc4b9bb0a0d74d13c122.png",
+    "c5971a8f2ff044612babf307ad07cd7d729151722187219cee7ad2b318fb853d": "state/images/c5971a8f2ff044612babf307ad07cd7d729151722187219cee7ad2b318fb853d.png",
+    "05609f81412ec8b35f7393bc038948adfa345480499e2755093db1852cff4dea": "state/images/05609f81412ec8b35f7393bc038948adfa345480499e2755093db1852cff4dea.png",
+    "af4fcd4f6870e1e0fdcbb4c004d6c00f4c669921cd8dff078d6da7764548f541": "state/images/af4fcd4f6870e1e0fdcbb4c004d6c00f4c669921cd8dff078d6da7764548f541.png",
+    "df9f62837e85916d47cd67da935bb08fe496e03dd09d6643fca194e89b23233b": "state/images/df9f62837e85916d47cd67da935bb08fe496e03dd09d6643fca194e89b23233b.png",
+    "c6507d060bdbfdfe796ac4e7298810c26405bc1cdff3a583a008745d7228514f": "state/images/c6507d060bdbfdfe796ac4e7298810c26405bc1cdff3a583a008745d7228514f.png",
+    "e600ea9b2d2fe8d80c81fdff8c97c780c044d78a7051d4b43ee3518f6d993ff7": "state/images/e600ea9b2d2fe8d80c81fdff8c97c780c044d78a7051d4b43ee3518f6d993ff7.png",
+    "19cd91184ca843f13eb571c495a33a7487a6c0c1185e3d8a24ca7696d8dd7b89": "state/images/19cd91184ca843f13eb571c495a33a7487a6c0c1185e3d8a24ca7696d8dd7b89.png",
+    "16d16feeaf00c46cffbcd3d78f09927f52c90d1d4449dd3d95e693436cc3c973": "state/images/16d16feeaf00c46cffbcd3d78f09927f52c90d1d4449dd3d95e693436cc3c973.png",
+    "5d96dbc2c1d4a20a27a5c15ea5b887152818617446de03059def83bb146a6326": "state/images/5d96dbc2c1d4a20a27a5c15ea5b887152818617446de03059def83bb146a6326.png",
+    "0cbde8f0f48a22eb6030a6cdba9ead2257ce27dfdbc672b85d2a047c1a0b1efa": "state/images/0cbde8f0f48a22eb6030a6cdba9ead2257ce27dfdbc672b85d2a047c1a0b1efa.png",
+    "cd7d790356004edb9e8fdc0127d572803d73699f5f8b2f34606a5819eeb1668c": "state/images/cd7d790356004edb9e8fdc0127d572803d73699f5f8b2f34606a5819eeb1668c.png",
+    "8f0e3de3a1bede6b9cf4ec5b13af8046b7a4d8215d345697c25b50cd45a1601e": "state/images/8f0e3de3a1bede6b9cf4ec5b13af8046b7a4d8215d345697c25b50cd45a1601e.png",
+    "7dcb552892c0b1af2cd99939368ecaae8c4343f2a2b45e57c6722e4812a51874": "state/images/7dcb552892c0b1af2cd99939368ecaae8c4343f2a2b45e57c6722e4812a51874.png",
+    "10e4b8ae906b243a4480dd224375b2809f03d4503501e00a803e49c5d0cb43b2": "state/images/10e4b8ae906b243a4480dd224375b2809f03d4503501e00a803e49c5d0cb43b2.png",
+    "e42b3da07fce7f21cba0c038c8c6b1c44b2af2f863fb37e086307b4e482a83dc": "state/images/e42b3da07fce7f21cba0c038c8c6b1c44b2af2f863fb37e086307b4e482a83dc.png",
+    "4ba9a1a4fae1abfea3bee0622dd9bae4ddad47b4ea39ec9b1ba567461b6a2cb7": "state/images/4ba9a1a4fae1abfea3bee0622dd9bae4ddad47b4ea39ec9b1ba567461b6a2cb7.png",
+    "6d894ed7e61931a6f8d3d37015d4f9bffd5dbdc638a926d351fffeb3adf66663": "state/images/6d894ed7e61931a6f8d3d37015d4f9bffd5dbdc638a926d351fffeb3adf66663.png",
+    "4b9bd892254b0541d5f9fcae17b7a76a7ead3bf4b4493d1861e31e13900d70ab": "state/images/4b9bd892254b0541d5f9fcae17b7a76a7ead3bf4b4493d1861e31e13900d70ab.png",
+    "5a80bd97e1f22b1cf929c25d3bd26f581b229507b5ce34405ad92ccad3b759f4": "state/images/5a80bd97e1f22b1cf929c25d3bd26f581b229507b5ce34405ad92ccad3b759f4.png",
+    "7f29311a280c8a542c39e5cda4bdd3e92037ab784bd56df5418185c1b7c93932": "state/images/7f29311a280c8a542c39e5cda4bdd3e92037ab784bd56df5418185c1b7c93932.png",
+    "cba59df7655295c1d979cf421fe6b60ef557cfc51a7ba61f96335146012941a5": "state/images/cba59df7655295c1d979cf421fe6b60ef557cfc51a7ba61f96335146012941a5.png",
+    "03f8daf4b29d99c18b0f6ef84ef5da05f02d88029e4e33376b63d8e04da6d3c8": "state/images/03f8daf4b29d99c18b0f6ef84ef5da05f02d88029e4e33376b63d8e04da6d3c8.png",
+    "7ccf0b6e859b893a10f56162686328ab12accbbfe1f048f6c118a01dcb8fb4af": "state/images/7ccf0b6e859b893a10f56162686328ab12accbbfe1f048f6c118a01dcb8fb4af.png",
+    "5cd12491df89aa81da089cbbaf51a66adf891e50d625f8d5a6f987825b94703a": "state/images/5cd12491df89aa81da089cbbaf51a66adf891e50d625f8d5a6f987825b94703a.png",
+    "23776fad938b44242ba3efa27329c592a0531e0aabdd783b41c0ed32021ab9cb": "state/images/23776fad938b44242ba3efa27329c592a0531e0aabdd783b41c0ed32021ab9cb.png",
+    "8f96b9d97e2678ed9d904b68bfd1d2a7d072c9d6248e419110e60f0692a25614": "state/images/8f96b9d97e2678ed9d904b68bfd1d2a7d072c9d6248e419110e60f0692a25614.png",
+    "af108dd0eb4bd5851e76bfa12b56bfeb879a403fe70932e45b80f5c7a4f0a9db": "state/images/af108dd0eb4bd5851e76bfa12b56bfeb879a403fe70932e45b80f5c7a4f0a9db.png",
+    "1714a79efff2eb88f71bfca510c47f2794bba82be94a851ffeae19de4ae1e863": "state/images/1714a79efff2eb88f71bfca510c47f2794bba82be94a851ffeae19de4ae1e863.png",
+    "98b3f49e5d3cf8328920de98c8a6ad5da922887c8eb0285acd0e20db83497976": "state/images/98b3f49e5d3cf8328920de98c8a6ad5da922887c8eb0285acd0e20db83497976.png",
+    "22dfaabac90c2febaf788c2695a2f0fd2c7466c16990027226300aa731273e9c": "state/images/22dfaabac90c2febaf788c2695a2f0fd2c7466c16990027226300aa731273e9c.png",
+    "f42a486a415efad49a310ef0f4b4b80aa694d2fb7e46c9ec098e53ae25ff63cb": "state/images/f42a486a415efad49a310ef0f4b4b80aa694d2fb7e46c9ec098e53ae25ff63cb.png",
+    "27afca2768c37e516745cbc9e7513a12ca42b6d69485979d2c433ee655477dc7": "state/images/27afca2768c37e516745cbc9e7513a12ca42b6d69485979d2c433ee655477dc7.png",
+    "1da88eb15a66cf8810472fa23399313b81caa79b25dcb227daad0ddfd16d1b2d": "state/images/1da88eb15a66cf8810472fa23399313b81caa79b25dcb227daad0ddfd16d1b2d.png",
+    "56886ef470c40fea5f2569a0b72db3bffa401f0755624e567c1afa049ae8f6be": "state/images/56886ef470c40fea5f2569a0b72db3bffa401f0755624e567c1afa049ae8f6be.png",
+    "51ade9c259b0083cfbfdbe13d222716527cf7cb5722a375e2cb5f81cc8366381": "state/images/51ade9c259b0083cfbfdbe13d222716527cf7cb5722a375e2cb5f81cc8366381.png",
+    "b2daa596e170989ff4a47180aa3baeefa0b6bacf6d2327487016d52f889bd105": "state/images/b2daa596e170989ff4a47180aa3baeefa0b6bacf6d2327487016d52f889bd105.png",
+    "33a072e1eea82983bf0dfef557afb4babe6ef89366f792be4fd9752d1b74e0b3": "state/images/33a072e1eea82983bf0dfef557afb4babe6ef89366f792be4fd9752d1b74e0b3.png",
+    "efa3dc52b618adf8cc80a4e5eafe223cb11180119c5604c2663582094652ee2a": "state/images/efa3dc52b618adf8cc80a4e5eafe223cb11180119c5604c2663582094652ee2a.png",
+    "9f38dd720a03a231a3c7df4c7f509143386c4d0453cf4b2ac25618d39bde65a6": "state/images/9f38dd720a03a231a3c7df4c7f509143386c4d0453cf4b2ac25618d39bde65a6.png",
+    "3e9005ff1884cf7d513d9aa6549f6bf0df76353f331edea03bfcf741238f0b2c": "state/images/3e9005ff1884cf7d513d9aa6549f6bf0df76353f331edea03bfcf741238f0b2c.png",
+    "0739c87c5e1e69c3461696125073bb12bf0bdbb4b592cb3b58f1cdf4b4975178": "state/images/0739c87c5e1e69c3461696125073bb12bf0bdbb4b592cb3b58f1cdf4b4975178.png",
+    "a9f7049bb03e893e9002ccbf02542ca9f8e2ba6f24e1b8bee68d3a428242bcc6": "state/images/a9f7049bb03e893e9002ccbf02542ca9f8e2ba6f24e1b8bee68d3a428242bcc6.png",
+    "b5be5c8ff2671dbd6fff3393fad20e94e1e782847a1239f20c04f2da91bedd09": "state/images/b5be5c8ff2671dbd6fff3393fad20e94e1e782847a1239f20c04f2da91bedd09.png",
+    "1a4e50936c6d2b6da9feeef37438863315767e4b33ff9d4112e21a00191109d2": "state/images/1a4e50936c6d2b6da9feeef37438863315767e4b33ff9d4112e21a00191109d2.png",
+    "5ab41b8997f67bf110a6c9ad094af1b4a57a6e59990f9205b73dbea365d87df0": "state/images/5ab41b8997f67bf110a6c9ad094af1b4a57a6e59990f9205b73dbea365d87df0.png",
+    "6111931a50c4b1f37c6cb6a7f079de35eaf41485d98bb8b41771d17a7c0bfc03": "state/images/6111931a50c4b1f37c6cb6a7f079de35eaf41485d98bb8b41771d17a7c0bfc03.png",
+    "9b3b3eb62c5e0f8669c7863efbddb8f245c00cbf143933d593848d0551c707c4": "state/images/9b3b3eb62c5e0f8669c7863efbddb8f245c00cbf143933d593848d0551c707c4.png",
+    "27a62eaaff88442987698ea499f79362c3c02faed43f89f52186d95ffd27ee9d": "state/images/27a62eaaff88442987698ea499f79362c3c02faed43f89f52186d95ffd27ee9d.png",
+    "14dae88a00c19537eaf1e1e854e18b701499a3c2cf98589231b0e3fb921369e7": "state/images/14dae88a00c19537eaf1e1e854e18b701499a3c2cf98589231b0e3fb921369e7.png",
+    "bf9f9e81a084b3333b5ad419fa55ff054fb8fb8d3e8f1dc5b176ddb9cb1f2236": "state/images/bf9f9e81a084b3333b5ad419fa55ff054fb8fb8d3e8f1dc5b176ddb9cb1f2236.png",
+    "8fb1689fa9d3bdb7d47e6b7c813b73bba8a88b374b638d750151acdcbc997c39": "state/images/8fb1689fa9d3bdb7d47e6b7c813b73bba8a88b374b638d750151acdcbc997c39.png",
+    "4456c42444fc63cde5ba1aea52355ac62be7e3de7c5cc12e7ae37b6f2a17d939": "state/images/4456c42444fc63cde5ba1aea52355ac62be7e3de7c5cc12e7ae37b6f2a17d939.png",
+    "7cb7738feccbacfe20d551ca4afab087325fc7462df3ba3cf89a29034ede996d": "state/images/7cb7738feccbacfe20d551ca4afab087325fc7462df3ba3cf89a29034ede996d.png",
+    "edd42f50764bcb5e8349a08d8903fe23f5c7979ab9d32818d6558f5937ec36a7": "state/images/edd42f50764bcb5e8349a08d8903fe23f5c7979ab9d32818d6558f5937ec36a7.png",
+    "dc80cfad4518eeaa7b52b99e9a83447ad5ead982ca69e0612a4b4e3993434d4b": "state/images/dc80cfad4518eeaa7b52b99e9a83447ad5ead982ca69e0612a4b4e3993434d4b.png",
+    "b2ea6c441e24046ac3f2de3f47a76be83058a692017b7aac14db7b963d37dee0": "state/images/b2ea6c441e24046ac3f2de3f47a76be83058a692017b7aac14db7b963d37dee0.png",
+    "40a7d12d6da697385d9a4945207295d9378ff77dc3092627ff5fd11babed5205": "state/images/40a7d12d6da697385d9a4945207295d9378ff77dc3092627ff5fd11babed5205.png",
+    "b4e472704348378cb87d340d2e5e8e6f85b88330bfb39281ccbb4bf80772d2ab": "state/images/b4e472704348378cb87d340d2e5e8e6f85b88330bfb39281ccbb4bf80772d2ab.png",
+    "90db6653cfc1bcec2c46a426214a51f8aaeb01710d87f788f984a68e082af3ec": "state/images/90db6653cfc1bcec2c46a426214a51f8aaeb01710d87f788f984a68e082af3ec.png"
+  },
+  "selection": "first recorded frame per scene; first qualifying failure per category",
+  "prediction_policy": "raw recorded masks/boxes/scores/tracks retained; evaluator annotations explicitly separate",
+  "figures": [
+    {
+      "stem": "01-enrolled-references",
+      "title": "1  Registered visual reference inputs",
+      "caption": "Authored synthetic reference crops, supplied through the real Library UI. Names identify enrollment inputs, not inferred identities. Reference ordinals do not invent measured camera poses. No model result is drawn on these inputs.",
+      "selection": [
+        {
+          "object_id": "a40bb750-eba7-4ab0-8ebb-ebb09251efb8",
+          "reference_ordinal": 0,
+          "image_sha": "bbd0cf79105615eed23cf10df2f4aa1523213e0727943be8708cdbe2370ddd30"
+        },
+        {
+          "object_id": "a40bb750-eba7-4ab0-8ebb-ebb09251efb8",
+          "reference_ordinal": 1,
+          "image_sha": "e88351b9c7b3a622826a68f022d147a78ca6f83005a0c192a96a6c8a86ee015a"
+        },
+        {
+          "object_id": "a40bb750-eba7-4ab0-8ebb-ebb09251efb8",
+          "reference_ordinal": 2,
+          "image_sha": "315338b42fea344513194212021c0ce8009a1dc543fba05664ecce616c71ad7e"
+        },
+        {
+          "object_id": "0efd9a4e-5cda-486d-8c00-e5ca71ba20dd",
+          "reference_ordinal": 0,
+          "image_sha": "afde936ddc714931204c641e4369ca6d8ddbc1fa7895fc4b9bb0a0d74d13c122"
+        },
+        {
+          "object_id": "0efd9a4e-5cda-486d-8c00-e5ca71ba20dd",
+          "reference_ordinal": 1,
+          "image_sha": "c5971a8f2ff044612babf307ad07cd7d729151722187219cee7ad2b318fb853d"
+        },
+        {
+          "object_id": "0efd9a4e-5cda-486d-8c00-e5ca71ba20dd",
+          "reference_ordinal": 2,
+          "image_sha": "05609f81412ec8b35f7393bc038948adfa345480499e2755093db1852cff4dea"
+        },
+        {
+          "object_id": "20232b29-a74e-4d56-b585-c93018b528f7",
+          "reference_ordinal": 0,
+          "image_sha": "af4fcd4f6870e1e0fdcbb4c004d6c00f4c669921cd8dff078d6da7764548f541"
+        },
+        {
+          "object_id": "20232b29-a74e-4d56-b585-c93018b528f7",
+          "reference_ordinal": 1,
+          "image_sha": "df9f62837e85916d47cd67da935bb08fe496e03dd09d6643fca194e89b23233b"
+        },
+        {
+          "object_id": "20232b29-a74e-4d56-b585-c93018b528f7",
+          "reference_ordinal": 2,
+          "image_sha": "c6507d060bdbfdfe796ac4e7298810c26405bc1cdff3a583a008745d7228514f"
+        }
+      ],
+      "sha256": {
+        "png": "92d32e29805c3399ba864efec00a44c831a5c302756bce41d22c9f61030a9989",
+        "svg": "132cbb7c42bb6cc5311aab955b5a41d7a5186d591875c79aa28e56cd317205bd"
+      }
+    },
+    {
+      "stem": "02-nine-source-scenes",
+      "title": "2  Actual model-input images / all nine conditions",
+      "caption": "Synthetic pinhole-renderer fixtures, not physical robot footage. Fixed selection: first recorded frame of each job, rather than best-performing frames. Full source-image hashes/frame IDs are in figure-manifest.json.",
+      "selection": [
+        {
+          "scene": "moving",
+          "frame_id": "e4c5f7c9-e87d-4dea-877f-3c31871e9353:15",
+          "image_sha": "e600ea9b2d2fe8d80c81fdff8c97c780c044d78a7051d4b43ee3518f6d993ff7"
+        },
+        {
+          "scene": "empty",
+          "frame_id": "7eb75615-b63e-4329-8fa4-194bcfd7ce86:3",
+          "image_sha": "19cd91184ca843f13eb571c495a33a7487a6c0c1185e3d8a24ca7696d8dd7b89"
+        },
+        {
+          "scene": "decoy",
+          "frame_id": "ce852e6e-0132-498a-bc5a-58f58c26b651:2",
+          "image_sha": "16d16feeaf00c46cffbcd3d78f09927f52c90d1d4449dd3d95e693436cc3c973"
+        },
+        {
+          "scene": "occluded",
+          "frame_id": "238032e5-5262-4021-8af5-c38006251444:3",
+          "image_sha": "5d96dbc2c1d4a20a27a5c15ea5b887152818617446de03059def83bb146a6326"
+        },
+        {
+          "scene": "changed_view",
+          "frame_id": "cb46efe6-8574-4f72-aad0-2ea66df565cf:2",
+          "image_sha": "0cbde8f0f48a22eb6030a6cdba9ead2257ce27dfdbc672b85d2a047c1a0b1efa"
+        },
+        {
+          "scene": "novel_angle",
+          "frame_id": "1fe6007f-4089-4f0b-887a-ac84945ba119:2",
+          "image_sha": "cd7d790356004edb9e8fdc0127d572803d73699f5f8b2f34606a5819eeb1668c"
+        },
+        {
+          "scene": "novel_lighting",
+          "frame_id": "0721c851-dfef-4bfb-9db0-250e10286526:2",
+          "image_sha": "8f0e3de3a1bede6b9cf4ec5b13af8046b7a4d8215d345697c25b50cd45a1601e"
+        },
+        {
+          "scene": "novel_distractors",
+          "frame_id": "8e9fa336-4f94-441b-b06c-94820f934f67:3",
+          "image_sha": "7dcb552892c0b1af2cd99939368ecaae8c4343f2a2b45e57c6722e4812a51874"
+        },
+        {
+          "scene": "indistinguishable_front",
+          "frame_id": "a1d960fa-6ea5-4224-b3b3-d970d121fd35:2",
+          "image_sha": "10e4b8ae906b243a4480dd224375b2809f03d4503501e00a803e49c5d0cb43b2"
+        }
+      ],
+      "sha256": {
+        "png": "51915c83ad228581e5d0238ee63b126beb5bbbc50e5f83e5dd2fd73466643fb9",
+        "svg": "87c094753af31ffeb215345fbf28535d7eaea047a49258d171272cd12e1de6d2"
+      }
+    },
+    {
+      "stem": "03-nine-model-outputs",
+      "title": "3  Recorded YOLOE masks, reference decisions and ByteTrack IDs",
+      "caption": "Synthetic pinhole-renderer fixtures, not physical robot footage. Fixed selection: first recorded frame of each job, rather than best-performing frames. Full source-image hashes/frame IDs are in figure-manifest.json. Green solid = custom reference rule passed; amber dashed = unresolved. p = raw proposal index, t = window-local track ID. These are recorded model/policy outputs, not confirmed identity or evaluator truth. All proposals, including errors, remain visible.",
+      "selection": [
+        {
+          "scene": "moving",
+          "frame_id": "e4c5f7c9-e87d-4dea-877f-3c31871e9353:15",
+          "image_sha": "e600ea9b2d2fe8d80c81fdff8c97c780c044d78a7051d4b43ee3518f6d993ff7"
+        },
+        {
+          "scene": "empty",
+          "frame_id": "7eb75615-b63e-4329-8fa4-194bcfd7ce86:3",
+          "image_sha": "19cd91184ca843f13eb571c495a33a7487a6c0c1185e3d8a24ca7696d8dd7b89"
+        },
+        {
+          "scene": "decoy",
+          "frame_id": "ce852e6e-0132-498a-bc5a-58f58c26b651:2",
+          "image_sha": "16d16feeaf00c46cffbcd3d78f09927f52c90d1d4449dd3d95e693436cc3c973"
+        },
+        {
+          "scene": "occluded",
+          "frame_id": "238032e5-5262-4021-8af5-c38006251444:3",
+          "image_sha": "5d96dbc2c1d4a20a27a5c15ea5b887152818617446de03059def83bb146a6326"
+        },
+        {
+          "scene": "changed_view",
+          "frame_id": "cb46efe6-8574-4f72-aad0-2ea66df565cf:2",
+          "image_sha": "0cbde8f0f48a22eb6030a6cdba9ead2257ce27dfdbc672b85d2a047c1a0b1efa"
+        },
+        {
+          "scene": "novel_angle",
+          "frame_id": "1fe6007f-4089-4f0b-887a-ac84945ba119:2",
+          "image_sha": "cd7d790356004edb9e8fdc0127d572803d73699f5f8b2f34606a5819eeb1668c"
+        },
+        {
+          "scene": "novel_lighting",
+          "frame_id": "0721c851-dfef-4bfb-9db0-250e10286526:2",
+          "image_sha": "8f0e3de3a1bede6b9cf4ec5b13af8046b7a4d8215d345697c25b50cd45a1601e"
+        },
+        {
+          "scene": "novel_distractors",
+          "frame_id": "8e9fa336-4f94-441b-b06c-94820f934f67:3",
+          "image_sha": "7dcb552892c0b1af2cd99939368ecaae8c4343f2a2b45e57c6722e4812a51874"
+        },
+        {
+          "scene": "indistinguishable_front",
+          "frame_id": "a1d960fa-6ea5-4224-b3b3-d970d121fd35:2",
+          "image_sha": "10e4b8ae906b243a4480dd224375b2809f03d4503501e00a803e49c5d0cb43b2"
+        }
+      ],
+      "sha256": {
+        "png": "ae05af21f868db8cb9fe9b4cba778e497c1c326e5d72121d3234fbfd7e2c4df2",
+        "svg": "1a21e9e9dd0ecc67d9ec78c943c771129741c650df84af53c0eee4ed9abe42d1"
+      }
+    },
+    {
+      "stem": "scene-moving",
+      "title": "Moving enrolled objects / recorded model output",
+      "caption": "Synthetic input. Green = reference-supported candidate; amber = unresolved; p = proposal; t = local track ID. A rule pass is not verified identity. No evaluator boxes or labels alter predictions.",
+      "selection": [
+        {
+          "scene": "moving",
+          "frame_id": "e4c5f7c9-e87d-4dea-877f-3c31871e9353:15",
+          "image_sha": "e600ea9b2d2fe8d80c81fdff8c97c780c044d78a7051d4b43ee3518f6d993ff7"
+        }
+      ],
+      "sha256": {
+        "png": "68de323cd28d0bd87af9449f325656973171f28244ce83558ba5a5841376866c",
+        "svg": "992d7ef3a0e447864b45607b3fb6608e645d42c9f7217d781780ea1118e605b8"
+      }
+    },
+    {
+      "stem": "scene-empty",
+      "title": "Empty background / recorded model output",
+      "caption": "Synthetic input. Green = reference-supported candidate; amber = unresolved; p = proposal; t = local track ID. A rule pass is not verified identity. No evaluator boxes or labels alter predictions.",
+      "selection": [
+        {
+          "scene": "empty",
+          "frame_id": "7eb75615-b63e-4329-8fa4-194bcfd7ce86:3",
+          "image_sha": "19cd91184ca843f13eb571c495a33a7487a6c0c1185e3d8a24ca7696d8dd7b89"
+        }
+      ],
+      "sha256": {
+        "png": "e57a4d4ec79964c731590d4fab62e09430ecb03f3096f474aad170a5733cb5ac",
+        "svg": "4efeb17a7f2de6c808edde6bb14b575fbfa4ece926500b80e0e06a6fa42bf155"
+      }
+    },
+    {
+      "stem": "scene-decoy",
+      "title": "Unregistered look-alike / recorded model output",
+      "caption": "Synthetic input. Green = reference-supported candidate; amber = unresolved; p = proposal; t = local track ID. A rule pass is not verified identity. No evaluator boxes or labels alter predictions.",
+      "selection": [
+        {
+          "scene": "decoy",
+          "frame_id": "ce852e6e-0132-498a-bc5a-58f58c26b651:2",
+          "image_sha": "16d16feeaf00c46cffbcd3d78f09927f52c90d1d4449dd3d95e693436cc3c973"
+        }
+      ],
+      "sha256": {
+        "png": "2877fc5d961712f9cec7ff4848b01219a2d57468fb176054cbf107cf76d142f1",
+        "svg": "057bf8e0d4a84afbb6d871ba14ea1e4239a840fc0f73b20d203103c7df69a781"
+      }
+    },
+    {
+      "stem": "scene-occluded",
+      "title": "Fully covered camera / recorded model output",
+      "caption": "Synthetic input. Green = reference-supported candidate; amber = unresolved; p = proposal; t = local track ID. A rule pass is not verified identity. No evaluator boxes or labels alter predictions.",
+      "selection": [
+        {
+          "scene": "occluded",
+          "frame_id": "238032e5-5262-4021-8af5-c38006251444:3",
+          "image_sha": "5d96dbc2c1d4a20a27a5c15ea5b887152818617446de03059def83bb146a6326"
+        }
+      ],
+      "sha256": {
+        "png": "7abb6814d092c55d0cc0c9c1f01fb99d8fb4d47ba6f23eed998f75ef5d996aeb",
+        "svg": "439d6f37a16b7e98b5d6a69ce917df9745568abfa3931db062b14a5032d58099"
+      }
+    },
+    {
+      "stem": "scene-changed_view",
+      "title": "Changed view / recorded model output",
+      "caption": "Synthetic input. Green = reference-supported candidate; amber = unresolved; p = proposal; t = local track ID. A rule pass is not verified identity. No evaluator boxes or labels alter predictions.",
+      "selection": [
+        {
+          "scene": "changed_view",
+          "frame_id": "cb46efe6-8574-4f72-aad0-2ea66df565cf:2",
+          "image_sha": "0cbde8f0f48a22eb6030a6cdba9ead2257ce27dfdbc672b85d2a047c1a0b1efa"
+        }
+      ],
+      "sha256": {
+        "png": "1fc7eb1a6252b68ee58fad47520213f4fea6d0d9aad8b36424514640293f454f",
+        "svg": "61f18f7f429d39615db527cc3e621d485057fd40fb5e392e01b865f5917c1af4"
+      }
+    },
+    {
+      "stem": "scene-novel_angle",
+      "title": "Novel angle / recorded model output",
+      "caption": "Synthetic input. Green = reference-supported candidate; amber = unresolved; p = proposal; t = local track ID. A rule pass is not verified identity. No evaluator boxes or labels alter predictions.",
+      "selection": [
+        {
+          "scene": "novel_angle",
+          "frame_id": "1fe6007f-4089-4f0b-887a-ac84945ba119:2",
+          "image_sha": "cd7d790356004edb9e8fdc0127d572803d73699f5f8b2f34606a5819eeb1668c"
+        }
+      ],
+      "sha256": {
+        "png": "c77dfb70bf0460da521e6c9d974b8e1734495eb1b844a1c55060c47032d1421d",
+        "svg": "39358c6c688d526ec330bb8f4f5d301ba37bcdf5b72653a6ac6db53c9df2edbe"
+      }
+    },
+    {
+      "stem": "scene-novel_lighting",
+      "title": "Novel lighting / recorded model output",
+      "caption": "Synthetic input. Green = reference-supported candidate; amber = unresolved; p = proposal; t = local track ID. A rule pass is not verified identity. No evaluator boxes or labels alter predictions.",
+      "selection": [
+        {
+          "scene": "novel_lighting",
+          "frame_id": "0721c851-dfef-4bfb-9db0-250e10286526:2",
+          "image_sha": "8f0e3de3a1bede6b9cf4ec5b13af8046b7a4d8215d345697c25b50cd45a1601e"
+        }
+      ],
+      "sha256": {
+        "png": "8ae4a9a4779b136a8d1ff5f746e9392de956966e411ed14201c92a1965aaa835",
+        "svg": "cf257b7259f868a77a784c3726abb383dcca8de752f8f39551bace3792664da2"
+      }
+    },
+    {
+      "stem": "scene-novel_distractors",
+      "title": "Novel distractors / recorded model output",
+      "caption": "Synthetic input. Green = reference-supported candidate; amber = unresolved; p = proposal; t = local track ID. A rule pass is not verified identity. No evaluator boxes or labels alter predictions.",
+      "selection": [
+        {
+          "scene": "novel_distractors",
+          "frame_id": "8e9fa336-4f94-441b-b06c-94820f934f67:3",
+          "image_sha": "7dcb552892c0b1af2cd99939368ecaae8c4343f2a2b45e57c6722e4812a51874"
+        }
+      ],
+      "sha256": {
+        "png": "5f2d86142278572bda13d0d6dfb54d65118272a3a9ae9eab1b53e1a52e64f361",
+        "svg": "d9cfc4e2d0406dd5fd8f2df30a2493a110994063a81a2c1c5146cebfda93b406"
+      }
+    },
+    {
+      "stem": "scene-indistinguishable_front",
+      "title": "Identical visible faces / recorded model output",
+      "caption": "Synthetic input. Green = reference-supported candidate; amber = unresolved; p = proposal; t = local track ID. A rule pass is not verified identity. No evaluator boxes or labels alter predictions.",
+      "selection": [
+        {
+          "scene": "indistinguishable_front",
+          "frame_id": "a1d960fa-6ea5-4224-b3b3-d970d121fd35:2",
+          "image_sha": "10e4b8ae906b243a4480dd224375b2809f03d4503501e00a803e49c5d0cb43b2"
+        }
+      ],
+      "sha256": {
+        "png": "7166fc25ee88cb284bfcaa57bed69104005f6ea6a8c4b53c010bcd22e8c6acfb",
+        "svg": "b2f3d21e3937d6fe7b8d8e5a7651f7bfa6706b2ecc6bba3b02bb1f01b8ed2ced"
+      }
+    },
+    {
+      "stem": "04-paired-errors-and-recall",
+      "title": "4  Paired false candidates and recall / retained failures",
+      "caption": "Same recorded RGB inputs, references and YOLOE outputs for both variants. IoU >= 0.5 and enrolled class define evaluator matches. Recall is omitted where no enrolled objects occur: it is undefined there. Counts are correlated observations, not independent trials or real-room quality. Recorded custom thresholds: 0.80 similarity / 0.05 margin.",
+      "selection": [],
+      "sha256": {
+        "png": "3a0f1c8238104e7ba78b8bfe38f3e1bb59e927bb6f70116ac894514b6d6a473a",
+        "svg": "b18f7dbf50d0b51bdcddbe40e58e48608a8e5bec235b11dbd764ddd7d910ac02"
+      }
+    },
+    {
+      "stem": "05-stage-loss-attribution",
+      "title": "5  Where true observations are lost",
+      "caption": "Derived from the recorded paired one-to-one evaluator counts, not new inference. Orange loss is caused by the project reference-decision stage; red loss occurs before that stage. This localizes losses but does not isolate the deeper cause of YOLOE misses (model, prompting, preprocessing or synthetic-domain fit).",
+      "selection": [],
+      "sha256": {
+        "png": "c256e545848fc2f4abf52d3c5e23ef2ed8ced9e06f75a11e5a9e3c8a0137cee8",
+        "svg": "293399929ea2a519f802eb95b6c55b9ca354eb97916eadad6f845db2a572974b"
+      }
+    },
+    {
+      "stem": "06-failure-case-evidence",
+      "title": "6  Failure evidence / source frame, crop, reference and decision",
+      "caption": "Fixed selection: first recorded failure satisfying each stated evaluator condition. Dashed red boxes are evaluation-only truth and were never model inputs; blue emphasis is the selected model proposal. No GT crop replaces a missing model crop. Identical-visible-face alias truth is distinct from the model-supported class. No predictions or thresholds were changed for this figure.",
+      "selection": [
+        {
+          "scene": "novel_angle",
+          "kind": "true_rejection",
+          "frame_id": "1fe6007f-4089-4f0b-887a-ac84945ba119:2",
+          "proposal_index": 0,
+          "evaluator_box": null
+        },
+        {
+          "scene": "novel_lighting",
+          "kind": "miss",
+          "frame_id": "0721c851-dfef-4bfb-9db0-250e10286526:2",
+          "proposal_index": null,
+          "evaluator_box": {
+            "key": "emerald_med_kit",
+            "xyxy": [
+              430,
+              128,
+              522,
+              201
+            ]
+          }
+        },
+        {
+          "scene": "indistinguishable_front",
+          "kind": "false_support",
+          "frame_id": "a1d960fa-6ea5-4224-b3b3-d970d121fd35:2",
+          "proposal_index": 2,
+          "evaluator_box": null
+        }
+      ],
+      "sha256": {
+        "png": "0352af3fc7a251a3dd5f2533eacd036a58aba0b2860f52e4384db1694cf9aff5",
+        "svg": "229b3fea413716da953d2b2ae317dfd14754e010f96930cb7ef675ea340629bd"
+      }
+    },
+    {
+      "stem": "07-recorded-track-timeline",
+      "title": "7  Recorded ByteTrack observations / gaps remain visible",
+      "caption": "Each point is an actual returned track row; no interpolated motion or connecting line fills a gap. Colors identify enrolled prompt classes, not verified identities. IDs reset per window. The alias window returns no tracks despite reference-supported candidates; no track IDs are invented to fill that empty result. No predictive world-model claim is made.",
+      "selection": [],
+      "sha256": {
+        "png": "d7a46a27cee6dfc8b5e4bf172d8548b372425441dbdab1fb5cb9afff0c9612fe",
+        "svg": "1a14783b4446ce33269f9b7f1d51aca7306a58284c3032ad86385c89dcead9e1"
+      }
+    }
+  ],
+  "pdf_sha256": "fff1ace4c0b800fd8ccbba76248c3f410908d2ecc410178c42185263dfb5ab8a",
+  "pdf_pages": 16,
+  "all_recorded_frame_overlays": 103,
+  "renderer_source_sha256": "e910380bace0dd9e0f43f94d1097691c24e66e7b0aa6d9a8277f983423577bc6"
+}

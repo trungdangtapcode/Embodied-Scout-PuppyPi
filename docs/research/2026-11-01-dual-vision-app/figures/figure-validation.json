@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "validation_scope": "frozen recorded-output visualization; no new inference",
+  "summary_figures": 16,
+  "pdf_pages": 16,
+  "source_files_in_archive": 108,
+  "model_overlays_in_archive": 103,
+  "gallery_images": 103,
+  "broken_gallery_links": 0,
+  "zip_crc": "PASS",
+  "renderer_source_sha256": "e910380bace0dd9e0f43f94d1097691c24e66e7b0aa6d9a8277f983423577bc6",
+  "archive_sha256": "3df78883185834a339db71d149e51034809ba4e54f853974088a22e685b2b3ea",
+  "archive_bytes": 18971920
+}

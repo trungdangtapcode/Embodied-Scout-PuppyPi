@@ -1,0 +1,7 @@
+{
+  "archive": "complete-evidence.zip",
+  "sha256": "3df78883185834a339db71d149e51034809ba4e54f853974088a22e685b2b3ea",
+  "bytes": 18971920,
+  "complete_frame_overlays": 103,
+  "contents": "synthetic source PNGs, content-addressed images, raw outputs, evaluator-only truth, every-frame gallery and summary figures; no weights or credentials"
+}
