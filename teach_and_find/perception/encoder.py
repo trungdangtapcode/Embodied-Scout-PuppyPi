@@ -1,4 +1,8 @@
-"""Visual feature encoders for few-shot instance recognition."""
+"""Custom OpenCV descriptors and an optional, separately configured Torch Hub adapter.
+
+The default descriptor is project-owned heuristic code, not a paper implementation
+or pretrained model. Merely configuring Torch Hub does not verify its weights.
+"""
 
 from __future__ import annotations
 
@@ -52,8 +56,10 @@ class SpatialAppearanceEncoder:
         return self._dim
 
     def embed(self, crop_bgr: np.ndarray) -> np.ndarray:
-        if crop_bgr.size == 0:
-            return np.zeros(self._dim, dtype=np.float32)
+        if crop_bgr is None or crop_bgr.size == 0:
+            raise ValueError(
+                "A nonempty crop is required; no synthetic embedding is produced."
+            )
 
         img = cv2.resize(
             crop_bgr,
@@ -76,8 +82,12 @@ class SpatialAppearanceEncoder:
         step3 = self.crop_size // 3
         for gy in range(3):
             for gx in range(3):
-                patch = hsv[gy * step3 : (gy + 1) * step3, gx * step3 : (gx + 1) * step3]
-                pmask = fg_mask[gy * step3 : (gy + 1) * step3, gx * step3 : (gx + 1) * step3]
+                patch = hsv[
+                    gy * step3 : (gy + 1) * step3, gx * step3 : (gx + 1) * step3
+                ]
+                pmask = fg_mask[
+                    gy * step3 : (gy + 1) * step3, gx * step3 : (gx + 1) * step3
+                ]
                 h_hist = cv2.calcHist([patch], [0], pmask, [12], [0, 180]).flatten()
                 s_hist = cv2.calcHist([patch], [1], pmask, [6], [0, 256]).flatten()
                 v_hist = cv2.calcHist([patch], [2], pmask, [4], [0, 256]).flatten()
@@ -96,7 +106,9 @@ class SpatialAppearanceEncoder:
         step4 = self.crop_size // 4
         for gy in range(4):
             for gx in range(4):
-                cell = lab_stack[gy * step4 : (gy + 1) * step4, gx * step4 : (gx + 1) * step4]
+                cell = lab_stack[
+                    gy * step4 : (gy + 1) * step4, gx * step4 : (gx + 1) * step4
+                ]
                 means = np.mean(cell, axis=(0, 1))
                 stds = np.std(cell, axis=(0, 1))
                 lab_feats.append(np.concatenate([means, stds]).astype(np.float32))
@@ -111,8 +123,12 @@ class SpatialAppearanceEncoder:
         bins = np.linspace(0.0, 180.0, 9)
         for gy in range(4):
             for gx in range(4):
-                m_cell = mag[gy * step4 : (gy + 1) * step4, gx * step4 : (gx + 1) * step4].ravel()
-                a_cell = ang[gy * step4 : (gy + 1) * step4, gx * step4 : (gx + 1) * step4].ravel()
+                m_cell = mag[
+                    gy * step4 : (gy + 1) * step4, gx * step4 : (gx + 1) * step4
+                ].ravel()
+                a_cell = ang[
+                    gy * step4 : (gy + 1) * step4, gx * step4 : (gx + 1) * step4
+                ].ravel()
                 hist, _ = np.histogram(a_cell, bins=bins, weights=m_cell)
                 hog_feats.append(np.sqrt(np.maximum(hist.astype(np.float32), 0.0)))
         hog_raw = np.concatenate(hog_feats)
@@ -123,10 +139,12 @@ class SpatialAppearanceEncoder:
 
 
 class TorchHubBackboneEncoder:
-    """Optional GPU/CPU pretrained ViT/DINOv2 feature extractor via torch.hub.
+    """Optional torch.hub feature-loader prototype, not verified model execution.
 
     Model repository and entry point are supplied strictly through Settings /
     environment configuration (`TEACH_FIND_TORCH_HUB_REPO`, `TEACH_FIND_TORCH_HUB_MODEL`).
+    The caller must separately audit the source, preprocessing and actual weights;
+    this generic adapter does not verify a checkpoint digest or prove paper reuse.
     """
 
     def __init__(self, repo: str, model_name: str, device: str = "cpu") -> None:
@@ -145,7 +163,9 @@ class TorchHubBackboneEncoder:
         self._std = np.array([0.229, 0.224, 0.225], dtype=np.float32)
 
         with torch.no_grad():
-            dummy = torch.zeros(1, 3, self.input_size, self.input_size, device=self.device)
+            dummy = torch.zeros(
+                1, 3, self.input_size, self.input_size, device=self.device
+            )
             out = self.model(dummy)
             self._dim = int(out.shape[-1])
 
@@ -154,11 +174,15 @@ class TorchHubBackboneEncoder:
         return self._dim
 
     def embed(self, crop_bgr: np.ndarray) -> np.ndarray:
-        if crop_bgr.size == 0:
-            return np.zeros(self._dim, dtype=np.float32)
+        if crop_bgr is None or crop_bgr.size == 0:
+            raise ValueError(
+                "A nonempty crop is required; no synthetic embedding is produced."
+            )
 
         rgb = cv2.cvtColor(crop_bgr, cv2.COLOR_BGR2RGB)
-        resized = cv2.resize(rgb, (self.input_size, self.input_size), interpolation=cv2.INTER_CUBIC)
+        resized = cv2.resize(
+            rgb, (self.input_size, self.input_size), interpolation=cv2.INTER_CUBIC
+        )
         norm = (resized.astype(np.float32) / 255.0 - self._mean) / self._std
         chw = np.transpose(norm, (2, 0, 1))[None, ...]
         tensor = self._torch.from_numpy(chw).to(self.device)
@@ -176,4 +200,8 @@ def build_encoder(settings: PerceptionSettings | None = None) -> VisualEncoder:
             model_name=cfg.torch_hub_model,
             device=cfg.device,
         )
-    return SpatialAppearanceEncoder(crop_size=cfg.crop_size)
+    if cfg.encoder_backend == "spatial_appearance":
+        return SpatialAppearanceEncoder(crop_size=cfg.crop_size)
+    raise ValueError(
+        f"Unsupported encoder backend: {cfg.encoder_backend!r}; no fallback."
+    )

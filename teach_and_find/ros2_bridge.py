@@ -15,6 +15,27 @@ from teach_and_find.mission import FailureAwareMissionController, PuppyActionCom
 from teach_and_find.perception.proposals import CandidateProposalGenerator
 
 
+def teach_from_frame(
+    memory, frame, name, proposer, tag_estimator, angle_deg=None
+) -> bool:
+    """Explicit foreground-first OpenCV teaching heuristic; no central-crop fallback.
+
+    The operator supplies the name. This is not semantic identity recognition.
+    Missing frames/proposals fail without mutating memory; unknown angles stay None.
+    """
+    if frame is None or frame.size == 0:
+        return False
+    tags = tag_estimator.detect(frame, undistort=True)
+    proposals = proposer.propose(frame, tags=tags)
+    if not proposals:
+        return False
+    existing = memory.get_record(name) if name in memory.object_names else None
+    crops = list(existing.reference_crops) if existing else []
+    angles = list(existing.view_angles_deg) if existing else []
+    memory.teach(name, crops + [proposals[0].crop_bgr], angles + [angle_deg])
+    return True
+
+
 @dataclass(frozen=True)
 class PublishedRosCommand:
     """Transport-agnostic record of serialized PuppyPi ROS 2 messages."""
@@ -117,11 +138,15 @@ def create_ros2_node(
                 sensor_qos,
             )
             self.vel_pub = self.create_publisher(Velocity, cfg.ros2.velocity_topic, 10)
-            self.vel_move_pub = self.create_publisher(Velocity, cfg.ros2.velocity_move_topic, 10)
+            self.vel_move_pub = self.create_publisher(
+                Velocity, cfg.ros2.velocity_move_topic, 10
+            )
             self.pose_pub = self.create_publisher(Pose, cfg.ros2.pose_topic, 10)
             self.gait_pub = self.create_publisher(Gait, cfg.ros2.gait_topic, 10)
 
-            self._publish_action(PuppyActionCommand.clamped(cfg.motion), include_gait=True)
+            self._publish_action(
+                PuppyActionCommand.clamped(cfg.motion), include_gait=True
+            )
             self.timer = self.create_timer(0.15, self._control_tick)
             self.get_logger().info("PuppyPi Teach & Find ROS 2 node initialized.")
 
@@ -135,33 +160,29 @@ def create_ros2_node(
             with self._frame_lock:
                 return None if self._latest_frame is None else self._latest_frame.copy()
 
-        def teach_from_live_view(self, name: str, angle_deg: float = 0.0) -> bool:
-            frame = self.get_latest_frame()
-            if frame is None:
-                return False
-            tags = self.tag_estimator.detect(frame, undistort=True)
-            proposals = self.proposer.propose(frame, tags=tags)
-            if not proposals:
-                # Fallback to central ROI crop during hand-held teaching
-                h, w = frame.shape[:2]
-                crop = frame[int(0.25 * h) : int(0.78 * h), int(0.28 * w) : int(0.72 * w)]
-            else:
-                crop = proposals[0].crop_bgr
-            existing = (
-                self.controller.memory.get_record(name).reference_crops
-                if name in self.controller.memory.object_names
-                else []
+        def teach_from_live_view(
+            self, name: str, angle_deg: float | None = None
+        ) -> bool:
+            admitted = teach_from_frame(
+                self.controller.memory,
+                self.get_latest_frame(),
+                name,
+                self.proposer,
+                self.tag_estimator,
+                angle_deg,
             )
-            angles = (
-                self.controller.memory.get_record(name).view_angles_deg
-                if name in self.controller.memory.object_names
-                else []
-            )
-            self.controller.memory.teach(name, existing + [crop], angles + [angle_deg])
-            return True
+            if not admitted:
+                self.get_logger().error(
+                    "TEACH_FAILED: no frame or foreground proposal; no substitute crop enrolled."
+                )
+            return admitted
 
-        def _publish_action(self, cmd: PuppyActionCommand, include_gait: bool = False) -> None:
-            payload = translate_action_to_ros_payload(cmd, self.cfg, include_gait=include_gait)
+        def _publish_action(
+            self, cmd: PuppyActionCommand, include_gait: bool = False
+        ) -> None:
+            payload = translate_action_to_ros_payload(
+                cmd, self.cfg, include_gait=include_gait
+            )
             vel_msg = Velocity(**payload.velocity_fields)
             if cmd.use_velocity_move_topic:
                 self.vel_move_pub.publish(vel_msg)

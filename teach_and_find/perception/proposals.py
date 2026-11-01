@@ -1,4 +1,7 @@
-"""Class-agnostic candidate object proposal generator for tabletop/floor scenes."""
+"""Project-owned Python/OpenCV saliency/contour heuristic with hand-tuned constants.
+
+This does not load a learned detector or reuse a paper's perception implementation.
+"""
 
 from __future__ import annotations
 
@@ -62,8 +65,12 @@ class CandidateProposalGenerator:
         # Emphasize opponent-chrominance (a, b) over raw luminance (L) so achromatic
         # black/white fiducial borders or shadows never merge into foreground object crops.
         weights_lab = np.array([0.22, 1.15, 1.15], dtype=np.float32)
-        dist_wall = np.linalg.norm((lab - wall_med[None, None, :]) * weights_lab, axis=2)
-        dist_floor = np.linalg.norm((lab - floor_med[None, None, :]) * weights_lab, axis=2)
+        dist_wall = np.linalg.norm(
+            (lab - wall_med[None, None, :]) * weights_lab, axis=2
+        )
+        dist_floor = np.linalg.norm(
+            (lab - floor_med[None, None, :]) * weights_lab, axis=2
+        )
         color_saliency = np.minimum(dist_wall, dist_floor)
 
         # Combine chromatic salience and HSV saturation

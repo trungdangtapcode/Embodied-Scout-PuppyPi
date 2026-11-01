@@ -1,4 +1,4 @@
-"""Closed-loop 3D visual episode runner and 4-way ablation benchmark."""
+"""Synthetic heuristic ablation with oracle camera placement; no physical navigation."""
 
 from __future__ import annotations
 
@@ -39,7 +39,7 @@ from teach_and_find.verification import VerificationStatus
 
 @dataclass
 class EpisodeTrace:
-    """Detailed outcome and visual snapshots from one closed-loop search episode."""
+    """Synthetic oracle-assisted viewpoint harness, not closed-loop physical navigation."""
 
     variant_name: str
     true_target_station: str
@@ -48,8 +48,12 @@ class EpisodeTrace:
     ground_truth_success: bool
     false_verification: bool
     station_frames_annotated: dict[str, np.ndarray] = field(default_factory=dict)
-    decoy_verify_crops: list[tuple[float, float, np.ndarray]] = field(default_factory=list)
-    target_verify_crops: list[tuple[float, float, np.ndarray]] = field(default_factory=list)
+    decoy_verify_crops: list[tuple[float, float, np.ndarray]] = field(
+        default_factory=list
+    )
+    target_verify_crops: list[tuple[float, float, np.ndarray]] = field(
+        default_factory=list
+    )
 
 
 @dataclass(frozen=True)
@@ -82,12 +86,24 @@ def _annotate_frame(
         cv2.polylines(vis, [poly], True, (0, 235, 255), 2)
     else:
         header += " | TAG LOST -> RECOVER_TAG"
-    cv2.putText(vis, header, (12, 23), cv2.FONT_HERSHEY_SIMPLEX, 0.62, (240, 245, 250), 2)
+    cv2.putText(
+        vis, header, (12, 23), cv2.FONT_HERSHEY_SIMPLEX, 0.62, (240, 245, 250), 2
+    )
 
     for (x, y, w, h), label, color in boxes_info:
         cv2.rectangle(vis, (x, y), (x + w, y + h), color, 2)
-        cv2.rectangle(vis, (x, max(0, y - 22)), (min(vis.shape[1], x + max(w, 165)), y), color, -1)
-        cv2.putText(vis, label, (x + 4, max(14, y - 6)), cv2.FONT_HERSHEY_SIMPLEX, 0.46, (255, 255, 255), 1)
+        cv2.rectangle(
+            vis, (x, max(0, y - 22)), (min(vis.shape[1], x + max(w, 165)), y), color, -1
+        )
+        cv2.putText(
+            vis,
+            label,
+            (x + 4, max(14, y - 6)),
+            cv2.FONT_HERSHEY_SIMPLEX,
+            0.46,
+            (255, 255, 255),
+            1,
+        )
     return vis
 
 
@@ -106,7 +122,7 @@ def run_closed_loop_episode(
     capture_visuals: bool = False,
     seed: int = 0,
 ) -> EpisodeTrace:
-    """Execute one complete closed-loop 3D visual search episode."""
+    """Execute a custom visual baseline with oracle-rendered camera positions."""
     cfg = Settings()
     rng = np.random.default_rng(seed)
     graph: TopologicalGraph = build_default_lab_graph()
@@ -162,7 +178,10 @@ def run_closed_loop_episode(
     target_crops: list[tuple[float, float, np.ndarray]] = []
 
     step_guard = 0
-    while controller.state not in (MissionState.SUCCESS, MissionState.FAILED) and step_guard < 20:
+    while (
+        controller.state not in (MissionState.SUCCESS, MissionState.FAILED)
+        and step_guard < 20
+    ):
         step_guard += 1
         choice = controller.choose_next_station()
         if choice is None:
@@ -171,9 +190,13 @@ def run_closed_loop_episode(
 
         # Step 1: Visual servo & AprilTag alignment (with optional temporary tag dropout)
         if inject_tag_dropout_station == sid:
-            rx0, ry0, ryaw0 = world.station_front_pose(sid, distance_m=0.92, lateral_offset_m=0.05)
+            rx0, ry0, ryaw0 = world.station_front_pose(
+                sid, distance_m=0.92, lateral_offset_m=0.05
+            )
             drop_frame = world.render_camera(
-                rx0, ry0, ryaw0,
+                rx0,
+                ry0,
+                ryaw0,
                 pitch_rad=math.radians(-8.0),
                 lighting_scale=lighting_scale,
                 noise_std=noise_std,
@@ -184,7 +207,9 @@ def run_closed_loop_episode(
 
         rx, ry, ryaw = world.station_front_pose(sid, distance_m=0.82)
         align_frame = world.render_camera(
-            rx, ry, ryaw,
+            rx,
+            ry,
+            ryaw,
             pitch_rad=math.radians(-8.0),
             lighting_scale=lighting_scale,
             noise_std=noise_std,
@@ -196,7 +221,9 @@ def run_closed_loop_episode(
             # Fine step to target standoff
             rx, ry, ryaw = world.station_front_pose(sid, distance_m=0.82)
             align_frame = world.render_camera(
-                rx, ry, ryaw,
+                rx,
+                ry,
+                ryaw,
                 pitch_rad=math.radians(-10.0),
                 lighting_scale=lighting_scale,
                 noise_std=noise_std,
@@ -207,7 +234,9 @@ def run_closed_loop_episode(
 
         # Step 2: Station overview scan for foreground object candidates (tag + floor visible)
         scan_frame = world.render_camera(
-            rx, ry, ryaw,
+            rx,
+            ry,
+            ryaw,
             pitch_rad=math.radians(-7.5),
             lighting_scale=lighting_scale,
             noise_std=noise_std,
@@ -219,14 +248,20 @@ def run_closed_loop_episode(
             p for p in proposer.propose(scan_frame, tags=scan_tags) if p.area_px >= 4500
         ]
 
-        vis_boxes: list[tuple[tuple[int, int, int, int], str, tuple[int, int, int]]] = []
+        vis_boxes: list[
+            tuple[tuple[int, int, int, int], str, tuple[int, int, int]]
+        ] = []
         confirmed_here = False
 
         for idx, prop in enumerate(proposals):
             match0, _ = memory.match_crop(prop.crop_bgr, "Secret Box #1")
             if match0.best_proto_sim < cfg.perception.candidate_trigger_threshold:
                 vis_boxes.append(
-                    (prop.bbox_xywh, f"Ignore sim={match0.best_proto_sim:.2f}", (130, 130, 130))
+                    (
+                        prop.bbox_xywh,
+                        f"Ignore sim={match0.best_proto_sim:.2f}",
+                        (130, 130, 130),
+                    )
                 )
                 continue
 
@@ -237,27 +272,44 @@ def run_closed_loop_episode(
                 cy = oy + 0.45 * math.sin(outward)
                 cyaw = math.degrees(math.atan2(oy - cy, ox - cx))
                 close_frame = world.render_camera(
-                    cx, cy, cyaw,
+                    cx,
+                    cy,
+                    cyaw,
                     pitch_rad=math.radians(-16.0),
                     lighting_scale=lighting_scale,
                     noise_std=noise_std,
                     rng=rng,
                 )
-                close_props = proposer.propose(close_frame, tags=tag_estimator.detect(close_frame))
-                eval_crop = close_props[0].crop_bgr if close_props else prop.crop_bgr
+                close_props = proposer.propose(
+                    close_frame, tags=tag_estimator.detect(close_frame)
+                )
+                if not close_props:
+                    controller.decision_log.append(
+                        f"Missing close-view crop at {sid}; candidate remains unverified, no overview-crop substitute."
+                    )
+                    continue
+                eval_crop = close_props[0].crop_bgr
                 m_single, _ = memory.match_crop(eval_crop, "Secret Box #1")
                 if controller.evaluate_single_view_candidate(m_single, eval_crop):
                     confirmed_here = True
                     vis_boxes.append(
-                        (prop.bbox_xywh, f"1-View CONFIRM {m_single.best_proto_sim:.2f}", (30, 185, 45))
+                        (
+                            prop.bbox_xywh,
+                            f"1-View CONFIRM {m_single.best_proto_sim:.2f}",
+                            (30, 185, 45),
+                        )
                     )
                     break
                 else:
                     vis_boxes.append(
-                        (prop.bbox_xywh, f"1-View Reject {m_single.best_proto_sim:.2f}", (35, 60, 210))
+                        (
+                            prop.bbox_xywh,
+                            f"1-View Reject {m_single.best_proto_sim:.2f}",
+                            (35, 60, 210),
+                        )
                     )
             else:
-                # Full Active View Verification (IEVE multi-angle arc around candidate)
+                # Custom fixed-angle verification baseline, not upstream IEVE.
                 session = controller.start_candidate_verification(f"{sid}_cand_{idx}")
                 ox, oy, outward = object_poses_xy_outward[sid]
                 status = VerificationStatus.NEED_MORE_VIEWS
@@ -272,8 +324,10 @@ def run_closed_loop_episode(
                             ang,
                             radius_m=0.45,
                         )
-                        # Account for physical arc path around candidate
-                        arc_step_m = 0.45 * abs(math.radians(ang - session.history[-1].view_angle_deg))
+                        # Estimate an authored arc length; no measured physical travel.
+                        arc_step_m = 0.45 * abs(
+                            math.radians(ang - session.history[-1].view_angle_deg)
+                        )
                         controller.total_travel_distance_m += arc_step_m
 
                     ray = outward + math.radians(ang)
@@ -281,14 +335,19 @@ def run_closed_loop_episode(
                     cy = oy + 0.45 * math.sin(ray)
                     cyaw = math.degrees(math.atan2(oy - cy, ox - cx))
                     v_frame = world.render_camera(
-                        cx, cy, cyaw,
+                        cx,
+                        cy,
+                        cyaw,
                         pitch_rad=math.radians(-16.0),
                         lighting_scale=lighting_scale,
                         noise_std=noise_std,
                         rng=rng,
                     )
                     v_props = [
-                        p for p in proposer.propose(v_frame, tags=tag_estimator.detect(v_frame))
+                        p
+                        for p in proposer.propose(
+                            v_frame, tags=tag_estimator.detect(v_frame)
+                        )
                         if p.area_px >= 8000
                     ]
                     if not v_props:
@@ -296,20 +355,32 @@ def run_closed_loop_episode(
                     # Select the dominant close-range centered object being inspected
                     primary_prop = max(
                         v_props,
-                        key=lambda p: p.area_px / (1.0 + abs(p.center_px[0] - 320.0) / 160.0),
+                        key=lambda p: (
+                            p.area_px / (1.0 + abs(p.center_px[0] - 320.0) / 160.0)
+                        ),
                     )
-                    status = controller.step_candidate_verification(primary_prop, ang, distance_m=0.45)
+                    status = controller.step_candidate_verification(
+                        primary_prop, ang, distance_m=0.45
+                    )
                     last_sim = session.history[-1].match.best_proto_sim
                     if capture_visuals:
                         if sid == decoy_station:
-                            decoy_crops.append((ang, last_sim, primary_prop.crop_bgr.copy()))
+                            decoy_crops.append(
+                                (ang, last_sim, primary_prop.crop_bgr.copy())
+                            )
                         elif sid == true_target_station:
-                            target_crops.append((ang, last_sim, primary_prop.crop_bgr.copy()))
+                            target_crops.append(
+                                (ang, last_sim, primary_prop.crop_bgr.copy())
+                            )
 
                 if status == VerificationStatus.CONFIRMED:
                     confirmed_here = True
                     vis_boxes.append(
-                        (prop.bbox_xywh, f"CONFIRMED P={controller.final_confidence:.2f}", (30, 185, 45))
+                        (
+                            prop.bbox_xywh,
+                            f"Heuristic match score={controller.final_confidence:.2f}",
+                            (30, 185, 45),
+                        )
                     )
                     break
                 else:
@@ -325,8 +396,12 @@ def run_closed_loop_episode(
             controller.finish_station_unsuccessful(coverage_factor=1.0)
 
     report = controller.build_report()
-    gt_success = bool(report.succeeded and report.found_station_id == true_target_station)
-    false_verif = bool(report.succeeded and report.found_station_id != true_target_station)
+    gt_success = bool(
+        report.succeeded and report.found_station_id == true_target_station
+    )
+    false_verif = bool(
+        report.succeeded and report.found_station_id != true_target_station
+    )
 
     return EpisodeTrace(
         variant_name=variant_name,
@@ -351,10 +426,16 @@ def run_ablation_suite(num_trials: int = 40, seed: int = 42) -> list[AblationMet
 
     # Enroll target + 3 other known lab items (excluding the unseen Red Decoy Box!)
     taught_target = render_teaching_views(catalog["secret_box_1"], cfg.camera)
-    base_mem.teach("Secret Box #1", [c for _, c in taught_target], [a for a, _ in taught_target])
+    base_mem.teach(
+        "Secret Box #1", [c for _, c in taught_target], [a for a, _ in taught_target]
+    )
     for other_key in ("blue_tool_case", "emerald_med_kit", "amber_sensor_cube"):
-        tv = render_teaching_views(catalog[other_key], cfg.camera, angles_deg=(-60.0, 0.0, 60.0))
-        base_mem.teach(catalog[other_key].display_name, [c for _, c in tv], [a for a, _ in tv])
+        tv = render_teaching_views(
+            catalog[other_key], cfg.camera, angles_deg=(-60.0, 0.0, 60.0)
+        )
+        base_mem.teach(
+            catalog[other_key].display_name, [c for _, c in tv], [a for a, _ in tv]
+        )
 
     # Realistic semantic prior: target is stored most frequently at Station_C or Station_B
     station_ids = ["Station_A", "Station_B", "Station_C"]
@@ -374,7 +455,9 @@ def run_ablation_suite(num_trials: int = 40, seed: int = 42) -> list[AblationMet
         light = float(rng.uniform(0.84, 1.15))
         noise = float(rng.uniform(1.8, 5.5))
         dropout_st = str(rng.choice(station_ids)) if (t % 4 == 0) else None
-        scenarios.append((targ_st, decoy_st, other_st, light, noise, dropout_st, 1000 + t))
+        scenarios.append(
+            (targ_st, decoy_st, other_st, light, noise, dropout_st, 1000 + t)
+        )
 
     variants = [
         ("V0: Seq + 1-View (Baseline)", False, False),
@@ -408,11 +491,22 @@ def run_ablation_suite(num_trials: int = 40, seed: int = 42) -> list[AblationMet
             AblationMetrics(
                 variant_name=v_name,
                 num_trials=len(traces),
-                true_success_rate=100.0 * sum(t.ground_truth_success for t in traces) / n,
-                false_verification_rate=100.0 * sum(t.false_verification for t in traces) / n,
-                avg_stations_checked=sum(len(t.report.stations_visited) for t in traces) / n,
-                avg_travel_distance_m=sum(t.report.total_travel_distance_m for t in traces) / n,
-                avg_distractors_rejected=sum(t.report.rejected_distractors for t in traces) / n,
+                true_success_rate=100.0
+                * sum(t.ground_truth_success for t in traces)
+                / n,
+                false_verification_rate=100.0
+                * sum(t.false_verification for t in traces)
+                / n,
+                avg_stations_checked=sum(len(t.report.stations_visited) for t in traces)
+                / n,
+                avg_travel_distance_m=sum(
+                    t.report.total_travel_distance_m for t in traces
+                )
+                / n,
+                avg_distractors_rejected=sum(
+                    t.report.rejected_distractors for t in traces
+                )
+                / n,
                 tag_recovery_count=sum(t.report.tag_recovery_events for t in traces),
             )
         )

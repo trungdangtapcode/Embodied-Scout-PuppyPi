@@ -19,8 +19,8 @@ class Object3DSpec:
 
     object_id: str
     display_name: str
-    size_xyz_m: tuple[float, float, float]   # (width_x, depth_y, height_z)
-    face_textures: dict[str, np.ndarray]     # keys: front, right, back, left, top
+    size_xyz_m: tuple[float, float, float]  # (width_x, depth_y, height_z)
+    face_textures: dict[str, np.ndarray]  # keys: front, right, back, left, top
 
 
 @dataclass(frozen=True)
@@ -30,7 +30,7 @@ class PlacedObject:
     spec: Object3DSpec
     station_id: str
     center_xy_m: tuple[float, float]
-    yaw_deg: float                           # Direction the object's 'front' face points
+    yaw_deg: float  # Direction the object's 'front' face points
     base_z_m: float = 0.0
     is_target: bool = False
 
@@ -42,7 +42,12 @@ def _make_face_canvas(bg_bgr: tuple[int, int, int], size: int = 160) -> np.ndarr
     return canvas
 
 
-def _draw_emblem(canvas: np.ndarray, pattern: str, fg_bgr: tuple[int, int, int], accent_bgr: tuple[int, int, int]) -> np.ndarray:
+def _draw_emblem(
+    canvas: np.ndarray,
+    pattern: str,
+    fg_bgr: tuple[int, int, int],
+    accent_bgr: tuple[int, int, int],
+) -> np.ndarray:
     img = canvas.copy()
     s = img.shape[0]
     c = s // 2
@@ -101,22 +106,40 @@ def build_object_catalog() -> dict[str, Object3DSpec]:
     gold = (35, 205, 245)
     white = (242, 242, 242)
 
-    secret_front = _draw_emblem(_make_face_canvas(crimson), "gold_ring_star", gold, white)
-    secret_side = _draw_emblem(_make_face_canvas((130, 55, 25)), "cyan_cross_bars", (235, 225, 30), white)
+    secret_front = _draw_emblem(
+        _make_face_canvas(crimson), "gold_ring_star", gold, white
+    )
+    secret_side = _draw_emblem(
+        _make_face_canvas((130, 55, 25)), "cyan_cross_bars", (235, 225, 30), white
+    )
     secret_top = _make_face_canvas((55, 50, 205))
 
-    lookalike_front = _draw_emblem(_make_face_canvas(crimson), "gold_ring_dot", gold, white)
-    lookalike_side = _draw_emblem(_make_face_canvas((52, 58, 62)), "hazard_stripes", (20, 210, 235), white)
+    lookalike_front = _draw_emblem(
+        _make_face_canvas(crimson), "gold_ring_dot", gold, white
+    )
+    lookalike_side = _draw_emblem(
+        _make_face_canvas((52, 58, 62)), "hazard_stripes", (20, 210, 235), white
+    )
     lookalike_top = _make_face_canvas((55, 50, 195))
 
     blue_front = _draw_emblem(_make_face_canvas((195, 95, 28)), "chevron", white, gold)
-    blue_side = _draw_emblem(_make_face_canvas((165, 78, 22)), "chevron", (215, 225, 240), gold)
+    blue_side = _draw_emblem(
+        _make_face_canvas((165, 78, 22)), "chevron", (215, 225, 240), gold
+    )
 
-    green_front = _draw_emblem(_make_face_canvas((58, 155, 42)), "med_cross", white, (42, 115, 30))
-    green_side = _draw_emblem(_make_face_canvas((48, 138, 35)), "med_cross", white, (35, 98, 25))
+    green_front = _draw_emblem(
+        _make_face_canvas((58, 155, 42)), "med_cross", white, (42, 115, 30)
+    )
+    green_side = _draw_emblem(
+        _make_face_canvas((48, 138, 35)), "med_cross", white, (35, 98, 25)
+    )
 
-    amber_front = _draw_emblem(_make_face_canvas((25, 145, 235)), "checker", (32, 32, 38), white)
-    amber_side = _draw_emblem(_make_face_canvas((22, 130, 215)), "checker", (32, 32, 38), white)
+    amber_front = _draw_emblem(
+        _make_face_canvas((25, 145, 235)), "checker", (32, 32, 38), white
+    )
+    amber_side = _draw_emblem(
+        _make_face_canvas((22, 130, 215)), "checker", (32, 32, 38), white
+    )
 
     return {
         "secret_box_1": Object3DSpec(
@@ -184,8 +207,8 @@ def build_object_catalog() -> dict[str, Object3DSpec]:
 
 @dataclass(frozen=True)
 class _Quad3D:
-    corners_world: np.ndarray     # shape (4, 3): TL, TR, BR, BL
-    normal_world: np.ndarray      # shape (3,)
+    corners_world: np.ndarray  # shape (4, 3): TL, TR, BR, BL
+    normal_world: np.ndarray  # shape (3,)
     texture_bgr: np.ndarray
 
 
@@ -219,7 +242,10 @@ class SimulatedLabWorld:
             sx, sy = node.position_xy
             # Station marker faces back toward the room origin (HOME at 0,0)
             outward_angle = math.atan2(-sy, -sx)
-            normal = np.array([math.cos(outward_angle), math.sin(outward_angle), 0.0], dtype=np.float64)
+            normal = np.array(
+                [math.cos(outward_angle), math.sin(outward_angle), 0.0],
+                dtype=np.float64,
+            )
             # Right axis when looking AT the marker from the front:
             # Cross(world_up, normal) points left of normal, so right-on-tag is cross(normal, world_up)
             # Wait: let's verify! If marker is at (0, 2.25), normal = (0, -1, 0).
@@ -230,7 +256,9 @@ class SimulatedLabWorld:
 
             # White quiet-zone border around generated marker is 32px around 256px (total 320px),
             # so physical quad width = tag_size_m * (320 / 256) = 1.25 * tag_size_m!
-            tag_img = self.tag_helper.generate_tag_image(node.apriltag_id, side_px=256, border_px=32)
+            tag_img = self.tag_helper.generate_tag_image(
+                node.apriltag_id, side_px=256, border_px=32
+            )
             quad_half = 0.5 * self.tag_size_m * (320.0 / 256.0)
             center = np.array([sx, sy, 0.27], dtype=np.float64) + 0.003 * normal
 
@@ -294,7 +322,9 @@ class SimulatedLabWorld:
         # Looking AT the front face from outside, viewer's right is (-sin psi, cos psi, 0)
         v_right = np.array([-math.sin(psi), math.cos(psi), 0.0], dtype=np.float64)
         up = np.array([0.0, 0.0, 1.0], dtype=np.float64)
-        c_xy = np.array([placed.center_xy_m[0], placed.center_xy_m[1], 0.0], dtype=np.float64)
+        c_xy = np.array(
+            [placed.center_xy_m[0], placed.center_xy_m[1], 0.0], dtype=np.float64
+        )
 
         # 8 vertices relative to base center
         p_fl_b = c_xy + hy * fwd - hx * v_right + z0 * up
@@ -336,12 +366,18 @@ class SimulatedLabWorld:
         """Render a 640x480 BGR pinhole camera image from the robot's current pose."""
         w, h = self.camera.width, self.camera.height
         pitch = self.camera.default_pitch_rad if pitch_rad is None else pitch_rad
-        cam_z = self.camera.camera_height_m if camera_height_m is None else camera_height_m
+        cam_z = (
+            self.camera.camera_height_m if camera_height_m is None else camera_height_m
+        )
 
         psi = math.radians(robot_yaw_deg)
         # Camera basis in world coordinates
         f_axis = np.array(
-            [math.cos(psi) * math.cos(pitch), math.sin(psi) * math.cos(pitch), math.sin(pitch)],
+            [
+                math.cos(psi) * math.cos(pitch),
+                math.sin(psi) * math.cos(pitch),
+                math.sin(pitch),
+            ],
             dtype=np.float64,
         )
         r_axis = np.array([math.sin(psi), -math.cos(psi), 0.0], dtype=np.float64)
@@ -355,13 +391,17 @@ class SimulatedLabWorld:
 
         frame = np.zeros((h, w, 3), dtype=np.uint8)
         if horizon_y > 0:
-            wall_col = np.clip(np.array([208, 212, 216]) * lighting_scale, 20, 250).astype(np.uint8)
+            wall_col = np.clip(
+                np.array([208, 212, 216]) * lighting_scale, 20, 250
+            ).astype(np.uint8)
             frame[:horizon_y, :] = wall_col
         if horizon_y < h:
             ys = np.linspace(0.0, 1.0, h - horizon_y)[:, None, None]
             floor_far = np.array([172.0, 168.0, 162.0]) * lighting_scale
             floor_near = np.array([152.0, 148.0, 142.0]) * lighting_scale
-            floor_grad = np.clip((1.0 - ys) * floor_far + ys * floor_near, 15, 245).astype(np.uint8)
+            floor_grad = np.clip(
+                (1.0 - ys) * floor_far + ys * floor_near, 15, 245
+            ).astype(np.uint8)
             frame[horizon_y:, :] = np.broadcast_to(floor_grad, (h - horizon_y, w, 3))
 
         # Collect visible 3D quads
@@ -391,16 +431,13 @@ class SimulatedLabWorld:
             dst_pts = np.stack([us, vs], axis=1).astype(np.float32)
 
             # Skip quads completely outside image bounds
-            if (
-                np.max(us) < 0
-                or np.min(us) >= w
-                or np.max(vs) < 0
-                or np.min(vs) >= h
-            ):
+            if np.max(us) < 0 or np.min(us) >= w or np.max(vs) < 0 or np.min(vs) >= h:
                 continue
 
             mean_depth = float(np.mean(pts_cam[:, 2]))
-            shade = (0.76 + 0.24 * max(0.0, float(np.dot(quad.normal_world, light_dir)))) * lighting_scale
+            shade = (
+                0.76 + 0.24 * max(0.0, float(np.dot(quad.normal_world, light_dir)))
+            ) * lighting_scale
             drawable.append((mean_depth, dst_pts, quad.texture_bgr, shade))
 
         # Painter's algorithm: farthest quad drawn first, closest drawn last
@@ -411,7 +448,9 @@ class SimulatedLabWorld:
                 [[0, 0], [tw - 1, 0], [tw - 1, th - 1], [0, th - 1]],
                 dtype=np.float32,
             )
-            shaded_tex = np.clip(tex.astype(np.float32) * shade, 0, 255).astype(np.uint8)
+            shaded_tex = np.clip(tex.astype(np.float32) * shade, 0, 255).astype(
+                np.uint8
+            )
             homography = cv2.getPerspectiveTransform(src_pts, dst_pts)
             warped = cv2.warpPerspective(
                 shaded_tex,
@@ -444,7 +483,12 @@ def render_teaching_views(
 
     temp_graph = TopologicalGraph()
     temp_graph.add_node(
-        StationNode("TEACH_PEDESTAL", apriltag_id=9, position_xy=(0.0, 1.0), is_search_station=False)
+        StationNode(
+            "TEACH_PEDESTAL",
+            apriltag_id=9,
+            position_xy=(0.0, 1.0),
+            is_search_station=False,
+        )
     )
     world = SimulatedLabWorld(temp_graph, camera=camera)
     world.place_station_objects(
@@ -482,6 +526,30 @@ def render_teaching_views(
             crop = proposals[0].crop_bgr
         else:
             h, w = frame.shape[:2]
-            crop = frame[int(0.28 * h) : int(0.75 * h), int(0.30 * w) : int(0.70 * w)].copy()
+            crop = frame[
+                int(0.28 * h) : int(0.75 * h), int(0.30 * w) : int(0.70 * w)
+            ].copy()
         views.append((float(ang), crop))
     return views
+
+
+def stamp_scripted_visual(image: np.ndarray) -> np.ndarray:
+    """Label authored storyboard images; this is not model or motion evidence."""
+    result = cv2.copyMakeBorder(
+        image, 0, 48, 0, 0, cv2.BORDER_CONSTANT, value=(20, 24, 30)
+    )
+    for offset, text in (
+        (18, "SCRIPTED | Python/OpenCV | no learned inference/RL"),
+        (37, "Poses, labels and scores are hand-authored."),
+    ):
+        cv2.putText(
+            result,
+            text,
+            (10, image.shape[0] + offset),
+            cv2.FONT_HERSHEY_SIMPLEX,
+            0.45,
+            (245, 245, 245),
+            1,
+            cv2.LINE_AA,
+        )
+    return result

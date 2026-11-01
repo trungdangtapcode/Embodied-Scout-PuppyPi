@@ -39,7 +39,7 @@ class SceneService:
                     {
                         "object_id": obj["id"],
                         "object_name": obj["name"],
-                        "score": match["calibrated_score"],
+                        "score": match["heuristic_score"],
                         "similarity": match["best_proto_sim"],
                     }
                 )
@@ -68,6 +68,15 @@ class SceneService:
             "provider": "foreground_proposals_v1",
             "candidates": candidates,
             "meaning": "uncalibrated_suggestions_not_observations",
+            "method": {
+                "proposal": "project_owned_python_opencv_saliency_morphology_contours",
+                "proposal_learned_model": False,
+                "matching": "project_owned_prototype_similarity_with_authored_weights",
+                "encoder_signature": self.library.signature,
+                "paper_implementation_reused_for_proposals_or_matching": False,
+                "score_semantics": "uncalibrated_heuristic_not_probability",
+                "identity_and_region_source": "operator_confirmation",
+            },
         }
         try:
             payload = json.dumps(result, allow_nan=False)
@@ -151,6 +160,7 @@ class SceneService:
                         "bbox_xywh": candidate["bbox_xywh"],
                         "crop_image_sha": candidate["crop_image_sha"],
                         "confirmation": "operator_review_of_frozen_frame",
+                        "quality_visibility_source": "fixed_operator_confirmation_defaults_not_measured",
                     },
                     commit=False,
                 )

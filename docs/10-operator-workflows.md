@@ -51,7 +51,8 @@ OBJECT_ID='replace-with-returned-object-id'
 Renaming and replacing reference views preserve identity and observation history.
 Active names are unique after whitespace normalization and case folding. Matching
 returns ranked `candidate_only` results; a score never becomes an observation or
-an automatic confirmation. The inherited `calibrated_score` field is heuristic.
+an automatic confirmation. Fresh match JSON now uses `heuristic_score` and explicit score semantics. The
+legacy Python `calibrated_score` alias is deprecated and uncalibrated.
 
 Archive an object to remove it from the active library while retaining evidence:
 

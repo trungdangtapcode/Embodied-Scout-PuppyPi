@@ -1,4 +1,8 @@
-"""Algorithm 3: Topological Active Search Planner & Sequential Baseline."""
+"""Custom Dijkstra/station-scoring baseline on an explicitly supplied graph.
+
+The default graph is a hardcoded synthetic fixture. Entropy/novelty scores are
+heuristics, not measured information gain or upstream navigation-policy reuse.
+"""
 
 from __future__ import annotations
 
@@ -82,19 +86,43 @@ class TopologicalGraph:
 
 
 def build_default_lab_graph() -> TopologicalGraph:
-    """Construct the standard 3-station + HOME controlled room topology."""
+    """Construct a hardcoded synthetic test layout; never a measured room map."""
     graph = TopologicalGraph()
     graph.add_node(
-        StationNode("HOME", apriltag_id=0, position_xy=(0.0, 0.0), heading_deg=90.0, is_search_station=False)
+        StationNode(
+            "HOME",
+            apriltag_id=0,
+            position_xy=(0.0, 0.0),
+            heading_deg=90.0,
+            is_search_station=False,
+        )
     )
     graph.add_node(
-        StationNode("Station_A", apriltag_id=1, position_xy=(-1.35, 1.55), heading_deg=135.0, visibility_quality=0.95)
+        StationNode(
+            "Station_A",
+            apriltag_id=1,
+            position_xy=(-1.35, 1.55),
+            heading_deg=135.0,
+            visibility_quality=0.95,
+        )
     )
     graph.add_node(
-        StationNode("Station_B", apriltag_id=2, position_xy=(0.0, 2.25), heading_deg=90.0, visibility_quality=1.00)
+        StationNode(
+            "Station_B",
+            apriltag_id=2,
+            position_xy=(0.0, 2.25),
+            heading_deg=90.0,
+            visibility_quality=1.00,
+        )
     )
     graph.add_node(
-        StationNode("Station_C", apriltag_id=3, position_xy=(1.45, 1.40), heading_deg=45.0, visibility_quality=0.95)
+        StationNode(
+            "Station_C",
+            apriltag_id=3,
+            position_xy=(1.45, 1.40),
+            heading_deg=45.0,
+            visibility_quality=0.95,
+        )
     )
     graph.add_edge("HOME", "Station_A")
     graph.add_edge("HOME", "Station_B")
@@ -136,7 +164,9 @@ class ActiveSearchPlanner:
         self.belief: dict[str, float] = {}
         self.visit_counts: dict[str, int] = {}
 
-    def initialize_belief(self, priors: dict[str, float] | None = None) -> dict[str, float]:
+    def initialize_belief(
+        self, priors: dict[str, float] | None = None
+    ) -> dict[str, float]:
         stations = self.graph.search_station_ids
         if not priors:
             uniform = 1.0 / float(max(len(stations), 1))
@@ -192,7 +222,9 @@ class ActiveSearchPlanner:
         current_node_id: str,
         exclude_exhausted: set[str] | None = None,
     ) -> StationScoreBreakdown | None:
-        ranked = self.score_stations(current_node_id, exclude_exhausted=exclude_exhausted)
+        ranked = self.score_stations(
+            current_node_id, exclude_exhausted=exclude_exhausted
+        )
         return ranked[0] if ranked else None
 
     def register_negative_observation(
@@ -202,7 +234,9 @@ class ActiveSearchPlanner:
     ) -> dict[str, float]:
         """Bayesian posterior update across all stations when target is NOT found at station_id."""
         self.visit_counts[station_id] = self.visit_counts.get(station_id, 0) + 1
-        eff_recall = max(0.05, min(0.98, self.settings.station_detection_recall * coverage_factor))
+        eff_recall = max(
+            0.05, min(0.98, self.settings.station_detection_recall * coverage_factor)
+        )
         p_z = self.belief.get(station_id, 0.0)
         denom = max(1e-6, 1.0 - eff_recall * p_z)
 
@@ -226,7 +260,9 @@ class SequentialSearchPlanner:
         self.visit_counts: dict[str, int] = {}
         self.belief: dict[str, float] = {}
 
-    def initialize_belief(self, priors: dict[str, float] | None = None) -> dict[str, float]:
+    def initialize_belief(
+        self, priors: dict[str, float] | None = None
+    ) -> dict[str, float]:
         stations = self.graph.search_station_ids
         uniform = 1.0 / float(max(len(stations), 1))
         self.belief = {sid: uniform for sid in stations}

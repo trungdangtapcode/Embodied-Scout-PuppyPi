@@ -1,4 +1,4 @@
-"""Algorithm 1: Few-Shot Object Memory with Prototype Margin & Semantic Location Priors."""
+"""Project-owned prototype matching and station counts; not a trained memory model."""
 
 from __future__ import annotations
 
@@ -15,9 +15,9 @@ class ObjectRecord:
     """Stored multi-view prototype bank and semantic observation history for a taught object."""
 
     name: str
-    prototypes: np.ndarray                  # shape (K, D), L2-normalized view embeddings
-    reference_crops: list[np.ndarray]       # taught BGR crops for evidence dashboard
-    view_angles_deg: list[float] = field(default_factory=list)
+    prototypes: np.ndarray  # shape (K, D), L2-normalized view embeddings
+    reference_crops: list[np.ndarray]  # taught BGR crops for evidence dashboard
+    view_angles_deg: list[float | None] = field(default_factory=list)
     station_hit_counts: dict[str, int] = field(default_factory=dict)
 
 
@@ -30,8 +30,13 @@ class MatchResult:
     mean_top2_sim: float
     nearest_other_sim: float
     margin: float
-    calibrated_score: float
+    heuristic_score: float
     matched_view_idx: int
+
+    @property
+    def calibrated_score(self) -> float:
+        """Deprecated Python alias; the heuristic was never statistically calibrated."""
+        return self.heuristic_score
 
 
 class ObjectMemoryBank:
@@ -62,7 +67,7 @@ class ObjectMemoryBank:
         self,
         name: str,
         crops_bgr: list[np.ndarray],
-        view_angles_deg: list[float] | None = None,
+        view_angles_deg: list[float | None] | None = None,
     ) -> ObjectRecord:
         """Enroll or update an object from K=3..5 multi-angle reference crops."""
         if not crops_bgr:
@@ -72,10 +77,16 @@ class ObjectMemoryBank:
         angles = (
             list(view_angles_deg)
             if view_angles_deg is not None
-            else [float(i) for i in range(len(crops_bgr))]
+            else [None] * len(crops_bgr)
         )
+        if len(angles) != len(crops_bgr):
+            raise ValueError(
+                "Each reference requires an angle or explicit unknown None."
+            )
         existing_counts = (
-            dict(self._objects[name].station_hit_counts) if name in self._objects else {}
+            dict(self._objects[name].station_hit_counts)
+            if name in self._objects
+            else {}
         )
         record = ObjectRecord(
             name=name,
@@ -96,13 +107,18 @@ class ObjectMemoryBank:
     def restore_record(self, record: ObjectRecord) -> None:
         """Restore persisted prototypes after the caller checks encoder identity."""
         prototypes = record.prototypes
-        if (prototypes.ndim != 2 or prototypes.shape[1] != self.encoder.embedding_dim
-                or len(prototypes) == 0 or not np.isfinite(prototypes).all()
-                or len(record.reference_crops) != len(prototypes)
-                or len(record.view_angles_deg) != len(prototypes)):
+        if (
+            prototypes.ndim != 2
+            or prototypes.shape[1] != self.encoder.embedding_dim
+            or len(prototypes) == 0
+            or not np.isfinite(prototypes).all()
+            or len(record.reference_crops) != len(prototypes)
+            or len(record.view_angles_deg) != len(prototypes)
+        ):
             raise ValueError("Stored object prototypes are incompatible or incomplete.")
         self._objects[record.name] = ObjectRecord(
-            name=record.name, prototypes=prototypes.copy(),
+            name=record.name,
+            prototypes=prototypes.copy(),
             reference_crops=[crop.copy() for crop in record.reference_crops],
             view_angles_deg=list(record.view_angles_deg),
             station_hit_counts=dict(record.station_hit_counts),
@@ -134,9 +150,10 @@ class ObjectMemoryBank:
         nearest_other = max(competitor_sims) if competitor_sims else 0.55
         margin = best_sim - nearest_other
 
-        # Calibrated score blends prototype similarity with distractor margin bonus
+        # Authored heuristic blend, including a fixed 0.55 competitor prior when
+        # no negative example exists. It is not calibrated or learned inference.
         w_margin = self.perception_cfg.distractor_margin_weight
-        calibrated = (1.0 - 0.25) * best_sim + 0.25 * mean_top2 + w_margin * margin
+        heuristic_score = (1.0 - 0.25) * best_sim + 0.25 * mean_top2 + w_margin * margin
 
         return MatchResult(
             target_name=target_name,
@@ -144,18 +161,22 @@ class ObjectMemoryBank:
             mean_top2_sim=mean_top2,
             nearest_other_sim=nearest_other,
             margin=margin,
-            calibrated_score=float(calibrated),
+            heuristic_score=float(heuristic_score),
             matched_view_idx=best_idx,
         )
 
-    def match_crop(self, crop_bgr: np.ndarray, target_name: str) -> tuple[MatchResult, np.ndarray]:
+    def match_crop(
+        self, crop_bgr: np.ndarray, target_name: str
+    ) -> tuple[MatchResult, np.ndarray]:
         emb = self.encoder.embed(crop_bgr)
         return self.match_embedding(emb, target_name), emb
 
     def record_sighting(self, name: str, station_id: str) -> None:
         """Update semantic location memory when an object is confirmed at a station."""
         record = self.get_record(name)
-        record.station_hit_counts[station_id] = record.station_hit_counts.get(station_id, 0) + 1
+        record.station_hit_counts[station_id] = (
+            record.station_hit_counts.get(station_id, 0) + 1
+        )
 
     def get_station_priors(self, name: str, station_ids: list[str]) -> dict[str, float]:
         """Compute Dirichlet-smoothed semantic prior P(target | z) across stations."""
@@ -164,7 +185,8 @@ class ObjectMemoryBank:
         record = self.get_record(name)
         alpha0 = self.planner_cfg.prior_dirichlet_smoothing
         weights = {
-            sid: alpha0 + float(record.station_hit_counts.get(sid, 0)) for sid in station_ids
+            sid: alpha0 + float(record.station_hit_counts.get(sid, 0))
+            for sid in station_ids
         }
         total = sum(weights.values())
         return {sid: val / total for sid, val in weights.items()}

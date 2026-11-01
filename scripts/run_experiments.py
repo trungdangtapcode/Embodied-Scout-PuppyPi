@@ -1,7 +1,8 @@
-"""Run closed-loop visual demo + 40-trial ablation study and save visual plots."""
+"""Run custom Python/OpenCV heuristic fixtures with oracle camera positions; no learned policy."""
 
 from __future__ import annotations
 
+import argparse
 import json
 from dataclasses import asdict
 from pathlib import Path
@@ -23,6 +24,23 @@ def _bgr_to_rgb(img: np.ndarray) -> np.ndarray:
     return cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
 
+def demo_summary_lines(trace_full, trace_baseline) -> list[str]:
+    """Render observed fixture outcomes; never prewrite success/failure labels."""
+    return [
+        f"Fixture Target     : {trace_full.true_target_station}",
+        f"Fixture Decoy      : {trace_full.decoy_station}",
+        f"1-View Baseline     : correct_fixture_station={trace_baseline.ground_truth_success}; false_match={trace_baseline.false_verification}",
+        f"Multi-View Baseline: correct_fixture_station={trace_full.ground_truth_success}; station={trace_full.report.found_station_id} "
+        f"(heuristic score={trace_full.report.heuristic_score:.2f})",
+        f"Logical Visit Order: {' -> '.join(trace_full.report.stations_visited)}; HOME unexecuted",
+        f"Tag Recovery Events : {trace_full.report.tag_recovery_events}  |  "
+        f"Graph distance estimate: {trace_full.report.total_travel_distance_m:.2f} m",
+        "",
+        "Python/OpenCV heuristic; oracle camera poses; no learned policy",
+        "FSM Trace:",
+    ]
+
+
 def save_demo_dashboard(out_path: Path) -> dict[str, object]:
     """Run a showcase mission where a look-alike decoy sits at the first-searched station."""
     cfg = Settings()
@@ -33,13 +51,15 @@ def save_demo_dashboard(out_path: Path) -> dict[str, object]:
     taught = render_teaching_views(catalog["secret_box_1"], cfg.camera)
     mem.teach("Secret Box #1", [c for _, c in taught], [a for a, _ in taught])
     for k in ("blue_tool_case", "emerald_med_kit", "amber_sensor_cube"):
-        tv = render_teaching_views(catalog[k], cfg.camera, angles_deg=(-60.0, 0.0, 60.0))
+        tv = render_teaching_views(
+            catalog[k], cfg.camera, angles_deg=(-60.0, 0.0, 60.0)
+        )
         mem.teach(catalog[k].display_name, [c for _, c in tv], [a for a, _ in tv])
 
     # Uniform prior on first deployment: ActiveSearchPlanner picks closest station first (Station_C),
     # where we deliberately plant the Look-Alike Red Decoy Box, while hiding Secret Box #1 at Station_A!
     trace_full = run_closed_loop_episode(
-        variant_name="Full Teach & Find",
+        variant_name="Custom Heuristic Baseline",
         use_active_planner=True,
         use_multi_view=True,
         base_memory=mem,
@@ -70,12 +90,14 @@ def save_demo_dashboard(out_path: Path) -> dict[str, object]:
 
     fig = plt.figure(figsize=(14.5, 8.8), dpi=140)
     fig.suptitle(
-        "PuppyPi Teach & Find — Closed-Loop 640x480 Visual Demo (Hard Decoy + Tag Dropout)",
+        "Synthetic Python/OpenCV heuristic fixture demo — oracle viewpoints",
         fontsize=13,
         fontweight="bold",
         y=0.98,
     )
-    gs = fig.add_gridspec(3, 5, height_ratios=[0.85, 1.35, 1.05], hspace=0.38, wspace=0.22)
+    gs = fig.add_gridspec(
+        3, 5, height_ratios=[0.85, 1.35, 1.05], hspace=0.38, wspace=0.22
+    )
 
     # Row 0: 5 Taught Reference Views
     for idx, (ang, crop) in enumerate(taught):
@@ -97,18 +119,7 @@ def save_demo_dashboard(out_path: Path) -> dict[str, object]:
     # Row 1 cols 3..4: Mission Decision Summary Box
     ax_log = fig.add_subplot(gs[1, max(1, len(visited)) : 5])
     ax_log.axis("off")
-    summary_lines = [
-        f"Ground Truth Target : Station_A ('Secret Box #1')",
-        f"Hard Decoy Planted  : Station_C ('Red Decoy Box')",
-        f"1-View Baseline     : FAILED (False Positive at {trace_baseline.report.found_station_id}!)",
-        f"Full Teach & Find   : SUCCEEDED at {trace_full.report.found_station_id} "
-        f"(Conf={trace_full.report.confidence:.2f})",
-        f"Visited Order       : {' -> '.join(trace_full.report.stations_visited)} -> HOME",
-        f"Tag Recovery Events : {trace_full.report.tag_recovery_events}  |  "
-        f"Total Travel: {trace_full.report.total_travel_distance_m:.2f} m",
-        "",
-        "FSM Trace:",
-    ]
+    summary_lines = demo_summary_lines(trace_full, trace_baseline)
     for line in trace_full.report.decision_log[-6:]:
         summary_lines.append("  • " + (line[:76] + "..." if len(line) > 79 else line))
     ax_log.text(
@@ -119,7 +130,11 @@ def save_demo_dashboard(out_path: Path) -> dict[str, object]:
         ha="left",
         fontsize=8.6,
         family="monospace",
-        bbox={"boxstyle": "round,pad=0.5", "facecolor": "#f4f6f9", "edgecolor": "#cbd5e1"},
+        bbox={
+            "boxstyle": "round,pad=0.5",
+            "facecolor": "#f4f6f9",
+            "edgecolor": "#cbd5e1",
+        },
     )
 
     # Row 2 Left: Decoy Multi-View Rejection Evidence
@@ -156,7 +171,10 @@ def save_demo_dashboard(out_path: Path) -> dict[str, object]:
         "baseline_found": trace_baseline.report.found_station_id,
         "baseline_false_verification": trace_baseline.false_verification,
         "full_found": trace_full.report.found_station_id,
-        "full_confidence": round(trace_full.report.confidence, 4),
+        "full_heuristic_score": round(trace_full.report.heuristic_score, 4),
+        "score_semantics": "uncalibrated_heuristic_not_probability",
+        "execution_semantics": "synthetic_oracle_viewpoints_not_navigation",
+        "physical_return_verified": False,
         "full_stations_visited": trace_full.report.stations_visited,
         "full_rejected_distractors": trace_full.report.rejected_distractors,
         "full_tag_recoveries": trace_full.report.tag_recovery_events,
@@ -166,26 +184,53 @@ def save_demo_dashboard(out_path: Path) -> dict[str, object]:
 
 
 def save_ablation_plot(metrics_list: list, out_path: Path) -> None:
-    labels = ["V0: Seq\n+ 1-View", "V1: Active\n+ 1-View", "V2: Seq\n+ Multi-View", "V3: Full\nTeach & Find"]
+    labels = [
+        "V0: Seq\n+ 1-View",
+        "V1: Active\n+ 1-View",
+        "V2: Seq\n+ Multi-View",
+        "V3: Full\nTeach & Find",
+    ]
     colors = ["#94a3b8", "#60a5fa", "#f59e0b", "#16a34a"]
 
     fig, axes = plt.subplots(1, 4, figsize=(14.2, 4.0), dpi=140)
     fig.suptitle(
-        f"PuppyPi Teach & Find — 4-Way Ablation Study ({metrics_list[0].num_trials} Randomized Trials / Variant)",
+        f"Synthetic Python/OpenCV heuristic / oracle views — 4-Way Ablation Study ({metrics_list[0].num_trials} Randomized Trials / Variant)",
         fontsize=12.5,
         fontweight="bold",
         y=1.03,
     )
 
     panels = [
-        ("True Task Success (%)", [m.true_success_rate for m in metrics_list], (0, 108), "{:.1f}%"),
-        ("False Verification (%)", [m.false_verification_rate for m in metrics_list], (0, 108), "{:.1f}%"),
-        ("Avg Stations Checked", [m.avg_stations_checked for m in metrics_list], (0, 3.2), "{:.2f}"),
-        ("Avg Total Travel (m)", [m.avg_travel_distance_m for m in metrics_list], (0, 8.8), "{:.2f}m"),
+        (
+            "Correct Fixture Station (%)",
+            [m.true_success_rate for m in metrics_list],
+            (0, 108),
+            "{:.1f}%",
+        ),
+        (
+            "False Verification (%)",
+            [m.false_verification_rate for m in metrics_list],
+            (0, 108),
+            "{:.1f}%",
+        ),
+        (
+            "Avg Stations Checked",
+            [m.avg_stations_checked for m in metrics_list],
+            (0, 3.2),
+            "{:.2f}",
+        ),
+        (
+            "Avg Graph Distance (m)",
+            [m.avg_travel_distance_m for m in metrics_list],
+            (0, 8.8),
+            "{:.2f}m",
+        ),
     ]
 
     for ax, (title, vals, ylim, fmt) in zip(axes, panels):
-        bars = ax.bar(labels, vals, color=colors, width=0.58, edgecolor="#1e293b", linewidth=0.8)
+        bars = ax.bar(
+            labels, vals, color=colors, width=0.58, edgecolor="#1e293b", linewidth=0.8
+        )
         ax.set_title(title, fontsize=10.5, fontweight="bold")
         ax.set_ylim(*ylim)
         ax.grid(axis="y", linestyle="--", alpha=0.35)
@@ -208,27 +253,42 @@ def save_ablation_plot(metrics_list: list, out_path: Path) -> None:
 
 def main() -> None:
     root = Path(__file__).resolve().parents[1]
-    out_dir = root / "outputs"
+    parser = argparse.ArgumentParser(
+        description="Python/OpenCV heuristic fixture ablation; oracle viewpoints, no learned policy."
+    )
+    parser.add_argument(
+        "--output-dir", type=Path, default=root / "runs" / "heuristic-ablation"
+    )
+    parser.add_argument("--trials", type=int, default=40)
+    args = parser.parse_args()
+    if args.trials < 1:
+        parser.error("--trials must be positive")
+    out_dir = args.output_dir.resolve()
     out_dir.mkdir(parents=True, exist_ok=True)
 
     demo_info = save_demo_dashboard(out_dir / "demo_mission_dashboard.png")
-    ablation = run_ablation_suite(num_trials=40, seed=42)
+    ablation = run_ablation_suite(num_trials=args.trials, seed=42)
     save_ablation_plot(ablation, out_dir / "ablation_benchmark.png")
 
     payload = {
         "demo_showcase": demo_info,
-        "ablation_40_trials": [asdict(m) for m in ablation],
+        "method": "custom_python_opencv_heuristic_with_oracle_viewpoints",
+        "paper_implementation_reused": False,
+        "physical_return_verified": False,
+        "ablation_trials": [asdict(m) for m in ablation],
     }
-    (out_dir / "ablation_summary.json").write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    (out_dir / "ablation_summary.json").write_text(
+        json.dumps(payload, indent=2), encoding="utf-8"
+    )
 
     print("=== SHOWCASE DEMO EPISODE ===")
     print(json.dumps(demo_info, indent=2))
-    print("\n=== 40-TRIAL ABLATION STUDY ===")
+    print(f"\n=== {args.trials}-TRIAL SYNTHETIC HEURISTIC ABLATION ===")
     for m in ablation:
         print(
-            f"{m.variant_name:28s} | Success={m.true_success_rate:5.1f}% | "
+            f"{m.variant_name:28s} | CorrectFixture={m.true_success_rate:5.1f}% | "
             f"FalseVerif={m.false_verification_rate:5.1f}% | "
-            f"Stations={m.avg_stations_checked:.2f} | Travel={m.avg_travel_distance_m:.2f}m | "
+            f"Stations={m.avg_stations_checked:.2f} | GraphDistance={m.avg_travel_distance_m:.2f}m | "
             f"TagRecov={m.tag_recovery_count}"
         )
 

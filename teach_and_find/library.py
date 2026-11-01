@@ -62,7 +62,7 @@ def build_library(store: EvidenceStore, settings: Settings) -> ObjectLibrary:
         if not revision:
             raise AssistantError(
                 "ENCODER_REVISION_REQUIRED",
-                "Set a verified encoder/checkpoint revision before persistent enrollment.",
+                "Set an explicit encoder/checkpoint revision before persistent enrollment; this generic adapter does not verify a weights digest.",
             )
         signature = (
             f"torch-hub:{cfg.torch_hub_repo}:{cfg.torch_hub_model}:{revision}:rgb224-v1"
@@ -258,10 +258,7 @@ class ObjectLibrary:
                 reference_crops=[
                     self.store.load_image(row["image_sha"]) for row in refs
                 ],
-                view_angles_deg=[
-                    row["angle_deg"] if row["angle_deg"] is not None else 0.0
-                    for row in refs
-                ],
+                view_angles_deg=[row["angle_deg"] for row in refs],
                 station_hit_counts=dict(counts),
             )
             bank.restore_record(restored)
@@ -278,9 +275,14 @@ class ObjectLibrary:
         results = []
         for record in self.list():
             result = asdict(bank.match_embedding(embedding, record["name"]))
-            result.update(object_id=record["id"], decision="candidate_only")
+            result.update(
+                object_id=record["id"],
+                decision="candidate_only",
+                score_semantics="uncalibrated_heuristic_not_probability",
+                encoder_signature=self.signature,
+            )
             results.append(result)
-        return sorted(results, key=lambda item: item["calibrated_score"], reverse=True)
+        return sorted(results, key=lambda item: item["heuristic_score"], reverse=True)
 
     def observe(
         self,
@@ -321,11 +323,15 @@ class ObjectLibrary:
         try:
             provenance_json = json.dumps(provenance or {}, allow_nan=False)
         except (ValueError, TypeError) as error:
-            raise AssistantError("INVALID_PROVENANCE", "Evidence metadata must be finite JSON.") from error
+            raise AssistantError(
+                "INVALID_PROVENANCE", "Evidence metadata must be finite JSON."
+            ) from error
         digest = self.store.save_image(image)
         observation_id = str(uuid4())
         if not commit and not self.store.db.in_transaction:
-            raise AssistantError("TRANSACTION_REQUIRED", "An outer transaction is required.")
+            raise AssistantError(
+                "TRANSACTION_REQUIRED", "An outer transaction is required."
+            )
         with self.store.db if commit else nullcontext():
             self.store.db.execute(
                 "INSERT INTO observations VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
@@ -378,7 +384,10 @@ class ObjectLibrary:
         if limit is not None:
             sql += " LIMIT ?"
             parameters += (limit,)
-        return [self._observation_record(row) for row in self.store.db.execute(sql, parameters)]
+        return [
+            self._observation_record(row)
+            for row in self.store.db.execute(sql, parameters)
+        ]
 
     def last_seen(self, object_id: str, *, mode: str = "replay") -> dict:
         if mode not in {"synthetic", "replay", "physical"}:

@@ -206,6 +206,12 @@ class InspectionService:
             "summary": {key: counts[key] for key in ("pass", "fail", "unknown")},
             "findings": findings,
             "assessment": "recorded_evidence_only; no new camera observation or robot motion",
+            "method": {
+                "implementation": "project_owned_python_rules_over_supplied_assertions",
+                "inputs": "operator_or_explicit_synthetic_assertions",
+                "learned_visual_inspection": False,
+                "paper_implementation_reused": False,
+            },
         }
         with self.store.db:
             self.store.db.execute(
@@ -288,6 +294,7 @@ class InspectionService:
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title><style>body{{font:16px system-ui;margin:2rem;color:#172b35}}table{{border-collapse:collapse;width:100%}}td,th{{border:1px solid #bbc9d1;padding:12px;text-align:left;vertical-align:top}}img{{max-width:220px;max-height:160px}}figure{{display:inline-block;margin:4px;max-width:240px}}figcaption{{font-size:12px;overflow-wrap:anywhere}}</style></head>
 <body><h1>{title}</h1><p>Recorded evidence inspection · {escape(report["mode"])} · {escape(report["created_at"])}</p>
+<p>Method: project-owned Python rules over operator or scripted assertions. No automatic visual inspection or research-model inference is performed by this assessment.</p>
 <p>{summary}</p><p>Unknown means the available evidence does not establish the requested condition. Capture cutoff: {escape(report["capture_time_cutoff"])}. Maximum evidence age: {report["policy"]["max_age_s"]} seconds.</p>
 <table><thead><tr><th>Object</th><th>Expected station</th><th>Result</th><th>Reason</th><th>Evidence</th></tr></thead><tbody>{"".join(rows)}</tbody></table></body></html>"""
             (destination / "report.html").write_text(html, encoding="utf-8")

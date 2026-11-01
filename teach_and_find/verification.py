@@ -1,4 +1,8 @@
-"""Algorithm 2: Active View Verification (IEVE-inspired Sequential Bayesian Accumulator)."""
+"""Custom threshold/angle/sigmoid verification baseline; no IEVE code or calibration.
+
+Fixed coefficients and viewpoint choices are authored heuristics. They are not
+learned likelihoods, calibrated posteriors, or a reproduction of the cited paper.
+"""
 
 from __future__ import annotations
 
@@ -30,8 +34,13 @@ class ViewEvidence:
     match: MatchResult
     delta_log_odds: float
     cumulative_log_odds: float
-    posterior_prob: float
+    heuristic_score: float
     crop_bgr: np.ndarray
+
+    @property
+    def posterior_prob(self) -> float:
+        """Legacy Python alias only; this value is not a calibrated probability."""
+        return self.heuristic_score
 
 
 @dataclass
@@ -47,17 +56,24 @@ class VerificationSession:
     status: VerificationStatus = VerificationStatus.NEED_MORE_VIEWS
 
     @property
-    def confidence(self) -> float:
-        """Posterior probability P(H1 | views) = sigmoid(log_odds)."""
+    def heuristic_score(self) -> float:
+        """Uncalibrated sigmoid of the authored evidence accumulator."""
         clipped = max(-20.0, min(20.0, self.log_odds))
         return 1.0 / (1.0 + math.exp(-clipped))
+
+    @property
+    def confidence(self) -> float:
+        """Legacy Python alias for heuristic_score; not a posterior probability."""
+        return self.heuristic_score
 
     def distinct_view_count(self) -> int:
         """Count observations separated by at least min_angle_separation_deg."""
         accepted_angles: list[float] = []
         min_sep = self.settings.min_angle_separation_deg
         for ev in self.history:
-            if all(abs(ev.view_angle_deg - prev) >= min_sep for prev in accepted_angles):
+            if all(
+                abs(ev.view_angle_deg - prev) >= min_sep for prev in accepted_angles
+            ):
                 accepted_angles.append(ev.view_angle_deg)
         return len(accepted_angles)
 
@@ -72,7 +88,7 @@ class VerificationSession:
         return 1.0 + 0.25 * bonus
 
     def _distance_reliability_weight(self, distance_m: float) -> float:
-        # Optimal sharp inspection zone on PuppyPi 640x480 camera is ~0.38m - 0.55m
+        # Authored distance weighting; no measured optimum or calibration is established.
         raw = 0.95 / (max(0.20, distance_m) + 0.35)
         return max(0.45, min(1.30, raw))
 
@@ -95,7 +111,11 @@ class VerificationSession:
         raw_llr = (sim_term + 0.45 * margin_term) / self.settings.likelihood_temperature
 
         # Penalize sharp viewpoint inconsistency (e.g. front face matched, side face mismatched)
-        if self.history and w_ang >= 1.0 and match.best_proto_sim < (self.settings.similarity_midpoint - 0.03):
+        if (
+            self.history
+            and w_ang >= 1.0
+            and match.best_proto_sim < (self.settings.similarity_midpoint - 0.03)
+        ):
             raw_llr -= 1.15
 
         delta = w_dist * w_ang * raw_llr
@@ -108,7 +128,7 @@ class VerificationSession:
             match=match,
             delta_log_odds=delta,
             cumulative_log_odds=self.log_odds,
-            posterior_prob=self.confidence,
+            heuristic_score=self.heuristic_score,
             crop_bgr=crop_bgr.copy(),
         )
         self.history.append(ev)
@@ -126,7 +146,8 @@ class VerificationSession:
             if (
                 self.log_odds >= 0.75 * self.settings.confirm_log_odds
                 and distinct_views >= self.settings.min_distinct_angles_for_confirm
-                and min(e.match.best_proto_sim for e in self.history) >= (self.settings.similarity_midpoint - 0.04)
+                and min(e.match.best_proto_sim for e in self.history)
+                >= (self.settings.similarity_midpoint - 0.04)
             ):
                 self.status = VerificationStatus.CONFIRMED
             else:
@@ -140,6 +161,9 @@ class VerificationSession:
             return None
         min_sep = self.settings.min_angle_separation_deg
         for candidate_angle in self.settings.arc_angles_deg:
-            if all(abs(candidate_angle - ev.view_angle_deg) >= min_sep for ev in self.history):
+            if all(
+                abs(candidate_angle - ev.view_angle_deg) >= min_sep
+                for ev in self.history
+            ):
                 return float(candidate_angle)
         return None

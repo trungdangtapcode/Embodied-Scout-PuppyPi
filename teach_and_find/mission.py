@@ -1,4 +1,4 @@
-"""Algorithm 4: Failure-Aware Mission Controller & Hardware-Safe PuppyPi Commands."""
+"""Custom logical mission FSM and bounded commands; no learned policy or route executor."""
 
 from __future__ import annotations
 
@@ -38,7 +38,7 @@ class MissionState(str, Enum):
 
 @dataclass(frozen=True)
 class PuppyActionCommand:
-    """Hardware-safe motion/posture command aligned with Hiwonder puppy_control/puppy.py.
+    """Bounds-checked motion/posture fields informed by vendor guards; physical behavior unverified.
 
     Note on Hiwonder driver quirks verified from puppy.py:
       - `/puppy_control/velocity` drops commands whenever `vy_cm_s != 0`.
@@ -68,7 +68,9 @@ class PuppyActionCommand:
     ) -> PuppyActionCommand:
         vx = max(-limits.max_vx_cm_s, min(limits.max_vx_cm_s, vx_cm_s))
         vy = max(-limits.max_vy_cm_s, min(limits.max_vy_cm_s, vy_cm_s))
-        yr = max(-limits.max_yaw_rate_rad_s, min(limits.max_yaw_rate_rad_s, yaw_rate_rad_s))
+        yr = max(
+            -limits.max_yaw_rate_rad_s, min(limits.max_yaw_rate_rad_s, yaw_rate_rad_s)
+        )
         pitch = (
             limits.min_pitch_rad
             if pitch_rad is not None and pitch_rad < limits.min_pitch_rad
@@ -76,7 +78,10 @@ class PuppyActionCommand:
             if pitch_rad is not None and pitch_rad > limits.max_pitch_rad
             else (pitch_rad if pitch_rad is not None else math.radians(-10.0))
         )
-        h = max(-14.5, min(-5.5, height_cm if height_cm is not None else limits.stand_height_cm))
+        h = max(
+            -14.5,
+            min(-5.5, height_cm if height_cm is not None else limits.stand_height_cm),
+        )
         return cls(
             vx_cm_s=vx,
             vy_cm_s=vy,
@@ -95,7 +100,7 @@ class MissionEvidenceReport:
     target_name: str
     succeeded: bool
     found_station_id: str | None
-    confidence: float
+    heuristic_score: float
     stations_visited: list[str]
     rejected_distractors: int
     tag_recovery_events: int
@@ -103,6 +108,16 @@ class MissionEvidenceReport:
     evidence_crops: list[np.ndarray] = field(default_factory=list)
     evidence_angles_deg: list[float] = field(default_factory=list)
     decision_log: list[str] = field(default_factory=list)
+    execution_semantics: str = "logical_station_search_not_measured_navigation"
+    score_semantics: str = "uncalibrated_heuristic_not_probability"
+    distance_semantics: str = "configured_graph_distance_not_measured_travel"
+    physical_return_verified: bool = False
+    return_home_result: str = "not_performed"
+
+    @property
+    def confidence(self) -> float:
+        """Legacy Python alias, not a calibrated probability."""
+        return self.heuristic_score
 
 
 class FailureAwareMissionController:
@@ -156,9 +171,13 @@ class FailureAwareMissionController:
         self.confirmed_crops.clear()
         self.confirmed_angles.clear()
         self.final_confidence = 0.0
-        self.decision_log = [f"Mission started for target '{target_name}' from {start_node_id}."]
+        self.decision_log = [
+            f"Mission started for target '{target_name}' from {start_node_id}."
+        ]
 
-        priors = self.memory.get_station_priors(target_name, self.graph.search_station_ids)
+        priors = self.memory.get_station_priors(
+            target_name, self.graph.search_station_ids
+        )
         self.planner.initialize_belief(priors)
         self.state = MissionState.SELECT_STATION
 
@@ -170,7 +189,9 @@ class FailureAwareMissionController:
         )
         if choice is None:
             self.state = MissionState.FAILED
-            self.decision_log.append("All stations exhausted without confirming target.")
+            self.decision_log.append(
+                "All stations exhausted without confirming target."
+            )
             return None
 
         self.active_station_id = choice.station_id
@@ -207,12 +228,16 @@ class FailureAwareMissionController:
             if self.lost_tag_counter > self.settings.apriltag.lost_tag_timeout_steps:
                 self.state = MissionState.SCAN_STATION
                 self.exhausted_stations.add(self.active_station_id)
-                self.planner.register_negative_observation(self.active_station_id, coverage_factor=0.25)
+                self.planner.register_negative_observation(
+                    self.active_station_id, coverage_factor=0.25
+                )
                 self.decision_log.append(
-                    f"Tag #{expected_tag_id} recovery timed out at {self.active_station_id}; skipping safely."
+                    f"Tag #{expected_tag_id} recovery timed out at {self.active_station_id}; issuing bounded halt/skip logic (physical stop unverified)."
                 )
                 self.state = MissionState.SELECT_STATION
-                return False, PuppyActionCommand.clamped(limits, description="halt_after_tag_timeout")
+                return False, PuppyActionCommand.clamped(
+                    limits, description="halt_after_tag_timeout"
+                )
 
             self.state = MissionState.RECOVER_TAG
             # Alternate gentle yaw scan in place and slight pitch sweep
@@ -274,9 +299,14 @@ class FailureAwareMissionController:
             description=f"arc_to_{desired_angle_deg:+.0f}deg",
         )
 
-    def evaluate_single_view_candidate(self, match: MatchResult, crop_bgr: np.ndarray) -> bool:
+    def evaluate_single_view_candidate(
+        self, match: MatchResult, crop_bgr: np.ndarray
+    ) -> bool:
         """Ablation mode: decide immediately from a single frontal view without active verification."""
-        if match.best_proto_sim >= self.settings.perception.single_view_confirm_threshold:
+        if (
+            match.best_proto_sim
+            >= self.settings.perception.single_view_confirm_threshold
+        ):
             self.final_confidence = float(min(0.99, match.best_proto_sim))
             self.confirmed_crops = [crop_bgr.copy()]
             self.confirmed_angles = [0.0]
@@ -312,12 +342,16 @@ class FailureAwareMissionController:
         )
         if status == VerificationStatus.CONFIRMED:
             self.final_confidence = self.active_verification.confidence
-            self.confirmed_crops = [ev.crop_bgr for ev in self.active_verification.history]
-            self.confirmed_angles = [ev.view_angle_deg for ev in self.active_verification.history]
+            self.confirmed_crops = [
+                ev.crop_bgr for ev in self.active_verification.history
+            ]
+            self.confirmed_angles = [
+                ev.view_angle_deg for ev in self.active_verification.history
+            ]
             self.decision_log.append(
                 f"CONFIRMED '{self.target_name}' at {self.active_station_id} "
                 f"after {len(self.active_verification.history)} views "
-                f"(confidence={self.final_confidence:.2f})."
+                f"(heuristic_score={self.final_confidence:.2f}; not calibrated)."
             )
             self._complete_confirmed_target()
         elif status == VerificationStatus.REJECTED:
@@ -326,20 +360,24 @@ class FailureAwareMissionController:
             self.decision_log.append(
                 f"REJECTED distractor '{self.active_verification.candidate_id}' at {self.active_station_id} "
                 f"after {len(self.active_verification.history)} views "
-                f"(posterior={self.active_verification.confidence:.2f})."
+                f"(heuristic_score={self.active_verification.heuristic_score:.2f}; not calibrated)."
             )
             self.active_verification = None
             self.state = MissionState.SCAN_STATION
         return status
 
     def finish_station_unsuccessful(self, coverage_factor: float = 1.0) -> None:
-        """Mark active station clear of target, update Bayesian belief, and move on."""
+        """Record no confirmed target and apply the authored station-score update."""
         assert self.active_station_id is not None
         sid = self.active_station_id
         self.exhausted_stations.add(sid)
-        new_belief = self.planner.register_negative_observation(sid, coverage_factor=coverage_factor)
+        new_belief = self.planner.register_negative_observation(
+            sid, coverage_factor=coverage_factor
+        )
         formatted = ", ".join(f"{k}:{v:.2f}" for k, v in sorted(new_belief.items()))
-        self.decision_log.append(f"No confirmed target at {sid}. Updated belief -> {{{formatted}}}.")
+        self.decision_log.append(
+            f"No confirmed target at {sid}. Updated belief -> {{{formatted}}}."
+        )
         self.state = MissionState.SELECT_STATION
 
     def _complete_confirmed_target(self) -> None:
@@ -349,15 +387,20 @@ class FailureAwareMissionController:
             _, home_dist = self.graph.shortest_path(self.current_node_id, "HOME")
             self.total_travel_distance_m += home_dist
             self.current_node_id = "HOME"
-            self.decision_log.append(f"Returned safely to HOME (+{home_dist:.2f}m).")
+            self.decision_log.append(
+                f"Logical HOME bookkeeping only (+{home_dist:.2f}m configured graph distance); "
+                "return motion was not executed or measured."
+            )
         self.state = MissionState.SUCCESS
 
     def build_report(self) -> MissionEvidenceReport:
         return MissionEvidenceReport(
             target_name=self.target_name,
             succeeded=(self.state == MissionState.SUCCESS),
-            found_station_id=self.active_station_id if self.state == MissionState.SUCCESS else None,
-            confidence=self.final_confidence,
+            found_station_id=self.active_station_id
+            if self.state == MissionState.SUCCESS
+            else None,
+            heuristic_score=self.final_confidence,
             stations_visited=list(self.stations_visited),
             rejected_distractors=self.rejected_distractors,
             tag_recovery_events=self.tag_recovery_events,
@@ -365,4 +408,11 @@ class FailureAwareMissionController:
             evidence_crops=list(self.confirmed_crops),
             evidence_angles_deg=list(self.confirmed_angles),
             decision_log=list(self.decision_log),
+            return_home_result=(
+                "logical_graph_update_only"
+                if self.state == MissionState.SUCCESS
+                and self.return_home_on_success
+                and "HOME" in self.graph.nodes
+                else "not_performed"
+            ),
         )

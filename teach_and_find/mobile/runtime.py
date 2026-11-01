@@ -22,11 +22,17 @@ from teach_and_find.storage import AssistantError
 class OperatorRuntime:
     def __init__(self, settings: Settings, device: RobotDevice | None = None):
         self.settings = settings
-        self.device = device or (
-            MockRobot(settings)
-            if settings.mobile.robot_mode == "mock"
-            else RelayRobot(settings)
-        )
+        if device is not None:
+            self.device = device
+        elif settings.mobile.robot_mode == "mock":
+            self.device = MockRobot(settings)
+        elif settings.mobile.robot_mode == "relay":
+            self.device = RelayRobot(settings)
+        else:
+            raise AssistantError(
+                "UNKNOWN_ROBOT_BACKEND",
+                "Unsupported robot backend; no substitute adapter is selected.",
+            )
         self.gate = ControlGate(settings)
         self.lock = threading.RLock()
         self.frames: OrderedDict[str, tuple[CameraFrame, bytes]] = OrderedDict()

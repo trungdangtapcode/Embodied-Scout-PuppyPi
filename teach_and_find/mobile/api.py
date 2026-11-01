@@ -405,6 +405,12 @@ def create_app(
         with services() as (library, _):
             return RoomService(library).overview(mode=robot.device.mode)
 
+    @app.get("/api/implementation")
+    def implementation(session=Depends(authorized)):
+        from teach_and_find.implementation import implementation_summary
+
+        return implementation_summary(cfg, robot.device.mode)
+
     @app.post("/api/room/queries")
     def room_query(body: RoomQuery, session=Depends(authorized)):
         with services() as (library, _):

@@ -9,7 +9,7 @@ from dataclasses import dataclass, field
 
 @dataclass(frozen=True)
 class CameraSettings:
-    """Calibrated intrinsics matching Hiwonder src/peripherals/config/camera_info.yaml."""
+    """Vendor camera_info.yaml intrinsics; physical-kit calibration is unverified."""
 
     width: int = 640
     height: int = 480
@@ -41,7 +41,7 @@ class PuppyMotionLimits:
     max_pitch_rad: float = math.radians(15.0)
     stand_height_cm: float = -10.0
     stand_x_shift_cm: float = -0.5
-    # Safe slow/stable trot gait for indoor inspection & approach
+    # Conservative vendor-style gait parameters; stability is not hardware verified.
     gait_overlap_s: float = 0.20
     gait_swing_s: float = 0.18
     gait_clearance_s: float = 0.05
@@ -91,8 +91,12 @@ class PerceptionSettings:
 class VerificationSettings:
     """Active View Verification (IEVE-inspired sequential log-odds parameters)."""
 
-    confirm_log_odds: float = 2.10  # ~89.1% posterior confidence
-    reject_log_odds: float = -1.20  # ~23.1% posterior confidence
+    confirm_log_odds: float = (
+        2.10  # Authored sigmoid-score threshold, not a calibrated posterior.
+    )
+    reject_log_odds: float = (
+        -1.20
+    )  # Authored rejection threshold; not a calibrated posterior.
     max_verification_views: int = 4
     min_distinct_angles_for_confirm: int = 2
     min_angle_separation_deg: float = 22.0
