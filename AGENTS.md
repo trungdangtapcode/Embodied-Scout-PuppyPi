@@ -24,6 +24,38 @@
   design, follow this principle and the user's explicit instructions. The existing
   critical review remains OPEN until its implementation acceptance criteria pass.
 
+## Critical recurring case: inflated academic and feature reports
+
+- Academic updates, teacher messages, README bullets, UI copy and handoffs are
+  capability claims. Apply the same implementation/evidence gate as a demo;
+  never relax it because the requested deliverable is only prose.
+- Never bundle separately working components into a claimed end-to-end feature.
+  Genuine YOLOE/DINOv2 or SAM/Cutie jobs elsewhere in the app do not establish
+  learned station search, research-backed active multi-view verification,
+  automatic sightings or autonomous navigation. Trace the complete claimed path.
+- Registration, image storage, SQL history and timelines are legitimate software
+  features. Identify whether object identity/region comes from an operator,
+  authored fixture or actual model output. Recorded last-seen assertions are not
+  automatically inferred locations or current state. Distinguish these clearly
+  from learned perception and genuine research-repository integration.
+- Explicitly disclose the legacy station search/multi-view baseline when it is
+  referenced: authored station graph, custom OpenCV descriptors/weighted scoring,
+  fixed candidate angles and simulator-provided camera poses. This is a heuristic
+  prototype, not an executed learned perception/navigation pipeline. Its default
+  selection is distinct from a model-failure fallback; neither excuses a false
+  research/AI claim. Report a missing promised integration as FAIL.
+- Correcting overstated prose is necessary, but does not deliver the missing
+  implementation or authorize downgrading the agreed feature. Do not treat a
+  disclosure label, status rewrite or another review as resolution of the defect.
+- Before composing a progress claim, record its actual entry point, method,
+  upstream implementation if claimed, execution artifact, label/location provenance
+  and software/quality/simulation/physical evidence limits. Omit unsupported RL,
+  world-model, navigation and competing-app superiority claims.
+- The 2026-11-02 teacher-update draft repeated this reporting failure after prior
+  integrity instructions. Read the concrete [case review](docs/review/2026-11-02-academic-claim-inflation.md).
+  The outstanding station-search/multi-view integration and original critical
+  incident remain OPEN; do not silently turn them into completed CRUD features.
+
 ## Mandatory SWE and systems-design discipline
 
 - Think through the whole system before implementation: workloads, producer and
@@ -201,10 +233,15 @@
 
 ## Interactive tracking component evidence
 
-- Consult `docs/26-interactive-target-tracking.md` and the actual
-  `docs/research/2026-11-02-tracking-execution/report.md` before tracking claims.
-  Original SAM 2.1/Cutie CPU component execution is demonstrated; the app's
-  click-to-track flow, sustained live gate and identity recovery remain unimplemented.
+- Consult `docs/26-interactive-target-tracking.md`, the current
+  `docs/28-live-stream-scheduling.md`, and actual
+  `docs/research/2026-11-02-tracking-freshness/report.md` before tracking claims.
+  Original SAM 2.1/Cutie app selection, preview and future-frame inference ran on
+  CPU over rendered input. Profile-v2 latest-frame scheduling produced 292
+  observations over 120 seconds with bounded pending work. The full 5 FPS gate,
+  held-out identity/segmentation quality, Find-again/recovery and physical
+  acceptance remain unpassed. The older component report is historical evidence,
+  not a reason to call this delivered subset unimplemented or the full feature done.
 - The opt-in component environment is `.venv-tracking/`; preserve the other
   environments. CPU runs must hide CUDA before CUDA discovery: the original SAM
   constructor can otherwise warm a GPU cache despite a CPU model request.
