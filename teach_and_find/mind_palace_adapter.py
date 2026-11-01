@@ -236,6 +236,9 @@ class ModelTransport:
             from openai import OpenAI
 
             self.client = OpenAI(timeout=cfg.request_timeout_s, max_retries=0)
+        from teach_and_find.memory_budget import reserve_call
+
+        reserve_call(cfg)
         started = time.monotonic()
         try:
             response = self.client.chat.completions.create(

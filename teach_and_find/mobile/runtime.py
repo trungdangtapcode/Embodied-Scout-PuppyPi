@@ -45,6 +45,11 @@ class OperatorRuntime:
         self.stop_event = threading.Event()
         self.wake_control = threading.Event()
         self.threads: list[threading.Thread] = []
+        self.tracking_feed = None
+        if settings.tracking.enabled:
+            from teach_and_find.tracking_service import TrackingFeed
+
+            self.tracking_feed = TrackingFeed(settings)
         self.event("console_ready", "Operator console initialized.")
 
     @property
@@ -66,15 +71,21 @@ class OperatorRuntime:
             end, _ = self.frame(frame_id, require_fresh=True)
             candidates = []
             for sample, _ in self.frames.values():
-                if (sample.provenance.get("camera_id"), sample.provenance.get("session_id")) == (
-                    end.provenance.get("camera_id"), end.provenance.get("session_id")
+                if (
+                    sample.provenance.get("camera_id"),
+                    sample.provenance.get("session_id"),
+                ) == (
+                    end.provenance.get("camera_id"),
+                    end.provenance.get("session_id"),
                 ):
                     candidates.append(sample)
                 if sample.frame_id == frame_id:
                     break
-            return candidates[-self.settings.vision.max_frames:]
+            return candidates[-self.settings.vision.max_frames :]
 
     def start(self) -> None:
+        if self.tracking_feed:
+            self.tracking_feed.start()
         for target in (self._camera_loop, self._control_loop):
             thread = threading.Thread(target=target, daemon=True)
             self.threads.append(thread)
@@ -131,6 +142,8 @@ class OperatorRuntime:
                         )
                     self.connected = True
                     self.error = None
+                if self.tracking_feed:
+                    self.tracking_feed.offer(sample)
             except (OSError, ValueError, RuntimeError) as error:
                 with self.lock:
                     if self.connected:
@@ -193,6 +206,19 @@ class OperatorRuntime:
 
     def arm(self, owner: str, challenge: str, frame_id: str) -> dict:
         with self.lock:
+            if self.tracking_feed:
+                from teach_and_find.storage import EvidenceStore
+                from teach_and_find.tracking_service import ACTIVE
+
+                with EvidenceStore(self.settings.assistant.data_dir) as store:
+                    if store.db.execute(
+                        "SELECT 1 FROM tracking_sessions WHERE status IN (?,?,?,?,?)",
+                        ACTIVE,
+                    ).fetchone():
+                        raise AssistantError(
+                            "TRACKING_STATIONARY_ONLY",
+                            "Stop tracking before arming motion.",
+                        )
             self.frame(frame_id, require_fresh=True)
             epoch = self.gate.arm(owner, challenge, ready=self._ready())
             self.event("control_armed", "Manual control session acquired.")
@@ -274,4 +300,6 @@ class OperatorRuntime:
         self.wake_control.set()
         for thread in self.threads:
             thread.join(timeout=3.0)
+        if self.tracking_feed:
+            self.tracking_feed.close()
         self.device.close()

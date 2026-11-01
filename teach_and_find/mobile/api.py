@@ -47,6 +47,7 @@ from teach_and_find.room import RoomService
 from teach_and_find.scene import SceneService
 from teach_and_find.memory_service import MemoryService
 from teach_and_find.vision_service import VisionService
+from teach_and_find.tracking_service import TrackingService, mask_bytes, owner_key
 
 
 class StrictModel(BaseModel):
@@ -134,6 +135,22 @@ class MemoryQuestionRequest(StrictModel):
 class VisionRequest(FrameRequest):
     object_ids: list[str] = Field(min_length=1, max_length=8)
     request_key: str = Field(min_length=1, max_length=120)
+
+
+class TrackingAnchorRequest(FrameRequest):
+    request_key: str = Field(min_length=1, max_length=120)
+
+
+class TrackingPromptRequest(StrictModel):
+    revision: int = Field(ge=0, strict=True)
+    points: list[tuple[float, float]] = Field(default_factory=list, max_length=32)
+    labels: list[Literal[0, 1]] = Field(default_factory=list, max_length=32)
+    box: tuple[float, float, float, float] | None = None
+
+
+class TrackingStartRequest(StrictModel):
+    revision: int = Field(ge=0, strict=True)
+    candidate: int = Field(ge=0, le=2, strict=True)
 
 
 class Sessions:
@@ -243,7 +260,18 @@ def create_app(
     @app.exception_handler(AssistantError)
     async def assistant_error(request, error):
         status = (
-            404
+            503
+            if error.code == "TRACKING_WORKER_UNAVAILABLE"
+            else 403
+            if error.code == "TRACKING_OWNERSHIP"
+            else 409
+            if error.code
+            in {
+                "TRACKING_CAPACITY",
+                "TRACKING_REVISION_CONFLICT",
+                "TRACKING_STATIONARY_ONLY",
+            }
+            else 404
             if error.code.endswith("NOT_FOUND")
             else 409
             if error.code
@@ -276,6 +304,84 @@ def create_app(
     def health():
         return {"status": "ok"}
 
+    @app.get("/api/timing")
+    def timing(session=Depends(authorized)):
+        return {
+            "host_unix_ms": time.time() * 1000,
+            "host_monotonic_ns": time.monotonic_ns(),
+        }
+
+    @app.get("/api/tracking")
+    def tracking_overview(session=Depends(authorized)):
+        with EvidenceStore(cfg.assistant.data_dir) as store:
+            return TrackingService(store, cfg).overview(robot.device.mode)
+
+    @app.post("/api/tracking/anchors", status_code=202)
+    def tracking_anchor(body: TrackingAnchorRequest, session=Depends(authorized)):
+        with robot.lock:
+            if robot.gate.owner is not None:
+                raise AssistantError(
+                    "TRACKING_STATIONARY_ONLY",
+                    "Disarm motion before selecting a target.",
+                )
+            frame, _ = robot.frame(body.frame_id, require_fresh=True)
+            with EvidenceStore(cfg.assistant.data_dir) as store:
+                return TrackingService(store, cfg).pin(
+                    frame, robot.device.mode, session, body.request_key
+                )
+
+    @app.get("/api/tracking/sessions/{sid}")
+    def tracking_session(sid: str, after: int = -1, session=Depends(authorized)):
+        with EvidenceStore(cfg.assistant.data_dir) as store:
+            svc = TrackingService(store, cfg)
+            row = svc.row(sid, robot.device.mode)
+            if row["owner"] == owner_key(session):
+                with store.db:
+                    store.db.execute(
+                        "UPDATE tracking_sessions SET lease_until=? WHERE id=?",
+                        (time.time() + cfg.tracking.owner_lease_s, sid),
+                    )
+            return svc.get(sid, robot.device.mode, after)
+
+    @app.post("/api/tracking/sessions/{sid}/prompts", status_code=202)
+    def tracking_prompt(
+        sid: str, body: TrackingPromptRequest, session=Depends(authorized)
+    ):
+        with EvidenceStore(cfg.assistant.data_dir) as store:
+            return TrackingService(store, cfg).prompt(
+                sid,
+                robot.device.mode,
+                session,
+                body.revision,
+                body.points,
+                body.labels,
+                body.box,
+            )
+
+    @app.post("/api/tracking/sessions/{sid}/start", status_code=202)
+    def tracking_start(
+        sid: str, body: TrackingStartRequest, session=Depends(authorized)
+    ):
+        with robot.lock:
+            if robot.gate.owner is not None:
+                raise AssistantError(
+                    "TRACKING_STATIONARY_ONLY", "Disarm motion before tracking."
+                )
+            with EvidenceStore(cfg.assistant.data_dir) as store:
+                return TrackingService(store, cfg).start(
+                    sid, robot.device.mode, session, body.revision, body.candidate
+                )
+
+    @app.post("/api/tracking/sessions/{sid}/stop")
+    def tracking_stop(sid: str, session=Depends(authorized)):
+        with EvidenceStore(cfg.assistant.data_dir) as store:
+            return TrackingService(store, cfg).stop(sid, robot.device.mode, session)
+
+    @app.get("/api/tracking/masks/{digest}")
+    def tracking_mask(digest: str, session=Depends(authorized)):
+        with EvidenceStore(cfg.assistant.data_dir) as store:
+            return Response(mask_bytes(store, digest), media_type="image/png")
+
     @app.post("/api/session")
     def pair(body: PairRequest, request: Request, response: Response):
         session = sessions.pair(
@@ -307,7 +413,13 @@ def create_app(
     def frame(id: str | None = None, session=Depends(authorized)):
         sample, payload = robot.frame(id)
         return Response(
-            payload, media_type="image/jpeg", headers={"X-Frame-Id": sample.frame_id}
+            payload,
+            media_type="image/jpeg",
+            headers={
+                "X-Frame-Id": sample.frame_id,
+                "X-Captured-At": sample.captured_at,
+                "X-Host-Sent-Unix-Ms": str(time.time() * 1000),
+            },
         )
 
     @app.post("/api/stop")
@@ -522,10 +634,14 @@ def create_app(
         with EvidenceStore(cfg.assistant.data_dir) as store:
             service = VisionService(store, cfg)
             request = {"frame_id": body.frame_id, "object_ids": body.object_ids}
-            job = service.jobs.existing(robot.device.mode, body.request_key, "vision", request)
+            job = service.jobs.existing(
+                robot.device.mode, body.request_key, "vision", request
+            )
             if job is None:
                 frames = robot.frame_window(body.frame_id)
-                job = service.enqueue(frames, body.object_ids, body.request_key, robot.device.mode)
+                job = service.enqueue(
+                    frames, body.object_ids, body.request_key, robot.device.mode
+                )
         from teach_and_find.memory_queue import dispatch
 
         try:

@@ -224,6 +224,12 @@ class MemorySettings:
     request_timeout_s: float = 60.0
     job_timeout_s: float = 300.0
     max_calls: int = 24
+    global_call_budget_file: str = field(
+        default_factory=lambda: os.getenv("PUPPYPI_MEMORY_BUDGET_FILE", "")
+    )
+    global_call_budget: int = field(
+        default_factory=lambda: int(os.getenv("PUPPYPI_MEMORY_GLOBAL_CALL_BUDGET", "0"))
+    )
     max_output_tokens: int = 1024
     max_snapshot_captures: int = 24
     max_inspected_views: int = 8
@@ -296,6 +302,48 @@ class VisionSettings:
 
 
 @dataclass(frozen=True)
+class TrackingSettings:
+    """Opt-in original SAM/Cutie sessions; capture and control stay independent."""
+
+    enabled: bool = field(
+        default_factory=lambda: os.getenv("PUPPYPI_TRACKING_ENABLED", "0") == "1"
+    )
+    sources: str = field(
+        default_factory=lambda: os.getenv(
+            "PUPPYPI_TRACKING_SOURCES", ".upstream/tracking"
+        )
+    )
+    weights: str = field(
+        default_factory=lambda: os.getenv(
+            "PUPPYPI_TRACKING_WEIGHTS", "data/models/tracking"
+        )
+    )
+    device: str = field(
+        default_factory=lambda: os.getenv("PUPPYPI_TRACKING_DEVICE", "cpu")
+    )
+    threads: int = 8
+    profile_version: int = 1
+    offer_hz: float = field(
+        default_factory=lambda: float(os.getenv("PUPPYPI_TRACKING_OFFER_HZ", "5"))
+    )
+    polling_s: float = 0.04
+    ui_poll_s: float = 0.25
+    frame_limit: int = 60
+    producer_capacity: int = 2
+    anchor_lifetime_s: float = 10.0
+    session_lifetime_s: float = 300.0
+    owner_lease_s: float = 15.0
+    max_frame_gap_s: float = 0.6
+    max_result_age_s: float = 1.0
+    max_catchup_s: float = 10.0
+    empty_grace_s: float = 0.6
+    evidence_limit_bytes: int = 512 * 1024 * 1024
+    heartbeat_s: float = 1.0
+    worker_stale_s: float = 6.0
+    cuda_budget_mib: int = 768
+
+
+@dataclass(frozen=True)
 class Settings:
     """Top-level configuration bundle."""
 
@@ -312,3 +360,4 @@ class Settings:
     room: RoomSettings = field(default_factory=RoomSettings)
     memory: MemorySettings = field(default_factory=MemorySettings)
     vision: VisionSettings = field(default_factory=VisionSettings)
+    tracking: TrackingSettings = field(default_factory=TrackingSettings)

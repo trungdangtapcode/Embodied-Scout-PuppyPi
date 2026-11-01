@@ -427,3 +427,40 @@ def test_capture_worker_uses_exact_id_beyond_history_window(cfg):
         assert [r[0] for r in described] == [
             service.job(job["id"], "synthetic", internal=True)["payload"]["capture_id"]
         ]
+
+
+def test_worker_total_budget_cannot_be_bypassed_by_queued_profile(cfg, tmp_path):
+    from teach_and_find.memory_budget import reserve_call
+
+    # The app queued this job before a worker-wide cap was configured.
+    with EvidenceStore(cfg.assistant.data_dir) as store:
+        _, _, job = seed(MemoryService(store, cfg))
+    worker = replace(
+        cfg,
+        memory=replace(
+            cfg.memory,
+            global_call_budget_file=str(tmp_path / "worker-budget.json"),
+            global_call_budget=1,
+        ),
+    )
+
+    class BudgetFixture(OfflineDescriptionAdapter):
+        def __init__(self, settings, step, check):
+            self.settings = settings
+            super().__init__(settings, step, check)
+
+        def describe(self, capture, path):
+            reserve_call(self.settings.memory)
+            reserve_call(self.settings.memory)
+            raise AssertionError("The second reservation must fail closed.")
+
+    execute_job(worker, job["id"], adapter_factory=BudgetFixture)
+    with EvidenceStore(cfg.assistant.data_dir) as store:
+        result = MemoryService(store, cfg).job(job["id"], "synthetic")
+        assert result["status"] == "failed"
+        assert result["error_code"] == "MODEL_GLOBAL_BUDGET_EXHAUSTED"
+        assert (
+            store.db.execute("SELECT COUNT(*) FROM memory_descriptions").fetchone()[0]
+            == 0
+        )
+    assert json.loads((tmp_path / "worker-budget.json").read_text())["attempts"] == 1

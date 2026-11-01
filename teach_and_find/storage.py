@@ -49,9 +49,7 @@ MIGRATIONS = (
             id TEXT PRIMARY KEY, checklist_id TEXT NOT NULL REFERENCES checklists(id),
             created_at TEXT NOT NULL, report_json TEXT NOT NULL)""",
     ),
-    (
-        "ALTER TABLE observations ADD COLUMN provenance_json TEXT NOT NULL DEFAULT '{}'",
-    ),
+    ("ALTER TABLE observations ADD COLUMN provenance_json TEXT NOT NULL DEFAULT '{}'",),
     (
         """CREATE TABLE room_queries (
             id TEXT PRIMARY KEY, created_at TEXT NOT NULL, mode TEXT NOT NULL,
@@ -100,6 +98,31 @@ MIGRATIONS = (
         """CREATE TABLE vision_worker (id INTEGER PRIMARY KEY CHECK(id=1),
             worker_id TEXT NOT NULL, pid INTEGER NOT NULL, seen_at TEXT NOT NULL,
             status TEXT NOT NULL, error_code TEXT)""",
+    ),
+    (
+        """CREATE TABLE tracking_sessions (
+            id TEXT PRIMARY KEY, owner TEXT NOT NULL, mode TEXT NOT NULL, request_key TEXT NOT NULL,
+            generation INTEGER NOT NULL, revision INTEGER NOT NULL,
+            status TEXT NOT NULL, created_at REAL NOT NULL, expires_at REAL NOT NULL,
+            lease_until REAL NOT NULL, started_at REAL, anchor_json TEXT NOT NULL,
+            prompt_json TEXT, preview_json TEXT, profile_json TEXT NOT NULL,
+            error_code TEXT, error_json TEXT, dropped_frames INTEGER NOT NULL DEFAULT 0,
+            evidence_bytes INTEGER NOT NULL DEFAULT 0)""",
+        """CREATE UNIQUE INDEX tracking_request_key ON tracking_sessions(owner,mode,request_key)""",
+        """CREATE TABLE tracking_frames (
+            session_id TEXT NOT NULL REFERENCES tracking_sessions(id),
+            sequence INTEGER NOT NULL, frame_id TEXT NOT NULL, record_json TEXT NOT NULL,
+            PRIMARY KEY(session_id,sequence), UNIQUE(session_id,frame_id))""",
+        """CREATE TABLE tracking_observations (
+            session_id TEXT NOT NULL REFERENCES tracking_sessions(id), generation INTEGER NOT NULL,
+            sequence INTEGER NOT NULL, record_json TEXT NOT NULL,
+            PRIMARY KEY(session_id,generation,sequence))""",
+        """CREATE TABLE tracking_events (
+            id INTEGER PRIMARY KEY AUTOINCREMENT, session_id TEXT NOT NULL REFERENCES tracking_sessions(id),
+            generation INTEGER NOT NULL, at REAL NOT NULL, kind TEXT NOT NULL, record_json TEXT NOT NULL)""",
+        """CREATE TABLE tracking_worker (id INTEGER PRIMARY KEY CHECK(id=1),
+            pid INTEGER NOT NULL, seen_at REAL NOT NULL, status TEXT NOT NULL,
+            error_json TEXT)""",
     ),
 )
 

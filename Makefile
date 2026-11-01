@@ -65,3 +65,10 @@ vision-setup:
 
 vision-worker:
 	PUPPYPI_VISION_ENABLED=1 CUDA_VISIBLE_DEVICES=-1 PYTHONPATH=. .venv-vision/bin/python -m teach_and_find.vision_worker
+
+.PHONY: tracking-setup tracking-worker
+tracking-setup:
+	$(UV_RUN) python scripts/setup_tracking.py
+
+tracking-worker:
+	PUPPYPI_TRACKING_ENABLED=1 PYTHONPATH=. .venv-tracking/bin/python -m teach_and_find.tracking_worker

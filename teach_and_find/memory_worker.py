@@ -23,14 +23,26 @@ def execute_job(settings: Settings, job_id: str, *, adapter_factory=None):
     with EvidenceStore(settings.assistant.data_dir) as store:
         service = MemoryService(store, settings)
         service.require_enabled()
-        kind = store.db.execute("SELECT kind FROM memory_jobs WHERE id=?", (job_id,)).fetchone()
+        kind = store.db.execute(
+            "SELECT kind FROM memory_jobs WHERE id=?", (job_id,)
+        ).fetchone()
         if kind and kind[0] not in {"capture", "question"}:
             raise AssistantError("WRONG_WORKER", "This job requires another worker.")
         job = service.claim(job_id, WORKER_ID)
         if job is None:
             return
         try:
-            cfg = replace(settings, memory=MemorySettings(**job["payload"]["profile"]))
+            # The worker's total paid authorization cannot be bypassed by an old
+            # queued profile without a ledger or with a different limit.
+            profile = MemorySettings(**job["payload"]["profile"])
+            cfg = replace(
+                settings,
+                memory=replace(
+                    profile,
+                    global_call_budget_file=settings.memory.global_call_budget_file,
+                    global_call_budget=settings.memory.global_call_budget,
+                ),
+            )
             adapter = (adapter_factory or MindPalaceAdapter)(
                 cfg,
                 lambda stage, record: service.step(job_id, stage, record),
