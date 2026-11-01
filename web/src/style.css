@@ -2008,3 +2008,199 @@ dialog h3 {
     flex-direction: column;
   }
 }
+
+/* Research memory: capture sessions lead into an evidence-linked answer spine. */
+.research-memory {
+  margin-block: 24px;
+  min-width: 0;
+}
+.research-memory h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.research-workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+  gap: 28px;
+  margin-top: 20px;
+}
+.memory-capture-form,
+.memory-question-form {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.research-memory details {
+  margin-block: 8px;
+}
+.research-memory details label {
+  margin-top: 12px;
+}
+.research-memory small {
+  color: var(--secondary);
+  display: block;
+  overflow-wrap: anywhere;
+}
+.research-memory textarea {
+  font: inherit;
+  padding: 12px;
+  border: 1px solid var(--input-border);
+  border-radius: var(--radius-sm);
+  background: var(--input-bg);
+  color: var(--ink);
+  width: 100%;
+  resize: vertical;
+  min-height: 110px;
+}
+.research-memory fieldset {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  max-height: 220px;
+  overflow: auto;
+  padding: 10px 14px;
+}
+.episode-choice {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  padding-block: 6px;
+}
+.episode-choice input {
+  width: 18px;
+  min-height: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: var(--forest);
+}
+.episode-choice span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.episode-create {
+  display: flex;
+  gap: 8px;
+  align-items: end;
+}
+.episode-create label {
+  flex: 1;
+  min-width: 0;
+}
+.episode-create button {
+  flex-shrink: 0;
+}
+.memory-running {
+  padding: 12px 16px;
+  background: var(--amber-wash);
+  color: var(--amber);
+  border-radius: var(--radius-sm);
+}
+.memory-run-layout {
+  display: grid;
+  grid-template-columns: minmax(170px, 0.65fr) minmax(0, 1.6fr);
+  gap: 24px;
+  margin-top: 28px;
+  align-items: start;
+}
+.memory-run-list {
+  max-height: 420px;
+  overflow: auto;
+}
+.memory-run {
+  background: transparent;
+  border: 0;
+  border-left: 3px solid var(--line);
+  width: 100%;
+  text-align: left;
+  padding: 12px;
+  color: var(--ink);
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+.memory-run.selected {
+  border-left-color: var(--forest);
+  background: var(--paper-inset);
+}
+.memory-run span {
+  display: block;
+  font-weight: 600;
+}
+.memory-result {
+  min-width: 0;
+  background: var(--paper-inset);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+.memory-result h3,
+.memory-answer-text {
+  overflow-wrap: anywhere;
+}
+.memory-result pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 12px;
+  max-height: 240px;
+  overflow: auto;
+}
+.memory-answer-text {
+  font-size: 19px;
+  line-height: 1.6;
+  font-weight: 600;
+}
+.memory-contact-sheet {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 12px;
+  margin-block: 18px;
+}
+.memory-contact-sheet a {
+  display: block;
+  min-width: 0;
+  text-decoration: none;
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}
+.memory-contact-sheet img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  background: var(--camera);
+}
+.memory-contact-sheet span {
+  display: block;
+  font-weight: 600;
+}
+@media (max-width: 800px) {
+  .research-workspace,
+  .memory-run-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+  }
+  .memory-run-list {
+    display: flex;
+    max-height: 130px;
+    overflow: auto;
+    gap: 8px;
+  }
+  .memory-run {
+    min-width: 170px;
+    max-width: 220px;
+  }
+  .episode-create {
+    flex-wrap: wrap;
+  }
+  .memory-result {
+    padding: 16px;
+  }
+}
+
+.memory-camera-preview {
+  max-width: 640px;
+  margin-bottom: 20px;
+}
+.memory-camera-preview .camera {
+  margin-bottom: 0;
+}

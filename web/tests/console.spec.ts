@@ -169,6 +169,7 @@ test("room memory links suggestions, confirmed sightings and conservative tempor
   await page.request.post("/api/demo");
   await page.reload();
   await page.getByRole("button", { name: "Room memory", exact: true }).click();
+  await page.getByText("Operator assertions and appearance baseline", { exact: true }).click();
   await expect(page.getByRole("heading", { name: "Room memory", exact: true })).toBeVisible();
   const firstResponse = page.waitForResponse(
     (response) =>
@@ -188,6 +189,7 @@ test("room memory links suggestions, confirmed sightings and conservative tempor
   const object = await enrollment.json();
   await page.reload();
   await page.getByRole("button", { name: "Room memory", exact: true }).click();
+  await page.getByText("Operator assertions and appearance baseline", { exact: true }).click();
   const analysisResponse = page.waitForResponse(
     (response) =>
       response.url().endsWith("/api/room/analyses") && response.request().method() === "POST",
@@ -228,6 +230,7 @@ test("room memory links suggestions, confirmed sightings and conservative tempor
   await page.screenshot({ path: "../runs/room-preview/phone-answer.png" });
   await page.reload();
   await page.getByRole("button", { name: "Room memory", exact: true }).click();
+  await page.getByText("Operator assertions and appearance baseline", { exact: true }).click();
   await page.getByText("Saved answers", { exact: true }).click();
   await page
     .getByRole("button", { name: "Temporal browser case Stayed throughout a time range" })
@@ -242,4 +245,40 @@ test("room memory links suggestions, confirmed sightings and conservative tempor
         row.provenance.scene_analysis_id === analysis.id,
     ),
   ).toBe(true);
+});
+
+test("recorded-memory captures queue without a worker, cancel and survive reload", async ({
+  page,
+}) => {
+  await enter(page);
+  await page.getByRole("button", { name: "Room memory", exact: true }).click();
+  const memory = page.getByRole("region", { name: "Mind Palace memory", exact: true });
+  await expect(memory.getByText("Worker unavailable", { exact: true })).toBeVisible();
+  await memory.getByText("Register a viewpoint", { exact: true }).click();
+  await memory.getByLabel("Region name", { exact: true }).fill("Browser region");
+  await memory.getByLabel("Viewpoint name", { exact: true }).fill("Front");
+  await memory.getByRole("button", { name: "Save viewpoint", exact: true }).click();
+  await memory.getByLabel("New episode name", { exact: true }).fill("Browser memory episode");
+  await memory.getByRole("button", { name: "Create episode", exact: true }).click();
+  await expect(
+    memory.getByRole("button", { name: "Capture displayed frame", exact: true }),
+  ).toBeEnabled();
+  await memory.getByRole("button", { name: "Capture displayed frame", exact: true }).click();
+  const result = memory.getByRole("region", { name: "Mind Palace result", exact: true });
+  await expect(result.getByText("queued", { exact: true })).toBeVisible();
+  await result.getByRole("button", { name: "Cancel job", exact: true }).click();
+  await expect(result.getByText("cancelled", { exact: true })).toBeVisible();
+  await page.reload();
+  await page.getByRole("button", { name: "Room memory", exact: true }).click();
+  await expect(page.getByText("Saved memory captures", { exact: false })).toBeVisible();
+  await expect(
+    page
+      .getByRole("region", { name: "Mind Palace result", exact: true })
+      .getByText("cancelled", { exact: true }),
+  ).toBeVisible();
+  await page.setViewportSize({ width: 390, height: 844 });
+  await expect
+    .poll(() => page.evaluate(() => document.documentElement.scrollWidth <= innerWidth))
+    .toBe(true);
+  await page.screenshot({ path: "../runs/mobile-preview/phone-memory-queued.png", fullPage: true });
 });

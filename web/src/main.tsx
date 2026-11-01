@@ -457,7 +457,12 @@ function App() {
             </div>
           )}
           {tab === "monitor" && monitorView === "room" && (
-            <RoomConsole robot={robot} objects={objects} onRefresh={refresh} />
+            <>
+              <div class="memory-camera-preview">
+                <CameraView robot={robot} compact />
+              </div>
+              <RoomConsole robot={robot} objects={objects} onRefresh={refresh} />
+            </>
           )}
           {((tab === "monitor" && monitorView === "live") || tab === "control") && (
             <div class="operations-grid">
