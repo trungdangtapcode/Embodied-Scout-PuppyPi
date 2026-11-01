@@ -282,3 +282,44 @@ test("recorded-memory captures queue without a worker, cancel and survive reload
     .toBe(true);
   await page.screenshot({ path: "../runs/mobile-preview/phone-memory-queued.png", fullPage: true });
 });
+
+test("method disclosures identify custom heuristics and do not claim configured models executed", async ({
+  page,
+}) => {
+  await enter(page);
+  const disclosure = page.getByRole("complementary", {
+    name: "Implementation disclosure",
+    exact: true,
+  });
+  await expect(disclosure).toContainText("Object matching: handcoded Python/OpenCV baseline");
+  await disclosure.getByText("Inspect implementations and sources", { exact: true }).click();
+  await expect(disclosure).toContainText("Per-run model evidence is in job traces");
+  await expect(disclosure).toContainText(
+    "No IEVE, VLFM, ViNT or NoMaD implementation is integrated.",
+  );
+  await expect(disclosure).toContainText("No integrated video identity tracker");
+  const response = await page.request.get("/api/implementation");
+  expect(response.headers()["cache-control"]).toBe("no-store");
+  const inventory = await response.json();
+  expect(inventory.meaning).toContain("not_per_run_execution_evidence");
+  await mkdir("../runs/capability-audit-2026-11-01", { recursive: true });
+  await disclosure.screenshot({
+    path: "../runs/capability-audit-2026-11-01/desktop-methods.png",
+    style: ".topbar, .sidebar {visibility:hidden!important}",
+  });
+  await page.setViewportSize({ width: 390, height: 844 });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await disclosure.screenshot({
+    path: "../runs/capability-audit-2026-11-01/phone-methods.png",
+    style: ".topbar, .sidebar {visibility:hidden!important}",
+  });
+  await page.getByRole("button", { name: "Monitor", exact: true }).click();
+  await page.getByRole("button", { name: "Room memory", exact: true }).click();
+  await page.getByText("Operator assertions and appearance baseline", { exact: true }).click();
+  await expect(
+    page.getByText(
+      "Handcoded Python/OpenCV thresholds and contours propose crops; custom similarity ranks taught objects. No research detector or tracker is used. Identity and region require your assertion.",
+      { exact: true },
+    ),
+  ).toBeVisible();
+});

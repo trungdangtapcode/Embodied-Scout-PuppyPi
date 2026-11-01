@@ -2204,3 +2204,54 @@ dialog h3 {
 .memory-camera-preview .camera {
   margin-bottom: 0;
 }
+
+.method-disclosure {
+  margin-bottom: 20px;
+  padding: 14px 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--paper-inset);
+}
+.method-disclosure > p {
+  margin: 4px 0 8px;
+  color: var(--secondary);
+  font-size: 12px;
+}
+.method-disclosure summary {
+  cursor: pointer;
+  color: var(--forest);
+  font-size: 12px;
+}
+.method-inventory {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+.method-inventory section {
+  min-width: 0;
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+}
+.method-inventory h3 {
+  font-size: 14px;
+}
+.method-inventory p,
+.method-inventory code,
+.method-inventory small {
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+.method-inventory small {
+  display: block;
+  color: var(--secondary);
+}
+.finding-image {
+  margin: 0;
+  width: 96px;
+}
+.finding-image figcaption {
+  font-size: 10px;
+  line-height: 1.4;
+  color: var(--secondary);
+}

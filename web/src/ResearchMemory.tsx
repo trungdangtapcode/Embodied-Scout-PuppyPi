@@ -130,6 +130,11 @@ export function ResearchMemory({ robot }: { robot: Robot }) {
       <small>
         {memory.model} · {memory.mode}
       </small>
+      <p class="muted">
+        {t(
+          "Uses pinned Mind Palace source for retrieval and reasoning with a VLM API. Regions and viewpoints are operator registered; no automatic 3D map, tracking or learned world model.",
+        )}
+      </p>
       {!memory.enabled && (
         <p class="banner">
           {t(
@@ -373,7 +378,16 @@ export function ResearchMemory({ robot }: { robot: Robot }) {
               {job.status === "cancelled" && (
                 <p>{t("Cancelled. An API request already sent may still incur usage.")}</p>
               )}
-              {job.result?.answer && <p class="memory-answer-text">{job.result.answer}</p>}
+              {job.result?.answer && (
+                <>
+                  <p class="memory-answer-text">{job.result.answer}</p>
+                  <small>
+                    {t(
+                      "Model-generated answer. Citation IDs are checked against inspected images; factual correctness is not independently verified.",
+                    )}
+                  </small>
+                </>
+              )}
               {job.result?.reason && <p>{job.result.reason}</p>}
               {job.result?.description && <p>{job.result.description.description}</p>}
               <div class="memory-contact-sheet">

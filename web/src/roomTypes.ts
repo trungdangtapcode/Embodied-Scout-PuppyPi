@@ -41,6 +41,13 @@ export interface SceneCandidate {
   matches: { object_id: string; object_name: string; score: number; similarity: number }[];
 }
 export interface SceneAnalysis {
+  method?: {
+    proposal: string;
+    proposal_learned_model: boolean;
+    paper_implementation_reused_for_proposals_or_matching: boolean;
+    score_semantics: string;
+    identity_and_region_source: string;
+  };
   id: string;
   captured_at: string;
   image_sha: string;

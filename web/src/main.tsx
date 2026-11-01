@@ -46,6 +46,7 @@ import { api, evidence, post, timeOf, when } from "./api";
 import type { Checklist, History, ObjectRecord, Report } from "./types";
 import { type Robot, useRobot } from "./useRobot";
 import { RoomConsole } from "./RoomConsole";
+import { ImplementationInfo } from "./ImplementationInfo";
 
 type Tab = "monitor" | "control" | "inspect" | "library";
 const getNavigation = () =>
@@ -430,6 +431,7 @@ function App() {
                   : t("Connecting")}
             </Badge>
           </div>
+          <ImplementationInfo />
           {!robot.online && (
             <div class="banner">
               <WifiOff size={18} />
@@ -473,7 +475,7 @@ function App() {
                   <span>
                     {robot.state?.mode === "synthetic"
                       ? t(
-                          "Interactive rendered camera \u00b7 kinematic simulation; physical behavior unverified.",
+                          "Scripted Python/OpenCV scene with predefined objects and poses; kinematic preview, no RL policy or physical verification.",
                         )
                       : t(
                           "ACK confirms adapter receipt. Measured position and motion feedback are unavailable.",
@@ -585,7 +587,7 @@ function App() {
                           void act(async () => {
                             await post("/demo");
                             await refresh();
-                          }, t("Synthetic demo created: 3 objects and a sample report."))
+                          }, t("Scripted Python/OpenCV demo: 3 fixture objects and authored assertions. No model inference."))
                         }
                       >
                         <Layers size={16} />
@@ -1048,10 +1050,23 @@ function Inspect({
             <div class="findings">
               {report.findings.map((f, i) => (
                 <div class="finding" key={i}>
-                  <img
-                    src={evidence(f.evidence[0]?.image_sha || f.reference_image_sha)}
-                    alt={t("Evidence: {name}", { name: f.object_name })}
-                  />
+                  <figure class="finding-image">
+                    <img
+                      src={evidence(f.evidence[0]?.image_sha || f.reference_image_sha)}
+                      alt={t(
+                        f.evidence.length
+                          ? "Recorded assertion image"
+                          : "Enrollment reference only",
+                      )}
+                    />
+                    <figcaption>
+                      {t(
+                        f.evidence.length
+                          ? "Recorded assertion image"
+                          : "Reference only; no observation",
+                      )}
+                    </figcaption>
+                  </figure>
                   <div>
                     <strong>{f.object_name}</strong>
                     <small>

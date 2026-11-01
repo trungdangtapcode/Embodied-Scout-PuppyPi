@@ -449,7 +449,7 @@ export function RoomConsole({
           </div>
           <p>
             {t(
-              "Find foreground candidates and compare them with taught objects. Review before recording a sighting.",
+              "Handcoded Python/OpenCV thresholds and contours propose crops; custom similarity ranks taught objects. No research detector or tracker is used. Identity and region require your assertion.",
             )}
           </p>
           {robot.image && (
@@ -478,7 +478,11 @@ export function RoomConsole({
               <Camera size={17} />
               {t("Analyze current view")}
             </button>
-            <span class="muted">{t("Local appearance baseline · no model download")}</span>
+            <span class="muted">
+              {t(
+                "Custom Python/OpenCV proposal and matching baseline; not research-model inference",
+              )}
+            </span>
           </div>
           {analysis && (
             <>
@@ -491,7 +495,7 @@ export function RoomConsole({
                   <p>{when(analysis.captured_at)}</p>
                   <small>
                     {t(
-                      "Suggestions need confirmation. An empty candidate list does not establish absence.",
+                      "Suggestions need confirmation. Confirmation uses fixed quality/visibility defaults, not measured model confidence. An empty candidate list does not establish absence.",
                     )}
                   </small>
                 </div>
