@@ -12,6 +12,13 @@ and [checkpoint metadata](research/2026-11-02-interactive-tracking/checkpoint-me
 Ten repositories were inspected. **New-model inference: NOT RUN. App integration:
 NOT IMPLEMENTED.** All figures below are labeled design artifacts.
 
+Subsequent execution on 2026-11-02: [actual component report](research/2026-11-02-tracking-execution/report.md)
+now demonstrates original SAM 2.1 + Cutie on CPU, with an explicit CUDA trial
+failing from insufficient free VRAM. The initial source-audit statements above
+describe that earlier research stage. App integration remains unimplemented;
+the 5 FPS live gate and G1–G4 are not passed. The original proposal hash belongs
+to the planning snapshot at commit `a6432ee`, not this later addendum.
+
 ## 1. Product outcome and exact scope
 
 The operator opens Monitor, selects a visible target with a tap or box, sees a

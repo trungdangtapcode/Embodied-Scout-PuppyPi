@@ -163,6 +163,19 @@
   as the original checkpoint. The research-only probe is distinct from the actual
   production adapter and per-run combined-model evidence.
 
+## Interactive tracking component evidence
+
+- Consult `docs/26-interactive-target-tracking.md` and the actual
+  `docs/research/2026-11-02-tracking-execution/report.md` before tracking claims.
+  Original SAM 2.1/Cutie CPU component execution is demonstrated; the app's
+  click-to-track flow, sustained live gate and identity recovery remain unimplemented.
+- The opt-in component environment is `.venv-tracking/`; preserve the other
+  environments. CPU runs must hide CUDA before CUDA discovery: the original SAM
+  constructor can otherwise warm a GPU cache despite a CPU model request.
+  An explicitly requested CUDA run must fail on device/memory failure, never
+  retry on CPU implicitly. The recorded CUDA OOM is a free-VRAM failure, not proof
+  that this machine lacks GPU hardware or that CPU execution is impossible.
+
 ## Robot execution
 
 - Physical actuation must be within the user's authorized task. Default tests

@@ -1,0 +1,342 @@
+{
+  "scope": "genuine_component_execution_not_app_integration_or_identity_acceptance",
+  "requested_device": "cpu",
+  "status": "completed",
+  "stage": "completed",
+  "frames": [
+    {
+      "ordinal": 0,
+      "source": "/home/nguyentnt/PDWAIA/ecus/hi/runs/interactive-tracking-research-2026-11-02/cutie/examples/images/bike/00000.jpg",
+      "source_sha256": "64d01a321146130b47a751da835ff244b8065148e3a75763d4cc6e2287f2f47f",
+      "mask": "frame-000-mask.png",
+      "mask_sha256": "4cce7ceaed4be43d697b552d723756d28cebdb44f9b47a6e9d19e5997cb529ee",
+      "labels": [
+        0,
+        1,
+        2
+      ],
+      "foreground_pixels": 14437,
+      "step_s": 0.6440167743712664
+    },
+    {
+      "ordinal": 1,
+      "source": "/home/nguyentnt/PDWAIA/ecus/hi/runs/interactive-tracking-research-2026-11-02/cutie/examples/images/bike/00001.jpg",
+      "source_sha256": "d69f3f678057384ecb2fb142476c63bc069886be5a928eef2b582f8fe13d7308",
+      "mask": "frame-001-mask.png",
+      "mask_sha256": "787000d232b7ed6b49e50771184e20105b691e7714f9488587d473601e269e6b",
+      "labels": [
+        0,
+        1,
+        2
+      ],
+      "foreground_pixels": 14214,
+      "step_s": 0.6757908333092928
+    },
+    {
+      "ordinal": 2,
+      "source": "/home/nguyentnt/PDWAIA/ecus/hi/runs/interactive-tracking-research-2026-11-02/cutie/examples/images/bike/00002.jpg",
+      "source_sha256": "b4fa8849780df467870f569e959ac221fff7886a5ce1b476349ee95d9e744497",
+      "mask": "frame-002-mask.png",
+      "mask_sha256": "401f7c8ef2f8a37fb037fd7cdad660520848d40baf4795c43f78c9d6cc94e832",
+      "labels": [
+        0,
+        1,
+        2
+      ],
+      "foreground_pixels": 13994,
+      "step_s": 0.8651758534833789
+    },
+    {
+      "ordinal": 3,
+      "source": "/home/nguyentnt/PDWAIA/ecus/hi/runs/interactive-tracking-research-2026-11-02/cutie/examples/images/bike/00003.jpg",
+      "source_sha256": "aa176ce5fbc91ff3385d4f31aa8344e72fbd2eb7351938ed7176a9650446cc33",
+      "mask": "frame-003-mask.png",
+      "mask_sha256": "547595cb26b450fb388edbfe220c605872ecccc47b3d399b358fc32d2d8b788a",
+      "labels": [
+        0,
+        1,
+        2
+      ],
+      "foreground_pixels": 14167,
+      "step_s": 0.7329829223453999
+    }
+  ],
+  "cpu_threads": 4,
+  "precision": "float32",
+  "source_revisions": {
+    "sam2": "2b90b9f5ceec907a1c18123530e92e794ad901a4",
+    "cutie": "ec5cdd4cf16f75c73ad785a2f96fb97dbad4125a"
+  },
+  "checkpoint_sha256": {
+    "sam2.1_hiera_tiny.pt": "7402e0d864fa82708a20fbd15bc84245c2f26dff0eb43a4b5b93452deb34be69",
+    "cutie-base-mega.pth": "9c05402ee36d3a356fb72715d263ba7e1ea06ad3bada48c1306491792da43023",
+    "backbones/resnet18-5c106cde.pth": "5c106cde386e87d4033832f2996f5493238eda96ccf559d1d62760c4de0613f8",
+    "backbones/resnet50-19c8e357.pth": "19c8e3572231adff6824a2da93fd67b5986919a2e65f8b6007eab4edee220097"
+  },
+  "input_spec": {
+    "seed_kind": "upstream_example_supplied_mask",
+    "frames": [
+      "/home/nguyentnt/PDWAIA/ecus/hi/runs/interactive-tracking-research-2026-11-02/cutie/examples/images/bike/00000.jpg",
+      "/home/nguyentnt/PDWAIA/ecus/hi/runs/interactive-tracking-research-2026-11-02/cutie/examples/images/bike/00001.jpg",
+      "/home/nguyentnt/PDWAIA/ecus/hi/runs/interactive-tracking-research-2026-11-02/cutie/examples/images/bike/00002.jpg",
+      "/home/nguyentnt/PDWAIA/ecus/hi/runs/interactive-tracking-research-2026-11-02/cutie/examples/images/bike/00003.jpg"
+    ],
+    "mask_path": "/home/nguyentnt/PDWAIA/ecus/hi/runs/interactive-tracking-research-2026-11-02/cutie/examples/masks/bike/00000.png",
+    "mode": "upstream_supplied_real_image_example; no PuppyPi hardware"
+  },
+  "input_spec_sha256": "6b9de8a4efc3a634aa89d2b06018c9cb775f392cc858543890fa47e749c4606c",
+  "torch": "2.6.0+cu124",
+  "cuda_build": "12.4",
+  "cutie_load_s": 2.1576387397944927,
+  "cutie_config": {
+    "exp_id": "default",
+    "dataset": "generic",
+    "amp": false,
+    "weights": "output/cutie-base-mega.pth",
+    "output_dir": null,
+    "flip_aug": false,
+    "max_internal_size": 480,
+    "image_directory": null,
+    "mask_directory": null,
+    "json_directory": null,
+    "size": -1,
+    "save_all": true,
+    "use_all_masks": false,
+    "use_long_term": true,
+    "mem_every": 5,
+    "max_mem_frames": 5,
+    "long_term": {
+      "count_usage": true,
+      "max_mem_frames": 10,
+      "min_mem_frames": 5,
+      "num_prototypes": 128,
+      "max_num_tokens": 10000,
+      "buffer_tokens": 2000
+    },
+    "top_k": 30,
+    "stagger_updates": 5,
+    "chunk_size": -1,
+    "save_scores": false,
+    "save_aux": false,
+    "visualize": false,
+    "datasets": {
+      "d16-val": {
+        "image_directory": "../DAVIS/2016/JPEGImages/480p",
+        "mask_directory": "../DAVIS/2016/Annotations/480p",
+        "subset": "../DAVIS/2017/trainval/ImageSets/2016/val.txt",
+        "size": 480,
+        "save_all": true,
+        "use_all_masks": false,
+        "use_long_term": false,
+        "mem_every": 5
+      },
+      "d17-val": {
+        "image_directory": "../DAVIS/2017/trainval/JPEGImages/480p",
+        "mask_directory": "../DAVIS/2017/trainval/Annotations/480p",
+        "subset": "../DAVIS/2017/trainval/ImageSets/2017/val.txt",
+        "size": 480,
+        "save_all": true,
+        "use_all_masks": false,
+        "use_long_term": false,
+        "mem_every": 5
+      },
+      "d17-test-dev": {
+        "image_directory": "../DAVIS/2017/test-dev/JPEGImages/480p",
+        "mask_directory": "../DAVIS/2017/test-dev/Annotations/480p",
+        "subset": "../DAVIS/2017/test-dev/ImageSets/2017/test-dev.txt",
+        "size": 480,
+        "save_all": true,
+        "use_all_masks": false,
+        "use_long_term": false,
+        "mem_every": 5
+      },
+      "y18-val": {
+        "image_directory": "../YouTube2018/all_frames/valid_all_frames/JPEGImages",
+        "mask_directory": "../YouTube2018/valid/Annotations",
+        "json_directory": "../YouTube2018/valid/meta.json",
+        "size": 480,
+        "save_all": false,
+        "use_all_masks": true,
+        "use_long_term": false,
+        "mem_every": 5
+      },
+      "y19-val": {
+        "image_directory": "../YouTube/all_frames/valid_all_frames/JPEGImages",
+        "mask_directory": "../YouTube/valid/Annotations",
+        "json_directory": "../YouTube/valid/meta.json",
+        "size": 480,
+        "save_all": false,
+        "use_all_masks": true,
+        "use_long_term": false,
+        "mem_every": 5
+      },
+      "mose-val": {
+        "image_directory": "../MOSE/valid/JPEGImages",
+        "mask_directory": "../MOSE/valid/Annotations",
+        "size": 480,
+        "save_all": true,
+        "use_all_masks": false,
+        "use_long_term": false,
+        "mem_every": 5
+      },
+      "generic": {
+        "image_directory": null,
+        "mask_directory": null,
+        "size": -1,
+        "save_all": true,
+        "use_all_masks": false,
+        "use_long_term": true,
+        "mem_every": 5
+      },
+      "burst-val": {
+        "skip_frames": -1,
+        "image_directory": "../BURST/frames/val",
+        "json_directory": "../BURST/val/first_frame_annotations.json",
+        "size": 600,
+        "save_all": false,
+        "use_long_term": true,
+        "mem_every": 10
+      },
+      "burst-test": {
+        "skip_frames": -1,
+        "image_directory": "../BURST/frames/test",
+        "json_directory": "../BURST/test/first_frame_annotations.json",
+        "size": 600,
+        "save_all": false,
+        "use_long_term": true,
+        "mem_every": 10
+      },
+      "lvos-val": {
+        "image_directory": "../LVOS/valid/JPEGImages",
+        "mask_directory": "../LVOS/valid/Annotations_first_only",
+        "size": 480,
+        "save_all": false,
+        "use_all_masks": true,
+        "use_long_term": true,
+        "mem_every": 5
+      },
+      "lvos-test": {
+        "image_directory": "../LVOS/test/JPEGImages",
+        "mask_directory": "../LVOS/test/Annotations",
+        "size": 480,
+        "save_all": false,
+        "use_all_masks": true,
+        "use_long_term": true,
+        "mem_every": 5
+      }
+    },
+    "model": {
+      "pixel_mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "pixel_std": [
+        0.229,
+        0.224,
+        0.225
+      ],
+      "pixel_dim": 256,
+      "key_dim": 64,
+      "value_dim": 256,
+      "sensory_dim": 256,
+      "embed_dim": 256,
+      "pixel_encoder": {
+        "type": "resnet50",
+        "ms_dims": [
+          1024,
+          512,
+          256
+        ]
+      },
+      "mask_encoder": {
+        "type": "resnet18",
+        "final_dim": 256
+      },
+      "pixel_pe_scale": 32,
+      "pixel_pe_temperature": 128,
+      "object_transformer": {
+        "embed_dim": 256,
+        "ff_dim": 2048,
+        "num_heads": 8,
+        "num_blocks": 3,
+        "num_queries": 16,
+        "read_from_pixel": {
+          "input_norm": false,
+          "input_add_pe": false,
+          "add_pe_to_qkv": [
+            true,
+            true,
+            false
+          ]
+        },
+        "read_from_past": {
+          "add_pe_to_qkv": [
+            true,
+            true,
+            false
+          ]
+        },
+        "read_from_memory": {
+          "add_pe_to_qkv": [
+            true,
+            true,
+            false
+          ]
+        },
+        "read_from_query": {
+          "add_pe_to_qkv": [
+            true,
+            true,
+            false
+          ],
+          "output_norm": false
+        },
+        "query_self_attention": {
+          "add_pe_to_qkv": [
+            true,
+            true,
+            false
+          ]
+        },
+        "pixel_self_attention": {
+          "add_pe_to_qkv": [
+            true,
+            true,
+            false
+          ]
+        }
+      },
+      "object_summarizer": {
+        "embed_dim": 256,
+        "num_summaries": 16,
+        "add_pe": true
+      },
+      "aux_loss": {
+        "sensory": {
+          "enabled": true,
+          "weight": 0.01
+        },
+        "query": {
+          "enabled": true,
+          "weight": 0.01
+        }
+      },
+      "mask_decoder": {
+        "up_dims": [
+          256,
+          128,
+          128
+        ]
+      },
+      "resnet_model_path": "/home/nguyentnt/PDWAIA/ecus/hi/data/models/tracking/backbones"
+    }
+  },
+  "upstream_example_note": "Supplied reference mask; semi-supervised component replay, not interactive model initialization.",
+  "seed_mask_sha256": "4cce7ceaed4be43d697b552d723756d28cebdb44f9b47a6e9d19e5997cb529ee",
+  "total_s": 6.680238255299628,
+  "max_rss_mib": 979.25,
+  "mean_step_s": 0.7294915958773345,
+  "p95_step_s": 0.845346913812682,
+  "throughput_fps_compute_only": 1.3708177114738853
+}

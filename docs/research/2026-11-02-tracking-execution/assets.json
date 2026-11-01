@@ -1,0 +1,38 @@
+[
+  {
+    "file": "data/models/tracking/sam2.1_hiera_tiny.pt",
+    "url": "https://huggingface.co/facebook/sam2.1-hiera-tiny/resolve/de431c4043854a71d8101e17995dfe596bf101a5/sam2.1_hiera_tiny.pt",
+    "bytes": 156008466,
+    "sha256": "7402e0d864fa82708a20fbd15bc84245c2f26dff0eb43a4b5b93452deb34be69",
+    "author_metadata_algorithm": "sha256",
+    "author_metadata_digest": "7402e0d864fa82708a20fbd15bc84245c2f26dff0eb43a4b5b93452deb34be69",
+    "elapsed_s": 16.664448685012758
+  },
+  {
+    "file": "data/models/tracking/cutie-base-mega.pth",
+    "url": "https://github.com/hkchengrex/Cutie/releases/download/v1.0/cutie-base-mega.pth",
+    "bytes": 140443788,
+    "sha256": "9c05402ee36d3a356fb72715d263ba7e1ea06ad3bada48c1306491792da43023",
+    "author_metadata_algorithm": "md5",
+    "author_metadata_digest": "a6071de6136982e396851903ab4c083a",
+    "elapsed_s": 50.9424250619486
+  },
+  {
+    "file": "data/models/tracking/backbones/resnet18-5c106cde.pth",
+    "url": "https://download.pytorch.org/models/resnet18-5c106cde.pth",
+    "bytes": 46827520,
+    "sha256": "5c106cde386e87d4033832f2996f5493238eda96ccf559d1d62760c4de0613f8",
+    "author_metadata_algorithm": null,
+    "author_metadata_digest": null,
+    "elapsed_s": 5.462311102077365
+  },
+  {
+    "file": "data/models/tracking/backbones/resnet50-19c8e357.pth",
+    "url": "https://download.pytorch.org/models/resnet50-19c8e357.pth",
+    "bytes": 102502400,
+    "sha256": "19c8e3572231adff6824a2da93fd67b5986919a2e65f8b6007eab4edee220097",
+    "author_metadata_algorithm": null,
+    "author_metadata_digest": null,
+    "elapsed_s": 9.275122431106865
+  }
+]

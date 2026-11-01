@@ -45,6 +45,7 @@ Python versus native code, and venv versus Docker/ROS before the research plans.
 | [24 Executed visual inspection](24-yoloe-vision.md) | Actual YOLOE/DINOv2/ByteTrack recorded-window profile, provenance and unresolved identity quality |
 | [25 Visual identity proposal](25-visual-identity-fix-proposal.md) | Historical accepted dual-model revision and scoped execution evidence |
 | [26 Interactive target tracking](26-interactive-target-tracking.md) | Proposed point/box → SAM 2.1 → Cutie live sessions; ten-repository audit, application contracts, failure/recovery gates and [design figures](research/2026-11-02-interactive-tracking/design-figures.pdf); not implemented |
+| [Executed SAM/Cutie component probe](research/2026-11-02-tracking-execution/report.md) | Actual CPU initialization/propagation, measured 4.05 compute-step FPS, CUDA VRAM failure and real output figures; no app/live acceptance claim |
 | [Current code-integrity audit](review/2026-11-01-code-integrity-audit.md) | Silent substitutes, scripted labels, custom-method disclosures, source-call probe and explicit unresolved gaps |
 | [Contributor guide](../CONTRIBUTING.md) | Setup, checks, commit conventions, review and evidence workflow |
 | [Agent instructions](../AGENTS.md) | Repository-specific instructions for coding agents |

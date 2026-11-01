@@ -1,0 +1,7 @@
+{
+  "archive_path": "runs/tracking-probe-2026-11-02/tracking-component-evidence.zip",
+  "archive_bytes": 2118879,
+  "archive_sha256": "81598f2236506be616143a647e0b5050d7146ad04b26a9bd93ba73afca128924",
+  "archive_crc": "PASS",
+  "contents": "component report, manifests, synthetic source images and final CPU masks/overlays; excludes weights, credentials and public upstream example photographs"
+}

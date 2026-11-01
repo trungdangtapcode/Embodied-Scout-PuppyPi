@@ -1,0 +1,24 @@
+{
+  "scope": "genuine_component_execution_not_app_integration_or_identity_acceptance",
+  "requested_device": "cpu",
+  "status": "failed",
+  "stage": "preflight",
+  "frames": [],
+  "cpu_threads": 4,
+  "precision": "float32",
+  "source_revisions": {
+    "sam2": "2b90b9f5ceec907a1c18123530e92e794ad901a4",
+    "cutie": "ec5cdd4cf16f75c73ad785a2f96fb97dbad4125a"
+  },
+  "checkpoint_sha256": {
+    "sam2.1_hiera_tiny.pt": "7402e0d864fa82708a20fbd15bc84245c2f26dff0eb43a4b5b93452deb34be69",
+    "cutie-base-mega.pth": "9c05402ee36d3a356fb72715d263ba7e1ea06ad3bada48c1306491792da43023",
+    "backbones/resnet18-5c106cde.pth": "5c106cde386e87d4033832f2996f5493238eda96ccf559d1d62760c4de0613f8",
+    "backbones/resnet50-19c8e357.pth": "19c8e3572231adff6824a2da93fd67b5986919a2e65f8b6007eab4edee220097"
+  },
+  "probe_source_sha256": "46d16edf0b4ca10891c2ca93180742d95659d8a815ad8cc01cf91bf9f39a56cb",
+  "error_type": "FileNotFoundError",
+  "error": "[Errno 2] No such file or directory: 'data/models/tracking-missing/sam2.1_hiera_tiny.pt'",
+  "total_s": 0.018020392395555973,
+  "max_rss_mib": 385.0
+}

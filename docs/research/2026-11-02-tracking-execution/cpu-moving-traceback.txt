@@ -1,0 +1,47 @@
+Traceback (most recent call last):
+  File "/home/nguyentnt/PDWAIA/ecus/hi/.venv-tracking/lib/python3.12/site-packages/hydra/_internal/instantiate/_instantiate2.py", line 92, in _call_target
+    return _target_(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nguyentnt/PDWAIA/ecus/hi/runs/interactive-tracking-research-2026-11-02/sam2/sam2/modeling/position_encoding.py", line 51, in __init__
+    self._pe(1, device, *cache_key)
+  File "/home/nguyentnt/PDWAIA/ecus/hi/.venv-tracking/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nguyentnt/PDWAIA/ecus/hi/runs/interactive-tracking-research-2026-11-02/sam2/sam2/modeling/position_encoding.py", line 98, in _pe
+    .repeat(B, 1, W)
+     ^^^^^^^^^^^^^^^
+RuntimeError: CUDA error: out of memory
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/nguyentnt/PDWAIA/ecus/hi/runs/tracking-probe-2026-11-02/probe.py", line 91, in main
+    sam=build_sam2('configs/sam2.1/sam2.1_hiera_t.yaml',str(args.weights/'sam2.1_hiera_tiny.pt'),device=str(device),apply_postprocessing=False)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nguyentnt/PDWAIA/ecus/hi/runs/interactive-tracking-research-2026-11-02/sam2/sam2/build_sam.py", line 92, in build_sam2
+    model = instantiate(cfg.model, _recursive_=True)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nguyentnt/PDWAIA/ecus/hi/.venv-tracking/lib/python3.12/site-packages/hydra/_internal/instantiate/_instantiate2.py", line 226, in instantiate
+    return instantiate_node(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/nguyentnt/PDWAIA/ecus/hi/.venv-tracking/lib/python3.12/site-packages/hydra/_internal/instantiate/_instantiate2.py", line 342, in instantiate_node
+    value = instantiate_node(
+            ^^^^^^^^^^^^^^^^^
+  File "/home/nguyentnt/PDWAIA/ecus/hi/.venv-tracking/lib/python3.12/site-packages/hydra/_internal/instantiate/_instantiate2.py", line 342, in instantiate_node
+    value = instantiate_node(
+            ^^^^^^^^^^^^^^^^^
+  File "/home/nguyentnt/PDWAIA/ecus/hi/.venv-tracking/lib/python3.12/site-packages/hydra/_internal/instantiate/_instantiate2.py", line 342, in instantiate_node
+    value = instantiate_node(
+            ^^^^^^^^^^^^^^^^^
+  File "/home/nguyentnt/PDWAIA/ecus/hi/.venv-tracking/lib/python3.12/site-packages/hydra/_internal/instantiate/_instantiate2.py", line 347, in instantiate_node
+    return _call_target(_target_, partial, args, kwargs, full_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nguyentnt/PDWAIA/ecus/hi/.venv-tracking/lib/python3.12/site-packages/hydra/_internal/instantiate/_instantiate2.py", line 97, in _call_target
+    raise InstantiationException(msg) from e
+hydra.errors.InstantiationException: Error in call to target 'sam2.modeling.position_encoding.PositionEmbeddingSine':
+RuntimeError('CUDA error: out of memory\nCUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.\nFor debugging consider passing CUDA_LAUNCH_BLOCKING=1\nCompile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.\n')
+full_key: model.image_encoder.neck.position_encoding

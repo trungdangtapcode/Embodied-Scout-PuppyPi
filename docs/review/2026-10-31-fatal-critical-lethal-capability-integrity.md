@@ -287,3 +287,14 @@ exact identity, robust abstention, active view acquisition, physical navigation,
 learned locomotion and predictive world modeling remain unproven or absent.
 Do not change the acceptance gates, close the incident or revise the user's 0/10
 rating based on execution, source reuse, a selective score or attractive screenshots.
+
+## Later interactive-tracking component execution; app gate still open
+
+The [2026-11-02 component experiment](../research/2026-11-02-tracking-execution/report.md)
+now executes original SAM 2.1 tiny mask initialization and original Cutie base-mega
+propagation on CPU across 12 authored synthetic frames. The separate CUDA trial
+fails with actual out-of-memory under the existing occupied VRAM; missing/corrupt
+weights fail without outputs. This establishes component execution, not the
+proposed phone click interaction, persistent live session, identity recovery or
+5 FPS live gate. F40 app integration remains Planned. The incident stays OPEN /
+FAIL and the user's 0/10 assessment is unchanged.

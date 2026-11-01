@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/home/nguyentnt/PDWAIA/ecus/hi/scripts/research_tracking_probe.py", line 81, in main
+    raise RuntimeError(f"CHECKPOINT_DIGEST_MISMATCH: {filename}")
+RuntimeError: CHECKPOINT_DIGEST_MISMATCH: sam2.1_hiera_tiny.pt

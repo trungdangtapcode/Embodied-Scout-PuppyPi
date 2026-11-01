@@ -1,0 +1,297 @@
+{
+  "scope": "genuine_component_execution_not_app_integration_or_identity_acceptance",
+  "requested_device": "cpu",
+  "status": "failed",
+  "stage": "sam_load",
+  "frames": [],
+  "cpu_threads": 4,
+  "precision": "float32",
+  "source_revisions": {
+    "sam2": "2b90b9f5ceec907a1c18123530e92e794ad901a4",
+    "cutie": "ec5cdd4cf16f75c73ad785a2f96fb97dbad4125a"
+  },
+  "checkpoint_sha256": {
+    "sam2.1_hiera_tiny.pt": "7402e0d864fa82708a20fbd15bc84245c2f26dff0eb43a4b5b93452deb34be69",
+    "cutie-base-mega.pth": "9c05402ee36d3a356fb72715d263ba7e1ea06ad3bada48c1306491792da43023",
+    "backbones/resnet18-5c106cde.pth": "5c106cde386e87d4033832f2996f5493238eda96ccf559d1d62760c4de0613f8",
+    "backbones/resnet50-19c8e357.pth": "19c8e3572231adff6824a2da93fd67b5986919a2e65f8b6007eab4edee220097"
+  },
+  "input_spec": {
+    "seed_kind": "sam2_authored_box",
+    "frames": [
+      "/home/nguyentnt/PDWAIA/ecus/hi/runs/dual-vision-app-2026-11-01-final/moving-0.png",
+      "/home/nguyentnt/PDWAIA/ecus/hi/runs/dual-vision-app-2026-11-01-final/moving-1.png",
+      "/home/nguyentnt/PDWAIA/ecus/hi/runs/dual-vision-app-2026-11-01-final/moving-2.png",
+      "/home/nguyentnt/PDWAIA/ecus/hi/runs/dual-vision-app-2026-11-01-final/moving-3.png",
+      "/home/nguyentnt/PDWAIA/ecus/hi/runs/dual-vision-app-2026-11-01-final/moving-4.png",
+      "/home/nguyentnt/PDWAIA/ecus/hi/runs/dual-vision-app-2026-11-01-final/moving-5.png",
+      "/home/nguyentnt/PDWAIA/ecus/hi/runs/dual-vision-app-2026-11-01-final/moving-6.png",
+      "/home/nguyentnt/PDWAIA/ecus/hi/runs/dual-vision-app-2026-11-01-final/moving-7.png",
+      "/home/nguyentnt/PDWAIA/ecus/hi/runs/dual-vision-app-2026-11-01-final/moving-8.png",
+      "/home/nguyentnt/PDWAIA/ecus/hi/runs/dual-vision-app-2026-11-01-final/moving-9.png",
+      "/home/nguyentnt/PDWAIA/ecus/hi/runs/dual-vision-app-2026-11-01-final/moving-10.png",
+      "/home/nguyentnt/PDWAIA/ecus/hi/runs/dual-vision-app-2026-11-01-final/moving-11.png"
+    ],
+    "box_xyxy": [
+      124,
+      150,
+      238,
+      253
+    ],
+    "mode": "authored synthetic renderer input; manually authored test box; no GT supplied to model"
+  },
+  "input_spec_sha256": "bcaeb4ec457de09687f8dfb50f76013cae91b087c3a8f5fb6036476f7c415dff",
+  "torch": "2.6.0+cu124",
+  "cuda_build": "12.4",
+  "cutie_load_s": 2.1717190453782678,
+  "cutie_config": {
+    "exp_id": "default",
+    "dataset": "generic",
+    "amp": false,
+    "weights": "output/cutie-base-mega.pth",
+    "output_dir": null,
+    "flip_aug": false,
+    "max_internal_size": 480,
+    "image_directory": null,
+    "mask_directory": null,
+    "json_directory": null,
+    "size": -1,
+    "save_all": true,
+    "use_all_masks": false,
+    "use_long_term": true,
+    "mem_every": 5,
+    "max_mem_frames": 5,
+    "long_term": {
+      "count_usage": true,
+      "max_mem_frames": 10,
+      "min_mem_frames": 5,
+      "num_prototypes": 128,
+      "max_num_tokens": 10000,
+      "buffer_tokens": 2000
+    },
+    "top_k": 30,
+    "stagger_updates": 5,
+    "chunk_size": -1,
+    "save_scores": false,
+    "save_aux": false,
+    "visualize": false,
+    "datasets": {
+      "d16-val": {
+        "image_directory": "../DAVIS/2016/JPEGImages/480p",
+        "mask_directory": "../DAVIS/2016/Annotations/480p",
+        "subset": "../DAVIS/2017/trainval/ImageSets/2016/val.txt",
+        "size": 480,
+        "save_all": true,
+        "use_all_masks": false,
+        "use_long_term": false,
+        "mem_every": 5
+      },
+      "d17-val": {
+        "image_directory": "../DAVIS/2017/trainval/JPEGImages/480p",
+        "mask_directory": "../DAVIS/2017/trainval/Annotations/480p",
+        "subset": "../DAVIS/2017/trainval/ImageSets/2017/val.txt",
+        "size": 480,
+        "save_all": true,
+        "use_all_masks": false,
+        "use_long_term": false,
+        "mem_every": 5
+      },
+      "d17-test-dev": {
+        "image_directory": "../DAVIS/2017/test-dev/JPEGImages/480p",
+        "mask_directory": "../DAVIS/2017/test-dev/Annotations/480p",
+        "subset": "../DAVIS/2017/test-dev/ImageSets/2017/test-dev.txt",
+        "size": 480,
+        "save_all": true,
+        "use_all_masks": false,
+        "use_long_term": false,
+        "mem_every": 5
+      },
+      "y18-val": {
+        "image_directory": "../YouTube2018/all_frames/valid_all_frames/JPEGImages",
+        "mask_directory": "../YouTube2018/valid/Annotations",
+        "json_directory": "../YouTube2018/valid/meta.json",
+        "size": 480,
+        "save_all": false,
+        "use_all_masks": true,
+        "use_long_term": false,
+        "mem_every": 5
+      },
+      "y19-val": {
+        "image_directory": "../YouTube/all_frames/valid_all_frames/JPEGImages",
+        "mask_directory": "../YouTube/valid/Annotations",
+        "json_directory": "../YouTube/valid/meta.json",
+        "size": 480,
+        "save_all": false,
+        "use_all_masks": true,
+        "use_long_term": false,
+        "mem_every": 5
+      },
+      "mose-val": {
+        "image_directory": "../MOSE/valid/JPEGImages",
+        "mask_directory": "../MOSE/valid/Annotations",
+        "size": 480,
+        "save_all": true,
+        "use_all_masks": false,
+        "use_long_term": false,
+        "mem_every": 5
+      },
+      "generic": {
+        "image_directory": null,
+        "mask_directory": null,
+        "size": -1,
+        "save_all": true,
+        "use_all_masks": false,
+        "use_long_term": true,
+        "mem_every": 5
+      },
+      "burst-val": {
+        "skip_frames": -1,
+        "image_directory": "../BURST/frames/val",
+        "json_directory": "../BURST/val/first_frame_annotations.json",
+        "size": 600,
+        "save_all": false,
+        "use_long_term": true,
+        "mem_every": 10
+      },
+      "burst-test": {
+        "skip_frames": -1,
+        "image_directory": "../BURST/frames/test",
+        "json_directory": "../BURST/test/first_frame_annotations.json",
+        "size": 600,
+        "save_all": false,
+        "use_long_term": true,
+        "mem_every": 10
+      },
+      "lvos-val": {
+        "image_directory": "../LVOS/valid/JPEGImages",
+        "mask_directory": "../LVOS/valid/Annotations_first_only",
+        "size": 480,
+        "save_all": false,
+        "use_all_masks": true,
+        "use_long_term": true,
+        "mem_every": 5
+      },
+      "lvos-test": {
+        "image_directory": "../LVOS/test/JPEGImages",
+        "mask_directory": "../LVOS/test/Annotations",
+        "size": 480,
+        "save_all": false,
+        "use_all_masks": true,
+        "use_long_term": true,
+        "mem_every": 5
+      }
+    },
+    "model": {
+      "pixel_mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "pixel_std": [
+        0.229,
+        0.224,
+        0.225
+      ],
+      "pixel_dim": 256,
+      "key_dim": 64,
+      "value_dim": 256,
+      "sensory_dim": 256,
+      "embed_dim": 256,
+      "pixel_encoder": {
+        "type": "resnet50",
+        "ms_dims": [
+          1024,
+          512,
+          256
+        ]
+      },
+      "mask_encoder": {
+        "type": "resnet18",
+        "final_dim": 256
+      },
+      "pixel_pe_scale": 32,
+      "pixel_pe_temperature": 128,
+      "object_transformer": {
+        "embed_dim": 256,
+        "ff_dim": 2048,
+        "num_heads": 8,
+        "num_blocks": 3,
+        "num_queries": 16,
+        "read_from_pixel": {
+          "input_norm": false,
+          "input_add_pe": false,
+          "add_pe_to_qkv": [
+            true,
+            true,
+            false
+          ]
+        },
+        "read_from_past": {
+          "add_pe_to_qkv": [
+            true,
+            true,
+            false
+          ]
+        },
+        "read_from_memory": {
+          "add_pe_to_qkv": [
+            true,
+            true,
+            false
+          ]
+        },
+        "read_from_query": {
+          "add_pe_to_qkv": [
+            true,
+            true,
+            false
+          ],
+          "output_norm": false
+        },
+        "query_self_attention": {
+          "add_pe_to_qkv": [
+            true,
+            true,
+            false
+          ]
+        },
+        "pixel_self_attention": {
+          "add_pe_to_qkv": [
+            true,
+            true,
+            false
+          ]
+        }
+      },
+      "object_summarizer": {
+        "embed_dim": 256,
+        "num_summaries": 16,
+        "add_pe": true
+      },
+      "aux_loss": {
+        "sensory": {
+          "enabled": true,
+          "weight": 0.01
+        },
+        "query": {
+          "enabled": true,
+          "weight": 0.01
+        }
+      },
+      "mask_decoder": {
+        "up_dims": [
+          256,
+          128,
+          128
+        ]
+      },
+      "resnet_model_path": "/home/nguyentnt/PDWAIA/ecus/hi/data/models/tracking/backbones"
+    }
+  },
+  "error_type": "InstantiationException",
+  "error": "Error in call to target 'sam2.modeling.position_encoding.PositionEmbeddingSine':\nRuntimeError('CUDA error: out of memory\\nCUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.\\nFor debugging consider passing CUDA_LAUNCH_BLOCKING=1\\nCompile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.\\n')\nfull_key: model.image_encoder.neck.position_encoding",
+  "total_s": 8.670159162953496,
+  "max_rss_mib": 913.64453125,
+  "cuda_peak_allocated_bytes": 263168,
+  "cuda_peak_reserved_bytes": 2097152
+}

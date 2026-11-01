@@ -1,0 +1,4 @@
+{
+  "scope": "after all task model processes exited",
+  "nvidia_smi": "0, NVIDIA RTX 6000 Ada Generation, 48032 MiB, 478 MiB, 0 %\n1, NVIDIA RTX 6000 Ada Generation, 47478 MiB, 1032 MiB, 0 %\n2, NVIDIA RTX 6000 Ada Generation, 47478 MiB, 1032 MiB, 0 %\n"
+}

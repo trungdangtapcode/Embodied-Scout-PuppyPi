@@ -208,6 +208,13 @@ or executed and no new app interaction was integrated. Design figures are author
 proposals. CPU live throughput and automatic identity recovery remain unverified;
 the current recorded-window profile and its failed identity gate are unchanged.
 
+A later [actual tracking-component probe](research/2026-11-02-tracking-execution/report.md)
+now executes SAM 2.1 tiny and original Cutie base-mega on CPU over 12 synthetic
+frames. With eight threads, the recorded mean Cutie step was 0.247 s (4.05
+compute-step FPS); the separate CUDA trial failed on insufficient available VRAM.
+The earlier source-audit-only statements describe the planning stage. No phone
+target selection, live session or quality gate is delivered by this CLI probe.
+
 The [Room Patrol proposal](16-room-patrol-world-model-proposal.md) adds planned
 F38 bounded patrol and F39 temporal room-model queries, extending the same memory,
 inspection and phone-observer foundations. It does not add a physical executor,

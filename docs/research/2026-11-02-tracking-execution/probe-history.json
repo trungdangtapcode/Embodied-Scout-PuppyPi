@@ -1,0 +1,15 @@
+{
+  "scope": "explicit component probes; no app integration",
+  "scripts": {
+    "probe.py": "b1f867aafe1b0831fec2fe5699d4a0565e8f33b685c980d03cfd766746578f6c",
+    "probe-v2.py": "e9f98310f463fbf871cfc8eacf90c074ff3e18d1a7b55f066850faeffebbe236",
+    "download_assets.py": "d4cfcf04e861975ed8a758a5f3df3485008e495b01d5c895d78cc40844a4ebb1",
+    "environment-probe.py": "52cac826b7eca6aef1977788eb54524c1997677041f6e0adb4b4cf8b9a83e070"
+  },
+  "final_probe": "scripts/research_tracking_probe.py",
+  "final_probe_sha256": "46d16edf0b4ca10891c2ca93180742d95659d8a815ad8cc01cf91bf9f39a56cb",
+  "initial_cpu_failure": "CPU request without GPU visibility isolation caused original SAM CUDA-cache warmup on GPU 0; retained failure; not a valid CPU-only timing",
+  "cuda_probe": "Explicit cuda:1 float32, allocator cap 768 MiB, other workloads untouched; failed on SAM forward before any Cutie steps",
+  "first_cpu_probes": "cpu-moving-isolated and cpu-upstream-bike ran concurrently with four threads each; timing is exploratory",
+  "isolated_cpu_probe": "cpu-moving-8threads, then cpu-final with final reproducible script and eight threads"
+}
