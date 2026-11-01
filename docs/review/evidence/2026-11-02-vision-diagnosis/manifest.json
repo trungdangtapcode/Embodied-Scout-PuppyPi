@@ -1,0 +1,19 @@
+{
+  "scope": "read_only_failure_diagnosis_no_product_change",
+  "repository_revision": "96d9fcd",
+  "candidate_crop_check": {
+    "count": 324,
+    "pixel_mismatches": 0
+  },
+  "input_dataset": "runs/dual-vision-app-2026-11-01-final",
+  "paid_api_calls": 0,
+  "device": "cpu",
+  "physical_robot": "not_used",
+  "files_sha256": {
+    "runs/dual-vision-app-2026-11-01-final/app-runs.json": "750a87051aa1bfca1944f43b0052079e692d1c674540a297d6d9181f7d06f851",
+    "runs/dual-vision-app-2026-11-01-final/truth.json": "2850ffd44917f717d3d16e6435de78b47de787ee5a9d30e17fc5c0c7102e3418",
+    "runs/diagnosis-2026-11-02/independent_probe.py": "6f15fc5e6a8657f497f34ac1c107b0a4c99af753cff3aba65044f18b336e8c0e",
+    "teach_and_find/yoloe_adapter.py": "7c8da1bd4fda5c6be00b9078d80fe81873e13461aa6e09fd5739af458ada5498",
+    "teach_and_find/dinov2_adapter.py": "2d5316d7e6c0bd42750e54429dddce098e630edd3cd03d80cd364544641a9b25"
+  }
+}
