@@ -46,6 +46,7 @@ from teach_and_find.storage import AssistantError, EvidenceStore
 from teach_and_find.room import RoomService
 from teach_and_find.scene import SceneService
 from teach_and_find.memory_service import MemoryService
+from teach_and_find.vision_service import VisionService
 
 
 class StrictModel(BaseModel):
@@ -128,6 +129,11 @@ class MemoryQuestionRequest(StrictModel):
     episode_ids: list[str] = Field(min_length=1, max_length=24)
     request_key: str = Field(min_length=1, max_length=120)
     scope: Literal["recorded_memory"] = "recorded_memory"
+
+
+class VisionRequest(FrameRequest):
+    object_ids: list[str] = Field(min_length=1, max_length=8)
+    request_key: str = Field(min_length=1, max_length=120)
 
 
 class Sessions:
@@ -505,6 +511,39 @@ def create_app(
     def memory_cancel(job_id: str, session=Depends(authorized)):
         with EvidenceStore(cfg.assistant.data_dir) as store:
             return MemoryService(store, cfg).cancel(job_id, robot.device.mode)
+
+    @app.get("/api/vision")
+    def vision_overview(session=Depends(authorized)):
+        with EvidenceStore(cfg.assistant.data_dir) as store:
+            return VisionService(store, cfg).overview(robot.device.mode)
+
+    @app.post("/api/vision/jobs", status_code=202)
+    def vision_create(body: VisionRequest, session=Depends(authorized)):
+        with EvidenceStore(cfg.assistant.data_dir) as store:
+            service = VisionService(store, cfg)
+            request = {"frame_id": body.frame_id, "object_ids": body.object_ids}
+            job = service.jobs.existing(robot.device.mode, body.request_key, "vision", request)
+            if job is None:
+                frames = robot.frame_window(body.frame_id)
+                job = service.enqueue(frames, body.object_ids, body.request_key, robot.device.mode)
+        from teach_and_find.memory_queue import dispatch
+
+        try:
+            dispatch(cfg, job["id"], "vision")
+        except (ImportError, OSError, sqlite3.Error):
+            # Durable outbox remains queued; the vision heartbeat retries delivery.
+            pass
+        return job
+
+    @app.get("/api/vision/jobs/{job_id}")
+    def vision_job(job_id: str, session=Depends(authorized)):
+        with EvidenceStore(cfg.assistant.data_dir) as store:
+            return VisionService(store, cfg).job(job_id, robot.device.mode)
+
+    @app.post("/api/vision/jobs/{job_id}/cancel")
+    def vision_cancel(job_id: str, session=Depends(authorized)):
+        with EvidenceStore(cfg.assistant.data_dir) as store:
+            return VisionService(store, cfg).cancel(job_id, robot.device.mode)
 
     @app.get("/api/checklists")
     def checklists(session=Depends(authorized)):

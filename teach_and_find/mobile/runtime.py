@@ -60,6 +60,20 @@ class OperatorRuntime:
                 {"id": str(uuid4()), "at": utc_now(), "kind": kind, "message": message}
             )
 
+    def frame_window(self, frame_id: str) -> list[CameraFrame]:
+        """Freeze a bounded same-session window ending at the displayed fresh frame."""
+        with self.lock:
+            end, _ = self.frame(frame_id, require_fresh=True)
+            candidates = []
+            for sample, _ in self.frames.values():
+                if (sample.provenance.get("camera_id"), sample.provenance.get("session_id")) == (
+                    end.provenance.get("camera_id"), end.provenance.get("session_id")
+                ):
+                    candidates.append(sample)
+                if sample.frame_id == frame_id:
+                    break
+            return candidates[-self.settings.vision.max_frames:]
+
     def start(self) -> None:
         for target in (self._camera_loop, self._control_loop):
             thread = threading.Thread(target=target, daemon=True)

@@ -96,6 +96,11 @@ MIGRATIONS = (
             worker_id TEXT NOT NULL, pid INTEGER NOT NULL, seen_at TEXT NOT NULL,
             status TEXT NOT NULL, error_code TEXT)""",
     ),
+    (
+        """CREATE TABLE vision_worker (id INTEGER PRIMARY KEY CHECK(id=1),
+            worker_id TEXT NOT NULL, pid INTEGER NOT NULL, seen_at TEXT NOT NULL,
+            status TEXT NOT NULL, error_code TEXT)""",
+    ),
 )
 
 

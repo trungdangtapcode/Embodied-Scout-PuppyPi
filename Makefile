@@ -58,3 +58,10 @@ memory-setup:
 
 memory-worker:
 	PUPPYPI_MEMORY_ENABLED=1 UV_PROJECT_ENVIRONMENT=.venv-memory uv run --locked --extra memory python -m teach_and_find.memory_worker
+
+.PHONY: vision-setup vision-worker
+vision-setup:
+	$(UV_RUN) python scripts/setup_vision.py
+
+vision-worker:
+	PUPPYPI_VISION_ENABLED=1 CUDA_VISIBLE_DEVICES=-1 PYTHONPATH=. .venv-vision/bin/python -m teach_and_find.vision_worker

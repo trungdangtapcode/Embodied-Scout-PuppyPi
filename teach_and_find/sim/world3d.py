@@ -525,10 +525,7 @@ def render_teaching_views(
         if proposals:
             crop = proposals[0].crop_bgr
         else:
-            h, w = frame.shape[:2]
-            crop = frame[
-                int(0.28 * h) : int(0.75 * h), int(0.30 * w) : int(0.70 * w)
-            ].copy()
+            raise RuntimeError(f"No reference foreground at teaching angle {ang}; no substitute crop.")
         views.append((float(ang), crop))
     return views
 

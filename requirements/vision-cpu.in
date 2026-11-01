@@ -1,0 +1,20 @@
+# Isolated Python 3.12 worker, not installed into the host app environment.
+# The author source is separately pinned and installed with --no-deps.
+torch==2.6.0+cpu
+torchvision==0.21.0+cpu
+numpy==2.5.4
+opencv-python==5.0.0.93
+pillow==13.0.0
+matplotlib==3.11.2
+scipy==1.18.1
+pyyaml==6.0.3
+requests==2.34.2
+tqdm==4.70.1
+psutil==7.2.2
+py-cpuinfo==9.0.0
+pandas==3.1.0
+seaborn==0.13.2
+ultralytics-thop==2.2.3
+lap==0.5.13
+huey==3.5.3
+huggingface-hub==2.4.0

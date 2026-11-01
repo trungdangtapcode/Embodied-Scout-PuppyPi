@@ -234,6 +234,50 @@ class MemorySettings:
 
 
 @dataclass(frozen=True)
+class VisionSettings:
+    """Explicit CPU YOLOE/SAVPE + ByteTrack profile; no baseline substitution."""
+
+    enabled: bool = field(
+        default_factory=lambda: os.getenv("PUPPYPI_VISION_ENABLED", "0") == "1"
+    )
+    upstream_path: str = field(
+        default_factory=lambda: os.getenv("PUPPYPI_YOLOE_PATH", ".upstream/yoloe")
+    )
+    checkpoint: str = field(
+        default_factory=lambda: os.getenv(
+            "PUPPYPI_YOLOE_CHECKPOINT", "data/models/yoloe/yoloe-v8s-seg.pt"
+        )
+    )
+    upstream_revision: str = "40cd606cabdbe2b566d6f14a6b162c89206e9a1b"
+    checkpoint_sha256: str = (
+        "ac2b90ed23011495a3e86d89caeb3432a15129cac8d849ba121293c8fc1e0536"
+    )
+    checkpoint_revision: str = "b584da188a198a2e6aa0e013d3fef6d55b212603"
+    model: str = "yoloe-v8s-seg"
+    device: str = "cpu"
+    torch_threads: int = 2
+    image_size: int = 640
+    score_threshold: float = 0.20
+    tile_size: int = 320
+    reference_size: int = 200
+    max_objects: int = 8
+    max_references: int = 6
+    max_frames: int = 12
+    max_frame_gap_s: float = 1.0
+    job_timeout_s: float = 120.0
+    heartbeat_s: float = 2.0
+    worker_stale_s: float = 15.0
+    polling_s: float = 0.25
+    history_limit: int = 20
+    track_high_thresh: float = 0.25
+    track_low_thresh: float = 0.10
+    new_track_thresh: float = 0.25
+    track_buffer: int = 30
+    match_thresh: float = 0.80
+    fuse_score: bool = True
+
+
+@dataclass(frozen=True)
 class Settings:
     """Top-level configuration bundle."""
 
@@ -249,3 +293,4 @@ class Settings:
     mobile: MobileSettings = field(default_factory=MobileSettings)
     room: RoomSettings = field(default_factory=RoomSettings)
     memory: MemorySettings = field(default_factory=MemorySettings)
+    vision: VisionSettings = field(default_factory=VisionSettings)

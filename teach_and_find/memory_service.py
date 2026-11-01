@@ -115,14 +115,15 @@ class MemoryService:
             return self.job(row["id"], mode)
         return None
 
-    def _insert_job(
-        self, kind: str, mode: str, key: str, request: dict, **payload
+    def insert_job(
+        self, kind: str, mode: str, key: str, request: dict, *,
+        model: str | None = None, profile: dict | None = None, **payload
     ) -> str:
         job_id = str(uuid4())
         payload.update(
             request=request,
-            model=self.settings.memory.model,
-            profile=asdict(self.settings.memory),
+            model=model if model is not None else self.settings.memory.model,
+            profile=profile if profile is not None else asdict(self.settings.memory),
         )
         self.db.execute(
             """INSERT INTO memory_jobs
@@ -199,7 +200,7 @@ class MemoryService:
                     provenance,
                 ),
             )
-            job_id = self._insert_job(
+            job_id = self.insert_job(
                 "capture", mode, key, request, capture_id=capture_id
             )
             self.db.commit()
@@ -311,7 +312,7 @@ class MemoryService:
                     "MEMORY_DESCRIPTION_REQUIRED",
                     "Every capture in the selected episodes needs a completed description; none will be silently omitted.",
                 )
-            job_id = self._insert_job("question", mode, key, request, snapshot=captures)
+            job_id = self.insert_job("question", mode, key, request, snapshot=captures)
             self.db.commit()
         except Exception:
             self.db.rollback()
@@ -441,7 +442,7 @@ class MemoryService:
     def interrupt(self):
         with self.db:
             self.db.execute(
-                "UPDATE memory_jobs SET status='interrupted',stage='interrupted',finished_at=?,error_code='WORKER_INTERRUPTED' WHERE status='running'",
+                "UPDATE memory_jobs SET status='interrupted',stage='interrupted',finished_at=?,error_code='WORKER_INTERRUPTED' WHERE status='running' AND kind IN ('capture','question')",
                 (utc_now(),),
             )
 
@@ -473,7 +474,7 @@ class MemoryService:
         jobs = [
             self.job(row[0], mode)
             for row in self.db.execute(
-                "SELECT id FROM memory_jobs WHERE mode=? ORDER BY created_at DESC,id LIMIT ?",
+                "SELECT id FROM memory_jobs WHERE mode=? AND kind IN ('capture','question') ORDER BY created_at DESC,id LIMIT ?",
                 (mode, self.settings.memory.history_limit),
             )
         ]
