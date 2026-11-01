@@ -1,0 +1,303 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-02",
+  "project_revision": "409e156bbab8b269d86da9348947985a07a67d22",
+  "repositories": [
+    {
+      "repository": "https://github.com/facebookresearch/sam2",
+      "revision": "2b90b9f5ceec907a1c18123530e92e794ad901a4",
+      "root_license_observed": "Apache-2.0",
+      "scope": "source inspection only; no new model installed or executed; not integrated",
+      "local_checkout": "runs/interactive-tracking-research-2026-11-02/sam2",
+      "inspected_files": {
+        "README.md": {
+          "sha256": "eea69ee1042fb30933c5ca5019fbf0f6f9366cec5e792109281b5023a4f1589c",
+          "url": "https://github.com/facebookresearch/sam2/blob/2b90b9f5ceec907a1c18123530e92e794ad901a4/README.md"
+        },
+        "LICENSE": {
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "url": "https://github.com/facebookresearch/sam2/blob/2b90b9f5ceec907a1c18123530e92e794ad901a4/LICENSE"
+        },
+        "setup.py": {
+          "sha256": "9ca49a33def161d2cafa56ddef744178fa56d3219242bd8b69909904c2e63dff",
+          "url": "https://github.com/facebookresearch/sam2/blob/2b90b9f5ceec907a1c18123530e92e794ad901a4/setup.py"
+        },
+        "sam2/build_sam.py": {
+          "sha256": "856d64d71e44407401297b551884fb4cd1aba8082de0ff5fc60fac3dd42f094d",
+          "url": "https://github.com/facebookresearch/sam2/blob/2b90b9f5ceec907a1c18123530e92e794ad901a4/sam2/build_sam.py"
+        },
+        "sam2/sam2_image_predictor.py": {
+          "sha256": "f13e5f9d94e5c8d9d2c3622dab20c8f334c089ef2ee5ea8e199da7d332b029ba",
+          "url": "https://github.com/facebookresearch/sam2/blob/2b90b9f5ceec907a1c18123530e92e794ad901a4/sam2/sam2_image_predictor.py"
+        },
+        "sam2/sam2_video_predictor.py": {
+          "sha256": "912555920a77f72ded07839efa33fcceecc79f3523abbec783f0be46ee2c55c2",
+          "url": "https://github.com/facebookresearch/sam2/blob/2b90b9f5ceec907a1c18123530e92e794ad901a4/sam2/sam2_video_predictor.py"
+        },
+        "sam2/utils/transforms.py": {
+          "sha256": "ba3a64f4600c62f209206a6df3b40e3fcf133edae32fad658831bb0c2a6d1146",
+          "url": "https://github.com/facebookresearch/sam2/blob/2b90b9f5ceec907a1c18123530e92e794ad901a4/sam2/utils/transforms.py"
+        }
+      },
+      "unavailable_paths": []
+    },
+    {
+      "repository": "https://github.com/hkchengrex/Cutie",
+      "revision": "ec5cdd4cf16f75c73ad785a2f96fb97dbad4125a",
+      "root_license_observed": "MIT; redistributed GUI components have separate notices",
+      "scope": "source inspection only; no new model installed or executed; not integrated",
+      "local_checkout": "runs/interactive-tracking-research-2026-11-02/cutie",
+      "inspected_files": {
+        "README.md": {
+          "sha256": "3755e83338cdbb292b8f251bcf304ad6f720165afdfe5dc097ec36f08f4be202",
+          "url": "https://github.com/hkchengrex/Cutie/blob/ec5cdd4cf16f75c73ad785a2f96fb97dbad4125a/README.md"
+        },
+        "LICENSE": {
+          "sha256": "8cffbcfb631bbe76caa147bc2515ea47c81042a5dedaeaadce6652bbbbaf7f71",
+          "url": "https://github.com/hkchengrex/Cutie/blob/ec5cdd4cf16f75c73ad785a2f96fb97dbad4125a/LICENSE"
+        },
+        "pyproject.toml": {
+          "sha256": "0dd855747271f0eea639f96aeb5d7116fd035bc5ae6a1fb2371ec3a956625ea8",
+          "url": "https://github.com/hkchengrex/Cutie/blob/ec5cdd4cf16f75c73ad785a2f96fb97dbad4125a/pyproject.toml"
+        },
+        "scripting_demo.py": {
+          "sha256": "6a6d095fc537bb4d86155145080c4d816f40d82fc13cf561e3fd3a1e53fe39b4",
+          "url": "https://github.com/hkchengrex/Cutie/blob/ec5cdd4cf16f75c73ad785a2f96fb97dbad4125a/scripting_demo.py"
+        },
+        "scripting_demo_add_del_objects.py": {
+          "sha256": "946c1da2714a7821adb4dea6279dfb4f4c5bd0236dfbde7bd290aa1fc3daf614",
+          "url": "https://github.com/hkchengrex/Cutie/blob/ec5cdd4cf16f75c73ad785a2f96fb97dbad4125a/scripting_demo_add_del_objects.py"
+        },
+        "cutie/inference/inference_core.py": {
+          "sha256": "8df9f952195779447baad7087788b071ff48c1f65265c169f1affb9c1d11afdc",
+          "url": "https://github.com/hkchengrex/Cutie/blob/ec5cdd4cf16f75c73ad785a2f96fb97dbad4125a/cutie/inference/inference_core.py"
+        },
+        "cutie/inference/memory_manager.py": {
+          "sha256": "101485daaa28a94376489889a54ab3482119b4fda10d25fade3dccbc7b07e85e",
+          "url": "https://github.com/hkchengrex/Cutie/blob/ec5cdd4cf16f75c73ad785a2f96fb97dbad4125a/cutie/inference/memory_manager.py"
+        },
+        "cutie/utils/get_default_model.py": {
+          "sha256": "21c7e90102df978514ba9930e27c7941cb9c283acdcf22cbbd9080aba42880a6",
+          "url": "https://github.com/hkchengrex/Cutie/blob/ec5cdd4cf16f75c73ad785a2f96fb97dbad4125a/cutie/utils/get_default_model.py"
+        },
+        "cutie/utils/download_models.py": {
+          "sha256": "8c37ac4a3dcde9a0776e9c5ca90462d5cbc5213512b5120374798a9a767a9ce7",
+          "url": "https://github.com/hkchengrex/Cutie/blob/ec5cdd4cf16f75c73ad785a2f96fb97dbad4125a/cutie/utils/download_models.py"
+        },
+        "cutie/model/big_modules.py": {
+          "sha256": "cddb2ad2cc21e6843aeb3e5a6fc47604e95059105dbe03c8916748d3b5842b75",
+          "url": "https://github.com/hkchengrex/Cutie/blob/ec5cdd4cf16f75c73ad785a2f96fb97dbad4125a/cutie/model/big_modules.py"
+        },
+        "cutie/model/utils/resnet.py": {
+          "sha256": "17199f699ccfb730dd0f4bd7a41f800ad2788704d7f6dd7a90929e752e5b62f1",
+          "url": "https://github.com/hkchengrex/Cutie/blob/ec5cdd4cf16f75c73ad785a2f96fb97dbad4125a/cutie/model/utils/resnet.py"
+        },
+        "cutie/config/eval_config.yaml": {
+          "sha256": "5fb2311d42ed7e0575e4313037abe7e92e8960d8a130511a4813c817aa370da3",
+          "url": "https://github.com/hkchengrex/Cutie/blob/ec5cdd4cf16f75c73ad785a2f96fb97dbad4125a/cutie/config/eval_config.yaml"
+        }
+      },
+      "unavailable_paths": []
+    },
+    {
+      "repository": "https://github.com/facebookresearch/sam3",
+      "revision": "f1647e8d0c1d280991f4d1b7d974c2704537fe66",
+      "root_license_observed": "SAM License; do not infer license from stale packaging classifier",
+      "scope": "source inspection only; no new model installed or executed; not integrated",
+      "local_checkout": "runs/interactive-tracking-research-2026-11-02/sam3",
+      "inspected_files": {
+        "README.md": {
+          "sha256": "da3dd047d18ef9a4b33557bf6f8187cf166218dc8aef40f2e18a67cc5249a502",
+          "url": "https://github.com/facebookresearch/sam3/blob/f1647e8d0c1d280991f4d1b7d974c2704537fe66/README.md"
+        },
+        "LICENSE": {
+          "sha256": "4dea99bfaa016e21bc860d73f344236bd1e5c4977d1a9a8fd32f822b500ae1be",
+          "url": "https://github.com/facebookresearch/sam3/blob/f1647e8d0c1d280991f4d1b7d974c2704537fe66/LICENSE"
+        },
+        "RELEASE_SAM3p1.md": {
+          "sha256": "15816fdd90f809aa6853e9a584ad8c40ed022ba9c6d63ba2aef326da0281a9fa",
+          "url": "https://github.com/facebookresearch/sam3/blob/f1647e8d0c1d280991f4d1b7d974c2704537fe66/RELEASE_SAM3p1.md"
+        },
+        "sam3/model/sam3_video_predictor.py": {
+          "sha256": "9714ac8adbce442bfd05b795cb7b53eab6ac455487df31d7b8ae442675a4b9ea",
+          "url": "https://github.com/facebookresearch/sam3/blob/f1647e8d0c1d280991f4d1b7d974c2704537fe66/sam3/model/sam3_video_predictor.py"
+        },
+        "sam3/model/sam3_video_inference.py": {
+          "sha256": "a502cd76a845292aaf022f64667c176bad919a1bd0cfd9b542d2aa58a7d561fe",
+          "url": "https://github.com/facebookresearch/sam3/blob/f1647e8d0c1d280991f4d1b7d974c2704537fe66/sam3/model/sam3_video_inference.py"
+        }
+      },
+      "unavailable_paths": []
+    },
+    {
+      "repository": "https://github.com/facebookresearch/EdgeTAM",
+      "revision": "7711e012a30a2402c4eaab637bdb00a521302c91",
+      "root_license_observed": "Apache-2.0",
+      "scope": "source inspection only; no new model installed or executed; not integrated",
+      "local_checkout": "runs/interactive-tracking-research-2026-11-02/edgetam",
+      "inspected_files": {
+        "README.md": {
+          "sha256": "9c29d6ec68ee541e53203d1f6e0fb8a7d4a407691062ad2f33b970f0a379bca1",
+          "url": "https://github.com/facebookresearch/EdgeTAM/blob/7711e012a30a2402c4eaab637bdb00a521302c91/README.md"
+        },
+        "LICENSE": {
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "url": "https://github.com/facebookresearch/EdgeTAM/blob/7711e012a30a2402c4eaab637bdb00a521302c91/LICENSE"
+        },
+        "sam2/sam2_video_predictor.py": {
+          "sha256": "ea88564e2ce17df7971ca8b3320c2648f7530aa0b43d42f4ca288f12c336dbd6",
+          "url": "https://github.com/facebookresearch/EdgeTAM/blob/7711e012a30a2402c4eaab637bdb00a521302c91/sam2/sam2_video_predictor.py"
+        }
+      },
+      "unavailable_paths": []
+    },
+    {
+      "repository": "https://github.com/AllenNeuralDynamics/RealtimeEfficientTAM",
+      "revision": "3074b531ae797f4cac6885625d983f2a2b791bab",
+      "root_license_observed": "Apache-2.0",
+      "scope": "source inspection only; no new model installed or executed; not integrated",
+      "local_checkout": "runs/interactive-tracking-research-2026-11-02/realtime-efficienttam",
+      "inspected_files": {
+        "README.md": {
+          "sha256": "983b340b455f9e53d489374633df41370e80a885c991323fca6cd5f88fbe4186",
+          "url": "https://github.com/AllenNeuralDynamics/RealtimeEfficientTAM/blob/3074b531ae797f4cac6885625d983f2a2b791bab/README.md"
+        },
+        "LICENSE": {
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "url": "https://github.com/AllenNeuralDynamics/RealtimeEfficientTAM/blob/3074b531ae797f4cac6885625d983f2a2b791bab/LICENSE"
+        },
+        "pyproject.toml": {
+          "sha256": "7a96c0341c7f3c3f71799ffdaefa55810381d5a31b0b8d49436e4a4a1d8afc01",
+          "url": "https://github.com/AllenNeuralDynamics/RealtimeEfficientTAM/blob/3074b531ae797f4cac6885625d983f2a2b791bab/pyproject.toml"
+        },
+        "efficient_track_anything/realtime_tam.py": {
+          "sha256": "e8c370a676a4326413601f69aff2e3db559c305430f0a03546c7ee0d1c784076",
+          "url": "https://github.com/AllenNeuralDynamics/RealtimeEfficientTAM/blob/3074b531ae797f4cac6885625d983f2a2b791bab/efficient_track_anything/realtime_tam.py"
+        }
+      },
+      "unavailable_paths": []
+    },
+    {
+      "repository": "https://github.com/jovanavidenovic/DAM4SAM",
+      "revision": "aad389b85c224bd408da8923e8fcb96410cf7e30",
+      "root_license_observed": "Apache-2.0",
+      "scope": "source inspection only; no new model installed or executed; not integrated",
+      "local_checkout": "runs/interactive-tracking-research-2026-11-02/dam4sam",
+      "inspected_files": {
+        "README.md": {
+          "sha256": "95518b5886bcae706765001bddd3eed0f3c4c18a35499891601ed70db45c491b",
+          "url": "https://github.com/jovanavidenovic/DAM4SAM/blob/aad389b85c224bd408da8923e8fcb96410cf7e30/README.md"
+        },
+        "LICENSE": {
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "url": "https://github.com/jovanavidenovic/DAM4SAM/blob/aad389b85c224bd408da8923e8fcb96410cf7e30/LICENSE"
+        },
+        "dam4sam_tracker.py": {
+          "sha256": "2f216a01acb49ba245a3171d276fd1ef3f983de884e342d11cfe14bb886e07ea",
+          "url": "https://github.com/jovanavidenovic/DAM4SAM/blob/aad389b85c224bd408da8923e8fcb96410cf7e30/dam4sam_tracker.py"
+        },
+        "checkpoints/download_ckpts.sh": {
+          "sha256": "6cb8caa8f70f40f7076029a9c858bfa4d4fdfb6c960b7943331c85432f6c2ac6",
+          "url": "https://github.com/jovanavidenovic/DAM4SAM/blob/aad389b85c224bd408da8923e8fcb96410cf7e30/checkpoints/download_ckpts.sh"
+        }
+      },
+      "unavailable_paths": []
+    },
+    {
+      "repository": "https://github.com/Mark12Ding/SAM2Long",
+      "revision": "d70b50a7936fec55af201244ecde3d4433aff943",
+      "root_license_observed": "CC BY-NC 4.0 root license",
+      "scope": "source inspection only; no new model installed or executed; not integrated",
+      "local_checkout": "runs/interactive-tracking-research-2026-11-02/sam2long",
+      "inspected_files": {
+        "README.md": {
+          "sha256": "f42c2e47ac906e6582aa201f63bb0205a92438ee4bec5eccf173c547e1c8c674",
+          "url": "https://github.com/Mark12Ding/SAM2Long/blob/d70b50a7936fec55af201244ecde3d4433aff943/README.md"
+        },
+        "LICENSE.txt": {
+          "sha256": "bc8f60ee50544b2dd70b4bc90e22de503aa23b317d284046a479811f2e06f396",
+          "url": "https://github.com/Mark12Ding/SAM2Long/blob/d70b50a7936fec55af201244ecde3d4433aff943/LICENSE.txt"
+        },
+        "sam2/sam2_video_predictor.py": {
+          "sha256": "afc36dcddf7bbf7f3e0e9315de7d6741a8ebb85b102837581ca61ecd63532718",
+          "url": "https://github.com/Mark12Ding/SAM2Long/blob/d70b50a7936fec55af201244ecde3d4433aff943/sam2/sam2_video_predictor.py"
+        }
+      },
+      "unavailable_paths": []
+    },
+    {
+      "repository": "https://github.com/husikl/ist_ros",
+      "revision": "fcce0bb308439d327427cc422ad20c0dfeb27720",
+      "root_license_observed": "MIT root; bundled models require own notices",
+      "scope": "source inspection only; no new model installed or executed; not integrated",
+      "local_checkout": "runs/interactive-tracking-research-2026-11-02/ist-ros",
+      "inspected_files": {
+        "docs/README.md": {
+          "sha256": "705a908d11b9f940ea962a0de4d4f0f4a2bbf9e5cb64e9ea0fbdfe1c2cfffde9",
+          "url": "https://github.com/husikl/ist_ros/blob/fcce0bb308439d327427cc422ad20c0dfeb27720/docs/README.md"
+        },
+        "LICENSE": {
+          "sha256": "7a762c366939c4477c039f20a7b57e147d86239ca354fe395ac9fbd70eccbab9",
+          "url": "https://github.com/husikl/ist_ros/blob/fcce0bb308439d327427cc422ad20c0dfeb27720/LICENSE"
+        },
+        "src/segment_and_track.py": {
+          "sha256": "208ecc0ffda8777a075ee806f5cfb242f0d186eef5dcfebbbd00b1b7b8f75355",
+          "url": "https://github.com/husikl/ist_ros/blob/fcce0bb308439d327427cc422ad20c0dfeb27720/src/segment_and_track.py"
+        },
+        "src/utils/core_utils.py": {
+          "sha256": "dc71a72c85c3fab9397e210256b9d0694841f2a6237435f4ef002deb738725eb",
+          "url": "https://github.com/husikl/ist_ros/blob/fcce0bb308439d327427cc422ad20c0dfeb27720/src/utils/core_utils.py"
+        }
+      },
+      "unavailable_paths": []
+    },
+    {
+      "repository": "https://github.com/Psi-Robot/DexGraspVLA",
+      "revision": "0144c7928817c5149ae836da2682291360828a21",
+      "root_license_observed": "No root LICENSE file found at inspected revision; prior art only; no code reuse selected",
+      "scope": "source inspection only; no new model installed or executed; not integrated",
+      "local_checkout": "runs/interactive-tracking-research-2026-11-02/dexgraspvla",
+      "inspected_files": {
+        "README.md": {
+          "sha256": "c7efdd93f86b89fab04d466e2ee8e28d83dfd0e3c6c934f130ad425adc25550d",
+          "url": "https://github.com/Psi-Robot/DexGraspVLA/blob/0144c7928817c5149ae836da2682291360828a21/README.md"
+        },
+        "inference.py": {
+          "sha256": "fb2719d1e48ce654f4a17a578c267815dc8a98d84cf6575e6849650e398431ae",
+          "url": "https://github.com/Psi-Robot/DexGraspVLA/blob/0144c7928817c5149ae836da2682291360828a21/inference.py"
+        }
+      },
+      "unavailable_paths": [
+        "LICENSE"
+      ]
+    },
+    {
+      "repository": "https://github.com/davisvideochallenge/davis2017-evaluation",
+      "revision": "ac7c43fca936f9722837b7fbd337d284ba37004b",
+      "root_license_observed": "BSD-3-Clause code; dataset terms separate",
+      "scope": "source inspection only; no new model installed or executed; not integrated",
+      "local_checkout": "runs/interactive-tracking-research-2026-11-02/davis-evaluation",
+      "inspected_files": {
+        "README.md": {
+          "sha256": "e975e910e774653a36a4ff6fbc13494db25990b4de08138830c907fb21216cff",
+          "url": "https://github.com/davisvideochallenge/davis2017-evaluation/blob/ac7c43fca936f9722837b7fbd337d284ba37004b/README.md"
+        },
+        "LICENSE": {
+          "sha256": "2d7b036336574a44060c3edbf9b24735ba8336fe30c129ebc25f979e9dcc1e7e",
+          "url": "https://github.com/davisvideochallenge/davis2017-evaluation/blob/ac7c43fca936f9722837b7fbd337d284ba37004b/LICENSE"
+        },
+        "davis2017/evaluation.py": {
+          "sha256": "4757da54091a85c98d1b97c2f4f5d85405c6927bbed787d9ced846bc3f03fbc7",
+          "url": "https://github.com/davisvideochallenge/davis2017-evaluation/blob/ac7c43fca936f9722837b7fbd337d284ba37004b/davis2017/evaluation.py"
+        },
+        "davis2017/metrics.py": {
+          "sha256": "a71bfb6d2da563ebf50251bda9876cf0b4b6193842543b0a3a286190529e26be",
+          "url": "https://github.com/davisvideochallenge/davis2017-evaluation/blob/ac7c43fca936f9722837b7fbd337d284ba37004b/davis2017/metrics.py"
+        }
+      },
+      "unavailable_paths": []
+    }
+  ],
+  "new_tracking_inference": "NOT_RUN",
+  "new_tracking_integration": "NOT_IMPLEMENTED"
+}

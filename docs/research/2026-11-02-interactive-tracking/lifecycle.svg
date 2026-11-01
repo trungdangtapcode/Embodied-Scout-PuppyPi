@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1010" viewBox="0 0 1600 1010"><defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9" fill="#657168"/></marker></defs><rect width="1600" height="1010" fill="#f4f5f0"/><g font-family="DejaVu Sans,Arial,sans-serif" fill="#24352d">
+<text x="56" y="52" font-size="15" letter-spacing="2" fill="#805a19">PROPOSED DESIGN / NO NEW MODEL EXECUTION</text>
+<text x="56" y="104" font-size="34" font-weight="700">A session is not proof of identity.</text>
+<text x="56" y="139" font-size="18" fill="#657168">Lifecycle, observation health and human assertions are stored separately.</text>
+<rect x="56" y="190" width="430" height="178" rx="18" fill="#fff" stroke="#d9e0d5"/>
+<rect x="78" y="215" width="5" height="27" rx="2" fill="#234d3b"/>
+<text x="97" y="237" font-size="21" font-weight="700">1 / SELECTING</text>
+<text x="82" y="275" font-size="17" fill="#536159">Freeze the exact frame; bind clicks</text>
+<text x="82" y="303" font-size="17" fill="#536159">Actual SAM mask preview + refinements</text>
+<text x="82" y="331" font-size="17" fill="#536159">Operator chooses the target extent</text>
+<rect x="570" y="190" width="430" height="178" rx="18" fill="#fff" stroke="#d9e0d5"/>
+<rect x="592" y="215" width="5" height="27" rx="2" fill="#234d3b"/>
+<text x="611" y="237" font-size="21" font-weight="700">2 / INITIALIZING</text>
+<text x="596" y="275" font-size="17" fill="#536159">Commit mask revision and generation</text>
+<text x="596" y="303" font-size="17" fill="#536159">Original Cutie + bounded catch-up</text>
+<text x="596" y="331" font-size="17" fill="#536159">Failure stays visible; no substitute</text>
+<rect x="1080" y="190" width="464" height="178" rx="18" fill="#fff" stroke="#d9e0d5"/>
+<rect x="1102" y="215" width="5" height="27" rx="2" fill="#234d3b"/>
+<text x="1121" y="237" font-size="21" font-weight="700">3 / RUNNING</text>
+<text x="1106" y="275" font-size="17" fill="#536159">Actual frame + actual mask + timestamp</text>
+<text x="1106" y="303" font-size="17" fill="#536159">Tracking · identity unverified</text>
+<text x="1106" y="331" font-size="17" fill="#536159">No invented trajectory or confidence</text>
+<path d="M486 277 L570 277" fill="none" stroke="#657168" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M1000 277 L1080 277" fill="none" stroke="#657168" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="1080" y="450" width="464" height="205" rx="18" fill="#faf1d9" stroke="#d9e0d5"/>
+<rect x="1102" y="475" width="5" height="27" rx="2" fill="#805a19"/>
+<text x="1121" y="497" font-size="21" font-weight="700">4 / UNCERTAIN · LOST · STALE</text>
+<text x="1106" y="535" font-size="17" fill="#536159">No usable observation under policy</text>
+<text x="1106" y="563" font-size="17" fill="#536159">Not proof the target left the room</text>
+<text x="1106" y="591" font-size="17" fill="#536159">Health logic is a declared heuristic</text>
+<text x="1106" y="619" font-size="17" fill="#536159">Close the affected processor generation</text>
+<path d="M1312 368 L1312 450" fill="none" stroke="#657168" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="1045" y="416" font-size="15" fill="#536159">empty mask / health failure / time gap</text>
+<rect x="570" y="450" width="430" height="205" rx="18" fill="#faf1d9" stroke="#d9e0d5"/>
+<rect x="592" y="475" width="5" height="27" rx="2" fill="#805a19"/>
+<text x="611" y="497" font-size="21" font-weight="700">5 / SEARCHING</text>
+<text x="596" y="535" font-size="17" fill="#536159">User requests Find again</text>
+<text x="596" y="563" font-size="17" fill="#536159">Actual YOLOE/DINO candidate evidence</text>
+<text x="596" y="591" font-size="17" fill="#536159">Possible match remains a hypothesis</text>
+<text x="596" y="619" font-size="17" fill="#536159">Automatic recovery requires a new gate</text>
+<path d="M1080 552 L1000 552" fill="none" stroke="#657168" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="56" y="450" width="430" height="205" rx="18" fill="#fff" stroke="#d9e0d5"/>
+<rect x="78" y="475" width="5" height="27" rx="2" fill="#234d3b"/>
+<text x="97" y="497" font-size="21" font-weight="700">6 / CORRECTION OR RESELECTION</text>
+<text x="82" y="535" font-size="17" fill="#536159">Human input is an intervention</text>
+<text x="82" y="563" font-size="17" fill="#536159">New pinned frame + new generation</text>
+<text x="82" y="591" font-size="17" fill="#536159">Old errors and gaps remain in history</text>
+<text x="82" y="619" font-size="17" fill="#536159">Never count this as automatic recovery</text>
+<path d="M570 552 L486 552" fill="none" stroke="#657168" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M271 450 L271 368" fill="none" stroke="#657168" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="285" y="419" font-size="15" fill="#536159">re-prompt</text>
+<rect x="56" y="750" width="1488" height="183" rx="18" fill="#e7efe3" stroke="#d9e0d5"/>
+<rect x="78" y="775" width="5" height="27" rx="2" fill="#234d3b"/>
+<text x="97" y="797" font-size="21" font-weight="700">STOPPED / FAILED / INTERRUPTED</text>
+<text x="82" y="835" font-size="17" fill="#536159">Stop, expiry, worker restart or required-component failure closes publication generation atomically.</text>
+<text x="82" y="863" font-size="17" fill="#536159">A native model call may finish later; its output cannot resurrect the session.</text>
+<text x="82" y="891" font-size="17" fill="#536159">Current location, verified identity, robot following and cross-camera continuity are not inferred from session status.</text>
+<path d="M1518 368 L1567 368 L1567 714 L1340 714 L1340 750" fill="none" stroke="#657168" stroke-width="2.5" marker-end="url(#arrow)"/>
+</g></svg>

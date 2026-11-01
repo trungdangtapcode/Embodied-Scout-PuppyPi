@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000"><defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9" fill="#657168"/></marker></defs><rect width="1600" height="1000" fill="#f4f5f0"/><g font-family="DejaVu Sans,Arial,sans-serif" fill="#24352d">
+<text x="56" y="52" font-size="15" letter-spacing="2" fill="#805a19">PROPOSED DESIGN / NO NEW MODEL EXECUTION</text>
+<text x="56" y="104" font-size="34" font-weight="700">Select once. Track new frames. Preserve uncertainty.</text>
+<text x="56" y="139" font-size="18" fill="#657168">Phone → host API → isolated learned-model worker. Robot motion stays a separate project.</text>
+<rect x="56" y="190" width="330" height="240" rx="18" fill="#fff" stroke="#d9e0d5"/>
+<rect x="78" y="215" width="5" height="27" rx="2" fill="#234d3b"/>
+<text x="97" y="237" font-size="21" font-weight="700">PHONE / PWA</text>
+<text x="82" y="275" font-size="17" fill="#536159">Existing Preact + TypeScript</text>
+<text x="82" y="303" font-size="17" fill="#536159">Tap / box on pinned frame</text>
+<text x="82" y="331" font-size="17" fill="#536159">Refine actual mask preview</text>
+<text x="82" y="359" font-size="17" fill="#536159">Inspect result age and gaps</text>
+<text x="82" y="387" font-size="17" fill="#536159">Track / Correct / Stop</text>
+<rect x="440" y="190" width="600" height="240" rx="18" fill="#fff" stroke="#d9e0d5"/>
+<rect x="462" y="215" width="5" height="27" rx="2" fill="#234d3b"/>
+<text x="481" y="237" font-size="21" font-weight="700">HOST / API + EVIDENCE</text>
+<text x="466" y="275" font-size="17" fill="#536159">Existing .venv-dev / FastAPI + SQLite</text>
+<text x="466" y="303" font-size="17" fill="#536159">Immutable frame IDs, pixels and camera/session</text>
+<text x="466" y="331" font-size="17" fill="#536159">Ownership + generation + prompt revision</text>
+<text x="466" y="359" font-size="17" fill="#536159">Bounded spool / content-addressed input and mask</text>
+<text x="466" y="387" font-size="17" fill="#536159">No model forward pass in the API</text>
+<rect x="1090" y="190" width="454" height="240" rx="18" fill="#fff" stroke="#d9e0d5"/>
+<rect x="1112" y="215" width="5" height="27" rx="2" fill="#234d3b"/>
+<text x="1131" y="237" font-size="21" font-weight="700">PI / EXISTING RELAY</text>
+<text x="1116" y="275" font-size="17" fill="#536159">Camera capture and transport</text>
+<text x="1116" y="303" font-size="17" fill="#536159">Robot-side watchdog retained</text>
+<text x="1116" y="331" font-size="17" fill="#536159">No new PyTorch model on Pi</text>
+<text x="1116" y="359" font-size="17" fill="#536159">No tracking-to-motor command</text>
+<path d="M440 360 L386 360" fill="none" stroke="#657168" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M386 292 L440 292" fill="none" stroke="#657168" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="391" y="276" font-size="15" fill="#536159"></text>
+<path d="M1090 336 L1040 336" fill="none" stroke="#657168" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="1073" y="460" font-size="15" fill="#536159">camera frames</text>
+<rect x="440" y="505" width="600" height="275" rx="18" fill="#e7efe3" stroke="#d9e0d5"/>
+<rect x="462" y="530" width="5" height="27" rx="2" fill="#234d3b"/>
+<text x="481" y="552" font-size="21" font-weight="700">HOST / TRACKING WORKER</text>
+<text x="466" y="590" font-size="17" fill="#536159">Proposed .venv-tracking / explicit CPU or GPU</text>
+<text x="466" y="618" font-size="17" fill="#536159">Original SAM 2.1 image predictor → seed mask</text>
+<text x="466" y="646" font-size="17" fill="#536159">Original Cutie InferenceCore.step → future masks</text>
+<text x="466" y="674" font-size="17" fill="#536159">One processor per session generation</text>
+<text x="466" y="702" font-size="17" fill="#536159">Missing model/device fails; no substitute output</text>
+<text x="466" y="730" font-size="17" fill="#536159">New tracking models: NOT RUN</text>
+<path d="M620 430 L620 505" fill="none" stroke="#657168" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="634" y="473" font-size="15" fill="#536159">Commands + input</text>
+<path d="M902 505 L902 430" fill="none" stroke="#657168" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="916" y="481" font-size="15" fill="#536159">Mask + frame ID</text>
+<rect x="56" y="505" width="330" height="275" rx="18" fill="#faf1d9" stroke="#d9e0d5"/>
+<rect x="78" y="530" width="5" height="27" rx="2" fill="#805a19"/>
+<text x="97" y="552" font-size="21" font-weight="700">SEARCH / EXISTING MODELS</text>
+<text x="82" y="590" font-size="17" fill="#536159">Separate .venv-vision</text>
+<text x="82" y="618" font-size="17" fill="#536159">Actual YOLOE → DINOv2</text>
+<text x="82" y="646" font-size="17" fill="#536159">New transient-target adapter</text>
+<text x="82" y="674" font-size="17" fill="#536159">must still be implemented</text>
+<text x="82" y="702" font-size="17" fill="#536159">Possible match ≠ identity</text>
+<text x="82" y="730" font-size="17" fill="#536159">Automatic recovery gate open</text>
+<path d="M440 632 L386 632" fill="none" stroke="#657168" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="1090" y="505" width="454" height="275" rx="18" fill="#fff" stroke="#d9e0d5"/>
+<rect x="1112" y="530" width="5" height="27" rx="2" fill="#234d3b"/>
+<text x="1131" y="552" font-size="21" font-weight="700">BOUNDARIES</text>
+<text x="1116" y="590" font-size="17" fill="#536159">Old 12-frame jobs are preserved</text>
+<text x="1116" y="618" font-size="17" fill="#536159">No old mask on latest camera image</text>
+<text x="1116" y="646" font-size="17" fill="#536159">No interpolation to animate a track</text>
+<text x="1116" y="674" font-size="17" fill="#536159">No automatic verified room sighting</text>
+<text x="1116" y="702" font-size="17" fill="#536159">CPU live latency is not established</text>
+<text x="1116" y="730" font-size="17" fill="#536159">No current-GPU or paid-API work</text>
+<rect x="56" y="834" width="1488" height="110" rx="18" fill="#234d3b"/><text x="82" y="874" font-size="22" font-weight="700" fill="white">Execution evidence comes before a working-feature claim.</text><text x="82" y="909" font-size="18" fill="#d8ee95">First gate: original SAM + Cutie execution, pinned assets, failure checks, measured quality and latency.</text>
+</g></svg>

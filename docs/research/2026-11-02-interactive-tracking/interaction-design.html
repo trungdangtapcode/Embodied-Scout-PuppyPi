@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PuppyPi · interactive target design proposal</title>
+<style>
+@font-face{font-family:Manrope;src:url('../../../web/node_modules/@fontsource/manrope/files/manrope-latin-400-normal.woff2')}*{box-sizing:border-box}body{margin:0;background:#f4f5f0;color:#24352d;font:14px/1.6 Manrope,Arial,sans-serif}main{max-width:1400px;margin:auto;padding:36px}.disclosure{display:inline-block;background:#faf1d9;color:#805a19;padding:8px 14px;border-radius:8px;font-size:12px;font-weight:700;letter-spacing:.04em}header{margin-bottom:30px}h1{font-size:38px;letter-spacing:-1.3px;line-height:1.2;margin:18px 0 12px}header p{max-width:780px;color:#657168;margin:0;font-size:15px}.board{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}.screen{background:white;border:1px solid #e0e5dc;border-radius:20px;overflow:hidden;display:flex;flex-direction:column}.top{padding:20px 20px 16px;display:flex;justify-content:space-between;gap:12px;align-items:center}.brand{font-size:16px;font-weight:700}.brand span{color:#657168;font-size:12px;display:block;font-weight:400}.pill{font-size:11px;padding:5px 9px;border-radius:6px;background:#f4f5f0;white-space:nowrap}.pill.amber{background:#faf1d9;color:#805a19}.scene{position:relative;background:#1c2723;color:#d9e1d9}.scene img{display:block;width:100%;height:auto}.roi{position:absolute;left:20.6%;top:33.1%;width:15.3%;height:17.5%;border:2px solid #d8ee95;background:#d8ee951f}.roi:after{content:'+';position:absolute;left:40%;top:5%;font-size:22px;color:#d8ee95}.camera-label{min-height:52px;display:flex;align-items:center;background:#1c2723;padding:10px 16px;font-size:11px;color:#d9e1d9}.body{padding:20px;flex:1}h2{font-size:22px;line-height:1.3;letter-spacing:-.5px;margin:0 0 8px}.muted{color:#657168}.body>p{margin:0 0 16px}.eyebrow{font-size:10px;letter-spacing:1.3px;color:#657168;font-weight:700}.tools{display:flex;gap:8px;margin:18px 0 20px}.tools span{border:1px solid #e0e5dc;border-radius:8px;padding:9px 10px;font-size:12px;min-height:44px;display:flex;align-items:center}.tools span:first-child{background:#e7efe3;border-color:#c6d7c0;color:#234d3b}.tray{background:#f7f8f4;border-radius:12px;padding:14px;margin:16px 0;display:grid;grid-template-columns:64px 1fr;gap:12px;align-items:center}.seed{width:64px;height:64px;overflow:hidden;border-radius:8px;background:#e0e5dc;position:relative}.seed img{height:320px;width:426.7px;max-width:none;position:absolute;left:-88px;top:-106px}.tray strong{display:block;font-size:13px}.tray small{display:block;font-size:11px;color:#657168}.action{display:flex;justify-content:center;align-items:center;min-height:48px;border-radius:10px;background:#234d3b;color:white;font-weight:700;font-size:13px;margin-top:18px}.action.secondary{background:#fff;color:#24352d;border:1px solid #d5ddd2}.action.disabled{background:#edf0e9;color:#758078}.placeholder{aspect-ratio:4/3;height:auto;display:grid;place-content:center;text-align:center;padding:28px;gap:12px;background:#1c2723;color:#d9e1d9}.placeholder svg{margin:auto;color:#d8ee95}.placeholder strong{font-size:14px}.placeholder small{font-size:11px;max-width:230px;color:#a9b8ad}.placeholder.lost{background:#34382e;color:#e5dfca}.rows{margin:18px 0}.row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #edf0e9;font-size:12px}.row span{color:#657168}.callout{padding:12px 14px;border-left:3px solid #b17c26;background:#faf1d9;color:#805a19;font-size:12px;margin:16px 0}.footnote{font-size:10px;color:#758078;padding:12px 20px 18px;border-top:1px solid #edf0e9}.split{display:grid;grid-template-columns:1fr 1fr;gap:8px}.split .action{margin-top:8px}.step{font-size:11px;color:#657168;letter-spacing:1px;margin-bottom:8px}footer{margin-top:24px;font-size:12px;color:#657168;max-width:1000px}footer strong{color:#24352d}a{color:#234d3b}@media(max-width:800px){main{padding:20px 16px}.board{grid-template-columns:1fr;max-width:430px;margin:auto;gap:24px}h1{font-size:29px;letter-spacing:-.9px}.disclosure{font-size:10px}header p{font-size:13px}header{margin-bottom:24px}}@media print{main{padding:14px}.board{grid-template-columns:1fr}.screen{break-inside:avoid;max-width:440px;margin:0 auto 20px}.disclosure{print-color-adjust:exact}*{print-color-adjust:exact}}
+</style>
+<main>
+<header>
+  <span class="disclosure">AUTHORED DESIGN PROPOSAL · NO NEW TRACKING INFERENCE</span>
+  <h1>A target you can point to.<br>A result you can inspect.</h1>
+  <p>Proposed PuppyPi phone workflow: select a target, inspect the model's mask, then track future frames. These screens describe interaction states; they are not a delivered app or model-execution evidence.</p>
+</header>
+<div class="board">
+  <article class="screen">
+    <div class="top"><div class="brand">PuppyPi<span>Monitor / target selection</span></div><span class="pill">Frozen selection</span></div>
+    <div class="scene"><img src="../2026-11-01-dual-vision-app/moving-input.png" alt="Previously rendered synthetic source; no new inference"><div class="roi" aria-label="Authored user selection rectangle"></div></div>
+    <div class="camera-label">Synthetic source · authored user box · not a predicted mask</div>
+    <div class="body">
+      <div class="step">01 / CHOOSE THE TARGET</div><h2>Is this the area?</h2>
+      <p class="muted">Tap the object, draw a box, or exclude the background. The frozen frame keeps your selection in place.</p>
+      <div class="tools"><span>+ Add point</span><span>− Exclude</span><span>□ Box</span></div>
+      <div class="tray"><div class="seed"><img src="../2026-11-01-dual-vision-app/moving-input.png" alt="Illustrative human-selected seed crop"></div><div><strong>Your selected target</strong><small>Human input · name optional</small><small>Model mask: not generated</small></div></div>
+      <div class="action">Preview model mask</div><div class="action disabled">Track this object · needs model preview</div>
+      <div class="action secondary">Cancel selection</div>
+    </div>
+    <div class="footnote">Design state only. Actual SAM 2 output is required before Start is enabled.</div>
+  </article>
+  <article class="screen">
+    <div class="top"><div class="brand">PuppyPi<span>Monitor / selected target</span></div><span class="pill amber">Stop tracking</span></div>
+    <div class="placeholder"><svg width="42" height="42" viewBox="0 0 42 42" fill="none"><path d="M14 5H5V14M28 5H37V14M5 28V37H14M37 28V37H28" stroke="currentColor" stroke-width="2"/><circle cx="21" cy="21" r="6" stroke="currentColor" stroke-width="2"/></svg><strong>Processed frame + actual mask</strong><small>Reserved for genuine model output. No result or tracking measurement is invented here.</small></div>
+    <div class="camera-label">A mask is shown only on the image that produced it</div>
+    <div class="body">
+      <div class="step">02 / FOLLOW THE EVIDENCE</div><h2>Keep the target in view.</h2>
+      <p class="muted">The proposed session keeps temporal model memory across new frames. Identity stays unverified.</p>
+      <div class="rows"><div class="row"><span>Observation state</span><strong>—</strong></div><div class="row"><span>Processed capture / age</span><strong>— / —</strong></div><div class="row"><span>Model execution</span><strong>Not run</strong></div></div>
+      <div class="tray"><div class="seed"><img src="../2026-11-01-dual-vision-app/moving-input.png" alt="Illustrative user seed; not a tracked observation"></div><div><strong>Seed ↔ last observation</strong><small>Two distinct evidence records</small><small>Actual observation pending</small></div></div>
+      <div class="action secondary">Correct selection</div><p class="muted">Stop stays reachable in the top bar.</p>
+    </div>
+    <div class="footnote">Design state only. Status, timing and masks must come from a running session.</div>
+  </article>
+  <article class="screen">
+    <div class="top"><div class="brand">PuppyPi<span>Monitor / recovery</span></div><span class="pill amber">Lost state design</span></div>
+    <div class="placeholder lost"><svg width="42" height="42" viewBox="0 0 42 42" fill="none"><circle cx="18" cy="18" r="11" stroke="currentColor" stroke-width="2"/><path d="M26 26L37 37M13 18H23" stroke="currentColor" stroke-width="2"/></svg><strong>No current usable observation</strong><small>Last evidence belongs in history. No old mask is animated over the live camera.</small></div>
+    <div class="camera-label">Loss is not proof of absence from the room</div>
+    <div class="body">
+      <div class="step">03 / RECOVER WITHOUT GUESSING</div><h2>Find a possible match.</h2>
+      <p class="muted">Search new frames using the selected reference. Inspect candidates and the reasons for uncertainty.</p>
+      <div class="callout">Re-detection can find similar objects. Automatic identity recovery needs a separate measured acceptance gate.</div>
+      <div class="rows"><div class="row"><span>Loss reason</span><strong>From session evidence</strong></div><div class="row"><span>Candidate search</span><strong>Not run</strong></div><div class="row"><span>Confirmed identity</span><strong>Not established</strong></div></div>
+      <div class="action">Find again</div><div class="split"><div class="action secondary">Select again</div><div class="action secondary">End session</div></div>
+    </div>
+    <div class="footnote">Design state only. Human reselection counts as an intervention, not automatic recovery.</div>
+  </article>
+</div>
+<footer><strong>Implementation boundary:</strong> original SAM 2.1 → original Cutie on a separate host worker. Existing YOLOE/DINOv2 serve candidate search. No robot motion is requested. This static board has no working model controls, scores or simulated success. <a href="../../26-interactive-target-tracking.md">Read the complete design and acceptance plan.</a></footer>
+</main>
+</html>

@@ -24,7 +24,7 @@ Python versus native code, and venv versus Docker/ROS before the research plans.
 | Document | Purpose |
 | --- | --- |
 | [00 Project status](00-project-status.md) | Implemented behavior, evidence boundaries, hardware assumptions |
-| [06 Feature roadmap](06-feature-roadmap.md) | 39 feature entries with status, dependencies, priorities, and demo criteria |
+| [06 Feature roadmap](06-feature-roadmap.md) | 40 feature entries with status, dependencies, priorities, and demo criteria |
 | [07 Research program](07-research-program.md) | Five tracks, hypotheses, related work, baselines, evaluation |
 | [08 Shared architecture](08-system-evolution.md) | Reuse register, boundaries, proposed records and integration order |
 | [09 Demo acceptance](09-demo-acceptance.md) | Scenarios and proposed experiment/evidence manifests |
@@ -42,6 +42,9 @@ Python versus native code, and venv versus Docker/ROS before the research plans.
 | [21 Mind Palace fix proposal](21-mind-palace-integration-fix-proposal.md) | Source-backed contract defects, reproduced offline probes, tested Huey worker mechanism and accepted historical design; implementation/evidence in document 22 |
 | [22 Recorded-memory app](22-mind-palace-app.md) | Actual pinned Mind Palace worker/API/UI integration, scoped synthetic model evidence and remaining gates |
 | [23 Mobile runtime proposal](23-mobile-runtime-decision.md) | PWA/Capacitor/native tradeoffs; APK remains unimplemented |
+| [24 Executed visual inspection](24-yoloe-vision.md) | Actual YOLOE/DINOv2/ByteTrack recorded-window profile, provenance and unresolved identity quality |
+| [25 Visual identity proposal](25-visual-identity-fix-proposal.md) | Historical accepted dual-model revision and scoped execution evidence |
+| [26 Interactive target tracking](26-interactive-target-tracking.md) | Proposed point/box → SAM 2.1 → Cutie live sessions; ten-repository audit, application contracts, failure/recovery gates and [design figures](research/2026-11-02-interactive-tracking/design-figures.pdf); not implemented |
 | [Current code-integrity audit](review/2026-11-01-code-integrity-audit.md) | Silent substitutes, scripted labels, custom-method disclosures, source-call probe and explicit unresolved gaps |
 | [Contributor guide](../CONTRIBUTING.md) | Setup, checks, commit conventions, review and evidence workflow |
 | [Agent instructions](../AGENTS.md) | Repository-specific instructions for coding agents |

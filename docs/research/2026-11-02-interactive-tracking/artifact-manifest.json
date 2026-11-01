@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-02",
+  "scope": "research/source audit and authored design; no new tracking implementation or inference",
+  "upstream_repositories": 10,
+  "source_file_hashes_verified": 48,
+  "local_html_targets_verified": 7,
+  "design_pdf_pages": 3,
+  "artifacts_sha256": {
+    "checkpoint-metadata.json": "939571a53b3715504dbdb8a2cdce170d9fa01dcc585270405d59c3d4a7d07564",
+    "design-figures.pdf": "84f40a30f96e56e64e25fc1df8b31c75269905554fe64fcd4599eec28ab08288",
+    "visual-validation.json": "115957d8d4ce72ab4edd80eb4578b3c5272df2d6c67ea009fc4ac69f91825033",
+    "lifecycle.png": "61426e432ff3dc9d5586c1f3a242904a551f9c711f72d577affe3348e9dc243d",
+    "phone-design.png": "91f34ece0a3844fdf24f7c4144ea07341cefa6388a54eb0e682ca4764073abc4",
+    "repository-audit.json": "d3ce5229302010ea9183444868bb1ec44d25e604fa1387fae83a19f9e2ec9f66",
+    "architecture.png": "0271e23d8a4b0c72281fdc058666e713d0adbf399011b0b6e8cec5789be98021",
+    "report.md": "cd3a88eb8a3e8bee81c56100ab6292aa1b6a87718e2ff5c126ad29d112bd7375",
+    "interaction-design.html": "567cdaf22756ceda14393a1750b92417558f20d2e05dd467c43694ee87706e43",
+    "architecture.svg": "2ad4121d6cf9ad7f155acb00f2b834f59827d339995db4bf78ed972dd7eb0e27",
+    "lifecycle.svg": "f910c565e8c29ed3599683e0835231f1ae5a840d82ead91ca12ef525d07abbe1",
+    "desktop-design.png": "0c3f63a53c94f6187ce7dd921fa6af80d46bcefefffc8f2ce4e759071c863f2a",
+    "design-figures.html": "8f458034d09ed729640849fc7b164acc38100c5134cd57ef785024fe21dcc53c"
+  },
+  "proposal_sha256": "59271aa3a230aacfbbb1c32583781f48d42e44aa8d1609aac91fefcb5406dbb0"
+}

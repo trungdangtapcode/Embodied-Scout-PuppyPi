@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-02",
+  "evidence_state": "remote metadata observed; weights not downloaded or executed in this research turn",
+  "selected_seed": {
+    "id": "facebook/sam2.1-hiera-tiny",
+    "sha": "de431c4043854a71d8101e17995dfe596bf101a5",
+    "gated": false,
+    "disabled": false,
+    "license": "apache-2.0",
+    "checkpoints": [
+      {
+        "rfilename": "sam2.1_hiera_tiny.pt",
+        "blobId": "56f8d31a0ff55de24d5f30d11ce0cc19a5e5d10b",
+        "size": 156008466,
+        "lfs": {
+          "sha256": "7402e0d864fa82708a20fbd15bc84245c2f26dff0eb43a4b5b93452deb34be69",
+          "size": 156008466,
+          "pointerSize": 134
+        }
+      }
+    ]
+  },
+  "selected_tracker": {
+    "release": "v1.0",
+    "asset": {
+      "name": "cutie-base-mega.pth",
+      "size": 140443788,
+      "digest": null,
+      "browser_download_url": "https://github.com/hkchengrex/Cutie/releases/download/v1.0/cutie-base-mega.pth"
+    },
+    "upstream_downloader_md5": "a6071de6136982e396851903ab4c083a",
+    "observed_download_sha256": null,
+    "additional_constructor_downloads": [
+      "https://download.pytorch.org/models/resnet18-5c106cde.pth",
+      "https://download.pytorch.org/models/resnet50-19c8e357.pth"
+    ]
+  },
+  "sam3_comparison": {
+    "id": "facebook/sam3.1",
+    "sha": "daa63191845a41281374e725f4c9e51c7a824460",
+    "gated": "manual",
+    "disabled": false
+  }
+}

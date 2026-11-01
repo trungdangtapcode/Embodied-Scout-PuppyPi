@@ -200,6 +200,14 @@ planned. Feature-level status and acceptance criteria are recorded in
 [the feature roadmap](06-feature-roadmap.md). A planning entry is not an
 implemented feature.
 
+The [interactive target-tracking design](26-interactive-target-tracking.md), dated
+2026-11-02, adds planned F40: select a camera object with a point/box, preview its
+actual SAM 2.1 mask, then propagate it on future frames through original Cutie.
+Ten repositories were source-inspected; the proposed new models were not installed
+or executed and no new app interaction was integrated. Design figures are authored
+proposals. CPU live throughput and automatic identity recovery remain unverified;
+the current recorded-window profile and its failed identity gate are unchanged.
+
 The [Room Patrol proposal](16-room-patrol-world-model-proposal.md) adds planned
 F38 bounded patrol and F39 temporal room-model queries, extending the same memory,
 inspection and phone-observer foundations. It does not add a physical executor,

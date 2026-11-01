@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "scope": "authored design figures only; no implementation or inference evidence",
+  "browser": "Playwright Chromium",
+  "checks": [
+    {
+      "name": "desktop-design",
+      "viewport": {
+        "width": 1480,
+        "height": 1100
+      },
+      "images": [
+        {
+          "src": "../2026-11-01-dual-vision-app/moving-input.png",
+          "complete": true,
+          "width": 640
+        },
+        {
+          "src": "../2026-11-01-dual-vision-app/moving-input.png",
+          "complete": true,
+          "width": 640
+        },
+        {
+          "src": "../2026-11-01-dual-vision-app/moving-input.png",
+          "complete": true,
+          "width": 640
+        }
+      ],
+      "horizontalOverflow": false
+    },
+    {
+      "name": "phone-design",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "images": [
+        {
+          "src": "../2026-11-01-dual-vision-app/moving-input.png",
+          "complete": true,
+          "width": 640
+        },
+        {
+          "src": "../2026-11-01-dual-vision-app/moving-input.png",
+          "complete": true,
+          "width": 640
+        },
+        {
+          "src": "../2026-11-01-dual-vision-app/moving-input.png",
+          "complete": true,
+          "width": 640
+        }
+      ],
+      "horizontalOverflow": false
+    }
+  ]
+}

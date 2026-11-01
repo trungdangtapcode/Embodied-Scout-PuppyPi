@@ -72,6 +72,7 @@ hardware/model extensions. Priorities are dependencies, not calendar promises.
 | F37 | Replay synchronized robot and phone observations | Planned | P1 | Export paired timelines, evidence, clock uncertainty, missing frames and calibration IDs | F08, F33 |
 | F38 | Run and resume a bounded inspection patrol | Planned | P1 | Visit verified stations, inspect, pause/take over/resume with revalidation, report incomplete checks and measured HOME outcome | F07, F09, F20, F28 |
 | F39 | Inspect and query a temporal room model | Integrated recorded-memory subset: actual Mind Palace + Luna capture/question jobs; automatic current scene state pending | P1 | [App execution](22-mind-palace-app.md): three synthetic episodes/two regions, cited answers, missing/covered evidence abstention, cancellation/source failure; real-room quality, geometry and active execution remain open | F06, F10, F11 |
+| F40 | Select a camera target and track future frames | Planned: source-audited SAM 2.1/Cutie proposal; new models not executed | P1 | [Design and gates](26-interactive-target-tracking.md): actual point/box mask preview, persistent future-frame tracking, exact frame binding, Stop/worker failures, measured loss/recovery/latency and visible interventions; robot following is separate | F06, F07, F31 |
 
 Statuses describe the current baseline, not promises of physical performance.
 The [Room Patrol proposal](16-room-patrol-world-model-proposal.md) specifies
