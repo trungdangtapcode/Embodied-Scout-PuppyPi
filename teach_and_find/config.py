@@ -67,7 +67,9 @@ class PerceptionSettings:
     """Encoder and few-shot object memory settings loaded from environment."""
 
     encoder_backend: str = field(
-        default_factory=lambda: os.getenv("TEACH_FIND_ENCODER_BACKEND", "spatial_appearance")
+        default_factory=lambda: os.getenv(
+            "TEACH_FIND_ENCODER_BACKEND", "spatial_appearance"
+        )
     )
     torch_hub_repo: str = field(
         default_factory=lambda: os.getenv("TEACH_FIND_TORCH_HUB_REPO", "")
@@ -75,9 +77,7 @@ class PerceptionSettings:
     torch_hub_model: str = field(
         default_factory=lambda: os.getenv("TEACH_FIND_TORCH_HUB_MODEL", "")
     )
-    device: str = field(
-        default_factory=lambda: os.getenv("TEACH_FIND_DEVICE", "cpu")
-    )
+    device: str = field(default_factory=lambda: os.getenv("TEACH_FIND_DEVICE", "cpu"))
     crop_size: int = 96
     min_proposal_area_px: int = 550
     max_proposals_per_frame: int = 6
@@ -91,8 +91,8 @@ class PerceptionSettings:
 class VerificationSettings:
     """Active View Verification (IEVE-inspired sequential log-odds parameters)."""
 
-    confirm_log_odds: float = 2.10   # ~89.1% posterior confidence
-    reject_log_odds: float = -1.20   # ~23.1% posterior confidence
+    confirm_log_odds: float = 2.10  # ~89.1% posterior confidence
+    reject_log_odds: float = -1.20  # ~23.1% posterior confidence
     max_verification_views: int = 4
     min_distinct_angles_for_confirm: int = 2
     min_angle_separation_deg: float = 22.0
@@ -148,8 +148,12 @@ class EdgeRelaySettings:
 class AssistantSettings:
     """Persistent operator workflows and uncalibrated evidence-quality gates."""
 
-    data_dir: str = field(default_factory=lambda: os.getenv("TEACH_FIND_DATA_DIR", "data/assistant"))
-    encoder_revision: str = field(default_factory=lambda: os.getenv("TEACH_FIND_ENCODER_REVISION", ""))
+    data_dir: str = field(
+        default_factory=lambda: os.getenv("TEACH_FIND_DATA_DIR", "data/assistant")
+    )
+    encoder_revision: str = field(
+        default_factory=lambda: os.getenv("TEACH_FIND_ENCODER_REVISION", "")
+    )
     minimum_quality: float = 0.60
     minimum_visibility: float = 0.80
     inspection_max_age_s: float = 300.0
@@ -165,7 +169,9 @@ class MobileSettings:
     port: int = 8080
     robot_mode: str = "mock"
     allow_physical_motion: bool = False
-    pairing_token: str = field(default_factory=lambda: os.getenv("PUPPYPI_OPERATOR_TOKEN", ""))
+    pairing_token: str = field(
+        default_factory=lambda: os.getenv("PUPPYPI_OPERATOR_TOKEN", "")
+    )
     session_lifetime_s: float = 28800.0
     command_lease_s: float = 0.45
     control_challenge_s: float = 0.45
@@ -195,6 +201,35 @@ class RoomSettings:
 
 
 @dataclass(frozen=True)
+class MemorySettings:
+    """Opt-in recorded-memory inference; no substitute backend."""
+
+    enabled: bool = field(
+        default_factory=lambda: os.getenv("PUPPYPI_MEMORY_ENABLED", "0") == "1"
+    )
+    model: str = field(
+        default_factory=lambda: os.getenv("PUPPYPI_MEMORY_MODEL", "gpt-6-luna")
+    )
+    upstream_path: str = field(
+        default_factory=lambda: os.getenv(
+            "PUPPYPI_MIND_PALACE_PATH", ".upstream/mind-palace"
+        )
+    )
+    upstream_revision: str = "b59be261f9508c3a355a8afa0d495eeba0417d68"
+    reasoning_effort: str = "none"
+    request_timeout_s: float = 60.0
+    job_timeout_s: float = 300.0
+    max_calls: int = 24
+    max_output_tokens: int = 1024
+    max_snapshot_captures: int = 24
+    max_inspected_views: int = 8
+    heartbeat_s: float = 2.0
+    worker_stale_s: float = 15.0
+    polling_s: float = 0.25
+    history_limit: int = 30
+
+
+@dataclass(frozen=True)
 class Settings:
     """Top-level configuration bundle."""
 
@@ -209,3 +244,4 @@ class Settings:
     assistant: AssistantSettings = field(default_factory=AssistantSettings)
     mobile: MobileSettings = field(default_factory=MobileSettings)
     room: RoomSettings = field(default_factory=RoomSettings)
+    memory: MemorySettings = field(default_factory=MemorySettings)

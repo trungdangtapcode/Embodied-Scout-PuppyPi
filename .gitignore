@@ -30,6 +30,7 @@ checkpoints/
 data/
 recordings/
 runs/
+.upstream/
 *.pt
 *.pth
 *.onnx

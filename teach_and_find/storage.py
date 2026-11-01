@@ -67,6 +67,35 @@ MIGRATIONS = (
             observation_id TEXT NOT NULL REFERENCES observations(id),
             PRIMARY KEY(analysis_id, proposal_index))""",
     ),
+    (
+        """CREATE TABLE memory_regions (id TEXT PRIMARY KEY, name TEXT NOT NULL,
+            name_key TEXT NOT NULL UNIQUE, created_at TEXT NOT NULL)""",
+        """CREATE TABLE memory_views (id TEXT PRIMARY KEY, region_id TEXT NOT NULL
+            REFERENCES memory_regions(id), name TEXT NOT NULL, name_key TEXT NOT NULL,
+            created_at TEXT NOT NULL, UNIQUE(region_id, name_key))""",
+        """CREATE TABLE memory_episodes (id TEXT PRIMARY KEY, name TEXT NOT NULL,
+            mode TEXT NOT NULL, created_at TEXT NOT NULL)""",
+        """CREATE TABLE memory_captures (id TEXT PRIMARY KEY, episode_id TEXT NOT NULL
+            REFERENCES memory_episodes(id), view_id TEXT NOT NULL REFERENCES memory_views(id),
+            frame_id TEXT NOT NULL, mode TEXT NOT NULL, captured_at TEXT NOT NULL,
+            received_at TEXT NOT NULL, image_sha TEXT NOT NULL, provenance_json TEXT NOT NULL,
+            UNIQUE(episode_id, view_id))""",
+        """CREATE TABLE memory_descriptions (capture_id TEXT PRIMARY KEY REFERENCES
+            memory_captures(id), created_at TEXT NOT NULL, model TEXT NOT NULL,
+            description_json TEXT NOT NULL, provenance_json TEXT NOT NULL)""",
+        """CREATE TABLE memory_jobs (id TEXT PRIMARY KEY, kind TEXT NOT NULL,
+            mode TEXT NOT NULL, request_key TEXT NOT NULL, payload_json TEXT NOT NULL,
+            created_at TEXT NOT NULL, status TEXT NOT NULL, stage TEXT NOT NULL,
+            started_at TEXT, finished_at TEXT, worker_id TEXT, dispatched_at TEXT,
+            result_json TEXT, error_code TEXT, UNIQUE(mode, request_key))""",
+        """CREATE TABLE memory_steps (job_id TEXT NOT NULL REFERENCES memory_jobs(id),
+            ordinal INTEGER NOT NULL, created_at TEXT NOT NULL, stage TEXT NOT NULL,
+            record_json TEXT NOT NULL, PRIMARY KEY(job_id, ordinal))""",
+        "CREATE INDEX memory_job_history ON memory_jobs(mode, created_at DESC)",
+        """CREATE TABLE memory_worker (id INTEGER PRIMARY KEY CHECK(id=1),
+            worker_id TEXT NOT NULL, pid INTEGER NOT NULL, seen_at TEXT NOT NULL,
+            status TEXT NOT NULL, error_code TEXT)""",
+    ),
 )
 
 

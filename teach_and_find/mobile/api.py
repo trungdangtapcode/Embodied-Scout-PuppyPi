@@ -45,6 +45,7 @@ from teach_and_find.mobile.runtime import OperatorRuntime
 from teach_and_find.storage import AssistantError, EvidenceStore
 from teach_and_find.room import RoomService
 from teach_and_find.scene import SceneService
+from teach_and_find.memory_service import MemoryService
 
 
 class StrictModel(BaseModel):
@@ -105,6 +106,28 @@ class DriveRequest(ArmRequest):
     sequence: int = Field(ge=0, strict=True)
     forward: float = Field(ge=-1, le=1)
     turn: float = Field(ge=-1, le=1)
+
+
+class MemoryViewRequest(StrictModel):
+    region_name: str = Field(min_length=1, max_length=120)
+    viewpoint_name: str = Field(min_length=1, max_length=120)
+
+
+class MemoryEpisodeRequest(StrictModel):
+    name: str = Field(min_length=1, max_length=120)
+
+
+class MemoryCaptureRequest(FrameRequest):
+    episode_id: str = Field(min_length=1, max_length=100)
+    view_id: str = Field(min_length=1, max_length=100)
+    request_key: str = Field(min_length=1, max_length=120)
+
+
+class MemoryQuestionRequest(StrictModel):
+    question: str = Field(min_length=1, max_length=2000)
+    episode_ids: list[str] = Field(min_length=1, max_length=24)
+    request_key: str = Field(min_length=1, max_length=120)
+    scope: Literal["recorded_memory"] = "recorded_memory"
 
 
 class Sessions:
@@ -217,7 +240,14 @@ def create_app(
             404
             if error.code.endswith("NOT_FOUND")
             else 409
-            if error.code in {"FRAME_UNAVAILABLE", "STALE_FRAME", "CONFIRMATION_CONFLICT"}
+            if error.code
+            in {
+                "FRAME_UNAVAILABLE",
+                "STALE_FRAME",
+                "CONFIRMATION_CONFLICT",
+                "IDEMPOTENCY_CONFLICT",
+                "CAPTURE_CONFLICT",
+            }
             else 422
         )
         return JSONResponse(
@@ -378,7 +408,9 @@ def create_app(
     @app.post("/api/room/queries")
     def room_query(body: RoomQuery, session=Depends(authorized)):
         with services() as (library, _):
-            return RoomService(library).query(**body.model_dump(), mode=robot.device.mode)
+            return RoomService(library).query(
+                **body.model_dump(), mode=robot.device.mode
+            )
 
     @app.post("/api/room/analyses")
     def analyze_scene(body: FrameRequest, session=Depends(authorized)):
@@ -392,9 +424,81 @@ def create_app(
             return SceneService(library).get(analysis_id, mode=robot.device.mode)
 
     @app.post("/api/room/analyses/{analysis_id}/confirm")
-    def confirm_scene(analysis_id: str, body: SceneConfirmation, session=Depends(authorized)):
+    def confirm_scene(
+        analysis_id: str, body: SceneConfirmation, session=Depends(authorized)
+    ):
         with services() as (library, _):
-            return SceneService(library).confirm(analysis_id, **body.model_dump(), mode=robot.device.mode)
+            return SceneService(library).confirm(
+                analysis_id, **body.model_dump(), mode=robot.device.mode
+            )
+
+    def memory_dispatch(job):
+        from teach_and_find.memory_queue import dispatch
+
+        # The durable row is an outbox. If dispatch fails the worker heartbeat
+        # will republish it; do not replace it with a synchronous/fake result.
+        try:
+            dispatch(cfg, job["id"])
+        except (ImportError, OSError, sqlite3.Error):
+            pass
+        return job
+
+    @app.get("/api/memory")
+    def memory_overview(session=Depends(authorized)):
+        with EvidenceStore(cfg.assistant.data_dir) as store:
+            return MemoryService(store, cfg).overview(robot.device.mode)
+
+    @app.post("/api/memory/views")
+    def memory_view(body: MemoryViewRequest, session=Depends(authorized)):
+        with EvidenceStore(cfg.assistant.data_dir) as store:
+            return MemoryService(store, cfg).register_view(**body.model_dump())
+
+    @app.post("/api/memory/episodes")
+    def memory_episode(body: MemoryEpisodeRequest, session=Depends(authorized)):
+        with EvidenceStore(cfg.assistant.data_dir) as store:
+            return MemoryService(store, cfg).episode(body.name, robot.device.mode)
+
+    @app.post("/api/memory/captures", status_code=202)
+    def memory_capture(body: MemoryCaptureRequest, session=Depends(authorized)):
+        with EvidenceStore(cfg.assistant.data_dir) as store:
+            service = MemoryService(store, cfg)
+            service.require_enabled()
+            request = {
+                "frame_id": body.frame_id,
+                "episode_id": body.episode_id,
+                "view_id": body.view_id,
+            }
+            job = service.existing(
+                robot.device.mode, body.request_key, "capture", request
+            )
+            if job is None:
+                sample, _ = robot.frame(body.frame_id, require_fresh=True)
+                job = service.capture(
+                    sample,
+                    body.episode_id,
+                    body.view_id,
+                    body.request_key,
+                    robot.device.mode,
+                )
+        return memory_dispatch(job)
+
+    @app.post("/api/memory/questions", status_code=202)
+    def memory_question(body: MemoryQuestionRequest, session=Depends(authorized)):
+        with EvidenceStore(cfg.assistant.data_dir) as store:
+            job = MemoryService(store, cfg).question(
+                body.question, body.episode_ids, body.request_key, robot.device.mode
+            )
+        return memory_dispatch(job)
+
+    @app.get("/api/memory/jobs/{job_id}")
+    def memory_job(job_id: str, session=Depends(authorized)):
+        with EvidenceStore(cfg.assistant.data_dir) as store:
+            return MemoryService(store, cfg).job(job_id, robot.device.mode)
+
+    @app.post("/api/memory/jobs/{job_id}/cancel")
+    def memory_cancel(job_id: str, session=Depends(authorized)):
+        with EvidenceStore(cfg.assistant.data_dir) as store:
+            return MemoryService(store, cfg).cancel(job_id, robot.device.mode)
 
     @app.get("/api/checklists")
     def checklists(session=Depends(authorized)):

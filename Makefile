@@ -50,3 +50,11 @@ app:
 
 app-test:
 	npm --prefix web test
+
+.PHONY: memory-setup memory-worker
+memory-setup:
+	UV_PROJECT_ENVIRONMENT=.venv-memory uv sync --locked --extra memory
+	UV_PROJECT_ENVIRONMENT=.venv-memory uv run --locked --extra memory python scripts/setup_memory_upstream.py
+
+memory-worker:
+	PUPPYPI_MEMORY_ENABLED=1 UV_PROJECT_ENVIRONMENT=.venv-memory uv run --locked --extra memory python -m teach_and_find.memory_worker
