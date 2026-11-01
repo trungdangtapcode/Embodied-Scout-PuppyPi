@@ -1,0 +1,430 @@
+{
+  "input": "authored_render_replay_not_real_room",
+  "method": "actual_original_sam21_cutie",
+  "sampling_policy": "fixed_every_second_frame_for_paired_component_diagnostic_not_live_scheduler",
+  "seed_prompt_source": "authored_operator_box",
+  "seed_prompt": {
+    "points": [],
+    "labels": [],
+    "box": [
+      100,
+      140,
+      235,
+      265
+    ]
+  },
+  "selected_preview": 0,
+  "sam_elapsed_s": 0.8347443928942084,
+  "sam_scores": [
+    0.9666415452957153,
+    0.7893074750900269,
+    0.9640679955482483
+  ],
+  "schedules": {
+    "ordered": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "sampled": [
+      0,
+      2,
+      4,
+      6,
+      8,
+      10,
+      11
+    ]
+  },
+  "step_seconds": {
+    "ordered": [
+      0.2301104823127389,
+      0.245998315513134,
+      0.28587564174085855,
+      0.2547338819131255,
+      0.26460729259997606,
+      0.31790897250175476,
+      0.24808886647224426,
+      0.3106643846258521,
+      0.2751324800774455,
+      0.2750378903001547,
+      0.3421020433306694,
+      0.27154609095305204
+    ],
+    "sampled": [
+      0.20444738399237394,
+      0.23677607160061598,
+      0.2748865010216832,
+      0.2614414654672146,
+      0.23501067887991667,
+      0.3173147952184081,
+      0.25084496568888426
+    ]
+  },
+  "agreement": [
+    {
+      "frame_index": 0,
+      "mask_iou_agreement": 1.0,
+      "ordered_foreground_pixels": 14172,
+      "sampled_foreground_pixels": 14172
+    },
+    {
+      "frame_index": 2,
+      "mask_iou_agreement": 0.9698036179348208,
+      "ordered_foreground_pixels": 13992,
+      "sampled_foreground_pixels": 13993
+    },
+    {
+      "frame_index": 4,
+      "mask_iou_agreement": 0.9916641406486815,
+      "ordered_foreground_pixels": 13118,
+      "sampled_foreground_pixels": 13164
+    },
+    {
+      "frame_index": 6,
+      "mask_iou_agreement": 0.9228829104249465,
+      "ordered_foreground_pixels": 12443,
+      "sampled_foreground_pixels": 12716
+    },
+    {
+      "frame_index": 8,
+      "mask_iou_agreement": 0.8784422600735349,
+      "ordered_foreground_pixels": 12139,
+      "sampled_foreground_pixels": 12895
+    },
+    {
+      "frame_index": 10,
+      "mask_iou_agreement": 0.8000759301442673,
+      "ordered_foreground_pixels": 11188,
+      "sampled_foreground_pixels": 12519
+    },
+    {
+      "frame_index": 11,
+      "mask_iou_agreement": 0.8509244672912694,
+      "ordered_foreground_pixels": 10639,
+      "sampled_foreground_pixels": 11685
+    }
+  ],
+  "ground_truth_accuracy": "NOT_EVALUATED",
+  "provenance": {
+    "sources": {
+      "sam2": "2b90b9f5ceec907a1c18123530e92e794ad901a4",
+      "cutie": "ec5cdd4cf16f75c73ad785a2f96fb97dbad4125a"
+    },
+    "weights": {
+      "sam2.1_hiera_tiny.pt": "7402e0d864fa82708a20fbd15bc84245c2f26dff0eb43a4b5b93452deb34be69",
+      "cutie-base-mega.pth": "9c05402ee36d3a356fb72715d263ba7e1ea06ad3bada48c1306491792da43023",
+      "backbones/resnet18-5c106cde.pth": "5c106cde386e87d4033832f2996f5493238eda96ccf559d1d62760c4de0613f8",
+      "backbones/resnet50-19c8e357.pth": "19c8e3572231adff6824a2da93fd67b5986919a2e65f8b6007eab4edee220097"
+    },
+    "method": "original_sam21_tiny_and_original_cutie_base_mega",
+    "postprocessing": "explicitly_disabled_cuda_extension_and_dynamic_postprocessing",
+    "device": "cpu",
+    "precision": "float32",
+    "torch_threads": 8,
+    "cutie_configuration": {
+      "exp_id": "default",
+      "dataset": "generic",
+      "amp": false,
+      "weights": "output/cutie-base-mega.pth",
+      "output_dir": null,
+      "flip_aug": false,
+      "max_internal_size": 480,
+      "image_directory": null,
+      "mask_directory": null,
+      "json_directory": null,
+      "size": -1,
+      "save_all": true,
+      "use_all_masks": false,
+      "use_long_term": true,
+      "mem_every": 5,
+      "max_mem_frames": 5,
+      "long_term": {
+        "count_usage": true,
+        "max_mem_frames": 10,
+        "min_mem_frames": 5,
+        "num_prototypes": 128,
+        "max_num_tokens": 10000,
+        "buffer_tokens": 2000
+      },
+      "top_k": 30,
+      "stagger_updates": 5,
+      "chunk_size": -1,
+      "save_scores": false,
+      "save_aux": false,
+      "visualize": false,
+      "datasets": {
+        "d16-val": {
+          "image_directory": "../DAVIS/2016/JPEGImages/480p",
+          "mask_directory": "../DAVIS/2016/Annotations/480p",
+          "subset": "../DAVIS/2017/trainval/ImageSets/2016/val.txt",
+          "size": 480,
+          "save_all": true,
+          "use_all_masks": false,
+          "use_long_term": false,
+          "mem_every": 5
+        },
+        "d17-val": {
+          "image_directory": "../DAVIS/2017/trainval/JPEGImages/480p",
+          "mask_directory": "../DAVIS/2017/trainval/Annotations/480p",
+          "subset": "../DAVIS/2017/trainval/ImageSets/2017/val.txt",
+          "size": 480,
+          "save_all": true,
+          "use_all_masks": false,
+          "use_long_term": false,
+          "mem_every": 5
+        },
+        "d17-test-dev": {
+          "image_directory": "../DAVIS/2017/test-dev/JPEGImages/480p",
+          "mask_directory": "../DAVIS/2017/test-dev/Annotations/480p",
+          "subset": "../DAVIS/2017/test-dev/ImageSets/2017/test-dev.txt",
+          "size": 480,
+          "save_all": true,
+          "use_all_masks": false,
+          "use_long_term": false,
+          "mem_every": 5
+        },
+        "y18-val": {
+          "image_directory": "../YouTube2018/all_frames/valid_all_frames/JPEGImages",
+          "mask_directory": "../YouTube2018/valid/Annotations",
+          "json_directory": "../YouTube2018/valid/meta.json",
+          "size": 480,
+          "save_all": false,
+          "use_all_masks": true,
+          "use_long_term": false,
+          "mem_every": 5
+        },
+        "y19-val": {
+          "image_directory": "../YouTube/all_frames/valid_all_frames/JPEGImages",
+          "mask_directory": "../YouTube/valid/Annotations",
+          "json_directory": "../YouTube/valid/meta.json",
+          "size": 480,
+          "save_all": false,
+          "use_all_masks": true,
+          "use_long_term": false,
+          "mem_every": 5
+        },
+        "mose-val": {
+          "image_directory": "../MOSE/valid/JPEGImages",
+          "mask_directory": "../MOSE/valid/Annotations",
+          "size": 480,
+          "save_all": true,
+          "use_all_masks": false,
+          "use_long_term": false,
+          "mem_every": 5
+        },
+        "generic": {
+          "image_directory": null,
+          "mask_directory": null,
+          "size": -1,
+          "save_all": true,
+          "use_all_masks": false,
+          "use_long_term": true,
+          "mem_every": 5
+        },
+        "burst-val": {
+          "skip_frames": -1,
+          "image_directory": "../BURST/frames/val",
+          "json_directory": "../BURST/val/first_frame_annotations.json",
+          "size": 600,
+          "save_all": false,
+          "use_long_term": true,
+          "mem_every": 10
+        },
+        "burst-test": {
+          "skip_frames": -1,
+          "image_directory": "../BURST/frames/test",
+          "json_directory": "../BURST/test/first_frame_annotations.json",
+          "size": 600,
+          "save_all": false,
+          "use_long_term": true,
+          "mem_every": 10
+        },
+        "lvos-val": {
+          "image_directory": "../LVOS/valid/JPEGImages",
+          "mask_directory": "../LVOS/valid/Annotations_first_only",
+          "size": 480,
+          "save_all": false,
+          "use_all_masks": true,
+          "use_long_term": true,
+          "mem_every": 5
+        },
+        "lvos-test": {
+          "image_directory": "../LVOS/test/JPEGImages",
+          "mask_directory": "../LVOS/test/Annotations",
+          "size": 480,
+          "save_all": false,
+          "use_all_masks": true,
+          "use_long_term": true,
+          "mem_every": 5
+        }
+      },
+      "model": {
+        "pixel_mean": [
+          0.485,
+          0.456,
+          0.406
+        ],
+        "pixel_std": [
+          0.229,
+          0.224,
+          0.225
+        ],
+        "pixel_dim": 256,
+        "key_dim": 64,
+        "value_dim": 256,
+        "sensory_dim": 256,
+        "embed_dim": 256,
+        "pixel_encoder": {
+          "type": "resnet50",
+          "ms_dims": [
+            1024,
+            512,
+            256
+          ]
+        },
+        "mask_encoder": {
+          "type": "resnet18",
+          "final_dim": 256
+        },
+        "pixel_pe_scale": 32,
+        "pixel_pe_temperature": 128,
+        "object_transformer": {
+          "embed_dim": 256,
+          "ff_dim": 2048,
+          "num_heads": 8,
+          "num_blocks": 3,
+          "num_queries": 16,
+          "read_from_pixel": {
+            "input_norm": false,
+            "input_add_pe": false,
+            "add_pe_to_qkv": [
+              true,
+              true,
+              false
+            ]
+          },
+          "read_from_past": {
+            "add_pe_to_qkv": [
+              true,
+              true,
+              false
+            ]
+          },
+          "read_from_memory": {
+            "add_pe_to_qkv": [
+              true,
+              true,
+              false
+            ]
+          },
+          "read_from_query": {
+            "add_pe_to_qkv": [
+              true,
+              true,
+              false
+            ],
+            "output_norm": false
+          },
+          "query_self_attention": {
+            "add_pe_to_qkv": [
+              true,
+              true,
+              false
+            ]
+          },
+          "pixel_self_attention": {
+            "add_pe_to_qkv": [
+              true,
+              true,
+              false
+            ]
+          }
+        },
+        "object_summarizer": {
+          "embed_dim": 256,
+          "num_summaries": 16,
+          "add_pe": true
+        },
+        "aux_loss": {
+          "sensory": {
+            "enabled": true,
+            "weight": 0.01
+          },
+          "query": {
+            "enabled": true,
+            "weight": 0.01
+          }
+        },
+        "mask_decoder": {
+          "up_dims": [
+            256,
+            128,
+            128
+          ]
+        },
+        "resnet_model_path": "/home/nguyentnt/PDWAIA/ecus/hi/data/models/tracking/backbones"
+      }
+    },
+    "torch_version": "2.6.0+cu124"
+  },
+  "inputs": [
+    {
+      "name": "moving-0.png",
+      "sha256": "8f96b9d97e2678ed9d904b68bfd1d2a7d072c9d6248e419110e60f0692a25614"
+    },
+    {
+      "name": "moving-1.png",
+      "sha256": "b16996c0d4a03d95db401dc2c9a63ef77d4a433d8f9bce64060a158eb0eca753"
+    },
+    {
+      "name": "moving-2.png",
+      "sha256": "e600ea9b2d2fe8d80c81fdff8c97c780c044d78a7051d4b43ee3518f6d993ff7"
+    },
+    {
+      "name": "moving-3.png",
+      "sha256": "6d894ed7e61931a6f8d3d37015d4f9bffd5dbdc638a926d351fffeb3adf66663"
+    },
+    {
+      "name": "moving-4.png",
+      "sha256": "4b9bd892254b0541d5f9fcae17b7a76a7ead3bf4b4493d1861e31e13900d70ab"
+    },
+    {
+      "name": "moving-5.png",
+      "sha256": "5a80bd97e1f22b1cf929c25d3bd26f581b229507b5ce34405ad92ccad3b759f4"
+    },
+    {
+      "name": "moving-6.png",
+      "sha256": "7f29311a280c8a542c39e5cda4bdd3e92037ab784bd56df5418185c1b7c93932"
+    },
+    {
+      "name": "moving-7.png",
+      "sha256": "cba59df7655295c1d979cf421fe6b60ef557cfc51a7ba61f96335146012941a5"
+    },
+    {
+      "name": "moving-8.png",
+      "sha256": "03f8daf4b29d99c18b0f6ef84ef5da05f02d88029e4e33376b63d8e04da6d3c8"
+    },
+    {
+      "name": "moving-9.png",
+      "sha256": "7ccf0b6e859b893a10f56162686328ab12accbbfe1f048f6c118a01dcb8fb4af"
+    },
+    {
+      "name": "moving-10.png",
+      "sha256": "5cd12491df89aa81da089cbbaf51a66adf891e50d625f8d5a6f987825b94703a"
+    },
+    {
+      "name": "moving-11.png",
+      "sha256": "23776fad938b44242ba3efa27329c592a0531e0aabdd783b41c0ed32021ab9cb"
+    }
+  ]
+}

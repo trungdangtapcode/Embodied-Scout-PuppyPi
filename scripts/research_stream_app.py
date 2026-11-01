@@ -13,16 +13,22 @@ import urllib.request
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--directory", type=Path, required=True)
-    parser.add_argument("--allow-paid-api", action="store_true", required=True)
-    parser.add_argument(
-        "--max-api-calls", type=int, choices=range(1, 16), required=True
-    )
+    paid = parser.add_mutually_exclusive_group(required=True)
+    paid.add_argument("--allow-paid-api", action="store_true")
+    paid.add_argument("--no-paid-api", action="store_true")
+    parser.add_argument("--max-api-calls", type=int, choices=range(0, 16), default=0)
     parser.add_argument("--budget-file", type=Path)
     parser.add_argument(
-        "--scenario", choices=["full", "tracking-diagnostic"], default="full"
+        "--scenario",
+        choices=["full", "tracking-diagnostic", "latest-overload"],
+        default="full",
     )
     args = parser.parse_args()
-    if not os.getenv("OPENAI_API_KEY"):
+    if args.allow_paid_api and args.max_api_calls <= 0:
+        parser.error("Paid runs require an explicit positive total attempt cap.")
+    if args.no_paid_api and args.scenario != "latest-overload":
+        parser.error("No-paid mode currently supports only latest-overload.")
+    if args.allow_paid_api and not os.getenv("OPENAI_API_KEY"):
         parser.error("Export OPENAI_API_KEY in the worker environment; no substitute.")
     root = Path(__file__).resolve().parents[1]
     base = args.directory.resolve()
@@ -42,7 +48,7 @@ def main():
         TEACH_FIND_DATA_DIR=str(base / "state"),
         PUPPYPI_TRACKING_ENABLED="1",
         PUPPYPI_VISION_ENABLED="1",
-        PUPPYPI_MEMORY_ENABLED="1",
+        PUPPYPI_MEMORY_ENABLED="1" if args.allow_paid_api else "0",
         PUPPYPI_TRACKING_SOURCES=str(
             root / "runs/interactive-tracking-research-2026-11-02"
         ),
@@ -53,7 +59,7 @@ def main():
         ),
         PUPPYPI_STREAM_SCENARIO=args.scenario,
         PUPPYPI_MEMORY_GLOBAL_CALL_BUDGET=str(args.max_api_calls),
-        PUPPYPI_ALLOW_PAID_API="1",
+        PUPPYPI_ALLOW_PAID_API="1" if args.allow_paid_api else "0",
     )
     processes = []
     logs = []
@@ -73,6 +79,8 @@ def main():
                 [".venv-memory/bin/python", "-m", "teach_and_find.memory_worker"],
             ),
         ]:
+            if name == "memory-worker" and args.no_paid_api:
+                continue
             log = (base / f"{name}.log").open("w")
             logs.append(log)
             child_env = env.copy()
@@ -97,7 +105,15 @@ def main():
         else:
             raise TimeoutError("App unavailable.")
         result = subprocess.run(
-            ["node", "scripts/research_stream_app.mjs"], cwd=root, env=env, timeout=900
+            [
+                "node",
+                "scripts/research_tracking_freshness.mjs"
+                if args.scenario == "latest-overload"
+                else "scripts/research_stream_app.mjs",
+            ],
+            cwd=root,
+            env=env,
+            timeout=900,
         )
         if result.returncode:
             raise RuntimeError("Browser benchmark failed; evidence retained.")

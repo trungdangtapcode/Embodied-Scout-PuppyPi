@@ -1,0 +1,8 @@
+{
+  "retained_source_png_bytes": 12224081,
+  "retained_mask_png_bytes": 188970,
+  "session_accounted_evidence_bytes": 11867583,
+  "frame_records_after_stop": 2,
+  "rss_timeseries": "NOT_MEASURED",
+  "scope": "end-of-run evidence accounting; includes library references in source-file total"
+}

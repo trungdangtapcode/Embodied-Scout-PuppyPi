@@ -5,6 +5,13 @@ optional app profile. **The complete F40 feature is unfinished and its 5 FPS liv
 gate FAILS on the measured CPU host.** Read the [full app execution report](research/2026-11-02-stream-app/report.md),
 [accepted design](26-interactive-target-tracking.md) and OPEN critical review.
 
+The subsequent user-authorized [v2 scheduling revision](28-live-stream-scheduling.md)
+is now the supported live policy. [Its actual run](research/2026-11-02-tracking-freshness/report.md)
+processes 292 observations over two minutes without FIFO lag growth, at about
+2.41 mask callbacks/s. Latest-frame replacement fixes the observed overload
+scheduling defect; it does not pass the unchanged 5 FPS/five-minute gate or
+validate identity accuracy. Historic v1 failures above remain valid evidence.
+
 ## Placement
 
 ```mermaid
@@ -93,9 +100,12 @@ A model-mask score is not an object-identity probability.
 ## Implemented boundaries and unfinished work
 
 Migration 7 persists owners (hashed session IDs), prompt revisions, generations,
-source frames, observations, execution events and worker heartbeat. The camera
-producer uses a nonblocking queue and independent writer, with count/time/byte
-limits and explicit errors. Source/preview/output bytes count toward the session
+source frames, observations, execution events and worker heartbeat. Migration 8
+adds explicit bootstrap/live inbox state, persistent sequence
+allocation and replacement/skipping metrics. The camera producer uses a capacity-one
+latest-value mailbox and independent writer. Bootstrap uses bounded retained
+history; live inference has one replaceable pending frame, with unchanged temporal
+gap/freshness and count/time/byte limits. Source/preview/output bytes count toward the session
 budget. Source PNG files are retained as evidence; frame-row retention is bounded
 and does not silently delete images referenced by observations.
 

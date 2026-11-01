@@ -1,0 +1,66 @@
+[
+  {
+    "start": 1793569428258,
+    "end": 1793569428308,
+    "host_unix_ms": 1793569428265.6626,
+    "host_monotonic_ns": 6548435110771321,
+    "offset_server_minus_client_ms": -17.33740234375,
+    "uncertainty_ms": 25
+  },
+  {
+    "start": 1793569428308,
+    "end": 1793569428358,
+    "host_unix_ms": 1793569428314.355,
+    "host_monotonic_ns": 6548435159462636,
+    "offset_server_minus_client_ms": -18.64501953125,
+    "uncertainty_ms": 25
+  },
+  {
+    "start": 1793569428358,
+    "end": 1793569428410,
+    "host_unix_ms": 1793569428366.1064,
+    "host_monotonic_ns": 6548435211213932,
+    "offset_server_minus_client_ms": -17.8935546875,
+    "uncertainty_ms": 26
+  },
+  {
+    "start": 1793569428410,
+    "end": 1793569428458,
+    "host_unix_ms": 1793569428415.2651,
+    "host_monotonic_ns": 6548435260372301,
+    "offset_server_minus_client_ms": -18.73486328125,
+    "uncertainty_ms": 24
+  },
+  {
+    "start": 1793569428458,
+    "end": 1793569428508,
+    "host_unix_ms": 1793569428464.6243,
+    "host_monotonic_ns": 6548435309731729,
+    "offset_server_minus_client_ms": -18.375732421875,
+    "uncertainty_ms": 25
+  },
+  {
+    "start": 1793569428508,
+    "end": 1793569428558,
+    "host_unix_ms": 1793569428516.2302,
+    "host_monotonic_ns": 6548435361337200,
+    "offset_server_minus_client_ms": -16.769775390625,
+    "uncertainty_ms": 25
+  },
+  {
+    "start": 1793569428558,
+    "end": 1793569428606,
+    "host_unix_ms": 1793569428563.1855,
+    "host_monotonic_ns": 6548435408292184,
+    "offset_server_minus_client_ms": -18.814453125,
+    "uncertainty_ms": 24
+  },
+  {
+    "start": 1793569428606,
+    "end": 1793569428655,
+    "host_unix_ms": 1793569428611.447,
+    "host_monotonic_ns": 6548435456554195,
+    "offset_server_minus_client_ms": -19.052978515625,
+    "uncertainty_ms": 24.5
+  }
+]

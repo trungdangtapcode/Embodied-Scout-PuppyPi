@@ -165,6 +165,14 @@ profile is configured and evaluated separately. Reject empty or wrong-sized seed
 
 ## 6. Streaming and bounded resource policy
 
+**Explicit user-authorized revision, 2026-11-02:** the ordered spool policy below
+is the original failed design, retained as history. The [v2 scheduling contract](28-live-stream-scheduling.md)
+replaces live FIFO consumption with a latest pending frame and bounded temporal
+bootstrap. [Actual model execution](research/2026-11-02-tracking-freshness/report.md)
+records the correction and its limits. Model choices and release gates remain
+unchanged; this does not retrospectively make the original design pass.
+
+
 The session starts feeding future frames when its anchor is pinned, rather than
 after a long mask-selection interaction. A separate bounded tracking spool extends
 the short motion-frame buffer; it must not enlarge the motion freshness window.

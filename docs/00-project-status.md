@@ -226,6 +226,16 @@ physical phone or robot. The [operating guide](27-live-tracking-app.md) lists
 missing Find-again/recovery, export and quality work. The full F40 feature,
 5 FPS release gate and critical incident remain unfinished/FAIL.
 
+The user subsequently required a scheduling redesign rather than treating overload
+as a hardware-only issue. The [v2 scheduling contract](28-live-stream-scheduling.md)
+now uses a latest-value mailbox, separate bootstrap/live inbox policies and
+observable replacement counts. [Actual correction evidence](research/2026-11-02-tracking-freshness/report.md)
+records 292 observations over 120 seconds with one concurrent real vision job,
+peak live pending 1 and no catch-up failure. Mask callbacks are about 2.41 FPS;
+quality, physical tests and the full 5 FPS/five-minute gate remain unpassed.
+The [critical scheduling review](review/2026-11-02-live-stream-overload.md) and
+AGENTS.md record the engineering lesson. Original failures are preserved.
+
 The [Room Patrol proposal](16-room-patrol-world-model-proposal.md) adds planned
 F38 bounded patrol and F39 temporal room-model queries, extending the same memory,
 inspection and phone-observer foundations. It does not add a physical executor,

@@ -1,0 +1,397 @@
+{
+  "http_and_ui_roundtrip_ms": 115,
+  "after": {
+    "enabled": true,
+    "worker": {
+      "id": 1,
+      "pid": 680800,
+      "seen_at": 1793569795.1377418,
+      "status": "ready",
+      "error_json": "null",
+      "alive": true
+    },
+    "device": "cpu",
+    "offer_hz": 5,
+    "sessions": [
+      {
+        "id": "05bfb112-ecc3-457a-bd8f-3004c3b1bf03",
+        "mode": "synthetic",
+        "generation": 2,
+        "revision": 1,
+        "status": "stopped",
+        "created_at": 1793569787.6803484,
+        "expires_at": 1793570089.3265772,
+        "started_at": 1793569789.3265767,
+        "error_code": "OPERATOR_STOP",
+        "dropped_frames": 0,
+        "evidence_bytes": 846189,
+        "anchor": {
+          "frame_id": "stream-cab4c054-e8f3-4ba3-b284-487ec703f4b2-28",
+          "image_sha": "607e43f6e69f6d061b96d26e770911ae260122194fc3af11ec45ad9941c4d10f",
+          "captured_at": "2026-11-01T21:49:47.535811+00:00",
+          "capture_unix_ms": 1793569787535.811,
+          "persistence_started_unix_ms": 1793569787680.4036,
+          "width": 640,
+          "height": 480,
+          "provenance": {
+            "camera_id": "authored-render-camera",
+            "session_id": "cab4c054-e8f3-4ba3-b284-487ec703f4b2",
+            "sequence": 28,
+            "calibration_id": "authored-render-intrinsics-v1",
+            "capture_time_basis": "host_render_completion_clock",
+            "cross_device_clock_synchronized": false,
+            "clock_uncertainty_s": 0,
+            "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+          }
+        },
+        "preview": {
+          "candidates": [
+            {
+              "mask_sha": "a9e96df81dc9c1d26b8e9b4eccd4f997878c5e926a47aba29c10987e74326d8e",
+              "model_mask_quality_score": 0.8909894824028015,
+              "foreground_pixels": 10689
+            },
+            {
+              "mask_sha": "dc3ab7c4eeae858db98a91f6818911349aea7c6fed7a89735be9faccffbe6d9d",
+              "model_mask_quality_score": 0.558896541595459,
+              "foreground_pixels": 2177
+            },
+            {
+              "mask_sha": "3f710e68c7cac0f92dd8ec5ee8108ef82373ebe79980f167f059f46af0d91c7b",
+              "model_mask_quality_score": 0.8832862377166748,
+              "foreground_pixels": 6635
+            }
+          ],
+          "selected": 0,
+          "elapsed_s": 0.8817662121728063,
+          "provenance": {
+            "sources": {
+              "sam2": "2b90b9f5ceec907a1c18123530e92e794ad901a4",
+              "cutie": "ec5cdd4cf16f75c73ad785a2f96fb97dbad4125a"
+            },
+            "weights": {
+              "sam2.1_hiera_tiny.pt": "7402e0d864fa82708a20fbd15bc84245c2f26dff0eb43a4b5b93452deb34be69",
+              "cutie-base-mega.pth": "9c05402ee36d3a356fb72715d263ba7e1ea06ad3bada48c1306491792da43023",
+              "backbones/resnet18-5c106cde.pth": "5c106cde386e87d4033832f2996f5493238eda96ccf559d1d62760c4de0613f8",
+              "backbones/resnet50-19c8e357.pth": "19c8e3572231adff6824a2da93fd67b5986919a2e65f8b6007eab4edee220097"
+            },
+            "method": "original_sam21_tiny_and_original_cutie_base_mega",
+            "postprocessing": "explicitly_disabled_cuda_extension_and_dynamic_postprocessing",
+            "device": "cpu",
+            "precision": "float32",
+            "torch_threads": 8,
+            "cutie_configuration": {
+              "exp_id": "default",
+              "dataset": "generic",
+              "amp": false,
+              "weights": "output/cutie-base-mega.pth",
+              "output_dir": null,
+              "flip_aug": false,
+              "max_internal_size": 480,
+              "image_directory": null,
+              "mask_directory": null,
+              "json_directory": null,
+              "size": -1,
+              "save_all": true,
+              "use_all_masks": false,
+              "use_long_term": true,
+              "mem_every": 5,
+              "max_mem_frames": 5,
+              "long_term": {
+                "count_usage": true,
+                "max_mem_frames": 10,
+                "min_mem_frames": 5,
+                "num_prototypes": 128,
+                "max_num_tokens": 10000,
+                "buffer_tokens": 2000
+              },
+              "top_k": 30,
+              "stagger_updates": 5,
+              "chunk_size": -1,
+              "save_scores": false,
+              "save_aux": false,
+              "visualize": false,
+              "datasets": {
+                "d16-val": {
+                  "image_directory": "../DAVIS/2016/JPEGImages/480p",
+                  "mask_directory": "../DAVIS/2016/Annotations/480p",
+                  "subset": "../DAVIS/2017/trainval/ImageSets/2016/val.txt",
+                  "size": 480,
+                  "save_all": true,
+                  "use_all_masks": false,
+                  "use_long_term": false,
+                  "mem_every": 5
+                },
+                "d17-val": {
+                  "image_directory": "../DAVIS/2017/trainval/JPEGImages/480p",
+                  "mask_directory": "../DAVIS/2017/trainval/Annotations/480p",
+                  "subset": "../DAVIS/2017/trainval/ImageSets/2017/val.txt",
+                  "size": 480,
+                  "save_all": true,
+                  "use_all_masks": false,
+                  "use_long_term": false,
+                  "mem_every": 5
+                },
+                "d17-test-dev": {
+                  "image_directory": "../DAVIS/2017/test-dev/JPEGImages/480p",
+                  "mask_directory": "../DAVIS/2017/test-dev/Annotations/480p",
+                  "subset": "../DAVIS/2017/test-dev/ImageSets/2017/test-dev.txt",
+                  "size": 480,
+                  "save_all": true,
+                  "use_all_masks": false,
+                  "use_long_term": false,
+                  "mem_every": 5
+                },
+                "y18-val": {
+                  "image_directory": "../YouTube2018/all_frames/valid_all_frames/JPEGImages",
+                  "mask_directory": "../YouTube2018/valid/Annotations",
+                  "json_directory": "../YouTube2018/valid/meta.json",
+                  "size": 480,
+                  "save_all": false,
+                  "use_all_masks": true,
+                  "use_long_term": false,
+                  "mem_every": 5
+                },
+                "y19-val": {
+                  "image_directory": "../YouTube/all_frames/valid_all_frames/JPEGImages",
+                  "mask_directory": "../YouTube/valid/Annotations",
+                  "json_directory": "../YouTube/valid/meta.json",
+                  "size": 480,
+                  "save_all": false,
+                  "use_all_masks": true,
+                  "use_long_term": false,
+                  "mem_every": 5
+                },
+                "mose-val": {
+                  "image_directory": "../MOSE/valid/JPEGImages",
+                  "mask_directory": "../MOSE/valid/Annotations",
+                  "size": 480,
+                  "save_all": true,
+                  "use_all_masks": false,
+                  "use_long_term": false,
+                  "mem_every": 5
+                },
+                "generic": {
+                  "image_directory": null,
+                  "mask_directory": null,
+                  "size": -1,
+                  "save_all": true,
+                  "use_all_masks": false,
+                  "use_long_term": true,
+                  "mem_every": 5
+                },
+                "burst-val": {
+                  "skip_frames": -1,
+                  "image_directory": "../BURST/frames/val",
+                  "json_directory": "../BURST/val/first_frame_annotations.json",
+                  "size": 600,
+                  "save_all": false,
+                  "use_long_term": true,
+                  "mem_every": 10
+                },
+                "burst-test": {
+                  "skip_frames": -1,
+                  "image_directory": "../BURST/frames/test",
+                  "json_directory": "../BURST/test/first_frame_annotations.json",
+                  "size": 600,
+                  "save_all": false,
+                  "use_long_term": true,
+                  "mem_every": 10
+                },
+                "lvos-val": {
+                  "image_directory": "../LVOS/valid/JPEGImages",
+                  "mask_directory": "../LVOS/valid/Annotations_first_only",
+                  "size": 480,
+                  "save_all": false,
+                  "use_all_masks": true,
+                  "use_long_term": true,
+                  "mem_every": 5
+                },
+                "lvos-test": {
+                  "image_directory": "../LVOS/test/JPEGImages",
+                  "mask_directory": "../LVOS/test/Annotations",
+                  "size": 480,
+                  "save_all": false,
+                  "use_all_masks": true,
+                  "use_long_term": true,
+                  "mem_every": 5
+                }
+              },
+              "model": {
+                "pixel_mean": [
+                  0.485,
+                  0.456,
+                  0.406
+                ],
+                "pixel_std": [
+                  0.229,
+                  0.224,
+                  0.225
+                ],
+                "pixel_dim": 256,
+                "key_dim": 64,
+                "value_dim": 256,
+                "sensory_dim": 256,
+                "embed_dim": 256,
+                "pixel_encoder": {
+                  "type": "resnet50",
+                  "ms_dims": [
+                    1024,
+                    512,
+                    256
+                  ]
+                },
+                "mask_encoder": {
+                  "type": "resnet18",
+                  "final_dim": 256
+                },
+                "pixel_pe_scale": 32,
+                "pixel_pe_temperature": 128,
+                "object_transformer": {
+                  "embed_dim": 256,
+                  "ff_dim": 2048,
+                  "num_heads": 8,
+                  "num_blocks": 3,
+                  "num_queries": 16,
+                  "read_from_pixel": {
+                    "input_norm": false,
+                    "input_add_pe": false,
+                    "add_pe_to_qkv": [
+                      true,
+                      true,
+                      false
+                    ]
+                  },
+                  "read_from_past": {
+                    "add_pe_to_qkv": [
+                      true,
+                      true,
+                      false
+                    ]
+                  },
+                  "read_from_memory": {
+                    "add_pe_to_qkv": [
+                      true,
+                      true,
+                      false
+                    ]
+                  },
+                  "read_from_query": {
+                    "add_pe_to_qkv": [
+                      true,
+                      true,
+                      false
+                    ],
+                    "output_norm": false
+                  },
+                  "query_self_attention": {
+                    "add_pe_to_qkv": [
+                      true,
+                      true,
+                      false
+                    ]
+                  },
+                  "pixel_self_attention": {
+                    "add_pe_to_qkv": [
+                      true,
+                      true,
+                      false
+                    ]
+                  }
+                },
+                "object_summarizer": {
+                  "embed_dim": 256,
+                  "num_summaries": 16,
+                  "add_pe": true
+                },
+                "aux_loss": {
+                  "sensory": {
+                    "enabled": true,
+                    "weight": 0.01
+                  },
+                  "query": {
+                    "enabled": true,
+                    "weight": 0.01
+                  }
+                },
+                "mask_decoder": {
+                  "up_dims": [
+                    256,
+                    128,
+                    128
+                  ]
+                },
+                "resnet_model_path": "/home/nguyentnt/PDWAIA/ecus/hi/data/models/tracking/backbones"
+              }
+            },
+            "torch_version": "2.6.0+cu124"
+          },
+          "anchor_image_sha": "607e43f6e69f6d061b96d26e770911ae260122194fc3af11ec45ad9941c4d10f"
+        },
+        "latest": {
+          "frame_id": "stream-cab4c054-e8f3-4ba3-b284-487ec703f4b2-59",
+          "image_sha": "439cc2ab575aecc354b94c3f300ebd0c67e23ff5d742d5ef8b61e890b6133aac",
+          "captured_at": "2026-11-01T21:49:55.328218+00:00",
+          "capture_unix_ms": 1793569795328.218,
+          "persistence_started_unix_ms": 1793569795331.6704,
+          "width": 640,
+          "height": 480,
+          "provenance": {
+            "camera_id": "authored-render-camera",
+            "session_id": "cab4c054-e8f3-4ba3-b284-487ec703f4b2",
+            "sequence": 59,
+            "calibration_id": "authored-render-intrinsics-v1",
+            "capture_time_basis": "host_render_completion_clock",
+            "cross_device_clock_synchronized": false,
+            "clock_uncertainty_s": 0,
+            "source": "authored_pinhole_renderer_not_physics_or_physical_camera"
+          },
+          "sequence": 31,
+          "generation": 1,
+          "mask_sha": "fd574c70e1a99bf9b088a2d10ac2b010a7686eb31b3ee7bcc4db5c01d7b32d45",
+          "foreground_pixels": 9732,
+          "observation_state": "tracked_unverified",
+          "inference_started_unix_ms": 1793569795560.5928,
+          "inference_finished_unix_ms": 1793569795860.4707,
+          "step_s": 0.2916400656104088,
+          "mask_encoding": "binary_0_255_png_original_raster",
+          "identity": "unverified",
+          "source": "actual_original_cutie_inference",
+          "scheduling_policy": "bounded_bootstrap_then_latest_pending_v2",
+          "stream_phase_at_claim": "live",
+          "skipped_admitted_frames": 0,
+          "capture_gap_s": 0.2548339366912842,
+          "xyxy": [
+            77,
+            155,
+            212,
+            243
+          ],
+          "published_unix_ms": 1793569795861.6023,
+          "stream_phase_after": "live",
+          "display_age_s": 0.7337820529937744,
+          "stale": true
+        },
+        "stream": {
+          "session_id": "05bfb112-ecc3-457a-bd8f-3004c3b1bf03",
+          "phase": "closed",
+          "next_sequence": 34,
+          "claimed_sequence": 33,
+          "in_flight_sequence": null,
+          "offered_frames": 33,
+          "processed_frames": 19,
+          "producer_replacements": 0,
+          "pending_replacements": 3,
+          "skipped_frames": 14,
+          "peak_live_pending": 1,
+          "pending": 0,
+          "policy": "bounded_bootstrap_then_latest_pending_v2"
+        },
+        "observations": [],
+        "server_unix_ms": 1793569796062.3699,
+        "method": "original_sam21_tiny_cutie_base_megamodel_identity_unverified",
+        "health_method": "custom_empty_mask_and_time_gap_rules_not_a_learned_absence_model"
+      }
+    ]
+  }
+}
