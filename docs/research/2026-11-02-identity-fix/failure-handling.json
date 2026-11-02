@@ -1,0 +1,168 @@
+[
+  {
+    "case": "fault-missing-source",
+    "report_path": "runs/identity-fix-2026-11-02/fault-missing-source/report.json",
+    "report_sha256": "7bd931cd546d12427661d9b50cd65270ba4b0613cd1c27d1f4f35e0213719b28",
+    "passed": true,
+    "status": "failed",
+    "error": {
+      "code": "ANOMALYDINO_SOURCE_MISSING",
+      "type": "AssistantError",
+      "message": "Required source is unavailable: /home/nguyentnt/PDWAIA/ecus/hi/runs/identity-fix-2026-11-02/fault-missing-source/missing-source"
+    },
+    "views": 0,
+    "final_control": {
+      "enabled": true,
+      "ready": true,
+      "armed": false,
+      "owned": false,
+      "reason": "disarmed",
+      "challenge": "ExU5NiySqNUQaQZe",
+      "command": {
+        "vx_cm_s": 0.0,
+        "vy_cm_s": 0.0,
+        "yaw_rate_rad_s": 0.0,
+        "pitch_rad": -0.17453292519943295,
+        "height_cm": -10.0,
+        "use_velocity_move_topic": false,
+        "description": "move"
+      },
+      "last_ack_at": null,
+      "ack_meaning": "accepted_by_adapter_not_measured_motion",
+      "lease_s": 0.45
+    }
+  },
+  {
+    "case": "fault-missing-env",
+    "report_path": "runs/identity-fix-2026-11-02/fault-missing-env/report.json",
+    "report_sha256": "5deadec0bc130e16074b26578b61a8b0f8aa0a0e89d68b71fc014cc909c29a0d",
+    "passed": true,
+    "status": "failed",
+    "error": {
+      "code": "ANOMALY_ENVIRONMENT_MISSING",
+      "type": "AssistantError",
+      "message": "Required isolated CPU interpreter is missing; run make search-setup."
+    },
+    "views": 0,
+    "final_control": {
+      "enabled": true,
+      "ready": true,
+      "armed": false,
+      "owned": false,
+      "reason": "disarmed",
+      "challenge": "58gNED_z-kutHodY",
+      "command": {
+        "vx_cm_s": 0.0,
+        "vy_cm_s": 0.0,
+        "yaw_rate_rad_s": 0.0,
+        "pitch_rad": -0.17453292519943295,
+        "height_cm": -10.0,
+        "use_velocity_move_topic": false,
+        "description": "move"
+      },
+      "last_ack_at": null,
+      "ack_meaning": "accepted_by_adapter_not_measured_motion",
+      "lease_s": 0.45
+    }
+  },
+  {
+    "case": "fault-corrupt-fit",
+    "report_path": "runs/identity-fix-2026-11-02/fault-corrupt-fit/report.json",
+    "report_sha256": "c00ae91ba6bbba0443829d62af6c250a129c4f6a2136d4469d3d048f9eec65f5",
+    "passed": true,
+    "status": "failed",
+    "error": {
+      "code": "ANOMALY_CALIBRATION_CHECKPOINT_MISMATCH",
+      "type": "AssistantError",
+      "message": "Checkpoint digest mismatch: /home/nguyentnt/PDWAIA/ecus/hi/runs/identity-fix-2026-11-02/fault-corrupt-fit/corrupt.json"
+    },
+    "views": 0,
+    "final_control": {
+      "enabled": true,
+      "ready": true,
+      "armed": false,
+      "owned": false,
+      "reason": "disarmed",
+      "challenge": "425PHf5J-fHuHEjT",
+      "command": {
+        "vx_cm_s": 0.0,
+        "vy_cm_s": 0.0,
+        "yaw_rate_rad_s": 0.0,
+        "pitch_rad": -0.17453292519943295,
+        "height_cm": -10.0,
+        "use_velocity_move_topic": false,
+        "description": "move"
+      },
+      "last_ack_at": null,
+      "ack_meaning": "accepted_by_adapter_not_measured_motion",
+      "lease_s": 0.45
+    }
+  },
+  {
+    "case": "fault-corrupt-cache",
+    "report_path": "runs/identity-fix-2026-11-02/fault-corrupt-cache/report.json",
+    "report_sha256": "d88f5e7a8cc3819f549183ce6543a052477921ab844ab7989bf64cd7c08ee54f",
+    "passed": true,
+    "status": "failed",
+    "error": {
+      "code": "ANOMALY_LOADED_CHECKPOINT_MISMATCH",
+      "type": "AssistantError",
+      "message": "Actual loaded tensors differ from the verified release; stale cache cannot substitute."
+    },
+    "views": 0,
+    "final_control": {
+      "enabled": true,
+      "ready": true,
+      "armed": false,
+      "owned": false,
+      "reason": "disarmed",
+      "challenge": "fywHJwag4L73oG0O",
+      "command": {
+        "vx_cm_s": 0.0,
+        "vy_cm_s": 0.0,
+        "yaw_rate_rad_s": 0.0,
+        "pitch_rad": -0.17453292519943295,
+        "height_cm": -10.0,
+        "use_velocity_move_topic": false,
+        "description": "move"
+      },
+      "last_ack_at": null,
+      "ack_meaning": "accepted_by_adapter_not_measured_motion",
+      "lease_s": 0.45
+    }
+  },
+  {
+    "case": "safety-stop-inference",
+    "report_path": "runs/identity-fix-2026-11-02/safety-stop-inference/report.json",
+    "report_sha256": "fa5c8e043df1a58736698a7142e79d636a7abac19b4a25abf76f7c0b91bf2016",
+    "passed": true,
+    "status": "cancelled",
+    "error": {
+      "code": "SEARCH_CANCELLED",
+      "message": "operator_stop"
+    },
+    "views": 0,
+    "final_control": {
+      "enabled": true,
+      "ready": true,
+      "armed": false,
+      "owned": false,
+      "reason": "operator_stop",
+      "challenge": "uZbyepRxJZzTOjhU",
+      "command": {
+        "vx_cm_s": 0.0,
+        "vy_cm_s": 0.0,
+        "yaw_rate_rad_s": 0.0,
+        "pitch_rad": -0.17453292519943295,
+        "height_cm": -10.0,
+        "use_velocity_move_topic": false,
+        "description": "move"
+      },
+      "last_ack_at": "2026-11-02T01:19:23.455785+00:00",
+      "ack_meaning": "accepted_by_adapter_not_measured_motion",
+      "lease_s": 0.45
+    },
+    "stop_request_ms": 11.197030544281006,
+    "interpretation": "single API request while already stationary/disarmed; not measured physical stopping time or a percentile"
+  }
+]

@@ -296,6 +296,22 @@
 
 ## Calibrated search completion work
 
+- Consult `docs/31-identity-contradiction-fix.md` and the actual
+  `docs/research/2026-11-02-identity-fix/report.md` for search v3. Original
+  AnomalyDINO executes through the required isolated CPU process and rejects the
+  preserved shared-front/different-side false confirmation. Its five-sample
+  original sklearn scalar fit is a development decision, not identity probability.
+  The repeated full app batch is **11/13, FAIL**; never promote the earlier
+  pre-state-guard 13/13 result as current qualification. Publication stays closed.
+- Preserve `docs/review/2026-11-02-multiplane-geometry-case.md`: one homography
+  rejects valid multi-face 3D correspondences. Native fundamental-matrix results
+  are diagnostics only; the proposed geometry revision requires user approval
+  before supported-path integration. Do not drop reference coverage or lower
+  thresholds to conceal the failed positive case.
+- Camera polling periods include capture/render work. Skip missed periods without
+  catch-up or queues; never append a full interval after slow capture. The actual
+  three-app same-case camera regression passes, but is not full identity quality
+  qualification or requalification of live tracking FPS.
 - The opt-in search path is documented in `docs/29-complete-teach-search-memory.md`.
   Its four-view navigation/model jobs execute, but identity acceptance is **FAIL**:
   experimental readouts include positives, inconclusive cases and a false

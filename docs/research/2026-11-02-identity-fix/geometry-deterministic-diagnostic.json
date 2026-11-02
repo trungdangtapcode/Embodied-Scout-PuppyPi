@@ -1,0 +1,73 @@
+{
+  "scope": "native framework diagnostic only; not integrated supported path or changed stored app verdict",
+  "source_case": "runs/identity-fix-2026-11-02/qualification-state-verified/hidden-20202",
+  "opencv": "5.0.0",
+  "method": "cv2.findFundamentalMat with cv2.UsacParams",
+  "parameters": {
+    "confidence": 0.995,
+    "maxIterations": 2000,
+    "threshold": 3.0,
+    "isParallel": false,
+    "randomGeneratorState": 0,
+    "score": "SCORE_METHOD_MAGSAC",
+    "loMethod": "LOCAL_OPTIM_SIGMA",
+    "loSampleSize": 50,
+    "loIterations": 10
+  },
+  "results": [
+    {
+      "view": 0,
+      "matches": 77,
+      "inliers_per_repeat": [
+        72,
+        72,
+        72
+      ],
+      "all_masks_equal": true,
+      "matrix": [
+        [
+          -1.7710232206980445e-06,
+          4.1764615682009514e-05,
+          -0.002283226455006558
+        ],
+        [
+          -1.684801309181894e-05,
+          -8.87865362863064e-06,
+          0.026760105130720174
+        ],
+        [
+          0.001564792121862339,
+          -0.02151568631030706,
+          0.18101753867132286
+        ]
+      ]
+    },
+    {
+      "view": 1,
+      "matches": 87,
+      "inliers_per_repeat": [
+        75,
+        75,
+        75
+      ],
+      "all_masks_equal": true,
+      "matrix": [
+        [
+          -2.0044157290948004e-06,
+          -1.3194023695851873e-05,
+          -0.0023749350604083007
+        ],
+        [
+          9.816448663956421e-06,
+          9.976854856458687e-07,
+          0.0255603826962224
+        ],
+        [
+          -0.0013879143116475596,
+          -0.018498390015366625,
+          0.4054404855239808
+        ]
+      ]
+    }
+  ]
+}

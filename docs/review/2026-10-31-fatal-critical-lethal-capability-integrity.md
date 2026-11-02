@@ -298,3 +298,16 @@ weights fail without outputs. This establishes component execution, not the
 proposed phone click interaction, persistent live session, identity recovery or
 5 FPS live gate. F40 app integration remains Planned. The incident stays OPEN /
 FAIL and the user's 0/10 assessment is unchanged.
+
+## Later search identity correction; repeated full acceptance still fails
+
+The [2026-11-02 identity-fix execution](../research/2026-11-02-identity-fix/report.md)
+adds actual original AnomalyDINO scoring and a disclosed original sklearn scalar
+application fit. The preserved unknown-object false confirmation is now rejected;
+this is a real implementation correction, not a documentation-only change.
+The first frozen app batch passes 13/13, but its repeat passes 11/13 with a
+positive geometric abstention and a stale-camera execution failure. The camera
+bug is subsequently fixed with three genuine-model same-case regressions; the
+geometry revision remains proposed pending user approval. No complete quality
+pass or automatic-memory publication follows. Preserve these distinctions and
+the failed evidence. The incident is **OPEN / FAIL**, user rating **0/10**.

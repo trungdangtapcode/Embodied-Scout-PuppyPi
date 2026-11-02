@@ -81,6 +81,17 @@ research](30-appearance-contradiction-research-plan.md), with concrete method
 approval required before integration. No new physical/Pi/real-room/world-model
 capability, quality certification or closure of the critical incident is claimed.
 
+The subsequent [executed identity correction](research/2026-11-02-identity-fix/report.md)
+requires original AnomalyDINO scoring and an explicitly development-fitted sklearn
+scalar gate. It rejects the preserved false confirmation and retains a positive
+replay. The first 13-case batch passes; a repeat with loaded-weight verification
+is **11/13, FAIL**. One remaining positive fails the single-homography geometric
+support rule; a native fundamental-matrix revision is proposed, not integrated,
+pending user approval. A separate camera-cadence defect is fixed and three
+concurrent same-case model runs complete four views without stale-camera failure.
+These regressions do not certify the complete feature. Automatic sightings remain
+zero, publication remains blocked, and real-room/hardware validation is absent.
+
 ### Executed visual-prompt and descriptor-comparison subsets
 
 The [YOLOE app profile](24-yoloe-vision.md) now invokes the pinned author source,

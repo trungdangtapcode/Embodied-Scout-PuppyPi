@@ -1,0 +1,51 @@
+{
+  "scope": "three concurrent original-model app regression runs of the previously stale-camera case; same scene and appearance, not new quality qualification",
+  "camera_settings_unchanged": {
+    "frame_poll_s": 0.2,
+    "max_frame_age_s": 0.6
+  },
+  "cases": [
+    {
+      "case": "camera-cadence-regression-a",
+      "job_id": "a4ee6763-bf8e-4915-aeda-9f08ef444f4e",
+      "profile_signature": "af850f3961ca0795a5dd3996e71b14b3beacce1a94bc1951a55644789e95cbd6",
+      "app_result_sha256": "98058f6d4a2d00ade088c00ed588b986be593d8b53e5d55ed61e07cddc89ea68",
+      "views": 4,
+      "model_verdict": "confirmed",
+      "publication_error": "SEARCH_QUALITY_NOT_QUALIFIED",
+      "camera_gap_p95_s": 0.20022706985473632,
+      "camera_gap_max_s": 0.20312905311584473,
+      "captured_frames": 681,
+      "browser_errors": [],
+      "sightings": 0
+    },
+    {
+      "case": "camera-cadence-regression-b",
+      "job_id": "d8e12523-4db7-410f-a31f-fe7503425481",
+      "profile_signature": "af850f3961ca0795a5dd3996e71b14b3beacce1a94bc1951a55644789e95cbd6",
+      "app_result_sha256": "6c1b374d5057911b8cd0417314fc5c6a60ffa0adbefdca4ec05193d29c8c31e6",
+      "views": 4,
+      "model_verdict": "confirmed",
+      "publication_error": "SEARCH_QUALITY_NOT_QUALIFIED",
+      "camera_gap_p95_s": 0.20030031204223633,
+      "camera_gap_max_s": 0.205186128616333,
+      "captured_frames": 675,
+      "browser_errors": [],
+      "sightings": 0
+    },
+    {
+      "case": "camera-cadence-regression-c",
+      "job_id": "9fa79277-c69c-47c1-bc8b-5c4c30da96f2",
+      "profile_signature": "af850f3961ca0795a5dd3996e71b14b3beacce1a94bc1951a55644789e95cbd6",
+      "app_result_sha256": "bdd7a4b4dfaf3aa8ed1efb33adf95fb980c8436a5f6075f7e1ac32dd6790fd16",
+      "views": 4,
+      "model_verdict": "confirmed",
+      "publication_error": "SEARCH_QUALITY_NOT_QUALIFIED",
+      "camera_gap_p95_s": 0.20021659135818481,
+      "camera_gap_max_s": 0.20215988159179688,
+      "captured_frames": 669,
+      "browser_errors": [],
+      "sightings": 0
+    }
+  ]
+}

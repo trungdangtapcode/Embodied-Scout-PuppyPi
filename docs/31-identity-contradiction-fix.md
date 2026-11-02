@@ -72,4 +72,10 @@ artifact identity. Existing certificates cannot qualify the changed method.
    No GPU, paid API or live robot is required by this test profile. Real-room
    and physical PuppyPi acceptance remain separate and unverified.
 
-Current implementation and acceptance: **IN PROGRESS**, not a completion claim.
+Original inference and app integration now execute. Full acceptance remains
+**FAIL**: the repeated frozen app batch passes 11/13 cases. The original unknown
+false confirmation is rejected; a true target still fails planar geometric
+support. The separate camera-cadence defect is corrected and passes three
+concurrent same-case regressions. See the [actual execution report and figures](research/2026-11-02-identity-fix/report.md).
+The proposed geometry revision is pending user approval, not integrated. Keep
+automatic memory blocked and preserve both the earlier pass and later failure.

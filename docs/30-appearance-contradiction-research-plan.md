@@ -6,6 +6,14 @@ requested research/design/plan or rewinding an unsound approach, rather than
 forcing a result. The [illustrated counterexample](review/2026-11-02-yoloe-identity-gate-case.md)
 is a permanent regression, not a fresh held-out example for later tuning.
 
+Subsequent update: the user's implementation instruction authorized the concrete
+[AnomalyDINO correction contract](31-identity-contradiction-fix.md). Original
+inference is now integrated and executed; the [new report](research/2026-11-02-identity-fix/report.md)
+preserves both its corrected counterexample and failed repeated full evaluation.
+The planning-stage text below remains historical evidence, not current absence
+of that implementation. The separate proposed geometry revision is not approved
+or integrated yet.
+
 ## What the failure actually requires
 
 The previous policy asks whether some learned features match. The counterexample

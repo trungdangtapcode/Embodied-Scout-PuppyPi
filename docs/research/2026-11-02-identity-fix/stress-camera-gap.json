@@ -1,0 +1,30 @@
+{
+  "scope": "observed camera captures around actual SEARCH_CAMERA_STALE failure; not model accuracy",
+  "frames": [
+    {
+      "frame": "b1b8781f-b67c-4206-88fc-2e7a2456b0b2:482",
+      "captured_at": "2026-11-02T01:10:17.807956+00:00",
+      "capture_interval_s": 0.298269
+    },
+    {
+      "frame": "b1b8781f-b67c-4206-88fc-2e7a2456b0b2:483",
+      "captured_at": "2026-11-02T01:10:18.107925+00:00",
+      "capture_interval_s": 0.299969
+    },
+    {
+      "frame": "b1b8781f-b67c-4206-88fc-2e7a2456b0b2:484",
+      "captured_at": "2026-11-02T01:10:18.489942+00:00",
+      "capture_interval_s": 0.382017
+    },
+    {
+      "frame": "b1b8781f-b67c-4206-88fc-2e7a2456b0b2:485",
+      "captured_at": "2026-11-02T01:10:18.903627+00:00",
+      "capture_interval_s": 0.413685
+    },
+    {
+      "frame": "b1b8781f-b67c-4206-88fc-2e7a2456b0b2:486",
+      "captured_at": "2026-11-02T01:10:19.215181+00:00",
+      "capture_interval_s": 0.311554
+    }
+  ]
+}

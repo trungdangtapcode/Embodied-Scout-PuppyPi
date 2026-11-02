@@ -1,0 +1,32 @@
+{
+  "sources": [
+    {
+      "name": "AnomalyDINO",
+      "path": "/home/nguyentnt/PDWAIA/ecus/hi/runs/completion-research-2026-11-02/AnomalyDINO",
+      "url": "https://github.com/dammsi/AnomalyDINO.git",
+      "revision": "b9d1c2648e3a5247437d4d953d907a8f3d994457",
+      "files": {
+        "LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+        "demo_AnomalyDINO.ipynb": "58676b9a8d21b74ea614d65f62de68ec753b55b9565179eef3b06cfebc026a01",
+        "src/backbones.py": "2eabacad58f9fa2295afac29120d27a3143c25fb95e0293fcc3542e4905f6540",
+        "src/detection.py": "760fcc7cf0a272f25a9cb9ce34a7f68cb351d1578fa9af2790f450e3574ac3cd"
+      }
+    },
+    {
+      "name": "scikit-learn",
+      "path": "/home/nguyentnt/PDWAIA/ecus/hi/runs/identity-fix-2026-11-02/scikit-learn",
+      "url": "https://github.com/scikit-learn/scikit-learn.git",
+      "revision": "25dee604bae18205b01548348388baf7a1cdfe0e",
+      "files": {
+        "COPYING": "75684d16f4662ab842ed5af9482ac01939aee83c8243d89993616d959d3053f8",
+        "sklearn/tree/_classes.py": "0f282a47534a1f144c1022e7f3cf0d4e717b297db51c9e64835070038b48bbd8"
+      }
+    }
+  ],
+  "paper": {
+    "url": "https://openaccess.thecvf.com/content/WACV2025/papers/Damm_AnomalyDINO_Boosting_Patch-Based_Few-Shot_Anomaly_Detection_with_DINOv2_WACV_2025_paper.pdf",
+    "path": "runs/identity-fix-2026-11-02/materials/anomalydino-wacv2025.pdf",
+    "sha256": "ff46a3cfa5cdc3bb684ac37d72fe546f3c6edd7b02f3dcfe12de30a5b7d89977",
+    "extracted_text": "runs/identity-fix-2026-11-02/materials/anomalydino-wacv2025.txt"
+  }
+}

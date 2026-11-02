@@ -5,6 +5,13 @@ multi-view verification and automatic recorded-sighting feature after the
 [critical reporting recurrence](review/2026-11-02-academic-claim-inflation.md).
 Status: implementation in progress; no completion or quality claim.
 
+Current correction evidence: original AnomalyDINO is integrated in search v3;
+the [repeated full app evaluation](research/2026-11-02-identity-fix/report.md)
+still fails 2/13 cases. Camera cadence is corrected with separate genuine-model
+regressions. The proposed 3D geometry revision awaits user approval. Automatic
+memory publication and its successful Library/Room history acceptance remain
+blocked/unverified. The original contract below is not downgraded.
+
 ## Explicit user amendment: search v2 / vision v3
 
 On 2026-11-02 the user accepted the concrete role revision after reviewing an

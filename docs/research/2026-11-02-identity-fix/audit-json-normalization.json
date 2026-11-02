@@ -1,0 +1,8 @@
+{
+  "issue": "Browser JSON reserialization converts integer-valued floats to integers; signed bytes differ although numeric inputs agree.",
+  "frozen_signature": "13dc3010c99c95bbcdea2cc74074b3285c511f46c22fd31e12968fb8e6aecc59",
+  "immutable_db_signature": "13dc3010c99c95bbcdea2cc74074b3285c511f46c22fd31e12968fb8e6aecc59",
+  "browser_reserialized_signature": "e56e99577d15d68125aa1fa331e73fed221c4dfa1fe866fa11c00d41cb6e2762",
+  "payloads_numerically_equal": true,
+  "correction": "Read the immutable original snapshot read-only, require browser export agreement, then verify original signature. No model, threshold or quality criterion changed."
+}
