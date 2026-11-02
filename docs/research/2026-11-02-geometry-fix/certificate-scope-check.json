@@ -1,0 +1,17 @@
+{
+  "scope": "actual evaluated certificate; one-view gallery cannot inherit four-view qualification; no model or fake-certificate execution",
+  "cases": [
+    {
+      "case": "single-target-30404",
+      "reference_scope": "87dbd100601a641b67313ed70013bede67c77dc6af29a0bd2d7317e145773782",
+      "qualified": true,
+      "reason": "QUALIFIED_SYNTHETIC_PROFILE"
+    },
+    {
+      "case": "one-view-31001",
+      "reference_scope": "d2f1885f828e7c5708c09e532d58d3beab8a8bb5f23098d2bd1c1dbc69ec2106",
+      "qualified": false,
+      "reason": "REFERENCE_SET_NOT_QUALIFIED"
+    }
+  ]
+}

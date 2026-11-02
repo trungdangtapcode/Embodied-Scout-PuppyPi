@@ -398,7 +398,12 @@ def main():
         "required_case_count": len(protocol["cases"]),
         "environment": protocol["environment"],
         "evaluated_reference_scopes": sorted(
-            {r["reference_scope"] for r in results if "reference_scope" in r}
+            {
+                r["reference_scope"]
+                for r in results
+                if "reference_scope" in r
+                and r.get("profile_signature") == protocol["profile_signature"]
+            }
         ),
     }
     write_new(args.output, report)
