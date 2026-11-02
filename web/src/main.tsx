@@ -142,8 +142,11 @@ function Modal({
   );
 }
 function CameraView({ robot, compact = false }: { robot: Robot; compact?: boolean }) {
-  const { state, online, image } = robot;
+  const { state, online, image, paintedImage } = robot;
   const live = online && state?.camera.available;
+  const displayedAge = paintedImage?.capturedAt && state?.camera.captured_at && state.camera.age_s != null
+    ? Date.parse(state.camera.captured_at) - Date.parse(paintedImage.capturedAt) + state.camera.age_s * 1000
+    : null;
   return (
     <div class={`camera ${compact ? "compact" : ""}`}>
       <div class="camera-head">
@@ -186,16 +189,16 @@ function CameraView({ robot, compact = false }: { robot: Robot; compact?: boolea
           <span>
             <ScanLine size={16} /> {live ? t("Front view") : t("No live image")}
           </span>
-          <span>{state?.camera.fresh && live ? t("Fresh frame") : t("Freshness unverified")}</span>
+          <span>{paintedImage && live ? t("Frame received") : t("Freshness unverified")}</span>
         </div>
       </div>
       <div class="frame-strip">
         <span>
-          <Fingerprint size={14} /> {state?.camera.frame_id?.slice(-12) || "—"}
+          <Fingerprint size={14} /> {paintedImage?.id.slice(-12) || "—"}
         </span>
         <span>
-          {live && state?.camera.age_s != null
-            ? t("{age} ms · estimated frame age", { age: Math.round(state.camera.age_s * 1000) })
+          {live && displayedAge != null && Number.isFinite(displayedAge)
+            ? t("{age} ms at host · displayed frame", { age: Math.max(0, Math.round(displayedAge)) })
             : t("No timestamp available")}
         </span>
       </div>
@@ -994,6 +997,7 @@ function ControlPanel({ robot }: { robot: Robot }) {
         onClick={robot.armed ? robot.stop : robot.arm}
         disabled={
           !robot.online ||
+          !robot.imageReady ||
           (!robot.armed && (!robot.state?.control.ready || robot.state.control.armed))
         }
       >

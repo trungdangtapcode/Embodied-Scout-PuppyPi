@@ -2,6 +2,11 @@ import { useEffect, useRef, useState } from "preact/hooks";
 import { post } from "./api";
 import { t } from "./i18n";
 import type { State } from "./types";
+import { latestFrameReader } from "./latestFrame";
+
+// Preserve the existing one-second browser liveness contract for image transfer.
+const LIVE_TIMEOUT_MS = 1000;
+type CameraImage = { url: string; id: string; capturedAt: string | null };
 
 export function useRobot(
   paired: boolean,
@@ -11,9 +16,10 @@ export function useRobot(
   const [state, setState] = useState<State | null>(null);
   const [online, setOnline] = useState(false);
   const [armed, setArmed] = useState(false);
-  const [image, setImage] = useState<{ url: string; id: string; capturedAt: string | null } | null>(
-    null,
-  );
+  const [image, setImage] = useState<CameraImage | null>(null);
+  const [paintedImage, setPaintedImage] = useState<CameraImage | null>(null);
+  const images = useRef(new Map<string, CameraImage>());
+  const reader = useRef<ReturnType<typeof latestFrameReader> | null>(null);
   const [moving, setMoving] = useState(false);
   const socket = useRef<WebSocket | null>(null);
   const latest = useRef<State | null>(null);
@@ -118,7 +124,7 @@ export function useRobot(
     }
     connect();
     const heartbeat = setInterval(() => {
-      if (Date.now() - lastStatus > 1000 && socket.current?.readyState === WebSocket.OPEN) {
+      if (Date.now() - lastStatus > LIVE_TIMEOUT_MS && socket.current?.readyState === WebSocket.OPEN) {
         clear();
         setOnline(false);
         socket.current.close();
@@ -147,37 +153,49 @@ export function useRobot(
 
   const frameId = online && state?.camera.available ? state.camera.frame_id : null;
   useEffect(() => {
-    if (!paired || !frameId) {
+    if (!paired || !online) return;
+    const stream = latestFrameReader(
+      async (id, signal) => {
+        const response = await fetch("/api/frame.jpg?id=" + encodeURIComponent(id), { signal });
+        if (!response.ok || response.headers.get("X-Frame-Id") !== id)
+          throw new Error("Camera frame unavailable or mismatched");
+        return { blob: await response.blob(), capturedAt: response.headers.get("X-Captured-At") };
+      },
+      (frame) => {
+        // Keep the painted URL alive until its replacement actually decodes.
+        for (const [id, old] of images.current) {
+          if (id !== displayed.current) {
+            URL.revokeObjectURL(old.url);
+            images.current.delete(id);
+          }
+        }
+        const next = { url: URL.createObjectURL(frame.blob), id: frame.id, capturedAt: frame.capturedAt };
+        images.current.set(next.id, next);
+        setImage(next);
+      },
+      () => {
+        displayed.current = "";
+        readyImage.current = false;
+        setPaintedImage(null);
+        if (epoch.current || pendingArm.current) stop();
+      },
+      LIVE_TIMEOUT_MS,
+    );
+    reader.current = stream;
+    return () => {
+      stream.close();
+      reader.current = null;
       displayed.current = "";
       readyImage.current = false;
-      return;
-    }
-    const abort = new AbortController();
-    let url = "";
-    let capturedAt: string | null = null;
-    void fetch("/api/frame.jpg?id=" + encodeURIComponent(frameId), { signal: abort.signal })
-      .then((response) => {
-        if (!response.ok) throw new Error("Camera unavailable");
-        capturedAt = response.headers.get("X-Captured-At");
-        return response.blob();
-      })
-      .then((blob) => {
-        if (!abort.signal.aborted) {
-          url = URL.createObjectURL(blob);
-          setImage({ url, id: frameId, capturedAt });
-        }
-      })
-      .catch((error) => {
-        if (error.name !== "AbortError") {
-          displayed.current = "";
-          readyImage.current = false;
-        }
-      });
-    return () => {
-      abort.abort();
-      if (url) URL.revokeObjectURL(url);
+      setPaintedImage(null);
+      setImage(null);
+      for (const old of images.current.values()) URL.revokeObjectURL(old.url);
+      images.current.clear();
     };
-  }, [paired, frameId]);
+  }, [paired, online]);
+  useEffect(() => {
+    if (frameId) reader.current?.offer(frameId);
+  }, [frameId, paired, online]);
 
   return {
     state,
@@ -185,18 +203,30 @@ export function useRobot(
     armed,
     moving,
     image,
+    paintedImage,
+    imageReady: paintedImage !== null && readyImage.current,
     displayed,
     arm,
     stop,
     hold,
     imageLoaded: (id: string) => {
+      const loaded = images.current.get(id);
+      if (!loaded) return;
       displayed.current = id;
       readyImage.current = true;
+      setPaintedImage(loaded);
+      for (const [otherId, old] of images.current) {
+        if (otherId !== id) {
+          URL.revokeObjectURL(old.url);
+          images.current.delete(otherId);
+        }
+      }
     },
     imageFailed: () => {
       displayed.current = "";
       readyImage.current = false;
-      if (epoch.current) stop();
+      setPaintedImage(null);
+      if (epoch.current || pendingArm.current) stop();
     },
   };
 }

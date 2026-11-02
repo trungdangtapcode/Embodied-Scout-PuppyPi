@@ -129,7 +129,30 @@ test("hold to drive, release to zero, blur disarms and reconnect stays locked", 
 
 test("phone layout, camera, inspector and static-only offline cache", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
+  await page.addInitScript(() => {
+    const frames = new Set<string>();
+    Object.assign(window, { delayedCameraFrames: frames });
+    window.addEventListener("puppypi-camera-painted", (event) => {
+      frames.add((event as CustomEvent).detail.frame_id);
+    });
+  });
+  // Actual synthetic-server JPEGs, delayed beyond its capture period. A new
+  // status must not abort every image or revoke the URL still on screen.
+  await page.route("**/api/frame.jpg?*", async (route) => {
+    const response = await route.fetch();
+    await new Promise((resolve) => setTimeout(resolve, 350));
+    await route.fulfill({ response });
+  });
   await enter(page);
+  await expect.poll(() => page.evaluate(() =>
+    (window as unknown as { delayedCameraFrames: Set<string> }).delayedCameraFrames.size,
+  ), { timeout: 10000 }).toBeGreaterThan(3);
+  await page.getByRole("button", { name: "Control", exact: true }).click();
+  await page.getByRole("button", { name: "Arm controls", exact: true }).click();
+  await expect(page.getByRole("button", { name: "Forward", exact: true })).toBeEnabled();
+  await page.getByRole("button", { name: "STOP", exact: true }).click();
+  await page.unrouteAll({ behavior: "wait" });
+  await page.getByRole("button", { name: "Monitor", exact: true }).click();
   await page.evaluate(() => window.scrollTo(0, 0));
   await page.screenshot({ path: "../runs/mobile-preview/phone-monitor.png" });
   for (const name of ["Control", "Inspect", "Library"]) {

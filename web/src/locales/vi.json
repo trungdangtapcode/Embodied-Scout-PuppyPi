@@ -351,5 +351,7 @@
   "Model-generated candidate crop": "Ảnh cắt ứng viên do mô hình đề xuất",
   "Closest DINOv2 reference": "Ảnh mẫu gần nhất theo DINOv2",
   "All raw proposals remain visible, including rejected ones. Cosine and margin thresholds are hand-selected custom logic, not calibrated probabilities or an upstream identity classifier.": "Mọi đề xuất gốc vẫn được hiển thị, kể cả đề xuất bị từ chối. Ngưỡng cosine và độ chênh là logic tùy biến chọn thủ công, không phải xác suất đã hiệu chỉnh hay bộ phân loại danh tính từ upstream.",
-  "Legacy object matching: handcoded Python/OpenCV baseline. Learned workflows require separate execution evidence.": "Đối chiếu đồ vật cũ: baseline Python/OpenCV viết thủ công. Các luồng model cần bằng chứng thực thi riêng."
+  "Legacy object matching: handcoded Python/OpenCV baseline. Learned workflows require separate execution evidence.": "Đối chiếu đồ vật cũ: baseline Python/OpenCV viết thủ công. Các luồng model cần bằng chứng thực thi riêng.",
+  "Frame received": "Đã nhận khung hình",
+  "{age} ms at host · displayed frame": "{age} ms tại máy chủ · khung hình đang hiển thị"
 }
