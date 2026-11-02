@@ -43,11 +43,15 @@ def verify_dinov2(cfg: VisionSettings) -> dict:
         "embedding_dimension": 384,
         "preprocessing": "upstream_make_classification_eval_transform_RGB_resize256_bicubic_centercrop224_ImageNet_normalization",
         "decision_policy": {
-            "implementation": "project_owned_max_reference_cosine_and_margin_v1",
+            "implementation": "project_owned_max_reference_cosine_and_margin_v1" if cfg.profile_version == 2 else "project_owned_gallery_identity_readout_v2",
             "threshold_origin": "hand_selected_development_policy_not_calibrated",
             "minimum_similarity": cfg.reference_similarity_threshold,
             "minimum_margin": cfg.reference_margin_threshold,
-            "requires_detector_and_descriptor_class_agreement": True,
+            "requires_detector_and_descriptor_class_agreement": cfg.profile_version
+            == 2,
+            "proposal_role": "identity_gate"
+            if cfg.profile_version == 2
+            else "region_only",
             "exact_identity_verified": False,
         },
     }
@@ -102,7 +106,11 @@ def compare_reference_scores(
             "DINOV2_OUTPUT_INVALID",
             "Detector prompt is not in the frozen reference set.",
         )
-    if best["object_id"] != prompt_id:
+    if cfg.profile_version not in {2, 3}:
+        raise AssistantError(
+            "VISION_PROFILE_UNSUPPORTED", "Unknown identity readout; no substitute."
+        )
+    if cfg.profile_version == 2 and best["object_id"] != prompt_id:
         reason = "detector_descriptor_disagreement"
     elif best["score"] < cfg.reference_similarity_threshold:
         reason = "insufficient_reference_similarity"
@@ -123,7 +131,9 @@ def compare_reference_scores(
         "margin": margin,
         "classes": classes,
         "score_semantics": "uncalibrated_cosine_not_probability",
-        "policy_implementation": "custom_max_cosine_and_margin_not_an_upstream_identity_classifier",
+        "policy_implementation": "custom_max_cosine_and_margin_not_an_upstream_identity_classifier"
+        if cfg.profile_version == 2
+        else "custom_gallery_cosine_margin_v2_proposal_label_not_identity",
         "exact_identity_verified": False,
     }
 

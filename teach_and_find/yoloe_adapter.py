@@ -140,10 +140,10 @@ class YoloeAdapter:
             )
         from teach_and_find.dinov2_adapter import DinoReferenceComparator, verify_dinov2
 
-        if cfg.profile_version != 2:
+        if cfg.profile_version not in {2, 3}:
             raise AssistantError(
                 "VISION_PROFILE_UNSUPPORTED",
-                "This worker requires the explicit dual-model profile version 2.",
+                "Only explicit vision profiles 2 and 3 are supported; no reinterpretation.",
             )
         provenance = verify_artifacts(cfg)
         verify_dinov2(cfg)  # Both artifacts are mandatory before either model runs.
@@ -275,6 +275,11 @@ class YoloeAdapter:
         )
         provenance["tracking_capture_intervals_s"] = intervals
         provenance["tracking_assumed_fps"] = max(1, round(rate))
+        provenance["proposal_identity_role"] = (
+            "class_agreement_gate"
+            if cfg.profile_version == 2
+            else "region_proposal_only_gallery_assigns_identity"
+        )
         frames = []
         for source_frame in payload["frames"]:
             self.check()
@@ -338,13 +343,26 @@ class YoloeAdapter:
             )
             for detection, comparison in zip(detections, comparisons):
                 detection["reference_comparison"] = comparison
+                if cfg.profile_version == 3:
+                    detection["descriptor_object_id"] = comparison["best_object_id"]
             supported = [
                 i
                 for i, c in enumerate(comparisons)
                 if c["decision"] == "supported_candidate"
             ]
             tracks = []
-            for row in tracker.update(boxes[np.asarray(supported, dtype=int)]):
+            tracking_boxes = boxes[np.asarray(supported, dtype=int)]
+            if cfg.profile_version == 3:
+                # The original tracker consumes the actual DINO gallery readout.
+                # Raw detector labels remain in detections and are never rewritten.
+                tracking_boxes.data = tracking_boxes.data.copy()
+                gallery_index = {
+                    ref["object_id"]: i for i, ref in enumerate(references)
+                }
+                tracking_boxes.data[:, 5] = [
+                    gallery_index[comparisons[i]["best_object_id"]] for i in supported
+                ]
+            for row in tracker.update(tracking_boxes):
                 x1, y1, x2, y2, tid, score, cls, index = [float(v) for v in row]
                 tracks.append(
                     {
@@ -352,7 +370,10 @@ class YoloeAdapter:
                         "track_id": int(tid),
                         "model_score": score,
                         "detection_index": supported[int(index)],
-                        "prompt_object_id": references[int(cls)]["object_id"],
+                        "prompt_object_id": detections[supported[int(index)]][
+                            "prompt_object_id"
+                        ],
+                        "identity_object_id": references[int(cls)]["object_id"],
                     }
                 )
             frame = {
@@ -376,7 +397,7 @@ class YoloeAdapter:
             )
         self.check()
         return {
-            "schema_version": 2,
+            "schema_version": cfg.profile_version,
             "outcome": "execution_completed_quality_not_certified",
             "frames": frames,
             "references": references,
