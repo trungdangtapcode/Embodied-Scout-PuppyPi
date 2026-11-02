@@ -15,6 +15,13 @@
   and the concrete proposed revision to the user before implementing that change.
   Do not rewrite the plan after the fact to make a deficient implementation pass.
   An explicit user revision updates the contract; agents cannot revise it unilaterally.
+- The user explicitly reaffirmed this stop-and-redesign rule on 2026-11-02:
+  when an implementation or method is not sound, preserve the counterexample,
+  research real alternatives, revise the design and plan, or rewind the failed
+  approach. Ask for a concrete method revision before changing the supported
+  algorithm. Useful independent fixes and diagnostic experiments may continue;
+  research approval alone does not approve a specific replacement or establish
+  quality. Do not force a feature through its acceptance gate to avoid asking.
 - Heuristics are permitted when explicitly agreed as heuristics from the outset.
   Claims of AI, research-repository reuse or framework integration require the
   corresponding real implementation to execute as designed. Documentation, tests
@@ -249,7 +256,37 @@
   retry on CPU implicitly. The recorded CUDA OOM is a free-VRAM failure, not proof
   that this machine lacks GPU hardware or that CPU execution is impossible.
 
+## Calibrated search completion work
+
+- The opt-in search path is documented in `docs/29-complete-teach-search-memory.md`.
+  Its four-view navigation/model jobs execute, but identity acceptance is **FAIL**:
+  experimental readouts include positives, inconclusive cases and a false
+  confirmation. Do not describe the requested end-to-end feature as complete.
+- Keep `SearchSettings.quality_qualified=False` until a frozen positive, negative,
+  ambiguity and failure evaluation passes with recorded evidence. Never toggle it
+  merely to allow automatic-memory publication or make a demonstration pass.
+- On 2026-11-02 the user explicitly accepted revised model roles: YOLOE proposes
+  regions, DINOv2 supplies gallery identity, DISK/LightGlue verifies geometric
+  correspondences across views. New search payload v2 uses vision profile v3.
+  Preserve original vision profile v2 and historical failures; never reinterpret
+  them as the revised method. See the detailed identity-gate case in docs/review.
+- Search transport uses separate latest-only status/camera slots and an independent
+  leased sender. Camera HTTP, model inference or a stalled producer must never
+  create a motion queue, renew stale movement, or automatically rearm.
+- The search renderer owns truth only for evaluation. Navigation consumes observed
+  tag pixels plus supplied map/calibration, never renderer pose or object labels.
+
 ## Robot execution
+
+- Do not hold a navigation motion lease across heavy model initialization or
+  stationary inference. In the calibrated search profile, end each navigation
+  segment with acknowledged zero-command/disarm, require an image captured after
+  that acknowledgement, then close its control transport before inference.
+  New segments must validate the running task's runtime motion-generation token,
+  fresh same-session camera and calibration. Planned segment completion is
+  distinct from fault recovery: Stop, unexpected expiry/disconnect, invalid
+  commands or restart revoke authority; never automatically rearm after them.
+  Adapter acknowledgement does not establish measured physical stopping.
 
 - Physical actuation must be within the user's authorized task. Default tests
   use synthetic frames and loopback transports, never a discovered live robot.
@@ -264,6 +301,15 @@
   failures. Do not stop unrelated services or remove user environments/data.
 
 ## Research integrity and feature status
+
+- Remember the 2026-11-02 [identity-role counterexample](docs/review/2026-11-02-yoloe-identity-gate-case.md):
+  removing the YOLOE-label veto recovered a real candidate, but DINOv2 plus
+  DISK/LightGlue still falsely confirmed an unknown object with an identical
+  front and different sides. Shared-surface correspondences, multiple camera
+  views and gallery-image coverage do not prove matching distinguishing surfaces
+  or complete identity. Preserve this failed case; do not tune on it and report
+  the revised threshold as held-out success. Keep automatic-memory publication
+  blocked until the agreed quality acceptance actually passes.
 
 - **FATAL / CRITICAL / LETHAL: capability integrity is a mandatory acceptance gate.**
   Implement and demonstrate the capability as described. If the promised path

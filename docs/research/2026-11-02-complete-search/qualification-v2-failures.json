@@ -1,0 +1,152 @@
+{
+  "evidence": "actual preserved frozen-v2 app outputs, no qualification certificate",
+  "profile_signature": "a4297ee570fb423c85a5136e9b837b90b6f7e391f3ef1295ebace4801822ceb8",
+  "all_required_cases_passed": false,
+  "false_confirmations": 1,
+  "control_failures": 6,
+  "cases": [
+    {
+      "id": "target-101",
+      "expected": "confirmed",
+      "actual_readout": null,
+      "actual_station": null,
+      "job_status": "failed",
+      "error_code": "SEARCH_CONTROL_LOST",
+      "view_count": 0,
+      "automatic_sightings": 0,
+      "browser_errors": 0
+    },
+    {
+      "id": "hidden-202",
+      "expected": "confirmed",
+      "actual_readout": "confirmed",
+      "actual_station": "Station_A",
+      "job_status": "failed",
+      "error_code": "SEARCH_QUALITY_NOT_QUALIFIED",
+      "view_count": 4,
+      "automatic_sightings": 0,
+      "browser_errors": 0
+    },
+    {
+      "id": "relocated-303",
+      "expected": "confirmed",
+      "actual_readout": null,
+      "actual_station": null,
+      "job_status": "failed",
+      "error_code": "SEARCH_CONTROL_LOST",
+      "view_count": 2,
+      "automatic_sightings": 0,
+      "browser_errors": 0
+    },
+    {
+      "id": "single-target-404",
+      "expected": "confirmed",
+      "actual_readout": "confirmed",
+      "actual_station": "Station_A",
+      "job_status": "failed",
+      "error_code": "SEARCH_QUALITY_NOT_QUALIFIED",
+      "view_count": 4,
+      "automatic_sightings": 0,
+      "browser_errors": 0
+    },
+    {
+      "id": "decoy-505",
+      "expected": "inconclusive",
+      "actual_readout": "inconclusive",
+      "actual_station": null,
+      "job_status": "completed",
+      "error_code": null,
+      "view_count": 4,
+      "automatic_sightings": 0,
+      "browser_errors": 0
+    },
+    {
+      "id": "absent-606",
+      "expected": "inconclusive",
+      "actual_readout": null,
+      "actual_station": null,
+      "job_status": "failed",
+      "error_code": "SEARCH_CONTROL_LOST",
+      "view_count": 2,
+      "automatic_sightings": 0,
+      "browser_errors": 0
+    },
+    {
+      "id": "empty-707",
+      "expected": "inconclusive",
+      "actual_readout": null,
+      "actual_station": null,
+      "job_status": "failed",
+      "error_code": "SEARCH_CONTROL_LOST",
+      "view_count": 2,
+      "automatic_sightings": 0,
+      "browser_errors": 0
+    },
+    {
+      "id": "unknown-hidden-808",
+      "expected": "inconclusive",
+      "actual_readout": "confirmed",
+      "actual_station": "Station_A",
+      "job_status": "failed",
+      "error_code": "SEARCH_QUALITY_NOT_QUALIFIED",
+      "view_count": 4,
+      "automatic_sightings": 0,
+      "browser_errors": 0
+    },
+    {
+      "id": "hidden-front-909",
+      "expected": "inconclusive",
+      "actual_readout": "inconclusive",
+      "actual_station": null,
+      "job_status": "completed",
+      "error_code": null,
+      "view_count": 4,
+      "automatic_sightings": 0,
+      "browser_errors": 0
+    },
+    {
+      "id": "one-view-1001",
+      "expected": "inconclusive",
+      "actual_readout": "inconclusive",
+      "actual_station": null,
+      "job_status": "completed",
+      "error_code": null,
+      "view_count": 1,
+      "automatic_sightings": 0,
+      "browser_errors": 0
+    },
+    {
+      "id": "duplicates-1101",
+      "expected": "inconclusive",
+      "actual_readout": "inconclusive",
+      "actual_station": null,
+      "job_status": "completed",
+      "error_code": null,
+      "view_count": 4,
+      "automatic_sightings": 0,
+      "browser_errors": 0
+    },
+    {
+      "id": "single-absent-1201",
+      "expected": "inconclusive",
+      "actual_readout": null,
+      "actual_station": null,
+      "job_status": "failed",
+      "error_code": "SEARCH_CONTROL_LOST",
+      "view_count": 2,
+      "automatic_sightings": 0,
+      "browser_errors": 0
+    },
+    {
+      "id": "single-decoy-1301",
+      "expected": "inconclusive",
+      "actual_readout": null,
+      "actual_station": null,
+      "job_status": "failed",
+      "error_code": "SEARCH_CONTROL_LOST",
+      "view_count": 2,
+      "automatic_sightings": 0,
+      "browser_errors": 0
+    }
+  ]
+}

@@ -34,14 +34,14 @@ hardware/model extensions. Priorities are dependencies, not calendar promises.
 | ID | Feature | Current status | Priority | Demonstration and acceptance evidence | Depends on |
 | --- | --- | --- | --- | --- | --- |
 | F01 | Teach an object from several views | Integrated: persistent CLI enrollment and candidate matching | P0 | Enroll references; find the taught object; reject an empty reference set | — |
-| F02 | Search stations for a taught object | Prototype: custom heuristic with oracle synthetic viewpoints | P0 | Visit stations and report found or exhausted search within a budget | F01 |
-| F03 | Reject look-alike objects through multiple views | Prototype: custom OpenCV multi-view heuristic; no IEVE reuse | P0 | Distinguish a target/decoy pair using a discriminative side view | F01 |
+| F02 | Search stations for a taught object | Legacy heuristic retained; new original-model/known-map simulator app path executed, complete identity acceptance FAIL | P0 | [Actual motion/model evidence and failures](research/2026-11-02-complete-search/report.md); verified automatic memory still blocked | F01 |
+| F03 | Reject look-alike objects through multiple views | FAIL: actual DINOv2/DISK/LightGlue readout falsely confirms a same-front/different-side unknown; no IEVE reuse | P0 | [Illustrated counterexample](review/2026-11-02-yoloe-identity-gate-case.md); [additional-verifier research plan](30-appearance-contradiction-research-plan.md) | F01 |
 | F04 | Recover station localization after tag loss | Prototype: FSM and synthetic input | P0 | Recover a visible tag or stop/skip after timeout; record outcome | F02 |
 | F05 | Request return to HOME after a mission | FAIL for physical return; logical graph bookkeeping only | P0 | Physically reach HOME or explicitly report return failure | F02, F09 |
 | F06 | View the robot camera remotely | Integrated: browser camera, v2 metadata adapter; hardware pending | P0 | Synthetic browser and loopback tests display frame identity/age and disconnected state; verify real camera clock next | — |
 | F07 | Operator stop and communication-loss stop | Integrated: UI stop, expiring lease, relay watchdog; hardware pending | P0 | Hold/release, blur, reconnect, stale/replayed commands, in-flight stop tests; measure physical stop next | F06 |
 | F08 | Inspect mission evidence and replay | Prototype: app observation timeline and saved answers integrated; full action/run replay pending | P1 | Show ordered observations, rejected candidates, and final outcome | F02, F03 |
-| F09 | Execute calibrated routes between stations | Planned | P0 | Repeat each bounded route; measure failures and operator interventions | F06, F07 |
+| F09 | Execute calibrated routes between stations | Prototype: original PythonRobotics plus observed AprilTag geometry executed in kinematic simulator; physical routes unverified | P0 | [Actual trajectory/pose evidence](research/2026-11-02-complete-search/report.md); no oracle pose input, no physical gait claim | F06, F07 |
 | F10 | Manage a persistent library of taught objects | Integrated: CLI, archive preserves evidence | P1 | Create, rename, update, list, and remove an object; survive restart | F01 |
 | F11 | Inspect where and when an object was last seen | Integrated: historical-sighting lookup | P1 | Query an object and return its observation time, station, and image | F10 |
 | F12 | Find an object after it moves | Planned | P2 | Visit stale location, collect contrary evidence, find new location | F09, F11 |

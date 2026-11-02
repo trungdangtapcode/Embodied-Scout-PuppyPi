@@ -57,6 +57,30 @@ missing research models or close the original incident.
 
 ## Implemented baseline
 
+### Current station-search completion attempt: FAIL
+
+The [complete-search contract](29-complete-teach-search-memory.md) now has a new
+app/worker path: enrolled images → continuous bounded kinematic simulator motion
+using actual AprilTag pixels and original PythonRobotics → actual YOLOE/DINOv2/
+ByteTrack/DISK/LightGlue → stored per-view evidence. The user explicitly approved
+YOLOE as region proposal, DINOv2 as gallery candidate identity and LightGlue as
+local correspondence. Original vision v2 semantics remain preserved.
+
+The [illustrated case review](review/2026-11-02-yoloe-identity-gate-case.md) shows
+why the old class-agreement veto rejected a useful target proposal, and a second
+case where the revised rule still falsely confirmed an unknown object with the
+same front and different sides. The frozen 13-case run has six control failures
+and that false confirmation. Per-segment acknowledged disarm fixes are separately
+regression-tested; they do not repair identity quality. See the
+[execution report](research/2026-11-02-complete-search/report.md).
+
+**Automatic verified memory remains blocked.** The model-sighting/history code
+exists behind a closed quality gate; a successful model readout is not delivered
+end-to-end verified memory. The user approved [additional contradiction-verifier
+research](30-appearance-contradiction-research-plan.md), with concrete method
+approval required before integration. No new physical/Pi/real-room/world-model
+capability, quality certification or closure of the critical incident is claimed.
+
 ### Executed visual-prompt and descriptor-comparison subsets
 
 The [YOLOE app profile](24-yoloe-vision.md) now invokes the pinned author source,
