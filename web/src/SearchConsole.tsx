@@ -18,6 +18,12 @@ type Candidate = {
   floor_xy: number[] | null;
   proposal_prompt_name?: string;
   identity_name?: string;
+  appearance?: {
+    score: number;
+    appearance_rejected: boolean;
+    map_image_sha: string;
+    provenance: { calibration_sha256: string; revision: string };
+  };
   reference_comparison: { best_score: number; margin: number | null; reason: string };
 };
 type View = { frame: Frame; pose: { x: number; y: number; yaw: number }; candidates: Candidate[] };
@@ -193,8 +199,9 @@ export function SearchConsole({ objects }: { objects: ObjectRecord[] }) {
         <details class="search-method">
           <summary>Method and limitations</summary>
           <p>
-            Actual YOLOE proposals → DINOv2 gallery comparison → DISK/LightGlue correspondences.
-            Custom multi-view geometry; calibrated AprilTags and PythonRobotics navigation.
+            Actual YOLOE proposals → DINOv2 gallery comparison → DISK/LightGlue correspondences →
+            original AnomalyDINO patch checks. Custom multi-view geometry; calibrated AprilTags and
+            PythonRobotics navigation.
           </p>
           <p class="search-disclosure">
             Kinematic simulator; supplied map and reference images. Inconclusive does not prove
@@ -317,6 +324,30 @@ export function SearchConsole({ objects }: { objects: ObjectRecord[] }) {
                             {m.supported ? "supported" : "insufficient"}
                           </p>
                         ))}
+                        {candidate.appearance && (
+                          <section class="search-appearance" aria-label="Appearance verification">
+                            <strong>
+                              {candidate.appearance.appearance_rejected
+                                ? "Appearance unsupported — confirmation vetoed"
+                                : "Appearance passed development-fitted gate"}
+                            </strong>
+                            <p>
+                              Original AnomalyDINO top-1% patch distance:{" "}
+                              {candidate.appearance.score.toFixed(4)}. Fitted scalar decision; not
+                              an identity probability.
+                            </p>
+                            <img
+                              class="search-crop"
+                              src={evidence(candidate.appearance.map_image_sha)}
+                              alt="Original AnomalyDINO unmasked patch distance map"
+                            />
+                            <small>
+                              No PCA filtering; original resize/patch-grid cropping applies. Dark →
+                              bright: distance 0–2. Background, occlusion or unseen true views may
+                              also cause rejection.
+                            </small>
+                          </section>
+                        )}
                       </details>
                     ))}
                   </div>
