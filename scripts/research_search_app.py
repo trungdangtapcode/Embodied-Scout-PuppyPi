@@ -19,7 +19,7 @@ import numpy as np
 
 from teach_and_find.config import Settings
 from teach_and_find.sim.world3d import build_object_catalog, render_teaching_views
-from teach_and_find.sim.search_device import hidden_side_decoy
+from teach_and_find.sim.search_device import hidden_side_decoy, fixture_catalog
 
 
 def main():
@@ -41,6 +41,7 @@ def main():
     )
     parser.add_argument("--port", type=int, default=18784)
     parser.add_argument("--seed", type=int, default=0)
+    parser.add_argument("--appearance-seed", type=int, default=0)
     parser.add_argument("--view-budget", type=int, default=4)
     parser.add_argument(
         "--target-only",
@@ -74,7 +75,7 @@ def main():
     refs = output / "references"
     refs.mkdir()
     cfg = Settings()
-    catalog = build_object_catalog()
+    catalog = fixture_catalog(args.appearance_seed)
     enrollment = []
     for name in (
         ("secret_box_1",) if args.target_only else ("secret_box_1", "lookalike_red_box")
@@ -112,6 +113,7 @@ def main():
         PUPPYPI_SEARCH_HOST=f"http://127.0.0.1:{args.port}",
         PUPPYPI_SEARCH_SCENARIO=args.scenario,
         PUPPYPI_SEARCH_SIM_SEED=str(args.seed),
+        PUPPYPI_SEARCH_APPEARANCE_SEED=str(args.appearance_seed),
         PUPPYPI_SEARCH_VIEW_BUDGET=str(args.view_budget),
         TEACH_FIND_DATA_DIR=str(output / "store"),
         PYTHONPATH=str(root),
@@ -156,6 +158,7 @@ def main():
                 # Fixture presence/placement/seed are not inference inputs.
                 process_env.pop("PUPPYPI_SEARCH_SCENARIO", None)
                 process_env.pop("PUPPYPI_SEARCH_SIM_SEED", None)
+                process_env.pop("PUPPYPI_SEARCH_APPEARANCE_SEED", None)
             processes.append(
                 subprocess.Popen(
                     command,
@@ -201,6 +204,7 @@ def main():
                 {
                     "scenario": args.scenario,
                     "seed": args.seed,
+                    "appearance_seed": args.appearance_seed,
                     "ambiguous_gallery": args.ambiguous_gallery,
                     "view_budget": args.view_budget,
                     "target_only_gallery": args.target_only,

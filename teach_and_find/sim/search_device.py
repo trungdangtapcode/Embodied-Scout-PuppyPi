@@ -14,6 +14,7 @@ import time
 from uuid import uuid4
 
 import numpy as np
+import cv2
 
 from teach_and_find.camera import CameraFrame
 from teach_and_find.library import utc_now
@@ -62,6 +63,31 @@ def hidden_side_decoy(catalog):
             },
         },
     )
+
+
+def fixture_catalog(appearance_seed=0):
+    """Authored input augmentation shared by enrollment and renderer, never inference.
+
+    Global hue and emblem rotation produce fresh reference/query appearances.
+    No identity result, model score or placement is authored by this transform.
+    """
+    catalog = build_object_catalog()
+    if not appearance_seed:
+        return catalog
+    rng = np.random.default_rng(appearance_seed)
+    hue_shift, quarter_turns = int(rng.integers(15, 165)), int(rng.integers(1, 4))
+    saturation = float(rng.uniform(0.7, 1.0))
+    for key, spec in catalog.items():
+        faces = {}
+        for face, image in spec.face_textures.items():
+            hsv = cv2.cvtColor(np.rot90(image, quarter_turns).copy(), cv2.COLOR_BGR2HSV)
+            hsv[:, :, 0] = ((hsv[:, :, 0].astype(int) + hue_shift) % 180).astype(
+                np.uint8
+            )
+            hsv[:, :, 1] = np.clip(hsv[:, :, 1] * saturation, 0, 255).astype(np.uint8)
+            faces[face] = cv2.cvtColor(hsv, cv2.COLOR_HSV2BGR)
+        catalog[key] = replace(spec, face_textures=faces)
+    return catalog
 
 
 def fixture_calibration():
@@ -122,7 +148,7 @@ class SearchSimRobot:
             tag_size_m=MARKER_SIZE_M,
             tag_center_height_m=MARKER_CENTER_HEIGHT_M,
         )
-        catalog = build_object_catalog()
+        catalog = fixture_catalog(settings.search_sim.appearance_seed)
         catalog["hidden_side_decoy"] = hidden_side_decoy(catalog)
         # Scenario is an explicit fixture selection, consumed only by the renderer.
         scenario = settings.search_sim.scenario

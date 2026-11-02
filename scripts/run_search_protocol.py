@@ -71,6 +71,8 @@ def main():
             case["scenario"],
             "--seed",
             str(case["seed"]),
+            "--appearance-seed",
+            str(case.get("appearance_seed", 0)),
             "--view-budget",
             str(case.get("view_budget", 4)),
             "--readout-only",

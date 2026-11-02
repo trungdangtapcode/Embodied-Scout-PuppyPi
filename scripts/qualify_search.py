@@ -10,11 +10,16 @@ from datetime import datetime, timezone
 import hashlib
 import json
 from pathlib import Path
+import sqlite3
 
 import numpy as np
 
 from teach_and_find.config import Settings
-from teach_and_find.search_qualification import profile_signature, execution_environment
+from teach_and_find.search_qualification import (
+    profile_signature,
+    execution_environment,
+    reference_scope,
+)
 from teach_and_find.sim.search_device import fixture_calibration
 
 CASES = [
@@ -103,13 +108,37 @@ def write_new(path, value):
         json.dump(value, stream, indent=2)
 
 
+def original_payload(directory, job):
+    """Audit the immutable DB snapshot, preserving JSON numeric representation.
+
+    Browser JSON.stringify normalizes 2.0 to 2. The exported values must still
+    agree, but their reserialized bytes cannot replace the original signed input.
+    """
+    uri = (Path(directory) / "store/assistant.sqlite3").resolve().as_uri() + "?mode=ro"
+    with sqlite3.connect(uri, uri=True) as database:
+        row = database.execute(
+            "SELECT payload_json FROM searches WHERE id=?", (job["id"],)
+        ).fetchone()
+    if row is None:
+        raise ValueError("Original immutable search snapshot is unavailable.")
+    payload = json.loads(row[0])
+    if payload != job["payload"]:
+        raise ValueError("Browser export disagrees with the original job snapshot.")
+    return payload
+
+
 def audit_case(root, case, protocol):
     directory = root / case["id"]
     raw = (directory / "app-result.json").read_bytes()
     app = json.loads(raw)
     overview, errors = app["overview"], []
     job = overview["runs"][0]
-    payload = job["payload"]
+    payload = original_payload(directory, job)
+    manifest = json.loads((directory / "manifest.json").read_text())
+    if manifest.get("seed") != case["seed"] or manifest.get(
+        "appearance_seed", 0
+    ) != case.get("appearance_seed", 0):
+        errors.append("fixture_seed_differs_from_frozen_case")
     actual_signature, _ = profile_signature(Settings(), payload["calibration"], payload)
     if (
         actual_signature != case["profile_signature"]
@@ -128,6 +157,7 @@ def audit_case(root, case, protocol):
         "true_pose",
         "ground_truth",
         "placed_objects",
+        "appearance_seed",
     }
 
     def check_keys(value):
@@ -142,7 +172,8 @@ def audit_case(root, case, protocol):
 
     check_keys(payload)
     if (
-        payload.get("schema_version") != 2
+        payload.get("schema_version")
+        != protocol["profile"]["search"]["profile_version"]
         or payload["vision_profile"].get("profile_version") != 3
     ):
         errors.append("wrong_role_version")
@@ -163,6 +194,20 @@ def audit_case(root, case, protocol):
         and (readout or {}).get("candidate_count", 0) < 1
     ):
         errors.append("insufficient_view_case_has_no_actual_positive_candidate")
+    if (
+        case.get("require_supported_candidate")
+        and payload["search_profile"]["profile_version"] == 3
+        and not any(
+            c["descriptor_supported"]
+            and c.get("appearance", {}).get("appearance_rejected") is False
+            and any(m["supported"] for m in c["matches"])
+            for v in job["views"]
+            for c in v["candidates"]
+        )
+    ):
+        errors.append(
+            "insufficient_view_case_has_no_appearance_and_geometry_supported_candidate"
+        )
     expected_error = (
         "SEARCH_QUALITY_NOT_QUALIFIED" if case["expected"] == "confirmed" else None
     )
@@ -178,6 +223,26 @@ def audit_case(root, case, protocol):
         calls = view["vision"]["provenance"]["executed_upstream_calls"]
         if len(calls) != 8 or any(count < 1 for count in calls.values()):
             errors.append("missing_required_upstream_execution")
+        if payload["search_profile"]["profile_version"] == 3:
+            model = view.get("appearance_model", {})
+            if (
+                model.get("entry_point")
+                != "verbatim demo_AnomalyDINO.ipynb:score_single_image"
+                or model.get("calibration_sha256")
+                != payload["search_profile"]["anomaly_calibration_sha256"]
+            ):
+                errors.append("missing_original_anomaly_model_provenance")
+            for candidate in view["candidates"]:
+                if not candidate["descriptor_supported"]:
+                    continue
+                assessment = candidate.get("appearance", {})
+                if assessment.get("crop_image_sha") != candidate[
+                    "crop_image_sha"
+                ] or not assessment.get("provenance", {}).get("executed_scoring_calls"):
+                    errors.append("missing_real_candidate_appearance_inference")
+                data = (directory / "store" / assessment["map_file"]).read_bytes()
+                if hashlib.sha256(data).hexdigest() != assessment["map_sha256"]:
+                    errors.append("raw_patch_map_digest_mismatch")
     if execution_environment(job["views"]) != protocol["environment"]:
         errors.append("executed_environment_mismatch")
     for file, digest in protocol["fixture_source_sha256"].items():
@@ -220,6 +285,7 @@ def audit_case(root, case, protocol):
         "pose_p95_m": p95,
         "result_sha256": hashlib.sha256(raw).hexdigest(),
         "profile_signature": actual_signature,
+        "reference_scope": reference_scope(payload),
     }
 
 
@@ -230,6 +296,10 @@ def main():
     parser.add_argument("--runs")
     parser.add_argument("--output")
     parser.add_argument("--environment-evidence")
+    parser.add_argument("--appearance-seed-offset", type=int, default=0)
+    parser.add_argument(
+        "--evaluation-kind", default="fresh_heldout_appearances_and_seeds"
+    )
     parser.add_argument(
         "--seed-offset",
         type=int,
@@ -248,9 +318,14 @@ def main():
         ]["runs"][0]
         signature, profile = profile_signature(cfg, fixture_calibration())
         cases = []
-        for case in CASES:
+        for index, case in enumerate(CASES):
             case = {**case, "seed": case["seed"] + args.seed_offset}
             case["id"] = case["id"].rsplit("-", 1)[0] + "-" + str(case["seed"])
+            case["appearance_seed"] = (
+                args.appearance_seed_offset + index
+                if args.appearance_seed_offset
+                else 0
+            )
             variant = replace(
                 cfg,
                 search=replace(
@@ -270,6 +345,7 @@ def main():
             {
                 "schema_version": 1,
                 "frozen_at": datetime.now(timezone.utc).isoformat(),
+                "evaluation_kind": args.evaluation_kind,
                 "profile_signature": signature,
                 "profile": profile,
                 "limits": {
@@ -291,7 +367,7 @@ def main():
                 },
             },
         )
-        print(f"Frozen {len(cases)} unseen-condition cases: {signature}")
+        print(f"Frozen {len(cases)} cases ({args.evaluation_kind}): {signature}")
         return
     protocol = json.loads(Path(args.protocol).read_text())
     results = []
@@ -316,6 +392,9 @@ def main():
         "cases": results,
         "required_case_count": len(protocol["cases"]),
         "environment": protocol["environment"],
+        "evaluated_reference_scopes": sorted(
+            {r["reference_scope"] for r in results if "reference_scope" in r}
+        ),
     }
     write_new(args.output, report)
     for result in results:
