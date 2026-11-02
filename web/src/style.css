@@ -2559,6 +2559,7 @@ dialog h3 {
 }
 .search-console p {
   line-height: 1.6;
+  overflow-wrap: anywhere;
 }
 .search-disclosure,
 .search-console small {

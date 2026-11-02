@@ -29,7 +29,9 @@ def main():
         r for r in job["payload"]["references"] if r["object_id"] == job["object_id"]
     )
     views = copy.deepcopy(job["views"])
-    cfg = Settings().search
+    # This reproducer specifically preserves the historical v3 appearance repair.
+    # Supported v4 native geometry is evaluated separately, never inferred here.
+    cfg = replace(Settings().search, profile_version=3)
     with EvidenceStore(output / "store") as store:
         needed = set(target["image_shas"])
         needed.update(

@@ -395,4 +395,21 @@ test("station search exposes mandatory worker failure without a simulated succes
     path: "../runs/mobile-preview/landscape-search-unavailable.png",
     fullPage: true,
   });
+
+  // Explicit browser-only failure fixture; never model or qualification evidence.
+  const failed = {
+    id: "unit-long-error", object_id: "unit-target", status: "failed",
+    created_at: "2026-11-02T00:00:00Z", revision: "unit-failure", views: [], result: null,
+    method: "Explicit UI test fixture; no model execution claim",
+    error: { code: "NATIVE_ERROR_TEST", message: "OpenCV /io/opencv/modules/geometry/src/usac/estimator.cpp:418: !model.empty()" },
+  };
+  await page.route("**/api/search", route => route.fulfill({ json: {
+    enabled: true, worker: { alive: false }, quality_gate: "UNIT_TEST_ONLY",
+    runs: [failed], sightings: [], method: failed.method,
+  } }));
+  await page.route("**/api/search/unit-long-error", route => route.fulfill({ json: failed }));
+  await expect(page.getByRole("alert")).toContainText("estimator.cpp:418");
+  await page.setViewportSize({ width: 844, height: 390 });
+  await page.setViewportSize({ width: 390, height: 844 });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });

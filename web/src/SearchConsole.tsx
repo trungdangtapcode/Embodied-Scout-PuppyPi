@@ -6,6 +6,7 @@ import type { ObjectRecord } from "./types";
 type Frame = { image_sha: string; captured_at: string; frame_id: string };
 type Match = {
   geometry_model?: string;
+  native_error?: string | null;
   reference_index: number;
   supported: boolean;
   inliers: number;
@@ -324,6 +325,9 @@ export function SearchConsole({ objects }: { objects: ObjectRecord[] }) {
                             {m.geometry_model === "fundamental_usac_magsac" ? "fundamental-matrix" : "historical geometric"}
                             inliers · {(m.reference_coverage * 100).toFixed(0)}% coverage ·{" "}
                             {m.supported ? "supported" : "insufficient"}
+                            {m.native_error && (
+                              <small> Native estimator produced no model: {m.native_error}</small>
+                            )}
                           </p>
                         ))}
                         {candidate.appearance && (

@@ -251,19 +251,23 @@ def execute_search(store, settings, job, stop_event=None):
                     if comparison["best_object_id"] != target["object_id"]:
                         continue
                     x0, y0, x1, y1 = detection["xyxy"]
-                    features = local.extract(
-                        store.load_image(detection["crop_image_sha"])
-                    )
                     matches = []
-                    for index, ref in enumerate(reference_features):
-                        check()
-                        matches.append(
-                            {
-                                "reference_index": index,
-                                "reference_sha": target["image_shas"][index],
-                                **local.compare(ref, features),
-                            }
+                    # Local geometry cannot rescue a rejected gallery candidate.
+                    # Keep its detector/descriptor record, without running the
+                    # downstream matcher on unrelated background regions.
+                    if comparison["decision"] == "supported_candidate":
+                        features = local.extract(
+                            store.load_image(detection["crop_image_sha"])
                         )
+                        for index, ref in enumerate(reference_features):
+                            check()
+                            matches.append(
+                                {
+                                    "reference_index": index,
+                                    "reference_sha": target["image_shas"][index],
+                                    **local.compare(ref, features),
+                                }
+                            )
                     candidates.append(
                         {
                             "object_id": target["object_id"],

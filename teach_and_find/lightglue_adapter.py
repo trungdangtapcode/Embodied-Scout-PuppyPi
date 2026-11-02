@@ -28,12 +28,16 @@ def geometric_support(a, b, image_size, cfg):
     if cfg.profile_version not in {2, 3, 4}:
         raise AssistantError("SEARCH_PROFILE_UNSUPPORTED", "Unknown geometry profile.")
     a, b = np.asarray(a, dtype=np.float32), np.asarray(b, dtype=np.float32)
-    if a.shape != b.shape or a.ndim != 2 or a.shape[1] != 2 or not (
-        np.isfinite(a).all() and np.isfinite(b).all()
+    if (
+        a.shape != b.shape
+        or a.ndim != 2
+        or a.shape[1] != 2
+        or not (np.isfinite(a).all() and np.isfinite(b).all())
     ):
         raise AssistantError("SEARCH_MATCHES_INVALID", "Invalid learned point pairs.")
     inliers = np.zeros(len(a), dtype=bool)
     matrix = None
+    native_error = None
     if cfg.profile_version == 4:
         model = "fundamental_usac_magsac"
         params = cv2.UsacParams()
@@ -60,7 +64,20 @@ def geometric_support(a, b, image_size, cfg):
             "lo_iterations": params.loIterations,
         }
         if len(a) >= 8:
-            matrix, mask = cv2.findFundamentalMat(a, b, params)
+            try:
+                matrix, mask = cv2.findFundamentalMat(a, b, params)
+            except cv2.error as error:
+                # The pinned native estimator can assert on its own empty
+                # model. Preserve that actual no-model result, never retry or
+                # manufacture inliers. Other native failures remain terminal.
+                if (
+                    error.code != -215
+                    or error.func != "setModelParameters"
+                    or error.err != "!model.empty()"
+                ):
+                    raise
+                native_error = str(error)
+                matrix, mask = None, None
             if matrix is not None and mask is not None and np.isfinite(matrix).all():
                 inliers = mask.reshape(-1).astype(bool)
             else:
@@ -77,9 +94,7 @@ def geometric_support(a, b, image_size, cfg):
     coverage = 0.0
     if inliers.sum() >= 3:
         width, height = image_size
-        coverage = float(
-            cv2.contourArea(cv2.convexHull(a[inliers])) / (width * height)
-        )
+        coverage = float(cv2.contourArea(cv2.convexHull(a[inliers])) / (width * height))
     ratio = float(inliers.mean()) if len(inliers) else 0.0
     supported = (
         matrix is not None
@@ -98,9 +113,11 @@ def geometric_support(a, b, image_size, cfg):
         "inlier_mask": inliers.tolist(),
         "geometry_model": model,
         "geometry_configuration": configuration,
-        ("fundamental_matrix" if cfg.profile_version == 4 else "homography"):
-            matrix.tolist() if matrix is not None else None,
+        (
+            "fundamental_matrix" if cfg.profile_version == 4 else "homography"
+        ): matrix.tolist() if matrix is not None else None,
         "reason": None if supported else "insufficient_native_geometric_support",
+        "native_error": native_error,
         "score_semantics": "custom_geometric_support_not_identity_probability",
     }
 

@@ -43,3 +43,19 @@ def test_insufficient_and_collinear_evidence_cannot_retry_planar_geometry():
         geometric_support(
             points, points, [100, 100], replace(Settings().search, profile_version=999)
         )
+
+
+def test_native_empty_model_is_preserved_as_unsupported_evidence():
+    """Actual eight-pair framework regression, not a model-output substitute."""
+    import json
+    from pathlib import Path
+
+    record = json.loads(
+        (Path(__file__).parent / "fixtures/search_native_empty_model.json").read_text()
+    )
+    pairs = record["input"]
+    result = geometric_support(pairs["a"], pairs["b"], [200, 200], Settings().search)
+    assert not result["supported"]
+    assert result["fundamental_matrix"] is None
+    assert result["native_error"] and result["inliers"] == 0
+    assert "homography" not in result
