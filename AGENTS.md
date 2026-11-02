@@ -123,6 +123,44 @@
 
 ## Mandatory foundation: real research, repositories and frameworks
 
+### Mandatory workflow: fetch, clone, inspect, execute, integrate directly
+
+- Fetch the actual research materials and clone the actual author/source
+  repositories into workspace artifacts before implementing a research method.
+  Keep pinned source checkouts under ignored `.upstream/` and fetched papers,
+  documentation, examples and inspection records under ignored
+  `runs/<research-task>/`. Record source URLs, revisions, licenses, file hashes
+  and local paths. Search snippets, remembered APIs, remote browsing alone or
+  a bibliography do not satisfy this material/source acquisition requirement.
+- Read the local source, configuration, preprocessing, inference/scoring,
+  postprocessing and original examples for the complete relevant method. Trace
+  the actual entry points and input/output assumptions before writing adapters.
+  Do not infer implementation details from a paper description or model name.
+- Apply the fetched implementation directly in the supported execution path:
+  import/call its original components, invoke its original entry points, or
+  vendor the required source with attribution and license intact. Do not merely
+  read the paper/code and independently rewrite the algorithm in project Python.
+  That introduces implementation drift and hallucinated behavior and does not
+  fulfill this project's requirement for upstream implementation reuse.
+- Reusing a backbone or matcher does not authorize inventing the rest of a
+  claimed research pipeline. Preserve the relevant upstream method through its
+  decision stage. Any new identity verdict, scoring, aggregation or verification
+  rule is a custom algorithm requiring explicit design disclosure and approval;
+  it cannot inherit the paper's validity from the models it calls.
+- Project-owned glue may handle records, transport, lifecycle, configuration,
+  storage and UI. Necessary upstream changes must be minimal, recorded as
+  reviewable patches against the pinned checkout, and justified with comparison
+  evidence. Explain and obtain approval for algorithmic changes before applying
+  them; do not silently alter preprocessing, scoring or decision semantics.
+- Run the genuine upstream example, then exercise the same implementation
+  through the project adapter. Retain commands, source/patch identities, real
+  inputs and outputs, and failures in the workspace artifacts. Compare upstream
+  and adapted behavior on paired inputs before claiming equivalent integration.
+- If source/material acquisition, licensing, dependencies, weights or execution
+  prevent this workflow, report the concrete blocked component as FAIL. Do not
+  replace missing source with guessed APIs, a self-authored approximation,
+  canned outputs or a fallback. Propose a researched design revision instead.
+
 - Base technical solutions on verifiable research, actual source repositories
   and established frameworks. For perception, tracking, navigation, memory and
   control, inspect and reuse relevant existing implementations instead of
