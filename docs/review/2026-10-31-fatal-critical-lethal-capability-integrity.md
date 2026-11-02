@@ -311,3 +311,25 @@ bug is subsequently fixed with three genuine-model same-case regressions; the
 geometry revision remains proposed pending user approval. No complete quality
 pass or automatic-memory publication follows. Preserve these distinctions and
 the failed evidence. The incident is **OPEN / FAIL**, user rating **0/10**.
+
+## Later native-geometry repair: evaluated simulator search/history passes
+
+The [subsequent v4 correction](../research/2026-11-02-geometry-fix/report.md)
+repairs the project-selected planar geometry assumption using actual native
+OpenCV fundamental estimation over original DISK/LightGlue. The first full run
+passes 12/13 and fails on a native empty-model assertion in an unresolved region;
+that failure, raw points and UI error remain preserved. Respecting the descriptor
+gate, explicit no-model handling and mobile UI corrections precede a full
+same-case repeat with no retuning: **13/13 pass**, four confirmations and nine
+expected inconclusive outcomes. Original appearance veto also executes on the
+known unknown-object regression after the geometry repair.
+
+A real matching certificate then permits a fresh actual-model simulator search
+to publish a sighting. After a landscape navigation accessibility fix, a fresh
+full run passes reload, Library UI and Room timeline/history query. Recorded
+history remains inspectable after host restart. No operator assertion or canned
+sighting supplies that evidence. This is a concrete correction for the evaluated
+synthetic profile/gallery, not real-room accuracy, physical navigation, learned
+locomotion or a world-model claim. Default publication stays disabled and rejects
+unevaluated profiles/galleries. The broader incident is **OPEN**, rating **0/10**
+unchanged; neither the historical failures nor remaining capabilities are erased.

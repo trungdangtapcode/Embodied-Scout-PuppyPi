@@ -3,14 +3,14 @@
 Date: 2026-11-02. User requested completion of the missing station-search,
 multi-view verification and automatic recorded-sighting feature after the
 [critical reporting recurrence](review/2026-11-02-academic-claim-inflation.md).
-Status: implementation in progress; no completion or quality claim.
-
-Current correction evidence: original AnomalyDINO is integrated in search v3;
-the [repeated full app evaluation](research/2026-11-02-identity-fix/report.md)
-still fails 2/13 cases. Camera cadence is corrected with separate genuine-model
-regressions. The proposed 3D geometry revision awaits user approval. Automatic
-memory publication and its successful Library/Room history acceptance remain
-blocked/unverified. The original contract below is not downgraded.
+Current status: search v4 passes the evaluated known-map simulator subset,
+including 13/13 repeated cases and actual qualified publication/reload/Library/
+Room history. See the [executed repair and limits](research/2026-11-02-geometry-fix/report.md).
+The earlier v3 11/13 failure and first v4 12/13 failure remain preserved. The
+user's renewed fix instruction authorized the reviewed native-geometry repair.
+Default publication is disabled and requires a matching evaluated profile/gallery
+certificate. Real-room, arbitrary-enrollment and physical acceptance are absent;
+the original contract below is not downgraded or retrospectively passed.
 
 ## Explicit user amendment: search v2 / vision v3
 

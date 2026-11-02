@@ -302,20 +302,39 @@
   preserved shared-front/different-side false confirmation. Its five-sample
   original sklearn scalar fit is a development decision, not identity probability.
   The repeated full app batch is **11/13, FAIL**; never promote the earlier
-  pre-state-guard 13/13 result as current qualification. Publication stays closed.
+  pre-state-guard 13/13 result as current qualification. That v3 profile remains
+  unqualified; subsequent v4 evidence is separate.
 - Preserve `docs/review/2026-11-02-multiplane-geometry-case.md`: one homography
-  rejects valid multi-face 3D correspondences. Native fundamental-matrix results
-  are diagnostics only; the proposed geometry revision requires user approval
-  before supported-path integration. Do not drop reference coverage or lower
-  thresholds to conceal the failed positive case.
+  rejects valid multi-face 3D correspondences. The user's subsequent fix instruction
+  authorized the reviewed native fundamental-matrix repair in search v4. Read
+  `docs/32-native-geometry-repair.md` and the actual
+  `docs/research/2026-11-02-geometry-fix/report.md` for current execution and gates;
+  do not reuse the historical pending-approval status as current. Do not drop
+  reference coverage or lower thresholds to conceal a failed positive case.
+- Upstream model reuse does not validate a project-owned downstream assumption.
+  Test the intended geometry on nonplanar inputs and preserve actual failing
+  point pairs. Apply the gallery-support gate before downstream local matching.
+  The pinned OpenCV estimator's specific empty-model assertion must remain
+  explicit unsupported evidence, with raw error and no alternate solver; unknown
+  native failures and required-model/source failures remain terminal. Long error
+  text must wrap on phones without hiding information. Preserve the first v4
+  12/13 failed batch and the later repeated evaluation separately.
+- The final v4 repeat passes 13/13, and a fresh qualified app run passes actual
+  publication, reload, Library history and Room timeline/query. This qualifies
+  only the recorded synthetic profile and evaluated gallery scopes. Default
+  publication stays disabled; an explicit flag still needs a matching real
+  certificate. Never inherit a four-view certificate from a one-view gallery,
+  qualify arbitrary new enrollment, claim real-room accuracy or close the broader
+  incident from these results. Historical Room lookup is project-owned retrieval,
+  not an executed Mind Palace question or a learned world model.
 - Camera polling periods include capture/render work. Skip missed periods without
   catch-up or queues; never append a full interval after slow capture. The actual
   three-app same-case camera regression passes, but is not full identity quality
   qualification or requalification of live tracking FPS.
 - The opt-in search path is documented in `docs/29-complete-teach-search-memory.md`.
-  Its four-view navigation/model jobs execute, but identity acceptance is **FAIL**:
-  experimental readouts include positives, inconclusive cases and a false
-  confirmation. Do not describe the requested end-to-end feature as complete.
+  Historical v2/v3 identity acceptance is **FAIL**, including a false confirmation.
+  Preserve those results. The later v4 simulator subset does not establish
+  arbitrary-object identity or physical completion.
 - Keep `SearchSettings.quality_qualified=False` until a frozen positive, negative,
   ambiguity and failure evaluation passes with recorded evidence. Never toggle it
   merely to allow automatic-memory publication or make a demonstration pass.

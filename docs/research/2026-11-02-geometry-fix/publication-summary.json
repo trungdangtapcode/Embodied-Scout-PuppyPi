@@ -1,0 +1,44 @@
+{
+  "scope": "actual CPU learned inference on authored kinematic simulator input; not physical phone/robot or real-room quality",
+  "qualified_search": {
+    "id": "9567f02e-45f0-45d9-bd50-44cc723be0e6",
+    "status": "completed",
+    "verdict": "confirmed",
+    "views": 4,
+    "sightings": 1,
+    "profile_signature": "bc7f6414c135e98be312fd4cc487b5e55d3768361fb0746c6a0556d5d88ab723",
+    "app_result_sha256": "d1602c6ad764984894bdc7a175e2109c77512e5585a21cd8261d9425f8d17bf1",
+    "history_result_sha256": "fbf5166971afe308554743a5d0c8eb2707333bf294d68192e896a0ec0e09283b",
+    "history_model_search_ids": [
+      "9567f02e-45f0-45d9-bd50-44cc723be0e6"
+    ],
+    "room_answer_status": "supported",
+    "room_answer_sources": [
+      "model_inference"
+    ],
+    "browser_errors": []
+  },
+  "known_unknown_regression": {
+    "run": "runs/geometry-fix-2026-11-02/known-unknown-regression",
+    "status": "completed",
+    "verdict": "inconclusive",
+    "reason": "appearance_not_supported_by_references",
+    "views": 4,
+    "executed_appearance_scores": [
+      0.6406075358390808,
+      0.5992149114608765
+    ],
+    "app_result_sha256": "320bd283b1cf214ceeecffe77b106c320331322a2307c9f0b947cb8175488c4b"
+  },
+  "quality_batch": {
+    "passed": 13,
+    "required": 13,
+    "positive_confirmations": 4,
+    "expected_inconclusive": 9,
+    "max_pose_p95_m": 0.014496378926501739,
+    "pose_limit_m": 0.05
+  },
+  "paid_api_calls": 0,
+  "gpu": false,
+  "hardware": false
+}

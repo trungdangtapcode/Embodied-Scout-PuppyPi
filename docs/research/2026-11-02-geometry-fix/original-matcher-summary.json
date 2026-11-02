@@ -1,0 +1,65 @@
+{
+  "scope": "actual original DISK/LightGlue re-extraction/matching and native OpenCV on preserved rendered inputs; not fresh navigation",
+  "source_run": "runs/identity-fix-2026-11-02/qualification-state-verified/hidden-20202",
+  "provenance": {
+    "repository": "https://github.com/cvg/LightGlue",
+    "revision": "5a650c444718caffc2669dc0094cde908f42dd73",
+    "weights": {
+      "depth-save.pth": "9c2ee4ded238892dfa51569941372601e35e4a74aa6f84ea80053d2ab1c07abe",
+      "disk_lightglue_v0-1_arxiv.pth": "b5b21d47ea24f2c5e501aec9c91b9716e4c8c3429a4dc1e615c133c4c9378335"
+    },
+    "features": "original_kornia_DISK_depth",
+    "device": "cpu",
+    "packages": {
+      "opencv_runtime": "5.0.0",
+      "torch": "2.6.0+cpu",
+      "kornia": "0.8.2",
+      "kornia-rs": "0.1.9"
+    },
+    "resize": 256,
+    "max_keypoints": 512,
+    "policy": "native_fundamental_usac_magsac_not_identity_probability"
+  },
+  "executed_calls": {
+    "DISK.forward": 3,
+    "LightGlue.forward": 2
+  },
+  "comparisons": [
+    {
+      "view": 0,
+      "crop_image_sha": "b2064b9f693089c3f68507c870de86d9a73ad08e0c365dc15029032032da1099",
+      "reference_sha": "985a3ba3f9bc9408759d43656cbf1fd941e8ac8d623b404d2d34a3f3220dd6ed",
+      "old": {
+        "inliers": 43,
+        "matches": 77,
+        "supported": false,
+        "reference_coverage": 0.24559104442596436
+      },
+      "new": {
+        "inliers": 72,
+        "matches": 77,
+        "supported": true,
+        "reference_coverage": 0.41890817880630493
+      }
+    },
+    {
+      "view": 1,
+      "crop_image_sha": "db05ff09d6908ef7e7b79d016fe4b7e5678b293155de7a148a671b4eaf2e8bb5",
+      "reference_sha": "985a3ba3f9bc9408759d43656cbf1fd941e8ac8d623b404d2d34a3f3220dd6ed",
+      "old": {
+        "inliers": 46,
+        "matches": 87,
+        "supported": false,
+        "reference_coverage": 0.11347902566194534
+      },
+      "new": {
+        "inliers": 75,
+        "matches": 87,
+        "supported": true,
+        "reference_coverage": 0.4121587872505188
+      }
+    }
+  ],
+  "full_evidence_path": "runs/geometry-fix-2026-11-02/original-matcher-regression-retry.json",
+  "full_evidence_sha256": "650de22d869d07d94292ff2089a6e166e0130dc37d7c1b9622f71317fa08c414"
+}

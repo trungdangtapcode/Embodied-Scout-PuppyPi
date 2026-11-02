@@ -57,40 +57,27 @@ missing research models or close the original incident.
 
 ## Implemented baseline
 
-### Current station-search completion attempt: FAIL
+### Station search: evaluated simulator flow now passes
 
-The [complete-search contract](29-complete-teach-search-memory.md) now has a new
-app/worker path: enrolled images → continuous bounded kinematic simulator motion
-using actual AprilTag pixels and original PythonRobotics → actual YOLOE/DINOv2/
-ByteTrack/DISK/LightGlue → stored per-view evidence. The user explicitly approved
-YOLOE as region proposal, DINOv2 as gallery candidate identity and LightGlue as
-local correspondence. Original vision v2 semantics remain preserved.
+The [native-geometry correction report](research/2026-11-02-geometry-fix/report.md)
+records original YOLOE/DINOv2/ByteTrack/DISK/LightGlue and AnomalyDINO, native OpenCV
+fundamental estimation, observed AprilTag localization and original PythonRobotics
+in the bounded known-map kinematic simulator. Final repeated acceptance passes
+**13/13** required cases. A separate fresh qualified run publishes a real model
+sighting and passes browser reload, Library history and Room timeline/query.
+Default publication remains disabled; an explicit flag requires the matching
+source/environment/profile and evaluated-gallery certificate. Arbitrary new
+objects, real rooms and physical PuppyPi operation are not qualified.
 
-The [illustrated case review](review/2026-11-02-yoloe-identity-gate-case.md) shows
-why the old class-agreement veto rejected a useful target proposal, and a second
-case where the revised rule still falsely confirmed an unknown object with the
-same front and different sides. The frozen 13-case run has six control failures
-and that false confirmation. Per-segment acknowledged disarm fixes are separately
-regression-tested; they do not repair identity quality. See the
-[execution report](research/2026-11-02-complete-search/report.md).
-
-**Automatic verified memory remains blocked.** The model-sighting/history code
-exists behind a closed quality gate; a successful model readout is not delivered
-end-to-end verified memory. The user approved [additional contradiction-verifier
-research](30-appearance-contradiction-research-plan.md), with concrete method
-approval required before integration. No new physical/Pi/real-room/world-model
-capability, quality certification or closure of the critical incident is claimed.
-
-The subsequent [executed identity correction](research/2026-11-02-identity-fix/report.md)
-requires original AnomalyDINO scoring and an explicitly development-fitted sklearn
-scalar gate. It rejects the preserved false confirmation and retains a positive
-replay. The first 13-case batch passes; a repeat with loaded-weight verification
-is **11/13, FAIL**. One remaining positive fails the single-homography geometric
-support rule; a native fundamental-matrix revision is proposed, not integrated,
-pending user approval. A separate camera-cadence defect is fixed and three
-concurrent same-case model runs complete four views without stale-camera failure.
-These regressions do not certify the complete feature. Automatic sightings remain
-zero, publication remains blocked, and real-room/hardware validation is absent.
+Earlier failures are preserved: [the original role/identity failure](review/2026-11-02-yoloe-identity-gate-case.md),
+[the search-v3 11/13 repeat](research/2026-11-02-identity-fix/report.md), and v4's
+first 12/13 batch. Project homography assumptions, camera cadence, unnecessary
+fitting of unresolved regions, native no-model handling and mobile error/nav
+bugs were corrected without changing identity thresholds or the frozen appearance
+fit. The original unknown-object regression also executes the actual appearance
+veto after the geometry repair. These are measured simulator subsets, not a
+learned world model, physical navigation or a statistical real-room accuracy
+claim. The critical incident remains OPEN and the user's rating is unchanged.
 
 ### Executed visual-prompt and descriptor-comparison subsets
 

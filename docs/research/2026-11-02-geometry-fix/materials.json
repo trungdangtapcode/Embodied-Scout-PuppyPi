@@ -1,0 +1,34 @@
+{
+  "sources": [
+    {
+      "name": "OpenCV",
+      "source_path": "/home/nguyentnt/PDWAIA/ecus/hi/runs/identity-fix-2026-11-02/opencv",
+      "revision": "40738fb16ceddb5fb3fea747585f7ce6abb0605b",
+      "files": {
+        "LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+        "modules/geometry/src/fundam.cpp": "1cc8b1e05c71aeb562e7f6180ab17a423da256b09de6a9b4ac06b1fbe8d59fa5",
+        "modules/geometry/src/usac/ransac_solvers.cpp": "e98fe63ea3e11dce4ed761f1a6da6ef1ca1a21b31d727b3282b1c623c3d118cc",
+        "modules/geometry/include/opencv2/geometry/3d.hpp": "3e23154729137cce7c1574c7d70d00e1fff4a8d3e1548b4b128d8337e5861c34"
+      },
+      "reuse": "native installed framework API; inspected reference checkout, not built locally"
+    },
+    {
+      "name": "LightGlue",
+      "source_path": "/home/nguyentnt/PDWAIA/ecus/hi/runs/completion-research-2026-11-02/LightGlue",
+      "revision": "5a650c444718caffc2669dc0094cde908f42dd73",
+      "files": {
+        "LICENSE": "0e6031ed3e62dc91dc8b1c8f240abd200b1083f60773362e64e339fe01d1bf18",
+        "README.md": "19dbb3380634bde27d76d6dc0dc6167432a3d2d43082a8653311cbfeee972d43",
+        "lightglue/lightglue.py": "dcb75b9cad1985c5e7a537c512d4318d47fbcc99df75b39a513de60e027c039f",
+        "lightglue/disk.py": "90940a3f8b22d9b63c48a559fb664b0e211f0f1d0d290e67e7b340096a9d0826"
+      },
+      "reuse": "original installed model implementation"
+    }
+  ],
+  "documentation": {
+    "url": "https://docs.opencv.org/5.0/main_modules/d_projection.html",
+    "access": "read through web tool; separate raw urllib download returned HTTP 403 and no HTML was saved",
+    "local_api_documentation": "cloned modules/geometry/include/opencv2/geometry/3d.hpp"
+  },
+  "original_matcher_evidence": "runs/geometry-fix-2026-11-02/original-matcher-regression-retry.json"
+}

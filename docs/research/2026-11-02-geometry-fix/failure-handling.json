@@ -1,0 +1,79 @@
+{
+  "scope": "current-source required-model failures and Stop during already stationary/disarmed inference; no physical stop timing claim",
+  "cases": [
+    {
+      "case": "final-safety-corrupt-cache",
+      "passed": true,
+      "status": "failed",
+      "error": {
+        "code": "ANOMALY_LOADED_CHECKPOINT_MISMATCH",
+        "type": "AssistantError",
+        "message": "Actual loaded tensors differ from the verified release; stale cache cannot substitute."
+      },
+      "views": 0,
+      "profile_signature": "bc7f6414c135e98be312fd4cc487b5e55d3768361fb0746c6a0556d5d88ab723",
+      "report_sha256": "786317c9602c306ef3b60b68e6e1dbe792de4665aba7eaa782dc94fa308fa157",
+      "report_path": "runs/geometry-fix-2026-11-02/final-safety-corrupt-cache/report.json",
+      "stop_request_ms": null
+    },
+    {
+      "case": "final-safety-corrupt-fit",
+      "passed": true,
+      "status": "failed",
+      "error": {
+        "code": "ANOMALY_CALIBRATION_CHECKPOINT_MISMATCH",
+        "type": "AssistantError",
+        "message": "Checkpoint digest mismatch: /home/nguyentnt/PDWAIA/ecus/hi/runs/geometry-fix-2026-11-02/final-safety-corrupt-fit/corrupt.json"
+      },
+      "views": 0,
+      "profile_signature": "bc7f6414c135e98be312fd4cc487b5e55d3768361fb0746c6a0556d5d88ab723",
+      "report_sha256": "c53d78cbfad681e46f4f77a7db5b0254d6f877b0a0d3dad19a2731bad7eea05c",
+      "report_path": "runs/geometry-fix-2026-11-02/final-safety-corrupt-fit/report.json",
+      "stop_request_ms": null
+    },
+    {
+      "case": "final-safety-missing-env",
+      "passed": true,
+      "status": "failed",
+      "error": {
+        "code": "ANOMALY_ENVIRONMENT_MISSING",
+        "type": "AssistantError",
+        "message": "Required isolated CPU interpreter is missing; run make search-setup."
+      },
+      "views": 0,
+      "profile_signature": "bc7f6414c135e98be312fd4cc487b5e55d3768361fb0746c6a0556d5d88ab723",
+      "report_sha256": "36702f395569353165d38fb579c80305750be22a8d56ca4ef80dae763d066873",
+      "report_path": "runs/geometry-fix-2026-11-02/final-safety-missing-env/report.json",
+      "stop_request_ms": null
+    },
+    {
+      "case": "final-safety-missing-source",
+      "passed": true,
+      "status": "failed",
+      "error": {
+        "code": "ANOMALYDINO_SOURCE_MISSING",
+        "type": "AssistantError",
+        "message": "Required source is unavailable: /home/nguyentnt/PDWAIA/ecus/hi/runs/geometry-fix-2026-11-02/final-safety-missing-source/missing-source"
+      },
+      "views": 0,
+      "profile_signature": "bc7f6414c135e98be312fd4cc487b5e55d3768361fb0746c6a0556d5d88ab723",
+      "report_sha256": "be649578a23b279e42ec24c1209fccbfd894063956c68684da0c0dc5a3ad328b",
+      "report_path": "runs/geometry-fix-2026-11-02/final-safety-missing-source/report.json",
+      "stop_request_ms": null
+    },
+    {
+      "case": "final-safety-stop-inference",
+      "passed": true,
+      "status": "cancelled",
+      "error": {
+        "code": "SEARCH_CANCELLED",
+        "message": "operator_stop"
+      },
+      "views": 0,
+      "profile_signature": "bc7f6414c135e98be312fd4cc487b5e55d3768361fb0746c6a0556d5d88ab723",
+      "report_sha256": "c61e1348577ca6a7ddb9b2bc0a17e996903d57069a85e33c40e18213af7379b5",
+      "report_path": "runs/geometry-fix-2026-11-02/final-safety-stop-inference/report.json",
+      "stop_request_ms": 6.667064502835274
+    }
+  ]
+}

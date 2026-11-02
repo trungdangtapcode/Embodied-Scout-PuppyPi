@@ -1,5 +1,10 @@
 # Identity correction: genuine inference, regression fixes, qualification FAIL
 
+Subsequent correction: the user's renewed fix instruction authorized the native
+geometry repair in search v4. Its [later execution report](../2026-11-02-geometry-fix/report.md)
+records 13/13 repeated simulator cases and actual qualified publication/history.
+The v3 failures below remain historical evidence, not the current v4 outcome.
+
 Date: 2026-11-02. **The complete teach → search → verify → automatic-memory
 feature remains FAIL.** The original shared-front/different-side false
 confirmation is rejected by the new executed appearance path. A repeated full

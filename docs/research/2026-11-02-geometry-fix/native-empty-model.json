@@ -1,0 +1,114 @@
+{
+  "scope": "actual recorded native assertion, then actual app regression; no native C++ patch or alternate solver",
+  "source_run": "runs/geometry-fix-2026-11-02/qualification-v4/empty-30707",
+  "source_frame": {
+    "frame_id": "29d55536-c6cc-4006-b24a-3a602116282c:184",
+    "captured_at": "2026-11-02T01:57:14.777968+00:00",
+    "provenance": {
+      "camera_id": "search_sim_rgb",
+      "session_id": "29d55536-c6cc-4006-b24a-3a602116282c",
+      "sequence": 184,
+      "capture_time_basis": "synthetic_render_time",
+      "calibration_id": "authored-search-lab-v8",
+      "source": "pinhole_renderer_kinematic_velocity_integration"
+    },
+    "image_sha": "b23d0df35cf74407d7f9d12ef2c27916965c8a273cf5d33e8de3d99d09a82390"
+  },
+  "descriptor_decisions": [
+    "unresolved",
+    "unresolved",
+    "unresolved",
+    "unresolved"
+  ],
+  "native_failures": [
+    {
+      "a": [
+        [
+          15.419922828674316,
+          7.276371002197266
+        ],
+        [
+          9.705078125,
+          8.09493637084961
+        ],
+        [
+          21.951171875,
+          8.09493637084961
+        ],
+        [
+          39.912109375,
+          8.09493637084961
+        ],
+        [
+          64.404296875,
+          9.732067108154297
+        ],
+        [
+          26.033205032348633,
+          29.377635955810547
+        ],
+        [
+          17.052734375,
+          98.95569610595703
+        ],
+        [
+          132.166015625,
+          115.3270034790039
+        ]
+      ],
+      "b": [
+        [
+          24.85714340209961,
+          3.484375
+        ],
+        [
+          18.984962463378906,
+          6.140625
+        ],
+        [
+          31.263158798217773,
+          7.734375
+        ],
+        [
+          44.60902404785156,
+          9.859375
+        ],
+        [
+          59.02255630493164,
+          12.515625
+        ],
+        [
+          28.59398651123047,
+          19.421875
+        ],
+        [
+          10.443609237670898,
+          82.640625
+        ],
+        [
+          26.458646774291992,
+          41.734375
+        ]
+      ],
+      "error": "OpenCV(5.0.0) /io/opencv/modules/geometry/src/usac/estimator.cpp:418: error: (-215:Assertion failed) !model.empty() in function 'setModelParameters'\n",
+      "code": -215,
+      "method": "native findFundamentalMat; observational capture only"
+    }
+  ],
+  "regression": {
+    "run": "runs/geometry-fix-2026-11-02/empty-regression-fixed",
+    "status": "completed",
+    "views": 4,
+    "readout": {
+      "verdict": "inconclusive",
+      "reason": "insufficient_distinct_view_reference_or_location_support",
+      "absence_established": false
+    },
+    "sightings": 0,
+    "local_calls": {
+      "DISK.forward": 3,
+      "LightGlue.forward": 0
+    },
+    "app_result_sha256": "5a02517ffc8acd05c7f9f022f9fa0d35dbf0fe489911b4f7de708713bc4229d3"
+  }
+}

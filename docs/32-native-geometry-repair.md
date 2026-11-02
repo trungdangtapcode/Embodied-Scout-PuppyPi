@@ -86,5 +86,18 @@ aggregation; none is an identity probability or a reproduced end-to-end paper.
    on an evaluated reference set; qualification does not cover arbitrary new
    galleries or real rooms. Keep default publication disabled.
 
-Current status: implementation and evaluation in progress. A successful point
-fit or passing offline tests cannot establish full quality or close the incident.
+Current status: the evaluated simulator subset passes the repeated 13-case
+acceptance and actual qualified publication/reload/Library/Room history flow.
+Real-room and physical quality remain unverified; the critical incident is OPEN.
+
+The first 13-case v4 run subsequently passes 12/13 and fails on an OpenCV native
+empty-model assertion while fitting a gallery-unresolved background region.
+Keep that failure. The correction respects the existing descriptor gate before
+geometry, preserves that specific native no-model error as unsupported evidence
+without another solver, and wraps raw diagnostics on phones. It does not change
+identity criteria, model weights or the appearance fit. All 13 frozen cases are
+repeated after this correction; see the [actual report](research/2026-11-02-geometry-fix/report.md).
+The repeat passes 13/13 without retuning. An additional known-unknown app run
+executes the original appearance veto despite positive native geometric support.
+Keep both the first failed batch and final scoped pass; never infer arbitrary
+gallery or physical identity quality from them.

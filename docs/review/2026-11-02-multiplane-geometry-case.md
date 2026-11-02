@@ -5,6 +5,11 @@ Subsequent authorization: after the concrete native fundamental-matrix repair wa
 presented, the user instructed fixing this integration defect again. Implement
 that reviewed repair as search v4; preserve the original diagnosis below and do
 not interpret authorization as an evaluation pass. Fresh acceptance is required.
+Subsequent execution: the repair is implemented. Its final repeated simulator
+evaluation passes 13/13 and a fresh qualified run passes automatic publication,
+reload and Library/Room history. See the [current evidence and limits](../research/2026-11-02-geometry-fix/report.md).
+The initial proposal/diagnostic below remains historical, not current absence of
+the implementation or evidence of general real-room identity accuracy.
 The appearance contradiction fix rejects the original unknown-object false
 confirmation and retains a true-target replay. The first frozen 13-case run
 passed. The repeated run with loaded-weight verification exposed a positive

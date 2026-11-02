@@ -72,10 +72,13 @@ artifact identity. Existing certificates cannot qualify the changed method.
    No GPU, paid API or live robot is required by this test profile. Real-room
    and physical PuppyPi acceptance remain separate and unverified.
 
-Original inference and app integration now execute. Full acceptance remains
+Historical search-v3 inference and app integration execute. Its full acceptance is
 **FAIL**: the repeated frozen app batch passes 11/13 cases. The original unknown
 false confirmation is rejected; a true target still fails planar geometric
 support. The separate camera-cadence defect is corrected and passes three
 concurrent same-case regressions. See the [actual execution report and figures](research/2026-11-02-identity-fix/report.md).
-The proposed geometry revision is pending user approval, not integrated. Keep
-automatic memory blocked and preserve both the earlier pass and later failure.
+At that stage geometry revision was pending and publication stayed blocked.
+Subsequently the user authorized the reviewed repair: [search v4](32-native-geometry-repair.md)
+now passes its repeated 13-case simulator evaluation and actual qualified
+publication/reload/history. Preserve the original v3 failure; the later scoped
+result does not qualify arbitrary galleries, rooms or physical PuppyPi operation.
