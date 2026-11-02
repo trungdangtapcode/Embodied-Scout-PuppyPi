@@ -452,6 +452,23 @@ class SearchSimSettings:
 
 
 @dataclass(frozen=True)
+class PhoneSessionSettings:
+    """Local simulator hosting; AI and paid inference stay explicitly opt-in."""
+
+    port: int = 18080
+    data_dir: str = "data/phone-console"
+    run_dir: str = "runs/phone"
+    startup_timeout_s: float = 90.0
+    health_timeout_s: float = 20.0
+    shutdown_timeout_s: float = 10.0
+    tunnel_protocol: str = "http2"
+    tunnel_ip_version: str = "4"
+    scenario: str = "target"
+    scene_seed: int = 30404
+    appearance_seed: int = 100003
+
+
+@dataclass(frozen=True)
 class Settings:
     """Top-level configuration bundle."""
 
@@ -471,3 +488,4 @@ class Settings:
     tracking: TrackingSettings = field(default_factory=TrackingSettings)
     search: SearchSettings = field(default_factory=SearchSettings)
     search_sim: SearchSimSettings = field(default_factory=SearchSimSettings)
+    phone: PhoneSessionSettings = field(default_factory=PhoneSessionSettings)

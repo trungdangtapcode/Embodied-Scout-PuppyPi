@@ -79,3 +79,26 @@ search-setup:
 
 search-worker:
 	PUPPYPI_SEARCH_ENABLED=1 PUPPYPI_VISION_ENABLED=1 CUDA_VISIBLE_DEVICES=-1 PYTHONPATH=. .venv-vision/bin/python -m teach_and_find.search_worker
+
+.PHONY: phone-setup phone phone-ai-setup phone-ai phone-status phone-stop phone-benchmark
+phone-setup:
+	python3 scripts/phone_session.py setup
+
+phone: phone-setup
+	.venv-dev/bin/python scripts/phone_session.py start $(PHONE_ARGS)
+
+phone-ai: phone-setup
+	.venv-dev/bin/python scripts/phone_session.py start --ai $(PHONE_ARGS)
+
+phone-ai-setup: phone-setup
+	$(UV_RUN) python scripts/setup_search.py
+	$(UV_RUN) python scripts/setup_tracking.py
+
+phone-status:
+	python3 scripts/phone_session.py status
+
+phone-stop:
+	python3 scripts/phone_session.py stop
+
+phone-benchmark: phone-setup
+	.venv-dev/bin/python scripts/benchmark_phone.py
