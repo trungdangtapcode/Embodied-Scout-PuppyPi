@@ -386,6 +386,7 @@ test("station search exposes mandatory worker failure without a simulated succes
   await page.getByText("Method and limitations", { exact: true }).click();
   await page.setViewportSize({ width: 844, height: 390 });
   const target = await page.getByRole("combobox", { name: "Search target" }).boundingBox();
+  await expect(page.getByRole("button", { name: "Library", exact: true })).toBeVisible();
   const camera = await page.locator(".search-camera .camera-image").boundingBox();
   expect(target && target.y + target.height).toBeLessThanOrEqual(390);
   expect(camera && camera.y + camera.height).toBeLessThanOrEqual(390);

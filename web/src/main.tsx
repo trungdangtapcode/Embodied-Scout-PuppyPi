@@ -372,6 +372,7 @@ function App() {
             <button
               key={n.id}
               class={tab === n.id ? "active" : ""}
+              aria-label={n.label}
               onClick={() => switchTab(n.id)}
               aria-current={tab === n.id ? "page" : undefined}
             >
@@ -895,7 +896,7 @@ function App() {
                 </div>
               </div>
             ))
-          ) : (
+          ) : history.automatic_sightings?.length ? null : (
             <Empty title={t("No observations yet")}>
               {t("Record camera evidence in Inspect to build a history.")}
             </Empty>
