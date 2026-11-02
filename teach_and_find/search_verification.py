@@ -14,12 +14,15 @@ ANOMALY_FUNCTION_SHA = (
 
 
 def assess_views(views, target_id, reference_count, calibration, cfg):
-    if cfg.profile_version not in {2, 3}:
+    if cfg.profile_version not in {2, 3, 4}:
         raise AssistantError(
             "SEARCH_PROFILE_UNSUPPORTED", "Unknown verification policy; no fallback."
         )
-    appearance_required = cfg.profile_version == 3
+    appearance_required = cfg.profile_version in {3, 4}
     policy = (
+        "original_anomalydino_native_fundamental_multiview_v3"
+        if cfg.profile_version == 4
+        else
         "custom_multiview_geometry_with_original_anomalydino_v2"
         if appearance_required
         else "custom_multiview_geometry_v1"
@@ -36,6 +39,14 @@ def assess_views(views, target_id, reference_count, calibration, cfg):
             supported = {
                 m["reference_index"] for m in detection["matches"] if m["supported"]
             }
+            if cfg.profile_version == 4 and any(
+                m.get("geometry_model") != "fundamental_usac_magsac"
+                for m in detection["matches"]
+            ):
+                raise AssistantError(
+                    "SEARCH_GEOMETRY_EVIDENCE_REQUIRED",
+                    "Search v4 requires native fundamental geometry; historical planar matches cannot substitute.",
+                )
             if supported:
                 appearance = detection.get("appearance")
                 if appearance_required and (

@@ -60,13 +60,13 @@ def execute_search(store, settings, job, stop_event=None):
 
     try:
         if (
-            job["payload"].get("schema_version") != 3
+            job["payload"].get("schema_version") != 4
             or vision.profile_version != 3
-            or cfg.profile_version != 3
+            or cfg.profile_version != 4
         ):
             raise AssistantError(
                 "SEARCH_PROFILE_UNSUPPORTED",
-                "Only search v3 with required original anomaly inference / vision v3 may run; history is not upgraded.",
+                "Only search v4 with native fundamental geometry, original anomaly inference and vision v3 may run; history is not upgraded.",
             )
         if job["mode"] != "synthetic" or not cfg.enabled or not vision.enabled:
             raise AssistantError(

@@ -18,6 +18,93 @@ WEIGHTS = {
 }
 
 
+def geometric_support(a, b, image_size, cfg):
+    """Use native OpenCV geometry; historical planar profiles are explicit only.
+
+    Learned correspondences do not establish identity. Search v4 uses general
+    uncalibrated two-view geometry and still requires original appearance evidence.
+    No planar retry or invented reference intrinsics are permitted.
+    """
+    if cfg.profile_version not in {2, 3, 4}:
+        raise AssistantError("SEARCH_PROFILE_UNSUPPORTED", "Unknown geometry profile.")
+    a, b = np.asarray(a, dtype=np.float32), np.asarray(b, dtype=np.float32)
+    if a.shape != b.shape or a.ndim != 2 or a.shape[1] != 2 or not (
+        np.isfinite(a).all() and np.isfinite(b).all()
+    ):
+        raise AssistantError("SEARCH_MATCHES_INVALID", "Invalid learned point pairs.")
+    inliers = np.zeros(len(a), dtype=bool)
+    matrix = None
+    if cfg.profile_version == 4:
+        model = "fundamental_usac_magsac"
+        params = cv2.UsacParams()
+        params.confidence = cfg.geometry_confidence
+        params.threshold = cfg.geometry_error_px
+        params.maxIterations = cfg.geometry_iterations
+        params.isParallel = False
+        params.randomGeneratorState = cfg.geometry_seed
+        params.score = cv2.SCORE_METHOD_MAGSAC
+        params.loMethod = cv2.LOCAL_OPTIM_SIGMA
+        params.loSampleSize = cfg.geometry_lo_sample_size
+        params.loIterations = cfg.geometry_lo_iterations
+        configuration = {
+            "entry_point": "cv2.findFundamentalMat(points1, points2, UsacParams)",
+            "opencv_version": cv2.__version__,
+            "confidence": params.confidence,
+            "threshold_px": params.threshold,
+            "max_iterations": params.maxIterations,
+            "parallel": params.isParallel,
+            "seed": params.randomGeneratorState,
+            "score": "SCORE_METHOD_MAGSAC",
+            "local_optimization": "LOCAL_OPTIM_SIGMA",
+            "lo_sample_size": params.loSampleSize,
+            "lo_iterations": params.loIterations,
+        }
+        if len(a) >= 8:
+            matrix, mask = cv2.findFundamentalMat(a, b, params)
+            if matrix is not None and mask is not None and np.isfinite(matrix).all():
+                inliers = mask.reshape(-1).astype(bool)
+            else:
+                matrix = None
+    else:
+        model = "historical_homography_ransac"
+        configuration = {"entry_point": "cv2.findHomography", "historical_only": True}
+        if len(a) >= 4:
+            matrix, mask = cv2.findHomography(
+                a, b, cv2.RANSAC, 3.0, maxIters=2000, confidence=0.995
+            )
+            if matrix is not None and mask is not None:
+                inliers = mask.reshape(-1).astype(bool)
+    coverage = 0.0
+    if inliers.sum() >= 3:
+        width, height = image_size
+        coverage = float(
+            cv2.contourArea(cv2.convexHull(a[inliers])) / (width * height)
+        )
+    ratio = float(inliers.mean()) if len(inliers) else 0.0
+    supported = (
+        matrix is not None
+        and int(inliers.sum()) >= cfg.min_inliers
+        and ratio >= cfg.min_inlier_ratio
+        and coverage >= cfg.min_coverage
+    )
+    return {
+        "matches": len(a),
+        "inliers": int(inliers.sum()),
+        "inlier_ratio": ratio,
+        "reference_coverage": coverage,
+        "supported": bool(supported),
+        "reference_points": a.tolist(),
+        "query_points": b.tolist(),
+        "inlier_mask": inliers.tolist(),
+        "geometry_model": model,
+        "geometry_configuration": configuration,
+        ("fundamental_matrix" if cfg.profile_version == 4 else "homography"):
+            matrix.tolist() if matrix is not None else None,
+        "reason": None if supported else "insufficient_native_geometric_support",
+        "score_semantics": "custom_geometric_support_not_identity_probability",
+    }
+
+
 @contextmanager
 def local_checkpoint_transport(torch, loader):
     """Constrain original constructors' URL loader to verified local files.
@@ -106,12 +193,17 @@ class LocalCorrespondence:
             "features": "original_kornia_DISK_depth",
             "device": "cpu",
             "packages": {
-                name: importlib.metadata.version(name)
-                for name in ("torch", "kornia", "kornia-rs")
+                "opencv_runtime": cv2.__version__,
+                **{
+                    name: importlib.metadata.version(name)
+                    for name in ("torch", "kornia", "kornia-rs")
+                },
             },
             "resize": cfg.resize,
             "max_keypoints": cfg.keypoints,
-            "policy": "custom_geometric_correspondence_v1_not_calibrated_identity_probability",
+            "policy": "native_fundamental_usac_magsac_not_identity_probability"
+            if cfg.profile_version == 4
+            else "custom_geometric_correspondence_v1_not_calibrated_identity_probability",
         }
 
     def extract(self, image):
@@ -131,36 +223,4 @@ class LocalCorrespondence:
         matches = result["matches"].cpu().numpy()
         a = first["keypoints"].cpu().numpy()[matches[:, 0]]
         b = second["keypoints"].cpu().numpy()[matches[:, 1]]
-        inliers = np.zeros(len(matches), dtype=bool)
-        homography = None
-        if len(matches) >= 4:
-            homography, mask = cv2.findHomography(
-                a, b, cv2.RANSAC, 3.0, maxIters=2000, confidence=0.995
-            )
-            if mask is not None:
-                inliers = mask.reshape(-1).astype(bool)
-        coverage = 0.0
-        if inliers.sum() >= 3:
-            width, height = first["image_size"].cpu().numpy()
-            coverage = float(
-                cv2.contourArea(cv2.convexHull(a[inliers].astype(np.float32)))
-                / (width * height)
-            )
-        ratio = float(inliers.mean()) if len(inliers) else 0.0
-        accepted = (
-            int(inliers.sum()) >= self.cfg.min_inliers
-            and ratio >= self.cfg.min_inlier_ratio
-            and coverage >= self.cfg.min_coverage
-        )
-        return {
-            "matches": len(matches),
-            "inliers": int(inliers.sum()),
-            "inlier_ratio": ratio,
-            "reference_coverage": coverage,
-            "supported": accepted,
-            "reference_points": a.tolist(),
-            "query_points": b.tolist(),
-            "inlier_mask": inliers.tolist(),
-            "homography": homography.tolist() if homography is not None else None,
-            "score_semantics": "custom_geometric_support_not_identity_probability",
-        }
+        return geometric_support(a, b, first["image_size"].cpu().numpy(), self.cfg)

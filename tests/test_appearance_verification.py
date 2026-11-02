@@ -23,8 +23,9 @@ def fixture_view(x, rejected=False):
                 "floor_xy": [-0.3, 2.0],
                 "crop_image_sha": "unit-test-crop",
                 "matches": [
-                    {"reference_index": 0, "supported": True},
-                    {"reference_index": 1, "supported": True},
+                    {"reference_index": i, "supported": True,
+                     "geometry_model": "fundamental_usac_magsac"}
+                    for i in (0, 1)
                 ],
                 "appearance": {
                     "crop_image_sha": "unit-test-crop",
@@ -51,6 +52,14 @@ def test_contradictory_linked_view_vetoes_even_multiple_matching_views():
     result = assess(views)
     assert result["verdict"] == "inconclusive"
     assert result["reason"] == "appearance_not_supported_by_references"
+
+
+def test_new_policy_rejects_historical_planar_evidence():
+    views = [fixture_view(-0.3), fixture_view(0.3)]
+    views[0]["candidates"][0]["matches"][0]["geometry_model"] = "historical_homography_ransac"
+    with pytest.raises(AssistantError) as error:
+        assess(views)
+    assert error.value.code == "SEARCH_GEOMETRY_EVIDENCE_REQUIRED"
 
 
 @pytest.mark.parametrize(

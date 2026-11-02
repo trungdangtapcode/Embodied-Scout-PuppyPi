@@ -96,7 +96,7 @@ def implementation_summary(settings: Settings, mode: str) -> dict:
         },
         {
             "name": "Calibrated station-search model worker",
-            "implementation": "optional_original_anomalydino_yoloe_dinov2_bytetrack_disk_lightglue_with_fitted_appearance_and_custom_multiview_gate",
+            "implementation": "optional_original_anomalydino_yoloe_dinov2_bytetrack_disk_lightglue_with_native_opencv_fundamental_geometry_and_fitted_appearance_gate",
             "description": "Separate CPU processes use actual YOLOE/DINOv2/ByteTrack, pretrained DISK/LightGlue and original AnomalyDINO notebook scoring without PCA masking. A scikit-learn scalar gate is fitted on disclosed development scores; spatial multi-view aggregation is custom, not IEVE or calibrated identity probability. PythonRobotics consumes AprilTag pixel localization. Authored map/goals and kinematic simulator are supplied inputs. Inspect per-run evidence; configuration does not certify quality.",
             "source": "teach_and_find/search_worker.py; teach_and_find/search_navigation.py; teach_and_find/lightglue_adapter.py",
             "research_repository": "https://github.com/cvg/LightGlue",

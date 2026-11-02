@@ -20,7 +20,8 @@ from teach_and_find.search_qualification import (
 )
 
 ACTIVE = ("queued", "running")
-METHOD = "YOLOE + DINOv2 + ByteTrack + DISK/LightGlue + original AnomalyDINO; fitted scalar appearance gate + custom multi-view geometry; AprilTag geometry + PythonRobotics known-map navigation"
+METHOD_V3 = "YOLOE + DINOv2 + ByteTrack + DISK/LightGlue + original AnomalyDINO; fitted scalar appearance gate + custom multi-view geometry; AprilTag geometry + PythonRobotics known-map navigation"
+METHOD = "YOLOE + DINOv2 + ByteTrack + DISK/LightGlue + original AnomalyDINO; native OpenCV fundamental geometry + fitted appearance gate + custom multi-view aggregation; AprilTag geometry + PythonRobotics known-map navigation"
 METHOD_V2 = "YOLOE + DINOv2 + ByteTrack + DISK/LightGlue; custom geometric multi-view policy; AprilTag geometry + PythonRobotics known-map navigation"
 
 
@@ -53,7 +54,7 @@ class SearchService:
                 (identifier,),
             )
         ]
-        result["method"] = {2: METHOD_V2, 3: METHOD}.get(
+        result["method"] = {2: METHOD_V2, 3: METHOD_V3, 4: METHOD}.get(
             result["payload"]["search_profile"]["profile_version"],
             "Unsupported historical profile; no execution claim",
         )
@@ -159,6 +160,7 @@ class SearchService:
                             "query_points",
                             "inlier_mask",
                             "homography",
+                            "fundamental_matrix",
                         }
                     }
                     for match in candidate["matches"]
@@ -256,7 +258,7 @@ class SearchService:
                 )
             identifier = str(uuid4())
             payload = {
-                "schema_version": 3,
+                "schema_version": 4,
                 "motion_generation": motion_generation,
                 "camera_profile": asdict(self.settings.camera),
                 "control_profile": control_snapshot(self.settings),

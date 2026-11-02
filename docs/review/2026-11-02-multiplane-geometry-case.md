@@ -1,6 +1,10 @@
 # Repeated positive failure: one homography over a multi-face object
 
 Date: 2026-11-02. **New finding; proposed geometry revision, not implemented.**
+Subsequent authorization: after the concrete native fundamental-matrix repair was
+presented, the user instructed fixing this integration defect again. Implement
+that reviewed repair as search v4; preserve the original diagnosis below and do
+not interpret authorization as an evaluation pass. Fresh acceptance is required.
 The appearance contradiction fix rejects the original unknown-object false
 confirmation and retains a true-target replay. The first frozen 13-case run
 passed. The repeated run with loaded-weight verification exposed a positive

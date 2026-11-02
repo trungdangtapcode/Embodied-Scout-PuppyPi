@@ -5,6 +5,7 @@ import type { ObjectRecord } from "./types";
 
 type Frame = { image_sha: string; captured_at: string; frame_id: string };
 type Match = {
+  geometry_model?: string;
   reference_index: number;
   supported: boolean;
   inliers: number;
@@ -319,7 +320,8 @@ export function SearchConsole({ objects }: { objects: ObjectRecord[] }) {
                         </p>
                         {candidate.matches.map((m) => (
                           <p key={m.reference_index}>
-                            Reference {m.reference_index + 1}: {m.inliers}/{m.matches} geometric
+                            Reference {m.reference_index + 1}: {m.inliers}/{m.matches}{" "}
+                            {m.geometry_model === "fundamental_usac_magsac" ? "fundamental-matrix" : "historical geometric"}
                             inliers · {(m.reference_coverage * 100).toFixed(0)}% coverage ·{" "}
                             {m.supported ? "supported" : "insufficient"}
                           </p>

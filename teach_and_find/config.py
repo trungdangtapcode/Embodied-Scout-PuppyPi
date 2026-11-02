@@ -370,7 +370,7 @@ class SearchSettings:
             "PUPPYPI_SEARCH_HOST", "http://127.0.0.1:8080"
         )
     )
-    profile_version: int = 3
+    profile_version: int = 4
     anomaly_source: str = field(
         default_factory=lambda: os.getenv(
             "PUPPYPI_ANOMALY_SOURCE", ".upstream/AnomalyDINO"
@@ -397,7 +397,9 @@ class SearchSettings:
     )
     # Keep closed until the frozen policy passes its documented quality gate.
     # Configuration is not inference or quality evidence.
-    quality_qualified: bool = False
+    quality_qualified: bool = field(
+        default_factory=lambda: os.getenv("PUPPYPI_SEARCH_QUALITY_QUALIFIED") == "1"
+    )
     qualification_file: str = field(
         default_factory=lambda: os.getenv(
             "PUPPYPI_SEARCH_QUALIFICATION",
@@ -424,6 +426,12 @@ class SearchSettings:
     min_inliers: int = 8
     min_inlier_ratio: float = 0.6
     min_coverage: float = 0.12
+    geometry_error_px: float = 3.0
+    geometry_confidence: float = 0.995
+    geometry_iterations: int = 2000
+    geometry_seed: int = 0
+    geometry_lo_sample_size: int = 50
+    geometry_lo_iterations: int = 10
     min_view_baseline_m: float = 0.20
     association_radius_m: float = 0.15
 
