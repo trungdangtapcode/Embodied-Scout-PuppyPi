@@ -127,6 +127,7 @@ class OperatorRuntime:
 
     def _camera_loop(self) -> None:
         while not self.stop_event.is_set():
+            cycle_started = time.monotonic()
             try:
                 sample = self.device.read_frame()
                 if sample is None:
@@ -164,7 +165,15 @@ class OperatorRuntime:
                     self.gate.stop("camera_disconnected")
                     self.motion_generation = str(uuid4())
                 self.wake_control.set()
-            self.stop_event.wait(self.settings.mobile.frame_poll_s)
+            # Poll cadence includes capture/render work. Overruns start one new
+            # capture immediately; missed periods never create a catch-up queue.
+            self.stop_event.wait(
+                max(
+                    0.0,
+                    self.settings.mobile.frame_poll_s
+                    - (time.monotonic() - cycle_started),
+                )
+            )
 
     def _control_loop(self) -> None:
         attempted = False
