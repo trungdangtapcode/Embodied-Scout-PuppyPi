@@ -196,7 +196,7 @@ def audit_case(root, case, protocol):
         errors.append("insufficient_view_case_has_no_actual_positive_candidate")
     if (
         case.get("require_supported_candidate")
-        and payload["search_profile"]["profile_version"] == 3
+        and payload["search_profile"]["profile_version"] in {3, 4}
         and not any(
             c["descriptor_supported"]
             and c.get("appearance", {}).get("appearance_rejected") is False
@@ -223,7 +223,7 @@ def audit_case(root, case, protocol):
         calls = view["vision"]["provenance"]["executed_upstream_calls"]
         if len(calls) != 8 or any(count < 1 for count in calls.values()):
             errors.append("missing_required_upstream_execution")
-        if payload["search_profile"]["profile_version"] == 3:
+        if payload["search_profile"]["profile_version"] in {3, 4}:
             model = view.get("appearance_model", {})
             if (
                 model.get("entry_point")
@@ -233,6 +233,11 @@ def audit_case(root, case, protocol):
             ):
                 errors.append("missing_original_anomaly_model_provenance")
             for candidate in view["candidates"]:
+                if payload["search_profile"]["profile_version"] == 4 and any(
+                    match.get("geometry_model") != "fundamental_usac_magsac"
+                    for match in candidate["matches"]
+                ):
+                    errors.append("missing_native_fundamental_geometry")
                 if not candidate["descriptor_supported"]:
                     continue
                 assessment = candidate.get("appearance", {})

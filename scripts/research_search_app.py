@@ -42,6 +42,10 @@ def main():
     parser.add_argument("--port", type=int, default=18784)
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--appearance-seed", type=int, default=0)
+    parser.add_argument(
+        "--qualified", action="store_true",
+        help="Request publication using a real matching qualification artifact; never bypass its validation.",
+    )
     parser.add_argument("--view-budget", type=int, default=4)
     parser.add_argument(
         "--target-only",
@@ -63,6 +67,8 @@ def main():
         help="Explicit required-component failure case; not a successful search.",
     )
     args = parser.parse_args()
+    if args.qualified and args.readout_only:
+        parser.error("Qualified publication and readout-only evaluation are distinct.")
     if args.ambiguous_gallery and args.scenario != "hidden":
         parser.error("The frontal-only ambiguity fixture requires --scenario hidden.")
     root = Path(__file__).resolve().parents[1]
@@ -115,6 +121,7 @@ def main():
         PUPPYPI_SEARCH_SIM_SEED=str(args.seed),
         PUPPYPI_SEARCH_APPEARANCE_SEED=str(args.appearance_seed),
         PUPPYPI_SEARCH_VIEW_BUDGET=str(args.view_budget),
+        PUPPYPI_SEARCH_QUALITY_QUALIFIED="1" if args.qualified else "0",
         TEACH_FIND_DATA_DIR=str(output / "store"),
         PYTHONPATH=str(root),
         CUDA_VISIBLE_DEVICES="-1",
@@ -123,9 +130,12 @@ def main():
     for folder in ("teach_and_find", "scripts", "web/src", "web/scripts"):
         for file in (root / folder).rglob("*"):
             if file.is_file() and file.suffix in {".py", ".ts", ".tsx", ".css", ".mjs"}:
-                sources[str(file.relative_to(root))] = hashlib.sha256(
-                    file.read_bytes()
-                ).hexdigest()
+                relative = file.relative_to(root)
+                data = file.read_bytes()
+                sources[str(relative)] = hashlib.sha256(data).hexdigest()
+                snapshot = output / "source-snapshot" / relative
+                snapshot.parent.mkdir(parents=True, exist_ok=True)
+                snapshot.write_bytes(data)
     (output / "source-manifest.json").write_text(json.dumps(sources, indent=2))
     processes, logs = [], []
     passed = False
