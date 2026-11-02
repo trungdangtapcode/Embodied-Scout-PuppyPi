@@ -98,6 +98,14 @@
   not merely insufficient hardware and not an accuracy metric. A safety cutoff
   prevents further processing but does not repair the overload design. Preserve
   the original failed run and trace revisions to new execution evidence.
+- Browser camera transport must coalesce pending metadata without cancelling an
+  active image transfer on every newer frame. Keep a displayed object URL alive
+  until its replacement decodes, and gate Arm on actual decoded image readiness.
+  Displayed frame IDs/age must refer to the painted image, not newer metadata.
+  Test with image service time exceeding the metadata period. See the
+  [phone transport incident and measurement](docs/research/2026-11-02-phone-tunnel/report.md).
+  Report remote-only latency separately from AI, ROS and physical-phone stages;
+  browser emulation through a tunnel is not a hardware measurement.
 
 ## Scope and priorities
 

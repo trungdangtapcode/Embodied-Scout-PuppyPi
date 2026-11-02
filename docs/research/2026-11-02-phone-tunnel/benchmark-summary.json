@@ -1,0 +1,194 @@
+{
+  "scope": "actual public tunnel, host-local touch Chromium and host clock; evaluator-only kinematic pose; no ROS/real phone/physical motion",
+  "duration_s": 60.00319995117187,
+  "painted_frames": 235,
+  "delivered_fps": 3.916457792104976,
+  "host_captured_frames": 300,
+  "host_capture_fps": 4.999733351623374,
+  "paint_interval": {
+    "count": 234,
+    "p50_ms": 250.0,
+    "p95_ms": 299.3349243164063,
+    "min_ms": 216.5,
+    "max_ms": 400.2998046875
+  },
+  "capture_to_paint": {
+    "count": 235,
+    "p50_ms": 514.510009765625,
+    "p95_ms": 623.1419189453125,
+    "min_ms": 371.721923828125,
+    "max_ms": 675.875
+  },
+  "input_to_applied_simulator_command": {
+    "count": 24,
+    "p50_ms": 19.4046630859375,
+    "p95_ms": 20.5199951171875,
+    "min_ms": 18.414306640625,
+    "max_ms": 20.769287109375
+  },
+  "input_to_changed_pose_paint": {
+    "count": 24,
+    "p50_ms": 665.2999267578125,
+    "p95_ms": 778.9900146484374,
+    "min_ms": 477.099853515625,
+    "max_ms": 789.2001953125
+  },
+  "https_rtt": {
+    "count": 8,
+    "p50_ms": 55.84999990463257,
+    "p95_ms": 187.86500000953663,
+    "min_ms": 49.5,
+    "max_ms": 253.69999980926514
+  },
+  "trials": [
+    {
+      "input_ms": 1793592170716,
+      "label": "Turn left",
+      "command_observed": true,
+      "visible_feedback": true
+    },
+    {
+      "input_ms": 1793592172182.2002,
+      "label": "Turn right",
+      "command_observed": true,
+      "visible_feedback": true
+    },
+    {
+      "input_ms": 1793592173665.9001,
+      "label": "Turn left",
+      "command_observed": true,
+      "visible_feedback": true
+    },
+    {
+      "input_ms": 1793592175148.7002,
+      "label": "Turn right",
+      "command_observed": true,
+      "visible_feedback": true
+    },
+    {
+      "input_ms": 1793592176638.3,
+      "label": "Turn left",
+      "command_observed": true,
+      "visible_feedback": true
+    },
+    {
+      "input_ms": 1793592178115,
+      "label": "Turn right",
+      "command_observed": true,
+      "visible_feedback": true
+    },
+    {
+      "input_ms": 1793592179599.3,
+      "label": "Turn left",
+      "command_observed": true,
+      "visible_feedback": true
+    },
+    {
+      "input_ms": 1793592181067.9001,
+      "label": "Turn right",
+      "command_observed": true,
+      "visible_feedback": true
+    },
+    {
+      "input_ms": 1793592182548.3,
+      "label": "Turn left",
+      "command_observed": true,
+      "visible_feedback": true
+    },
+    {
+      "input_ms": 1793592184036.4001,
+      "label": "Turn right",
+      "command_observed": true,
+      "visible_feedback": true
+    },
+    {
+      "input_ms": 1793592185498.5,
+      "label": "Turn left",
+      "command_observed": true,
+      "visible_feedback": true
+    },
+    {
+      "input_ms": 1793592186964.3,
+      "label": "Turn right",
+      "command_observed": true,
+      "visible_feedback": true
+    },
+    {
+      "input_ms": 1793592188432.9001,
+      "label": "Turn left",
+      "command_observed": true,
+      "visible_feedback": true
+    },
+    {
+      "input_ms": 1793592189913.9001,
+      "label": "Turn right",
+      "command_observed": true,
+      "visible_feedback": true
+    },
+    {
+      "input_ms": 1793592191381.1,
+      "label": "Turn left",
+      "command_observed": true,
+      "visible_feedback": true
+    },
+    {
+      "input_ms": 1793592192874,
+      "label": "Turn right",
+      "command_observed": true,
+      "visible_feedback": true
+    },
+    {
+      "input_ms": 1793592194333.1,
+      "label": "Turn left",
+      "command_observed": true,
+      "visible_feedback": true
+    },
+    {
+      "input_ms": 1793592195817.7002,
+      "label": "Turn right",
+      "command_observed": true,
+      "visible_feedback": true
+    },
+    {
+      "input_ms": 1793592197280.7002,
+      "label": "Turn left",
+      "command_observed": true,
+      "visible_feedback": true
+    },
+    {
+      "input_ms": 1793592198748.2002,
+      "label": "Turn right",
+      "command_observed": true,
+      "visible_feedback": true
+    },
+    {
+      "input_ms": 1793592200215.9001,
+      "label": "Turn left",
+      "command_observed": true,
+      "visible_feedback": true
+    },
+    {
+      "input_ms": 1793592201714,
+      "label": "Turn right",
+      "command_observed": true,
+      "visible_feedback": true
+    },
+    {
+      "input_ms": 1793592203181.7002,
+      "label": "Turn left",
+      "command_observed": true,
+      "visible_feedback": true
+    },
+    {
+      "input_ms": 1793592204671.5,
+      "label": "Turn right",
+      "command_observed": true,
+      "visible_feedback": true
+    }
+  ],
+  "missing_commands": 0,
+  "missing_visual_feedback": 0,
+  "clock": "same OS clock for Chromium and Python; no physical-phone clock claim",
+  "ai_enabled": false,
+  "ros_in_path": false
+}

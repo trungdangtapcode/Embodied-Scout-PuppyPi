@@ -3,6 +3,14 @@
 Status date: 2026-11-02. This is the current entry point for interpreting the
 original prototype documents and the expanded R&D roadmap.
 
+The [phone tunnel guide](33-phone-tunnel-and-latency.md) adds a prepared one-command
+remote-only session with AI off. Its [actual public-tunnel measurement](research/2026-11-02-phone-tunnel/report.md)
+records 5.00 host FPS, 3.92 painted FPS and input-to-image p50/p95 of 665/779 ms
+over 60 seconds and 24 touches. Chromium touch emulation ran on the same host;
+this path uses the kinematic renderer and has no ROS or physical phone/robot.
+The browser now coalesces pending image requests and retains decoded images
+until replacement, with a delayed-JPEG regression. No AI quality status changes.
+
 ## Mandatory critical review: OPEN / FAIL
 
 Read the [FATAL / CRITICAL / LETHAL capability-integrity review](review/2026-10-31-fatal-critical-lethal-capability-integrity.md)
