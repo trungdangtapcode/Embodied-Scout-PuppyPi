@@ -291,7 +291,9 @@ test("method disclosures identify custom heuristics and do not claim configured 
     name: "Implementation disclosure",
     exact: true,
   });
-  await expect(disclosure).toContainText("Object matching: handcoded Python/OpenCV baseline");
+  await expect(disclosure).toContainText(
+    "Legacy object matching: handcoded Python/OpenCV baseline",
+  );
   await disclosure.getByText("Inspect implementations and sources", { exact: true }).click();
   await expect(disclosure).toContainText("Per-run model evidence is in job traces");
   await expect(disclosure).toContainText(
@@ -364,4 +366,33 @@ test("tracking fails visibly without the required original-model worker", async 
   expect(response.status()).toBe(503);
   expect((await response.json()).error.code).toBe("TRACKING_WORKER_UNAVAILABLE");
   expect((await (await page.request.get("/api/tracking")).json()).sessions).toHaveLength(0);
+});
+
+test("station search exposes mandatory worker failure without a simulated success", async ({
+  page,
+}) => {
+  await enter(page);
+  await page.getByRole("button", { name: "Station search", exact: true }).click();
+  await expect(page.getByRole("heading", { name: "Find a registered object" })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Start station search" })).toBeDisabled();
+  await expect(page.getByText("Search worker unavailable — inference cannot start")).toBeVisible();
+  await expect(
+    page.getByText("No confirmed model sighting. A completed search may remain inconclusive."),
+  ).toBeVisible();
+  await page.getByText("Method and limitations", { exact: true }).click();
+  await expect(
+    page.getByText("Kinematic simulator; supplied map and reference images.", { exact: false }),
+  ).toBeVisible();
+  await page.getByText("Method and limitations", { exact: true }).click();
+  await page.setViewportSize({ width: 844, height: 390 });
+  const target = await page.getByRole("combobox", { name: "Search target" }).boundingBox();
+  const camera = await page.locator(".search-camera .camera-image").boundingBox();
+  expect(target && target.y + target.height).toBeLessThanOrEqual(390);
+  expect(camera && camera.y + camera.height).toBeLessThanOrEqual(390);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await page.screenshot({ path: "../runs/mobile-preview/landscape-search-viewport.png" });
+  await page.screenshot({
+    path: "../runs/mobile-preview/landscape-search-unavailable.png",
+    fullPage: true,
+  });
 });

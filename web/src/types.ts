@@ -58,7 +58,16 @@ export interface Report {
     evidence: Observation[];
   }[];
 }
+export interface ModelSighting {
+  object_id: string;
+  station: string;
+  captured_at: string;
+  search_id: string;
+  mode: string;
+  evidence_views: { ordinal: number; frame: { image_sha: string; captured_at: string } }[];
+}
 export interface History {
+  automatic_sightings?: ModelSighting[];
   observations: Observation[];
   last_seen: { last_seen: Observation | null };
 }

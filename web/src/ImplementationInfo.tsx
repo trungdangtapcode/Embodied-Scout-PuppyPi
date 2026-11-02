@@ -40,7 +40,7 @@ export function ImplementationInfo() {
           <p>
             {t(
               inventory.configured_encoder === "spatial_appearance"
-                ? "Object matching: handcoded Python/OpenCV baseline. Mind Palace model inference is a separate optional workflow."
+                ? "Legacy object matching: handcoded Python/OpenCV baseline. Learned workflows require separate execution evidence."
                 : "Object matching uses the configured encoder; configuration alone does not prove model execution.",
             )}
           </p>

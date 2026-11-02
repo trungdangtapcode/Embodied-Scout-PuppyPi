@@ -46,6 +46,7 @@ import { api, evidence, post, timeOf, when } from "./api";
 import type { Checklist, History, ObjectRecord, Report } from "./types";
 import { type Robot, useRobot } from "./useRobot";
 import { RoomConsole } from "./RoomConsole";
+import { SearchConsole } from "./SearchConsole";
 import { TrackingConsole } from "./TrackingConsole";
 import { ImplementationInfo } from "./ImplementationInfo";
 
@@ -226,7 +227,7 @@ function App() {
   const [notice, setNotice] = useState("");
   const [busy, setBusy] = useState(false);
   const [tab, setTab] = useState<Tab>("monitor");
-  const [monitorView, setMonitorView] = useState<"live" | "room">("live");
+  const [monitorView, setMonitorView] = useState<"live" | "room" | "search">("live");
   const [objects, setObjects] = useState<ObjectRecord[]>([]);
   const [checklists, setChecklists] = useState<Checklist[]>([]);
   const [reports, setReports] = useState<Report[]>([]);
@@ -357,7 +358,7 @@ function App() {
     );
 
   return (
-    <div class="shell">
+    <div class={`shell${tab === "monitor" && monitorView === "search" ? " search-mode" : ""}`}>
       <aside class="sidebar">
         <a class="brand" href="/" aria-label="PuppyPi home">
           <img src="/icon.svg" alt="" />
@@ -447,7 +448,7 @@ function App() {
                   : t("Connecting")}
             </Badge>
           </div>
-          <ImplementationInfo />
+          {!(tab === "monitor" && monitorView === "search") && <ImplementationInfo />}
           {!robot.online && (
             <div class="banner">
               <WifiOff size={18} />
@@ -472,7 +473,26 @@ function App() {
                 <HistoryIcon size={16} />
                 {t("Room memory")}
               </button>
+              <button
+                class={monitorView === "search" ? "active" : ""}
+                aria-pressed={monitorView === "search"}
+                onClick={() => setMonitorView("search")}
+              >
+                <ScanLine size={16} />
+                Station search
+              </button>
             </div>
+          )}
+          {tab === "monitor" && monitorView === "search" && (
+            <>
+              <div class="search-workspace">
+                <div class="search-camera">
+                  <CameraView robot={robot} compact />
+                </div>
+                <SearchConsole objects={objects} />
+              </div>
+              <ImplementationInfo />
+            </>
           )}
           {tab === "monitor" && monitorView === "room" && (
             <>
@@ -819,6 +839,34 @@ function App() {
             {t("Observation history")}
           </h3>
           <p class="hint">{t("A past sighting does not establish the current location.")}</p>
+          {!!history?.automatic_sightings?.length && (
+            <section aria-label="Automatic model sightings">
+              <h3>Automatic model sightings</h3>
+              {history.automatic_sightings.map((sighting) => (
+                <article class="search-sighting" key={sighting.search_id}>
+                  <strong>
+                    {sighting.station} · {when(sighting.captured_at)}
+                  </strong>
+                  <small>Learned inference + custom multi-view geometry · {sighting.mode}</small>
+                  <div>
+                    {sighting.evidence_views.map((view) => (
+                      <a
+                        key={view.ordinal}
+                        href={evidence(view.frame.image_sha)}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <img
+                          src={evidence(view.frame.image_sha)}
+                          alt={`Automatic model sighting view ${view.ordinal + 1}`}
+                        />
+                      </a>
+                    ))}
+                  </div>
+                </article>
+              ))}
+            </section>
+          )}
           {!history ? (
             <p>{t("Loading evidence\u2026")}</p>
           ) : history.observations.length ? (
