@@ -26,6 +26,10 @@ class OperatorRuntime:
             self.device = device
         elif settings.mobile.robot_mode == "mock":
             self.device = MockRobot(settings)
+        elif settings.mobile.robot_mode == "search-sim":
+            from teach_and_find.sim.search_device import SearchSimRobot
+
+            self.device = SearchSimRobot(settings)
         elif settings.mobile.robot_mode == "relay":
             self.device = RelayRobot(settings)
         else:
@@ -35,6 +39,10 @@ class OperatorRuntime:
             )
         self.gate = ControlGate(settings)
         self.lock = threading.RLock()
+        self.motion_generation = str(uuid4())
+        self.motion_stopped = threading.Event()
+        self.motion_stopped.set()
+        self.zero_requested = threading.Event()
         self.frames: OrderedDict[str, tuple[CameraFrame, bytes]] = OrderedDict()
         self.events: deque[dict] = deque(maxlen=settings.mobile.event_limit)
         self.latest: CameraFrame | None = None
@@ -154,6 +162,7 @@ class OperatorRuntime:
                     self.connected = False
                     self.error = type(error).__name__
                     self.gate.stop("camera_disconnected")
+                    self.motion_generation = str(uuid4())
                 self.wake_control.set()
             self.stop_event.wait(self.settings.mobile.frame_poll_s)
 
@@ -165,10 +174,13 @@ class OperatorRuntime:
                     previous = self.gate.owner
                     command = self.gate.tick(ready=self._ready())
                     if previous and not self.gate.owner:
+                        self.motion_generation = str(uuid4())
                         self.event("control_stopped", self.gate.reason)
                     # Monitoring alone never opens a command socket.
                     should_send = self.motion_enabled and (
-                        self.gate.owner is not None or attempted
+                        self.gate.owner is not None
+                        or attempted
+                        or self.zero_requested.is_set()
                     )
                 if should_send:
                     try:
@@ -176,6 +188,15 @@ class OperatorRuntime:
                         with self.lock:
                             self.last_sent = command
                             self.last_ack_at = utc_now()
+                            if not self.gate.owner and not any(
+                                (
+                                    command.vx_cm_s,
+                                    command.vy_cm_s,
+                                    command.yaw_rate_rad_s,
+                                )
+                            ):
+                                self.motion_stopped.set()
+                                self.zero_requested.clear()
                         # A stop can arrive while the transport is sending. Ensure
                         # the next iteration still transmits zero in that case.
                         attempted = bool(
@@ -187,6 +208,8 @@ class OperatorRuntime:
                     except (OSError, ValueError, RuntimeError):
                         with self.lock:
                             self.gate.stop("command_connection_lost")
+                            self.motion_generation = str(uuid4())
+                            self.zero_requested.clear()
                             self.last_ack_at = None
                             self.event(
                                 "control_stopped",
@@ -204,8 +227,18 @@ class OperatorRuntime:
                 except (OSError, ValueError, RuntimeError):
                     pass
 
-    def arm(self, owner: str, challenge: str, frame_id: str) -> dict:
+    def arm(
+        self, owner: str, challenge: str, frame_id: str, motion_generation=None
+    ) -> dict:
         with self.lock:
+            if (
+                motion_generation is not None
+                and motion_generation != self.motion_generation
+            ):
+                raise AssistantError(
+                    "SEARCH_AUTHORITY_REVOKED",
+                    "Stop, restart or transport failure revoked this search; start a new task.",
+                )
             if self.tracking_feed:
                 from teach_and_find.storage import EvidenceStore
                 from teach_and_find.tracking_service import ACTIVE
@@ -221,6 +254,7 @@ class OperatorRuntime:
                         )
             self.frame(frame_id, require_fresh=True)
             epoch = self.gate.arm(owner, challenge, ready=self._ready())
+            self.motion_stopped.clear()
             self.event("control_armed", "Manual control session acquired.")
             self.wake_control.set()
             return {"epoch": epoch, "lease_s": self.settings.mobile.command_lease_s}
@@ -241,15 +275,35 @@ class OperatorRuntime:
             except AssistantError:
                 if self.gate.owner == owner:
                     self.gate.stop("invalid_or_stale_command")
+                    self.motion_generation = str(uuid4())
                 self.wake_control.set()
                 raise
         self.wake_control.set()
 
     def stop(self, reason: str = "operator_stop") -> None:
         with self.lock:
+            self.motion_generation = str(uuid4())
             self.gate.stop(reason)
             self.event("control_stopped", reason)
         self.wake_control.set()
+
+    def disarm_search_segment(self, owner: str):
+        """Planned segment completion; global Stop still revokes the task epoch."""
+        with self.lock:
+            if self.gate.owner != owner:
+                raise AssistantError(
+                    "SEARCH_CONTROL_LOST",
+                    "Only the current owner may finish a navigation segment.",
+                )
+            self.motion_stopped.clear()
+            self.gate.stop("search_segment_complete")
+            self.zero_requested.set()
+            self.event(
+                "control_stopped",
+                "Search segment complete; inference requires acknowledged zero motion.",
+            )
+        self.wake_control.set()
+        return self.motion_stopped
 
     def disconnect(self, owner: str) -> None:
         with self.lock:

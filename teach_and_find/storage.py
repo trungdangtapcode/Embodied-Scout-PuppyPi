@@ -129,6 +129,23 @@ MIGRATIONS = (
             producer_replacements INTEGER NOT NULL DEFAULT 0, pending_replacements INTEGER NOT NULL DEFAULT 0,
             skipped_frames INTEGER NOT NULL DEFAULT 0, peak_live_pending INTEGER NOT NULL DEFAULT 0)""",
     ),
+    (
+        """CREATE TABLE searches (id TEXT PRIMARY KEY, object_id TEXT NOT NULL REFERENCES objects(id),
+            owner TEXT NOT NULL, request_key TEXT NOT NULL, status TEXT NOT NULL,
+            created_at TEXT NOT NULL, updated_at TEXT NOT NULL, payload_json TEXT NOT NULL,
+            result_json TEXT, error_json TEXT, mode TEXT NOT NULL, UNIQUE(owner,request_key))""",
+        "CREATE UNIQUE INDEX one_active_search ON searches((1)) WHERE status IN ('queued','running')",
+        """CREATE TABLE search_views (search_id TEXT NOT NULL REFERENCES searches(id), ordinal INTEGER NOT NULL,
+            record_json TEXT NOT NULL, PRIMARY KEY(search_id,ordinal))""",
+        """CREATE TABLE search_events (id INTEGER PRIMARY KEY AUTOINCREMENT, search_id TEXT NOT NULL REFERENCES searches(id),
+            at TEXT NOT NULL, kind TEXT NOT NULL, record_json TEXT NOT NULL)""",
+        "CREATE INDEX search_event_history ON search_events(search_id,id)",
+        """CREATE TABLE model_sightings (id TEXT PRIMARY KEY, search_id TEXT NOT NULL REFERENCES searches(id),
+            object_id TEXT NOT NULL REFERENCES objects(id), station TEXT NOT NULL,
+            captured_at TEXT NOT NULL, record_json TEXT NOT NULL)""",
+        "CREATE INDEX model_sighting_history ON model_sightings(object_id,captured_at DESC)",
+        "CREATE TABLE search_worker (id INTEGER PRIMARY KEY CHECK(id=1), seen_at REAL NOT NULL, status TEXT NOT NULL)",
+    ),
 )
 
 

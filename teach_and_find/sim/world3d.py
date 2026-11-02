@@ -220,10 +220,12 @@ class SimulatedLabWorld:
         graph: TopologicalGraph,
         camera: CameraSettings | None = None,
         tag_size_m: float = 0.10,
+        tag_center_height_m: float = 0.27,
     ) -> None:
         self.graph = graph
         self.camera = camera or CameraSettings()
         self.tag_size_m = tag_size_m
+        self.tag_center_height_m = tag_center_height_m
         self.tag_helper = AprilTagPoseEstimator(camera=self.camera)
         self.placed_objects: list[PlacedObject] = []
 
@@ -260,7 +262,10 @@ class SimulatedLabWorld:
                 node.apriltag_id, side_px=256, border_px=32
             )
             quad_half = 0.5 * self.tag_size_m * (320.0 / 256.0)
-            center = np.array([sx, sy, 0.27], dtype=np.float64) + 0.003 * normal
+            center = (
+                np.array([sx, sy, self.tag_center_height_m], dtype=np.float64)
+                + 0.003 * normal
+            )
 
             tl = center - quad_half * tag_right + quad_half * tag_up
             tr = center + quad_half * tag_right + quad_half * tag_up
@@ -525,7 +530,9 @@ def render_teaching_views(
         if proposals:
             crop = proposals[0].crop_bgr
         else:
-            raise RuntimeError(f"No reference foreground at teaching angle {ang}; no substitute crop.")
+            raise RuntimeError(
+                f"No reference foreground at teaching angle {ang}; no substitute crop."
+            )
         views.append((float(ang), crop))
     return views
 

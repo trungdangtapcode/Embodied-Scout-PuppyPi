@@ -8,6 +8,7 @@ from uuid import uuid4
 
 from teach_and_find.library import ObjectLibrary, label, timestamp, utc_now
 from teach_and_find.storage import AssistantError
+from teach_and_find.model_sightings import model_observations
 
 
 class RoomService:
@@ -50,13 +51,28 @@ class RoomService:
             LIMIT ?""",
             parameters,
         )
-        return [
+        records = [
             {
                 **self.library._observation_record(row),
                 "effective_status": self.library.effective_status(dict(row)),
             }
             for row in rows
         ]
+        records.extend(
+            model_observations(
+                self.store,
+                mode,
+                object_id=object_id,
+                start_at=start_at,
+                end_at=end_at,
+                limit=limit,
+            )
+        )
+        records.sort(
+            key=lambda row: (row["captured_at"], row["recorded_at"], row["id"]),
+            reverse=True,
+        )
+        return records[:limit]
 
     def overview(self, *, mode: str) -> dict:
         self._mode(mode)
@@ -67,6 +83,12 @@ class RoomService:
                 "SELECT DISTINCT station FROM observations WHERE mode = ?", (mode,)
             )
         }
+        regions.update(
+            row["station"]
+            for row in model_observations(
+                self.store, mode, limit=self.settings.timeline_limit
+            )
+        )
         objects = []
         for obj in self.library.list():
             last = self.library.last_seen(obj["id"], mode=mode)

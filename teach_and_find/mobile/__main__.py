@@ -14,7 +14,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--host", default=cfg.mobile.host)
     parser.add_argument("--port", type=int, default=cfg.mobile.port)
-    parser.add_argument("--robot", choices=["mock", "relay"], default="mock")
+    parser.add_argument("--robot", choices=["mock", "search-sim", "relay"], default="mock")
     parser.add_argument("--relay-host")
     parser.add_argument("--relay-port", type=int, default=cfg.edge_relay.port)
     parser.add_argument("--allow-motion", action="store_true")
@@ -38,7 +38,7 @@ def main():
     )
     app = create_app(cfg)
     print(
-        f"PuppyPi console: {'synthetic preview' if args.robot == 'mock' else 'selected relay'}",
+        f"PuppyPi console: {'selected physical relay' if args.robot == 'relay' else args.robot + ' synthetic preview'}",
         flush=True,
     )
     print(

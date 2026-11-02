@@ -344,6 +344,82 @@ class TrackingSettings:
 
 
 @dataclass(frozen=True)
+class SearchSettings:
+    """Explicit optional learned verification and known-map simulator profile."""
+
+    enabled: bool = field(
+        default_factory=lambda: os.getenv("PUPPYPI_SEARCH_ENABLED", "0") == "1"
+    )
+    robotics_source: str = field(
+        default_factory=lambda: os.getenv(
+            "PUPPYPI_ROBOTICS_SOURCE", ".upstream/PythonRobotics"
+        )
+    )
+    lightglue_source: str = field(
+        default_factory=lambda: os.getenv(
+            "PUPPYPI_LIGHTGLUE_SOURCE", ".upstream/LightGlue"
+        )
+    )
+    weights: str = field(
+        default_factory=lambda: os.getenv(
+            "PUPPYPI_SEARCH_WEIGHTS", "data/models/search/hub/checkpoints"
+        )
+    )
+    host_url: str = field(
+        default_factory=lambda: os.getenv(
+            "PUPPYPI_SEARCH_HOST", "http://127.0.0.1:8080"
+        )
+    )
+    profile_version: int = 2
+    max_inspection_views: int = field(
+        default_factory=lambda: int(os.getenv("PUPPYPI_SEARCH_VIEW_BUDGET", "4"))
+    )
+    # Keep closed until the frozen policy passes its documented quality gate.
+    # Configuration is not inference or quality evidence.
+    quality_qualified: bool = False
+    qualification_file: str = field(
+        default_factory=lambda: os.getenv(
+            "PUPPYPI_SEARCH_QUALIFICATION",
+            "docs/research/2026-11-02-complete-search/qualification.json",
+        )
+    )
+    footprint_radius_m: float = 0.12
+    grid_resolution_m: float = 0.05
+    position_gain: float = 0.8
+    bearing_gain: float = 2.0
+    heading_gain: float = 0.0
+    goal_position_tolerance_m: float = 0.055
+    goal_yaw_tolerance_deg: float = 5.0
+    goal_drift_tolerance_m: float = 0.12
+    settle_s: float = 0.4
+    intent_lifetime_s: float = 0.25
+    navigation_timeout_s: float = 180.0
+    pose_max_age_s: float = 0.6
+    pose_ransac_error_px: float = 2.0
+    pose_min_corner_inlier_fraction: float = 0.75
+    pose_max_reprojection_rmse_px: float = 1.5
+    keypoints: int = 512
+    resize: int = 256
+    min_inliers: int = 8
+    min_inlier_ratio: float = 0.6
+    min_coverage: float = 0.12
+    min_view_baseline_m: float = 0.20
+    association_radius_m: float = 0.15
+
+
+@dataclass(frozen=True)
+class SearchSimSettings:
+    """Renderer-only fixture inputs; never serialized into inference jobs."""
+
+    scenario: str = field(
+        default_factory=lambda: os.getenv("PUPPYPI_SEARCH_SCENARIO", "target")
+    )
+    seed: int = field(
+        default_factory=lambda: int(os.getenv("PUPPYPI_SEARCH_SIM_SEED", "0"))
+    )
+
+
+@dataclass(frozen=True)
 class Settings:
     """Top-level configuration bundle."""
 
@@ -361,3 +437,5 @@ class Settings:
     memory: MemorySettings = field(default_factory=MemorySettings)
     vision: VisionSettings = field(default_factory=VisionSettings)
     tracking: TrackingSettings = field(default_factory=TrackingSettings)
+    search: SearchSettings = field(default_factory=SearchSettings)
+    search_sim: SearchSimSettings = field(default_factory=SearchSimSettings)

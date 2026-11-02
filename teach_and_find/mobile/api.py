@@ -47,6 +47,7 @@ from teach_and_find.room import RoomService
 from teach_and_find.scene import SceneService
 from teach_and_find.memory_service import MemoryService
 from teach_and_find.vision_service import VisionService
+from teach_and_find.search_service import SearchService
 from teach_and_find.tracking_service import TrackingService, mask_bytes, owner_key
 
 
@@ -151,6 +152,11 @@ class TrackingPromptRequest(StrictModel):
 class TrackingStartRequest(StrictModel):
     revision: int = Field(ge=0, strict=True)
     candidate: int = Field(ge=0, le=2, strict=True)
+
+
+class SearchRequest(StrictModel):
+    object_id: str = Field(min_length=1, max_length=128)
+    request_key: str = Field(min_length=1, max_length=128)
 
 
 class Sessions:
@@ -300,6 +306,69 @@ def create_app(
             status_code=503,
         )
 
+    def cancel_search(reason):
+        with EvidenceStore(cfg.assistant.data_dir) as store:
+            SearchService(store, cfg).cancel_all(reason)
+
+    @app.get("/api/search")
+    def search_overview(session=Depends(authorized)):
+        with EvidenceStore(cfg.assistant.data_dir) as store:
+            return SearchService(store, cfg).overview()
+
+    @app.post("/api/search", status_code=202)
+    def search_start(body: SearchRequest, session=Depends(authorized)):
+        from teach_and_find.sim.search_device import fixture_calibration
+
+        if cfg.mobile.robot_mode != "search-sim":
+            raise AssistantError(
+                "SEARCH_CALIBRATION_UNSUPPORTED",
+                "Launch the explicitly calibrated search-sim backend.",
+            )
+        with robot.lock:
+            if robot.gate.owner is not None:
+                raise AssistantError(
+                    "CONTROL_BUSY",
+                    "Disarm manual control before starting a station search.",
+                )
+            if robot.tracking_feed:
+                from teach_and_find.tracking_service import ACTIVE
+
+                with EvidenceStore(cfg.assistant.data_dir) as tracking_store:
+                    if tracking_store.db.execute(
+                        "SELECT 1 FROM tracking_sessions WHERE status IN (?,?,?,?,?)",
+                        ACTIVE,
+                    ).fetchone():
+                        raise AssistantError(
+                            "TRACKING_STATIONARY_ONLY",
+                            "End stationary interactive tracking before search.",
+                        )
+            robot.frame(require_fresh=True)
+            with EvidenceStore(cfg.assistant.data_dir) as store:
+                return SearchService(store, cfg).create(
+                    body.object_id,
+                    session,
+                    body.request_key,
+                    fixture_calibration(),
+                    robot.device.mode,
+                    motion_generation=robot.motion_generation,
+                )
+
+    @app.get("/api/search/{identifier}")
+    def search_detail(
+        identifier: str, export: bool = False, session=Depends(authorized)
+    ):
+        with EvidenceStore(cfg.assistant.data_dir) as store:
+            return SearchService(store, cfg).detail(identifier, export=export)
+
+    @app.post("/api/search/{identifier}/cancel")
+    def search_cancel(identifier: str, session=Depends(authorized)):
+        # Stop/wake control before any potentially blocking database operation.
+        robot.stop("operator_cancelled_search")
+        with EvidenceStore(cfg.assistant.data_dir) as store:
+            service = SearchService(store, cfg)
+            result = service.cancel_one(identifier)
+        return {"id": identifier, "status": result["status"]}
+
     @app.get("/api/health")
     def health():
         return {"status": "ok"}
@@ -402,6 +471,7 @@ def create_app(
         with sessions.lock:
             sessions.sessions.pop(session, None)
         robot.stop("operator_signed_out")
+        cancel_search("operator_signed_out")
         response.delete_cookie("puppypi_session")
         return {"paired": False}
 
@@ -425,6 +495,7 @@ def create_app(
     @app.post("/api/stop")
     def stop(session=Depends(authorized)):
         robot.stop()
+        cancel_search("operator_stop")
         return {"requested": "stop", "physical_result": "unverified"}
 
     @app.get("/api/objects")
@@ -490,6 +561,13 @@ def create_app(
                     object_id, limit=cfg.assistant.history_limit
                 ),
                 "last_seen": library.last_seen(object_id, mode=robot.device.mode),
+                "automatic_sightings": [
+                    json.loads(row[0])
+                    for row in library.store.db.execute(
+                        "SELECT record_json FROM model_sightings WHERE object_id=? ORDER BY captured_at DESC LIMIT ?",
+                        (object_id, cfg.assistant.history_limit),
+                    )
+                ],
             }
 
     @app.get("/api/evidence/{digest}")
@@ -783,13 +861,63 @@ def create_app(
                         )
                     if message.get("type") == "arm":
                         parsed = ArmRequest.model_validate(message)
-                        result = robot.arm(owner, parsed.challenge, parsed.frame_id)
+                        search_id = socket.query_params.get("search_id")
+                        generation = None
+                        with EvidenceStore(cfg.assistant.data_dir) as store:
+                            if search_id:
+                                task = store.db.execute(
+                                    "SELECT status,payload_json FROM searches WHERE id=?",
+                                    (search_id,),
+                                ).fetchone()
+                                if task is None or task["status"] != "running":
+                                    raise AssistantError(
+                                        "SEARCH_NOT_RUNNING",
+                                        "Search authority requires a running task.",
+                                    )
+                                generation = json.loads(task["payload_json"]).get(
+                                    "motion_generation"
+                                )
+                                if not generation:
+                                    raise AssistantError(
+                                        "SEARCH_AUTHORITY_MISSING",
+                                        "Search has no current runtime motion authority.",
+                                    )
+                            active = store.db.execute(
+                                "SELECT id FROM searches WHERE status IN ('queued','running')"
+                            ).fetchone()
+                            if (
+                                active
+                                and socket.query_params.get("search_id") != active[0]
+                            ):
+                                raise AssistantError(
+                                    "SEARCH_BUSY",
+                                    "Stop the station search before manual takeover.",
+                                )
+                        result = robot.arm(
+                            owner, parsed.challenge, parsed.frame_id, generation
+                        )
                         await socket.send_json({"type": "armed", **result})
+                    elif message.get("type") == "search_disarm":
+                        if not socket.query_params.get("search_id"):
+                            raise AssistantError(
+                                "SEARCH_AUTHORITY_MISSING",
+                                "Segment disarm is reserved for search control.",
+                            )
+                        acknowledged = robot.disarm_search_segment(owner)
+                        if not await asyncio.to_thread(acknowledged.wait, 1.0):
+                            raise AssistantError(
+                                "SEARCH_STOP_UNACKNOWLEDGED",
+                                "Zero-motion command was not acknowledged.",
+                            )
+                        await socket.send_json(
+                            {"type": "search_disarmed", "acknowledged_at": utc_now()}
+                        )
                     elif message.get("type") == "drive":
                         parsed = DriveRequest.model_validate(message)
                         robot.drive(owner, parsed.model_dump())
                     elif message.get("type") == "stop":
                         robot.stop()
+                        cancel_search("operator_stop")
                     else:
                         raise AssistantError(
                             "INVALID_MESSAGE", "Unsupported operator action."

@@ -367,6 +367,16 @@ class ObjectLibrary:
         return result
 
     def effective_status(self, observation: dict) -> str:
+        if observation.get("source") == "model_inference":
+            provenance = observation.get("provenance", {})
+            if not provenance.get("model_sighting_id") or not provenance.get(
+                "qualification", {}
+            ).get("qualified"):
+                raise AssistantError(
+                    "MODEL_SIGHTING_EVIDENCE_INVALID",
+                    "Model history requires its original qualified execution evidence.",
+                )
+            return observation["assertion"]
         cfg = self.settings.assistant
         if (
             observation["quality"] < cfg.minimum_quality
@@ -394,7 +404,21 @@ class ObjectLibrary:
             raise AssistantError(
                 "INVALID_MODE", "Choose synthetic, replay, or physical evidence."
             )
+        from teach_and_find.model_sightings import model_observations
+
         history = [row for row in self.history(object_id) if row["mode"] == mode]
+        history.extend(
+            model_observations(
+                self.store,
+                mode,
+                object_id=object_id,
+                limit=self.settings.assistant.history_limit,
+            )
+        )
+        history.sort(
+            key=lambda row: (row["captured_at"], row["recorded_at"], row["id"]),
+            reverse=True,
+        )
         sighting = next(
             (row for row in history if self.effective_status(row) == "present"), None
         )

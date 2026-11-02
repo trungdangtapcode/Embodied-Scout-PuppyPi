@@ -6,7 +6,7 @@ import threading
 
 import pytest
 
-from teach_and_find.storage import AssistantError, EvidenceStore
+from teach_and_find.storage import AssistantError, EvidenceStore, MIGRATIONS
 from teach_and_find.tracking_frames import FrameInbox
 from teach_and_find.tracking_schedule import LatestMailbox, select_frame
 from teach_and_find.tracking_service import TrackingService
@@ -174,7 +174,7 @@ def test_legacy_session_is_not_silently_reinterpreted(cfg):
                 (json.dumps(profile), sid),
             )
         assert svc.get(sid, "synthetic")["stream"] is None
-        assert store.db.execute("PRAGMA user_version").fetchone()[0] == 8
+        assert store.db.execute("PRAGMA user_version").fetchone()[0] == len(MIGRATIONS)
 
 
 def test_temporal_policy_has_no_framework_or_storage_import_dependency():

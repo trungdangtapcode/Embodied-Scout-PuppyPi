@@ -31,6 +31,36 @@ def wait_until(predicate, timeout=3):
     raise AssertionError("Condition did not become true.")
 
 
+def test_search_segment_releases_lease_but_stop_revokes_future_segments(client):
+    from teach_and_find.errors import AssistantError
+
+    _, runtime, device = client
+    generation = runtime.motion_generation
+
+    def arm():
+        status = runtime.status("search-worker")
+        runtime.arm(
+            "search-worker",
+            status["control"]["challenge"],
+            status["camera"]["frame_id"],
+            generation,
+        )
+
+    arm()
+    acknowledgement = runtime.disarm_search_segment("search-worker")
+    assert acknowledgement.wait(1)
+    assert runtime.gate.owner is None
+    assert runtime.motion_generation == generation
+    assert device.commands and device.commands[-1].vx_cm_s == 0
+    # Deliberately exceed the motion lease while the inference phase is idle.
+    time.sleep(runtime.settings.mobile.command_lease_s + 0.1)
+    arm()
+    runtime.stop()
+    with pytest.raises(AssistantError, match="revoked"):
+        arm()
+    assert runtime.gate.owner is None
+
+
 class Device:
     mode = "synthetic"
 
@@ -100,6 +130,25 @@ def next_message(ws, kind, predicate=lambda message: True):
         if result["type"] == kind and predicate(result):
             return result
     raise AssertionError(f"Missing {kind}")
+
+
+def test_unknown_search_id_cannot_acquire_a_manual_lease(client):
+    c, runtime, _ = client
+    pair(c)
+    with c.websocket_connect(
+        "/api/live?search_id=missing-task", headers={"Origin": "http://testserver"}
+    ) as ws:
+        status = next_message(ws, "status")
+        ws.send_json(
+            {
+                "type": "arm",
+                "challenge": status["control"]["challenge"],
+                "frame_id": status["camera"]["frame_id"],
+            }
+        )
+        error = next_message(ws, "error")
+        assert error["code"] == "SEARCH_NOT_RUNNING"
+        assert runtime.gate.owner is None
 
 
 def test_pairing_origin_and_evidence_lifecycle(client):
@@ -360,37 +409,117 @@ def test_invalid_socket_contract_disarms_owner(client):
 
 def test_room_analysis_confirmation_and_persistent_answer_api(client):
     c, runtime, device = client
-    assert c.get('/api/room').status_code == 401
+    assert c.get("/api/room").status_code == 401
     pair(c)
-    assert c.post('/api/room/queries', json={'kind': 'invented', 'object_id': 'none'}).status_code == 422
+    assert (
+        c.post(
+            "/api/room/queries", json={"kind": "invented", "object_id": "none"}
+        ).status_code
+        == 422
+    )
     frame = np.full((180, 240, 3), 225, np.uint8)
     frame[60:140, 90:150] = (40, 80, 200)
     frame[80:120, 110:120] = (230, 230, 230)
     device.frame_image = frame
     wait_until(lambda: runtime.latest.image.shape == frame.shape)
-    _, png = cv2.imencode('.png', frame[57:143, 87:153])
-    obj = c.post('/api/objects', data={'name': 'Room API case'},
-                 files=[('files', ('case.png', png.tobytes(), 'image/png'))]).json()
-    result = c.post('/api/room/analyses', json={'frame_id': runtime.latest.frame_id})
+    _, png = cv2.imencode(".png", frame[57:143, 87:153])
+    obj = c.post(
+        "/api/objects",
+        data={"name": "Room API case"},
+        files=[("files", ("case.png", png.tobytes(), "image/png"))],
+    ).json()
+    result = c.post("/api/room/analyses", json={"frame_id": runtime.latest.frame_id})
     assert result.status_code == 200, result.text
     analysis = result.json()
-    assert analysis['candidates']
-    assert c.get('/api/room').json()['timeline'] == []
-    payload = {'proposal_index': 0, 'object_id': obj['id'], 'station': 'Desk'}
+    assert analysis["candidates"]
+    assert c.get("/api/room").json()["timeline"] == []
+    payload = {"proposal_index": 0, "object_id": obj["id"], "station": "Desk"}
     route = f"/api/room/analyses/{analysis['id']}/confirm"
     first = c.post(route, json=payload)
     assert first.status_code == 200, first.text
-    assert c.post(route, json=payload).json()['id'] == first.json()['id']
-    assert c.post(route, json={**payload, 'station': 'Other'}).status_code == 409
-    answer = c.post('/api/room/queries', json={'kind': 'last_seen', 'object_id': obj['id']})
+    assert c.post(route, json=payload).json()["id"] == first.json()["id"]
+    assert c.post(route, json={**payload, "station": "Other"}).status_code == 409
+    answer = c.post(
+        "/api/room/queries", json={"kind": "last_seen", "object_id": obj["id"]}
+    )
     assert answer.status_code == 200
-    assert answer.json()['status'] == 'supported'
-    memory = c.get('/api/room')
-    assert memory.headers['cache-control'] == 'no-store'
-    assert memory.json()['regions'] == ['Desk']
-    assert memory.json()['recent_queries'][0]['id'] == answer.json()['id']
-    assert len(memory.json()['timeline']) == 1
-    assert c.get(f"/api/room/analyses/{analysis['id']}").json()['frame_id'] == analysis['frame_id']
+    assert answer.json()["status"] == "supported"
+    memory = c.get("/api/room")
+    assert memory.headers["cache-control"] == "no-store"
+    assert memory.json()["regions"] == ["Desk"]
+    assert memory.json()["recent_queries"][0]["id"] == answer.json()["id"]
+    assert len(memory.json()["timeline"]) == 1
+    assert (
+        c.get(f"/api/room/analyses/{analysis['id']}").json()["frame_id"]
+        == analysis["frame_id"]
+    )
     device.fresh = False
     wait_until(lambda: runtime.latest and not runtime.latest.freshness_verified)
-    assert c.post('/api/room/analyses', json={'frame_id': runtime.latest.frame_id}).status_code == 409
+    assert (
+        c.post(
+            "/api/room/analyses", json={"frame_id": runtime.latest.frame_id}
+        ).status_code
+        == 409
+    )
+
+
+def test_search_prevents_manual_takeover_and_global_stop_cancels(configured):
+    from teach_and_find.library import build_library
+    from teach_and_find.search_service import SearchService
+
+    cfg = replace(
+        configured,
+        mobile=replace(configured.mobile, robot_mode="search-sim"),
+        search=replace(configured.search, enabled=True),
+        vision=replace(configured.vision, enabled=True),
+    )
+    # Explicit transport fixture, not model/navigation acceptance evidence.
+    device = Device()
+    runtime = OperatorRuntime(cfg, device)
+    with EvidenceStore(cfg.assistant.data_dir) as store:
+        obj = build_library(store, cfg).teach(
+            "two view fixture", [np.full((32, 32, 3), v, np.uint8) for v in (90, 180)]
+        )
+        SearchService(store, cfg).seen()
+    with TestClient(create_app(cfg, runtime=runtime)) as client:
+        pair(client)
+        wait_until(lambda: runtime.connected)
+        response = client.post(
+            "/api/search", json={"object_id": obj["id"], "request_key": "one"}
+        )
+        assert response.status_code == 202
+        identifier = response.json()["id"]
+        assert "owner" not in response.json()
+        with client.websocket_connect("/api/live") as socket:
+            status = socket.receive_json()
+            socket.send_json(
+                {
+                    "type": "arm",
+                    "challenge": status["control"]["challenge"],
+                    "frame_id": status["camera"]["frame_id"],
+                }
+            )
+            rejected = socket.receive_json()
+            assert rejected["type"] == "error" and rejected["code"] == "SEARCH_BUSY"
+        with EvidenceStore(cfg.assistant.data_dir) as store:
+            assert SearchService(store, cfg).claim()["id"] == identifier
+        with client.websocket_connect(f"/api/live?search_id={identifier}") as socket:
+            status = socket.receive_json()
+            socket.send_json(
+                {
+                    "type": "arm",
+                    "challenge": status["control"]["challenge"],
+                    "frame_id": status["camera"]["frame_id"],
+                }
+            )
+            assert socket.receive_json()["type"] == "armed"
+            assert client.post("/api/stop").status_code == 200
+            assert runtime.gate.owner is None
+            assert runtime.gate.command.vx_cm_s == 0
+            run = client.get("/api/search").json()["runs"][0]
+            assert run["status"] == "cancelled" and run["result"] is None
+        with EvidenceStore(cfg.assistant.data_dir) as store:
+            service = SearchService(store, cfg)
+            with pytest.raises(Exception, match="no longer running"):
+                service.finish(identifier, {"verdict": "confirmed"})
+            assert service.overview()["sightings"] == []
