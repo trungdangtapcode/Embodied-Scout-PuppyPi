@@ -1,4 +1,4 @@
-# Embodied Scout
+# Embodied Scout PuppyPi
 
 An application and R&D platform for **Hiwonder PuppyPi**, built on the existing
 **Teach and Find** Python core. The roadmap combines object search, temporal
