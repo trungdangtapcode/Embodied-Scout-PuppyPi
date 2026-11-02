@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "scope": "authored_box_development_only_not_quality_qualification",
+  "scoring": {
+    "function_sha256": "45d4135040305ffef3933766eb2021ede369964146f9d9e5aac37d2773293f5d",
+    "resolution": 672,
+    "masking": false,
+    "rotation": false
+  },
+  "samples": [
+    {
+      "score": 0.24795711040496826,
+      "appearance_rejected": 0,
+      "run": "runs/search-segment-fixed-2026-11-02",
+      "view": 0,
+      "crop_image_sha": "8c30fc57022faf77404538b0fdbf647dfcd5ac6893b87ee2578673cf63ae946e",
+      "reference_shas": [
+        "902ac1f9a841cc9ac5e44909a5feb4aa4ee0bc9cf105adcf739c27ad47f5daba",
+        "5edcde4c48c0b4469cdac69182eff2a555f4d007a466f54b4a3a94b8a8f2baee",
+        "ce1138f5032251be9e93af4fe83f8cd09acb1e27d77671a4cd6b3a02268f49b5"
+      ]
+    },
+    {
+      "score": 0.30180665850639343,
+      "appearance_rejected": 0,
+      "run": "runs/search-segment-fixed-2026-11-02",
+      "view": 1,
+      "crop_image_sha": "8fd9e7344368ae16f6ce498855c39f03c37f3c4f8d725d743f9a4fe919519130",
+      "reference_shas": [
+        "902ac1f9a841cc9ac5e44909a5feb4aa4ee0bc9cf105adcf739c27ad47f5daba",
+        "5edcde4c48c0b4469cdac69182eff2a555f4d007a466f54b4a3a94b8a8f2baee",
+        "ce1138f5032251be9e93af4fe83f8cd09acb1e27d77671a4cd6b3a02268f49b5"
+      ]
+    },
+    {
+      "score": 0.3417159914970398,
+      "appearance_rejected": 0,
+      "run": "runs/search-segment-fixed-2026-11-02",
+      "view": 1,
+      "crop_image_sha": "9ed789523ef71f28cfc6f053740544020cf6f76fc60e191a3029ee571338180f",
+      "reference_shas": [
+        "902ac1f9a841cc9ac5e44909a5feb4aa4ee0bc9cf105adcf739c27ad47f5daba",
+        "5edcde4c48c0b4469cdac69182eff2a555f4d007a466f54b4a3a94b8a8f2baee",
+        "ce1138f5032251be9e93af4fe83f8cd09acb1e27d77671a4cd6b3a02268f49b5"
+      ]
+    },
+    {
+      "score": 0.6352134346961975,
+      "appearance_rejected": 1,
+      "run": "runs/search-qualification-v2-2026-11-02/unknown-hidden-808",
+      "view": 0,
+      "crop_image_sha": "0e16c491a9fab56fa4989b673dfbd5cfb1636d126911c86036ee38b951e250d8",
+      "reference_shas": [
+        "902ac1f9a841cc9ac5e44909a5feb4aa4ee0bc9cf105adcf739c27ad47f5daba",
+        "5edcde4c48c0b4469cdac69182eff2a555f4d007a466f54b4a3a94b8a8f2baee",
+        "ce1138f5032251be9e93af4fe83f8cd09acb1e27d77671a4cd6b3a02268f49b5"
+      ]
+    },
+    {
+      "score": 0.5974500775337219,
+      "appearance_rejected": 1,
+      "run": "runs/search-qualification-v2-2026-11-02/unknown-hidden-808",
+      "view": 1,
+      "crop_image_sha": "7d8fdc021cb9e3a490b1e21537b9f725dc73dbe0e19f379a83bbcbeeedcb3b2f",
+      "reference_shas": [
+        "902ac1f9a841cc9ac5e44909a5feb4aa4ee0bc9cf105adcf739c27ad47f5daba",
+        "5edcde4c48c0b4469cdac69182eff2a555f4d007a466f54b4a3a94b8a8f2baee",
+        "ce1138f5032251be9e93af4fe83f8cd09acb1e27d77671a4cd6b3a02268f49b5"
+      ]
+    }
+  ],
+  "sklearn_version": "1.7.2",
+  "fit": {
+    "entry_point": "sklearn.tree.DecisionTreeClassifier.fit",
+    "params": {
+      "max_depth": 1,
+      "random_state": 0
+    },
+    "data_source_sha256": "522afff29396c3d3f70709e3c62bfbcb23c22d92d4c8c1f9c3baf26e6096d28c"
+  },
+  "fitted_tree": {
+    "threshold": [
+      0.46958303451538086,
+      -2.0,
+      -2.0
+    ],
+    "feature": [
+      0,
+      -2,
+      -2
+    ],
+    "values": [
+      [
+        [
+          0.6,
+          0.4
+        ]
+      ],
+      [
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      [
+        [
+          0.0,
+          1.0
+        ]
+      ]
+    ]
+  }
+}

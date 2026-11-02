@@ -13,6 +13,9 @@ from teach_and_find.config import Settings
 from teach_and_find.errors import AssistantError
 
 IDENTITY_SOURCES = (
+    "anomaly_model.py",
+    "anomaly_worker.py",
+    "anomaly_adapter.py",
     "dinov2_adapter.py",
     "yoloe_adapter.py",
     "lightglue_adapter.py",
@@ -43,6 +46,11 @@ def execution_environment(views):
                 **view["vision"]["provenance"]["packages"],
             },
             "local": view["local_model"]["packages"],
+            **(
+                {"appearance": view["appearance_model"]["packages"]}
+                if "appearance_model" in view
+                else {}
+            ),
         }
         for view in views
     ]
@@ -66,6 +74,15 @@ def control_snapshot(settings):
         "frame_poll_s": mobile.frame_poll_s,
         "jpeg_quality": mobile.jpeg_quality,
     }
+
+
+def reference_scope(payload):
+    """Bind narrow synthetic quality evidence to the actual evaluated gallery."""
+    record = {
+        "target": payload.get("target_reference_shas"),
+        "gallery": [ref["image_shas"] for ref in payload["references"]],
+    }
+    return hashlib.sha256(json.dumps(record, sort_keys=True).encode()).hexdigest()
 
 
 def profile_signature(settings: Settings, calibration: dict, payload=None):
@@ -96,6 +113,9 @@ def profile_signature(settings: Settings, calibration: dict, payload=None):
         "host_url",
         "quality_qualified",
         "qualification_file",
+        "anomaly_source",
+        "anomaly_python",
+        "anomaly_calibration",
     ):
         search.pop(key, None)
     record = {
@@ -141,6 +161,17 @@ def qualification_state(settings, calibration, payload=None):
         and len({case["id"] for case in record["cases"]}) == len(record["cases"])
         and all(case.get("passed") is True for case in record["cases"])
     )
+    if (
+        valid
+        and payload is not None
+        and reference_scope(payload) not in record.get("evaluated_reference_scopes", [])
+    ):
+        return {
+            "qualified": False,
+            "reason": "REFERENCE_SET_NOT_QUALIFIED",
+            "scope": "evaluated_synthetic_reference_sets_only",
+            "profile_signature": expected,
+        }
     return {
         "qualified": valid,
         "reason": "QUALIFIED_SYNTHETIC_PROFILE"

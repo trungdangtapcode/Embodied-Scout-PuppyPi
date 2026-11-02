@@ -6,9 +6,24 @@ All registered reference views must have local learned correspondence support.
 
 import math
 import numpy as np
+from teach_and_find.errors import AssistantError
+
+ANOMALY_FUNCTION_SHA = (
+    "45d4135040305ffef3933766eb2021ede369964146f9d9e5aac37d2773293f5d"
+)
 
 
 def assess_views(views, target_id, reference_count, calibration, cfg):
+    if cfg.profile_version not in {2, 3}:
+        raise AssistantError(
+            "SEARCH_PROFILE_UNSUPPORTED", "Unknown verification policy; no fallback."
+        )
+    appearance_required = cfg.profile_version == 3
+    policy = (
+        "custom_multiview_geometry_with_original_anomalydino_v2"
+        if appearance_required
+        else "custom_multiview_geometry_v1"
+    )
     candidates = []
     for index, view in enumerate(views):
         for detection in view["candidates"]:
@@ -22,6 +37,23 @@ def assess_views(views, target_id, reference_count, calibration, cfg):
                 m["reference_index"] for m in detection["matches"] if m["supported"]
             }
             if supported:
+                appearance = detection.get("appearance")
+                if appearance_required and (
+                    not isinstance(appearance, dict)
+                    or type(appearance.get("appearance_rejected")) is not bool
+                    or not isinstance(appearance.get("score"), (int, float))
+                    or not math.isfinite(appearance["score"])
+                    or appearance.get("crop_image_sha")
+                    != detection.get("crop_image_sha")
+                    or appearance.get("provenance", {}).get("function_sha256")
+                    != ANOMALY_FUNCTION_SHA
+                    or appearance.get("provenance", {}).get("calibration_sha256")
+                    != cfg.anomaly_calibration_sha256
+                ):
+                    raise AssistantError(
+                        "SEARCH_APPEARANCE_EVIDENCE_REQUIRED",
+                        "Required original appearance inference is missing or inconsistent; geometric agreement cannot substitute.",
+                    )
                 candidates.append(
                     {
                         "view": index,
@@ -29,6 +61,10 @@ def assess_views(views, target_id, reference_count, calibration, cfg):
                         "floor_xy": detection["floor_xy"],
                         "references": supported,
                         "pose": view["pose"],
+                        "appearance_rejected": appearance["appearance_rejected"]
+                        if appearance_required
+                        else False,
+                        **({"appearance": appearance} if appearance_required else {}),
                     }
                 )
     clusters = []
@@ -45,7 +81,11 @@ def assess_views(views, target_id, reference_count, calibration, cfg):
         else:
             clusters.append([candidate])
     qualified = []
+    rejected_clusters = 0
     for cluster in clusters:
+        if any(c["appearance_rejected"] for c in cluster):
+            rejected_clusters += 1
+            continue
         distinct = len({c["view"] for c in cluster}) >= 2
         baseline = max(
             (
@@ -84,15 +124,18 @@ def assess_views(views, target_id, reference_count, calibration, cfg):
     if len(qualified) == 1:
         return {
             "verdict": "confirmed",
-            "policy": "custom_multiview_geometry_v1",
+            "policy": policy,
             **qualified[0],
         }
     return {
         "verdict": "inconclusive",
         "reason": "multiple_supported_instances"
         if len(qualified) > 1
+        else "appearance_not_supported_by_references"
+        if rejected_clusters
         else "insufficient_distinct_view_reference_or_location_support",
         "candidate_count": len(candidates),
-        "policy": "custom_multiview_geometry_v1",
+        "appearance_rejected_clusters": rejected_clusters,
+        "policy": policy,
         "absence_established": False,
     }

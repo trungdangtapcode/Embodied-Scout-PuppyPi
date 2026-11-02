@@ -370,7 +370,28 @@ class SearchSettings:
             "PUPPYPI_SEARCH_HOST", "http://127.0.0.1:8080"
         )
     )
-    profile_version: int = 2
+    profile_version: int = 3
+    anomaly_source: str = field(
+        default_factory=lambda: os.getenv(
+            "PUPPYPI_ANOMALY_SOURCE", ".upstream/AnomalyDINO"
+        )
+    )
+    anomaly_python: str = field(
+        default_factory=lambda: os.getenv(
+            "PUPPYPI_ANOMALY_PYTHON", ".venv-anomaly/bin/python"
+        )
+    )
+    anomaly_resolution: int = 672
+    anomaly_timeout_s: float = 120.0
+    anomaly_calibration: str = field(
+        default_factory=lambda: os.getenv(
+            "PUPPYPI_ANOMALY_CALIBRATION",
+            "docs/research/2026-11-02-identity-fix/development-fit.json",
+        )
+    )
+    anomaly_calibration_sha256: str = (
+        "2823f598f07dac41d2cb7d426a14222781e5077b702c8c5bb2ac0aa9d533ba30"
+    )
     max_inspection_views: int = field(
         default_factory=lambda: int(os.getenv("PUPPYPI_SEARCH_VIEW_BUDGET", "4"))
     )
@@ -380,7 +401,7 @@ class SearchSettings:
     qualification_file: str = field(
         default_factory=lambda: os.getenv(
             "PUPPYPI_SEARCH_QUALIFICATION",
-            "docs/research/2026-11-02-complete-search/qualification.json",
+            "docs/research/2026-11-02-identity-fix/qualification.json",
         )
     )
     footprint_radius_m: float = 0.12
@@ -413,6 +434,9 @@ class SearchSimSettings:
 
     scenario: str = field(
         default_factory=lambda: os.getenv("PUPPYPI_SEARCH_SCENARIO", "target")
+    )
+    appearance_seed: int = field(
+        default_factory=lambda: int(os.getenv("PUPPYPI_SEARCH_APPEARANCE_SEED", "0"))
     )
     seed: int = field(
         default_factory=lambda: int(os.getenv("PUPPYPI_SEARCH_SIM_SEED", "0"))

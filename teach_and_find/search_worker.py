@@ -34,12 +34,14 @@ def execute_search(store, settings, job, stop_event=None):
     from teach_and_find.lightglue_adapter import LocalCorrespondence
     from teach_and_find.search_transport import SearchConnection
     from teach_and_find.yoloe_adapter import YoloeAdapter
+    from teach_and_find.anomaly_adapter import AppearanceVerifier
 
     cfg = SearchSettings(**job["payload"]["search_profile"])
     vision = VisionSettings(**job["payload"]["vision_profile"])
     service = SearchService(store, settings)
     identifier = job["id"]
     connection = None
+    appearance = None
 
     def check():
         if identity_source_hashes() != STARTUP_SOURCE_HASHES:
@@ -58,13 +60,13 @@ def execute_search(store, settings, job, stop_event=None):
 
     try:
         if (
-            job["payload"].get("schema_version") != 2
+            job["payload"].get("schema_version") != 3
             or vision.profile_version != 3
-            or cfg.profile_version != 2
+            or cfg.profile_version != 3
         ):
             raise AssistantError(
                 "SEARCH_PROFILE_UNSUPPORTED",
-                "Only the explicitly revised search v2 / vision v3 profile may run; history is not upgraded.",
+                "Only search v3 with required original anomaly inference / vision v3 may run; history is not upgraded.",
             )
         if job["mode"] != "synthetic" or not cfg.enabled or not vision.enabled:
             raise AssistantError(
@@ -100,6 +102,7 @@ def execute_search(store, settings, job, stop_event=None):
         reference_features = [
             local.extract(store.load_image(sha)) for sha in target["image_shas"]
         ]
+        appearance = AppearanceVerifier(store, cfg, vision, target["image_shas"], check)
         check()
         camera_identity = None
         views = []
@@ -281,6 +284,9 @@ def execute_search(store, settings, job, stop_event=None):
                             "matches": matches,
                         }
                     )
+                assessed = [c for c in candidates if c["descriptor_supported"]]
+                for candidate, assessment in zip(assessed, appearance.assess(assessed)):
+                    candidate["appearance"] = assessment
                 record = {
                     "frame": frame,
                     "pose": pose,
@@ -291,6 +297,7 @@ def execute_search(store, settings, job, stop_event=None):
                         **local.provenance,
                         "executed_calls": dict(local.calls),
                     },
+                    "appearance_model": appearance.provenance,
                 }
                 service.view(identifier, record)
                 views.append(record)
@@ -317,7 +324,7 @@ def execute_search(store, settings, job, stop_event=None):
             sighting = {
                 "object_id": target["object_id"],
                 "registered_name": target["name"],
-                "method_profile": {"search": 2, "vision": 3, "geometry": 1},
+                "method_profile": {"search": 3, "vision": 3, "geometry": 2},
                 "station": result["station"],
                 "captured_at": views[relevant[-1]]["frame"]["captured_at"],
                 "source": "learned_models_with_custom_multiview_geometry",
@@ -357,6 +364,8 @@ def execute_search(store, settings, job, stop_event=None):
     finally:
         if connection:
             connection.close()
+        if appearance:
+            appearance.close()
 
 
 def main():

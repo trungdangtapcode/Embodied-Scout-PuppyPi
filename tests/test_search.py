@@ -95,7 +95,7 @@ def view(x, refs, location=(-0.3, 2.0)):
 
 
 def test_multiview_requires_baseline_all_references_and_same_spatial_instance():
-    cfg = Settings().search
+    cfg = replace(Settings().search, profile_version=2)
     calibration = fixture_calibration()
 
     def assess(views):

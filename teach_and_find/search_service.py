@@ -20,7 +20,8 @@ from teach_and_find.search_qualification import (
 )
 
 ACTIVE = ("queued", "running")
-METHOD = "YOLOE + DINOv2 + ByteTrack + DISK/LightGlue; custom geometric multi-view policy; AprilTag geometry + PythonRobotics known-map navigation"
+METHOD = "YOLOE + DINOv2 + ByteTrack + DISK/LightGlue + original AnomalyDINO; fitted scalar appearance gate + custom multi-view geometry; AprilTag geometry + PythonRobotics known-map navigation"
+METHOD_V2 = "YOLOE + DINOv2 + ByteTrack + DISK/LightGlue; custom geometric multi-view policy; AprilTag geometry + PythonRobotics known-map navigation"
 
 
 class SearchService:
@@ -52,7 +53,10 @@ class SearchService:
                 (identifier,),
             )
         ]
-        result["method"] = METHOD
+        result["method"] = {2: METHOD_V2, 3: METHOD}.get(
+            result["payload"]["search_profile"]["profile_version"],
+            "Unsupported historical profile; no execution claim",
+        )
         readouts = [
             json.loads(event["record_json"])["result"]
             for event in result["events"]
@@ -74,7 +78,11 @@ class SearchService:
             "SELECT payload_json FROM searches ORDER BY created_at DESC LIMIT 1"
         ).fetchone()
         qualification = (
-            qualification_state(self.settings, json.loads(latest[0])["calibration"])
+            qualification_state(
+                self.settings,
+                json.loads(latest[0])["calibration"],
+                json.loads(latest[0]),
+            )
             if latest
             else {"qualified": False, "reason": "NO_SEARCH_PROFILE_SNAPSHOT"}
         )
@@ -248,11 +256,12 @@ class SearchService:
                 )
             identifier = str(uuid4())
             payload = {
-                "schema_version": 2,
+                "schema_version": 3,
                 "motion_generation": motion_generation,
                 "camera_profile": asdict(self.settings.camera),
                 "control_profile": control_snapshot(self.settings),
                 "references": references,
+                "target_reference_shas": list(target["image_shas"]),
                 "calibration": calibration,
                 "search_profile": asdict(self.settings.search),
                 "vision_profile": {
